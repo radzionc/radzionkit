@@ -1,7 +1,11 @@
-import { LocalStorage } from 'lib/state/PersistentStorage'
+import { MockStorage } from "lib/state/MockStorage";
+import { LocalStorage } from "lib/state/LocalStorage";
 
 export enum PersistentStorageKey {
-  ThemePreference = 'themePreference',
+  ThemePreference = "themePreference",
 }
 
-export const persistentStorage = new LocalStorage<PersistentStorageKey>()
+export const persistentStorage =
+  typeof window !== "undefined"
+    ? new LocalStorage<PersistentStorageKey>()
+    : new MockStorage<PersistentStorageKey>();
