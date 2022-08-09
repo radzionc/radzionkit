@@ -33,11 +33,6 @@ export const Topbar = () => {
       )}
       <Container>
         <SidebarOpener onOpenSidebarRequest={toggleSidebar} />
-        <Text as="div" size={18}>
-          <HStack alignItems="center" gap={8}>
-            <div>Name will be here!</div>
-          </HStack>
-        </Text>
       </Container>
       <Spacer height={20} />
     </>

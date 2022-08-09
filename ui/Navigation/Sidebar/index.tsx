@@ -1,5 +1,7 @@
+import { Path } from "navigation/Path";
 import styled from "styled-components";
 import { VStack } from "ui/Stack";
+import { NavigationToInternalPage } from "./NavigationToInternalPage";
 
 const Container = styled.div`
   min-width: 260px;
@@ -15,7 +17,7 @@ export const Sidebar = () => {
       <VStack alignItems="center" fullHeight justifyContent="space-between">
         <VStack fullWidth gap={20}>
           <VStack fullWidth>
-            <p>navigation will be here</p>
+            <NavigationToInternalPage path={Path.Button} name="Button" />
           </VStack>
         </VStack>
         <VStack gap={20} fullWidth>

@@ -1,25 +1,20 @@
-import { useLocation } from 'react-router'
-import { InternalLink } from 'router/Link/InternalLink'
+import { InternalLink } from "navigation/Link/InternalLink";
+import { Path } from "navigation/Path";
+import { useRouter } from "next/router";
 
-import { navigationPathInfo } from 'ui/Navigation/navigationPathInfo'
-import { NavigationItem } from './NavigationItem'
+import { NavigationItem } from "./NavigationItem";
 
 interface Props {
-  path: keyof typeof navigationPathInfo
+  path: Path;
+  name: string;
 }
 
-export const NavigationToInternalPage = ({ path }: Props) => {
-  const { pathname } = useLocation()
+export const NavigationToInternalPage = ({ path, name }: Props) => {
+  const router = useRouter();
 
-  const { name, icon } = navigationPathInfo[path]
-  
   return (
     <InternalLink to={path}>
-      <NavigationItem
-        icon={icon}
-        name={name}
-        isActive={pathname.includes(path)}
-      />
+      <NavigationItem name={name} isActive={router.asPath.includes(path)} />
     </InternalLink>
-  )
-}
+  );
+};

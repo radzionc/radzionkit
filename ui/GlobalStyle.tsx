@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
   /*
     3. Allow percentage-based heights in the application
   */
-  html, body, #root {
+  html, body, #root, #__next {
     height: 100%;
   }
   /*
