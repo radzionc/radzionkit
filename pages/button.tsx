@@ -1,13 +1,22 @@
+import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
 import { GhostButton } from "ui/buttons/rect/GhostButton";
 import { OutlinedButton } from "ui/buttons/rect/OutlinedButton";
 import { PrimaryButton } from "ui/buttons/rect/PrimaryButton";
 import { RegularPage } from "ui/page/RegularPage";
 import { HStack, VStack } from "ui/Stack";
+import { Text } from "ui/Text";
 
 const ButtonPage: NextPage = () => {
   return (
-    <RegularPage title="Buttons">
+    <RegularPage
+      title={
+        <HStack alignItems="center" gap={4}>
+          <Text>Button</Text>
+          <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/button.tsx" />
+        </HStack>
+      }
+    >
       <VStack gap={40}>
         <HStack gap={20}>
           <PrimaryButton kind="primary">Submit</PrimaryButton>

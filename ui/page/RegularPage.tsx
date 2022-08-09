@@ -19,10 +19,11 @@ const maxWidth: Record<PageWidth, number> = {
 };
 
 const Container = styled(VStack)<{ maxWidth: number }>`
-  width: ${({ maxWidth }) => getCSSUnit(maxWidth)};
+  max-width: ${({ maxWidth }) => getCSSUnit(maxWidth)};
+  width: 100%;
 
   @media (max-width: ${({ maxWidth }) => getCSSUnit(maxWidth)}) {
-    width: calc(100vw - 40px);
+    max-width: calc(100vw - 40px);
   }
 `;
 

@@ -20,9 +20,6 @@ export const Sidebar = () => {
             <NavigationToInternalPage path={Path.Button} name="Button" />
           </VStack>
         </VStack>
-        <VStack gap={20} fullWidth>
-          <p>github link will be here</p>
-        </VStack>
       </VStack>
     </Container>
   );
