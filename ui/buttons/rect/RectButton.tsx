@@ -8,7 +8,9 @@ import { Spinner } from "ui/Spinner";
 import { getCSSUnit } from "ui/utils/getCSSUnit";
 import { UnstyledButton } from "../UnstyledButton";
 
-type RectButtonSize = "xs" | "s" | "m" | "l" | "xl";
+export const rectButtonSizes = ["xs", "s", "m", "l", "xl"] as const;
+
+type RectButtonSize = typeof rectButtonSizes[number];
 
 export type Props = React.ButtonHTMLAttributes<HTMLButtonElement> &
   ComponentWithChildrenProps & {
