@@ -36,7 +36,7 @@ const tokens: Token[] = [
   },
 ];
 
-const Token = styled.img`
+const TokenIcon = styled.img`
   ${getSameDimensionsCSS(24)}
 `;
 
@@ -45,7 +45,7 @@ const GridTablePage: NextPage = () => {
     <RegularPage
       title={
         <HStack alignItems="center" gap={4}>
-          <Text>Button</Text>
+          <Text>CSS Grid Table</Text>
           <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/grid-table.tsx" />
         </HStack>
       }
@@ -57,7 +57,7 @@ const GridTablePage: NextPage = () => {
         {tokens.map(({ symbolImageUrl, symbol, name, price }) => (
           <Fragment key={symbol}>
             <HStack alignItems="center" gap={8}>
-              <Token src={symbolImageUrl} />
+              <TokenIcon src={symbolImageUrl} />
               <Text cropped>{name}</Text>
             </HStack>
             <Text color="supporting">{symbol}</Text>
