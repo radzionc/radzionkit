@@ -30,7 +30,6 @@ interface ContainerProps {
 
 const Container = styled(UnstyledButton)<ContainerProps>`
   color: ${({ theme }) => theme.colors.text.toCssValue()};
-  border-radius: 8px;
   ${defaultTransitionCSS};
 
   ${centerContentCSS};
