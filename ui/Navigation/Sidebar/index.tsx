@@ -18,6 +18,7 @@ export const Sidebar = () => {
         <VStack fullWidth gap={20}>
           <VStack fullWidth>
             <NavigationToInternalPage path={Path.Button} name="Button" />
+            <NavigationToInternalPage path={Path.Modal} name="Modal" />
             <NavigationToInternalPage
               path={Path.GridTable}
               name="CSS Grid Table"
