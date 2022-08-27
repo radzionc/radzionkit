@@ -15,3 +15,7 @@ export type ComponentWithChildrenProps = {
 export type ComponentWithBackActionProps = {
   onBack: () => void;
 };
+
+export type ComponentWithClassNameProps = {
+  className?: string;
+};

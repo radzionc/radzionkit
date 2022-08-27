@@ -20,6 +20,8 @@ export const Sidebar = () => {
             <NavigationToInternalPage path={Path.Button} name="Button" />
             <NavigationToInternalPage path={Path.Modal} name="Modal" />
             <NavigationToInternalPage path={Path.TextInput} name="Text Input" />
+            <NavigationToInternalPage path={Path.SizeAware} name="Size Aware" />
+            <NavigationToInternalPage path={Path.Select} name="Select" />
             <NavigationToInternalPage
               path={Path.GridTable}
               name="CSS Grid Table"

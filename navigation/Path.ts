@@ -3,4 +3,6 @@ export enum Path {
   GridTable = "/grid-table",
   Modal = "/modal",
   TextInput = "/text-input",
+  Select = "/select",
+  SizeAware = "/size-aware",
 }

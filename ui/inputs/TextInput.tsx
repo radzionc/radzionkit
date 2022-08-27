@@ -1,7 +1,7 @@
 import { ChangeEvent, InputHTMLAttributes, Ref, forwardRef } from "react";
 import styled, { css } from "styled-components";
 import { defaultTransitionCSS } from "ui/animations/transitions";
-import { defaultInputShape } from "./config";
+import { defaultInputShapeCSS } from "./config";
 
 import {
   Props as InputWrapperProps,
@@ -40,7 +40,7 @@ export const TextInput = forwardRef(function TextInputInner(
 export const commonInputCSS = css<{
   isValid: boolean;
 }>`
-  ${defaultInputShape};
+  ${defaultInputShapeCSS};
   max-width: 100%;
 
   background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
