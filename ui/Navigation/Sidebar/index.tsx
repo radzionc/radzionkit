@@ -23,6 +23,11 @@ export const Sidebar = () => {
             <NavigationToInternalPage path={Path.SizeAware} name="Size Aware" />
             <NavigationToInternalPage path={Path.Select} name="Select" />
             <NavigationToInternalPage
+              path={Path.SelectView}
+              name="Select View"
+            />
+
+            <NavigationToInternalPage
               path={Path.GridTable}
               name="CSS Grid Table"
             />

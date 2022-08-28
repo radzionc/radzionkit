@@ -5,4 +5,5 @@ export enum Path {
   TextInput = "/text-input",
   Select = "/select",
   SizeAware = "/size-aware",
+  SelectView = "/select-view",
 }

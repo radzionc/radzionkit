@@ -14,7 +14,7 @@ export const NavigationToInternalPage = ({ path, name }: Props) => {
 
   return (
     <InternalLink to={path}>
-      <NavigationItem name={name} isActive={router.asPath.includes(path)} />
+      <NavigationItem name={name} isActive={router.asPath === path} />
     </InternalLink>
   );
 };
