@@ -29,8 +29,8 @@ const Container = styled(VStack)<{ maxWidth: number }>`
 
 export const RegularPage = ({ children, title, width = "m" }: Props) => {
   return (
-    <VStack fullHeight fullWidth alignItems="center">
-      <Container fullHeight maxWidth={maxWidth[width]} alignItems="start">
+    <VStack fullWidth alignItems="center">
+      <Container maxWidth={maxWidth[width]} alignItems="start">
         {title && (
           <>
             <Text weight="bold" size={24} color="regular" as="div">

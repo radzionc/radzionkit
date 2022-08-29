@@ -6,4 +6,5 @@ export enum Path {
   Select = "/select",
   SizeAware = "/size-aware",
   SelectView = "/select-view",
+  InfiniteScroll = "/infinite-scroll",
 }

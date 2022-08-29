@@ -26,10 +26,13 @@ export const Sidebar = () => {
               path={Path.SelectView}
               name="Select View"
             />
-
             <NavigationToInternalPage
               path={Path.GridTable}
               name="CSS Grid Table"
+            />
+            <NavigationToInternalPage
+              path={Path.InfiniteScroll}
+              name="Infinite Scroll"
             />
           </VStack>
         </VStack>
