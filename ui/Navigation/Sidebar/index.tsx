@@ -26,6 +26,7 @@ export const Sidebar = () => {
               path={Path.SelectView}
               name="Select View"
             />
+            <NavigationToInternalPage path={Path.Combobox} name="Combobox" />
             <NavigationToInternalPage
               path={Path.GridTable}
               name="CSS Grid Table"

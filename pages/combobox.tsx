@@ -7,34 +7,35 @@ import { TextInput } from "ui/inputs/TextInput";
 import { RegularPage } from "ui/page/RegularPage";
 import { HStack } from "ui/Stack";
 import { Text } from "ui/Text";
-import { useForm } from "react-hook-form";
-import { TextArea } from "ui/inputs/TextArea";
+import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { LanguagesInput } from "components/LanguagesInput";
 
 interface FormShape {
   name: string;
-  bio: string;
+  languages: string[];
 }
 
-const bioMaxLength = 300;
-
-const schema = yup
-  .object()
-  .shape({
+const schema: yup.SchemaOf<FormShape> = yup
+  .object({
     name: yup.string().max(100).required(),
-    bio: yup.string().max(bioMaxLength).required(),
+    languages: yup.array().min(1),
   })
   .required();
 
-const TextInputPage: NextPage = () => {
+const ComboboxPage: NextPage = () => {
   const {
     handleSubmit,
     register,
+    control,
     formState: { errors },
   } = useForm<FormShape>({
     mode: "onSubmit",
     resolver: yupResolver(schema),
+    defaultValues: {
+      languages: [],
+    },
   });
 
   return (
@@ -57,13 +58,17 @@ const TextInputPage: NextPage = () => {
                 autoFocus
                 placeholder="John Johnson"
               />
-              <TextArea
-                rows={4}
-                maxLength={bioMaxLength}
-                label="Bio"
-                {...register("bio")}
-                error={errors.bio?.message}
-                placeholder="I'm a software engineer..."
+              <Controller
+                control={control}
+                name="languages"
+                render={({ field: { value, onChange, ref } }) => (
+                  <LanguagesInput
+                    value={value}
+                    onChange={onChange}
+                    ref={ref}
+                    error={errors.languages?.message}
+                  />
+                )}
               />
             </>
           }
@@ -75,4 +80,4 @@ const TextInputPage: NextPage = () => {
   );
 };
 
-export default TextInputPage;
+export default ComboboxPage;

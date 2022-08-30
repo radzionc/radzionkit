@@ -1,6 +1,10 @@
 import { css } from "styled-components";
 
+export const inputBorderRadiusCSS = css`
+  border-radius: 8px;
+`;
+
 export const defaultInputShapeCSS = css`
   height: 48px;
-  border-radius: 8px;
+  ${inputBorderRadiusCSS};
 `;

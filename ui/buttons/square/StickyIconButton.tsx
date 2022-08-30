@@ -16,6 +16,7 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: React.ReactNode;
   kind?: StickyIconButtonKind;
   size?: StickyIconButtonSize;
+  as?: "button" | "div";
 }
 
 export const StickyIconButton = ({
