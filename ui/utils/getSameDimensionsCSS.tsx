@@ -8,5 +8,7 @@ export const getSameDimensionsCSS = (size: string | number) => {
   return css`
     width: ${valueInCSSUnit};
     height: ${valueInCSSUnit};
+    min-width: ${valueInCSSUnit};
+    min-height: ${valueInCSSUnit};
   `;
 };

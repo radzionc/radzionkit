@@ -35,6 +35,10 @@ export const Sidebar = () => {
               path={Path.InfiniteScroll}
               name="Infinite Scroll"
             />
+            <NavigationToInternalPage
+              path={Path.DynamicForm}
+              name="Dynamic Form"
+            />
           </VStack>
         </VStack>
       </VStack>

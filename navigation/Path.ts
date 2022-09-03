@@ -8,4 +8,5 @@ export enum Path {
   SelectView = "/select-view",
   InfiniteScroll = "/infinite-scroll",
   Combobox = "/combobox",
+  DynamicForm = "/dynamic-form",
 }
