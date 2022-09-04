@@ -17,6 +17,7 @@ export const Sidebar = () => {
       <VStack alignItems="center" fullHeight justifyContent="space-between">
         <VStack fullWidth gap={20}>
           <VStack fullWidth>
+            <NavigationToInternalPage path={Path.Stacks} name="Stacks" />
             <NavigationToInternalPage path={Path.Button} name="Button" />
             <NavigationToInternalPage path={Path.Modal} name="Modal" />
             <NavigationToInternalPage path={Path.TextInput} name="Text Input" />

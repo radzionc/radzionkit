@@ -12,6 +12,18 @@ interface Props {
   fullHeight?: boolean;
 }
 
+const formatFlexAlignment = (
+  value:
+    | React.CSSProperties["alignItems"]
+    | React.CSSProperties["justifyContent"]
+) => {
+  if (value === "end" || value === "start") {
+    return `flex-${value}`;
+  }
+
+  return value;
+};
+
 const stackCSS = css<Props>`
   display: flex;
   ${({ gap }) =>
@@ -22,12 +34,12 @@ const stackCSS = css<Props>`
   ${({ alignItems }) =>
     alignItems &&
     css`
-      align-items: ${alignItems};
+      align-items: ${formatFlexAlignment(alignItems)};
     `}
   ${({ justifyContent }) =>
     justifyContent &&
     css`
-      justify-content: ${justifyContent};
+      justify-content: ${formatFlexAlignment(justifyContent)};
     `}
   ${({ wrap }) =>
     wrap &&
@@ -54,4 +66,13 @@ export const VStack = styled.div`
 export const HStack = styled.div`
   ${stackCSS}
   flex-direction: row;
+`;
+
+interface StackProps extends Props {
+  direction: React.CSSProperties["direction"];
+}
+
+export const Stack = styled.div<StackProps>`
+  ${stackCSS}
+  flex-direction: ${({ direction }) => direction};
 `;

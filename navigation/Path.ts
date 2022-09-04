@@ -1,4 +1,5 @@
 export enum Path {
+  Stacks = "/stacks",
   Button = "/button",
   GridTable = "/grid-table",
   Modal = "/modal",
