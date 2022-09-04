@@ -14,7 +14,7 @@ const Conent = styled(Card)<{ $color: HSLA }>`
   background: ${({ $color }) => $color.toCssValue()};
 `;
 
-const ButtonPage: NextPage = () => {
+const StacksPage: NextPage = () => {
   const { colors } = useTheme();
   return (
     <RegularPage
@@ -47,4 +47,4 @@ const ButtonPage: NextPage = () => {
   );
 };
 
-export default ButtonPage;
+export default StacksPage;

@@ -28,7 +28,7 @@ export interface Props {
 
 const manageElementSizeInPx = 48;
 
-const CharacterNumber = styled(Circle)`
+const ExperienceNumber = styled(Circle)`
   background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
 `;
 
@@ -50,9 +50,9 @@ export const ExperienceSection = ({
         <VStack key={index} fullWidth gap={16}>
           <HStack fullWidth gap={24}>
             <VStack gap={8}>
-              <CharacterNumber size={manageElementSizeInPx}>
+              <ExperienceNumber size={manageElementSizeInPx}>
                 <Text>{index + 1}</Text>
-              </CharacterNumber>
+              </ExperienceNumber>
               <IconButton
                 onClick={() => remove(index)}
                 kind="alert"

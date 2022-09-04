@@ -6,8 +6,8 @@ interface Props {
   gap?: React.CSSProperties["gap"];
   alignItems?: React.CSSProperties["alignItems"];
   justifyContent?: React.CSSProperties["justifyContent"];
-  children: React.ReactNode;
   wrap?: React.CSSProperties["flexWrap"];
+  children: React.ReactNode;
   fullWidth?: boolean;
   fullHeight?: boolean;
 }
