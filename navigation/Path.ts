@@ -10,4 +10,5 @@ export enum Path {
   InfiniteScroll = "/infinite-scroll",
   Combobox = "/combobox",
   DynamicForm = "/dynamic-form",
+  Nfts = "/nfts",
 }
