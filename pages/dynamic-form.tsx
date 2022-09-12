@@ -3,7 +3,6 @@ import type { NextPage } from "next";
 import { RegularPage } from "ui/page/RegularPage";
 import { HStack } from "ui/Stack";
 import { Text } from "ui/Text";
-import * as yup from "yup";
 import { JobApplication } from "components/JobApplication";
 
 const DynamicFormPage: NextPage = () => {

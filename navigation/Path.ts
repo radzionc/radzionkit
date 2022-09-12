@@ -11,4 +11,5 @@ export enum Path {
   Combobox = "/combobox",
   DynamicForm = "/dynamic-form",
   Nfts = "/nfts",
+  Countdown = "/countdown",
 }
