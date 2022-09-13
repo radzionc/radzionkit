@@ -1,3 +1,4 @@
+import { usePrevious } from "react-use";
 import { padWithZero } from "shared/utils/padWithZero";
 import styled from "styled-components";
 import { Card } from "ui/Card";
@@ -32,7 +33,8 @@ const CharacterContainer = styled.div`
 `;
 
 export const CountdownPart = ({ value }: Props) => {
-  const [currentString, previousString] = [value, Math.max(0, value - 1)].map(
+  const previousValue = usePrevious(value);
+  const [currentString, previousString] = [value, previousValue || value].map(
     (number) => padWithZero(number)
   );
 
@@ -51,8 +53,8 @@ export const CountdownPart = ({ value }: Props) => {
               <CharacterContainer key={index}>
                 <Text style={{ visibility: "hidden" }}>{character}</Text>
                 <SlidingCharacter as="div" animationId={animationId}>
-                  <Text>{character}</Text>
                   <Text>{previousCharacter}</Text>
+                  <Text>{character}</Text>
                 </SlidingCharacter>
               </CharacterContainer>
             );
