@@ -42,7 +42,8 @@ export const Sidebar = () => {
               path={Path.DynamicForm}
               name="Dynamic Form"
             />
-            <NavigationToInternalPage path={Path.Nfts} name="NFTs" />
+            <NavigationToInternalPage path={Path.Nfts} name="Wallet's NFTs" />
+            <NavigationToInternalPage path={Path.IPFS} name="Upload to IPFS" />
           </VStack>
         </VStack>
       </VStack>

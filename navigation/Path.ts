@@ -12,4 +12,5 @@ export enum Path {
   DynamicForm = "/dynamic-form",
   Nfts = "/nfts",
   Countdown = "/countdown",
+  IPFS = "/ipfs",
 }

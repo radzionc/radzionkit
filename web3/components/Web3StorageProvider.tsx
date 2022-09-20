@@ -1,0 +1,43 @@
+import { createContext } from "react";
+import { ComponentWithChildrenProps } from "shared/props";
+import { createContextHook } from "shared/utils/createContextHook";
+import { Text } from "ui/Text";
+import { Web3Storage } from "web3.storage";
+
+interface Web3StorageState {
+  storage: Web3Storage;
+}
+
+const Web3StorageContext = createContext<Web3StorageState | undefined>(
+  undefined
+);
+
+export const useWeb3Storage = createContextHook(
+  Web3StorageContext,
+  "Web3StorageContext"
+);
+
+export const Web3StorageProvider = ({
+  children,
+}: ComponentWithChildrenProps) => {
+  const token = process.env.NEXT_PUBLIC_WEB3_STORAGE_KEY;
+  console.log(token);
+
+  if (!token) {
+    return <Text>Web3Storage key is missing</Text>;
+  }
+
+  const storage = new Web3Storage({
+    token,
+  });
+
+  return (
+    <Web3StorageContext.Provider
+      value={{
+        storage,
+      }}
+    >
+      {children}
+    </Web3StorageContext.Provider>
+  );
+};
