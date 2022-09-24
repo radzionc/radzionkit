@@ -7,6 +7,8 @@ export const useUploadFileMutation = () => {
   return useMutation(async (file: File) => {
     const cid = await storage.put([file]);
 
+    // TODO: Pin the CID
+
     return `https://ipfs.io/ipfs/${cid}/${encodeURI(file.name)}`;
   });
 };

@@ -20,8 +20,9 @@ export const useWeb3Storage = createContextHook(
 export const Web3StorageProvider = ({
   children,
 }: ComponentWithChildrenProps) => {
+  // DO NOT USE THIS IN PRODUCTION
+  // USE WEB3STORAGE CLIENT ON THE SERVER SIDE
   const token = process.env.NEXT_PUBLIC_WEB3_STORAGE_KEY;
-  console.log(token);
 
   if (!token) {
     return <Text>Web3Storage key is missing</Text>;

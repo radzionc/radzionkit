@@ -18,6 +18,7 @@ export const PdfFileInput = ({ value, error, onChange }: Props) => {
     reset,
     isLoading,
   } = useUploadFileMutation();
+
   useEffect(() => {
     if (uploadedFileUri && !value) {
       onChange(uploadedFileUri);

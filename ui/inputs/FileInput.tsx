@@ -5,7 +5,6 @@ import { useDropzone, Accept } from "react-dropzone";
 import { VStack } from "ui/Stack";
 import { Text } from "ui/Text";
 import { defaultTransitionCSS } from "ui/animations/transitions";
-import { PrimaryButton } from "ui/buttons/rect/PrimaryButton";
 import { UploadIcon } from "ui/icons/UploadIcon";
 import { OutlinedButton } from "ui/buttons/rect/OutlinedButton";
 
