@@ -1,9 +1,9 @@
 import { useWeb3React } from "@web3-react/core";
-import { GhostButton } from "ui/buttons/rect/GhostButton";
-import { PrimaryButton } from "ui/buttons/rect/PrimaryButton";
-import { Spinner } from "ui/Spinner";
-import { HStack } from "ui/Stack";
-import { Text } from "ui/Text";
+import { GhostButton } from "lib/ui/buttons/rect/GhostButton";
+import { PrimaryButton } from "lib/ui/buttons/rect/PrimaryButton";
+import { Spinner } from "lib/ui/Spinner";
+import { HStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
 
 export const ManageWallet = () => {
   const { connector, isActivating, account } = useWeb3React();

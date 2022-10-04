@@ -1,9 +1,9 @@
-import { SubmitFormButton } from "ui/buttons/rect/SubmitFormButton";
-import { TitledCard } from "ui/Card/TitledCard";
-import { Form } from "ui/Form/Form";
-import { TextInput } from "ui/inputs/TextInput";
-import { TextArea } from "ui/inputs/TextArea";
-import { FormSection } from "ui/Form/FormSection";
+import { SubmitFormButton } from "lib/ui/buttons/rect/SubmitFormButton";
+import { TitledCard } from "lib/ui/Card/TitledCard";
+import { Form } from "lib/ui/Form/Form";
+import { TextInput } from "lib/ui/inputs/TextInput";
+import { TextArea } from "lib/ui/inputs/TextArea";
+import { FormSection } from "lib/ui/Form/FormSection";
 import { bioMaxLength, useJobApplicationForm } from "./jobApplicationForm";
 import { ExperienceSection } from "./ExperienceSection";
 

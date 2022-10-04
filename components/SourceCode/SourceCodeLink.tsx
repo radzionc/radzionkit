@@ -1,8 +1,8 @@
-import { ExternalLink } from "navigation/Link/ExternalLink";
-import { GhostButton } from "ui/buttons/rect/GhostButton";
-import { GitHubIcon } from "ui/icons/GitHubIcon";
-import { HStack } from "ui/Stack";
-import { Text } from "ui/Text";
+import { ExternalLink } from "lib/navigation/Link/ExternalLink";
+import { GhostButton } from "lib/ui/buttons/rect/GhostButton";
+import { GitHubIcon } from "lib/ui/icons/GitHubIcon";
+import { HStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
 
 interface Props {
   to: string;

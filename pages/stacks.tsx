@@ -1,13 +1,13 @@
 import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
 import styled, { useTheme } from "styled-components";
-import { Card } from "ui/Card";
-import { HSLA } from "ui/colors/HSLA";
+import { Card } from "lib/ui/Card";
+import { HSLA } from "lib/ui/colors/HSLA";
 
-import { RegularPage } from "ui/page/RegularPage";
-import { HStack, VStack } from "ui/Stack";
-import { Text } from "ui/Text";
-import { getSameDimensionsCSS } from "ui/utils/getSameDimensionsCSS";
+import { RegularPage } from "lib/ui/page/RegularPage";
+import { HStack, VStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
+import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS";
 
 const Conent = styled(Card)<{ $color: HSLA }>`
   ${getSameDimensionsCSS(80)};

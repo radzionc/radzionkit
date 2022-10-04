@@ -1,13 +1,13 @@
 import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
 import styled from "styled-components";
-import { Card } from "ui/Card";
-import { Center } from "ui/Center";
-import { ElementSizeAware } from "ui/ElementSizeAware";
-import { RegularPage } from "ui/page/RegularPage";
-import { HStack } from "ui/Stack";
-import { Text } from "ui/Text";
-import { getSameDimensionsCSS } from "ui/utils/getSameDimensionsCSS";
+import { Card } from "lib/ui/Card";
+import { Center } from "lib/ui/Center";
+import { ElementSizeAware } from "lib/ui/ElementSizeAware";
+import { RegularPage } from "lib/ui/page/RegularPage";
+import { HStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
+import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS";
 
 const Container = styled(Card)`
   ${getSameDimensionsCSS("100%")}

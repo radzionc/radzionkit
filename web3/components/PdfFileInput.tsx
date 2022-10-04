@@ -1,7 +1,7 @@
-import { InputWrapperWithErrorMessage } from "ui/inputs/InputWrapper";
+import { InputWrapperWithErrorMessage } from "lib/ui/inputs/InputWrapper";
 import { useEffect } from "react";
-import { FileInput } from "ui/inputs/FileInput";
-import { SelectedFile } from "ui/inputs/SelectedFile";
+import { FileInput } from "lib/ui/inputs/FileInput";
+import { SelectedFile } from "lib/ui/inputs/SelectedFile";
 import { useUploadFileMutation } from "web3/hooks/useUploadFileMutation";
 import { getDistributedFileName } from "web3/utils/getDistributedFileName";
 

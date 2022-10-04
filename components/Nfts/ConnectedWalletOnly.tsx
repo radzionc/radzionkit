@@ -1,5 +1,5 @@
 import { useWeb3React } from "@web3-react/core";
-import { ComponentWithChildrenProps } from "shared/props";
+import { ComponentWithChildrenProps } from "lib/shared/props";
 
 export const ConnectedWalletOnly = ({
   children,

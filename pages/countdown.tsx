@@ -1,9 +1,9 @@
 import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
-import { Countdown } from "ui/Countdown";
-import { RegularPage } from "ui/page/RegularPage";
-import { HStack } from "ui/Stack";
-import { Text } from "ui/Text";
+import { Countdown } from "lib/ui/Countdown";
+import { RegularPage } from "lib/ui/page/RegularPage";
+import { HStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
 import { hoursToMilliseconds } from "date-fns";
 
 const CountdownPage: NextPage = () => {

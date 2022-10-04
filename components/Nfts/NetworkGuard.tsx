@@ -1,8 +1,8 @@
 import { useWeb3React } from "@web3-react/core";
 import { ReactNode } from "react";
-import { parseNumericEnum } from "shared/utils/parseNumericEnum";
-import { Modal } from "ui/Modal";
-import { Text } from "ui/Text";
+import { parseNumericEnum } from "lib/shared/utils/parseNumericEnum";
+import { Modal } from "lib/ui/Modal";
+import { Text } from "lib/ui/Text";
 
 interface Props {
   children: ReactNode;

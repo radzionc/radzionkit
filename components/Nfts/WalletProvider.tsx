@@ -4,7 +4,7 @@ import {
   Web3ReactProvider,
 } from "@web3-react/core";
 import { MetaMask } from "@web3-react/metamask";
-import { ComponentWithChildrenProps } from "shared/props";
+import { ComponentWithChildrenProps } from "lib/shared/props";
 import { EagerlyConnectWallet } from "./EagerlyConnectWallet";
 
 export const [metaMask, metaMaskHooks] = initializeConnector<MetaMask>(

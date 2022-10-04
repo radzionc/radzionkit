@@ -1,7 +1,7 @@
 import { createContext } from "react";
-import { ComponentWithChildrenProps } from "shared/props";
-import { createContextHook } from "shared/utils/createContextHook";
-import { Text } from "ui/Text";
+import { ComponentWithChildrenProps } from "lib/shared/props";
+import { createContextHook } from "lib/shared/utils/createContextHook";
+import { Text } from "lib/ui/Text";
 import { Web3Storage } from "web3.storage";
 
 interface Web3StorageState {

@@ -2,11 +2,11 @@ import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
 import { useState } from "react";
 import styled from "styled-components";
-import { ElementSizeAware } from "ui/ElementSizeAware";
-import { SelectOption } from "ui/inputs/Select/SelectOption";
-import { RegularPage } from "ui/page/RegularPage";
-import { HStack, VStack } from "ui/Stack";
-import { Text } from "ui/Text";
+import { ElementSizeAware } from "lib/ui/ElementSizeAware";
+import { SelectOption } from "lib/ui/inputs/Select/SelectOption";
+import { RegularPage } from "lib/ui/page/RegularPage";
+import { HStack, VStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
 
 export const focusOptions = [
   15,

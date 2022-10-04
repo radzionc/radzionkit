@@ -1,12 +1,12 @@
 import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
-import { getViewSetup } from "shared/utils/getViewSetup";
+import { getViewSetup } from "lib/shared/utils/getViewSetup";
 import styled from "styled-components";
-import { Card } from "ui/Card";
-import { ViewSelector } from "ui/inputs/Select/ViewSelector";
-import { RegularPage } from "ui/page/RegularPage";
-import { HStack, VStack } from "ui/Stack";
-import { Text } from "ui/Text";
+import { Card } from "lib/ui/Card";
+import { ViewSelector } from "lib/ui/inputs/Select/ViewSelector";
+import { RegularPage } from "lib/ui/page/RegularPage";
+import { HStack, VStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
 
 export const views = ["primary", "attention"] as const;
 export type View = typeof views[number];

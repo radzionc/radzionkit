@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useState, ForwardedRef } from "react";
-import { FixedOptionsInput } from "ui/inputs/Combobox/FixedOptionsInput";
-import { SelectedOption } from "ui/inputs/Select/SelectedOption";
-import { HStack, VStack } from "ui/Stack";
+import { FixedOptionsInput } from "lib/ui/inputs/Combobox/FixedOptionsInput";
+import { SelectedOption } from "lib/ui/inputs/Select/SelectedOption";
+import { HStack, VStack } from "lib/ui/Stack";
 
 import { languagesNames, languages, languageCodeForName } from "./languages";
 

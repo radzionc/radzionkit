@@ -1,15 +1,15 @@
 import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
-import { RegularPage } from "ui/page/RegularPage";
-import { HStack } from "ui/Stack";
-import { Text } from "ui/Text";
-import { TitledCard } from "ui/Card/TitledCard";
+import { RegularPage } from "lib/ui/page/RegularPage";
+import { HStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
+import { TitledCard } from "lib/ui/Card/TitledCard";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Form } from "ui/Form/Form";
+import { Form } from "lib/ui/Form/Form";
 import { Controller, useForm } from "react-hook-form";
-import { SubmitFormButton } from "ui/buttons/rect/SubmitFormButton";
-import { TextInput } from "ui/inputs/TextInput";
+import { SubmitFormButton } from "lib/ui/buttons/rect/SubmitFormButton";
+import { TextInput } from "lib/ui/inputs/TextInput";
 import { Web3StorageProvider } from "web3/components/Web3StorageProvider";
 import { PdfFileInput } from "web3/components/PdfFileInput";
 

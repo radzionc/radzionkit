@@ -1,12 +1,12 @@
 import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
-import { GhostButton } from "ui/buttons/rect/GhostButton";
-import { OutlinedButton } from "ui/buttons/rect/OutlinedButton";
-import { PrimaryButton } from "ui/buttons/rect/PrimaryButton";
-import { SimpleNamedList } from "ui/Layout/SimpleNamedList";
-import { RegularPage } from "ui/page/RegularPage";
-import { HStack, VStack } from "ui/Stack";
-import { Text } from "ui/Text";
+import { GhostButton } from "lib/ui/buttons/rect/GhostButton";
+import { OutlinedButton } from "lib/ui/buttons/rect/OutlinedButton";
+import { PrimaryButton } from "lib/ui/buttons/rect/PrimaryButton";
+import { SimpleNamedList } from "lib/ui/Layout/SimpleNamedList";
+import { RegularPage } from "lib/ui/page/RegularPage";
+import { HStack, VStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
 
 const ButtonPage: NextPage = () => {
   return (

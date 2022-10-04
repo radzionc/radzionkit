@@ -1,12 +1,12 @@
 import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
-import { ExternalLink } from "navigation/Link/ExternalLink";
+import { ExternalLink } from "lib/navigation/Link/ExternalLink";
 import type { NextPage } from "next";
-import { PrimaryButton } from "ui/buttons/rect/PrimaryButton";
-import { Modal } from "ui/Modal";
-import { OverlayOpener } from "ui/OverlayOpener";
-import { RegularPage } from "ui/page/RegularPage";
-import { HStack, VStack } from "ui/Stack";
-import { Text } from "ui/Text";
+import { PrimaryButton } from "lib/ui/buttons/rect/PrimaryButton";
+import { Modal } from "lib/ui/Modal";
+import { OverlayOpener } from "lib/ui/OverlayOpener";
+import { RegularPage } from "lib/ui/page/RegularPage";
+import { HStack, VStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
 
 const ButtonPage: NextPage = () => {
   return (

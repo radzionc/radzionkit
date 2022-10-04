@@ -1,4 +1,4 @@
-import { VStack } from "ui/Stack";
+import { VStack } from "lib/ui/Stack";
 import { AlchemyProvider } from "./AlchemyProvider";
 import { ConnectedWalletOnly } from "./ConnectedWalletOnly";
 import { WalletProvider } from "./WalletProvider";

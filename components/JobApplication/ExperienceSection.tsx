@@ -1,26 +1,26 @@
 import { UseFormReturn, useFieldArray } from "react-hook-form";
-import { FormSection } from "ui/Form/FormSection";
+import { FormSection } from "lib/ui/Form/FormSection";
 
-import { HStack, VStack } from "ui/Stack";
-import { Line } from "ui/Line";
+import { HStack, VStack } from "lib/ui/Stack";
+import { Line } from "lib/ui/Line";
 import styled from "styled-components";
-import { Text } from "ui/Text";
-import { UnstyledButton } from "ui/buttons/UnstyledButton";
-import { getSameDimensionsCSS } from "ui/utils/getSameDimensionsCSS";
-import { centerContentCSS } from "ui/utils/centerContentCSS";
-import { defaultTransitionCSS } from "ui/animations/transitions";
-import { TextArea } from "ui/inputs/TextArea";
-import { TextInput } from "ui/inputs/TextInput";
-import { Circle } from "ui/Circle";
-import { roundedCSS } from "ui/utils/roundedCSS";
+import { Text } from "lib/ui/Text";
+import { UnstyledButton } from "lib/ui/buttons/UnstyledButton";
+import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS";
+import { centerContentCSS } from "lib/ui/utils/centerContentCSS";
+import { defaultTransitionCSS } from "lib/ui/animations/transitions";
+import { TextArea } from "lib/ui/inputs/TextArea";
+import { TextInput } from "lib/ui/inputs/TextInput";
+import { Circle } from "lib/ui/Circle";
+import { roundedCSS } from "lib/ui/utils/roundedCSS";
 import {
   emptyExperience,
   JobApplicationFormShape,
   responsibilityMaxLength,
 } from "./jobApplicationForm";
-import { TrashIcon } from "ui/icons/TrashIcon";
-import { OutlinedButton } from "ui/buttons/rect/OutlinedButton";
-import { IconButton } from "ui/buttons/square/IconButton";
+import { TrashIcon } from "lib/ui/icons/TrashIcon";
+import { OutlinedButton } from "lib/ui/buttons/rect/OutlinedButton";
+import { IconButton } from "lib/ui/buttons/square/IconButton";
 
 export interface Props {
   form: UseFormReturn<JobApplicationFormShape, any>;

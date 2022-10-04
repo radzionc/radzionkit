@@ -2,11 +2,11 @@ import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
 import { Fragment } from "react";
 import styled from "styled-components";
-import { RegularPage } from "ui/page/RegularPage";
-import { HStack } from "ui/Stack";
-import { TableLayout } from "ui/TableLayout";
-import { Text } from "ui/Text";
-import { getSameDimensionsCSS } from "ui/utils/getSameDimensionsCSS";
+import { RegularPage } from "lib/ui/page/RegularPage";
+import { HStack } from "lib/ui/Stack";
+import { TableLayout } from "lib/ui/TableLayout";
+import { Text } from "lib/ui/Text";
+import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS";
 
 interface Token {
   symbolImageUrl: string;

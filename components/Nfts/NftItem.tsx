@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { SafeImage } from "ui/SafeImage";
-import { VStack } from "ui/Stack";
-import { Text } from "ui/Text";
+import { SafeImage } from "lib/ui/SafeImage";
+import { VStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
 
 interface Props {
   address: string;

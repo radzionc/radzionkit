@@ -1,8 +1,8 @@
 import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
-import { RegularPage } from "ui/page/RegularPage";
-import { HStack } from "ui/Stack";
-import { Text } from "ui/Text";
+import { RegularPage } from "lib/ui/page/RegularPage";
+import { HStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
 import { JobApplication } from "components/JobApplication";
 
 const DynamicFormPage: NextPage = () => {

@@ -1,13 +1,13 @@
 import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
-import { RegularPage } from "ui/page/RegularPage";
-import { HStack } from "ui/Stack";
-import { Text } from "ui/Text";
+import { RegularPage } from "lib/ui/page/RegularPage";
+import { HStack } from "lib/ui/Stack";
+import { Text } from "lib/ui/Text";
 import { useInfiniteQuery } from "react-query";
-import { range } from "shared/utils/range";
-import { PaginatedView } from "ui/PaginatedView";
-import { usePaginatedResultItems } from "query/hooks/usePaginatedResultItems";
-import { TableLayout } from "ui/TableLayout";
+import { range } from "lib/shared/utils/range";
+import { PaginatedView } from "lib/ui/PaginatedView";
+import { usePaginatedResultItems } from "lib/query/hooks/usePaginatedResultItems";
+import { TableLayout } from "lib/ui/TableLayout";
 import { Fragment } from "react";
 
 interface QueryItemsParams {

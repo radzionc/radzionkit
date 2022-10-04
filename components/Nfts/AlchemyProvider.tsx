@@ -1,9 +1,9 @@
 import { useWeb3React } from "@web3-react/core";
 import { Alchemy, Network } from "alchemy-sdk";
 import { createContext, useMemo } from "react";
-import { ComponentWithChildrenProps } from "shared/props";
-import { createContextHook } from "shared/utils/createContextHook";
-import { Text } from "ui/Text";
+import { ComponentWithChildrenProps } from "lib/shared/props";
+import { createContextHook } from "lib/shared/utils/createContextHook";
+import { Text } from "lib/ui/Text";
 import { SupportedChain } from "./NetworkGuard";
 
 interface AlchemyState {
