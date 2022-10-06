@@ -2,8 +2,6 @@ import { DefaultTheme } from "styled-components";
 import { HSLA } from "lib/ui/colors/HSLA";
 import { generatePaleteCollorGetter } from "lib/ui/colors/palette";
 
-const primaryLightness = 52;
-
 const backgroundHue = 0;
 const backgroundSaturation = 0;
 
@@ -21,7 +19,7 @@ export const darkTheme: DefaultTheme = {
     attentionHover: new HSLA(4, 58, 55),
 
     alert: new HSLA(0, 79, 63),
-    success: new HSLA(130, 56, primaryLightness),
+    success: new HSLA(130, 56, 52),
 
     foreground: new HSLA(
       backgroundHue,
