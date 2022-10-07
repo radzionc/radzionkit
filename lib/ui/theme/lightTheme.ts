@@ -1,23 +1,13 @@
 import { DefaultTheme } from "styled-components";
 import { HSLA } from "lib/ui/colors/HSLA";
-import { generatePaleteCollorGetter } from "lib/ui/colors/palette";
-
-const primaryLightness = 52;
+import { sharedColors } from "./shared";
 
 export const regularTextAlpha = 0.9;
 
 export const lightTheme: DefaultTheme = {
   name: "light",
   colors: {
-    primary: new HSLA(197, 71, 52),
-    primaryHover: new HSLA(195, 94, 41),
-
-    attention: new HSLA(4, 69, 62),
-    attentionHover: new HSLA(4, 58, 55),
-
-    alert: new HSLA(0, 79, 63),
-    success: new HSLA(130, 56, primaryLightness),
-
+    ...sharedColors,
     foreground: new HSLA(60, 11, 98),
     background: new HSLA(0, 0, 100),
 
@@ -34,8 +24,6 @@ export const lightTheme: DefaultTheme = {
     outlinedHover: new HSLA(0, 0, 88),
 
     white: new HSLA(0, 0, 100),
-
-    getPaletteColor: generatePaleteCollorGetter(52, 48),
   },
   shadows: {
     small:

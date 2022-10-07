@@ -1,6 +1,6 @@
 import { DefaultTheme } from "styled-components";
 import { HSLA } from "lib/ui/colors/HSLA";
-import { generatePaleteCollorGetter } from "lib/ui/colors/palette";
+import { sharedColors } from "./shared";
 
 const backgroundHue = 0;
 const backgroundSaturation = 0;
@@ -12,15 +12,7 @@ export const regularTextAlpha = 0.9;
 export const darkTheme: DefaultTheme = {
   name: "dark",
   colors: {
-    primary: new HSLA(197, 71, 52),
-    primaryHover: new HSLA(195, 94, 41),
-
-    attention: new HSLA(4, 69, 62),
-    attentionHover: new HSLA(4, 58, 55),
-
-    alert: new HSLA(0, 79, 63),
-    success: new HSLA(130, 56, 52),
-
+    ...sharedColors,
     foreground: new HSLA(
       backgroundHue,
       backgroundSaturation,
@@ -42,10 +34,6 @@ export const darkTheme: DefaultTheme = {
     overlay: new HSLA(backgroundHue, backgroundSaturation, 1, 0.8),
 
     outlinedHover: new HSLA(0, 0, 16),
-
-    white: new HSLA(0, 0, 100),
-
-    getPaletteColor: generatePaleteCollorGetter(56, 52),
   },
   shadows: {
     small:
