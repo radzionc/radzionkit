@@ -5,14 +5,8 @@ import { DefaultTheme, ThemeProvider } from "styled-components";
 import { darkTheme } from "lib/ui/theme/darkTheme";
 
 import { lightTheme } from "./lightTheme";
-import { ThemeName } from "./ThemeName";
 import { ThemePreference } from "./ThemePreference";
 import { createContextHook } from "lib/shared/utils/createContextHook";
-
-const themeRecord: Record<ThemeName, DefaultTheme> = {
-  light: lightTheme,
-  dark: darkTheme,
-};
 
 interface PrefferedThemeState {
   prefferedTheme: ThemePreference;

@@ -14,4 +14,5 @@ export enum Path {
   Nfts = "/nfts",
   Countdown = "/countdown",
   IPFS = "/ipfs",
+  Colors = "/colors",
 }
