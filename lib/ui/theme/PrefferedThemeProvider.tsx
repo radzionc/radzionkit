@@ -1,4 +1,4 @@
-import { createContext, useMemo } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
 import { useMedia } from "react-use";
 import { ComponentWithChildrenProps } from "lib/shared/props";
 import { DefaultTheme, ThemeProvider } from "styled-components";
@@ -31,14 +31,15 @@ export const PrefferedThemeProvider = ({
   children,
 }: Props) => {
   const isSystemThemeDark = useMedia("(prefers-color-scheme: dark)", false);
-  const currentSystemTheme = isSystemThemeDark ? "dark" : "light";
 
-  const theme = useMemo(() => {
-    const prefferedThemeName =
-      prefferedTheme === "system" ? currentSystemTheme : prefferedTheme;
+  const [theme, setTheme] = useState<DefaultTheme>(darkTheme);
+  useEffect(() => {
+    if (prefferedTheme === "system") {
+      setTheme(isSystemThemeDark ? darkTheme : lightTheme);
+    }
 
-    return themeRecord[prefferedThemeName];
-  }, [currentSystemTheme, prefferedTheme]);
+    setTheme(prefferedTheme === "dark" ? darkTheme : lightTheme);
+  }, [isSystemThemeDark, prefferedTheme]);
 
   return (
     <PrefferedThemeContext.Provider

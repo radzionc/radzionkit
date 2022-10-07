@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 interface Props {
-  isUnderlined?: boolean
+  isUnderlined?: boolean;
 }
 
 export const UnstyledAnchor = styled.a<Props>`
   color: inherit;
-  text-decoration: ${({ isUnderlined }) => isUnderlined ? 'underline' : 'none'};
-`
+  cursor: pointer;
+  text-decoration: ${({ isUnderlined }) =>
+    isUnderlined ? "underline" : "none"};
+`;

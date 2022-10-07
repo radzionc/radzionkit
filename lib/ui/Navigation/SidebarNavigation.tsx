@@ -3,10 +3,13 @@ import styled, { css } from "styled-components";
 import { useIsScreenWidthLessThan } from "lib/ui/hooks/useIsScreenWidthLessThan";
 import { HStack, VStack } from "lib/ui/Stack";
 import { Sidebar } from "./Sidebar";
+import { ReactNode } from "react";
+import { ThemeToggleButton } from "../theme/ThemeToggleButton";
 
 interface Props {
-  children: React.ReactNode;
-  renderNavigation: () => React.ReactNode;
+  children: ReactNode;
+  renderNavigation: () => ReactNode;
+  logo: ReactNode;
 }
 
 const SMALL_SCREEN_BREAKPOINT = 900;
@@ -32,11 +35,29 @@ const ScreenWidthSidebarContent = styled(VStack)`
   padding: 40px 4% 20px 4%;
 `;
 
-export const SidebarNavigation = ({ children, renderNavigation }: Props) => {
+const Header = styled(HStack)`
+  padding-left: 16px;
+`;
+
+export const SidebarNavigation = ({
+  children,
+  renderNavigation,
+  logo,
+}: Props) => {
   const isSmallScreen = useIsScreenWidthLessThan(SMALL_SCREEN_BREAKPOINT);
 
   const renderSidebar = () => {
-    return <Sidebar>{renderNavigation()}</Sidebar>;
+    return (
+      <Sidebar>
+        <VStack fullWidth gap={20}>
+          <Header alignItems="center" justifyContent="space-between">
+            {logo}
+            <ThemeToggleButton />
+          </Header>
+          {renderNavigation()}
+        </VStack>
+      </Sidebar>
+    );
   };
 
   if (isSmallScreen) {
