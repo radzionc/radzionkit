@@ -1,12 +1,10 @@
-import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
 import { getViewSetup } from "lib/shared/utils/getViewSetup";
 import styled from "styled-components";
 import { Card } from "lib/ui/Card";
 import { ViewSelector } from "lib/ui/inputs/Select/ViewSelector";
-import { RegularPage } from "lib/ui/page/RegularPage";
-import { HStack, VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
+import { VStack } from "lib/ui/Stack";
+import { DemoPage } from "components/DemoPage";
 
 export const views = ["primary", "attention"] as const;
 export type View = typeof views[number];
@@ -45,16 +43,7 @@ const AttentionView = styled(Card)`
 
 const SelectViewPage: NextPage = () => {
   return (
-    <RegularPage
-      title={
-        <HStack alignItems="center" gap={4}>
-          <Text weight="bold" size={24} color="regular">
-            Select View
-          </Text>
-          <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/select-view.tsx" />
-        </HStack>
-      }
-    >
+    <DemoPage youtubeVideoId="aSiTQifBsAc" title="Select View">
       <Card width={320}>
         <ViewProvider>
           <VStack fullWidth gap={20}>
@@ -66,7 +55,7 @@ const SelectViewPage: NextPage = () => {
           </VStack>
         </ViewProvider>
       </Card>
-    </RegularPage>
+    </DemoPage>
   );
 };
 

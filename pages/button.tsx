@@ -4,20 +4,12 @@ import { GhostButton } from "lib/ui/buttons/rect/GhostButton";
 import { OutlinedButton } from "lib/ui/buttons/rect/OutlinedButton";
 import { PrimaryButton } from "lib/ui/buttons/rect/PrimaryButton";
 import { SimpleNamedList } from "lib/ui/Layout/SimpleNamedList";
-import { RegularPage } from "lib/ui/page/RegularPage";
 import { HStack, VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
+import { DemoPage } from "components/DemoPage";
 
 const ButtonPage: NextPage = () => {
   return (
-    <RegularPage
-      title={
-        <HStack alignItems="center" gap={4}>
-          <Text>Button</Text>
-          <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/button.tsx" />
-        </HStack>
-      }
-    >
+    <DemoPage youtubeVideoId="K5y_irnv34s" title="Button">
       <VStack fullWidth gap={40}>
         <SimpleNamedList name="Primary">
           <HStack gap={20}>
@@ -37,7 +29,7 @@ const ButtonPage: NextPage = () => {
           </HStack>
         </SimpleNamedList>
       </VStack>
-    </RegularPage>
+    </DemoPage>
   );
 };
 

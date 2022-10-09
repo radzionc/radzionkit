@@ -8,6 +8,7 @@ import { RegularPage } from "lib/ui/page/RegularPage";
 import { HStack, VStack } from "lib/ui/Stack";
 import { Text } from "lib/ui/Text";
 import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS";
+import { DemoPage } from "components/DemoPage";
 
 const Conent = styled(Card)<{ $color: HSLA }>`
   ${getSameDimensionsCSS(80)};
@@ -17,14 +18,7 @@ const Conent = styled(Card)<{ $color: HSLA }>`
 const StacksPage: NextPage = () => {
   const { colors } = useTheme();
   return (
-    <RegularPage
-      title={
-        <HStack alignItems="center" gap={4}>
-          <Text>Stacks</Text>
-          <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/stacks.tsx" />
-        </HStack>
-      }
-    >
+    <DemoPage title="Stacks">
       <VStack alignItems="start" gap={40}>
         <Card>
           <HStack gap={20}>
@@ -43,7 +37,7 @@ const StacksPage: NextPage = () => {
           </VStack>
         </Card>
       </VStack>
-    </RegularPage>
+    </DemoPage>
   );
 };
 

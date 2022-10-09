@@ -1,12 +1,11 @@
-import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
 import { Fragment } from "react";
 import styled from "styled-components";
-import { RegularPage } from "lib/ui/page/RegularPage";
 import { HStack } from "lib/ui/Stack";
 import { TableLayout } from "lib/ui/TableLayout";
 import { Text } from "lib/ui/Text";
 import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS";
+import { DemoPage } from "components/DemoPage";
 
 interface Token {
   symbolImageUrl: string;
@@ -42,14 +41,7 @@ const TokenIcon = styled.img`
 
 const GridTablePage: NextPage = () => {
   return (
-    <RegularPage
-      title={
-        <HStack alignItems="center" gap={4}>
-          <Text>CSS Grid Table</Text>
-          <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/grid-table.tsx" />
-        </HStack>
-      }
-    >
+    <DemoPage youtubeVideoId="oVnpdHiI30E" title="CSS Grid Table">
       <TableLayout
         gridTemplateColumns="minmax(auto, 120px) auto 1fr"
         columnNames={["Token name", "Symbol", "Price"]}
@@ -65,7 +57,7 @@ const GridTablePage: NextPage = () => {
           </Fragment>
         ))}
       </TableLayout>
-    </RegularPage>
+    </DemoPage>
   );
 };
 

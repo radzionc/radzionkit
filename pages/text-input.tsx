@@ -1,16 +1,13 @@
-import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
 import { SubmitFormButton } from "lib/ui/buttons/rect/SubmitFormButton";
 import { TitledCard } from "lib/ui/Card/TitledCard";
 import { Form } from "lib/ui/Form/Form";
 import { TextInput } from "lib/ui/inputs/TextInput";
-import { RegularPage } from "lib/ui/page/RegularPage";
-import { HStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
 import { useForm } from "react-hook-form";
 import { TextArea } from "lib/ui/inputs/TextArea";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { DemoPage } from "components/DemoPage";
 
 interface FormShape {
   name: string;
@@ -38,14 +35,7 @@ const TextInputPage: NextPage = () => {
   });
 
   return (
-    <RegularPage
-      title={
-        <HStack alignItems="center" gap={4}>
-          <Text>Text Input</Text>
-          <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/text-input.tsx" />
-        </HStack>
-      }
-    >
+    <DemoPage youtubeVideoId="V3scoHuQ19s" title="Text Input">
       <TitledCard width={400} title="Who are You?">
         <Form
           content={
@@ -71,7 +61,7 @@ const TextInputPage: NextPage = () => {
           actions={<SubmitFormButton text="Submit" />}
         />
       </TitledCard>
-    </RegularPage>
+    </DemoPage>
   );
 };
 

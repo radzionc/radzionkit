@@ -39,14 +39,7 @@ const ComboboxPage: NextPage = () => {
   });
 
   return (
-    <RegularPage
-      title={
-        <HStack alignItems="center" gap={4}>
-          <Text>Text Input</Text>
-          <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/text-input.tsx" />
-        </HStack>
-      }
-    >
+    <RegularPage title="Text Input">
       <TitledCard width={400} title="Who are You?">
         <Form
           content={

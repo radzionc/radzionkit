@@ -1,7 +1,4 @@
-import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
-import { RegularPage } from "lib/ui/page/RegularPage";
-import { HStack } from "lib/ui/Stack";
 import { Text } from "lib/ui/Text";
 import { useInfiniteQuery } from "react-query";
 import { range } from "lib/shared/utils/range";
@@ -9,6 +6,7 @@ import { PaginatedView } from "lib/ui/PaginatedView";
 import { usePaginatedResultItems } from "lib/query/hooks/usePaginatedResultItems";
 import { TableLayout } from "lib/ui/TableLayout";
 import { Fragment } from "react";
+import { DemoPage } from "components/DemoPage";
 
 interface QueryItemsParams {
   startAt: number;
@@ -63,16 +61,7 @@ const InfiniteScrollPage: NextPage = () => {
   const noItems = isFetched && items.length < 1;
 
   return (
-    <RegularPage
-      title={
-        <HStack alignItems="center" gap={4}>
-          <Text weight="bold" size={24} color="regular">
-            Infinite Scroll
-          </Text>
-          <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/infinite-scroll.tsx" />
-        </HStack>
-      }
-    >
+    <DemoPage title="Infinite Scroll" youtubeVideoId="mZfDvfs2GtI">
       <TableLayout
         gridTemplateColumns="120px 80px"
         columnNames={["Name", "Price"]}
@@ -93,7 +82,7 @@ const InfiniteScrollPage: NextPage = () => {
           )}
         </PaginatedView>
       </TableLayout>
-    </RegularPage>
+    </DemoPage>
   );
 };
 

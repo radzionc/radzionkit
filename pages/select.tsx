@@ -1,12 +1,10 @@
-import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
 import { useState } from "react";
 import styled from "styled-components";
 import { ElementSizeAware } from "lib/ui/ElementSizeAware";
 import { SelectOption } from "lib/ui/inputs/Select/SelectOption";
-import { RegularPage } from "lib/ui/page/RegularPage";
-import { HStack, VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
+import { VStack } from "lib/ui/Stack";
+import { DemoPage } from "components/DemoPage";
 
 export const focusOptions = [
   15,
@@ -43,14 +41,7 @@ const ButtonPage: NextPage = () => {
   const [focusDuration, setFocusDuration] = useState<FocusDuration>(25);
 
   return (
-    <RegularPage
-      title={
-        <HStack alignItems="center" gap={4}>
-          <Text>Select</Text>
-          <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/select.tsx" />
-        </HStack>
-      }
-    >
+    <DemoPage youtubeVideoId="o7V3vaIH7rM" title="Select">
       <ElementSizeAware
         render={({ setElement, size }) => (
           <VStack alignItems="start" fullWidth ref={setElement}>
@@ -72,7 +63,7 @@ const ButtonPage: NextPage = () => {
           </VStack>
         )}
       />
-    </RegularPage>
+    </DemoPage>
   );
 };
 

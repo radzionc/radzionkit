@@ -1,23 +1,15 @@
-import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import { ExternalLink } from "lib/navigation/Link/ExternalLink";
 import type { NextPage } from "next";
 import { PrimaryButton } from "lib/ui/buttons/rect/PrimaryButton";
 import { Modal } from "lib/ui/Modal";
 import { OverlayOpener } from "lib/ui/OverlayOpener";
-import { RegularPage } from "lib/ui/page/RegularPage";
 import { HStack, VStack } from "lib/ui/Stack";
 import { Text } from "lib/ui/Text";
+import { DemoPage } from "components/DemoPage";
 
 const ButtonPage: NextPage = () => {
   return (
-    <RegularPage
-      title={
-        <HStack alignItems="center" gap={4}>
-          <Text>Modal / Popup</Text>
-          <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/modal.tsx" />
-        </HStack>
-      }
-    >
+    <DemoPage youtubeVideoId="v61B8aToxR0" title="Modal / Popup">
       <HStack fullWidth gap={40}>
         <OverlayOpener
           renderOpener={({ onOpen }) => (
@@ -47,7 +39,7 @@ const ButtonPage: NextPage = () => {
           )}
         />
       </HStack>
-    </RegularPage>
+    </DemoPage>
   );
 };
 

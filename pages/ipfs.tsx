@@ -1,8 +1,5 @@
-import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
 import { RegularPage } from "lib/ui/page/RegularPage";
-import { HStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
 import { TitledCard } from "lib/ui/Card/TitledCard";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -12,6 +9,7 @@ import { SubmitFormButton } from "lib/ui/buttons/rect/SubmitFormButton";
 import { TextInput } from "lib/ui/inputs/TextInput";
 import { Web3StorageProvider } from "web3/components/Web3StorageProvider";
 import { PdfFileInput } from "web3/components/PdfFileInput";
+import { DemoPage } from "components/DemoPage";
 
 interface FormShape {
   name: string;
@@ -38,14 +36,7 @@ const IPFSPage: NextPage = () => {
   });
 
   return (
-    <RegularPage
-      title={
-        <HStack alignItems="center" gap={4}>
-          <Text>Upload to IPFS</Text>
-          <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/ipfs.tsx" />
-        </HStack>
-      }
-    >
+    <DemoPage title="Upload to IPFS">
       <Web3StorageProvider>
         <TitledCard title="Your paper" width={400}>
           <Form
@@ -76,7 +67,7 @@ const IPFSPage: NextPage = () => {
           />
         </TitledCard>
       </Web3StorageProvider>
-    </RegularPage>
+    </DemoPage>
   );
 };
 

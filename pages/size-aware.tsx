@@ -1,13 +1,11 @@
-import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
 import styled from "styled-components";
 import { Card } from "lib/ui/Card";
 import { Center } from "lib/ui/Center";
 import { ElementSizeAware } from "lib/ui/ElementSizeAware";
-import { RegularPage } from "lib/ui/page/RegularPage";
-import { HStack } from "lib/ui/Stack";
 import { Text } from "lib/ui/Text";
 import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS";
+import { DemoPage } from "components/DemoPage";
 
 const Container = styled(Card)`
   ${getSameDimensionsCSS("100%")}
@@ -15,16 +13,7 @@ const Container = styled(Card)`
 
 const ButtonPage: NextPage = () => {
   return (
-    <RegularPage
-      title={
-        <HStack alignItems="center" gap={4}>
-          <Text weight="bold" size={24} color="regular">
-            Size Aware
-          </Text>
-          <SourceCodeLink to="https://github.com/RodionChachura/react-toolkit/blob/main/pages/size-aware.tsx" />
-        </HStack>
-      }
-    >
+    <DemoPage youtubeVideoId="PQ7QKBz_zWE" title="Size Aware">
       <ElementSizeAware
         render={({ setElement, size }) => (
           <Container ref={setElement}>
@@ -38,7 +27,7 @@ const ButtonPage: NextPage = () => {
           </Container>
         )}
       />
-    </RegularPage>
+    </DemoPage>
   );
 };
 
