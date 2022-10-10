@@ -5,12 +5,11 @@ import { TitledCard } from "lib/ui/Card/TitledCard";
 import { Form } from "lib/ui/Form/Form";
 import { TextInput } from "lib/ui/inputs/TextInput";
 import { RegularPage } from "lib/ui/page/RegularPage";
-import { HStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
 import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LanguagesInput } from "components/LanguagesInput";
+import { DemoPage } from "components/DemoPage";
 
 interface FormShape {
   name: string;
@@ -39,7 +38,7 @@ const ComboboxPage: NextPage = () => {
   });
 
   return (
-    <RegularPage title="Text Input">
+    <DemoPage title="Combobox" youtubeVideoId="iZGQE3-pqpg">
       <TitledCard width={400} title="Who are You?">
         <Form
           content={
@@ -69,7 +68,7 @@ const ComboboxPage: NextPage = () => {
           actions={<SubmitFormButton text="Submit" />}
         />
       </TitledCard>
-    </RegularPage>
+    </DemoPage>
   );
 };
 
