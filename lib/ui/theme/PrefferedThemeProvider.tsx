@@ -30,9 +30,9 @@ export const PrefferedThemeProvider = ({
   useEffect(() => {
     if (prefferedTheme === "system") {
       setTheme(isSystemThemeDark ? darkTheme : lightTheme);
+    } else {
+      setTheme(prefferedTheme === "dark" ? darkTheme : lightTheme);
     }
-
-    setTheme(prefferedTheme === "dark" ? darkTheme : lightTheme);
   }, [isSystemThemeDark, prefferedTheme]);
 
   return (
