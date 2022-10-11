@@ -9,6 +9,7 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.Modal} name="Modal" />
     <NavigationToInternalPage path={Path.TextInput} name="Text Input" />
     <NavigationToInternalPage path={Path.Colors} name="Colors" />
+    <NavigationToInternalPage path={Path.Images} name="Images" />
     <NavigationToInternalPage path={Path.SizeAware} name="Size Aware" />
     <NavigationToInternalPage path={Path.Select} name="Select" />
     <NavigationToInternalPage path={Path.SelectView} name="Select View" />

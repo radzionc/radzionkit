@@ -36,7 +36,7 @@ const IPFSPage: NextPage = () => {
   });
 
   return (
-    <DemoPage title="Upload to IPFS">
+    <DemoPage youtubeVideoId="z0YlnIxE4YA" title="Upload to IPFS">
       <Web3StorageProvider>
         <TitledCard title="Your paper" width={400}>
           <Form
