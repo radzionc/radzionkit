@@ -19,9 +19,9 @@ const ImagesPage: NextPage = () => {
               Image #{index + 1}
             </Text>
             <IntersectionAware<HTMLDivElement>
-              render={({ ref, isIntersecting }) => (
+              render={({ ref, wasIntersected }) => (
                 <ImageHolder ref={ref} width={240} height={360}>
-                  {isIntersecting && (
+                  {wasIntersected && (
                     <SafeImage
                       src={`https://picsum.photos/id/${index}/240/360`}
                       render={(props) => <CoverImage {...props} />}

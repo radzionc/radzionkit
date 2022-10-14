@@ -1,7 +1,9 @@
+import { useWasIt } from "lib/shared/hooks/useWasIt";
 import { RefObject, useRef } from "react";
 import { useIntersection } from "react-use";
 
 interface RenderParams<T extends HTMLElement> {
+  wasIntersected: boolean;
   isIntersecting: boolean;
   ref: RefObject<T>;
 }
@@ -22,5 +24,8 @@ export function IntersectionAware<T extends HTMLElement>({
     threshold: 0,
   });
 
-  return <>{render({ ref, isIntersecting: !!intersection?.isIntersecting })}</>;
+  const isIntersecting = !!intersection?.isIntersecting;
+  const wasIntersected = useWasIt(intersection?.isIntersecting, true);
+
+  return <>{render({ ref, isIntersecting, wasIntersected })}</>;
 }

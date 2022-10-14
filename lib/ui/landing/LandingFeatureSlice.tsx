@@ -62,9 +62,9 @@ export const LandingFeatureSlice = ({
 
   return (
     <IntersectionAware<HTMLDivElement>
-      render={({ ref, isIntersecting }) => {
+      render={({ ref, wasIntersected }) => {
         const content = reverseIf(
-          [isIntersecting ? renderPreview() : null, info],
+          [wasIntersected ? renderPreview() : null, info],
           isInfoFirst
         );
 
