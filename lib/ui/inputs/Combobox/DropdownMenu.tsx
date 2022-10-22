@@ -2,7 +2,6 @@ import React, { useState, useMemo, useEffect } from "react";
 import styled from "styled-components";
 import { usePopper } from "react-popper";
 import { zIndex } from "lib/ui/zIndex";
-import throttle from "lodash/throttle";
 import { useElementSize } from "lib/ui/hooks/useElementSize";
 
 const MenuWr = styled.div`
@@ -66,7 +65,7 @@ export const DropdownMenu = ({ children, referenceElement }: Props) => {
 
   const size = useElementSize(popperElement);
   useEffect(() => {
-    throttle(update ?? (() => null), 200);
+    update?.();
   }, [size, update]);
 
   return (
