@@ -2,13 +2,13 @@ import styled, { css } from "styled-components";
 import { defaultBorderRadiusCSS } from "../borderRadius";
 import { getCSSUnit } from "../utils/getCSSUnit";
 
-interface PanelProps {
+export interface PanelProps {
   width?: React.CSSProperties["width"];
   padding?: React.CSSProperties["padding"];
   withSections?: boolean;
 }
 
-const panelBackgroundCSS = css`
+export const panelBackgroundCSS = css`
   background: ${({ theme: { name, colors } }) =>
     (name === "light"
       ? colors.background
@@ -40,7 +40,6 @@ export const Panel = styled.div<PanelProps>`
 
           > * {
             ${panelPaddingCSS}
-
             ${panelBackgroundCSS}
           }
         `
