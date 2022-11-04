@@ -1,6 +1,4 @@
 import type { NextPage } from "next";
-import { RegularPage } from "lib/ui/page/RegularPage";
-import { TitledCard } from "lib/ui/Card/TitledCard";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Form } from "lib/ui/Form/Form";
@@ -10,6 +8,8 @@ import { TextInput } from "lib/ui/inputs/TextInput";
 import { Web3StorageProvider } from "web3/components/Web3StorageProvider";
 import { PdfFileInput } from "web3/components/PdfFileInput";
 import { DemoPage } from "components/DemoPage";
+import { Panel } from "lib/ui/Panel/Panel";
+import { TitledSection } from "lib/ui/Layout/TitledSection";
 
 interface FormShape {
   name: string;
@@ -38,34 +38,36 @@ const IPFSPage: NextPage = () => {
   return (
     <DemoPage youtubeVideoId="z0YlnIxE4YA" title="Upload to IPFS">
       <Web3StorageProvider>
-        <TitledCard title="Your paper" width={400}>
-          <Form
-            content={
-              <>
-                <TextInput
-                  label="Paper name"
-                  {...register("name")}
-                  error={errors.name?.message}
-                  autoFocus
-                  placeholder="Research into ..."
-                />
-                <Controller
-                  name="fileUri"
-                  control={control}
-                  render={({ field: { value, onChange } }) => (
-                    <PdfFileInput
-                      value={value}
-                      onChange={onChange}
-                      error={errors.fileUri?.message}
-                    />
-                  )}
-                />
-              </>
-            }
-            onSubmit={handleSubmit(console.log)}
-            actions={<SubmitFormButton text="Submit" />}
-          />
-        </TitledCard>
+        <Panel width={400}>
+          <TitledSection title="Your paper">
+            <Form
+              content={
+                <>
+                  <TextInput
+                    label="Paper name"
+                    {...register("name")}
+                    error={errors.name?.message}
+                    autoFocus
+                    placeholder="Research into ..."
+                  />
+                  <Controller
+                    name="fileUri"
+                    control={control}
+                    render={({ field: { value, onChange } }) => (
+                      <PdfFileInput
+                        value={value}
+                        onChange={onChange}
+                        error={errors.fileUri?.message}
+                      />
+                    )}
+                  />
+                </>
+              }
+              onSubmit={handleSubmit(console.log)}
+              actions={<SubmitFormButton text="Submit" />}
+            />
+          </TitledSection>
+        </Panel>
       </Web3StorageProvider>
     </DemoPage>
   );

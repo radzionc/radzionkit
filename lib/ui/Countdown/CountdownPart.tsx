@@ -1,17 +1,17 @@
 import { usePrevious } from "react-use";
 import { padWithZero } from "lib/shared/utils/padWithZero";
 import styled from "styled-components";
-import { Card } from "lib/ui/Card";
 import { Center } from "lib/ui/Center";
 import { HStack } from "lib/ui/Stack";
 import { Text } from "lib/ui/Text";
 import { SlidingCharacter } from "./SlidingCharacter";
+import { Panel } from "../Panel/Panel";
 
 interface Props {
   value: number;
 }
 
-const Container = styled(Card)`
+const Container = styled(Panel)`
   width: 90px;
   height: 120px;
   padding: 8px;

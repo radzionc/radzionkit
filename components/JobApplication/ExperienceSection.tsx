@@ -5,14 +5,9 @@ import { HStack, VStack } from "lib/ui/Stack";
 import { Line } from "lib/ui/Line";
 import styled from "styled-components";
 import { Text } from "lib/ui/Text";
-import { UnstyledButton } from "lib/ui/buttons/UnstyledButton";
-import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS";
-import { centerContentCSS } from "lib/ui/utils/centerContentCSS";
-import { defaultTransitionCSS } from "lib/ui/animations/transitions";
 import { TextArea } from "lib/ui/inputs/TextArea";
 import { TextInput } from "lib/ui/inputs/TextInput";
 import { Circle } from "lib/ui/Circle";
-import { roundedCSS } from "lib/ui/utils/roundedCSS";
 import {
   emptyExperience,
   JobApplicationFormShape,

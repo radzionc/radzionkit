@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import { SubmitFormButton } from "lib/ui/buttons/rect/SubmitFormButton";
-import { TitledCard } from "lib/ui/Card/TitledCard";
 import { Form } from "lib/ui/Form/Form";
 import { TextInput } from "lib/ui/inputs/TextInput";
 import { useForm } from "react-hook-form";
@@ -8,6 +7,8 @@ import { TextArea } from "lib/ui/inputs/TextArea";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { DemoPage } from "components/DemoPage";
+import { Panel } from "lib/ui/Panel/Panel";
+import { TitledSection } from "lib/ui/Layout/TitledSection";
 
 interface FormShape {
   name: string;
@@ -36,31 +37,33 @@ const TextInputPage: NextPage = () => {
 
   return (
     <DemoPage youtubeVideoId="V3scoHuQ19s" title="Text Input">
-      <TitledCard width={400} title="Who are You?">
-        <Form
-          content={
-            <>
-              <TextInput
-                label="Full name"
-                {...register("name")}
-                error={errors.name?.message}
-                autoFocus
-                placeholder="John Johnson"
-              />
-              <TextArea
-                rows={4}
-                maxLength={bioMaxLength}
-                label="Bio"
-                {...register("bio")}
-                error={errors.bio?.message}
-                placeholder="I'm a software engineer..."
-              />
-            </>
-          }
-          onSubmit={handleSubmit(console.log)}
-          actions={<SubmitFormButton text="Submit" />}
-        />
-      </TitledCard>
+      <Panel width={400}>
+        <TitledSection title="Who are You?">
+          <Form
+            content={
+              <>
+                <TextInput
+                  label="Full name"
+                  {...register("name")}
+                  error={errors.name?.message}
+                  autoFocus
+                  placeholder="John Johnson"
+                />
+                <TextArea
+                  rows={4}
+                  maxLength={bioMaxLength}
+                  label="Bio"
+                  {...register("bio")}
+                  error={errors.bio?.message}
+                  placeholder="I'm a software engineer..."
+                />
+              </>
+            }
+            onSubmit={handleSubmit(console.log)}
+            actions={<SubmitFormButton text="Submit" />}
+          />
+        </TitledSection>
+      </Panel>
     </DemoPage>
   );
 };

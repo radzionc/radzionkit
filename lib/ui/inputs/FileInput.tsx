@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Card } from "lib/ui/Card";
 import { inputBackgroundCSS, inputBorderRadiusCSS } from "./config";
 import { useDropzone, Accept } from "react-dropzone";
 import { VStack } from "lib/ui/Stack";
@@ -7,6 +6,7 @@ import { Text } from "lib/ui/Text";
 import { defaultTransitionCSS } from "lib/ui/animations/transitions";
 import { UploadIcon } from "lib/ui/icons/UploadIcon";
 import { OutlinedButton } from "lib/ui/buttons/rect/OutlinedButton";
+import { Panel } from "../Panel/Panel";
 
 interface Props {
   onSubmit: (file: File) => void;
@@ -14,7 +14,7 @@ interface Props {
   isLoading?: boolean;
 }
 
-const Container = styled(Card)`
+const Container = styled(Panel)`
   flex: 1;
   padding: 32px;
   ${inputBorderRadiusCSS};

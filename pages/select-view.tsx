@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import { getViewSetup } from "lib/shared/utils/getViewSetup";
 import styled from "styled-components";
-import { Card } from "lib/ui/Card";
 import { ViewSelector } from "lib/ui/inputs/Select/ViewSelector";
 import { VStack } from "lib/ui/Stack";
 import { DemoPage } from "components/DemoPage";
+import { Panel } from "lib/ui/Panel/Panel";
 
 export const views = ["primary", "attention"] as const;
 export type View = typeof views[number];
@@ -33,18 +33,18 @@ export const Selector = () => {
   );
 };
 
-const PrimaryView = styled(Card)`
+const PrimaryView = styled(Panel)`
   background: ${({ theme }) => theme.colors.primary.toCssValue()};
 `;
 
-const AttentionView = styled(Card)`
+const AttentionView = styled(Panel)`
   background: ${({ theme }) => theme.colors.attention.toCssValue()};
 `;
 
 const SelectViewPage: NextPage = () => {
   return (
     <DemoPage youtubeVideoId="aSiTQifBsAc" title="Select View">
-      <Card width={320}>
+      <Panel width={320}>
         <ViewProvider>
           <VStack fullWidth gap={20}>
             <Selector />
@@ -54,7 +54,7 @@ const SelectViewPage: NextPage = () => {
             />
           </VStack>
         </ViewProvider>
-      </Card>
+      </Panel>
     </DemoPage>
   );
 };
