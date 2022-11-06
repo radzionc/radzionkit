@@ -12,6 +12,7 @@ export enum Path {
   SelectView = "/select-view",
   InfiniteScroll = "/infinite-scroll",
   Combobox = "/combobox",
+  DistributionBar = "/distribution-bar",
   DynamicForm = "/dynamic-form",
   Countdown = "/countdown",
   Nfts = "/nfts",

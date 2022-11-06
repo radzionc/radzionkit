@@ -4,7 +4,7 @@ import { DemoPage } from "components/DemoPage";
 
 const StacksPage: NextPage = () => {
   return (
-    <DemoPage title="Colors">
+    <DemoPage youtubeVideoId="ed_bLoV_A6M" title="Colors">
       <ColorList />
     </DemoPage>
   );

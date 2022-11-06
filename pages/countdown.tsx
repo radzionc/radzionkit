@@ -6,7 +6,7 @@ import { DemoPage } from "components/DemoPage";
 const CountdownPage: NextPage = () => {
   const endsAt = Date.now() + hoursToMilliseconds(24 * 10);
   return (
-    <DemoPage title="Countdown">
+    <DemoPage youtubeVideoId="70-0EZT650o" title="Countdown">
       <Countdown endsAt={endsAt} />
     </DemoPage>
   );

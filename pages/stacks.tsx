@@ -15,7 +15,7 @@ const Conent = styled(Panel)<{ $color: HSLA }>`
 const StacksPage: NextPage = () => {
   const { colors } = useTheme();
   return (
-    <DemoPage title="Stacks">
+    <DemoPage youtubeVideoId="iVYo-gqyi90" title="Stacks">
       <VStack alignItems="start" gap={40}>
         <Panel>
           <HStack gap={20}>

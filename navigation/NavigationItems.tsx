@@ -18,6 +18,10 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.Countdown} name="Countdown" />
     <NavigationToInternalPage path={Path.GridTable} name="CSS Grid Table" />
     <NavigationToInternalPage
+      path={Path.DistributionBar}
+      name="Distribution Bar"
+    />
+    <NavigationToInternalPage
       path={Path.InfiniteScroll}
       name="Infinite Scroll"
     />

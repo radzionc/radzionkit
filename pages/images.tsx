@@ -11,7 +11,7 @@ import { SameWidthChildrenRow } from "lib/ui/Layout/SameWidthChildrenRow";
 
 const ImagesPage: NextPage = () => {
   return (
-    <DemoPage title="Images">
+    <DemoPage youtubeVideoId="vGJcbhz9uKY" title="Images">
       <SameWidthChildrenRow fullWidth minChildrenWidth={300} gap={40}>
         {range(50).map((index) => (
           <VStack alignItems="center" key={index} gap={8}>

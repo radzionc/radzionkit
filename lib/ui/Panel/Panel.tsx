@@ -24,11 +24,11 @@ export const Panel = styled.div<PanelProps>`
   ${defaultBorderRadiusCSS};
   width: ${({ width }) => (width ? getCSSUnit(width) : undefined)};
   box-shadow: ${({ theme }) => theme.shadows.small};
+  overflow: hidden;
 
   ${({ withSections }) =>
     withSections
       ? css`
-          overflow: hidden;
           display: flex;
           flex-direction: column;
           gap: 1px;
