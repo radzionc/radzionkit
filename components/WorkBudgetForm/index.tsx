@@ -1,4 +1,4 @@
-import { minutesInHour } from "date-fns/esm/fp";
+import { minutesInHour } from "date-fns";
 import { formatDuration } from "lib/shared/utils/formatDuration";
 import { DistributionBar } from "lib/ui/DistributionBar";
 import { AmountInput } from "lib/ui/inputs/Slider/AmountInput";
