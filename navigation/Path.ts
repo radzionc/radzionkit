@@ -10,6 +10,7 @@ export enum Path {
   Colors = "/colors",
   Images = "/images",
   SelectView = "/select-view",
+  Slider = "/slider",
   InfiniteScroll = "/infinite-scroll",
   Combobox = "/combobox",
   DistributionBar = "/distribution-bar",

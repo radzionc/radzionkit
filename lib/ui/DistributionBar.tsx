@@ -1,7 +1,7 @@
 import { sum } from "lib/shared/utils/sum";
 import { toPercents } from "lib/shared/utils/toPercents";
 import { useMemo } from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 
 import { defaultTransitionCSS } from "./animations/transitions";
 import { HSLA } from "./colors/HSLA";
@@ -38,9 +38,6 @@ export const DistributionBar = ({
   height = 40,
 }: DistributionBarProps) => {
   const total = useMemo(() => sum(items.map((item) => item.value)), [items]);
-
-  const { name: themeName } = useTheme();
-  const isDarkTheme = themeName === "dark";
 
   return (
     <Container style={{ height }}>
