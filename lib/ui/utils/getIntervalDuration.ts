@@ -1,3 +1,3 @@
-import { Interval } from 'shared/entities/Interval'
+import { Interval } from "lib/entities/Interval";
 
-export const getIntervalDuration = ({ start, end }: Interval) => end - start
+export const getIntervalDuration = ({ start, end }: Interval) => end - start;
