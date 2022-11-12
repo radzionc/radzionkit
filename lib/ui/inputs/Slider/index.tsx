@@ -102,7 +102,6 @@ export const Slider = ({
     const steps = Math.round((ratio * max) / step);
     const newValue = Math.max(min, steps * step);
     onChange(newValue);
-    onChange(newValue);
   };
 
   useEffect(() => {

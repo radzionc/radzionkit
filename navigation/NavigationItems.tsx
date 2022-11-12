@@ -18,6 +18,11 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.Combobox} name="Combobox" />
     <NavigationToInternalPage path={Path.Countdown} name="Countdown" />
     <NavigationToInternalPage path={Path.GridTable} name="CSS Grid Table" />
+    <NavigationToInternalPage path={Path.DynamicForm} name="Dynamic Form" />
+    <NavigationToInternalPage
+      path={Path.CalendarEditor}
+      name="Calendar Editor"
+    />
     <NavigationToInternalPage
       path={Path.DistributionBar}
       name="Distribution Bar"
@@ -26,7 +31,6 @@ export const NavigationItems = () => (
       path={Path.InfiniteScroll}
       name="Infinite Scroll"
     />
-    <NavigationToInternalPage path={Path.DynamicForm} name="Dynamic Form" />
     <NavigationToInternalPage path={Path.Nfts} name="Wallet's NFTs" />
     <NavigationToInternalPage path={Path.IPFS} name="Upload to IPFS" />
   </VStack>

@@ -19,4 +19,5 @@ export enum Path {
   Nfts = "/nfts",
   IPFS = "/ipfs",
   Panel = "/panel",
+  CalendarEditor = "/calendar-editor",
 }
