@@ -20,4 +20,5 @@ export enum Path {
   IPFS = "/ipfs",
   Panel = "/panel",
   CalendarEditor = "/calendar-editor",
+  Resume = "/resume",
 }
