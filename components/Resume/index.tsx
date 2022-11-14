@@ -6,6 +6,8 @@ import { PrintResume } from "./PrintResume";
 import { dotSeparator, SeparatedBy } from "lib/ui/SeparatedBy";
 import { ExperienceList } from "./ExperienceList";
 import { JobExperience } from "./JobExperience";
+import { PersonalProject } from "./PersonalProject";
+import { ResumeFooter } from "./ResumeFooter";
 
 export const Resume = () => {
   const containerElement = useRef<HTMLDivElement>(null);
@@ -115,6 +117,52 @@ export const Resume = () => {
           ]}
         />
       </ExperienceList>
+      <ExperienceList style={{ flex: 1 }}>
+        <VStack gap={20}>
+          <Text weight="bold">
+            <Text as="span" color="attention">
+              Making
+            </Text>{" "}
+            Tools & Content
+          </Text>
+          <PersonalProject
+            description="Productivity toolkit for remote workers"
+            name="Increaser"
+            url="https://increaser.org"
+            achievement="10k+ signups"
+            responsibilities={[
+              "Bring to life a B2C SAAS product",
+              "Full-stack development of a web app",
+            ]}
+          />
+          <PersonalProject
+            description="Blog on programming and more"
+            name="radzion.com"
+            url="https://radzion.com"
+            achievement="12k+ visits / mo"
+          />
+        </VStack>
+        <VStack gap={20}>
+          <PersonalProject
+            description="Useful videos for web developers"
+            name="YouTube"
+            url="https://radzion.com"
+            achievement="250+ subscribers"
+          />
+          <PersonalProject
+            description="Highligts from nonfiction books"
+            name="Books Concepts"
+            url="https://booksconcepts.com"
+            achievement="7k+ visits / mo"
+          />
+          <PersonalProject
+            description="Toolkit for faster front-end development"
+            name="React Kit"
+            url="https://reactkit.radzion.com"
+          />
+        </VStack>
+      </ExperienceList>
+      <ResumeFooter />
     </ResumeContainer>
   );
 };

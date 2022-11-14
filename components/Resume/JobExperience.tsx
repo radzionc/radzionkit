@@ -1,8 +1,8 @@
 import { formatDistance } from "date-fns";
-import { LabeledValue } from "lib/ui/LabeledValue";
 import { SeparatedBy, dotSeparator } from "lib/ui/SeparatedBy";
 import { HStack, VStack } from "lib/ui/Stack";
 import { Text } from "lib/ui/Text";
+import { Responsibilities } from "./Responsibilities";
 
 interface Props {
   position: string;
@@ -44,14 +44,7 @@ export const JobExperience = ({
           {formatDistance(finishedAt ?? new Date(), startedAt)}
         </Text>
       </SeparatedBy>
-      <VStack gap={4}>
-        {responsibilities.map((responsibility, index) => (
-          <HStack key={index} gap={4}>
-            <Text color="supporting3">{dotSeparator}</Text>
-            <Text color="supporting">{responsibility}</Text>
-          </HStack>
-        ))}
-      </VStack>
+      <Responsibilities items={responsibilities} />
       {technologies && (
         <HStack gap={4}>
           <Text size={14} color="supporting3">
