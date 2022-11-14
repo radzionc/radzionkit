@@ -7,9 +7,7 @@ import { ReversedTheme } from "lib/ui/theme/ReversedTheme";
 const ResumePage: NextPage = () => {
   return (
     <DemoPage title="Radzion's Resume">
-      <ReversedTheme>
-        <Resume />
-      </ReversedTheme>
+      <Resume />
     </DemoPage>
   );
 };

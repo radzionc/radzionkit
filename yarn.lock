@@ -4029,6 +4029,13 @@ react-query@^3.39.2:
     broadcast-channel "^3.4.1"
     match-sorter "^6.0.2"
 
+react-to-print@^2.14.8:
+  version "2.14.8"
+  resolved "https://registry.yarnpkg.com/react-to-print/-/react-to-print-2.14.8.tgz#15203e4f4b83b18931a490d39899b25d68923a6f"
+  integrity sha512-5MkSF3rLdxF9gmcSA6PdqTq9IFh7XkpYiJGP15OW+7hVr0+bpjLvi+kAIAuVjyV5/pv4GI3GuhVBQ0/hq94EZg==
+  dependencies:
+    prop-types "^15.8.1"
+
 react-universal-interface@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/react-universal-interface/-/react-universal-interface-0.6.2.tgz#5e8d438a01729a4dbbcbeeceb0b86be146fe2b3b"

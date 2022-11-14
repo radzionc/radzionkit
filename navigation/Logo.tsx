@@ -8,7 +8,7 @@ export const Logo = () => {
       <Text size={18} color="regular" weight="bold">
         React
         <Text as="span" color="primary">
-          Toolkit
+          Kit
         </Text>
       </Text>
     </InternalLink>
