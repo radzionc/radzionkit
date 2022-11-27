@@ -1,3 +1,4 @@
+import { degreesInCircle } from "lib/shared/utils/degreesToRadians";
 import { enforceRange } from "lib/shared/utils/enforceRange";
 
 export const hslaKeys = ["h", "s", "l", "a"] as const;
@@ -12,7 +13,7 @@ export class HSLA {
     return this._h;
   }
   set h(newH: number) {
-    this._h = enforceRange(newH, 0, 360);
+    this._h = enforceRange(newH, 0, degreesInCircle);
   }
 
   private _l = 0;

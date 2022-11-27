@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import { DistributionBar } from "lib/ui/DistributionBar";
 import { DemoPage } from "components/DemoPage";
 import { useTheme } from "styled-components";
 import { PieChart } from "lib/ui/PieChart";

@@ -1,9 +1,10 @@
+import { degreesInCircle } from "lib/shared/utils/degreesToRadians";
 import { sum } from "lib/shared/utils/sum";
 import { HSLA } from "./HSLA";
 
 export const paletteColorsCount = 12;
 
-const paletteHueRanges = [[0, 360]];
+const paletteHueRanges = [[0, degreesInCircle]];
 
 const paletteHueCoverage = paletteHueRanges.map(([start, end]) => end - start);
 const paletteHueTotalCoverage = sum(paletteHueCoverage);

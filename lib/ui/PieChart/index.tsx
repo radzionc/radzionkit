@@ -1,10 +1,12 @@
 import { useMemo } from "react";
-import styled, { useTheme } from "styled-components";
+import { useTheme } from "styled-components";
 import { HSLA } from "lib/ui/colors/HSLA";
 
-import { SvgArc, polarToCartesian } from "./SvgArc";
+import { SvgArc } from "./SvgArc";
 import { SvgDisk } from "./SvgDisk";
 import { sum } from "lib/shared/utils/sum";
+import { PieChartLabel } from "./PieChartLabel";
+import { degreesInCircle } from "lib/shared/utils/degreesToRadians";
 
 export interface PieChartItem {
   value: number;
@@ -16,8 +18,6 @@ interface Props {
 }
 
 const cutoutRadiusShare = 0.52;
-const totalDegrees = 360;
-const spaceBetweenInDegrees = 0;
 
 interface PieChartItemWithAngle extends PieChartItem {
   startAngle: number;
@@ -31,7 +31,7 @@ const getItemsWithAngles = (items: PieChartItem[]): PieChartItemWithAngle[] => {
 
   items.forEach((item, index) => {
     const startAngle = index === 0 ? 0 : itemsWithAngles[index - 1].endAngle;
-    const endAngle = startAngle + (item.value / total) * totalDegrees;
+    const endAngle = startAngle + (item.value / total) * degreesInCircle;
 
     itemsWithAngles.push({
       ...item,
@@ -44,13 +44,6 @@ const getItemsWithAngles = (items: PieChartItem[]): PieChartItemWithAngle[] => {
 };
 
 const svgViewBoxSize = 100;
-const svgContainerSize = 20;
-
-const Label = styled.text`
-  fill: ${({ theme }) => theme.colors.white.toCssValue()};
-  font-size: 9px;
-  font-weight: 500;
-`;
 
 export const PieChart = ({ items }: Props) => {
   const itemsWithAngles = useMemo(() => getItemsWithAngles(items), [items]);
@@ -72,16 +65,6 @@ export const PieChart = ({ items }: Props) => {
         />
       ) : (
         itemsWithAngles.map(({ color, startAngle, endAngle, value }, index) => {
-          const labelAngle = startAngle + (endAngle - startAngle) / 2;
-          const labelPosition = polarToCartesian(
-            radius,
-            cutoutRadius + (radius - cutoutRadius) / 2,
-            labelAngle
-          );
-          const labelSide = svgContainerSize;
-          labelPosition.x -= svgContainerSize / 2;
-          labelPosition.y -= svgContainerSize / 2;
-
           const percentage = Math.round((value * 100) / total);
 
           return (
@@ -92,26 +75,15 @@ export const PieChart = ({ items }: Props) => {
                 radius={radius}
                 cutoutRadius={cutoutRadius}
                 startAngle={startAngle}
-                endAngle={endAngle - spaceBetweenInDegrees}
+                endAngle={endAngle}
               />
               {percentage > 5 && (
-                <g>
-                  <rect
-                    fill="transparent"
-                    {...labelPosition}
-                    width={labelSide}
-                    height={labelSide}
-                  />
-                  <Label
-                    x={labelPosition.x + labelSide / 2}
-                    y={labelPosition.y + labelSide / 2}
-                    dominantBaseline="middle"
-                    textAnchor="middle"
-                  >
-                    {percentage}
-                    <tspan fontSize={5}>%</tspan>
-                  </Label>
-                </g>
+                <PieChartLabel
+                  radius={radius}
+                  cutoutRadius={cutoutRadius}
+                  startAngle={startAngle}
+                  endAngle={endAngle}
+                />
               )}
             </>
           );
