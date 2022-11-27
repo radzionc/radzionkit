@@ -16,6 +16,7 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.Slider} name="Slider" />
     <NavigationToInternalPage path={Path.SelectView} name="Select View" />
     <NavigationToInternalPage path={Path.Combobox} name="Combobox" />
+    <NavigationToInternalPage path={Path.PieChart} name="PieChart" />
     <NavigationToInternalPage path={Path.Countdown} name="Countdown" />
     <NavigationToInternalPage path={Path.GridTable} name="CSS Grid Table" />
     <NavigationToInternalPage path={Path.DynamicForm} name="Dynamic Form" />

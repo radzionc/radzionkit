@@ -14,6 +14,7 @@ export enum Path {
   InfiniteScroll = "/infinite-scroll",
   Combobox = "/combobox",
   DistributionBar = "/distribution-bar",
+  PieChart = "/piechart",
   DynamicForm = "/dynamic-form",
   Countdown = "/countdown",
   Nfts = "/nfts",
