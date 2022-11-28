@@ -21,6 +21,7 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.GridTable} name="CSS Grid Table" />
     <NavigationToInternalPage path={Path.DynamicForm} name="Dynamic Form" />
     <NavigationToInternalPage path={Path.Resume} name="Resume" />
+    <NavigationToInternalPage path={Path.TimeEditor} name="Time Editor" />
     <NavigationToInternalPage
       path={Path.CalendarEditor}
       name="Calendar Editor"
