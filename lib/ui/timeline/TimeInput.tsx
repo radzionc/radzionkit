@@ -16,7 +16,7 @@ import { HourSpace } from "./HourSpace";
 import { InteractiveBoundaryArea } from "./InteractiveBoundaryArea";
 import { MaxIntervalEndBoundary } from "./MaxIntervalEndBoundary";
 
-export interface timeInputProps {
+export interface TimeInputProps {
   color: HSLA;
   value: number;
   onChange: (value: number) => void;
@@ -66,13 +66,13 @@ export const TimeInput = ({
   pxInHour = 60,
   max: optionalMax,
   intialValue,
-}: timeInputProps) => {
+}: TimeInputProps) => {
   const hoursCount = endHour - startHour;
 
   const max = optionalMax ?? startOfDay + MS_IN_HOUR * endHour;
 
-  const mintimeStart = startOfDay + MS_IN_HOUR * startHour;
-  const timelineStart = mintimeStart;
+  const minTimeStart = startOfDay + MS_IN_HOUR * startHour;
+  const timelineStart = minTimeStart;
 
   const height = hoursCount * pxInHour;
   const pxInMs = height / (hoursCount * MS_IN_HOUR);
@@ -99,7 +99,7 @@ export const TimeInput = ({
 
     const timestamp = timelineStart + y / pxInMs;
 
-    onChange(enforceRange(timestamp, mintimeStart, max));
+    onChange(enforceRange(timestamp, minTimeStart, max));
   };
 
   const cursor = isActive ? "row-resize" : undefined;
@@ -124,20 +124,21 @@ export const TimeInput = ({
         hourLabelWidthInPx={20}
       >
         {optionalMax && (
-          <MaxIntervalEndBoundary
-            timestamp={optionalMax}
-            y={pxInMs * (optionalMax - timelineStart)}
-            isActive={isActive}
-          />
+          <>
+            <MaxIntervalEndBoundary
+              timestamp={optionalMax}
+              y={pxInMs * (optionalMax - timelineStart)}
+              isActive={isActive}
+            />
+            <Session
+              style={{
+                top: valueInPx,
+                height: pxInMs * (max - timelineStart) - valueInPx,
+                background: color.getVariant({ a: () => 0.2 }).toCssValue(),
+              }}
+            />
+          </>
         )}
-
-        <Session
-          style={{
-            top: valueInPx,
-            height: pxInMs * (max - timelineStart) - valueInPx,
-            background: color.getVariant({ a: () => 0.2 }).toCssValue(),
-          }}
-        />
 
         <CurrentLine
           ref={timeElement}
