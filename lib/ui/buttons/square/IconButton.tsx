@@ -6,6 +6,7 @@ import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS";
 import { roundedCSS } from "lib/ui/utils/roundedCSS";
 
 import { UnstyledButton } from "../UnstyledButton";
+import { forwardRef, Ref } from "react";
 
 type IconButtonKind = "regular" | "alert";
 
@@ -13,25 +14,24 @@ export const stickyIconButtonSizes = ["xs", "s", "m", "l"] as const;
 
 type IconButtonSize = typeof stickyIconButtonSizes[number];
 
-export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IconButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: React.ReactNode;
   kind?: IconButtonKind;
   size?: IconButtonSize;
   as?: "button" | "div";
 }
 
-export const IconButton = ({
-  size = "m",
-  icon,
-  kind = "regular",
-  ...rest
-}: Props) => {
+export const IconButton = forwardRef(function IconButtonInner(
+  { size = "m", icon, kind = "regular", ...rest }: IconButtonProps,
+  ref: Ref<HTMLButtonElement> | null
+) {
   return (
-    <Container {...rest} kind={kind} size={size}>
+    <Container ref={ref} {...rest} kind={kind} size={size}>
       {icon}
     </Container>
   );
-};
+});
 
 const sizeRecord: Record<IconButtonSize, number> = {
   xs: 16,

@@ -24,7 +24,6 @@ const Control = styled.div`
   ${getSameDimensionsCSS(controlSize)};
 
   ${roundedCSS};
-  outline: 4px solid transparent;
   ${defaultTransitionCSS};
 
   ${centerContentCSS};

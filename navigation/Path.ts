@@ -24,4 +24,5 @@ export enum Path {
   CalendarEditor = "/calendar-editor",
   TimeEditor = "/time-editor",
   Resume = "/resume",
+  Menu = "/menu",
 }

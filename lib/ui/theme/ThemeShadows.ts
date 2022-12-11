@@ -1,4 +1,4 @@
 export interface ThemeShadows {
-  small: string
-  mediud: string
+  small: string;
+  medium: string;
 }
