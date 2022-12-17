@@ -1,5 +1,4 @@
 import { Placement } from "@popperjs/core";
-import throttle from "lodash/throttle";
 import { ReactNode, useEffect, useState } from "react";
 import { usePopper } from "react-popper";
 import { useClickAway } from "react-use";
@@ -19,7 +18,6 @@ interface PopoverProps {
   distance?: number;
   enableScreenCover?: boolean;
   onClickOutside?: () => void;
-  isVisible?: boolean;
 }
 
 export const Popover = styled(
@@ -30,7 +28,6 @@ export const Popover = styled(
     placement = "auto",
     distance = 4,
     enableScreenCover = false,
-    isVisible = true,
   }: PopoverProps) => {
     const [popperElement, setPopperElement] = useState<HTMLElement | null>(
       null
@@ -66,7 +63,7 @@ export const Popover = styled(
     useEffect(() => {
       if (!update) return;
 
-      throttle(update, 200);
+      update();
     }, [size, update]);
 
     const popoverNode = (
@@ -78,8 +75,6 @@ export const Popover = styled(
         {children}
       </Container>
     );
-
-    if (!isVisible) return null;
 
     return (
       <BodyPortal>

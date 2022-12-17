@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   */
   * {
     margin: 0;
+    padding: 0;
   }
   /*
     3. Allow percentage-based heights in the application
@@ -19,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   html, body, #root, #__next {
     height: 100%;
   }
+
   /*
     Typographic tweaks!
     4. Add accessible line-height

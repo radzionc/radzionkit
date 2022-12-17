@@ -25,4 +25,5 @@ export enum Path {
   TimeEditor = "/time-editor",
   Resume = "/resume",
   Menu = "/menu",
+  TabNavigation = "/tab-navigation",
 }
