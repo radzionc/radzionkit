@@ -26,4 +26,5 @@ export enum Path {
   Resume = "/resume",
   Menu = "/menu",
   TabNavigation = "/tab-navigation",
+  Promotion = "/promotion",
 }

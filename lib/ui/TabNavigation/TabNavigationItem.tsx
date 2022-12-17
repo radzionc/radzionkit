@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 import { centerContentCSS } from "lib/ui/utils/centerContentCSS";
 
 import { roundedCSS } from "lib/ui/utils/roundedCSS";
-import { Text } from "lib/ui/Text";
 import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,

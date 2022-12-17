@@ -4,6 +4,7 @@ import { createUsePersistantStorageValueHook } from "lib/state/createUsePersista
 
 export enum PersistentStorageKey {
   ThemePreference = "themePreference",
+  Promotion = "promotion",
 }
 
 export const persistentStorage =
