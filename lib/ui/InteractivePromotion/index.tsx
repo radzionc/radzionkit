@@ -8,10 +8,16 @@ import { HStack, VStack } from "../Stack";
 import { Text } from "../Text";
 import { ReversedTheme } from "../theme/ReversedTheme";
 
+interface speechPlaecement {
+  left: React.CSSProperties["left"];
+  bottom: React.CSSProperties["bottom"];
+}
+
 interface InteractivePromotionProps {
   text: string;
   url: string;
   character: ReactNode;
+  speechPlacement: speechPlaecement;
   onDismiss?: () => void;
   onAccept?: () => void;
 }
@@ -26,8 +32,6 @@ const CharacterContainer = styled(animated.div)`
 const MessageContainer = styled(animated.div)`
   position: fixed;
   z-index: 7;
-  left: 280px;
-  bottom: 28px;
 `;
 
 const Content = styled.div`
@@ -54,6 +58,7 @@ export const InteractivePromotion = ({
   character,
   onDismiss,
   onAccept,
+  speechPlacement,
 }: InteractivePromotionProps) => {
   const [isCharacterAnimationFinished, setIsCharacterAnimationFinished] =
     useState(false);
@@ -80,7 +85,7 @@ export const InteractivePromotion = ({
       </CharacterContainer>
       {isCharacterAnimationFinished && (
         <ReversedTheme>
-          <MessageContainer>
+          <MessageContainer style={speechPlacement}>
             <Content>
               <Connector>
                 <svg
@@ -93,7 +98,7 @@ export const InteractivePromotion = ({
                   <path
                     fill="currentColor"
                     d="M0 0C0 0 24.8936 38.9937 47 58C57.5966 67.1106 73.8292 77.0249 84.1762 83C90.03 86.3804 94 95 94 95L94.5 36C94.5 36 88.5727 43.1045 81 41.4825C70.8874 39.3165 56.9488 35.8549 47 31.5C26.7586 22.6397 0 0 0 0Z"
-                  ></path>
+                  />
                 </svg>
               </Connector>
               <VStack alignItems="start" gap={16}>

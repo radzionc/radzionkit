@@ -22,13 +22,17 @@ const PromotionPage: NextPage = () => {
   return (
     <DemoPage title="Interactive Promotion">
       {!wasShown && (
-        <ShowAfterDelay ms={10000}>
+        <ShowAfterDelay ms={3000}>
           <InteractivePromotion
             onDismiss={() => setWasShown(true)}
             onAccept={() => setWasShown(true)}
             url="https://increaser.org"
             text="Hi there! Can I share a tool for deep work with you?"
             character={<Image src="/hello.png" alt="hello" />}
+            speechPlacement={{
+              left: 280,
+              bottom: 28,
+            }}
           />
         </ShowAfterDelay>
       )}
