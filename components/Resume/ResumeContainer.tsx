@@ -18,4 +18,10 @@ export const ResumeContainer = styled.div`
     background: ${({ theme }) => theme.colors.background.toCssValue()};
     padding: 20px;
   }
+
+  @media print {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
 `;
