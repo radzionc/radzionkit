@@ -6,6 +6,7 @@ export enum Path {
   Modal = "/modal",
   TextInput = "/text-input",
   Switch = "/switch",
+  Checkbox = "/checkbox",
   Select = "/select",
   SizeAware = "/size-aware",
   Colors = "/colors",
