@@ -6,7 +6,7 @@ import { centerContentCSS } from "lib/ui/utils/centerContentCSS";
 import { defaultInputShapeCSS } from "../config";
 import {
   InvisibleHTMLRadio,
-  Props as InvisibleHTMLRadioProps,
+  InvisibleHTMLRadioProps,
 } from "../InvisibleHTMLRadio";
 
 const Container = styled.label<{ isSelected: boolean }>`
