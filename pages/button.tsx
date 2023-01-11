@@ -1,4 +1,3 @@
-import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
 import type { NextPage } from "next";
 import { GhostButton } from "lib/ui/buttons/rect/GhostButton";
 import { OutlinedButton } from "lib/ui/buttons/rect/OutlinedButton";
@@ -15,6 +14,9 @@ const ButtonPage: NextPage = () => {
           <HStack gap={20}>
             <PrimaryButton kind="primary">Submit</PrimaryButton>
             <PrimaryButton kind="attention">Submit</PrimaryButton>
+            <PrimaryButton isDisabled="Not enough balance">
+              Disabled
+            </PrimaryButton>
           </HStack>
         </SimpleNamedList>
         <SimpleNamedList name="Ghost">
