@@ -7,6 +7,8 @@ import {
 } from "./InputWrapper";
 import { Spinner } from "../Spinner";
 import { commonInputCSS } from "./commonInputCSS";
+import { ComponentWithClassNameProps } from "lib/shared/props";
+import { VStack } from "../Stack";
 
 export type SharedTextInputProps = Pick<
   InputWrapperProps,
@@ -28,6 +30,8 @@ export const TextInput = forwardRef(function TextInputInner(
     error,
     height,
     inputOverlay,
+    isLoading,
+    className,
     ...props
   }: TextInputProps,
   ref: Ref<HTMLInputElement> | null
@@ -35,15 +39,20 @@ export const TextInput = forwardRef(function TextInputInner(
   return (
     <InputWrapperWithErrorMessage error={error} label={label}>
       <InputWr>
-        <TextInputContainer
-          {...props}
-          isValid={!error}
-          ref={ref}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => {
-            props.onChange?.(event);
-            onValueChange?.(event.currentTarget.value);
-          }}
-        />
+        {isLoading ? (
+          <TextInputLoader className={className} />
+        ) : (
+          <TextInputContainer
+            {...props}
+            isValid={!error}
+            className={className}
+            ref={ref}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => {
+              props.onChange?.(event);
+              onValueChange?.(event.currentTarget.value);
+            }}
+          />
+        )}
         {inputOverlay}
       </InputWr>
     </InputWrapperWithErrorMessage>
@@ -61,8 +70,10 @@ export const TextInputContainer = styled.input`
   ${commonInputCSS};
 `;
 
-export const TextInputLoader = () => (
-  <TextInputContainer as="div" isValid>
-    <Spinner />
+export const TextInputLoader = ({ className }: ComponentWithClassNameProps) => (
+  <TextInputContainer as="div" className={className} isValid>
+    <VStack fullHeight alignItems="center" justifyContent="center">
+      <Spinner size={18} />
+    </VStack>
   </TextInputContainer>
 );

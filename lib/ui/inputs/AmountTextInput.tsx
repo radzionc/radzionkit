@@ -20,15 +20,6 @@ const UnitContainer = styled.div`
 
 const Input = styled(TextInput)`
   padding-left: 36px;
-
-  ::-webkit-outer-spin-button,
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  [type="number"] {
-    -moz-appearance: textfield;
-  }
 `;
 
 export const AmountTextInput = forwardRef(function AmountInputInner(
@@ -51,6 +42,7 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
   return (
     <Input
       {...props}
+      type="number"
       value={valueAsString === inputValue.current ? inputValue.current : value}
       ref={ref}
       inputOverlay={unit ? <UnitContainer>{unit}</UnitContainer> : undefined}

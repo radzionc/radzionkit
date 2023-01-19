@@ -65,4 +65,13 @@ export const GlobalStyle = createGlobalStyle`
     background: ${({ theme }) => theme.colors.background.toCssValue()};
     color: ${({ theme }) => theme.colors.text.toCssValue()};
   }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
 `;

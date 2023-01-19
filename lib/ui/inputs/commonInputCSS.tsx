@@ -12,7 +12,6 @@ export const commonInputCSS = css<CommonInputCSSProps>`
 
   background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
   color: ${({ theme }) => theme.colors.text.toCssValue()};
-  width: 100%;
 
   ${defaultTransitionCSS};
 
