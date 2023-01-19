@@ -10,7 +10,8 @@ import { getCSSUnit } from "lib/ui/utils/getCSSUnit";
 import { Text } from "lib/ui/Text";
 
 import { InputWrapperWithErrorMessage } from "./InputWrapper";
-import { SharedTextInputProps, commonInputCSS } from "./TextInput";
+import { SharedTextInputProps } from "./TextInput";
+import { commonInputCSS } from "./commonInputCSS";
 
 const TextareaContainer = styled.textarea`
   ${commonInputCSS};

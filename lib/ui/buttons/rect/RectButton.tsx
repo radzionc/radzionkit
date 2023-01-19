@@ -82,7 +82,8 @@ const Container = styled(UnstyledButton)<ContainerProps>`
 
 const tooltipAnimation = keyframes`
   from {
-    transform: translateY(10px);
+    transform: translateY(4px);
+    opacity: 0.6;
   }
 `;
 

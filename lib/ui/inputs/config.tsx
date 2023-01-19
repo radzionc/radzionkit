@@ -5,7 +5,9 @@ export const inputBorderRadiusCSS = css`
 `;
 
 export const defaultInputShapeCSS = css`
-  height: 48px;
+  height: 52px;
+  width: 100%;
+  padding: 12px;
   ${inputBorderRadiusCSS};
 `;
 
