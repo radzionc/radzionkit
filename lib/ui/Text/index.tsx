@@ -38,6 +38,7 @@ export interface Props {
   height?: TextHeight;
   centered?: boolean;
   cropped?: boolean;
+  nowrap?: boolean;
 }
 
 const getFonSize = (sizeInPx: number) => {
@@ -75,6 +76,12 @@ export const Text = styled.p<Props>`
     centered &&
     css`
       text-align: center;
+    `}
+
+  ${({ nowrap }) =>
+    nowrap &&
+    css`
+      white-space: nowrap;
     `}
 
   ${({ cropped }) =>

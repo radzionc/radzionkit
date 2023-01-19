@@ -1,5 +1,6 @@
 import { Ref, forwardRef, ReactNode, useRef } from "react";
 import styled from "styled-components";
+import { HStack } from "../Stack";
 import { centerContentCSS } from "../utils/centerContentCSS";
 
 import { TextInput, TextInputProps } from "./TextInput";
@@ -9,6 +10,7 @@ type AmountTextInputProps = Omit<TextInputProps, "value" | "onValueChange"> & {
   onValueChange?: (value: number | undefined) => void;
   unit: ReactNode;
   shouldBePositive?: boolean;
+  suggestion?: ReactNode;
 };
 
 const UnitContainer = styled.div`
@@ -31,6 +33,8 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
     unit,
     value,
     shouldBePositive,
+    suggestion,
+    label,
     ...props
   }: AmountTextInputProps,
   ref: Ref<HTMLInputElement> | null
@@ -43,6 +47,17 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
     <Input
       {...props}
       type="number"
+      label={
+        <HStack
+          alignItems="center"
+          justifyContent="space-between"
+          gap={16}
+          fullWidth
+        >
+          {label}
+          {suggestion}
+        </HStack>
+      }
       value={valueAsString === inputValue.current ? inputValue.current : value}
       ref={ref}
       inputOverlay={unit ? <UnitContainer>{unit}</UnitContainer> : undefined}
