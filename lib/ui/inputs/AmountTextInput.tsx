@@ -1,4 +1,4 @@
-import { Ref, forwardRef, ReactNode, useRef } from "react";
+import { Ref, forwardRef, ReactNode, useState } from "react";
 import styled from "styled-components";
 import { HStack } from "../Stack";
 import { centerContentCSS } from "../utils/centerContentCSS";
@@ -10,6 +10,7 @@ type AmountTextInputProps = Omit<TextInputProps, "value" | "onValueChange"> & {
   onValueChange?: (value: number | undefined) => void;
   unit: ReactNode;
   shouldBePositive?: boolean;
+  shouldBeInteger?: boolean;
   suggestion?: ReactNode;
 };
 
@@ -33,20 +34,22 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
     unit,
     value,
     shouldBePositive,
+    shouldBeInteger,
     suggestion,
     label,
+    placeholder,
+    type = "number",
     ...props
   }: AmountTextInputProps,
   ref: Ref<HTMLInputElement> | null
 ) {
   const valueAsString = value?.toString() ?? "";
-
-  const inputValue = useRef<string>(valueAsString);
+  const [inputValue, setInputValue] = useState<string>(valueAsString);
 
   return (
     <Input
       {...props}
-      type="number"
+      type={type}
       label={
         <HStack
           alignItems="center"
@@ -58,21 +61,35 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
           {suggestion}
         </HStack>
       }
-      value={valueAsString === inputValue.current ? inputValue.current : value}
+      placeholder={placeholder ?? "Enter amount"}
+      value={
+        Number(valueAsString) === Number(inputValue)
+          ? inputValue
+          : valueAsString
+      }
       ref={ref}
       inputOverlay={unit ? <UnitContainer>{unit}</UnitContainer> : undefined}
       onValueChange={(value) => {
-        const valueAsNumber = Number(value);
-        if (Number.isNaN(valueAsNumber)) {
+        if (shouldBePositive) {
+          value = value.replace(/-/g, "");
+        }
+
+        if (value === "") {
+          setInputValue("");
+          onValueChange?.(undefined);
           return;
         }
 
-        if (shouldBePositive && valueAsNumber < 0) {
+        const parse = shouldBeInteger ? parseInt : parseFloat;
+        const valueAsNumber = parse(value);
+        if (isNaN(valueAsNumber)) {
           return;
         }
 
-        inputValue.current = value;
-        onValueChange?.(value === "" ? undefined : valueAsNumber);
+        setInputValue(
+          valueAsNumber.toString() !== value ? value : valueAsNumber.toString()
+        );
+        onValueChange?.(valueAsNumber);
       }}
     />
   );

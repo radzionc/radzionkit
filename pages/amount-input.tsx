@@ -12,10 +12,8 @@ const AmountInputPage: NextPage = () => {
     <DemoPage title="Amount Input">
       <div style={{ width: 320 }}>
         <AmountTextInput
-          type="number"
           value={value}
           label="Salary"
-          placeholder="Enter amount"
           onValueChange={setValue}
           unit={<DollarIcon />}
           suggestion={
