@@ -1,11 +1,10 @@
 import { InternalLink } from "lib/navigation/Link/InternalLink";
-import { Path } from "navigation/Path";
 import { useRouter } from "next/router";
 
 import { NavigationItem } from "./NavigationItem";
 
 interface Props {
-  path: Path;
+  path: string;
   name: string;
 }
 
