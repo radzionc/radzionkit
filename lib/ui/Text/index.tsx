@@ -1,19 +1,19 @@
 import styled, { DefaultTheme, css } from "styled-components";
 
 const getTextColorRecord = ({ colors }: DefaultTheme) =>
-  ({
-    regular: colors.text,
-    supporting: colors.textSupporting,
-    supporting2: colors.textSupporting2,
-    supporting3: colors.textSupporting3,
+({
+  regular: colors.text,
+  supporting: colors.textSupporting,
+  supporting2: colors.textSupporting2,
+  supporting3: colors.textSupporting3,
 
-    primary: colors.primary,
-    attention: colors.attention,
-    alert: colors.alert,
-    success: colors.success,
-    reversed: colors.background,
-    white: colors.white,
-  } as const);
+  primary: colors.primary,
+  attention: colors.attention,
+  alert: colors.alert,
+  success: colors.success,
+  reversed: colors.background,
+  contrast: colors.contrast,
+} as const);
 
 type TextWeight = "regular" | "semibold" | "bold";
 const fontWeight: Record<TextWeight, number> = {

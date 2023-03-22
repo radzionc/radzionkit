@@ -7,9 +7,9 @@ import { Spinner } from "lib/ui/Spinner";
 
 import { getCSSUnit } from "lib/ui/utils/getCSSUnit";
 import { UnstyledButton } from "../UnstyledButton";
-import { MouseEvent, useState } from "react";
+import { MouseEvent } from "react";
 import { useBoolean } from "lib/shared/hooks/useBoolean";
-import { Popover } from "lib/ui/popover/Popover";
+import { offset, shift, useFloating } from "@floating-ui/react";
 
 export const rectButtonSizes = ["xs", "s", "m", "l", "xl"] as const;
 
@@ -31,7 +31,7 @@ interface ContainerProps {
   isRounded?: boolean;
 }
 
-const Container = styled(UnstyledButton)<ContainerProps>`
+const Container = styled(UnstyledButton) <ContainerProps>`
   color: ${({ theme }) => theme.colors.text.toCssValue()};
   ${defaultTransitionCSS};
 
@@ -40,33 +40,33 @@ const Container = styled(UnstyledButton)<ContainerProps>`
   border-radius: ${({ isRounded }) => getCSSUnit(isRounded ? 100 : 8)};
 
   ${({ size }) =>
-    ({
-      xs: css`
+  ({
+    xs: css`
         ${getHorizontalPaddingCSS(8)}
         height: 28px;
         font-size: 14px;
       `,
-      s: css`
+    s: css`
         ${getHorizontalPaddingCSS(16)}
         height: 36px;
         font-size: 14px;
       `,
-      m: css`
+    m: css`
         ${getHorizontalPaddingCSS(20)}
         height: 40px;
         font-size: 16px;
       `,
-      l: css`
+    l: css`
         ${getHorizontalPaddingCSS(20)}
         height: 48px;
         font-size: 16px;
       `,
-      xl: css`
+    xl: css`
         ${getHorizontalPaddingCSS(40)}
         height: 56px;
         font-size: 18px;
       `,
-    }[size])};
+  }[size])};
 
   font-weight: 500;
 
@@ -91,7 +91,7 @@ const TooltipContainer = styled.div`
   border-radius: 4px;
   padding: 4px 8px;
   background: ${({ theme }) =>
-    theme.colors.text.getVariant({ a: () => 1 }).toCssValue()};
+    theme.colors.contrast.toCssValue()};
   color: ${({ theme }) => theme.colors.background.toCssValue()};
   font-size: 14px;
 
@@ -108,7 +108,15 @@ export const RectButton = ({
   onMouseLeave,
   ...rest
 }: Props) => {
-  const [anchor, setAnchor] = useState<HTMLElement | null>(null);
+  const { x, y, strategy, refs } = useFloating({
+    placement: "bottom",
+    strategy: "fixed",
+    middleware: [
+      offset(4),
+      shift()
+    ]
+  });
+
 
   const [isTooltipOpen, { unset: hideTooltip, set: showTooltip }] =
     useBoolean(false);
@@ -117,6 +125,7 @@ export const RectButton = ({
 
   return (
     <Container
+      ref={refs.setReference}
       size={size}
       isDisabled={!!isDisabled}
       isLoading={isLoading}
@@ -129,7 +138,6 @@ export const RectButton = ({
         onMouseLeave?.(event);
         isTooltipEnabled && hideTooltip();
       }}
-      ref={setAnchor}
       {...rest}
     >
       {isLoading ? (
@@ -139,10 +147,16 @@ export const RectButton = ({
       ) : (
         <>{children}</>
       )}
-      {anchor && isTooltipOpen && (
-        <Popover placement="bottom" anchor={anchor}>
-          <TooltipContainer>{isDisabled}</TooltipContainer>
-        </Popover>
+      {isTooltipOpen && (
+        <TooltipContainer
+          ref={refs.setFloating}
+          style={{
+            position: strategy,
+            top: y ?? 0,
+            left: x ?? 0,
+            width: 'max-content'
+          }}
+        >{isDisabled}</TooltipContainer>
       )}
     </Container>
   );

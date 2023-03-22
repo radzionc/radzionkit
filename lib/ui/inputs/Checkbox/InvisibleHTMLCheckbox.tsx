@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export interface InvisibleHTMLCheckboxProps {
-  value: boolean
-  onChange: (value: boolean) => void
+  value: boolean;
+  onChange: (value: boolean) => void;
 }
 
 const CheckboxInput = styled.input`
@@ -12,9 +12,8 @@ const CheckboxInput = styled.input`
   margin: -1px;
   overflow: hidden;
   padding: 0;
-  position: absolute;
   width: 1px;
-`
+`;
 
 export const InvisibleHTMLCheckbox = ({
   value,
@@ -24,7 +23,7 @@ export const InvisibleHTMLCheckbox = ({
     type="checkbox"
     checked={value}
     onChange={(event) => {
-      onChange(event.currentTarget.checked)
+      onChange(event.currentTarget.checked);
     }}
   />
-)
+);

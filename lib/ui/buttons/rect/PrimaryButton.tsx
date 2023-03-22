@@ -15,30 +15,30 @@ export type Props = RectButtonProps & {
 
 const defaultKind = "primary";
 
-const Container = styled(RectButton)<Props>`
-  color: ${({ theme }) => theme.colors.white.toCssValue()};
+const Container = styled(RectButton) <Props>`
+  color: ${({ theme }) => theme.colors.contrast.toCssValue()};
 
   ${({ kind = defaultKind }) =>
-    ({
-      primary: css`
+  ({
+    primary: css`
         background: ${({ theme }) => theme.colors.primary.toCssValue()};
       `,
-      attention: css`
+    attention: css`
         background: ${({ theme }) => theme.colors.attention.toCssValue()};
       `,
-      reversed: css`
+    reversed: css`
         background: ${({ theme }) => theme.colors.text.toCssValue()};
         color: ${({ theme }) => theme.colors.background.toCssValue()};
       `,
-      secondary: css`
+    secondary: css`
         background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
         color: ${({ theme }) => theme.colors.text.toCssValue()};
       `,
-      alert: css`
+    alert: css`
         background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
         color: ${({ theme }) => theme.colors.alert.toCssValue()};
       `,
-    }[kind])};
+  }[kind])};
   ${({ isDisabled, isLoading, kind = defaultKind }) =>
     !isDisabled &&
     !isLoading &&
@@ -51,26 +51,26 @@ const Container = styled(RectButton)<Props>`
       attention: css`
         :hover {
           background: ${({ theme }) =>
-            theme.colors.attentionHover.toCssValue()};
+          theme.colors.attentionHover.toCssValue()};
         }
       `,
       reversed: css`
         :hover {
           background: ${({ theme }) =>
-            theme.colors.textSupporting.toCssValue()};
+          theme.colors.textSupporting.toCssValue()};
         }
       `,
       secondary: css`
         :hover {
           background: ${({ theme }) =>
-            theme.colors.backgroundGlass2.toCssValue()};
+          theme.colors.backgroundGlass2.toCssValue()};
           color: ${({ theme }) => theme.colors.text.toCssValue()};
         }
       `,
       alert: css`
         :hover {
           background: ${({ theme }) =>
-            theme.colors.alert.getVariant({ a: () => 0.12 }).toCssValue()};
+          theme.colors.alert.getVariant({ a: () => 0.12 }).toCssValue()};
         }
       `,
     }[kind]};

@@ -13,7 +13,7 @@ interface Props {
 const labelWrapperSize = 20;
 
 const Label = styled.text`
-  fill: ${({ theme }) => theme.colors.white.toCssValue()};
+  fill: ${({ theme }) => theme.colors.contrast.toCssValue()};
   font-size: 9px;
   font-weight: 500;
 `;

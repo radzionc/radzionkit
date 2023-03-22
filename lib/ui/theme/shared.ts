@@ -11,7 +11,5 @@ export const sharedColors = {
   alert: new HSLA(0, 79, 63),
   success: new HSLA(130, 56, 52),
 
-  white: new HSLA(0, 0, 100),
-
   getPaletteColor: generatePaleteCollorGetter(56, 52),
 } as const;

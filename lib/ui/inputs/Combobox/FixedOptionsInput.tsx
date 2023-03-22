@@ -90,8 +90,8 @@ function FixedOptionsInputInner<T>(
       value && optionToString(value).toLowerCase() === lowerCaseInputValue
         ? options
         : options.filter((item) =>
-            optionToString(item).toLowerCase().includes(lowerCaseInputValue)
-          );
+          optionToString(item).toLowerCase().includes(lowerCaseInputValue)
+        );
 
     setSuggestions(newSuggestions);
   }, [inputValue, optionToString, options, value]);
@@ -136,6 +136,7 @@ function FixedOptionsInputInner<T>(
       ref={containerRef}
       onBlur={(event) => {
         if (!containerRef.current?.contains(event.relatedTarget as Node)) {
+          console.log('close on blur!')
           closeMenu();
         }
       }}
@@ -167,10 +168,8 @@ function FixedOptionsInputInner<T>(
       </InputWrapperWithErrorMessage>
       <ToggleWrapper>
         <CollapseToggleIconButton
-          as="div"
           isOpen={isMenuOpen}
           onMouseDown={toggleMenu}
-          onTouchStart={toggleMenu}
         />
       </ToggleWrapper>
     </Container>

@@ -34,6 +34,8 @@ export const darkTheme: DefaultTheme = {
     overlay: new HSLA(backgroundHue, backgroundSaturation, 1, 0.8),
 
     outlinedHover: new HSLA(0, 0, 16),
+
+    contrast: new HSLA(0, 0, 100),
   },
   shadows: {
     small:

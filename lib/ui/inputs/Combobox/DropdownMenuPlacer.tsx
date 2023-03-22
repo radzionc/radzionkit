@@ -1,7 +1,9 @@
-import React, { useState, useRef } from 'react'
+import { useFloating, offset, flip, shift, size } from '@floating-ui/react';
+import { getCSSUnit } from 'lib/ui/utils/getCSSUnit';
+import { zIndex } from 'lib/ui/zIndex';
+import React, { useRef } from 'react'
 import { useClickAway } from 'react-use';
 import styled from 'styled-components'
-import { DropdownMenu } from './DropdownMenu';
 
 interface Props {
   children: React.ReactNode,
@@ -15,23 +17,43 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
+const DropdownMenu = styled.div`
+  z-index: ${zIndex.menu};
+`
+
 export const DropdownMenuPlacer = ({ children, menu, onClickOutside }: Props) => {
   const wrapperElement = useRef<HTMLDivElement>(null);
-  const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null);
+  const { refs, strategy, x, y } = useFloating({
+    placement: "bottom-start",
+    strategy: "fixed",
+    middleware: [
+      offset(4),
+      flip(),
+      shift(),
+      size({
+        apply({ rects, elements }) {
+          Object.assign(elements.floating.style, {
+            width: getCSSUnit(rects.reference.width),
+          });
+        },
+      })
+    ]
+  })
 
   useClickAway(wrapperElement, () => onClickOutside?.())
 
   return (
     <Container ref={wrapperElement}>
-      <Container ref={setContainerElement}>
+      <Container ref={refs.setReference}>
         {children}
       </Container>
-      {containerElement && (
-        <DropdownMenu referenceElement={containerElement}>
-          {menu}
-        </DropdownMenu>
-      )}
+      <DropdownMenu style={{
+        position: strategy,
+        top: y ?? 0,
+        left: x ?? 0,
+      }} ref={refs.setFloating}>
+        {menu}
+      </DropdownMenu>
     </Container>
   )
 }
- 

@@ -1,18 +1,17 @@
-import { useBoolean } from "lib/shared/hooks/useBoolean";
+
 import { ReactNode, useState } from "react";
 import { BottomSlideOver } from "lib/ui/BottomSlideOver";
 import { ResponsiveView } from "lib/ui/ResponsiveView";
 import { HStack, VStack } from "lib/ui/Stack";
 import { Text } from "lib/ui/Text";
+import { offset, shift, useClick, useDismiss, useFloating, useInteractions } from "@floating-ui/react";
 
 import { MenuOption, MenuOptionProps } from "./MenuOption";
 import { PopoverMenu } from "./PopoverMenu";
 import { PrimaryButton } from "../buttons/rect/PrimaryButton";
-import { Popover } from "../popover/Popover";
 
-interface OpenerParams {
+interface OpenerParams extends Record<string, unknown> {
   ref: (anchor: HTMLElement | null) => void;
-  onClick: () => void;
 }
 
 interface OverlayMenuProps {
@@ -26,18 +25,35 @@ export function OverlayMenu({
   renderOpener,
   title,
 }: OverlayMenuProps) {
-  const [anchor, setAnchor] = useState<HTMLElement | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const [isMenuOpen, { unset: closeMenu, toggle: toggleMenu }] =
-    useBoolean(false);
+  const { x, y, strategy, refs, context } = useFloating({
+    open: isOpen,
+    placement: "bottom",
+    strategy: "fixed",
+    onOpenChange: setIsOpen,
+    middleware: [
+      offset(4),
+      shift()
+    ]
+  });
+
+  useDismiss(context);
+
+  const click = useClick(context);
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    click,
+  ]);
+
 
   return (
     <>
-      {renderOpener({ onClick: toggleMenu, ref: setAnchor })}
-      {isMenuOpen && anchor && (
+      {renderOpener({ ...getReferenceProps(), ref: refs.setReference, })}
+      {isOpen && (
         <ResponsiveView
           small={() => (
-            <BottomSlideOver onClose={closeMenu} title={title}>
+            <BottomSlideOver onClose={() => setIsOpen(false)} title={title}>
               <VStack gap={12}>
                 {options.map(({ text, icon, onSelect, kind }) => (
                   <PrimaryButton
@@ -48,7 +64,7 @@ export function OverlayMenu({
                     key={text}
                     onClick={() => {
                       onSelect();
-                      closeMenu();
+                      setIsOpen(false);
                     }}
                   >
                     <HStack alignItems="center" gap={8}>
@@ -60,13 +76,17 @@ export function OverlayMenu({
             </BottomSlideOver>
           )}
           normal={() => (
-            <Popover
-              placement="bottom"
-              onClickOutside={toggleMenu}
-              anchor={anchor}
-              enableScreenCover
+            <div
+              ref={refs.setFloating}
+              style={{
+                position: strategy,
+                top: y ?? 0,
+                left: x ?? 0,
+                width: 'max-content',
+              }}
+              {...getFloatingProps()}
             >
-              <PopoverMenu onClose={closeMenu} title={title}>
+              <PopoverMenu onClose={() => setIsOpen(false)} title={title}>
                 {options.map(({ text, icon, onSelect, kind }) => (
                   <MenuOption
                     text={text}
@@ -74,13 +94,13 @@ export function OverlayMenu({
                     icon={icon}
                     kind={kind}
                     onSelect={() => {
-                      closeMenu();
+                      setIsOpen(false);
                       onSelect();
                     }}
                   />
                 ))}
               </PopoverMenu>
-            </Popover>
+            </div>
           )}
         />
       )}

@@ -23,7 +23,7 @@ export const lightTheme: DefaultTheme = {
 
     outlinedHover: new HSLA(0, 0, 88),
 
-    white: new HSLA(0, 0, 100),
+    contrast: new HSLA(0, 0, 0),
   },
   shadows: {
     small:

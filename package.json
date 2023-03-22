@@ -10,8 +10,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.2.5",
+    "@floating-ui/react": "^0.22.0",
     "@hookform/resolvers": "^2.9.7",
-    "@popperjs/core": "^2.11.6",
     "@web3-react/core": "^8.0.35-beta.0",
     "@web3-react/metamask": "^8.0.28-beta.0",
     "alchemy-sdk": "^2.0.3",
@@ -23,7 +24,6 @@
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.2",
     "react-hook-form": "^7.34.2",
-    "react-popper": "^2.3.0",
     "react-query": "^3.39.2",
     "react-spring": "^9.6.1",
     "react-to-print": "^2.14.8",

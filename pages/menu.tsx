@@ -12,8 +12,8 @@ const MenuPage: NextPage = () => {
       <div style={{ maxWidth: 320, width: "100%" }}>
         <OverlayMenu
           title="Manage project"
-          renderOpener={({ onClick, ref }) => (
-            <OpenMenuButton ref={ref} onClick={onClick} />
+          renderOpener={({ ref, ...props }) => (
+            <OpenMenuButton ref={ref} {...props} />
           )}
           options={[
             {
