@@ -1,7 +1,7 @@
-import { InternalLink } from "lib/navigation/Link/InternalLink";
+import { InternalLink } from "navigation/InternalLink";
 import { useRouter } from "next/router";
 
-import { NavigationItem } from "./NavigationItem";
+import { NavigationItem } from "../lib/ui/Navigation/Sidebar/NavigationItem";
 
 interface Props {
   path: string;

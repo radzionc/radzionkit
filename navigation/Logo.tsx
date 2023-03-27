@@ -1,4 +1,4 @@
-import { InternalLink } from "lib/navigation/Link/InternalLink";
+import { InternalLink } from "navigation/InternalLink";
 import { Text } from "lib/ui/Text";
 import { Path } from "./Path";
 

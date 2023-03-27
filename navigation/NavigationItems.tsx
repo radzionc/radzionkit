@@ -1,4 +1,4 @@
-import { NavigationToInternalPage } from "lib/ui/Navigation/Sidebar/NavigationToInternalPage";
+import { NavigationToInternalPage } from "navigation/NavigationToInternalPage";
 import { VStack } from "lib/ui/Stack";
 import { Path } from "navigation/Path";
 
