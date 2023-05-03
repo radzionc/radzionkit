@@ -20,6 +20,7 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.Combobox} name="Combobox" />
     <NavigationToInternalPage path={Path.PieChart} name="PieChart" />
     <NavigationToInternalPage path={Path.Countdown} name="Countdown" />
+    <NavigationToInternalPage path={Path.Confetti} name="Confetti" />
     <NavigationToInternalPage path={Path.GridTable} name="CSS Grid Table" />
     <NavigationToInternalPage path={Path.TabNavigation} name="Tab Navigation" />
     <NavigationToInternalPage path={Path.AmountInput} name="AmountInput" />

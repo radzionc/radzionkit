@@ -10,6 +10,7 @@ export type ThemeColors = {
   attentionHover: HSLA
 
   alert: HSLA
+  idle: HSLA
   success: HSLA
 
   foreground: HSLA

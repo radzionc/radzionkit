@@ -9,6 +9,7 @@ export const sharedColors = {
   attentionHover: new HSLA(4, 58, 55),
 
   alert: new HSLA(0, 79, 63),
+  idle: new HSLA(32, 79, 63),
   success: new HSLA(130, 56, 52),
 
   getPaletteColor: generatePaleteCollorGetter(56, 52),
