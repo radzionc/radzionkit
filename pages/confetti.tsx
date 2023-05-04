@@ -3,6 +3,11 @@ import { Confetti } from "lib/ui/animations/Confetti";
 import { Checkbox } from "lib/ui/inputs/Checkbox/Checkbox";
 import type { NextPage } from "next";
 import { useState } from "react";
+import styled from "styled-components";
+
+const Container = styled.div`
+  position: relative;
+`
 
 const ConfettiPage: NextPage = () => {
   const [value, setValue] = useState(false)
@@ -10,14 +15,14 @@ const ConfettiPage: NextPage = () => {
 
   return (
     <DemoPage title="Confetti">
-      <div style={{ position: 'relative' }}>
+      <Container>
         <Checkbox label="Confetti!" value={value} onChange={() => {
           const newValue = !value
           setValue(newValue)
           setShowConfetti(newValue)
         }} />
-        {showConfetti && <Confetti x={20} y={20} />}
-      </div>
+        {showConfetti && <Confetti x={20} y={-20} />}
+      </Container>
     </DemoPage>
   )
 };
