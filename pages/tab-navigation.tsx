@@ -22,7 +22,7 @@ const TabNavigationPage: NextPage = () => {
   const [activeView, setActiveView] = useState<View>("Overview");
 
   return (
-    <DemoPage title="Tab Navigation">
+    <DemoPage youtubeVideoId="dDuWfi_Hvis" title="Tab Navigation">
       <VStack fullWidth gap={40}>
         <TabNavigation
           views={views}

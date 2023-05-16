@@ -7,7 +7,7 @@ const SwitchPage: NextPage = () => {
   const [value, setValue] = useState(false);
 
   return (
-    <DemoPage title="Switch">
+    <DemoPage youtubeVideoId="QydSYsxXRvw" title="Switch">
       <div style={{ maxWidth: 320, width: "100%" }}>
         <Switch value={value} onChange={setValue} label="ReactKit is Awesome" />
       </div>

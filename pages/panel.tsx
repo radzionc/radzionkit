@@ -8,7 +8,7 @@ import { PrimaryButton } from "lib/ui/buttons/rect/PrimaryButton";
 
 const PanelPage: NextPage = () => {
   return (
-    <DemoPage title="Panel">
+    <DemoPage youtubeVideoId="cY-wADVIrRQ" title="Panel">
       <ExpandablePanel
         width={400}
         header={

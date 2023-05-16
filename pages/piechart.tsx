@@ -9,7 +9,7 @@ const PieChartPage: NextPage = () => {
   } = useTheme();
 
   return (
-    <DemoPage title="Pie Chart">
+    <DemoPage youtubeVideoId="OEZFzrwZMd8" title="Pie Chart">
       <div style={{ maxWidth: 320, width: "100%" }}>
         <PieChart
           items={[

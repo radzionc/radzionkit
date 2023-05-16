@@ -23,7 +23,8 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.Confetti} name="Confetti" />
     <NavigationToInternalPage path={Path.GridTable} name="CSS Grid Table" />
     <NavigationToInternalPage path={Path.TabNavigation} name="Tab Navigation" />
-    <NavigationToInternalPage path={Path.AmountInput} name="AmountInput" />
+    <NavigationToInternalPage path={Path.AmountInput} name="Amount Input" />
+    <NavigationToInternalPage path={Path.ShowOnce} name="Show once" />
     <NavigationToInternalPage path={Path.Menu} name="Popover Menu" />
     <NavigationToInternalPage path={Path.DynamicForm} name="Dynamic Form" />
     <NavigationToInternalPage path={Path.Resume} name="Resume" />

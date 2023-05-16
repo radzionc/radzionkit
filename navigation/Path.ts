@@ -19,6 +19,7 @@ export enum Path {
   PieChart = "/piechart",
   DynamicForm = "/dynamic-form",
   Countdown = "/countdown",
+  ShowOnce = '/show-once',
   Nfts = "/nfts",
   IPFS = "/ipfs",
   Panel = "/panel",

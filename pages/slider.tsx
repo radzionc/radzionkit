@@ -4,7 +4,7 @@ import { WorkBudgetForm } from "components/WorkBudgetForm";
 
 const SliderPage: NextPage = () => {
   return (
-    <DemoPage title="Slider">
+    <DemoPage youtubeVideoId="HqfFtOh8_50" title="Slider">
       <WorkBudgetForm />
     </DemoPage>
   );

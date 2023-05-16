@@ -9,7 +9,7 @@ const AmountInputPage: NextPage = () => {
   const [value, setValue] = useState<number | undefined>(80000);
 
   return (
-    <DemoPage title="Amount Input">
+    <DemoPage youtubeVideoId="RH0Z8AdPXHY" title="Amount Input">
       <div style={{ width: 320 }}>
         <AmountTextInput
           value={value}

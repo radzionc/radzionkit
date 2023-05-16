@@ -7,7 +7,7 @@ yarn add @floating-ui/dom date-fns focus-trap-react next-sitemap @floating-ui/re
 yarn add --dev @types/react @types/react-dom @types/styled-components eslint eslint-config-next typescript
 ```
 
-### 3. Setup local storage
+### 3. Copy state folder to your React project
 
 At `src/state/persistentStorage.ts`
 

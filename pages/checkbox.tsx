@@ -7,7 +7,7 @@ const CheckboxPage: NextPage = () => {
   const [value, setValue] = useState(false);
 
   return (
-    <DemoPage title="Checkbox">
+    <DemoPage youtubeVideoId="qG-vLyAWufw" title="Checkbox">
       <div style={{ maxWidth: 320, width: "100%" }}>
         <Checkbox
           value={value}

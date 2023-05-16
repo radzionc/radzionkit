@@ -20,7 +20,7 @@ const PromotionPage: NextPage = () => {
     false
   );
   return (
-    <DemoPage title="Interactive Promotion">
+    <DemoPage youtubeVideoId="Cnv0K3izNUk" title="Interactive Promotion">
       {!wasShown && (
         <ShowAfterDelay ms={3000}>
           <InteractivePromotion
