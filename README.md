@@ -3,8 +3,8 @@
 ### 2. Install dependencies
 
 ```sh
-yarn add @floating-ui/dom date-fns focus-trap-react next-sitemap @floating-ui/react react-spring react-use styled-components react-dropzone
-yarn add --dev @types/react @types/react-dom @types/styled-components eslint eslint-config-next typescript
+yarn add @floating-ui/dom @floating-ui/react react-spring @react-spring/web date-fns focus-trap-react react react-dom react-dropzone react-to-print react-use
+yarn add --dev @types/react @types/react-dom @types/styled-components eslint typescript
 ```
 
 ### 3. Copy state folder to your React project
