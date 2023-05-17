@@ -28,6 +28,7 @@ export enum Path {
   Resume = "/resume",
   Menu = "/menu",
   TabNavigation = "/tab-navigation",
+  OnHoverAction = "/on-hover-action",
   Promotion = "/promotion",
   AmountInput = "/amount-input",
   Confetti = "/confetti",
