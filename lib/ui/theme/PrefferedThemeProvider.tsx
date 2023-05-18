@@ -1,4 +1,4 @@
-import { createContext, useEffect, useMemo, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useMedia } from "react-use";
 import { ComponentWithChildrenProps } from "lib/shared/props";
 import { DefaultTheme, ThemeProvider } from "styled-components";

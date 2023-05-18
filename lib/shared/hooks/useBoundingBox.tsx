@@ -1,7 +1,7 @@
-import pick from 'lodash/pick'
-import isEqual from 'lodash/isEqual'
 import { useState } from 'react'
 import { useIsomorphicLayoutEffect } from 'react-use'
+import { pick } from '../utils/pick'
+import { areEqual } from './areEqual'
 
 export type BoundingBox = Omit<DOMRect, 'toJSON'>
 
@@ -19,7 +19,7 @@ export const useBoundingBox = (element: HTMLElement | null) => {
     const handleElementChange = () => {
       const newBox = toBoundingBox(element.getBoundingClientRect())
 
-      if (isEqual(newBox, box)) return
+      if (areEqual(newBox, box)) return
 
       setBox(newBox)
     }

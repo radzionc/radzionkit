@@ -8,7 +8,7 @@ export interface ElementSize {
 }
 
 const toElementSize = (rect: DOMRect): ElementSize =>
-  pick(rect, "height", "width");
+  pick(rect, ["height", "width"]);
 
 const areEqualSizes = (one: ElementSize, another: ElementSize) =>
   one.width === another.width && one.height === another.height;

@@ -3,62 +3,13 @@
 ### 2. Install dependencies
 
 ```sh
-yarn add @floating-ui/dom @floating-ui/react react-spring @react-spring/web date-fns focus-trap-react react react-dom react-dropzone react-to-print react-use
+yarn add @floating-ui/dom @floating-ui/react react-spring @react-spring/web date-fns focus-trap-react react react-dom react-dropzone react-to-print react-use styled-components react-query
 yarn add --dev @types/react @types/react-dom @types/styled-components eslint typescript
 ```
 
 ### 3. Copy state folder to your React project
 
-At `src/state/persistentStorage.ts`
-
-```ts
-import { MockStorage } from "lib/state/MockStorage"
-import { LocalStorage } from "lib/state/LocalStorage"
-import { createUsePersistantStorageValueHook } from "lib/state/createUsePersistantStorageValueHook"
-
-export enum PersistentStorageKey {
-  ThemePreference = "themePreference",
-}
-
-export const persistentStorage =
-  typeof window !== "undefined"
-    ? new LocalStorage<PersistentStorageKey>()
-    : new MockStorage<PersistentStorageKey>()
-
-export const usePersistentStorageValue =
-  createUsePersistantStorageValueHook<PersistentStorageKey>(persistentStorage)
-```
-
-### 4. Setup theme
-
-At `src/ui/ThemeProvider.tsx`
-
-```tsx
-import { ComponentWithChildrenProps } from "lib/shared/props"
-import { PrefferedThemeProvider } from "lib/ui/theme/PrefferedThemeProvider"
-import { ThemePreference } from "lib/ui/theme/ThemePreference"
-import {
-  PersistentStorageKey,
-  usePersistentStorageValue,
-} from "state/persistentStorage"
-
-export const ThemeProvider = ({ children }: ComponentWithChildrenProps) => {
-  const [prefferedTheme, setPrefferedTheme] =
-    usePersistentStorageValue<ThemePreference>(
-      PersistentStorageKey.ThemePreference,
-      "system"
-    )
-
-  return (
-    <PrefferedThemeProvider
-      prefferedTheme={prefferedTheme}
-      setPrefferedTheme={setPrefferedTheme}
-    >
-      {children}
-    </PrefferedThemeProvider>
-  )
-}
-```
+### 4. Copy ui folder to your React project
 
 ### 5. Finish setup
 
@@ -74,4 +25,45 @@ export const App = () => {
     </ThemeProvider>
   )
 }
+```
+
+### How I setup a regular SPA
+
+1. Create a new React app with TypeScript template
+
+```sh
+yarn create react-app {app_name} --template typescript
+```
+
+2. Setup tsconfig to use absolute imports
+
+Add `baseUrl` to `tsconfig.json`
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": "src"
+  }
+}
+```
+
+3. Add Prettier
+
+```sh
+yarn add --dev husky lint-staged prettier
+```
+
+Add to package.json
+
+```json
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  }
 ```
