@@ -32,4 +32,5 @@ export enum Path {
   Promotion = "/promotion",
   AmountInput = "/amount-input",
   Confetti = "/confetti",
+  BarChart = "/bar-chart",
 }

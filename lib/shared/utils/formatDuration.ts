@@ -1,11 +1,13 @@
 import { millisecondsInMinute, secondsInMinute } from "date-fns";
 import { pluralize } from "./pluralize";
+import { S_IN_MIN } from "./time";
 
-type DurationUnit = "ms" | "min";
+type DurationUnit = "ms" | "min" | 's';
 
 const unitsInMinute: Record<DurationUnit, number> = {
   ms: millisecondsInMinute,
   min: 1,
+  s: S_IN_MIN,
 };
 
 export const formatDuration = (duration: number, unit: DurationUnit) => {
