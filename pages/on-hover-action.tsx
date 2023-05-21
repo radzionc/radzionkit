@@ -60,7 +60,7 @@ const Identifier = styled.div`
 const Container = styled(UnstyledButton)`
   width: 100%;
   display: grid;
-  grid-template-columns: 32px 1fr 32px;
+  grid-template-columns: 32px 1fr auto;
   align-items: center;
   gap: 8px;
   justify-items: start;
