@@ -15,7 +15,6 @@ import { HSLA } from "../colors/HSLA";
 import { MoveIcon } from "../icons/MoveIcon";
 import { Text } from "../Text";
 import { centerContentCSS } from "../utils/centerContentCSS";
-import { formatDuration } from "../utils/formatDuration";
 import { getIntervalDuration } from "../utils/getIntervalDuration";
 import { getVerticalMarginCSS } from "../utils/getVerticalMarginCSS";
 import { HourSpace } from "./HourSpace";
@@ -23,6 +22,7 @@ import { HourSpace } from "./HourSpace";
 import { InteractiveBoundaryArea } from "./InteractiveBoundaryArea";
 import { IntervalRect } from "./IntervalRect";
 import { MaxIntervalEndBoundary } from "./MaxIntervalEndBoundary";
+import { formatDuration } from "lib/shared/utils/formatDuration";
 
 interface RenderContentParams {
   pxInMs: number;
@@ -145,16 +145,16 @@ export const IntervalInput = ({
           start:
             activeControl === "start"
               ? Math.max(
-                  Math.min(timestamp, value.end - minDuration),
-                  minIntervalStart
-                )
+                Math.min(timestamp, value.end - minDuration),
+                minIntervalStart
+              )
               : value.start,
           end:
             activeControl === "end"
               ? Math.min(
-                  Math.max(timestamp, value.start + minDuration),
-                  maxIntervalEnd
-                )
+                Math.max(timestamp, value.start + minDuration),
+                maxIntervalEnd
+              )
               : value.end,
         };
       }
