@@ -2,7 +2,7 @@ import { ExternalLink } from "lib/navigation/Link/ExternalLink";
 import type { NextPage } from "next";
 import { PrimaryButton } from "lib/ui/buttons/rect/PrimaryButton";
 import { Modal } from "lib/ui/Modal";
-import { OverlayOpener } from "lib/ui/OverlayOpener";
+import { Opener } from "lib/ui/Opener";
 import { HStack, VStack } from "lib/ui/Stack";
 import { Text } from "lib/ui/Text";
 import { DemoPage } from "components/DemoPage";
@@ -11,11 +11,11 @@ const ButtonPage: NextPage = () => {
   return (
     <DemoPage youtubeVideoId="v61B8aToxR0" title="Modal / Popup">
       <HStack fullWidth gap={40}>
-        <OverlayOpener
+        <Opener
           renderOpener={({ onOpen }) => (
             <PrimaryButton onClick={onOpen}>Open Modal</PrimaryButton>
           )}
-          renderOverlay={({ onClose }) => (
+          renderContent={({ onClose }) => (
             <Modal
               title="Get More Freedom"
               onClose={onClose}

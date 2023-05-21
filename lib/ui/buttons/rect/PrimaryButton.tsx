@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 import { RectButton, Props as RectButtonProps } from "./RectButton";
 
-type PrimaryButtonKind =
+export type PrimaryButtonKind =
   | "primary"
   | "attention"
   | "reversed"

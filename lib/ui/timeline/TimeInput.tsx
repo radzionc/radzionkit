@@ -10,11 +10,11 @@ import { ChevronUpIcon } from "../icons/ChevronUpIcon";
 import { SeparatedBy, dotSeparator } from "../SeparatedBy";
 import { VStack } from "../Stack";
 import { Text } from "../Text";
-import { formatDuration } from "../utils/formatDuration";
 import { getVerticalMarginCSS } from "../utils/getVerticalMarginCSS";
 import { HourSpace } from "./HourSpace";
 import { InteractiveBoundaryArea } from "./InteractiveBoundaryArea";
 import { MaxIntervalEndBoundary } from "./MaxIntervalEndBoundary";
+import { formatDuration } from "lib/shared/utils/formatDuration";
 
 export interface TimeInputProps {
   color: HSLA;

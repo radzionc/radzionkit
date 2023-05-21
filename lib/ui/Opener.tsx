@@ -8,15 +8,15 @@ interface RenderOpenerParams {
 
 interface Props {
   renderOpener: (params: RenderOpenerParams) => ReactNode;
-  renderOverlay: (params: ClosableComponentProps) => ReactNode;
+  renderContent: (params: ClosableComponentProps) => ReactNode;
 }
 
-export const OverlayOpener = ({ renderOpener, renderOverlay }: Props) => {
+export const Opener = ({ renderOpener, renderContent }: Props) => {
   const [isOpen, { set: onOpen, unset: onClose }] = useBoolean(false);
 
   return (
     <>
-      {isOpen && renderOverlay({ onClose })}
+      {isOpen && renderContent({ onClose })}
       {renderOpener({ onOpen })}
     </>
   );

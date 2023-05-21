@@ -33,4 +33,5 @@ export enum Path {
   AmountInput = "/amount-input",
   Confetti = "/confetti",
   BarChart = "/bar-chart",
+  ConfirmationModal = '/confirmation-modal',
 }
