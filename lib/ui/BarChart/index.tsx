@@ -11,7 +11,7 @@ import { getCSSUnit } from '../utils/getCSSUnit'
 import { Text } from '../Text'
 
 export interface BarChartItem {
-  label: ReactNode
+  label?: ReactNode
   value: number
   color: HSLA
   renderValue?: (value: number) => ReactNode
@@ -73,6 +73,8 @@ export const BarChart = ({
 }: BarChartProps) => {
   const maxValue = Math.max(...items.map((item) => item.value))
 
+  const hasLabels = items.some((item) => item.label)
+
   return (
     <VStack style={{ height }}>
       <Spacer
@@ -95,18 +97,22 @@ export const BarChart = ({
                   height: value ? toPercents(value / maxValue) : '2px',
                 }}
               />
-              <RelativeWrapper>
-                <Label style={{ fontSize: defaultLabelSize }} as="div">
-                  {label}
-                </Label>
-              </RelativeWrapper>
+              {label && (
+                <RelativeWrapper>
+                  <Label style={{ fontSize: defaultLabelSize }} as="div">
+                    {label}
+                  </Label>
+                </RelativeWrapper>
+              )}
             </Column>
           )
         })}
       </Content>
-      <Spacer
-        height={`calc(${getCSSUnit(expectedLabelHeight)} + ${barLabelGap})`}
-      />
+      {hasLabels && (
+        <Spacer
+          height={`calc(${getCSSUnit(expectedLabelHeight)} + ${barLabelGap})`}
+        />
+      )}
     </VStack>
   )
 }
