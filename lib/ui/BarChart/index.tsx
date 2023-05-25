@@ -10,7 +10,6 @@ import { centerContentCSS } from '../utils/centerContentCSS'
 import { getCSSUnit } from '../utils/getCSSUnit'
 import { Text } from '../Text'
 
-
 export interface BarChartItem {
   label: ReactNode
   value: number
@@ -32,7 +31,6 @@ const defaultLabelSize = 12
 const Bar = styled.div`
   border-radius: 4px;
   width: 100%;
-  height: 100%;
   ${defaultTransitionCSS};
 `
 

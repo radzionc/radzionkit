@@ -4,7 +4,7 @@ import { Text } from "lib/ui/Text";
 
 const Home: NextPage = () => {
   return (
-    <RegularPage title="React Toolkit">
+    <RegularPage title="React Kit">
       <Text>✨ Explore tools and components from the sidebar</Text>
     </RegularPage>
   );
