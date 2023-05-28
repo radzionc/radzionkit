@@ -13,7 +13,6 @@ const Highlight = styled.div`
 
 const Container = styled(UnstyledButton)`
   position: relative;
-  cursor: pointer;
 
   :hover ${Highlight} {
     background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};

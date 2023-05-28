@@ -6,6 +6,7 @@ import { ChecklistItem } from "lib/ui/checklist/ChecklistItem";
 import { Opener } from "lib/ui/Opener";
 import { AddChecklistItemPrompt } from "lib/ui/checklist/AddChecklistItemPrompt";
 import { ChecklistItemForm } from "lib/ui/checklist/ChecklistItemForm";
+import { updateAtIndex } from "lib/shared/utils/updateAtIndex";
 
 interface Task {
   name: string
@@ -28,9 +29,7 @@ const ChecklistPage: NextPage = () => {
           key={index}
           value={isComplete}
           onChange={(value) => {
-            const newTasks = [...tasks];
-            newTasks[index].isComplete = value;
-            setTasks(newTasks);
+            setTasks(updateAtIndex(tasks, index, task => ({ ...task, isComplete: value })));
           }}
           name={name}
         />)}
