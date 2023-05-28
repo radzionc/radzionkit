@@ -33,20 +33,19 @@ export const Box = styled.div<{ isChecked: boolean }>`
     `};
 `
 
-const TextWrapper = styled.div<{ isChecked: boolean }>`
+const Content = styled(Text) <{ isChecked: boolean }>`
+  max-width: 100%;
   position: relative;
-  display: flex;
-  align-items: center;
   color: ${({ theme, isChecked }) =>
     (isChecked ? theme.colors.textSupporting : theme.colors.text).toCssValue()};
 `
 
-const Line = styled.div<{ isChecked: boolean }>`
+const Line = styled.span<{ isChecked: boolean }>`
   position: absolute;
   ${defaultTransitionCSS};
   left: 0;
-  border-bottom: 2px solid;
-  height: 4px;
+  border-top: 2px solid;
+  bottom: 10px;
   width: ${({ isChecked }) => (isChecked ? '100%' : '0%')};
 `
 
@@ -60,12 +59,10 @@ export const ChecklistItem = ({
     <Hoverable style={style} as="label">
       <ChecklistItemFrame>
         <Box isChecked={value}>{value && <CheckIcon />}</Box>
-        <TextWrapper isChecked={value}>
-          <Text cropped as="div">
-            {name}
-          </Text>
+        <Content isChecked={value} cropped>
+          {name}
           <Line isChecked={value} />
-        </TextWrapper>
+        </Content>
         <InvisibleHTMLCheckbox value={value} onChange={onChange} />
       </ChecklistItemFrame>
     </Hoverable>
