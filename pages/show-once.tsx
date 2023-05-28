@@ -7,7 +7,7 @@ import { ClientOnly } from "lib/ui/ClientOnly";
 
 const ShowOncePage: NextPage = () => {
   return (
-    <DemoPage title="Show once">
+    <DemoPage title="Show once" youtubeVideoId="jFKjpAsm24I">
       <ClientOnly>
         <ShowOnce storageKey={PersistentStorageKey.ShowOnceEducation}>
           You will see this sentence only once.

@@ -19,3 +19,7 @@ export type ComponentWithBackActionProps = {
 export type ComponentWithClassNameProps = {
   className?: string;
 };
+
+export type ClickableComponentProps = {
+  onClick: () => void
+}

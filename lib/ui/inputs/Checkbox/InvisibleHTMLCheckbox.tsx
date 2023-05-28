@@ -12,6 +12,7 @@ const CheckboxInput = styled.input`
   margin: -1px;
   overflow: hidden;
   padding: 0;
+  position: absolute;
   width: 1px;
 `;
 

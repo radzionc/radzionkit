@@ -3,21 +3,22 @@ import { useBoolean } from "lib/shared/hooks/useBoolean";
 import { ClosableComponentProps } from "lib/shared/props";
 
 interface RenderOpenerParams {
-  onOpen: () => void;
+  isOpen: boolean
+  onOpen: () => void
 }
 
 interface Props {
-  renderOpener: (params: RenderOpenerParams) => ReactNode;
-  renderContent: (params: ClosableComponentProps) => ReactNode;
+  renderOpener: (params: RenderOpenerParams) => ReactNode
+  renderContent: (params: ClosableComponentProps) => ReactNode
 }
 
 export const Opener = ({ renderOpener, renderContent }: Props) => {
-  const [isOpen, { set: onOpen, unset: onClose }] = useBoolean(false);
+  const [isOpen, { set: onOpen, unset: onClose }] = useBoolean(false)
 
   return (
     <>
       {isOpen && renderContent({ onClose })}
-      {renderOpener({ onOpen })}
+      {renderOpener({ onOpen, isOpen })}
     </>
-  );
-};
+  )
+}

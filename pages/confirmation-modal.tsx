@@ -10,7 +10,7 @@ import type { NextPage } from "next";
 
 const ConfirmationModalPage: NextPage = () => {
   return (
-    <DemoPage title="Confirmation Modal">
+    <DemoPage title="Confirmation Modal" youtubeVideoId="S_i04MKYfxk">
       <Opener
         renderOpener={({ onOpen }) => (
           <IconButton kind="alert" icon={<TrashBinIcon />} onClick={onOpen} />

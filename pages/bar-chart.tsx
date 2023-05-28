@@ -119,7 +119,7 @@ const BarChartPage: NextPage = () => {
   }, [data])
 
   return (
-    <DemoPage title="Bar chart">
+    <DemoPage title="Bar chart" youtubeVideoId="z8YB2jiJG_4">
       <Panel style={{ width: 520 }} kind="secondary">
         <VStack gap={28}>
           <HStack

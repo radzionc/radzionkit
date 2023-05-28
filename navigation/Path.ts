@@ -34,4 +34,6 @@ export enum Path {
   Confetti = "/confetti",
   BarChart = "/bar-chart",
   ConfirmationModal = '/confirmation-modal',
+  Hoverable = '/hoverable',
+  Checklist = '/checklist',
 }
