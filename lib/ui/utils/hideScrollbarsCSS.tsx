@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components'
 
 export const hideScrollbarsCSS = css`
   &::-webkit-scrollbar {
@@ -7,4 +7,4 @@ export const hideScrollbarsCSS = css`
 
   -ms-overflow-style: none;
   scrollbar-width: none;
-`;
+`

@@ -1,13 +1,13 @@
-import styled, { css } from "styled-components";
-import { defaultTransitionCSS } from "lib/ui/animations/transitions";
-import { HStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
+import styled, { css } from 'styled-components'
+import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
+import { HStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
 
 interface Props {
-  icon?: React.ReactNode;
-  name: string;
-  isActive?: boolean;
-  decoration?: React.ReactNode;
+  icon?: React.ReactNode
+  name: string
+  isActive?: boolean
+  decoration?: React.ReactNode
 }
 
 export const Container = styled.div<{ isActive?: boolean }>`
@@ -27,14 +27,14 @@ export const Container = styled.div<{ isActive?: boolean }>`
     css`
       background: ${theme.colors.backgroundGlass.toCssValue()};
     `}
-`;
+`
 
 export const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 28px;
-`;
+`
 
 export const NavigationItem = ({
   icon,
@@ -46,9 +46,9 @@ export const NavigationItem = ({
     <Container isActive={isActive}>
       <Text
         size={18}
-        style={{ position: "relative" }}
+        style={{ position: 'relative' }}
         as="div"
-        color={isActive ? "regular" : "supporting"}
+        color={isActive ? 'regular' : 'supporting'}
       >
         <HStack gap={8}>
           {icon && <IconWrapper>{icon}</IconWrapper>}
@@ -57,5 +57,5 @@ export const NavigationItem = ({
         {decoration}
       </Text>
     </Container>
-  );
-};
+  )
+}

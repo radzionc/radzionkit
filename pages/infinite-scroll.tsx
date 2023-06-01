@@ -1,37 +1,37 @@
-import type { NextPage } from "next";
-import { Text } from "lib/ui/Text";
-import { useInfiniteQuery } from "react-query";
-import { range } from "lib/shared/utils/range";
-import { PaginatedView } from "lib/ui/PaginatedView";
-import { usePaginatedResultItems } from "lib/query/hooks/usePaginatedResultItems";
-import { TableLayout } from "lib/ui/TableLayout";
-import { Fragment } from "react";
-import { DemoPage } from "components/DemoPage";
+import type { NextPage } from 'next'
+import { Text } from 'lib/ui/Text'
+import { useInfiniteQuery } from 'react-query'
+import { range } from 'lib/shared/utils/range'
+import { PaginatedView } from 'lib/ui/PaginatedView'
+import { usePaginatedResultItems } from 'lib/query/hooks/usePaginatedResultItems'
+import { TableLayout } from 'lib/ui/TableLayout'
+import { Fragment } from 'react'
+import { DemoPage } from 'components/DemoPage'
 
 interface QueryItemsParams {
-  startAt: number;
+  startAt: number
 }
 
 interface Item {
-  name: string;
-  price: number;
+  name: string
+  price: number
 }
 
-const resultsPerPage = 5;
+const resultsPerPage = 5
 
 const queryItems = async ({ startAt = 0 }: QueryItemsParams) => {
-  await new Promise((resolve) => setTimeout(resolve, Math.random() * 2000));
+  await new Promise((resolve) => setTimeout(resolve, Math.random() * 2000))
 
   const items: Item[] = range(resultsPerPage).map((index) => ({
     name: `Item #${index + startAt}`,
     price: Math.round(Math.random() * 1000),
-  }));
+  }))
 
   return {
     items,
     nextItem: startAt + resultsPerPage,
-  };
-};
+  }
+}
 
 const InfiniteScrollPage: NextPage = () => {
   const {
@@ -42,29 +42,29 @@ const InfiniteScrollPage: NextPage = () => {
     isFetched,
     isIdle,
   } = useInfiniteQuery(
-    "items",
+    'items',
     async ({ pageParam }) => {
-      if (pageParam === null) return;
+      if (pageParam === null) return
 
-      const result = await queryItems({ startAt: pageParam });
+      const result = await queryItems({ startAt: pageParam })
 
-      return result;
+      return result
     },
     {
       refetchOnMount: true,
       keepPreviousData: false,
       getNextPageParam: (lastPage) => lastPage?.nextItem || null,
     }
-  );
+  )
 
-  const items = usePaginatedResultItems(data, (response) => response.items);
-  const noItems = isFetched && items.length < 1;
+  const items = usePaginatedResultItems(data, (response) => response.items)
+  const noItems = isFetched && items.length < 1
 
   return (
     <DemoPage title="Infinite Scroll" youtubeVideoId="mZfDvfs2GtI">
       <TableLayout
         gridTemplateColumns="120px 80px"
-        columnNames={["Name", "Price"]}
+        columnNames={['Name', 'Price']}
       >
         <PaginatedView
           onRequestToLoadMore={fetchNextPage}
@@ -83,7 +83,7 @@ const InfiniteScrollPage: NextPage = () => {
         </PaginatedView>
       </TableLayout>
     </DemoPage>
-  );
-};
+  )
+}
 
-export default InfiniteScrollPage;
+export default InfiniteScrollPage

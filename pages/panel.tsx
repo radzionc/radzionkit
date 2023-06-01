@@ -1,10 +1,10 @@
-import type { NextPage } from "next";
-import { VStack } from "lib/ui/Stack";
-import { DemoPage } from "components/DemoPage";
-import { ExpandablePanel } from "lib/ui/Panel/ExpandablePanel";
-import { Text } from "lib/ui/Text";
-import { ExternalLink } from "lib/navigation/Link/ExternalLink";
-import { PrimaryButton } from "lib/ui/buttons/rect/PrimaryButton";
+import type { NextPage } from 'next'
+import { VStack } from 'lib/ui/Stack'
+import { DemoPage } from 'components/DemoPage'
+import { ExpandablePanel } from 'lib/ui/Panel/ExpandablePanel'
+import { Text } from 'lib/ui/Text'
+import { ExternalLink } from 'lib/navigation/Link/ExternalLink'
+import { PrimaryButton } from 'lib/ui/buttons/rect/PrimaryButton'
 
 const PanelPage: NextPage = () => {
   return (
@@ -32,7 +32,7 @@ const PanelPage: NextPage = () => {
         )}
       />
     </DemoPage>
-  );
-};
+  )
+}
 
-export default PanelPage;
+export default PanelPage

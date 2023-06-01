@@ -1,11 +1,11 @@
-import { ExternalLink } from "lib/navigation/Link/ExternalLink";
-import { GhostButton } from "lib/ui/buttons/rect/GhostButton";
-import { GitHubIcon } from "lib/ui/icons/GitHubIcon";
-import { HStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
+import { ExternalLink } from 'lib/navigation/Link/ExternalLink'
+import { GhostButton } from 'lib/ui/buttons/rect/GhostButton'
+import { GitHubIcon } from 'lib/ui/icons/GitHubIcon'
+import { HStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
 
 interface Props {
-  to: string;
+  to: string
 }
 
 export const SourceCodeLink = ({ to }: Props) => {
@@ -20,5 +20,5 @@ export const SourceCodeLink = ({ to }: Props) => {
         </HStack>
       </GhostButton>
     </ExternalLink>
-  );
-};
+  )
+}

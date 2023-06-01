@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useRef } from "react"
-import { Burger } from "./Burger"
+import { useCallback, useEffect, useRef } from 'react'
+import { Burger } from './Burger'
 
 interface Props {
   onOpenSidebarRequest: () => void
@@ -39,12 +39,13 @@ export const SidebarOpener = ({ onOpenSidebarRequest }: Props) => {
   useEffect(() => {
     document.addEventListener('touchcancel', cancelTouchTracking)
 
-    return () => document.removeEventListener('touchcancel', cancelTouchTracking)
+    return () =>
+      document.removeEventListener('touchcancel', cancelTouchTracking)
   }, [cancelTouchTracking])
 
   useEffect(() => {
     const handleTouchMove = ({ changedTouches }: TouchEvent) => {
-      if (activeTouchX.current === null || !changedTouches.length) return 
+      if (activeTouchX.current === null || !changedTouches.length) return
 
       const { clientX } = changedTouches[0]
       if (clientX > activeTouchX.current) {

@@ -1,44 +1,44 @@
-import { areEqual } from "lib/shared/hooks/areEqual";
-import { pick } from "lib/shared/utils/pick";
-import { useState } from "react";
-import { useIsomorphicLayoutEffect } from "react-use";
+import { areEqual } from 'lib/shared/hooks/areEqual'
+import { pick } from 'lib/shared/utils/pick'
+import { useState } from 'react'
+import { useIsomorphicLayoutEffect } from 'react-use'
 
 export interface ElementSize {
-  width: number;
-  height: number;
+  width: number
+  height: number
 }
 
 const getElementSize = (element: HTMLElement): ElementSize =>
-  pick(element.getBoundingClientRect(), ["height", "width"]);
+  pick(element.getBoundingClientRect(), ['height', 'width'])
 
 export const useElementSize = (element: HTMLElement | null) => {
   const [size, setSize] = useState<ElementSize | null>(() =>
     element ? getElementSize(element) : null
-  );
+  )
 
   useIsomorphicLayoutEffect(() => {
-    if (!element) return;
+    if (!element) return
 
     const handleElementChange = () => {
       const newSize = getElementSize(element)
 
-      if (size && areEqual(newSize, size)) return;
+      if (size && areEqual(newSize, size)) return
 
-      setSize(newSize);
-    };
+      setSize(newSize)
+    }
 
-    handleElementChange();
+    handleElementChange()
 
-    if (!window?.ResizeObserver) return;
+    if (!window?.ResizeObserver) return
 
-    const resizeObserver = new ResizeObserver(handleElementChange);
+    const resizeObserver = new ResizeObserver(handleElementChange)
 
-    resizeObserver.observe(element);
+    resizeObserver.observe(element)
 
     return () => {
-      resizeObserver.disconnect();
-    };
-  }, [element]);
+      resizeObserver.disconnect()
+    }
+  }, [element])
 
-  return size;
-};
+  return size
+}

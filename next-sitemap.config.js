@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://booksconcepts.com/",
+  siteUrl: "https://reactkit.radzion.com/",
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   outDir: "./out",
-};
+}

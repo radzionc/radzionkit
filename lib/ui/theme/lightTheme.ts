@@ -1,11 +1,11 @@
-import { DefaultTheme } from "styled-components";
-import { HSLA } from "lib/ui/colors/HSLA";
-import { sharedColors } from "./shared";
+import { DefaultTheme } from 'styled-components'
+import { HSLA } from 'lib/ui/colors/HSLA'
+import { sharedColors } from './shared'
 
-export const regularTextAlpha = 0.9;
+export const regularTextAlpha = 0.9
 
 export const lightTheme: DefaultTheme = {
-  name: "light",
+  name: 'light',
   colors: {
     ...sharedColors,
     foreground: new HSLA(60, 11, 98),
@@ -27,8 +27,8 @@ export const lightTheme: DefaultTheme = {
   },
   shadows: {
     small:
-      "rgb(15 15 15 / 10%) 0px 0px 0px 1px, rgb(15 15 15 / 10%) 0px 2px 4px",
+      'rgb(15 15 15 / 10%) 0px 0px 0px 1px, rgb(15 15 15 / 10%) 0px 2px 4px',
     medium:
-      "rgb(15 15 15 / 5%) 0px 0px 0px 1px, rgb(15 15 15 / 10%) 0px 3px 6px, rgb(15 15 15 / 20%) 0px 9px 24px",
+      'rgb(15 15 15 / 5%) 0px 0px 0px 1px, rgb(15 15 15 / 10%) 0px 3px 6px, rgb(15 15 15 / 20%) 0px 9px 24px',
   },
-};
+}

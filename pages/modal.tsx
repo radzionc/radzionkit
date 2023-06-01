@@ -1,11 +1,11 @@
-import { ExternalLink } from "lib/navigation/Link/ExternalLink";
-import type { NextPage } from "next";
-import { PrimaryButton } from "lib/ui/buttons/rect/PrimaryButton";
-import { Modal } from "lib/ui/Modal";
-import { Opener } from "lib/ui/Opener";
-import { HStack, VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
-import { DemoPage } from "components/DemoPage";
+import { ExternalLink } from 'lib/navigation/Link/ExternalLink'
+import type { NextPage } from 'next'
+import { PrimaryButton } from 'lib/ui/buttons/rect/PrimaryButton'
+import { Modal } from 'lib/ui/Modal'
+import { Opener } from 'lib/ui/Opener'
+import { HStack, VStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
+import { DemoPage } from 'components/DemoPage'
 
 const ButtonPage: NextPage = () => {
   return (
@@ -40,7 +40,7 @@ const ButtonPage: NextPage = () => {
         />
       </HStack>
     </DemoPage>
-  );
-};
+  )
+}
 
-export default ButtonPage;
+export default ButtonPage

@@ -1,19 +1,19 @@
-import { useQuery } from "react-query";
-import { useAlchemy } from "./AlchemyProvider";
-import { useAssertAccount } from "./ConnectedWalletOnly";
+import { useQuery } from 'react-query'
+import { useAlchemy } from './AlchemyProvider'
+import { useAssertAccount } from './ConnectedWalletOnly'
 
 export const useMyNftsQuery = () => {
-  const { alchemySdk } = useAlchemy();
-  const account = useAssertAccount();
+  const { alchemySdk } = useAlchemy()
+  const account = useAssertAccount()
 
   return useQuery(
-    "my-nfts",
+    'my-nfts',
     () => {
-      return alchemySdk.nft.getNftsForOwner(account);
+      return alchemySdk.nft.getNftsForOwner(account)
     },
     {
       refetchOnMount: true,
       keepPreviousData: false,
     }
-  );
-};
+  )
+}

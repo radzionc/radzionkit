@@ -1,26 +1,26 @@
-import type { NextPage } from "next";
-import { getViewSetup } from "lib/shared/utils/getViewSetup";
-import styled from "styled-components";
-import { ViewSelector } from "lib/ui/inputs/Select/ViewSelector";
-import { VStack } from "lib/ui/Stack";
-import { DemoPage } from "components/DemoPage";
-import { Panel } from "lib/ui/Panel/Panel";
+import type { NextPage } from 'next'
+import { getViewSetup } from 'lib/shared/utils/getViewSetup'
+import styled from 'styled-components'
+import { ViewSelector } from 'lib/ui/inputs/Select/ViewSelector'
+import { VStack } from 'lib/ui/Stack'
+import { DemoPage } from 'components/DemoPage'
+import { Panel } from 'lib/ui/Panel/Panel'
 
-export const views = ["primary", "attention"] as const;
-export type View = typeof views[number];
+export const views = ['primary', 'attention'] as const
+export type View = (typeof views)[number]
 
 export const { ViewProvider, useView, RenderView } = getViewSetup<View>(
-  "primary",
-  "View"
-);
+  'primary',
+  'View'
+)
 
 const ViewName: Record<View, string> = {
-  primary: "Primary",
-  attention: "Attention",
-};
+  primary: 'Primary',
+  attention: 'Attention',
+}
 
 export const Selector = () => {
-  const { view, setView } = useView();
+  const { view, setView } = useView()
 
   return (
     <ViewSelector
@@ -30,16 +30,16 @@ export const Selector = () => {
       onSelect={setView}
       groupName="-view"
     />
-  );
-};
+  )
+}
 
 const PrimaryView = styled(Panel)`
   background: ${({ theme }) => theme.colors.primary.toCssValue()};
-`;
+`
 
 const AttentionView = styled(Panel)`
   background: ${({ theme }) => theme.colors.attention.toCssValue()};
-`;
+`
 
 const SelectViewPage: NextPage = () => {
   return (
@@ -56,7 +56,7 @@ const SelectViewPage: NextPage = () => {
         </ViewProvider>
       </Panel>
     </DemoPage>
-  );
-};
+  )
+}
 
-export default SelectViewPage;
+export default SelectViewPage

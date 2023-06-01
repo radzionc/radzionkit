@@ -1,25 +1,25 @@
-import { ExternalLink } from "lib/navigation/Link/ExternalLink";
-import { ReactNode, useState } from "react";
-import { useSpring, animated, config } from "react-spring";
-import styled from "styled-components";
-import { GhostButton } from "../buttons/rect/GhostButton";
-import { PrimaryButton } from "../buttons/rect/PrimaryButton";
-import { HStack, VStack } from "../Stack";
-import { Text } from "../Text";
-import { ReversedTheme } from "../theme/ReversedTheme";
+import { ExternalLink } from 'lib/navigation/Link/ExternalLink'
+import { ReactNode, useState } from 'react'
+import { useSpring, animated, config } from 'react-spring'
+import styled from 'styled-components'
+import { GhostButton } from '../buttons/rect/GhostButton'
+import { PrimaryButton } from '../buttons/rect/PrimaryButton'
+import { HStack, VStack } from '../Stack'
+import { Text } from '../Text'
+import { ReversedTheme } from '../theme/ReversedTheme'
 
 interface speechPlaecement {
-  left: React.CSSProperties["left"];
-  bottom: React.CSSProperties["bottom"];
+  left: React.CSSProperties['left']
+  bottom: React.CSSProperties['bottom']
 }
 
 interface InteractivePromotionProps {
-  text: string;
-  url: string;
-  character: ReactNode;
-  speechPlacement: speechPlaecement;
-  onDismiss?: () => void;
-  onAccept?: () => void;
+  text: string
+  url: string
+  character: ReactNode
+  speechPlacement: speechPlaecement
+  onDismiss?: () => void
+  onAccept?: () => void
 }
 
 const CharacterContainer = styled(animated.div)`
@@ -27,12 +27,12 @@ const CharacterContainer = styled(animated.div)`
   z-index: 6;
   bottom: 0;
   left: 0;
-`;
+`
 
 const MessageContainer = styled(animated.div)`
   position: fixed;
   z-index: 7;
-`;
+`
 
 const Content = styled.div`
   position: relative;
@@ -41,7 +41,7 @@ const Content = styled.div`
   padding: 24px;
   max-width: 280px;
   z-index: 2;
-`;
+`
 
 const Connector = styled.div`
   top: -10px;
@@ -50,7 +50,7 @@ const Connector = styled.div`
   left: 1px;
   transform: translateX(-100%);
   pointer-events: none;
-`;
+`
 
 export const InteractivePromotion = ({
   text,
@@ -61,7 +61,7 @@ export const InteractivePromotion = ({
   speechPlacement,
 }: InteractivePromotionProps) => {
   const [isCharacterAnimationFinished, setIsCharacterAnimationFinished] =
-    useState(false);
+    useState(false)
 
   const characterAnimationStyles = useSpring({
     config: {
@@ -76,7 +76,7 @@ export const InteractivePromotion = ({
       bottom: 0,
     },
     onRest: () => setIsCharacterAnimationFinished(true),
-  });
+  })
 
   return (
     <>
@@ -119,5 +119,5 @@ export const InteractivePromotion = ({
         </ReversedTheme>
       )}
     </>
-  );
-};
+  )
+}

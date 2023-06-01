@@ -10,7 +10,11 @@ interface ConfettiProps extends Point {
   count?: number
 }
 
-export const Confetti = React.memo(function Confetti({ count = 50, x, y }: ConfettiProps) {
+export const Confetti = React.memo(function Confetti({
+  count = 50,
+  x,
+  y,
+}: ConfettiProps) {
   const { colors } = useTheme()
 
   const [springs] = useSprings(count, () => ({

@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 
 interface Params {
-  fetchNextPage: () => void;
-  hasNextPage?: boolean;
-  isFetchingNextPage: boolean;
+  fetchNextPage: () => void
+  hasNextPage?: boolean
+  isFetchingNextPage: boolean
 }
 
 export const useFetchEveryPage = ({
@@ -13,7 +13,7 @@ export const useFetchEveryPage = ({
 }: Params) => {
   return useEffect(() => {
     if (hasNextPage && !isFetchingNextPage) {
-      fetchNextPage();
+      fetchNextPage()
     }
-  }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
-};
+  }, [fetchNextPage, hasNextPage, isFetchingNextPage])
+}

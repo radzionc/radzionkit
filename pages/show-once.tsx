@@ -1,9 +1,9 @@
-import type { NextPage } from "next";
+import type { NextPage } from 'next'
 
-import { DemoPage } from "components/DemoPage";
-import { ShowOnce } from "state/ShowOnce";
-import { PersistentStorageKey } from "state/persistentStorage";
-import { ClientOnly } from "lib/ui/ClientOnly";
+import { DemoPage } from 'components/DemoPage'
+import { ShowOnce } from 'state/ShowOnce'
+import { PersistentStorageKey } from 'state/persistentStorage'
+import { ClientOnly } from 'lib/ui/ClientOnly'
 
 const ShowOncePage: NextPage = () => {
   return (
@@ -14,7 +14,7 @@ const ShowOncePage: NextPage = () => {
         </ShowOnce>
       </ClientOnly>
     </DemoPage>
-  );
-};
+  )
+}
 
-export default ShowOncePage;
+export default ShowOncePage

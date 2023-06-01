@@ -1,23 +1,23 @@
-import { CSSProperties } from "react";
-import { ComponentWithChildrenProps } from "lib/shared/props";
-import styled from "styled-components";
-import { Line } from "lib/ui/Line";
-import { Text } from "lib/ui/Text";
+import { CSSProperties } from 'react'
+import { ComponentWithChildrenProps } from 'lib/shared/props'
+import styled from 'styled-components'
+import { Line } from 'lib/ui/Line'
+import { Text } from 'lib/ui/Text'
 
 interface Props extends ComponentWithChildrenProps {
-  columnNames: string[];
-  gridTemplateColumns: CSSProperties["gridTemplateColumns"];
+  columnNames: string[]
+  gridTemplateColumns: CSSProperties['gridTemplateColumns']
 }
 
 const Container = styled.div`
   display: grid;
   gap: 16px 48px;
   align-items: center;
-`;
+`
 
 const Separator = styled(Line)`
   grid-column: 1/-1;
-`;
+`
 
 export const TableLayout = ({
   children,
@@ -34,5 +34,5 @@ export const TableLayout = ({
       <Separator />
       {children}
     </Container>
-  );
-};
+  )
+}

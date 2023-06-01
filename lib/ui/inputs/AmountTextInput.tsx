@@ -1,29 +1,29 @@
-import { Ref, forwardRef, ReactNode, useState } from "react";
-import styled from "styled-components";
-import { HStack } from "../Stack";
-import { centerContentCSS } from "../utils/centerContentCSS";
+import { Ref, forwardRef, ReactNode, useState } from 'react'
+import styled from 'styled-components'
+import { HStack } from '../Stack'
+import { centerContentCSS } from '../utils/centerContentCSS'
 
-import { TextInput, TextInputProps } from "./TextInput";
+import { TextInput, TextInputProps } from './TextInput'
 
-type AmountTextInputProps = Omit<TextInputProps, "value" | "onValueChange"> & {
-  value: number | undefined;
-  onValueChange?: (value: number | undefined) => void;
-  unit: ReactNode;
-  shouldBePositive?: boolean;
-  shouldBeInteger?: boolean;
-  suggestion?: ReactNode;
-};
+type AmountTextInputProps = Omit<TextInputProps, 'value' | 'onValueChange'> & {
+  value: number | undefined
+  onValueChange?: (value: number | undefined) => void
+  unit: ReactNode
+  shouldBePositive?: boolean
+  shouldBeInteger?: boolean
+  suggestion?: ReactNode
+}
 
 const UnitContainer = styled.div`
   border-radius: 8px;
   position: absolute;
   left: 12px;
   ${centerContentCSS};
-`;
+`
 
 const Input = styled(TextInput)`
   padding-left: 36px;
-`;
+`
 
 export const AmountTextInput = forwardRef(function AmountInputInner(
   {
@@ -38,13 +38,13 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
     suggestion,
     label,
     placeholder,
-    type = "number",
+    type = 'number',
     ...props
   }: AmountTextInputProps,
   ref: Ref<HTMLInputElement> | null
 ) {
-  const valueAsString = value?.toString() ?? "";
-  const [inputValue, setInputValue] = useState<string>(valueAsString);
+  const valueAsString = value?.toString() ?? ''
+  const [inputValue, setInputValue] = useState<string>(valueAsString)
 
   return (
     <Input
@@ -61,7 +61,7 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
           {suggestion}
         </HStack>
       }
-      placeholder={placeholder ?? "Enter amount"}
+      placeholder={placeholder ?? 'Enter amount'}
       value={
         Number(valueAsString) === Number(inputValue)
           ? inputValue
@@ -71,26 +71,26 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
       inputOverlay={unit ? <UnitContainer>{unit}</UnitContainer> : undefined}
       onValueChange={(value) => {
         if (shouldBePositive) {
-          value = value.replace(/-/g, "");
+          value = value.replace(/-/g, '')
         }
 
-        if (value === "") {
-          setInputValue("");
-          onValueChange?.(undefined);
-          return;
+        if (value === '') {
+          setInputValue('')
+          onValueChange?.(undefined)
+          return
         }
 
-        const parse = shouldBeInteger ? parseInt : parseFloat;
-        const valueAsNumber = parse(value);
+        const parse = shouldBeInteger ? parseInt : parseFloat
+        const valueAsNumber = parse(value)
         if (isNaN(valueAsNumber)) {
-          return;
+          return
         }
 
         setInputValue(
           valueAsNumber.toString() !== value ? value : valueAsNumber.toString()
-        );
-        onValueChange?.(valueAsNumber);
+        )
+        onValueChange?.(valueAsNumber)
       }}
     />
-  );
-});
+  )
+})

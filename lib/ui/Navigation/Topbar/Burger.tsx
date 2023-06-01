@@ -1,12 +1,12 @@
-import { range } from "lib/shared/utils/range";
-import styled from "styled-components";
-import { VStack } from "lib/ui/Stack";
+import { range } from 'lib/shared/utils/range'
+import styled from 'styled-components'
+import { VStack } from 'lib/ui/Stack'
 
 const Line = styled.div`
   width: 100%;
   border-radius: 2px;
   height: 4px;
-  background: ${({ theme }) => theme.colors["text"].toCssValue()};
+  background: ${({ theme }) => theme.colors['text'].toCssValue()};
 
   &:nth-child(1) {
     width: 80%;
@@ -17,23 +17,23 @@ const Line = styled.div`
   &:nth-child(3) {
     width: 60%;
   }
-`;
+`
 
 const Container = styled.div`
   cursor: pointer;
   width: 100%;
   height: 22px;
-`;
+`
 
 interface Props {
-  onClick: () => void;
+  onClick: () => void
 }
 
 export const Burger = ({ onClick }: Props) => {
   return (
     <Container onClick={onClick}>
       <VStack
-        style={{ height: "100%" }}
+        style={{ height: '100%' }}
         alignItems="start"
         justifyContent="space-between"
       >
@@ -42,5 +42,5 @@ export const Burger = ({ onClick }: Props) => {
         ))}
       </VStack>
     </Container>
-  );
-};
+  )
+}

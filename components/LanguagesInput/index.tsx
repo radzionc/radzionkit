@@ -1,26 +1,26 @@
-import React, { forwardRef, useEffect, useState, ForwardedRef } from "react";
-import { FixedOptionsInput } from "lib/ui/inputs/Combobox/FixedOptionsInput";
-import { SelectedOption } from "lib/ui/inputs/Select/SelectedOption";
-import { HStack, VStack } from "lib/ui/Stack";
+import React, { forwardRef, useEffect, useState, ForwardedRef } from 'react'
+import { FixedOptionsInput } from 'lib/ui/inputs/Combobox/FixedOptionsInput'
+import { SelectedOption } from 'lib/ui/inputs/Select/SelectedOption'
+import { HStack, VStack } from 'lib/ui/Stack'
 
-import { languagesNames, languages, languageCodeForName } from "./languages";
+import { languagesNames, languages, languageCodeForName } from './languages'
 
 interface Props {
-  value: string[];
-  onChange: (value: string[]) => void;
-  error?: string;
+  value: string[]
+  onChange: (value: string[]) => void
+  error?: string
 }
 
 const getAvailableLanguageNames = (selectedLanguages: string[]) => {
-  const languagesSet = new Set(languagesNames);
+  const languagesSet = new Set(languagesNames)
   selectedLanguages
     .map((code) => languages[code].name)
     .forEach((language) => {
-      languagesSet.delete(language);
-    });
+      languagesSet.delete(language)
+    })
 
-  return Array.from(languagesSet);
-};
+  return Array.from(languagesSet)
+}
 
 export const LanguagesInput = forwardRef(function InnerLanguagesInput(
   { value, onChange, error }: Props,
@@ -28,19 +28,19 @@ export const LanguagesInput = forwardRef(function InnerLanguagesInput(
 ) {
   const [availableLanguageNames, setAvaialableLanguageNames] = useState(() =>
     getAvailableLanguageNames(value)
-  );
+  )
 
   useEffect(() => {
-    setAvaialableLanguageNames(getAvailableLanguageNames(value));
-  }, [value]);
+    setAvaialableLanguageNames(getAvailableLanguageNames(value))
+  }, [value])
 
   const handleAddLanguage = (language: string) => {
-    onChange([...value, languageCodeForName[language]]);
-  };
+    onChange([...value, languageCodeForName[language]])
+  }
 
   const handleRemoveLanguage = (language: string) => {
-    onChange(value.filter((v) => v !== language));
-  };
+    onChange(value.filter((v) => v !== language))
+  }
 
   return (
     <VStack>
@@ -51,7 +51,7 @@ export const LanguagesInput = forwardRef(function InnerLanguagesInput(
         ref={ref}
         onChange={(value) => {
           if (value) {
-            handleAddLanguage(value);
+            handleAddLanguage(value)
           }
         }}
         error={error}
@@ -69,5 +69,5 @@ export const LanguagesInput = forwardRef(function InnerLanguagesInput(
         ))}
       </HStack>
     </VStack>
-  );
-});
+  )
+})

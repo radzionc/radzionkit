@@ -1,33 +1,33 @@
-import { ReactNode } from "react";
-import { reverseIf } from "lib/shared/utils/reverseIf";
-import styled from "styled-components";
-import { IntersectionAware } from "lib/ui/IntersectionAware";
-import { VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
+import { ReactNode } from 'react'
+import { reverseIf } from 'lib/shared/utils/reverseIf'
+import styled from 'styled-components'
+import { IntersectionAware } from 'lib/ui/IntersectionAware'
+import { VStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
 
-import { LandingSlice } from "./LandingSlice";
+import { LandingSlice } from './LandingSlice'
 
-type StartsWith = "preview" | "info";
+type StartsWith = 'preview' | 'info'
 
 interface Props {
-  title: ReactNode;
-  description: ReactNode;
-  cta: ReactNode;
-  renderPreview: () => ReactNode;
-  startsWith: StartsWith;
+  title: ReactNode
+  description: ReactNode
+  cta: ReactNode
+  renderPreview: () => ReactNode
+  startsWith: StartsWith
 }
 
 const Wrapper = styled(LandingSlice)`
   padding: 40px 0;
   min-height: 100vh;
-`;
+`
 
 const Container = styled.div<{ isInfoFirst: boolean }>`
   display: grid;
   grid-gap: 40px;
   align-items: center;
   grid-template-columns: ${({ isInfoFirst }) =>
-    reverseIf(["3fr", "2fr"], isInfoFirst).join(" ")};
+    reverseIf(['3fr', '2fr'], isInfoFirst).join(' ')};
 
   > * {
     :last-child {
@@ -39,7 +39,7 @@ const Container = styled.div<{ isInfoFirst: boolean }>`
     grid-template-columns: 1fr;
     grid-template-rows: auto minmax(200px, 1fr);
   }
-`;
+`
 
 export const LandingFeatureSlice = ({
   title,
@@ -56,9 +56,9 @@ export const LandingFeatureSlice = ({
       <VStack gap={8}>{description}</VStack>
       {cta}
     </VStack>
-  );
+  )
 
-  const isInfoFirst = startsWith === "info";
+  const isInfoFirst = startsWith === 'info'
 
   return (
     <IntersectionAware<HTMLDivElement>
@@ -66,14 +66,14 @@ export const LandingFeatureSlice = ({
         const content = reverseIf(
           [wasIntersected ? renderPreview() : null, info],
           isInfoFirst
-        );
+        )
 
         return (
           <Wrapper ref={ref}>
             <Container isInfoFirst={isInfoFirst}>{content}</Container>
           </Wrapper>
-        );
+        )
       }}
     />
-  );
-};
+  )
+}

@@ -1,36 +1,43 @@
-import { ComponentWithChildrenProps } from "lib/shared/props";
-import styled, { css, keyframes } from "styled-components";
-import { defaultTransitionCSS } from "lib/ui/animations/transitions";
-import { centerContentCSS } from "lib/ui/utils/centerContentCSS";
-import { getHorizontalPaddingCSS } from "lib/ui/utils/getHorizontalPaddingCSS";
-import { Spinner } from "lib/ui/Spinner";
+import { ComponentWithChildrenProps } from 'lib/shared/props'
+import styled, { css, keyframes } from 'styled-components'
+import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
+import { centerContentCSS } from 'lib/ui/utils/centerContentCSS'
+import { getHorizontalPaddingCSS } from 'lib/ui/utils/getHorizontalPaddingCSS'
+import { Spinner } from 'lib/ui/Spinner'
 
-import { getCSSUnit } from "lib/ui/utils/getCSSUnit";
-import { UnstyledButton } from "../UnstyledButton";
-import { useState } from "react";
-import { useHover, useFloating, useInteractions, offset, shift, useTransitionStyles } from "@floating-ui/react";
+import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
+import { UnstyledButton } from '../UnstyledButton'
+import { useState } from 'react'
+import {
+  useHover,
+  useFloating,
+  useInteractions,
+  offset,
+  shift,
+  useTransitionStyles,
+} from '@floating-ui/react'
 
-export const rectButtonSizes = ["xs", "s", "m", "l", "xl"] as const;
+export const rectButtonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 
-type RectButtonSize = typeof rectButtonSizes[number];
+type RectButtonSize = (typeof rectButtonSizes)[number]
 
 export type Props = React.ButtonHTMLAttributes<HTMLButtonElement> &
   ComponentWithChildrenProps & {
-    as?: "button" | "div";
-    size?: RectButtonSize;
-    isDisabled?: boolean | string;
-    isLoading?: boolean;
-    isRounded?: boolean;
-  };
+    as?: 'button' | 'div'
+    size?: RectButtonSize
+    isDisabled?: boolean | string
+    isLoading?: boolean
+    isRounded?: boolean
+  }
 
 interface ContainerProps {
-  size: RectButtonSize;
-  isDisabled?: boolean;
-  isLoading?: boolean;
-  isRounded?: boolean;
+  size: RectButtonSize
+  isDisabled?: boolean
+  isLoading?: boolean
+  isRounded?: boolean
 }
 
-const Container = styled(UnstyledButton) <ContainerProps>`
+const Container = styled(UnstyledButton)<ContainerProps>`
   color: ${({ theme }) => theme.colors.text.toCssValue()};
   ${defaultTransitionCSS};
 
@@ -39,89 +46,83 @@ const Container = styled(UnstyledButton) <ContainerProps>`
   border-radius: ${({ isRounded }) => getCSSUnit(isRounded ? 100 : 8)};
 
   ${({ size }) =>
-  ({
-    xs: css`
+    ({
+      xs: css`
         ${getHorizontalPaddingCSS(8)}
         height: 28px;
         font-size: 14px;
       `,
-    s: css`
+      s: css`
         ${getHorizontalPaddingCSS(16)}
         height: 36px;
         font-size: 14px;
       `,
-    m: css`
+      m: css`
         ${getHorizontalPaddingCSS(20)}
         height: 40px;
         font-size: 16px;
       `,
-    l: css`
+      l: css`
         ${getHorizontalPaddingCSS(20)}
         height: 48px;
         font-size: 16px;
       `,
-    xl: css`
+      xl: css`
         ${getHorizontalPaddingCSS(40)}
         height: 56px;
         font-size: 18px;
       `,
-  }[size])};
+    }[size])};
 
   font-weight: 500;
 
   cursor: ${({ isDisabled, isLoading }) =>
-    isDisabled ? "initial" : isLoading ? "wait" : "pointer"};
+    isDisabled ? 'initial' : isLoading ? 'wait' : 'pointer'};
 
   ${({ isDisabled }) =>
     isDisabled &&
     css`
       opacity: 0.8;
     `};
-`;
+`
 
 const TooltipContainer = styled.div`
   border-radius: 4px;
   padding: 4px 8px;
-  background: ${({ theme }) =>
-    theme.colors.contrast.toCssValue()};
+  background: ${({ theme }) => theme.colors.contrast.toCssValue()};
   color: ${({ theme }) => theme.colors.background.toCssValue()};
   font-size: 14px;
-`;
+`
 
 export const RectButton = ({
   children,
-  size = "m",
+  size = 'm',
   isDisabled = false,
   isLoading = false,
   onClick,
   ...rest
 }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   const { refs, floatingStyles, context } = useFloating({
-    strategy: "fixed",
+    strategy: 'fixed',
     open: isOpen,
     onOpenChange: setIsOpen,
-    middleware: [
-      offset(4),
-      shift()
-    ]
-  });
+    middleware: [offset(4), shift()],
+  })
 
   const { styles } = useTransitionStyles(context, {
     duration: 200,
     initial: {
       opacity: 0,
     },
-  });
+  })
 
   const hover = useHover(context, {
-    enabled: typeof isDisabled === "string"
-  });
+    enabled: typeof isDisabled === 'string',
+  })
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([
-    hover,
-  ]);
+  const { getReferenceProps, getFloatingProps } = useInteractions([hover])
 
   return (
     <>
@@ -155,5 +156,5 @@ export const RectButton = ({
         </TooltipContainer>
       )}
     </>
-  );
-};
+  )
+}

@@ -1,25 +1,25 @@
-import type { NextPage } from "next";
-import { DemoPage } from "components/DemoPage";
-import { useState } from "react";
-import { TabNavigation } from "lib/ui/TabNavigation";
-import { capitalizeFirstLetter } from "lib/shared/utils/capitalizeFirstLetter";
-import { VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
+import type { NextPage } from 'next'
+import { DemoPage } from 'components/DemoPage'
+import { useState } from 'react'
+import { TabNavigation } from 'lib/ui/TabNavigation'
+import { capitalizeFirstLetter } from 'lib/shared/utils/capitalizeFirstLetter'
+import { VStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
 
 const views = [
-  "Overview",
-  "Projects",
-  "Habits",
-  "Goals",
-  "Tasks",
-  "Settings",
-  "Account",
-  "Help",
-] as const;
-type View = typeof views[number];
+  'Overview',
+  'Projects',
+  'Habits',
+  'Goals',
+  'Tasks',
+  'Settings',
+  'Account',
+  'Help',
+] as const
+type View = (typeof views)[number]
 
 const TabNavigationPage: NextPage = () => {
-  const [activeView, setActiveView] = useState<View>("Overview");
+  const [activeView, setActiveView] = useState<View>('Overview')
 
   return (
     <DemoPage youtubeVideoId="dDuWfi_Hvis" title="Tab Navigation">
@@ -37,7 +37,7 @@ const TabNavigationPage: NextPage = () => {
         </Text>
       </VStack>
     </DemoPage>
-  );
-};
+  )
+}
 
-export default TabNavigationPage;
+export default TabNavigationPage

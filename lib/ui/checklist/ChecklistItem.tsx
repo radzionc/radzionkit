@@ -3,7 +3,10 @@ import styled, { css } from 'styled-components'
 import { Hoverable } from '../Hoverable'
 import { defaultTransitionCSS } from '../animations/transitions'
 import { CheckIcon } from '../icons/CheckIcon'
-import { InvisibleHTMLCheckboxProps, InvisibleHTMLCheckbox } from '../inputs/Checkbox/InvisibleHTMLCheckbox'
+import {
+  InvisibleHTMLCheckboxProps,
+  InvisibleHTMLCheckbox,
+} from '../inputs/Checkbox/InvisibleHTMLCheckbox'
 import { centerContentCSS } from '../utils/centerContentCSS'
 import { Text } from '../Text'
 import { ChecklistItemFrame } from './ChecklistItemFrame'
@@ -18,7 +21,7 @@ export const Box = styled.div<{ isChecked: boolean }>`
   aspect-ratio: 1/1;
 
   ${centerContentCSS};
-  
+
   border-radius: 4px;
   border: 2px solid ${({ theme }) => theme.colors.textSupporting3.toCssValue()};
   color: ${({ theme }) => theme.colors.background.toCssValue()};
@@ -33,7 +36,7 @@ export const Box = styled.div<{ isChecked: boolean }>`
     `};
 `
 
-const Content = styled(Text) <{ isChecked: boolean }>`
+const Content = styled(Text)<{ isChecked: boolean }>`
   max-width: 100%;
   position: relative;
   color: ${({ theme, isChecked }) =>

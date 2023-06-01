@@ -1,13 +1,13 @@
-import styled from "styled-components";
-import { SafeImage } from "lib/ui/SafeImage";
-import { VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
+import styled from 'styled-components'
+import { SafeImage } from 'lib/ui/SafeImage'
+import { VStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
 
 interface Props {
-  address: string;
-  tokenId: string;
-  imageUrl: string;
-  title: string;
+  address: string
+  tokenId: string
+  imageUrl: string
+  title: string
 }
 
 const ImageWrapper = styled.div`
@@ -16,13 +16,13 @@ const ImageWrapper = styled.div`
   border-radius: 12px;
   overflow: hidden;
   background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
-`;
+`
 
 const Image = styled.img`
   height: 100%;
   width: auto;
   object-fit: cover;
-`;
+`
 
 export const NftItem = ({ title, address, tokenId, imageUrl }: Props) => {
   return (
@@ -38,16 +38,16 @@ export const NftItem = ({ title, address, tokenId, imageUrl }: Props) => {
         <Text cropped weight="bold" color="supporting">
           <Text as="span" color="supporting3">
             Addr
-          </Text>{" "}
+          </Text>{' '}
           {address}
         </Text>
         <Text cropped weight="bold" color="supporting">
           <Text as="span" color="supporting3">
             Id
-          </Text>{" "}
+          </Text>{' '}
           {tokenId}
         </Text>
       </VStack>
     </VStack>
-  );
-};
+  )
+}

@@ -1,5 +1,5 @@
-import { defaultBorderRadiusCSS } from "lib/ui/borderRadius";
-import styled from "styled-components";
+import { defaultBorderRadiusCSS } from 'lib/ui/borderRadius'
+import styled from 'styled-components'
 
 export const ResumeContainer = styled.div`
   width: 880px;
@@ -24,4 +24,4 @@ export const ResumeContainer = styled.div`
     height: 100%;
     border-radius: 0;
   }
-`;
+`

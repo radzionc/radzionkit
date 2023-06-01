@@ -1,12 +1,12 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export interface InvisibleHTMLSliderProps {
-  min: number;
-  max: number;
-  value: number;
-  step: number;
-  autoFocus?: boolean;
-  onChange: (value: number) => void;
+  min: number
+  max: number
+  value: number
+  step: number
+  autoFocus?: boolean
+  onChange: (value: number) => void
 }
 
 const SliderInput = styled.input`
@@ -21,7 +21,7 @@ const SliderInput = styled.input`
   white-space: nowrap;
   width: 100%;
   direction: ltr;
-`;
+`
 
 export const InvisibleHTMLSlider = ({
   min,
@@ -39,7 +39,7 @@ export const InvisibleHTMLSlider = ({
     autoFocus={autoFocus}
     value={value}
     onChange={(event) => {
-      onChange(Number(event.currentTarget.value));
+      onChange(Number(event.currentTarget.value))
     }}
   />
-);
+)

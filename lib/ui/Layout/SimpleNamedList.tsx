@@ -1,9 +1,9 @@
-import { VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
+import { VStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
 
 interface Props {
-  name: string;
-  children?: React.ReactNode;
+  name: string
+  children?: React.ReactNode
 }
 
 export const SimpleNamedList = ({ name, children }: Props) => {
@@ -12,5 +12,5 @@ export const SimpleNamedList = ({ name, children }: Props) => {
       <Text color="supporting2">{name}</Text>
       {children}
     </VStack>
-  );
-};
+  )
+}

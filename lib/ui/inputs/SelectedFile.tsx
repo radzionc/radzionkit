@@ -1,19 +1,19 @@
-import styled from "styled-components";
-import { OutlinedButton } from "lib/ui/buttons/rect/OutlinedButton";
-import { inputBackgroundCSS, inputBorderRadiusCSS } from "lib/ui/inputs/config";
-import { HStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
+import styled from 'styled-components'
+import { OutlinedButton } from 'lib/ui/buttons/rect/OutlinedButton'
+import { inputBackgroundCSS, inputBorderRadiusCSS } from 'lib/ui/inputs/config'
+import { HStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
 
 interface Props {
-  name: string;
-  onRemove: () => void;
+  name: string
+  onRemove: () => void
 }
 
 const Container = styled.div`
   ${inputBackgroundCSS};
   ${inputBorderRadiusCSS};
   padding: 16px;
-`;
+`
 
 export const SelectedFile = ({ name, onRemove }: Props) => (
   <Container>
@@ -22,4 +22,4 @@ export const SelectedFile = ({ name, onRemove }: Props) => (
       <OutlinedButton onClick={onRemove}>Remove</OutlinedButton>
     </HStack>
   </Container>
-);
+)

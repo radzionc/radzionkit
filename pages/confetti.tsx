@@ -1,9 +1,9 @@
-import { DemoPage } from "components/DemoPage";
-import { Confetti } from "lib/ui/animations/Confetti";
-import { Checkbox } from "lib/ui/inputs/Checkbox/Checkbox";
-import type { NextPage } from "next";
-import { useState } from "react";
-import styled from "styled-components";
+import { DemoPage } from 'components/DemoPage'
+import { Confetti } from 'lib/ui/animations/Confetti'
+import { Checkbox } from 'lib/ui/inputs/Checkbox/Checkbox'
+import type { NextPage } from 'next'
+import { useState } from 'react'
+import styled from 'styled-components'
 
 const Container = styled.div`
   position: relative;
@@ -16,15 +16,19 @@ const ConfettiPage: NextPage = () => {
   return (
     <DemoPage title="Confetti">
       <Container>
-        <Checkbox label="Confetti!" value={value} onChange={() => {
-          const newValue = !value
-          setValue(newValue)
-          setShowConfetti(newValue)
-        }} />
+        <Checkbox
+          label="Confetti!"
+          value={value}
+          onChange={() => {
+            const newValue = !value
+            setValue(newValue)
+            setShowConfetti(newValue)
+          }}
+        />
         {showConfetti && <Confetti x={20} y={-20} />}
       </Container>
     </DemoPage>
   )
-};
+}
 
-export default ConfettiPage;
+export default ConfettiPage

@@ -1,12 +1,12 @@
-import type { NextPage } from "next";
-import { DemoPage } from "components/DemoPage";
-import { AmountTextInput } from "lib/ui/inputs/AmountTextInput";
-import { DollarIcon } from "lib/ui/icons/DollarIcon";
-import { useState } from "react";
-import { AmountSuggestion } from "lib/ui/inputs/AmountSuggestion";
+import type { NextPage } from 'next'
+import { DemoPage } from 'components/DemoPage'
+import { AmountTextInput } from 'lib/ui/inputs/AmountTextInput'
+import { DollarIcon } from 'lib/ui/icons/DollarIcon'
+import { useState } from 'react'
+import { AmountSuggestion } from 'lib/ui/inputs/AmountSuggestion'
 
 const AmountInputPage: NextPage = () => {
-  const [value, setValue] = useState<number | undefined>(80000);
+  const [value, setValue] = useState<number | undefined>(80000)
 
   return (
     <DemoPage youtubeVideoId="RH0Z8AdPXHY" title="Amount Input">
@@ -22,7 +22,7 @@ const AmountInputPage: NextPage = () => {
         />
       </div>
     </DemoPage>
-  );
-};
+  )
+}
 
-export default AmountInputPage;
+export default AmountInputPage

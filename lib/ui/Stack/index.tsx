@@ -1,28 +1,28 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { getCSSUnit } from "lib/ui/utils/getCSSUnit";
+import React from 'react'
+import styled, { css } from 'styled-components'
+import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
 
 interface Props {
-  gap?: React.CSSProperties["gap"];
-  alignItems?: React.CSSProperties["alignItems"];
-  justifyContent?: React.CSSProperties["justifyContent"];
-  wrap?: React.CSSProperties["flexWrap"];
-  children: React.ReactNode;
-  fullWidth?: boolean;
-  fullHeight?: boolean;
+  gap?: React.CSSProperties['gap']
+  alignItems?: React.CSSProperties['alignItems']
+  justifyContent?: React.CSSProperties['justifyContent']
+  wrap?: React.CSSProperties['flexWrap']
+  children: React.ReactNode
+  fullWidth?: boolean
+  fullHeight?: boolean
 }
 
 const formatFlexAlignment = (
   value:
-    | React.CSSProperties["alignItems"]
-    | React.CSSProperties["justifyContent"]
+    | React.CSSProperties['alignItems']
+    | React.CSSProperties['justifyContent']
 ) => {
-  if (value === "end" || value === "start") {
-    return `flex-${value}`;
+  if (value === 'end' || value === 'start') {
+    return `flex-${value}`
   }
 
-  return value;
-};
+  return value
+}
 
 const stackCSS = css<Props>`
   display: flex;
@@ -56,23 +56,23 @@ const stackCSS = css<Props>`
     css`
       height: 100%;
     `}
-`;
+`
 
 export const VStack = styled.div`
   ${stackCSS}
   flex-direction: column;
-`;
+`
 
 export const HStack = styled.div`
   ${stackCSS}
   flex-direction: row;
-`;
+`
 
 interface StackProps extends Props {
-  direction: React.CSSProperties["direction"];
+  direction: React.CSSProperties['direction']
 }
 
 export const Stack = styled.div<StackProps>`
   ${stackCSS}
   flex-direction: ${({ direction }) => direction};
-`;
+`

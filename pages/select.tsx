@@ -1,10 +1,10 @@
-import type { NextPage } from "next";
-import { useState } from "react";
-import styled from "styled-components";
-import { ElementSizeAware } from "lib/ui/ElementSizeAware";
-import { SelectOption } from "lib/ui/inputs/Select/SelectOption";
-import { VStack } from "lib/ui/Stack";
-import { DemoPage } from "components/DemoPage";
+import type { NextPage } from 'next'
+import { useState } from 'react'
+import styled from 'styled-components'
+import { ElementSizeAware } from 'lib/ui/ElementSizeAware'
+import { SelectOption } from 'lib/ui/inputs/Select/SelectOption'
+import { VStack } from 'lib/ui/Stack'
+import { DemoPage } from 'components/DemoPage'
 
 export const focusOptions = [
   15,
@@ -17,28 +17,28 @@ export const focusOptions = [
   50,
   60,
   90,
-  "infinite",
-] as const;
+  'infinite',
+] as const
 
-export type FocusDuration = typeof focusOptions[number];
+export type FocusDuration = (typeof focusOptions)[number]
 
 const SelectContainer = styled.div<{ isSmallScreen: boolean }>`
   display: grid;
   width: 100%;
   grid-template-columns: ${({ isSmallScreen }) =>
-    isSmallScreen ? "repeat(5, 1fr)" : "repeat(6, 60px)"};
+    isSmallScreen ? 'repeat(5, 1fr)' : 'repeat(6, 60px)'};
   gap: 8px;
 
   > * {
     :last-child {
       grid-column: ${({ isSmallScreen }) =>
-        isSmallScreen ? "1 / -1" : "5 / span 2"};
+        isSmallScreen ? '1 / -1' : '5 / span 2'};
     }
   }
-`;
+`
 
 const ButtonPage: NextPage = () => {
-  const [focusDuration, setFocusDuration] = useState<FocusDuration>(25);
+  const [focusDuration, setFocusDuration] = useState<FocusDuration>(25)
 
   return (
     <DemoPage youtubeVideoId="o7V3vaIH7rM" title="Select">
@@ -55,7 +55,7 @@ const ButtonPage: NextPage = () => {
                     value={option}
                     onSelect={() => setFocusDuration(option)}
                   >
-                    {option === "infinite" ? "stopwatch" : option}
+                    {option === 'infinite' ? 'stopwatch' : option}
                   </SelectOption>
                 ))}
               </SelectContainer>
@@ -64,7 +64,7 @@ const ButtonPage: NextPage = () => {
         )}
       />
     </DemoPage>
-  );
-};
+  )
+}
 
-export default ButtonPage;
+export default ButtonPage

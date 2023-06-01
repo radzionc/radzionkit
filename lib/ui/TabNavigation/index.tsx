@@ -1,14 +1,14 @@
-import { HStack } from "lib/ui/Stack";
-import { hideScrollbarsCSS } from "lib/ui/utils/hideScrollbarsCSS";
-import styled from "styled-components";
-import { TabNavigationItem } from "./TabNavigationItem";
+import { HStack } from 'lib/ui/Stack'
+import { hideScrollbarsCSS } from 'lib/ui/utils/hideScrollbarsCSS'
+import styled from 'styled-components'
+import { TabNavigationItem } from './TabNavigationItem'
 
 interface TabNavigationProps<T extends string | number | symbol> {
-  views: readonly T[];
-  getViewName: (view: T) => string;
-  activeView: T;
-  onSelect: (option: T) => void;
-  groupName: string;
+  views: readonly T[]
+  getViewName: (view: T) => string
+  activeView: T
+  onSelect: (option: T) => void
+  groupName: string
 }
 
 const Container = styled(HStack)`
@@ -16,7 +16,7 @@ const Container = styled(HStack)`
   position: relative;
   overflow-x: auto;
   ${hideScrollbarsCSS};
-`;
+`
 
 export function TabNavigation<T extends string | number | symbol>({
   views,
@@ -28,7 +28,7 @@ export function TabNavigation<T extends string | number | symbol>({
   return (
     <Container>
       {views.map((view) => {
-        const name = getViewName(view);
+        const name = getViewName(view)
         return (
           <TabNavigationItem
             groupName={groupName}
@@ -39,8 +39,8 @@ export function TabNavigation<T extends string | number | symbol>({
           >
             {name}
           </TabNavigationItem>
-        );
+        )
       })}
     </Container>
-  );
+  )
 }

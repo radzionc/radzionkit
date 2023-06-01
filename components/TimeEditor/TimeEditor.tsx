@@ -1,19 +1,19 @@
-import { millisecondsInHour } from "date-fns";
-import { useStartOfDay } from "lib/shared/hooks/useStartOfDay";
-import { TitledSection } from "lib/ui/Layout/TitledSection";
-import { Panel } from "lib/ui/Panel/Panel";
-import { TimeInput } from "lib/ui/timeline/TimeInput";
-import { useState } from "react";
-import { useTheme } from "styled-components";
+import { millisecondsInHour } from 'date-fns'
+import { useStartOfDay } from 'lib/shared/hooks/useStartOfDay'
+import { TitledSection } from 'lib/ui/Layout/TitledSection'
+import { Panel } from 'lib/ui/Panel/Panel'
+import { TimeInput } from 'lib/ui/timeline/TimeInput'
+import { useState } from 'react'
+import { useTheme } from 'styled-components'
 
 export const TimeEditor = () => {
-  const startOfDay = useStartOfDay();
+  const startOfDay = useStartOfDay()
 
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const initialValue = startOfDay + millisecondsInHour * 12;
+  const initialValue = startOfDay + millisecondsInHour * 12
 
-  const [value, setValue] = useState<number>(initialValue);
+  const [value, setValue] = useState<number>(initialValue)
 
   return (
     <Panel width={400}>
@@ -31,5 +31,5 @@ export const TimeEditor = () => {
         />
       </TitledSection>
     </Panel>
-  );
-};
+  )
+}

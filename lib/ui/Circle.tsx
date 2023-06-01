@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import { HSLA } from "./colors/HSLA";
-import { centerContentCSS } from "./utils/centerContentCSS";
-import { getSameDimensionsCSS } from "./utils/getSameDimensionsCSS";
-import { roundedCSS } from "./utils/roundedCSS";
+import styled from 'styled-components'
+import { HSLA } from './colors/HSLA'
+import { centerContentCSS } from './utils/centerContentCSS'
+import { getSameDimensionsCSS } from './utils/getSameDimensionsCSS'
+import { roundedCSS } from './utils/roundedCSS'
 
 interface Props {
-  size: number;
-  background?: HSLA;
+  size: number
+  background?: HSLA
 }
 
 export const Circle = styled.div<Props>`
@@ -14,4 +14,4 @@ export const Circle = styled.div<Props>`
   background: ${({ background }) => background?.toCssValue()};
   ${roundedCSS}
   ${({ size }) => getSameDimensionsCSS(size)}
-`;
+`

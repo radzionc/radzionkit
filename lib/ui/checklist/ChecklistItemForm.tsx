@@ -27,7 +27,11 @@ interface ChecklistItemFormProps {
   namePlaceholder?: string
 }
 
-export const ChecklistItemForm = ({ onSubmit, onCancel, namePlaceholder = 'Name' }: ChecklistItemFormProps) => {
+export const ChecklistItemForm = ({
+  onSubmit,
+  onCancel,
+  namePlaceholder = 'Name',
+}: ChecklistItemFormProps) => {
   const { register, handleSubmit } = useForm<ChecklistItemFormShape>({
     mode: 'all',
     defaultValues: {

@@ -1,22 +1,22 @@
-import { ReactNode } from "react";
-import styled from "styled-components";
-import { Spacer } from "lib/ui/Spacer";
-import { VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
-import { getCSSUnit } from "lib/ui/utils/getCSSUnit";
+import { ReactNode } from 'react'
+import styled from 'styled-components'
+import { Spacer } from 'lib/ui/Spacer'
+import { VStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
+import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
 
-type PageWidth = "m" | "s";
+type PageWidth = 'm' | 's'
 
 interface Props {
-  children: ReactNode;
-  title?: ReactNode;
-  width?: PageWidth;
+  children: ReactNode
+  title?: ReactNode
+  width?: PageWidth
 }
 
 const maxWidth: Record<PageWidth, number> = {
   m: 1036,
   s: 750,
-};
+}
 
 const Container = styled(VStack)<{ maxWidth: number }>`
   max-width: ${({ maxWidth }) => getCSSUnit(maxWidth)};
@@ -25,9 +25,9 @@ const Container = styled(VStack)<{ maxWidth: number }>`
   @media (max-width: ${({ maxWidth }) => getCSSUnit(maxWidth)}) {
     max-width: calc(100vw - 40px);
   }
-`;
+`
 
-export const RegularPage = ({ children, title, width = "m" }: Props) => {
+export const RegularPage = ({ children, title, width = 'm' }: Props) => {
   return (
     <VStack fullWidth alignItems="center">
       <Container maxWidth={maxWidth[width]} alignItems="start">
@@ -43,5 +43,5 @@ export const RegularPage = ({ children, title, width = "m" }: Props) => {
       </Container>
       <Spacer height={40} />
     </VStack>
-  );
-};
+  )
+}

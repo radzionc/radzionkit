@@ -1,10 +1,10 @@
-import { ComponentProps } from "react";
+import { ComponentProps } from 'react'
 import {
   handleWithStopPropagation,
   handleWithStopPropagationAndPreventDefault,
-} from "lib/shared/events";
-import styled, { css } from "styled-components";
-import { zIndex } from "lib/ui/zIndex";
+} from 'lib/shared/events'
+import styled, { css } from 'styled-components'
+import { zIndex } from 'lib/ui/zIndex'
 
 const Container = styled.div<{ isBlurred?: boolean }>`
   position: fixed;
@@ -27,12 +27,12 @@ const Container = styled.div<{ isBlurred?: boolean }>`
     css`
       backdrop-filter: blur(4px);
     `}
-`;
+`
 Container.defaultProps = {
   isBlurred: true,
-};
+}
 
-type Props = ComponentProps<typeof Container>;
+type Props = ComponentProps<typeof Container>
 
 export const ScreenCover = ({ onClick, ...props }: Props) => (
   <Container
@@ -40,4 +40,4 @@ export const ScreenCover = ({ onClick, ...props }: Props) => (
     onClick={handleWithStopPropagationAndPreventDefault(onClick)}
     {...props}
   />
-);
+)

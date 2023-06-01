@@ -1,20 +1,20 @@
-import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
-import type { NextPage } from "next";
-import { SubmitFormButton } from "lib/ui/buttons/rect/SubmitFormButton";
-import { Form } from "lib/ui/Form/Form";
-import { TextInput } from "lib/ui/inputs/TextInput";
-import { RegularPage } from "lib/ui/page/RegularPage";
-import { Controller, useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { LanguagesInput } from "components/LanguagesInput";
-import { DemoPage } from "components/DemoPage";
-import { Panel } from "lib/ui/Panel/Panel";
-import { TitledSection } from "lib/ui/Layout/TitledSection";
+import { SourceCodeLink } from 'components/SourceCode/SourceCodeLink'
+import type { NextPage } from 'next'
+import { SubmitFormButton } from 'lib/ui/buttons/rect/SubmitFormButton'
+import { Form } from 'lib/ui/Form/Form'
+import { TextInput } from 'lib/ui/inputs/TextInput'
+import { RegularPage } from 'lib/ui/page/RegularPage'
+import { Controller, useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { LanguagesInput } from 'components/LanguagesInput'
+import { DemoPage } from 'components/DemoPage'
+import { Panel } from 'lib/ui/Panel/Panel'
+import { TitledSection } from 'lib/ui/Layout/TitledSection'
 
 interface FormShape {
-  name: string;
-  languages: string[];
+  name: string
+  languages: string[]
 }
 
 const schema: yup.SchemaOf<FormShape> = yup
@@ -22,7 +22,7 @@ const schema: yup.SchemaOf<FormShape> = yup
     name: yup.string().max(100).required(),
     languages: yup.array().min(1),
   })
-  .required();
+  .required()
 
 const ComboboxPage: NextPage = () => {
   const {
@@ -31,12 +31,12 @@ const ComboboxPage: NextPage = () => {
     control,
     formState: { errors },
   } = useForm<FormShape>({
-    mode: "onSubmit",
+    mode: 'onSubmit',
     resolver: yupResolver(schema),
     defaultValues: {
       languages: [],
     },
-  });
+  })
 
   return (
     <DemoPage title="Combobox" youtubeVideoId="iZGQE3-pqpg">
@@ -47,7 +47,7 @@ const ComboboxPage: NextPage = () => {
               <>
                 <TextInput
                   label="Full name"
-                  {...register("name")}
+                  {...register('name')}
                   error={errors.name?.message}
                   autoFocus
                   placeholder="John Johnson"
@@ -72,7 +72,7 @@ const ComboboxPage: NextPage = () => {
         </TitledSection>
       </Panel>
     </DemoPage>
-  );
-};
+  )
+}
 
-export default ComboboxPage;
+export default ComboboxPage

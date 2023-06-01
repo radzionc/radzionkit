@@ -1,11 +1,11 @@
-import { ExternalLink } from "lib/navigation/Link/ExternalLink";
-import { GhostButton } from "lib/ui/buttons/rect/GhostButton";
-import { YouTubeIcon } from "lib/ui/icons/YouTubeIcon";
-import { HStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
+import { ExternalLink } from 'lib/navigation/Link/ExternalLink'
+import { GhostButton } from 'lib/ui/buttons/rect/GhostButton'
+import { YouTubeIcon } from 'lib/ui/icons/YouTubeIcon'
+import { HStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
 
 interface Props {
-  videoId: string;
+  videoId: string
 }
 
 export const YouTubeLink = ({ videoId }: Props) => {
@@ -20,5 +20,5 @@ export const YouTubeLink = ({ videoId }: Props) => {
         </HStack>
       </GhostButton>
     </ExternalLink>
-  );
-};
+  )
+}

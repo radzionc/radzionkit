@@ -1,32 +1,32 @@
-import { range } from "lib/shared/utils/range";
-import styled from "styled-components";
-import { VStack } from "../Stack";
-import { Text } from "../Text";
+import { range } from 'lib/shared/utils/range'
+import styled from 'styled-components'
+import { VStack } from '../Stack'
+import { Text } from '../Text'
 
 interface Props {
-  start: number;
-  end: number;
-  className?: string;
-  hourLabelWidthInPx?: number;
-  children?: React.ReactNode;
-  underLinesContent?: React.ReactNode;
-  formatHour?: (hour: number) => string | number;
+  start: number
+  end: number
+  className?: string
+  hourLabelWidthInPx?: number
+  children?: React.ReactNode
+  underLinesContent?: React.ReactNode
+  formatHour?: (hour: number) => string | number
 }
 
 const Container = styled(VStack)`
   position: relative;
-`;
+`
 
 const HourWr = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-`;
+`
 
 const HourContainer = styled.div`
   position: absolute;
   width: 100%;
-`;
+`
 
 const HourContent = styled.div<{ labelWidth: number }>`
   width: 100%;
@@ -34,13 +34,13 @@ const HourContent = styled.div<{ labelWidth: number }>`
   gap: 8px;
   grid-template-columns: ${({ labelWidth }) => labelWidth}px 1fr;
   align-items: center;
-`;
+`
 
 const HourLine = styled.div`
   background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
   height: 1px;
   width: 100%;
-`;
+`
 
 const Content = styled.div<{ leftOffset: number }>`
   position: absolute;
@@ -48,7 +48,7 @@ const Content = styled.div<{ leftOffset: number }>`
   height: 100%;
   left: ${(p) => p.leftOffset}px;
   display: flex;
-`;
+`
 
 export const HourSpace = ({
   start,
@@ -59,7 +59,7 @@ export const HourSpace = ({
   underLinesContent,
   formatHour = (v) => v,
 }: Props) => {
-  const hours = range(end + 1 - start).map((index) => start + index);
+  const hours = range(end + 1 - start).map((index) => start + index)
 
   return (
     <Container
@@ -83,11 +83,11 @@ export const HourSpace = ({
               </HourContent>
             </HourContainer>
           </HourWr>
-        );
+        )
       })}
       {children && (
         <Content leftOffset={hourLabelWidthInPx}>{children}</Content>
       )}
     </Container>
-  );
-};
+  )
+}

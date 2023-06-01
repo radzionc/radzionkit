@@ -1,9 +1,9 @@
-import { dotSeparator } from "lib/ui/SeparatedBy";
-import { HStack, VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
+import { dotSeparator } from 'lib/ui/SeparatedBy'
+import { HStack, VStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
 
 interface Props {
-  items: string[];
+  items: string[]
 }
 
 export const Responsibilities = ({ items }: Props) => (
@@ -15,4 +15,4 @@ export const Responsibilities = ({ items }: Props) => (
       </HStack>
     ))}
   </VStack>
-);
+)

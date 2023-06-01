@@ -1,9 +1,9 @@
-import { HSLA } from "lib/ui/colors/HSLA";
+import { HSLA } from 'lib/ui/colors/HSLA'
 
 interface Props {
-  color: HSLA;
-  radius: number;
-  cutoutRadius: number;
+  color: HSLA
+  radius: number
+  cutoutRadius: number
 }
 
 export const SvgDisk = ({ color, radius, cutoutRadius }: Props) => (
@@ -15,4 +15,4 @@ export const SvgDisk = ({ color, radius, cutoutRadius }: Props) => (
     cx={radius}
     cy={radius}
   />
-);
+)

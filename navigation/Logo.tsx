@@ -1,6 +1,6 @@
-import { InternalLink } from "navigation/InternalLink";
-import { Text } from "lib/ui/Text";
-import { Path } from "./Path";
+import { InternalLink } from 'navigation/InternalLink'
+import { Text } from 'lib/ui/Text'
+import { Path } from './Path'
 
 export const Logo = () => {
   return (
@@ -12,5 +12,5 @@ export const Logo = () => {
         </Text>
       </Text>
     </InternalLink>
-  );
-};
+  )
+}

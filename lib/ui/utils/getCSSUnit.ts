@@ -1,2 +1,2 @@
 export const getCSSUnit = (value: number | string) =>
-  typeof value === "number" ? `${value}px` : value;
+  typeof value === 'number' ? `${value}px` : value

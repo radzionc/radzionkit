@@ -1,14 +1,14 @@
-import { ReactNode } from "react";
-import styled from "styled-components";
-import { defaultTransitionCSS } from "../animations/transitions";
-import { Text } from "../Text";
+import { ReactNode } from 'react'
+import styled from 'styled-components'
+import { defaultTransitionCSS } from '../animations/transitions'
+import { Text } from '../Text'
 
-import { UnstyledButton } from "./UnstyledButton";
+import { UnstyledButton } from './UnstyledButton'
 
 interface Props {
-  onClick?: () => void;
-  text: ReactNode;
-  as?: any;
+  onClick?: () => void
+  text: ReactNode
+  as?: any
 }
 
 const Container = styled(UnstyledButton)`
@@ -18,7 +18,7 @@ const Container = styled(UnstyledButton)`
   :hover {
     color: ${({ theme }) => theme.colors.text.toCssValue()};
   }
-`;
+`
 
 const Underline = styled.span`
   position: absolute;
@@ -26,7 +26,7 @@ const Underline = styled.span`
   bottom: 1px;
   width: calc(100% - 1px);
   border-bottom: 1px dashed;
-`;
+`
 
 export const ShyTextButton = ({ onClick, text, as }: Props) => {
   return (
@@ -34,12 +34,12 @@ export const ShyTextButton = ({ onClick, text, as }: Props) => {
       <Text
         size={14}
         nowrap
-        style={{ transition: "none", position: "relative" }}
+        style={{ transition: 'none', position: 'relative' }}
         weight="bold"
       >
         {text}
         <Underline />
       </Text>
     </Container>
-  );
-};
+  )
+}

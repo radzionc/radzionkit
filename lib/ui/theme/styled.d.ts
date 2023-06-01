@@ -1,14 +1,14 @@
-import "styled-components";
+import 'styled-components'
 
-import { ThemeColors } from "lib/ui/theme/ThemeColors";
+import { ThemeColors } from 'lib/ui/theme/ThemeColors'
 
-import { ThemeName } from "./ThemeName";
-import { ThemeShadows } from "./ThemeShadows";
+import { ThemeName } from './ThemeName'
+import { ThemeShadows } from './ThemeShadows'
 
-declare module "styled-components" {
+declare module 'styled-components' {
   export interface DefaultTheme {
-    name: ThemeName;
-    colors: ThemeColors;
-    shadows: ThemeShadows;
+    name: ThemeName
+    colors: ThemeColors
+    shadows: ThemeShadows
   }
 }

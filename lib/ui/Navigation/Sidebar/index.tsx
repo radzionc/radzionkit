@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { VStack } from "lib/ui/Stack";
-import { ComponentWithChildrenProps } from "lib/shared/props";
+import styled from 'styled-components'
+import { VStack } from 'lib/ui/Stack'
+import { ComponentWithChildrenProps } from 'lib/shared/props'
 
 const Container = styled.div`
   min-width: 260px;
@@ -8,7 +8,7 @@ const Container = styled.div`
   background: ${({ theme }) => theme.colors.foreground.toCssValue()};
   padding: 20px 8px;
   overflow: auto;
-`;
+`
 
 interface Props extends ComponentWithChildrenProps {}
 
@@ -19,5 +19,5 @@ export const Sidebar = ({ children }: Props) => {
         {children}
       </VStack>
     </Container>
-  );
-};
+  )
+}

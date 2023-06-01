@@ -1,22 +1,22 @@
-import { degreesInCircle } from "lib/shared/utils/degreesToRadians";
-import { getPointOnCircle } from "lib/shared/utils/getPointOnCircle";
-import { toPercents } from "lib/shared/utils/toPercents";
-import styled from "styled-components";
+import { degreesInCircle } from 'lib/shared/utils/degreesToRadians'
+import { getPointOnCircle } from 'lib/shared/utils/getPointOnCircle'
+import { toPercents } from 'lib/shared/utils/toPercents'
+import styled from 'styled-components'
 
 interface Props {
-  startAngle: number;
-  endAngle: number;
-  radius: number;
-  cutoutRadius: number;
+  startAngle: number
+  endAngle: number
+  radius: number
+  cutoutRadius: number
 }
 
-const labelWrapperSize = 20;
+const labelWrapperSize = 20
 
 const Label = styled.text`
   fill: ${({ theme }) => theme.colors.contrast.toCssValue()};
   font-size: 9px;
   font-weight: 500;
-`;
+`
 
 export const PieChartLabel = ({
   startAngle,
@@ -24,14 +24,14 @@ export const PieChartLabel = ({
   radius,
   cutoutRadius,
 }: Props) => {
-  const labelAngle = startAngle + (endAngle - startAngle) / 2;
+  const labelAngle = startAngle + (endAngle - startAngle) / 2
   const labelPosition = getPointOnCircle(
     radius,
     cutoutRadius + (radius - cutoutRadius) / 2,
     labelAngle
-  );
-  labelPosition.x -= labelWrapperSize / 2;
-  labelPosition.y -= labelWrapperSize / 2;
+  )
+  labelPosition.x -= labelWrapperSize / 2
+  labelPosition.y -= labelWrapperSize / 2
 
   return (
     <g>
@@ -51,5 +51,5 @@ export const PieChartLabel = ({
         <tspan fontSize={5}>%</tspan>
       </Label>
     </g>
-  );
-};
+  )
+}

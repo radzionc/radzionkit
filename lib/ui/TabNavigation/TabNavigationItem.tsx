@@ -1,13 +1,13 @@
-import { ReactNode, useEffect, useRef } from "react";
-import styled, { css } from "styled-components";
-import { centerContentCSS } from "lib/ui/utils/centerContentCSS";
+import { ReactNode, useEffect, useRef } from 'react'
+import styled, { css } from 'styled-components'
+import { centerContentCSS } from 'lib/ui/utils/centerContentCSS'
 
-import { roundedCSS } from "lib/ui/utils/roundedCSS";
+import { roundedCSS } from 'lib/ui/utils/roundedCSS'
 import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
-} from "../inputs/InvisibleHTMLRadio";
-import { defaultTransitionCSS } from "../animations/transitions";
+} from '../inputs/InvisibleHTMLRadio'
+import { defaultTransitionCSS } from '../animations/transitions'
 
 const Container = styled.label<{ isSelected: boolean }>`
   cursor: pointer;
@@ -37,11 +37,11 @@ const Container = styled.label<{ isSelected: boolean }>`
     css`
       background: ${theme.colors.backgroundGlass2.toCssValue()};
     `};
-`;
+`
 
 interface Props extends InvisibleHTMLRadioProps {
-  children: ReactNode;
-  className?: string;
+  children: ReactNode
+  className?: string
 }
 
 export const TabNavigationItem = ({
@@ -50,16 +50,16 @@ export const TabNavigationItem = ({
   className,
   ...rest
 }: Props) => {
-  const ref = useRef<HTMLLabelElement>(null);
+  const ref = useRef<HTMLLabelElement>(null)
   useEffect(() => {
     if (isSelected) {
       ref.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "center",
-      });
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'center',
+      })
     }
-  }, [isSelected]);
+  }, [isSelected])
 
   return (
     <Container
@@ -71,5 +71,5 @@ export const TabNavigationItem = ({
       {children}
       <InvisibleHTMLRadio isSelected={isSelected} {...rest} />
     </Container>
-  );
-};
+  )
+}

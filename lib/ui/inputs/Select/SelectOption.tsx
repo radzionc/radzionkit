@@ -1,13 +1,13 @@
-import { ReactNode } from "react";
-import styled, { css } from "styled-components";
-import { defaultTransitionCSS } from "lib/ui/animations/transitions";
-import { centerContentCSS } from "lib/ui/utils/centerContentCSS";
+import { ReactNode } from 'react'
+import styled, { css } from 'styled-components'
+import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
+import { centerContentCSS } from 'lib/ui/utils/centerContentCSS'
 
-import { defaultInputShapeCSS } from "../config";
+import { defaultInputShapeCSS } from '../config'
 import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
-} from "../InvisibleHTMLRadio";
+} from '../InvisibleHTMLRadio'
 
 const Container = styled.label<{ isSelected: boolean }>`
   position: relative;
@@ -32,11 +32,11 @@ const Container = styled.label<{ isSelected: boolean }>`
       background: ${({ theme }) => theme.colors.backgroundGlass2.toCssValue()};
       color: ${({ theme }) => theme.colors.text.toCssValue()};
     `};
-`;
+`
 
 interface Props extends InvisibleHTMLRadioProps {
-  children: ReactNode;
-  className?: string;
+  children: ReactNode
+  className?: string
 }
 
 export const SelectOption = ({
@@ -50,5 +50,5 @@ export const SelectOption = ({
       {children}
       <InvisibleHTMLRadio isSelected={isSelected} {...rest} />
     </Container>
-  );
-};
+  )
+}

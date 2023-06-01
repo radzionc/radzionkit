@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
-import { HStack } from "./Stack";
-import { Text } from "./Text";
+import { HStack } from './Stack'
+import { Text } from './Text'
 
 interface Props {
-  name: string;
-  children: ReactNode;
+  name: string
+  children: ReactNode
 }
 
 export const LabeledValue = ({ name, children }: Props) => (
@@ -13,4 +13,4 @@ export const LabeledValue = ({ name, children }: Props) => (
     <Text color="supporting2">{name}:</Text>
     {children}
   </HStack>
-);
+)

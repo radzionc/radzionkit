@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import { themedScrollbarCSS } from "./utils/themedScrollbarCSS";
+import { createGlobalStyle } from 'styled-components'
+import { themedScrollbarCSS } from './utils/themedScrollbarCSS'
 
 export const GlobalStyle = createGlobalStyle`
   /*
@@ -77,4 +77,4 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ${themedScrollbarCSS}
-`;
+`

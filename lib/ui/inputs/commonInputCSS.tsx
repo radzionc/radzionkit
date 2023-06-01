@@ -1,9 +1,9 @@
-import { css } from "styled-components";
-import { defaultTransitionCSS } from "lib/ui/animations/transitions";
-import { defaultInputShapeCSS } from "./config";
+import { css } from 'styled-components'
+import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
+import { defaultInputShapeCSS } from './config'
 
 interface CommonInputCSSProps {
-  isValid: boolean;
+  isValid: boolean
 }
 
 export const commonInputCSS = css<CommonInputCSSProps>`
@@ -21,13 +21,13 @@ export const commonInputCSS = css<CommonInputCSSProps>`
 
   outline: 1px solid transparent;
   ${({ isValid, theme }) => {
-    const errorColor = theme.colors.alert.toCssValue();
+    const errorColor = theme.colors.alert.toCssValue()
     const regularColor = isValid
       ? theme.colors.backgroundGlass.toCssValue()
-      : errorColor;
+      : errorColor
     const activeColor = isValid
       ? theme.colors.backgroundGlass2.toCssValue()
-      : errorColor;
+      : errorColor
 
     return css`
       border: 1px solid ${regularColor};
@@ -40,6 +40,6 @@ export const commonInputCSS = css<CommonInputCSSProps>`
       :active {
         border-color: ${activeColor};
       }
-    `;
+    `
   }}
-`;
+`

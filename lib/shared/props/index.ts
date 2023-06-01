@@ -1,24 +1,24 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
 export type ClosableComponentProps = {
-  onClose: () => void;
-};
+  onClose: () => void
+}
 
 export type ComponentWithIconProps = {
-  icon: ReactNode;
-};
+  icon: ReactNode
+}
 
 export type ComponentWithChildrenProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export type ComponentWithBackActionProps = {
-  onBack: () => void;
-};
+  onBack: () => void
+}
 
 export type ComponentWithClassNameProps = {
-  className?: string;
-};
+  className?: string
+}
 
 export type ClickableComponentProps = {
   onClick: () => void

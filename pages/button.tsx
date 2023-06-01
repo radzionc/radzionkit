@@ -1,10 +1,10 @@
-import type { NextPage } from "next";
-import { GhostButton } from "lib/ui/buttons/rect/GhostButton";
-import { OutlinedButton } from "lib/ui/buttons/rect/OutlinedButton";
-import { PrimaryButton } from "lib/ui/buttons/rect/PrimaryButton";
-import { SimpleNamedList } from "lib/ui/Layout/SimpleNamedList";
-import { HStack, VStack } from "lib/ui/Stack";
-import { DemoPage } from "components/DemoPage";
+import type { NextPage } from 'next'
+import { GhostButton } from 'lib/ui/buttons/rect/GhostButton'
+import { OutlinedButton } from 'lib/ui/buttons/rect/OutlinedButton'
+import { PrimaryButton } from 'lib/ui/buttons/rect/PrimaryButton'
+import { SimpleNamedList } from 'lib/ui/Layout/SimpleNamedList'
+import { HStack, VStack } from 'lib/ui/Stack'
+import { DemoPage } from 'components/DemoPage'
 
 const ButtonPage: NextPage = () => {
   return (
@@ -32,7 +32,7 @@ const ButtonPage: NextPage = () => {
         </SimpleNamedList>
       </VStack>
     </DemoPage>
-  );
-};
+  )
+}
 
-export default ButtonPage;
+export default ButtonPage

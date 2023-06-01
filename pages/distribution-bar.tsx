@@ -1,12 +1,12 @@
-import type { NextPage } from "next";
-import { DistributionBar } from "lib/ui/DistributionBar";
-import { DemoPage } from "components/DemoPage";
-import { useTheme } from "styled-components";
+import type { NextPage } from 'next'
+import { DistributionBar } from 'lib/ui/DistributionBar'
+import { DemoPage } from 'components/DemoPage'
+import { useTheme } from 'styled-components'
 
 const DistributionBarPage: NextPage = () => {
   const {
     colors: { getPaletteColor },
-  } = useTheme();
+  } = useTheme()
 
   return (
     <DemoPage title="DistributionBar">
@@ -18,7 +18,7 @@ const DistributionBarPage: NextPage = () => {
         ]}
       />
     </DemoPage>
-  );
-};
+  )
+}
 
-export default DistributionBarPage;
+export default DistributionBarPage

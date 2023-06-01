@@ -1,10 +1,10 @@
-import { ComponentWithChildrenProps } from "lib/shared/props";
-import { ReactNode } from "react";
-import { VStack } from "../Stack";
-import { Text } from "../Text";
+import { ComponentWithChildrenProps } from 'lib/shared/props'
+import { ReactNode } from 'react'
+import { VStack } from '../Stack'
+import { Text } from '../Text'
 
 interface Props extends ComponentWithChildrenProps {
-  title: ReactNode;
+  title: ReactNode
 }
 
 export const TitledSection = ({ title, children }: Props) => (
@@ -14,4 +14,4 @@ export const TitledSection = ({ title, children }: Props) => (
     </Text>
     {children}
   </VStack>
-);
+)

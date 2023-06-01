@@ -1,23 +1,23 @@
-import { sum } from "lib/shared/utils/sum";
-import { toPercents } from "lib/shared/utils/toPercents";
-import { useMemo } from "react";
-import styled from "styled-components";
+import { sum } from 'lib/shared/utils/sum'
+import { toPercents } from 'lib/shared/utils/toPercents'
+import { useMemo } from 'react'
+import styled from 'styled-components'
 
-import { defaultTransitionCSS } from "./animations/transitions";
-import { HSLA } from "./colors/HSLA";
-import { ElementSizeAware } from "./ElementSizeAware";
-import { Panel } from "./Panel/Panel";
-import { VStack } from "./Stack";
-import { Text } from "./Text";
+import { defaultTransitionCSS } from './animations/transitions'
+import { HSLA } from './colors/HSLA'
+import { ElementSizeAware } from './ElementSizeAware'
+import { Panel } from './Panel/Panel'
+import { VStack } from './Stack'
+import { Text } from './Text'
 
 export interface DistributionBarItem {
-  value: number;
-  color: HSLA;
+  value: number
+  color: HSLA
 }
 
 interface DistributionBarProps {
-  items: DistributionBarItem[];
-  height?: React.CSSProperties["height"];
+  items: DistributionBarItem[]
+  height?: React.CSSProperties['height']
 }
 
 const Container = styled(Panel)`
@@ -26,18 +26,18 @@ const Container = styled(Panel)`
 
   display: flex;
   gap: 1px;
-`;
+`
 
 const Segment = styled.div`
   height: 100%;
   ${defaultTransitionCSS};
-`;
+`
 
 export const DistributionBar = ({
   items,
   height = 40,
 }: DistributionBarProps) => {
-  const total = useMemo(() => sum(items.map((item) => item.value)), [items]);
+  const total = useMemo(() => sum(items.map((item) => item.value)), [items])
 
   return (
     <Container style={{ height }}>
@@ -47,7 +47,7 @@ export const DistributionBar = ({
           render={({ size, setElement }) => {
             const background = color
               .getVariant({ l: () => 48, s: () => 42 })
-              .toCssValue();
+              .toCssValue()
 
             return (
               <Segment
@@ -74,10 +74,10 @@ export const DistributionBar = ({
                     ))}
                 </VStack>
               </Segment>
-            );
+            )
           }}
         />
       ))}
     </Container>
-  );
-};
+  )
+}

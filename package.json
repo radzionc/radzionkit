@@ -40,6 +40,19 @@
     "@types/styled-components": "^5.1.25",
     "eslint": "8.21.0",
     "eslint-config-next": "12.2.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
     "typescript": "4.7.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write --single-quote --no-semi"
+    ]
   }
 }

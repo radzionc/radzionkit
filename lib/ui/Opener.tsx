@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import { useBoolean } from "lib/shared/hooks/useBoolean";
-import { ClosableComponentProps } from "lib/shared/props";
+import { ReactNode } from 'react'
+import { useBoolean } from 'lib/shared/hooks/useBoolean'
+import { ClosableComponentProps } from 'lib/shared/props'
 
 interface RenderOpenerParams {
   isOpen: boolean

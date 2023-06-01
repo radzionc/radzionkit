@@ -1,25 +1,30 @@
-import styled, { css } from 'styled-components';
-import { getCSSUnit } from 'lib/ui/utils/getCSSUnit';
+import styled, { css } from 'styled-components'
+import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
 
 interface Props {
-  gap: number;
-  minChildrenWidth?: number;
-  childrenWidth?: number;
-  rowHeight?: number;
-  fullWidth?: boolean;
-  maxColumns?: number;
+  gap: number
+  minChildrenWidth?: number
+  childrenWidth?: number
+  rowHeight?: number
+  fullWidth?: boolean
+  maxColumns?: number
 }
 
 const getColumnMax = (maxColumns: number | undefined, gap: number) => {
-  if (!maxColumns) return `0px`;
+  if (!maxColumns) return `0px`
 
-  const gapCount = maxColumns - 1;
-  const totalGapWidth = `calc(${gapCount} * ${getCSSUnit(gap)})`;
+  const gapCount = maxColumns - 1
+  const totalGapWidth = `calc(${gapCount} * ${getCSSUnit(gap)})`
 
-  return `calc((100% - ${totalGapWidth}) / ${maxColumns})`;
+  return `calc((100% - ${totalGapWidth}) / ${maxColumns})`
 }
 
-const getColumnWidth = ({ minChildrenWidth, maxColumns, gap, childrenWidth }: Props) => {
+const getColumnWidth = ({
+  minChildrenWidth,
+  maxColumns,
+  gap,
+  childrenWidth,
+}: Props) => {
   if (childrenWidth !== undefined) {
     return getCSSUnit(childrenWidth)
   }
@@ -36,10 +41,7 @@ const getColumnWidth = ({ minChildrenWidth, maxColumns, gap, childrenWidth }: Pr
 
 export const SameWidthChildrenRow = styled.div<Props>`
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    ${getColumnWidth}
-  );
+  grid-template-columns: repeat(auto-fit, ${getColumnWidth});
   gap: ${({ gap }) => getCSSUnit(gap)};
   ${({ rowHeight }) =>
     rowHeight &&
@@ -51,4 +53,4 @@ export const SameWidthChildrenRow = styled.div<Props>`
     css`
       width: 100%;
     `}
-`;
+`

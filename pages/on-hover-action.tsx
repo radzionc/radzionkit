@@ -1,40 +1,40 @@
-import type { NextPage } from "next";
+import type { NextPage } from 'next'
 
-import { DemoPage } from "components/DemoPage";
-import { useState } from "react";
-import { Panel } from "lib/ui/Panel/Panel";
-import { VStack } from "lib/ui/Stack";
-import styled, { useTheme } from "styled-components";
-import { HSLA } from "lib/ui/colors/HSLA";
-import { StarIcon } from "lib/ui/icons/StarIcon";
-import { OnHoverAction } from "lib/ui/OnHoverAction";
-import { IconButton } from "lib/ui/buttons/square/IconButton";
-import { Text } from "lib/ui/Text";
-import { centerContentCSS } from "lib/ui/utils/centerContentCSS";
-import { UnstyledButton } from "lib/ui/buttons/UnstyledButton";
-import { PauseIcon } from "lib/ui/icons/PauseIcon";
-import { PlayIcon } from "lib/ui/icons/PlayIcon";
+import { DemoPage } from 'components/DemoPage'
+import { useState } from 'react'
+import { Panel } from 'lib/ui/Panel/Panel'
+import { VStack } from 'lib/ui/Stack'
+import styled, { useTheme } from 'styled-components'
+import { HSLA } from 'lib/ui/colors/HSLA'
+import { StarIcon } from 'lib/ui/icons/StarIcon'
+import { OnHoverAction } from 'lib/ui/OnHoverAction'
+import { IconButton } from 'lib/ui/buttons/square/IconButton'
+import { Text } from 'lib/ui/Text'
+import { centerContentCSS } from 'lib/ui/utils/centerContentCSS'
+import { UnstyledButton } from 'lib/ui/buttons/UnstyledButton'
+import { PauseIcon } from 'lib/ui/icons/PauseIcon'
+import { PlayIcon } from 'lib/ui/icons/PlayIcon'
 
 const options = [
-  "Lofi jazz study music",
-  "Productive music for work",
-  "Rainy night coffee shop",
-  "Cozy jazz coffee shop",
-  "Ambient study music",
-  "Focus music",
-  "Zen Music",
-  "Coffee shop with piano music",
-  "Cozy cabin ambience",
-  "Lofi hip hop",
-  "Yoga music",
-  "Chillstep music",
-  "Work & study lofi jazz",
-  "Classic music",
-  "Chill out beach sunset jazz",
-  "Synthwave",
-  "Brown noise",
-  "White noise",
-  "Inspirational music"
+  'Lofi jazz study music',
+  'Productive music for work',
+  'Rainy night coffee shop',
+  'Cozy jazz coffee shop',
+  'Ambient study music',
+  'Focus music',
+  'Zen Music',
+  'Coffee shop with piano music',
+  'Cozy cabin ambience',
+  'Lofi hip hop',
+  'Yoga music',
+  'Chillstep music',
+  'Work & study lofi jazz',
+  'Classic music',
+  'Chill out beach sunset jazz',
+  'Synthwave',
+  'Brown noise',
+  'White noise',
+  'Inspirational music',
 ]
 
 const PlayIndicator = styled.div<{ isActive: boolean }>`
@@ -79,13 +79,13 @@ const Container = styled(UnstyledButton)`
   }
 `
 
-const Star = styled(StarIcon) <{ $color: HSLA }>`
+const Star = styled(StarIcon)<{ $color: HSLA }>`
   font-size: 16px;
   color: ${({ $color }) => $color.toCssValue()};
 `
 
 const OnHoverActionPage: NextPage = () => {
-  const [favourites, setFavourites] = useState<number[]>([]);
+  const [favourites, setFavourites] = useState<number[]>([])
   const { colors } = useTheme()
   const [activeItem, setActiveItem] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -98,7 +98,11 @@ const OnHoverActionPage: NextPage = () => {
             const isFavourite = favourites.includes(index)
             const isActive = activeItem === index
 
-            const star = <Star $color={isFavourite ? colors.idle : colors.textSupporting} />
+            const star = (
+              <Star
+                $color={isFavourite ? colors.idle : colors.textSupporting}
+              />
+            )
 
             return (
               <OnHoverAction
@@ -109,7 +113,9 @@ const OnHoverActionPage: NextPage = () => {
                     icon={star}
                     onClick={() => {
                       setFavourites(
-                        isFavourite ? favourites.filter((i) => i !== index) : [...favourites, index]
+                        isFavourite
+                          ? favourites.filter((i) => i !== index)
+                          : [...favourites, index]
                       )
                     }}
                   />
@@ -152,7 +158,7 @@ const OnHoverActionPage: NextPage = () => {
         </VStack>
       </Panel>
     </DemoPage>
-  );
-};
+  )
+}
 
-export default OnHoverActionPage;
+export default OnHoverActionPage

@@ -1,7 +1,7 @@
-import type { NextPage } from "next";
-import { DemoPage } from "components/DemoPage";
-import { Hoverable } from "lib/ui/Hoverable";
-import { Text } from "lib/ui/Text";
+import type { NextPage } from 'next'
+import { DemoPage } from 'components/DemoPage'
+import { Hoverable } from 'lib/ui/Hoverable'
+import { Text } from 'lib/ui/Text'
 
 const HoberablePage: NextPage = () => {
   return (
@@ -12,7 +12,7 @@ const HoberablePage: NextPage = () => {
         </Text>
       </Hoverable>
     </DemoPage>
-  );
-};
+  )
+}
 
-export default HoberablePage;
+export default HoberablePage

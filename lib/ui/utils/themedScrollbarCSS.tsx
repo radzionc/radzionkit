@@ -1,5 +1,5 @@
-import { css } from "styled-components";
-import { roundedCSS } from "./roundedCSS";
+import { css } from 'styled-components'
+import { roundedCSS } from './roundedCSS'
 
 export const themedScrollbarCSS = css`
   &::-webkit-scrollbar {
@@ -13,10 +13,10 @@ export const themedScrollbarCSS = css`
     ${roundedCSS}
     cursor: pointer;
     background-color: ${({ theme: { colors } }) =>
-    colors.backgroundGlass.toCssValue()};
+      colors.backgroundGlass.toCssValue()};
     :hover {
       background-color: ${({ theme: { colors } }) =>
-    colors.backgroundGlass2.toCssValue()};
+        colors.backgroundGlass2.toCssValue()};
     }
   }
 `

@@ -1,6 +1,9 @@
 import { ComponentWithChildrenProps } from 'lib/shared/props'
 import { useEffect } from 'react'
-import { PersistentStorageKey, usePersistentStorageValue } from 'state/persistentStorage'
+import {
+  PersistentStorageKey,
+  usePersistentStorageValue,
+} from 'state/persistentStorage'
 
 interface ShowOnceProps extends ComponentWithChildrenProps {
   storageKey: PersistentStorageKey

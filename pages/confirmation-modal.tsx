@@ -1,12 +1,12 @@
-import { DemoPage } from "components/DemoPage";
-import { ConfirmationModal } from "lib/ui/Modal/ConfirmationModal";
-import { Opener } from "lib/ui/Opener";
-import { VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
-import { ShyTextButton } from "lib/ui/buttons/ShyTextButton";
-import { IconButton } from "lib/ui/buttons/square/IconButton";
-import { TrashBinIcon } from "lib/ui/icons/TrashBinIcon";
-import type { NextPage } from "next";
+import { DemoPage } from 'components/DemoPage'
+import { ConfirmationModal } from 'lib/ui/Modal/ConfirmationModal'
+import { Opener } from 'lib/ui/Opener'
+import { VStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
+import { ShyTextButton } from 'lib/ui/buttons/ShyTextButton'
+import { IconButton } from 'lib/ui/buttons/square/IconButton'
+import { TrashBinIcon } from 'lib/ui/icons/TrashBinIcon'
+import type { NextPage } from 'next'
 
 const ConfirmationModalPage: NextPage = () => {
   return (
@@ -51,6 +51,6 @@ const ConfirmationModalPage: NextPage = () => {
       />
     </DemoPage>
   )
-};
+}
 
-export default ConfirmationModalPage;
+export default ConfirmationModalPage

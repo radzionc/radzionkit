@@ -1,14 +1,14 @@
-import { range } from "lib/shared/utils/range";
-import { paletteColorsCount } from "lib/ui/colors/palette";
-import { SameWidthChildrenRow } from "lib/ui/Layout/SameWidthChildrenRow";
-import { Line } from "lib/ui/Line";
-import { useTheme } from "styled-components";
-import { ColorItem } from "./ColorItem";
+import { range } from 'lib/shared/utils/range'
+import { paletteColorsCount } from 'lib/ui/colors/palette'
+import { SameWidthChildrenRow } from 'lib/ui/Layout/SameWidthChildrenRow'
+import { Line } from 'lib/ui/Line'
+import { useTheme } from 'styled-components'
+import { ColorItem } from './ColorItem'
 
 export const ColorList = () => {
   const {
     colors: { getPaletteColor, ...hslaColors },
-  } = useTheme();
+  } = useTheme()
 
   return (
     <SameWidthChildrenRow fullWidth gap={40} minChildrenWidth={240}>
@@ -22,5 +22,5 @@ export const ColorList = () => {
           <ColorItem color={color} name={`Palette #${index + 1}`} key={index} />
         ))}
     </SameWidthChildrenRow>
-  );
-};
+  )
+}

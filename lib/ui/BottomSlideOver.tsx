@@ -1,27 +1,27 @@
-import { ReactNode } from "react";
-import { handleWithStopPropagation } from "lib/shared/events";
+import { ReactNode } from 'react'
+import { handleWithStopPropagation } from 'lib/shared/events'
 import {
   ClosableComponentProps,
   ComponentWithChildrenProps,
-} from "lib/shared/props";
-import styled from "styled-components";
-import { BodyPortal } from "lib/ui/BodyPortal";
-import { ScreenCover } from "lib/ui/ScreenCover";
-import { HStack, VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
-import { getHorizontalPaddingCSS } from "lib/ui/utils/getHorizontalPaddingCSS";
-import { getVerticalPaddingCSS } from "lib/ui/utils/getVerticalPaddingCSS";
-import { PrimaryButton } from "./buttons/rect/PrimaryButton";
+} from 'lib/shared/props'
+import styled from 'styled-components'
+import { BodyPortal } from 'lib/ui/BodyPortal'
+import { ScreenCover } from 'lib/ui/ScreenCover'
+import { HStack, VStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
+import { getHorizontalPaddingCSS } from 'lib/ui/utils/getHorizontalPaddingCSS'
+import { getVerticalPaddingCSS } from 'lib/ui/utils/getVerticalPaddingCSS'
+import { PrimaryButton } from './buttons/rect/PrimaryButton'
 
 type BottomSlideOverProps = ComponentWithChildrenProps &
   ClosableComponentProps & {
-    title: ReactNode;
-  };
+    title: ReactNode
+  }
 
 const Cover = styled(ScreenCover)`
   align-items: flex-end;
   justify-content: flex-end;
-`;
+`
 
 const Container = styled(VStack)`
   width: 100%;
@@ -36,12 +36,12 @@ const Container = styled(VStack)`
   > * {
     ${getHorizontalPaddingCSS(16)}
   }
-`;
+`
 
 const Content = styled(VStack)`
   flex: 1;
   overflow-y: auto;
-`;
+`
 
 export const BottomSlideOver = ({
   children,
@@ -69,5 +69,5 @@ export const BottomSlideOver = ({
         </Container>
       </Cover>
     </BodyPortal>
-  );
-};
+  )
+}

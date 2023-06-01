@@ -1,13 +1,13 @@
-import { SameWidthChildrenRow } from "lib/ui/Layout/SameWidthChildrenRow";
+import { SameWidthChildrenRow } from 'lib/ui/Layout/SameWidthChildrenRow'
 
-import { SelectOption } from "./SelectOption";
+import { SelectOption } from './SelectOption'
 
 interface Props<T> {
-  options: readonly T[];
-  getName: (option: T) => string;
-  selectedOption: T;
-  onSelect: (option: T) => void;
-  groupName: string;
+  options: readonly T[]
+  getName: (option: T) => string
+  selectedOption: T
+  onSelect: (option: T) => void
+  groupName: string
 }
 
 export function ViewSelector<T>({
@@ -31,5 +31,5 @@ export function ViewSelector<T>({
         </SelectOption>
       ))}
     </SameWidthChildrenRow>
-  );
+  )
 }

@@ -44,23 +44,23 @@ export const Panel = styled.div<PanelProps>`
           gap: 1px;
 
           background: ${({ theme }) =>
-          theme.name === 'light'
-            ? theme.colors.backgroundGlass2.toCssValue()
-            : undefined};
+            theme.name === 'light'
+              ? theme.colors.backgroundGlass2.toCssValue()
+              : undefined};
 
           > * {
             ${panelPaddingCSS}
 
             ${kind === 'secondary'
-          ? secondaryPanelBackgroundCSS
-          : panelBackgroundCSS}
+              ? secondaryPanelBackgroundCSS
+              : panelBackgroundCSS}
           }
         `
       : css`
           ${panelPaddingCSS}
           ${kind === 'secondary'
-          ? secondaryPanelBackgroundCSS
-          : panelBackgroundCSS}
+            ? secondaryPanelBackgroundCSS
+            : panelBackgroundCSS}
         `}
 
   ${({ kind }) =>

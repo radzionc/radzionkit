@@ -1,12 +1,19 @@
-import { ClickableComponentProps, ComponentWithChildrenProps } from "lib/shared/props"
-import { Center } from "../Center"
-import { Hoverable } from "../Hoverable"
-import { ChecklistItemFrame } from "./ChecklistItemFrame"
-import { PlusIcon } from "../icons/PlusIcon"
+import {
+  ClickableComponentProps,
+  ComponentWithChildrenProps,
+} from 'lib/shared/props'
+import { Center } from '../Center'
+import { Hoverable } from '../Hoverable'
+import { ChecklistItemFrame } from './ChecklistItemFrame'
+import { PlusIcon } from '../icons/PlusIcon'
 
-type AddChecklistItemPromptProps = ClickableComponentProps & ComponentWithChildrenProps
+type AddChecklistItemPromptProps = ClickableComponentProps &
+  ComponentWithChildrenProps
 
-export const AddChecklistItemPrompt = ({ onClick, children }: AddChecklistItemPromptProps) => {
+export const AddChecklistItemPrompt = ({
+  onClick,
+  children,
+}: AddChecklistItemPromptProps) => {
   return (
     <Hoverable onClick={onClick}>
       <ChecklistItemFrame>

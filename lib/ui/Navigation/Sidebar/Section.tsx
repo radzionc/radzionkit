@@ -1,15 +1,15 @@
-import { Text } from "lib/ui/Text";
-import React from "react";
-import styled from "styled-components";
+import { Text } from 'lib/ui/Text'
+import React from 'react'
+import styled from 'styled-components'
 
 interface Props {
-  name: string;
-  children: React.ReactNode;
+  name: string
+  children: React.ReactNode
 }
 
 const Container = styled.div`
   width: 100%;
-`;
+`
 
 export const SidebarSection = ({ name, children }: Props) => {
   return (
@@ -24,5 +24,5 @@ export const SidebarSection = ({ name, children }: Props) => {
       </Text>
       {children}
     </Container>
-  );
-};
+  )
+}

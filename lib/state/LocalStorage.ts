@@ -1,48 +1,48 @@
-import { OnValueChangeListener, PersistentStorage } from "./PersistentStorage";
+import { OnValueChangeListener, PersistentStorage } from './PersistentStorage'
 
 export class LocalStorage<T extends string> implements PersistentStorage<T> {
-  listeners: Record<string, OnValueChangeListener<any>[]> = {};
+  listeners: Record<string, OnValueChangeListener<any>[]> = {}
 
   getItem<V>(key: T) {
-    const item = localStorage.getItem(key);
+    const item = localStorage.getItem(key)
 
-    if (item === null) return undefined;
+    if (item === null) return undefined
 
-    if (item === "null") return null as never as V;
-    if (item === "undefined") return undefined;
+    if (item === 'null') return null as never as V
+    if (item === 'undefined') return undefined
 
     try {
-      return JSON.parse(item) as V;
+      return JSON.parse(item) as V
     } catch {}
 
-    return item as never as V;
+    return item as never as V
   }
   setItem<V>(key: T, value: V) {
-    const oldValue = this.getItem(key);
-    const newValue = JSON.stringify(value);
-    if (oldValue === newValue) return;
+    const oldValue = this.getItem(key)
+    const newValue = JSON.stringify(value)
+    if (oldValue === newValue) return
 
     if (value === undefined) {
-      localStorage.removeItem(key);
+      localStorage.removeItem(key)
     } else {
-      localStorage.setItem(key, JSON.stringify(value));
+      localStorage.setItem(key, JSON.stringify(value))
     }
 
-    const listeners = this.listeners[key] || [];
+    const listeners = this.listeners[key] || []
 
     listeners.forEach((listener) => {
-      listener(value, oldValue);
-    });
+      listener(value, oldValue)
+    })
   }
   addValueChangeListener<V>(
     key: string,
     listener: OnValueChangeListener<V>
   ): void {
     if (!this.listeners[key]) {
-      this.listeners[key] = [];
+      this.listeners[key] = []
     }
 
-    this.listeners[key].push(listener);
+    this.listeners[key].push(listener)
   }
   removeValueChangeListener<T>(
     key: string,
@@ -50,6 +50,6 @@ export class LocalStorage<T extends string> implements PersistentStorage<T> {
   ): void {
     this.listeners[key] = (this.listeners[key] || []).filter(
       (l) => l !== listener
-    );
+    )
   }
 }

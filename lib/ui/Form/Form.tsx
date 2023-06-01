@@ -1,12 +1,12 @@
-import { FormEvent } from "react";
-import { handleWithPreventDefault } from "lib/shared/events";
-import { VStack } from "lib/ui/Stack";
+import { FormEvent } from 'react'
+import { handleWithPreventDefault } from 'lib/shared/events'
+import { VStack } from 'lib/ui/Stack'
 
 interface Props {
-  onSubmit: () => void;
-  content: React.ReactNode;
-  actions: React.ReactNode;
-  gap?: number;
+  onSubmit: () => void
+  content: React.ReactNode
+  actions: React.ReactNode
+  gap?: number
 }
 
 export const Form = ({ content, actions, onSubmit, gap = 28 }: Props) => {
@@ -22,5 +22,5 @@ export const Form = ({ content, actions, onSubmit, gap = 28 }: Props) => {
       </VStack>
       {actions}
     </VStack>
-  );
-};
+  )
+}

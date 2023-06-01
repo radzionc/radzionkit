@@ -1,25 +1,25 @@
-import { handleWithStopPropagation } from "lib/shared/events";
-import { useBoundingBox } from "lib/shared/hooks/useBoundingBox";
-import { toPercents } from "lib/shared/utils/toPercents";
-import { defaultTransition } from "lib/ui/animations/transitions";
-import { HSLA } from "lib/ui/colors/HSLA";
-import { centerContentCSS } from "lib/ui/utils/centerContentCSS";
-import { getCSSUnit } from "lib/ui/utils/getCSSUnit";
-import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS";
-import { useEffect, useRef, useState } from "react";
-import styled, { useTheme } from "styled-components";
+import { handleWithStopPropagation } from 'lib/shared/events'
+import { useBoundingBox } from 'lib/shared/hooks/useBoundingBox'
+import { toPercents } from 'lib/shared/utils/toPercents'
+import { defaultTransition } from 'lib/ui/animations/transitions'
+import { HSLA } from 'lib/ui/colors/HSLA'
+import { centerContentCSS } from 'lib/ui/utils/centerContentCSS'
+import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
+import { getSameDimensionsCSS } from 'lib/ui/utils/getSameDimensionsCSS'
+import { useEffect, useRef, useState } from 'react'
+import styled, { useTheme } from 'styled-components'
 
 import {
   InvisibleHTMLSlider,
   InvisibleHTMLSliderProps,
-} from "./InvisibleHtmlSlider";
+} from './InvisibleHtmlSlider'
 
-type SliderSize = "m" | "l";
+type SliderSize = 'm' | 'l'
 
 export interface SliderProps extends InvisibleHTMLSliderProps {
-  size?: SliderSize;
-  color?: HSLA;
-  height?: React.CSSProperties["height"];
+  size?: SliderSize
+  color?: HSLA
+  height?: React.CSSProperties['height']
 }
 
 const Control = styled.div<{ value: number; size: number; $color: HSLA }>`
@@ -31,7 +31,7 @@ const Control = styled.div<{ value: number; size: number; $color: HSLA }>`
   background: ${({ $color }) => $color.getVariant({ a: () => 1 }).toCssValue()};
   transition: outline ${defaultTransition};
   outline: 6px solid transparent;
-`;
+`
 
 const Container = styled.div<{ $color: HSLA }>`
   width: 100%;
@@ -49,7 +49,7 @@ const Container = styled.div<{ $color: HSLA }>`
   :hover ${Control} {
     outline-color: var(--active-outline-color);
   }
-`;
+`
 
 const Line = styled.div`
   width: 100%;
@@ -57,23 +57,23 @@ const Line = styled.div`
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
   border-radius: 1000px;
-`;
+`
 
 const Filler = styled.div<{ value: number; $color: HSLA }>`
   height: 100%;
   width: ${({ value }) => value * 100}%;
   background: ${({ $color }) => $color.toCssValue()};
-`;
+`
 
 const controlSize: Record<SliderSize, number> = {
   m: 12,
   l: 20,
-};
+}
 
 const lineHeight: Record<SliderSize, number> = {
   m: 4,
   l: 8,
-};
+}
 
 export const Slider = ({
   value,
@@ -82,39 +82,39 @@ export const Slider = ({
   max,
   step,
   autoFocus,
-  size = "m",
+  size = 'm',
   color: optionalColor,
   height = 40,
 }: SliderProps) => {
-  const theme = useTheme();
-  const color = optionalColor ?? theme.colors.text;
-  const [container, setContainer] = useState<HTMLDivElement | null>(null);
-  const box = useBoundingBox(container);
-  const isActive = useRef(false);
+  const theme = useTheme()
+  const color = optionalColor ?? theme.colors.text
+  const [container, setContainer] = useState<HTMLDivElement | null>(null)
+  const box = useBoundingBox(container)
+  const isActive = useRef(false)
 
   const handleMove = (clientX: number) => {
-    if (!box || !isActive.current) return;
+    if (!box || !isActive.current) return
 
-    if (clientX < box.left || clientX > box.right) return;
+    if (clientX < box.left || clientX > box.right) return
 
-    const ratio = (clientX - box.x) / box.width;
+    const ratio = (clientX - box.x) / box.width
 
-    const steps = Math.round((ratio * max) / step);
-    const newValue = Math.max(min, steps * step);
-    onChange(newValue);
-  };
+    const steps = Math.round((ratio * max) / step)
+    const newValue = Math.max(min, steps * step)
+    onChange(newValue)
+  }
 
   useEffect(() => {
     const handleMouseUp = () => {
-      isActive.current = false;
-    };
-    window.addEventListener("mouseup", handleMouseUp);
+      isActive.current = false
+    }
+    window.addEventListener('mouseup', handleMouseUp)
     return () => {
-      window.removeEventListener("mouseup", handleMouseUp);
-    };
-  });
+      window.removeEventListener('mouseup', handleMouseUp)
+    }
+  })
 
-  const ratio = value / max;
+  const ratio = value / max
 
   return (
     <Container
@@ -123,9 +123,9 @@ export const Slider = ({
       ref={setContainer}
       onClick={handleWithStopPropagation()}
       onMouseDown={handleWithStopPropagation((event) => {
-        isActive.current = true;
+        isActive.current = true
         if (event) {
-          handleMove(event.clientX);
+          handleMove(event.clientX)
         }
       })}
       onMouseMove={({ clientX }) => handleMove(clientX)}
@@ -143,5 +143,5 @@ export const Slider = ({
       </Line>
       <Control $color={color} size={controlSize[size]} value={ratio} />
     </Container>
-  );
-};
+  )
+}

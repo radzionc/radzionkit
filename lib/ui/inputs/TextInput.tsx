@@ -1,27 +1,27 @@
-import { ChangeEvent, InputHTMLAttributes, Ref, forwardRef } from "react";
-import styled from "styled-components";
+import { ChangeEvent, InputHTMLAttributes, Ref, forwardRef } from 'react'
+import styled from 'styled-components'
 
 import {
   Props as InputWrapperProps,
   InputWrapperWithErrorMessage,
-} from "./InputWrapper";
-import { Spinner } from "../Spinner";
-import { commonInputCSS } from "./commonInputCSS";
-import { ComponentWithClassNameProps } from "lib/shared/props";
-import { VStack } from "../Stack";
+} from './InputWrapper'
+import { Spinner } from '../Spinner'
+import { commonInputCSS } from './commonInputCSS'
+import { ComponentWithClassNameProps } from 'lib/shared/props'
+import { VStack } from '../Stack'
 
 export type SharedTextInputProps = Pick<
   InputWrapperProps,
-  "label" | "error"
+  'label' | 'error'
 > & {
-  onValueChange?: (value: string) => void;
-  isLoading?: boolean;
-};
+  onValueChange?: (value: string) => void
+  isLoading?: boolean
+}
 
 export type TextInputProps = InputHTMLAttributes<HTMLInputElement> &
   SharedTextInputProps & {
-    inputOverlay?: React.ReactNode;
-  };
+    inputOverlay?: React.ReactNode
+  }
 
 export const TextInput = forwardRef(function TextInputInner(
   {
@@ -48,27 +48,27 @@ export const TextInput = forwardRef(function TextInputInner(
             className={className}
             ref={ref}
             onChange={(event: ChangeEvent<HTMLInputElement>) => {
-              props.onChange?.(event);
-              onValueChange?.(event.currentTarget.value);
+              props.onChange?.(event)
+              onValueChange?.(event.currentTarget.value)
             }}
           />
         )}
         {inputOverlay}
       </InputWr>
     </InputWrapperWithErrorMessage>
-  );
-});
+  )
+})
 
 const InputWr = styled.div`
   width: 100%;
   position: relative;
   display: flex;
   align-items: center;
-`;
+`
 
 export const TextInputContainer = styled.input`
   ${commonInputCSS};
-`;
+`
 
 export const TextInputLoader = ({ className }: ComponentWithClassNameProps) => (
   <TextInputContainer as="div" className={className} isValid>
@@ -76,4 +76,4 @@ export const TextInputLoader = ({ className }: ComponentWithClassNameProps) => (
       <Spinner size={18} />
     </VStack>
   </TextInputContainer>
-);
+)

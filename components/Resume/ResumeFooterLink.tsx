@@ -1,14 +1,14 @@
-import { ExternalLink } from "lib/navigation/Link/ExternalLink";
-import { defaultTransitionCSS } from "lib/ui/animations/transitions";
-import { HStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
-import { ReactNode } from "react";
-import styled from "styled-components";
+import { ExternalLink } from 'lib/navigation/Link/ExternalLink'
+import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
+import { HStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
+import { ReactNode } from 'react'
+import styled from 'styled-components'
 
 interface Props {
-  name: string;
-  icon: ReactNode;
-  url: string;
+  name: string
+  icon: ReactNode
+  url: string
 }
 
 const Container = styled(ExternalLink)`
@@ -18,7 +18,7 @@ const Container = styled(ExternalLink)`
   :hover {
     color: ${({ theme }) => theme.colors.text.toCssValue()};
   }
-`;
+`
 
 export const ResumeFooterLink = ({ name, icon, url }: Props) => {
   return (
@@ -28,5 +28,5 @@ export const ResumeFooterLink = ({ name, icon, url }: Props) => {
         <Text size={14}>{name}</Text>
       </HStack>
     </Container>
-  );
-};
+  )
+}

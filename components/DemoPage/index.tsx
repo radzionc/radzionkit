@@ -1,17 +1,17 @@
-import { SourceCodeLink } from "components/SourceCode/SourceCodeLink";
-import { ComponentWithChildrenProps } from "lib/shared/props";
-import { RegularPage } from "lib/ui/page/RegularPage";
-import { HStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
-import { useRouter } from "next/router";
-import Head from "next/head";
-import { YouTubeLink } from "components/YouTubeLink";
+import { SourceCodeLink } from 'components/SourceCode/SourceCodeLink'
+import { ComponentWithChildrenProps } from 'lib/shared/props'
+import { RegularPage } from 'lib/ui/page/RegularPage'
+import { HStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
+import { useRouter } from 'next/router'
+import Head from 'next/head'
+import { YouTubeLink } from 'components/YouTubeLink'
 
 interface Props extends ComponentWithChildrenProps {
-  title: string;
-  seoTitle?: string;
-  seoDescription?: string;
-  youtubeVideoId?: string;
+  title: string
+  seoTitle?: string
+  seoDescription?: string
+  youtubeVideoId?: string
 }
 
 export const DemoPage = ({
@@ -21,7 +21,7 @@ export const DemoPage = ({
   youtubeVideoId,
   children,
 }: Props) => {
-  const { pathname } = useRouter();
+  const { pathname } = useRouter()
   return (
     <RegularPage
       title={
@@ -44,5 +44,5 @@ export const DemoPage = ({
       </Head>
       {children}
     </RegularPage>
-  );
-};
+  )
+}

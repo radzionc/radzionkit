@@ -1,13 +1,13 @@
-import { ReactNode } from "react";
-import { ShyTextButton } from "../buttons/ShyTextButton";
-import { HStack } from "../Stack";
-import { Text } from "../Text";
+import { ReactNode } from 'react'
+import { ShyTextButton } from '../buttons/ShyTextButton'
+import { HStack } from '../Stack'
+import { Text } from '../Text'
 
 interface AmountSuggestionProps {
-  name: ReactNode;
-  value: number;
-  renderValue?: (value: number) => ReactNode;
-  onSelect: (value: number) => void;
+  name: ReactNode
+  value: number
+  renderValue?: (value: number) => ReactNode
+  onSelect: (value: number) => void
 }
 
 export const AmountSuggestion = ({
@@ -25,5 +25,5 @@ export const AmountSuggestion = ({
         text={renderValue(value)}
       />
     </HStack>
-  );
-};
+  )
+}

@@ -1,10 +1,10 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { getCSSUnit } from "./utils/getCSSUnit";
+import React from 'react'
+import styled, { css } from 'styled-components'
+import { getCSSUnit } from './utils/getCSSUnit'
 
 interface Props {
-  height?: React.CSSProperties["height"];
-  width?: React.CSSProperties["width"];
+  height?: React.CSSProperties['height']
+  width?: React.CSSProperties['width']
 }
 
 export const Spacer = styled.div<Props>`
@@ -18,4 +18,4 @@ export const Spacer = styled.div<Props>`
     css`
       min-width: ${getCSSUnit(width)};
     `}
-`;
+`

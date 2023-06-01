@@ -1,9 +1,9 @@
 import {
   ComponentWithChildrenProps,
   ComponentWithClassNameProps,
-} from "lib/shared/props";
+} from 'lib/shared/props'
 
-import { VStack } from "./Stack";
+import { VStack } from './Stack'
 
 export const Center = ({
   children,
@@ -18,4 +18,4 @@ export const Center = ({
   >
     {children}
   </VStack>
-);
+)

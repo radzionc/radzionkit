@@ -1,31 +1,31 @@
-import { UseFormReturn, useFieldArray } from "react-hook-form";
-import { FormSection } from "lib/ui/Form/FormSection";
+import { UseFormReturn, useFieldArray } from 'react-hook-form'
+import { FormSection } from 'lib/ui/Form/FormSection'
 
-import { HStack, VStack } from "lib/ui/Stack";
-import { Line } from "lib/ui/Line";
-import styled from "styled-components";
-import { Text } from "lib/ui/Text";
-import { TextArea } from "lib/ui/inputs/TextArea";
-import { TextInput } from "lib/ui/inputs/TextInput";
-import { Circle } from "lib/ui/Circle";
+import { HStack, VStack } from 'lib/ui/Stack'
+import { Line } from 'lib/ui/Line'
+import styled from 'styled-components'
+import { Text } from 'lib/ui/Text'
+import { TextArea } from 'lib/ui/inputs/TextArea'
+import { TextInput } from 'lib/ui/inputs/TextInput'
+import { Circle } from 'lib/ui/Circle'
 import {
   emptyExperience,
   JobApplicationFormShape,
   responsibilityMaxLength,
-} from "./jobApplicationForm";
-import { TrashIcon } from "lib/ui/icons/TrashIcon";
-import { OutlinedButton } from "lib/ui/buttons/rect/OutlinedButton";
-import { IconButton } from "lib/ui/buttons/square/IconButton";
+} from './jobApplicationForm'
+import { TrashIcon } from 'lib/ui/icons/TrashIcon'
+import { OutlinedButton } from 'lib/ui/buttons/rect/OutlinedButton'
+import { IconButton } from 'lib/ui/buttons/square/IconButton'
 
 export interface Props {
-  form: UseFormReturn<JobApplicationFormShape, any>;
+  form: UseFormReturn<JobApplicationFormShape, any>
 }
 
-const manageElementSizeInPx = 48;
+const manageElementSizeInPx = 48
 
 const ExperienceNumber = styled(Circle)`
   background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
-`;
+`
 
 export const ExperienceSection = ({
   form: {
@@ -36,8 +36,8 @@ export const ExperienceSection = ({
 }: Props) => {
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "experience",
-  });
+    name: 'experience',
+  })
 
   return (
     <FormSection name="Experience">
@@ -86,5 +86,5 @@ export const ExperienceSection = ({
         </OutlinedButton>
       </VStack>
     </FormSection>
-  );
-};
+  )
+}

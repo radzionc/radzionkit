@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
 export function useWasIt<T>(value: T, targetValue: T) {
   const [itWas, setItWas] = useState<boolean>(value === targetValue)

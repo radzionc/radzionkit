@@ -1,24 +1,24 @@
-import type { NextPage } from "next";
-import { DemoPage } from "components/DemoPage";
-import { InteractivePromotion } from "lib/ui/InteractivePromotion";
-import styled from "styled-components";
+import type { NextPage } from 'next'
+import { DemoPage } from 'components/DemoPage'
+import { InteractivePromotion } from 'lib/ui/InteractivePromotion'
+import styled from 'styled-components'
 import {
   PersistentStorageKey,
   usePersistentStorageValue,
-} from "state/persistentStorage";
-import { ShowAfterDelay } from "lib/ui/ShowAfterDelay";
+} from 'state/persistentStorage'
+import { ShowAfterDelay } from 'lib/ui/ShowAfterDelay'
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
-`;
+`
 
 const PromotionPage: NextPage = () => {
   const [wasShown, setWasShown] = usePersistentStorageValue(
     PersistentStorageKey.Promotion,
     false
-  );
+  )
   return (
     <DemoPage youtubeVideoId="Cnv0K3izNUk" title="Interactive Promotion">
       {!wasShown && (
@@ -37,7 +37,7 @@ const PromotionPage: NextPage = () => {
         </ShowAfterDelay>
       )}
     </DemoPage>
-  );
-};
+  )
+}
 
-export default PromotionPage;
+export default PromotionPage

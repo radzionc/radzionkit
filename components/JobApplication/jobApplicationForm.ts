@@ -1,19 +1,19 @@
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
-export const bioMaxLength = 300;
-export const responsibilityMaxLength = 300;
+export const bioMaxLength = 300
+export const responsibilityMaxLength = 300
 
 interface JobExperienceShape {
-  position: string;
-  responsibility: string;
+  position: string
+  responsibility: string
 }
 
 export interface JobApplicationFormShape {
-  name: string;
-  bio: string;
-  experience: JobExperienceShape[];
+  name: string
+  bio: string
+  experience: JobExperienceShape[]
 }
 
 const schema: yup.SchemaOf<JobApplicationFormShape> = yup.object({
@@ -32,19 +32,19 @@ const schema: yup.SchemaOf<JobApplicationFormShape> = yup.object({
       })
     )
     .required(),
-});
+})
 
 export const emptyExperience: JobExperienceShape = {
-  position: "",
-  responsibility: "",
-};
+  position: '',
+  responsibility: '',
+}
 
 export const useJobApplicationForm = () => {
   return useForm<JobApplicationFormShape>({
-    mode: "onSubmit",
+    mode: 'onSubmit',
     resolver: yupResolver(schema),
     defaultValues: {
       experience: [emptyExperience],
     },
-  });
-};
+  })
+}

@@ -1,15 +1,15 @@
-import styled, { keyframes } from "styled-components";
-import { getCSSUnit } from "lib/ui/utils/getCSSUnit";
+import styled, { keyframes } from 'styled-components'
+import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
 
 interface Props {
-  size?: string | number;
+  size?: string | number
 }
 
 const animationForRotation = keyframes`
   to {
     transform: rotate(360deg);
   }
-`;
+`
 
 const Container = styled.div<{ size: string | number }>`
   width: ${({ size }) => getCSSUnit(size)};
@@ -20,8 +20,8 @@ const Container = styled.div<{ size: string | number }>`
   border-top-color: transparent;
 
   animation: ${animationForRotation} 1s infinite linear;
-`;
+`
 
 export const Spinner = ({ size = 24 }: Props) => {
-  return <Container size={size} />;
-};
+  return <Container size={size} />
+}

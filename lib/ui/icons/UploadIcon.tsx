@@ -17,4 +17,4 @@ export const UploadIcon = () => (
       fillOpacity="0.4"
     />
   </svg>
-);
+)

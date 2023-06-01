@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export interface InvisibleHTMLRadioProps {
-  groupName: string;
-  value: string | number;
-  isSelected: boolean;
-  onSelect: () => void;
-  autoFocus?: boolean;
+  groupName: string
+  value: string | number
+  isSelected: boolean
+  onSelect: () => void
+  autoFocus?: boolean
 }
 
 const RadioInput = styled.input`
@@ -17,7 +17,7 @@ const RadioInput = styled.input`
   padding: 0;
   position: absolute;
   width: 1px;
-`;
+`
 
 export const InvisibleHTMLRadio = ({
   groupName,
@@ -32,8 +32,8 @@ export const InvisibleHTMLRadio = ({
     value={value}
     onChange={(event) => {
       if (event.currentTarget.value === value.toString()) {
-        onSelect();
+        onSelect()
       }
     }}
   />
-);
+)

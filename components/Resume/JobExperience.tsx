@@ -1,22 +1,22 @@
-import { formatDistance } from "date-fns";
-import { SeparatedBy, dotSeparator } from "lib/ui/SeparatedBy";
-import { HStack, VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
-import { Responsibilities } from "./Responsibilities";
+import { formatDistance } from 'date-fns'
+import { SeparatedBy, dotSeparator } from 'lib/ui/SeparatedBy'
+import { HStack, VStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
+import { Responsibilities } from './Responsibilities'
 
 interface Props {
-  position: string;
-  company: string;
-  startedAt: Date;
-  finishedAt?: Date;
-  responsibilities: string[];
-  technologies?: string[];
+  position: string
+  company: string
+  startedAt: Date
+  finishedAt?: Date
+  responsibilities: string[]
+  technologies?: string[]
 }
 
-const formatDate = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  year: "numeric",
-}).format;
+const formatDate = new Intl.DateTimeFormat('en-US', {
+  month: 'short',
+  year: 'numeric',
+}).format
 
 export const JobExperience = ({
   position,
@@ -31,14 +31,14 @@ export const JobExperience = ({
       <Text weight="bold">
         {position}
         <Text as="span" color="supporting">
-          {" "}
+          {' '}
           at {company}
         </Text>
       </Text>
       <SeparatedBy separator={dotSeparator}>
         <Text size={14} color="supporting">
-          {formatDate(startedAt)} -{" "}
-          {finishedAt ? formatDate(finishedAt) : "Present"}
+          {formatDate(startedAt)} -{' '}
+          {finishedAt ? formatDate(finishedAt) : 'Present'}
         </Text>
         <Text color="supporting2" size={14}>
           {formatDistance(finishedAt ?? new Date(), startedAt)}
@@ -50,9 +50,9 @@ export const JobExperience = ({
           <Text size={14} color="supporting3">
             Stack:
           </Text>
-          <Text size={14}>{technologies.join(", ")}</Text>
+          <Text size={14}>{technologies.join(', ')}</Text>
         </HStack>
       )}
     </VStack>
-  );
-};
+  )
+}

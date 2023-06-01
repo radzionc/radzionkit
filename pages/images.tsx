@@ -1,13 +1,13 @@
-import type { NextPage } from "next";
-import { DemoPage } from "components/DemoPage";
-import { range } from "lib/shared/utils/range";
-import { VStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
-import { IntersectionAware } from "lib/ui/IntersectionAware";
-import { ImageHolder } from "lib/ui/images/ImageHolder";
-import { SafeImage } from "lib/ui/SafeImage";
-import { CoverImage } from "lib/ui/images/CoverImage";
-import { SameWidthChildrenRow } from "lib/ui/Layout/SameWidthChildrenRow";
+import type { NextPage } from 'next'
+import { DemoPage } from 'components/DemoPage'
+import { range } from 'lib/shared/utils/range'
+import { VStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
+import { IntersectionAware } from 'lib/ui/IntersectionAware'
+import { ImageHolder } from 'lib/ui/images/ImageHolder'
+import { SafeImage } from 'lib/ui/SafeImage'
+import { CoverImage } from 'lib/ui/images/CoverImage'
+import { SameWidthChildrenRow } from 'lib/ui/Layout/SameWidthChildrenRow'
 
 const ImagesPage: NextPage = () => {
   return (
@@ -34,7 +34,7 @@ const ImagesPage: NextPage = () => {
         ))}
       </SameWidthChildrenRow>
     </DemoPage>
-  );
-};
+  )
+}
 
-export default ImagesPage;
+export default ImagesPage

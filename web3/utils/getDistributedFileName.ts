@@ -1,4 +1,4 @@
-import { getLast } from "lib/shared/utils/getlast";
+import { getLast } from 'lib/shared/utils/getlast'
 
 export const getDistributedFileName = (uri: string) =>
-  decodeURI(getLast(uri.split("/")));
+  decodeURI(getLast(uri.split('/')))

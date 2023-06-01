@@ -1,21 +1,21 @@
-import { ReactNode } from "react";
-import styled, { css } from "styled-components";
-import { defaultTransitionCSS } from "lib/ui/animations/transitions";
-import { HStack } from "lib/ui/Stack";
-import { Text } from "lib/ui/Text";
-import { UnstyledButton } from "../buttons/UnstyledButton";
+import { ReactNode } from 'react'
+import styled, { css } from 'styled-components'
+import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
+import { HStack } from 'lib/ui/Stack'
+import { Text } from 'lib/ui/Text'
+import { UnstyledButton } from '../buttons/UnstyledButton'
 
-type MenuOptionKind = "regular" | "alert";
+type MenuOptionKind = 'regular' | 'alert'
 
 export interface MenuOptionProps {
-  icon?: ReactNode;
-  text: string;
-  onSelect: () => void;
-  kind?: MenuOptionKind;
+  icon?: ReactNode
+  text: string
+  onSelect: () => void
+  kind?: MenuOptionKind
 }
 
 const Container = styled(UnstyledButton)<{
-  kind: MenuOptionKind;
+  kind: MenuOptionKind
 }>`
   ${defaultTransitionCSS};
 
@@ -46,20 +46,20 @@ const Container = styled(UnstyledButton)<{
         `,
       }[kind])};
   }
-`;
+`
 
 export const MenuOption = ({
   text,
   icon,
   onSelect,
-  kind = "regular",
+  kind = 'regular',
 }: MenuOptionProps) => {
   return (
     <Container kind={kind} onClick={onSelect}>
       <HStack alignItems="center" gap={12}>
-        <Text style={{ display: "flex" }}>{icon}</Text>
+        <Text style={{ display: 'flex' }}>{icon}</Text>
         <Text>{text}</Text>
       </HStack>
     </Container>
-  );
-};
+  )
+}

@@ -64,7 +64,7 @@ export const Container = styled.div<ContainerProps>`
           border-radius: 16px;
           max-height: 92%;
           ${placement === 'top' &&
-        `
+          `
             align-self: start;
             margin-top: 4%;
           `}
@@ -87,10 +87,10 @@ const Content = styled.div`
     ${roundedCSS}
     cursor: pointer;
     background-color: ${({ theme: { colors } }) =>
-    colors.backgroundGlass.toCssValue()};
+      colors.backgroundGlass.toCssValue()};
     :hover {
       background-color: ${({ theme: { colors } }) =>
-    colors.backgroundGlass2.toCssValue()};
+        colors.backgroundGlass2.toCssValue()};
     }
   }
 `
