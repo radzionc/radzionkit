@@ -1,11 +1,10 @@
-export function splitBy<T>(items: T[], organize: (item: T) => boolean) {
-  const firstBucket: T[] = []
-  const secondBucket: T[] = []
+export function splitBy<T>(items: T[], organize: (item: T) => 0 | 1) {
+  const result: [T[], T[]] = [[], []]
 
   items.forEach((item) => {
-    const bucket = organize(item) ? firstBucket : secondBucket
+    const bucket = result[organize(item)]
     bucket.push(item)
   })
 
-  return [firstBucket, secondBucket]
+  return result
 }

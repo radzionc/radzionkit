@@ -1,7 +1,6 @@
-import { areEqual } from 'lib/shared/hooks/areEqual'
+import { debounce } from 'lib/shared/utils/debounce'
 import { pick } from 'lib/shared/utils/pick'
-import { useState } from 'react'
-import { useIsomorphicLayoutEffect } from 'react-use'
+import { useLayoutEffect, useState } from 'react'
 
 export interface ElementSize {
   width: number
@@ -16,16 +15,12 @@ export const useElementSize = (element: HTMLElement | null) => {
     element ? getElementSize(element) : null
   )
 
-  useIsomorphicLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (!element) return
 
-    const handleElementChange = () => {
-      const newSize = getElementSize(element)
-
-      if (size && areEqual(newSize, size)) return
-
-      setSize(newSize)
-    }
+    const handleElementChange = debounce(() => {
+      setSize(getElementSize(element))
+    }, 100)
 
     handleElementChange()
 

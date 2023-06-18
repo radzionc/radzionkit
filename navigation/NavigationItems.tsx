@@ -25,6 +25,7 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.Checklist} name="Checklist" />
     <NavigationToInternalPage path={Path.Confetti} name="Confetti" />
     <NavigationToInternalPage path={Path.GridTable} name="CSS Grid Table" />
+    <NavigationToInternalPage path={Path.SeparatedByLine} name="Separated By Line" />
     <NavigationToInternalPage
       path={Path.ConfirmationModal}
       name="Confirmation Modal"

@@ -20,6 +20,7 @@ export enum Path {
   DynamicForm = '/dynamic-form',
   Countdown = '/countdown',
   ShowOnce = '/show-once',
+  SeparatedByLine = '/separated-by-line',
   Nfts = '/nfts',
   IPFS = '/ipfs',
   Panel = '/panel',
