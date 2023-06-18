@@ -1,38 +1,43 @@
 import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
-import { OverlayMenu } from 'lib/ui/Menu/OverlayMenu'
 import { OpenMenuButton } from 'lib/ui/buttons/square/OpenMenuButton'
 import { EditIcon } from 'lib/ui/icons/EditIcon'
 import { MoonIcon } from 'lib/ui/icons/MoonIcon'
 import { TrashBinIcon } from 'lib/ui/icons/TrashBinIcon'
+import { Menu } from 'lib/ui/Menu'
+import { MenuOption, MenuOptionProps } from 'lib/ui/Menu/MenuOption'
 
 const MenuPage: NextPage = () => {
   return (
-    <DemoPage title="Popover Menu">
+    <DemoPage title="Menu">
       <div style={{ maxWidth: 320, width: '100%' }}>
-        <OverlayMenu
+        <Menu
           title="Manage project"
           renderOpener={({ ref, ...props }) => (
             <OpenMenuButton ref={ref} {...props} />
           )}
-          options={[
-            {
-              text: 'Edit project',
-              onSelect: () => console.log('Edit project'),
-              icon: <EditIcon />,
-            },
-            {
-              text: 'Make project inactive',
-              onSelect: () => console.log('Make project inactive'),
-              icon: <MoonIcon />,
-            },
-            {
-              icon: <TrashBinIcon />,
-              text: 'Delete project',
-              kind: 'alert',
-              onSelect: () => console.log('Delete project'),
-            },
-          ]}
+          renderContent={() => {
+            const options: MenuOptionProps[] = [
+              {
+                text: 'Edit project',
+                onSelect: () => console.log('Edit project'),
+                icon: <EditIcon />,
+              },
+              {
+                text: 'Make project inactive',
+                onSelect: () => console.log('Make project inactive'),
+                icon: <MoonIcon />,
+              },
+              {
+                icon: <TrashBinIcon />,
+                text: 'Delete project',
+                kind: 'alert',
+                onSelect: () => console.log('Delete project'),
+              },
+            ]
+
+            return options.map((props, index) => <MenuOption key={index} {...props} />)
+          }}
         />
       </div>
     </DemoPage>

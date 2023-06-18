@@ -37,7 +37,7 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.TabNavigation} name="Tab Navigation" />
     <NavigationToInternalPage path={Path.AmountInput} name="Amount Input" />
     <NavigationToInternalPage path={Path.ShowOnce} name="Show Once" />
-    <NavigationToInternalPage path={Path.Menu} name="Popover Menu" />
+    <NavigationToInternalPage path={Path.Menu} name="Menu" />
     <NavigationToInternalPage path={Path.DynamicForm} name="Dynamic Form" />
     <NavigationToInternalPage path={Path.Resume} name="Resume" />
     <NavigationToInternalPage path={Path.TimeEditor} name="Time Editor" />
@@ -53,8 +53,8 @@ export const NavigationItems = () => (
       path={Path.InfiniteScroll}
       name="Infinite Scroll"
     />
-    <NavigationToInternalPage path={Path.Promotion} name="Promotion" />
 
+    <NavigationToInternalPage path={Path.Promotion} name="Promotion" />
     <NavigationToInternalPage path={Path.Nfts} name="Wallet's NFTs" />
     <NavigationToInternalPage path={Path.IPFS} name="Upload to IPFS" />
   </VStack>
