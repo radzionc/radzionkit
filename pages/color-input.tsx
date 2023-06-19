@@ -7,7 +7,7 @@ const ColorInputPage: NextPage = () => {
   const [value, setValue] = useState(0)
 
   return (
-    <DemoPage title="Color Label Input" youtubeVideoId="QYVlkk6WMmc">
+    <DemoPage title="Color Label Input">
       <ColorLabelInput value={value} onChange={setValue} />
     </DemoPage>
   )

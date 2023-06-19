@@ -41,3 +41,7 @@ export interface TitledComponentProps {
 export interface StyledComponentWithColorProps {
   $color: HSLA
 }
+
+export interface SelectableComponentProps<T> {
+  onSelect: (value: T) => void
+}
