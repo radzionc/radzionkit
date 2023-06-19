@@ -1,3 +1,4 @@
+import { HSLA } from 'lib/ui/colors/HSLA'
 import { ReactNode } from 'react'
 
 export type ClosableComponentProps = {
@@ -22,4 +23,21 @@ export type ComponentWithClassNameProps = {
 
 export type ClickableComponentProps = {
   onClick: () => void
+}
+
+export type FinishableComponentProps = {
+  onFinish: () => void
+}
+
+export interface InputProps<T> {
+  value: T
+  onChange: (value: T) => void
+}
+
+export interface TitledComponentProps {
+  title: string
+}
+
+export interface StyledComponentWithColorProps {
+  $color: HSLA
 }

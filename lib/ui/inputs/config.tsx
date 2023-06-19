@@ -4,8 +4,10 @@ export const inputBorderRadiusCSS = css`
   border-radius: 8px;
 `
 
+export const defaultInputHeight = '52px'
+
 export const defaultInputShapeCSS = css`
-  height: 52px;
+  height: ${defaultInputHeight};
   width: 100%;
   padding: 12px;
   ${inputBorderRadiusCSS};

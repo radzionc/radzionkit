@@ -34,6 +34,7 @@ export const NavigationItems = () => (
       path={Path.OnHoverAction}
       name="On Hover Action"
     />
+    <NavigationToInternalPage path={Path.ColorInput} name="Color Input" />
     <NavigationToInternalPage path={Path.TabNavigation} name="Tab Navigation" />
     <NavigationToInternalPage path={Path.AmountInput} name="Amount Input" />
     <NavigationToInternalPage path={Path.ShowOnce} name="Show Once" />

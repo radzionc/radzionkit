@@ -14,6 +14,7 @@ import { HStack, VStack } from '../Stack'
 import { Text } from '../Text'
 import { SeparatedByLine } from '../SeparatedByLine'
 import { CloseIconButton } from '../buttons/square/CloseIconButton'
+import FocusTrap from 'focus-trap-react'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void
@@ -77,19 +78,25 @@ export const PopoverMenu = ({
           style={{ ...floatingStyles, zIndex: 1 }}
           {...getFloatingProps()}
         >
-          <Container padding={12}>
-            <SeparatedByLine gap={12}>
-              <Header>
-                <Text weight="semibold" color="supporting" cropped>
-                  {title}
-                </Text>
-                <CloseIconButton onClick={() => setIsOpen(false)} />
-              </Header>
-              <VStack>
-                {renderContent({ onClose: () => setIsOpen(false) })}
-              </VStack>
-            </SeparatedByLine>
-          </Container>
+          <FocusTrap
+            focusTrapOptions={{
+              clickOutsideDeactivates: true,
+            }}
+          >
+            <Container padding={12}>
+              <SeparatedByLine gap={12}>
+                <Header>
+                  <Text weight="semibold" color="supporting" cropped>
+                    {title}
+                  </Text>
+                  <CloseIconButton onClick={() => setIsOpen(false)} />
+                </Header>
+                <VStack>
+                  {renderContent({ onClose: () => setIsOpen(false) })}
+                </VStack>
+              </SeparatedByLine>
+            </Container>
+          </FocusTrap>
         </div>
       )}
     </>

@@ -24,6 +24,7 @@ export enum Path {
   Nfts = '/nfts',
   IPFS = '/ipfs',
   Panel = '/panel',
+  ColorInput = '/color-input',
   CalendarEditor = '/calendar-editor',
   TimeEditor = '/time-editor',
   Resume = '/resume',
