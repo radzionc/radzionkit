@@ -16,8 +16,8 @@ yarn add --dev @types/react @types/react-dom @types/styled-components eslint typ
 ### 5. Finish setup
 
 ```tsx
-import { GlobalStyle } from 'lib/ui/GlobalStyle'
-import { ThemeProvider } from 'ui/ThemeProvider'
+import { GlobalStyle } from "lib/ui/GlobalStyle"
+import { ThemeProvider } from "ui/ThemeProvider"
 
 export const App = () => {
   return (
@@ -171,3 +171,13 @@ export const reportError = (error: any, extra: Record<string, string> = {}) => {
 ````
 
 10. Call `setupErrorMonitoring()` before `App` declaration.
+
+### 4. Setup Icon-related assets
+
+1. Put icon.svg at the root of the project
+
+2. Use pwa-asset-generator to generate icons
+
+```sh
+npx pwa-asset-generator icon.svg ./public --manifest ./public/manifest.json --index ./public/index.html --background "#1a1a1a" --favicon
+```
