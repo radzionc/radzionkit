@@ -68,8 +68,8 @@ export const HStack = styled.div`
   flex-direction: row;
 `
 
-interface StackProps extends Props {
-  direction: React.CSSProperties['direction']
+export interface StackProps extends Props {
+  direction: React.CSSProperties['flexDirection']
 }
 
 export const Stack = styled.div<StackProps>`

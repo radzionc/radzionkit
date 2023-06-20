@@ -1,4 +1,4 @@
-import { dotSeparator } from 'lib/ui/SeparatedBy'
+import { dotSeparator } from 'lib/ui/StackSeparatedBy'
 import { HStack, VStack } from 'lib/ui/Stack'
 import { Text } from 'lib/ui/Text'
 

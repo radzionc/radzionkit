@@ -21,6 +21,7 @@ export enum Path {
   Countdown = '/countdown',
   ShowOnce = '/show-once',
   SeparatedByLine = '/separated-by-line',
+  StackSeparatedBy = '/stack-separated-by',
   Nfts = '/nfts',
   IPFS = '/ipfs',
   Panel = '/panel',

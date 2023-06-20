@@ -1,5 +1,5 @@
 import { formatDistance } from 'date-fns'
-import { SeparatedBy, dotSeparator } from 'lib/ui/SeparatedBy'
+import { StackSeparatedBy, dotSeparator } from 'lib/ui/StackSeparatedBy'
 import { HStack, VStack } from 'lib/ui/Stack'
 import { Text } from 'lib/ui/Text'
 import { Responsibilities } from './Responsibilities'
@@ -35,7 +35,7 @@ export const JobExperience = ({
           at {company}
         </Text>
       </Text>
-      <SeparatedBy separator={dotSeparator}>
+      <StackSeparatedBy alignItems='center' direction='row' gap={8} separator={<Text color="supporting">{dotSeparator}</Text>}>
         <Text size={14} color="supporting">
           {formatDate(startedAt)} -{' '}
           {finishedAt ? formatDate(finishedAt) : 'Present'}
@@ -43,7 +43,7 @@ export const JobExperience = ({
         <Text color="supporting2" size={14}>
           {formatDistance(finishedAt ?? new Date(), startedAt)}
         </Text>
-      </SeparatedBy>
+      </StackSeparatedBy>
       <Responsibilities items={responsibilities} />
       {technologies && (
         <HStack gap={4}>

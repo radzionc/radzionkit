@@ -3,7 +3,7 @@ import { Text } from 'lib/ui/Text'
 import { useRef } from 'react'
 import { ResumeContainer } from './ResumeContainer'
 import { PrintResume } from './PrintResume'
-import { dotSeparator, SeparatedBy } from 'lib/ui/SeparatedBy'
+import { StackSeparatedBy, dotSeparator } from 'lib/ui/StackSeparatedBy'
 import { ExperienceList } from './ExperienceList'
 import { JobExperience } from './JobExperience'
 import { PersonalProject } from './PersonalProject'
@@ -19,11 +19,11 @@ export const Resume = () => {
             <Text weight="bold" color="supporting">
               Radzion Chachura
             </Text>
-            <SeparatedBy separator={dotSeparator}>
+            <StackSeparatedBy alignItems='center' direction='row' gap={8} separator={<Text color="supporting">{dotSeparator}</Text>}>
               <Text>6 years dev experience</Text>
               <Text>CS degree</Text>
               <Text>Creator</Text>
-            </SeparatedBy>
+            </StackSeparatedBy>
           </HStack>
           <HStack alignItems="center" gap={8}>
             <Text color="supporting">Primary skills:</Text>
@@ -129,7 +129,7 @@ export const Resume = () => {
             description="Productivity toolkit for remote workers"
             name="Increaser"
             url="https://increaser.org"
-            achievement="10k+ signups"
+            achievement="12k+ signups"
             responsibilities={[
               'Bring to life a B2C SAAS product',
               'Full-stack development of a web app',
@@ -139,7 +139,7 @@ export const Resume = () => {
             description="Blog on programming and more"
             name="radzion.com"
             url="https://radzion.com"
-            achievement="12k+ visits / mo"
+            achievement="4k+ visits / mo"
           />
         </VStack>
         <VStack gap={20}>
@@ -147,17 +147,18 @@ export const Resume = () => {
             description="Useful videos for web developers"
             name="YouTube"
             url="https://radzion.com"
-            achievement="250+ subscribers"
+            achievement="450+ subscribers"
           />
           <PersonalProject
             description="Highligts from nonfiction books"
             name="Books Concepts"
             url="https://booksconcepts.com"
-            achievement="7k+ visits / mo"
+            achievement="4k+ visits / mo"
           />
           <PersonalProject
             description="Toolkit for faster front-end development"
             name="React Kit"
+            achievement="12 stars"
             url="https://reactkit.radzion.com"
           />
         </VStack>

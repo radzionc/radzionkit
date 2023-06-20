@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import { HSLA } from '../colors/HSLA'
 import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 import { ChevronUpIcon } from '../icons/ChevronUpIcon'
-import { SeparatedBy, dotSeparator } from '../SeparatedBy'
+import { StackSeparatedBy, dotSeparator } from '../StackSeparatedBy'
 import { VStack } from '../Stack'
 import { Text } from '../Text'
 import { getVerticalMarginCSS } from '../utils/getVerticalMarginCSS'
@@ -153,7 +153,7 @@ export const TimeInput = ({
             top: valueInPx - 20,
           }}
         >
-          <SeparatedBy separator={dotSeparator}>
+          <StackSeparatedBy alignItems='center' direction='row' gap={8} separator={<Text color="supporting">{dotSeparator}</Text>}>
             <Text>
               {new Date(value).toLocaleTimeString(undefined, {
                 hour: '2-digit',
@@ -166,7 +166,7 @@ export const TimeInput = ({
                 {minDiff < 0 ? 'later' : 'earlier'}
               </Text>
             )}
-          </SeparatedBy>
+          </StackSeparatedBy>
         </TimeValue>
 
         {!isActive && (
