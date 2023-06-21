@@ -10,10 +10,16 @@ export interface StackSeparatedByProps extends StackProps {
   separator: ReactNode
 }
 
-export const StackSeparatedBy = ({ children, separator, ...rest }: StackSeparatedByProps) => {
+export const StackSeparatedBy = ({
+  children,
+  separator,
+  gap = 8,
+  wrap = 'wrap',
+  ...rest
+}: StackSeparatedByProps) => {
   const items = React.Children.toArray(children)
   return (
-    <Stack {...rest}>
+    <Stack wrap={wrap} gap={gap} {...rest}>
       {items.map((child, index) => {
         if (isLast(items, index)) {
           return child
@@ -29,3 +35,14 @@ export const StackSeparatedBy = ({ children, separator, ...rest }: StackSeparate
     </Stack>
   )
 }
+
+export interface HStackSeparatedByProps
+  extends Omit<StackSeparatedByProps, 'direction'> { }
+
+export const HStackSeparatedBy = ({
+  alignItems = 'center',
+  ...props
+}: HStackSeparatedByProps) => {
+  return <StackSeparatedBy direction="row" alignItems={alignItems} {...props} />
+}
+
