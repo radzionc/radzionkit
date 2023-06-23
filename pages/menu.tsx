@@ -16,27 +16,36 @@ const MenuPage: NextPage = () => {
           renderOpener={({ ref, ...props }) => (
             <OpenMenuButton ref={ref} {...props} />
           )}
-          renderContent={() => {
+          renderContent={({ view, onClose }) => {
             const options: MenuOptionProps[] = [
               {
                 text: 'Edit project',
-                onSelect: () => console.log('Edit project'),
+                onSelect: () => {
+                  console.log('Edit project')
+                  onClose()
+                },
                 icon: <EditIcon />,
               },
               {
                 text: 'Make project inactive',
-                onSelect: () => console.log('Make project inactive'),
+                onSelect: () => {
+                  console.log('Make project inactive')
+                  onClose()
+                },
                 icon: <MoonIcon />,
               },
               {
                 icon: <TrashBinIcon />,
                 text: 'Delete project',
                 kind: 'alert',
-                onSelect: () => console.log('Delete project'),
+                onSelect: () => {
+                  console.log('Delete project')
+                  onClose()
+                },
               },
             ]
 
-            return options.map((props, index) => <MenuOption key={index} {...props} />)
+            return options.map((props, index) => <MenuOption view={view} key={index} {...props} />)
           }}
         />
       </div>

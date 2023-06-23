@@ -1,8 +1,9 @@
 import { ReactNode } from 'react'
 
 import { PopoverMenu, PopoverMenuProps } from './PopoverMenu'
-import { SlideOverMenu } from './SlideOverMenu'
 import { ResponsiveView } from '../ResponsiveView'
+import { Opener } from '../Opener'
+import { BottomSlideOver } from '../BottomSlideOver'
 
 export type MenuView = 'popover' | 'slideover'
 
@@ -19,17 +20,16 @@ export const Menu = ({ renderOpener, title, renderContent }: MenuProps) => {
   return (
     <ResponsiveView
       small={() => (
-        <SlideOverMenu
-          title={title}
-          renderOpener={(props) => {
-            return renderOpener({
-              onClick: () => props.onClick(),
-              ref: () => { },
-            })
-          }}
-          renderContent={({ onClose }) =>
-            renderContent({ view: 'slideover', onClose })
-          }
+        <Opener
+          renderOpener={({ onOpen }) => renderOpener({
+            onClick: onOpen,
+            ref: () => { },
+          })}
+          renderContent={({ onClose }) => (
+            <BottomSlideOver onClose={onClose} title={title}>
+              {renderContent({ onClose, view: 'slideover' })}
+            </BottomSlideOver>
+          )}
         />
       )}
       normal={() => (
