@@ -6,13 +6,11 @@ import styled from 'styled-components'
 import { ExpandableInputOpener } from '../ExpandableInputOpener'
 import { Menu } from 'lib/ui/Menu'
 import { Text } from 'lib/ui/Text'
+import { InputProps } from 'lib/shared/props'
 
 const EmojiPicker = lazy(() => import('./EmojiPicker'))
 
-interface Props {
-  value: string
-  onChange: (value: string) => void
-}
+interface EmojiInputProps extends InputProps<string> { }
 
 const EmojiMartFallback = styled.div`
   width: 352px;
@@ -20,10 +18,10 @@ const EmojiMartFallback = styled.div`
   ${centerContentCSS};
 `
 
-export const EmojiInput = ({ value, onChange }: Props) => {
+export const EmojiInput = ({ value, onChange }: EmojiInputProps) => {
   return (
     <Menu
-      title="Select emoji"
+      title="Select an emoji"
       renderOpener={(props) => (
         <ExpandableInputOpener type="button" {...props}>
           <Text color="contrast" size={32}>
