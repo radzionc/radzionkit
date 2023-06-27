@@ -1,41 +1,24 @@
-import { flip, offset, shift } from '@floating-ui/dom'
 import {
   ReferenceType,
-  useClick,
-  useDismiss,
-  useFloating,
-  useInteractions,
 } from '@floating-ui/react'
-import { ReactNode, useState } from 'react'
+import { ReactNode } from 'react'
 import styled from 'styled-components'
 
-import { Panel } from '../Panel/Panel'
 import { HStack, VStack } from '../Stack'
 import { Text } from '../Text'
-import { SeparatedByLine } from '../SeparatedByLine'
 import { CloseIconButton } from '../buttons/square/CloseIconButton'
-import FocusTrap from 'focus-trap-react'
+import { SeparatedByLine } from '../SeparatedByLine'
+import { PopoverPanel, PopoverPanelProps } from './PopoverPanel'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void
 }
 
-interface RenderContentParams {
-  onClose: () => void
-}
-
-export interface PopoverMenuProps {
+export interface PopoverMenuProps extends Pick<PopoverPanelProps, 'renderContent' | 'renderOpener'> {
   title: ReactNode
-
-  renderContent: (params: RenderContentParams) => ReactNode
-  renderOpener: (props: RenderOpenerProps) => ReactNode
 }
 
-const Container = styled(Panel)`
-  box-shadow: ${({ theme }) => theme.shadows.medium};
-  background: ${({ theme: { colors, name } }) =>
-    (name === 'dark' ? colors.foreground : colors.background).toCssValue()};
-  overflow: hidden;
+const Container = styled(PopoverPanel)`
   min-width: 260px;
 `
 
@@ -50,55 +33,19 @@ export const PopoverMenu = ({
   renderOpener,
   title,
 }: PopoverMenuProps) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const {
-    floatingStyles,
-    refs: { setReference, setFloating },
-    context,
-  } = useFloating({
-    open: isOpen,
-    placement: 'bottom-end',
-    strategy: 'fixed',
-    onOpenChange: setIsOpen,
-    middleware: [offset(4), shift(), flip()],
-  })
-
-  useDismiss(context)
-
-  const click = useClick(context)
-
-  const { getReferenceProps, getFloatingProps } = useInteractions([click])
   return (
-    <>
-      {renderOpener({ ref: setReference, ...getReferenceProps() })}
-      {isOpen && (
-        <div
-          ref={setFloating}
-          style={{ ...floatingStyles, zIndex: 1 }}
-          {...getFloatingProps()}
-        >
-          <FocusTrap
-            focusTrapOptions={{
-              clickOutsideDeactivates: true,
-            }}
-          >
-            <Container padding={12}>
-              <SeparatedByLine gap={12}>
-                <Header>
-                  <Text weight="semibold" color="supporting" cropped>
-                    {title}
-                  </Text>
-                  <CloseIconButton onClick={() => setIsOpen(false)} />
-                </Header>
-                <VStack>
-                  {renderContent({ onClose: () => setIsOpen(false) })}
-                </VStack>
-              </SeparatedByLine>
-            </Container>
-          </FocusTrap>
-        </div>
-      )}
-    </>
+    <Container renderContent={({ onClose }) => (
+      <SeparatedByLine gap={12}>
+        <Header>
+          <Text weight="semibold" color="supporting" cropped>
+            {title}
+          </Text>
+          <CloseIconButton onClick={onClose} />
+        </Header>
+        <VStack>
+          {renderContent({ onClose })}
+        </VStack>
+      </SeparatedByLine>
+    )} renderOpener={renderOpener} />
   )
 }
