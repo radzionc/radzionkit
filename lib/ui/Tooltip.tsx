@@ -1,7 +1,20 @@
-import { ReactNode, useState } from "react"
+import { ReactNode, useRef, useState } from "react"
 import {
-  ReferenceType, offset, shift, flip, useFloating, autoUpdate, useInteractions, useHover, useFocus, useDismiss, useRole
-} from '@floating-ui/react'
+  ReferenceType,
+  offset,
+  shift,
+  flip,
+  useFloating,
+  autoUpdate,
+  useInteractions,
+  useHover,
+  useFocus,
+  useDismiss,
+  useRole,
+  arrow,
+  FloatingArrow,
+  useTransitionStyles,
+} from "@floating-ui/react"
 import styled from "styled-components"
 import { getColor } from "./theme/getters"
 
@@ -15,48 +28,73 @@ interface TooltipProps {
 }
 
 const Container = styled.div`
-border-radius: 8px;
-background: ${getColor('contrast')};
-color: ${getColor('background')};
-padding: 4px 8px;
-font-size: 14px;
+  border-radius: 8px;
+  background: ${getColor("contrast")};
+  color: ${getColor("background")};
+  padding: 4px 8px;
+  font-size: 14px;
+`
+
+const Arrow = styled(FloatingArrow)`
+  fill: ${getColor("contrast")};
 `
 
 export const Tootlip = ({ tooltip, renderOpener }: TooltipProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
-  const { refs: { setReference, setFloating },
-    floatingStyles, context
+  const arrowRef = useRef(null)
+
+  const {
+    refs: { setReference, setFloating },
+    floatingStyles,
+    context,
   } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
-    middleware: [offset(4), flip(), shift()],
+    middleware: [
+      offset(12),
+      flip(),
+      shift(),
+      arrow({
+        element: arrowRef,
+      }),
+    ],
     whileElementsMounted: autoUpdate,
-  });
+  })
 
-  const hover = useHover(context, { move: false });
-  const focus = useFocus(context);
-  const dismiss = useDismiss(context);
-  const role = useRole(context, { role: 'tooltip' });
+  const hover = useHover(context, { move: false })
+  const focus = useFocus(context)
+  const dismiss = useDismiss(context)
+  const role = useRole(context, { role: "tooltip" })
+
+  const { styles: transitionStyles } = useTransitionStyles(context, {
+    initial: {
+      opacity: 0,
+      transform: 'scale(0.8)',
+    },
+  })
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
     hover,
     focus,
     dismiss,
     role,
-  ]);
+  ])
 
   return (
     <>
       {renderOpener({ ref: setReference, ...getReferenceProps() })}
       {isOpen && (
-        <Container
+        <div
           ref={setFloating}
           style={{ ...floatingStyles, zIndex: 1 }}
           {...getFloatingProps()}
         >
-          {tooltip}
-        </Container>
+          <Container style={transitionStyles}>
+            <Arrow tipRadius={2} height={8} ref={arrowRef} context={context} />
+            {tooltip}
+          </Container>
+        </div>
       )}
     </>
   )
