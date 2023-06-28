@@ -12,7 +12,7 @@ const TooltipPage: NextPage = () => {
             Learn more about Increaser
           </Text>
         )}
-        tooltip={(
+        content={(
           <Text style={{ maxWidth: 320 }}>
             The app empowers you to take the freedom from remote work to live a more productive, healthier, and happier life by leveraging its holistic toolkit for managing time effectively, getting into a deep focus state, and building positive habits.
           </Text>

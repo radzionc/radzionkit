@@ -23,7 +23,7 @@ export interface RenderOpenerProps extends Record<string, unknown> {
 }
 
 interface TooltipProps {
-  tooltip: ReactNode
+  content?: ReactNode
   renderOpener: (props: RenderOpenerProps) => ReactNode
 }
 
@@ -39,7 +39,7 @@ const Arrow = styled(FloatingArrow)`
   fill: ${getColor("contrast")};
 `
 
-export const Tootlip = ({ tooltip, renderOpener }: TooltipProps) => {
+export const Tootlip = ({ content, renderOpener }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const arrowRef = useRef(null)
@@ -84,7 +84,7 @@ export const Tootlip = ({ tooltip, renderOpener }: TooltipProps) => {
   return (
     <>
       {renderOpener({ ref: setReference, ...getReferenceProps() })}
-      {isOpen && (
+      {isOpen && content && (
         <div
           ref={setFloating}
           style={{ ...floatingStyles, zIndex: 1 }}
@@ -92,7 +92,7 @@ export const Tootlip = ({ tooltip, renderOpener }: TooltipProps) => {
         >
           <Container style={transitionStyles}>
             <Arrow tipRadius={2} height={8} ref={arrowRef} context={context} />
-            {tooltip}
+            {content}
           </Container>
         </div>
       )}

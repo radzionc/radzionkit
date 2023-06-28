@@ -1,5 +1,5 @@
 import { ComponentWithChildrenProps } from 'lib/shared/props'
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
 import { centerContentCSS } from 'lib/ui/utils/centerContentCSS'
 import { getHorizontalPaddingCSS } from 'lib/ui/utils/getHorizontalPaddingCSS'
@@ -7,15 +7,8 @@ import { Spinner } from 'lib/ui/Spinner'
 
 import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
 import { UnstyledButton } from '../UnstyledButton'
-import { useState } from 'react'
-import {
-  useHover,
-  useFloating,
-  useInteractions,
-  offset,
-  shift,
-  useTransitionStyles,
-} from '@floating-ui/react'
+
+import { Tootlip } from 'lib/ui/Tooltip'
 
 export const rectButtonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 
@@ -37,7 +30,7 @@ interface ContainerProps {
   isRounded?: boolean
 }
 
-const Container = styled(UnstyledButton)<ContainerProps>`
+const Container = styled(UnstyledButton) <ContainerProps>`
   color: ${({ theme }) => theme.colors.text.toCssValue()};
   ${defaultTransitionCSS};
 
@@ -46,33 +39,33 @@ const Container = styled(UnstyledButton)<ContainerProps>`
   border-radius: ${({ isRounded }) => getCSSUnit(isRounded ? 100 : 8)};
 
   ${({ size }) =>
-    ({
-      xs: css`
+  ({
+    xs: css`
         ${getHorizontalPaddingCSS(8)}
         height: 28px;
         font-size: 14px;
       `,
-      s: css`
+    s: css`
         ${getHorizontalPaddingCSS(16)}
         height: 36px;
         font-size: 14px;
       `,
-      m: css`
+    m: css`
         ${getHorizontalPaddingCSS(20)}
         height: 40px;
         font-size: 16px;
       `,
-      l: css`
+    l: css`
         ${getHorizontalPaddingCSS(20)}
         height: 48px;
         font-size: 16px;
       `,
-      xl: css`
+    xl: css`
         ${getHorizontalPaddingCSS(40)}
         height: 56px;
         font-size: 18px;
       `,
-    }[size])};
+  }[size])};
 
   font-weight: 500;
 
@@ -102,33 +95,10 @@ export const RectButton = ({
   onClick,
   ...rest
 }: Props) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const { refs, floatingStyles, context } = useFloating({
-    strategy: 'fixed',
-    open: isOpen,
-    onOpenChange: setIsOpen,
-    middleware: [offset(4), shift()],
-  })
-
-  const { styles } = useTransitionStyles(context, {
-    duration: 200,
-    initial: {
-      opacity: 0,
-    },
-  })
-
-  const hover = useHover(context, {
-    enabled: typeof isDisabled === 'string',
-  })
-
-  const { getReferenceProps, getFloatingProps } = useInteractions([hover])
-
   return (
-    <>
+    <Tootlip content={isDisabled} renderOpener={props => (
       <Container
-        ref={refs.setReference}
-        {...getReferenceProps()}
+        {...props}
         size={size}
         isDisabled={!!isDisabled}
         isLoading={isLoading}
@@ -143,18 +113,6 @@ export const RectButton = ({
           <>{children}</>
         )}
       </Container>
-      {isOpen && (
-        <TooltipContainer
-          ref={refs.setFloating}
-          style={{
-            ...styles,
-            ...floatingStyles,
-          }}
-          {...getFloatingProps()}
-        >
-          {isDisabled}
-        </TooltipContainer>
-      )}
-    </>
+    )} />
   )
 }
