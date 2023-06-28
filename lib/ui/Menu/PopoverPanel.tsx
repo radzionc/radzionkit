@@ -57,6 +57,7 @@ export const PopoverPanel = ({
   const click = useClick(context)
 
   const { getReferenceProps, getFloatingProps } = useInteractions([click])
+
   return (
     <>
       {renderOpener({ ref: setReference, ...getReferenceProps() })}

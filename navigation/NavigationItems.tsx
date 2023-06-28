@@ -27,6 +27,7 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.GridTable} name="CSS Grid Table" />
     <NavigationToInternalPage path={Path.SeparatedByLine} name="Separated By Line" />
     <NavigationToInternalPage path={Path.StackSeparatedBy} name="Stack Separated By" />
+    <NavigationToInternalPage path={Path.Tooltip} name="Tooltip" />
     <NavigationToInternalPage
       path={Path.ConfirmationModal}
       name="Confirmation Modal"

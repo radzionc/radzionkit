@@ -40,4 +40,5 @@ export enum Path {
   ConfirmationModal = '/confirmation-modal',
   Hoverable = '/hoverable',
   Checklist = '/checklist',
+  Tooltip = '/tooltip',
 }
