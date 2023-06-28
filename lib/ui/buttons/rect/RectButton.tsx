@@ -8,7 +8,7 @@ import { Spinner } from 'lib/ui/Spinner'
 import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
 import { UnstyledButton } from '../UnstyledButton'
 
-import { Tootlip } from 'lib/ui/Tooltip'
+import { Tooltip } from 'lib/ui/Tooltip'
 
 export const rectButtonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 
@@ -96,7 +96,7 @@ export const RectButton = ({
   ...rest
 }: Props) => {
   return (
-    <Tootlip content={isDisabled} renderOpener={props => (
+    <Tooltip content={isDisabled} renderOpener={props => (
       <Container
         {...props}
         size={size}

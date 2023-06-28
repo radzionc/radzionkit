@@ -39,7 +39,7 @@ const Arrow = styled(FloatingArrow)`
   fill: ${getColor("contrast")};
 `
 
-export const Tootlip = ({ content, renderOpener }: TooltipProps) => {
+export const Tooltip = ({ content, renderOpener }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const arrowRef = useRef(null)
