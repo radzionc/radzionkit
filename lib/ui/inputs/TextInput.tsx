@@ -72,7 +72,7 @@ export const TextInputContainer = styled.input`
 
 export const TextInputLoader = ({ className }: ComponentWithClassNameProps) => (
   <TextInputContainer as="div" className={className} isValid>
-    <VStack fullHeight alignItems="center" justifyContent="center">
+    <VStack fullHeight justifyContent="center">
       <Spinner size={18} />
     </VStack>
   </TextInputContainer>

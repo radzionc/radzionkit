@@ -36,6 +36,8 @@ const Container = styled(UnstyledButton) <ContainerProps>`
 
   ${centerContentCSS};
 
+  white-space: nowrap;
+
   border-radius: ${({ isRounded }) => getCSSUnit(isRounded ? 100 : 8)};
 
   ${({ size }) =>
@@ -67,7 +69,7 @@ const Container = styled(UnstyledButton) <ContainerProps>`
       `,
   }[size])};
 
-  font-weight: 500;
+  font-weight: 600;
 
   cursor: ${({ isDisabled, isLoading }) =>
     isDisabled ? 'initial' : isLoading ? 'wait' : 'pointer'};

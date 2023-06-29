@@ -14,6 +14,7 @@ import {
   arrow,
   FloatingArrow,
   useTransitionStyles,
+  Placement,
 } from "@floating-ui/react"
 import styled from "styled-components"
 import { getColor } from "./theme/getters"
@@ -25,6 +26,7 @@ export interface RenderOpenerProps extends Record<string, unknown> {
 interface TooltipProps {
   content?: ReactNode
   renderOpener: (props: RenderOpenerProps) => ReactNode
+  placement?: Placement
 }
 
 const Container = styled.div`
@@ -39,7 +41,7 @@ const Arrow = styled(FloatingArrow)`
   fill: ${getColor("contrast")};
 `
 
-export const Tooltip = ({ content, renderOpener }: TooltipProps) => {
+export const Tooltip = ({ content, renderOpener, placement }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const arrowRef = useRef(null)
@@ -51,6 +53,7 @@ export const Tooltip = ({ content, renderOpener }: TooltipProps) => {
   } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
+    placement,
     middleware: [
       offset(12),
       flip(),
