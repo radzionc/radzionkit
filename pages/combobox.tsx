@@ -1,9 +1,7 @@
-import { SourceCodeLink } from 'components/SourceCode/SourceCodeLink'
 import type { NextPage } from 'next'
 import { SubmitFormButton } from 'lib/ui/buttons/rect/SubmitFormButton'
 import { Form } from 'lib/ui/Form/Form'
 import { TextInput } from 'lib/ui/inputs/TextInput'
-import { RegularPage } from 'lib/ui/page/RegularPage'
 import { Controller, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -11,6 +9,8 @@ import { LanguagesInput } from 'components/LanguagesInput'
 import { DemoPage } from 'components/DemoPage'
 import { Panel } from 'lib/ui/Panel/Panel'
 import { TitledSection } from 'lib/ui/Layout/TitledSection'
+import { FixedOptionsInput } from 'lib/ui/inputs/Combobox/FixedOptionsInput'
+import { capitalizeFirstLetter } from 'lib/shared/utils/capitalizeFirstLetter'
 
 interface FormShape {
   name: string
@@ -63,6 +63,23 @@ const ComboboxPage: NextPage = () => {
                       error={errors.languages?.message}
                     />
                   )}
+                />
+                <FixedOptionsInput
+                  label="Loading example"
+                  isLoading
+                  placeholder='Languages'
+                  value={null}
+                  onChange={() => { }}
+                  options={['one', 'two', 'three']}
+                  optionToString={capitalizeFirstLetter}
+                />
+                <FixedOptionsInput
+                  label="No options example"
+                  placeholder='Languages'
+                  value={null}
+                  onChange={() => { }}
+                  options={[]}
+                  optionToString={capitalizeFirstLetter}
                 />
               </>
             }

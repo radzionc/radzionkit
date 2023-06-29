@@ -1,4 +1,4 @@
-import { useFloating, offset, flip, shift, size } from '@floating-ui/react'
+import { useFloating, offset, flip, shift, size, autoUpdate } from '@floating-ui/react'
 import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
 import { zIndex } from 'lib/ui/zIndex'
 import React, { useRef } from 'react'
@@ -30,6 +30,7 @@ export const DropdownMenuPlacer = ({
   const { refs, strategy, x, y } = useFloating({
     placement: 'bottom-start',
     strategy: 'fixed',
+    whileElementsMounted: autoUpdate,
     middleware: [
       offset(4),
       flip(),

@@ -1,10 +1,10 @@
-import { flip, offset, shift } from '@floating-ui/dom'
 import {
   ReferenceType,
   useClick,
   useDismiss,
   useFloating,
   useInteractions,
+  autoUpdate, flip, offset, shift
 } from '@floating-ui/react'
 import { ReactNode, useState } from 'react'
 import styled from 'styled-components'
@@ -45,6 +45,7 @@ export const PopoverPanel = ({
     refs: { setReference, setFloating },
     context,
   } = useFloating({
+    whileElementsMounted: autoUpdate,
     open: isOpen,
     placement: 'bottom-end',
     strategy: 'fixed',

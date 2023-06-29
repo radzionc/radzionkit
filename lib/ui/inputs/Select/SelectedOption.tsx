@@ -19,7 +19,7 @@ export const SelectedOption = ({ value, onRemove }: Props) => {
     <Container>
       <HStack gap={16}>
         <Text color="supporting">{value}</Text>
-        <CloseIconButton onClick={onRemove} />
+        <CloseIconButton type="button" onClick={onRemove} />
       </HStack>
     </Container>
   )
