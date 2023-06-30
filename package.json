@@ -19,6 +19,7 @@
     "@web3-react/core": "^8.0.35-beta.0",
     "@web3-react/metamask": "^8.0.28-beta.0",
     "alchemy-sdk": "^2.0.3",
+    "copy-to-clipboard": "^3.3.3",
     "date-fns": "^2.30.0",
     "emoji-mart": "^5.5.2",
     "focus-trap-react": "^10.1.2",

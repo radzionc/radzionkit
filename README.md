@@ -5,7 +5,7 @@
 ### 2. Install dependencies
 
 ```sh
-yarn add @floating-ui/dom @floating-ui/react react-spring @react-spring/web date-fns focus-trap-react react react-dom react-dropzone react-to-print react-use styled-components react-query
+yarn add @floating-ui/dom @floating-ui/react react-spring @react-spring/web date-fns focus-trap-react react react-dom react-dropzone react-to-print react-use styled-components react-query copy-to-clipboard
 yarn add --dev @types/react @types/react-dom @types/styled-components eslint typescript
 ```
 

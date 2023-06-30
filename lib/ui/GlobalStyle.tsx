@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import { themedScrollbarCSS } from './utils/themedScrollbarCSS'
+import { createGlobalStyle } from "styled-components"
+import { themedScrollbarCSS } from "./utils/themedScrollbarCSS"
 
 export const GlobalStyle = createGlobalStyle`
   /*
@@ -36,7 +36,6 @@ export const GlobalStyle = createGlobalStyle`
     6. Improve media defaults
   */
   img, picture, video, canvas, svg {
-    display: block;
     max-width: 100%;
   }
   /*

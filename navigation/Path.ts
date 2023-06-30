@@ -41,4 +41,5 @@ export enum Path {
   Hoverable = '/hoverable',
   Checklist = '/checklist',
   Tooltip = '/tooltip',
+  CopyText = '/copy-text',
 }

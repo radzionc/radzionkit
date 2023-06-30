@@ -33,8 +33,10 @@ const Container = styled.div`
   border-radius: 8px;
   background: ${getColor("contrast")};
   color: ${getColor("background")};
-  padding: 4px 8px;
+  padding: 12px;
   font-size: 14px;
+  font-weight: 500;
+  max-width: 320px;
 `
 
 const Arrow = styled(FloatingArrow)`
@@ -73,7 +75,7 @@ export const Tooltip = ({ content, renderOpener, placement }: TooltipProps) => {
   const { styles: transitionStyles } = useTransitionStyles(context, {
     initial: {
       opacity: 0,
-      transform: 'scale(0.8)',
+      transform: "scale(0.8)",
     },
   })
 
