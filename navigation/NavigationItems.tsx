@@ -5,6 +5,7 @@ import { Path } from "navigation/Path"
 export const NavigationItems = () => (
   <VStack fullWidth>
     <NavigationToInternalPage path={Path.Stacks} name="Stacks" />
+    <NavigationToInternalPage path={Path.Text} name="Text" />
     <NavigationToInternalPage path={Path.Button} name="Button" />
     <NavigationToInternalPage path={Path.Panel} name="Panel" />
     <NavigationToInternalPage path={Path.Modal} name="Modal" />

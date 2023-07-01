@@ -1,4 +1,4 @@
-import styled, { DefaultTheme, css } from 'styled-components'
+import styled, { DefaultTheme, css } from "styled-components"
 
 const getTextColorRecord = ({ colors }: DefaultTheme) =>
   ({
@@ -15,14 +15,14 @@ const getTextColorRecord = ({ colors }: DefaultTheme) =>
     contrast: colors.contrast,
   } as const)
 
-type TextWeight = 'regular' | 'semibold' | 'bold'
+type TextWeight = "regular" | "semibold" | "bold"
 const fontWeight: Record<TextWeight, number> = {
   regular: 400,
   semibold: 500,
   bold: 600,
 }
 
-type TextHeight = 'small' | 'regular' | 'large'
+type TextHeight = "small" | "regular" | "large"
 const lineHeight: Record<TextHeight, number> = {
   small: 1,
   regular: 1.2,
@@ -31,7 +31,7 @@ const lineHeight: Record<TextHeight, number> = {
 
 export type TextColor = keyof ReturnType<typeof getTextColorRecord>
 
-export interface Props {
+export interface TextProps {
   color?: TextColor
   weight?: TextWeight
   size?: number
@@ -41,16 +41,18 @@ export interface Props {
   nowrap?: boolean
 }
 
-const getFonSize = (sizeInPx: number) => {
-  const oneRemInPx = 16
+export const oneRemInPx = 16
+
+const getFontSize = (sizeInPx: number) => {
   const sizeInRem = sizeInPx / oneRemInPx
 
   return `${sizeInRem}rem`
 }
 
-export const Text = styled.p<Props>`
+export const Text = styled.p<TextProps>`
   margin: 0;
   padding: 0;
+  overflow-wrap: break-word;
 
   ${({ color, theme }) =>
     color &&
@@ -70,7 +72,7 @@ export const Text = styled.p<Props>`
   ${({ size }) =>
     size &&
     css`
-      font-size: ${getFonSize(size)};
+      font-size: ${getFontSize(size)};
     `}
   ${({ centered }) =>
     centered &&

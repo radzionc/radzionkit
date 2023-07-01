@@ -12,7 +12,7 @@ interface CopyTextProps extends React.ComponentProps<typeof Text> {
   content: string
 }
 
-const CopyWr = styled(Text)`
+const IconWr = styled(Text)`
   margin-left: 4px;
   ${defaultTransitionCSS};
   color: ${getColor("textSupporting3")};
@@ -21,7 +21,7 @@ const CopyWr = styled(Text)`
 const Container = styled(Text)`
   cursor: pointer;
 
-  &:hover ${CopyWr} {
+  &:hover ${IconWr} {
     color: ${getColor("contrast")};
   }
 `
@@ -42,13 +42,13 @@ export const CopyText = ({ content, children, ...rest }: CopyTextProps) => {
       {...rest}
     >
       {children}
-      <CopyWr as="span">
+      <IconWr as="span">
         <Match
           value={iconToShow}
           copy={() => <CopyIcon />}
           copied={() => <CheckIcon />}
         />
-      </CopyWr>
+      </IconWr>
     </Container>
   )
 }

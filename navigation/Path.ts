@@ -42,4 +42,5 @@ export enum Path {
   Checklist = '/checklist',
   Tooltip = '/tooltip',
   CopyText = '/copy-text',
+  Text = '/text',
 }
