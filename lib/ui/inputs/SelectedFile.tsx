@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import { OutlinedButton } from 'lib/ui/buttons/rect/OutlinedButton'
-import { inputBackgroundCSS, inputBorderRadiusCSS } from 'lib/ui/inputs/config'
-import { HStack } from 'lib/ui/Stack'
-import { Text } from 'lib/ui/Text'
+import styled from "styled-components"
+import { inputBackgroundCSS, inputBorderRadiusCSS } from "lib/ui/inputs/config"
+import { HStack } from "lib/ui/Stack"
+import { Text } from "lib/ui/Text"
+import { Button } from "../buttons/Button"
 
 interface Props {
   name: string
@@ -19,7 +19,7 @@ export const SelectedFile = ({ name, onRemove }: Props) => (
   <Container>
     <HStack gap={24} justifyContent="space-between" alignItems="center">
       <Text cropped>{name}</Text>
-      <OutlinedButton onClick={onRemove}>Remove</OutlinedButton>
+      <Button onClick={onRemove}>Remove</Button>
     </HStack>
   </Container>
 )

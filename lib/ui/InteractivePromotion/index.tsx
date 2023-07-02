@@ -1,16 +1,15 @@
-import { ExternalLink } from 'lib/navigation/Link/ExternalLink'
-import { ReactNode, useState } from 'react'
-import { useSpring, animated, config } from 'react-spring'
-import styled from 'styled-components'
-import { GhostButton } from '../buttons/rect/GhostButton'
-import { PrimaryButton } from '../buttons/rect/PrimaryButton'
-import { HStack, VStack } from '../Stack'
-import { Text } from '../Text'
-import { ReversedTheme } from '../theme/ReversedTheme'
+import { ExternalLink } from "lib/navigation/Link/ExternalLink"
+import { ReactNode, useState } from "react"
+import { useSpring, animated, config } from "react-spring"
+import styled from "styled-components"
+import { HStack, VStack } from "../Stack"
+import { Text } from "../Text"
+import { ReversedTheme } from "../theme/ReversedTheme"
+import { Button } from "../buttons/Button"
 
 interface speechPlaecement {
-  left: React.CSSProperties['left']
-  bottom: React.CSSProperties['bottom']
+  left: React.CSSProperties["left"]
+  bottom: React.CSSProperties["bottom"]
 }
 
 interface InteractivePromotionProps {
@@ -107,11 +106,13 @@ export const InteractivePromotion = ({
                 </Text>
                 <HStack gap={8} justifyContent="start">
                   <ExternalLink to={url}>
-                    <PrimaryButton onClick={onAccept} kind="attention" as="div">
+                    <Button onClick={onAccept} kind="attention" as="div">
                       Yes!
-                    </PrimaryButton>
+                    </Button>
                   </ExternalLink>
-                  <GhostButton onClick={onDismiss}>No, thanks</GhostButton>
+                  <Button kind="ghost" onClick={onDismiss}>
+                    No, thanks
+                  </Button>
                 </HStack>
               </VStack>
             </Content>

@@ -1,5 +1,5 @@
 import { ExternalLink } from "lib/navigation/Link/ExternalLink"
-import { GhostButton } from "lib/ui/buttons/rect/GhostButton"
+import { Button } from "lib/ui/buttons/Button"
 import { YouTubeIcon } from "lib/ui/icons/YouTubeIcon"
 import { HStack } from "lib/ui/Stack"
 import { Text } from "lib/ui/Text"
@@ -11,12 +11,12 @@ interface Props {
 export const YouTubeLink = ({ videoId }: Props) => {
   return (
     <ExternalLink to={`https://youtu.be/${videoId}`}>
-      <GhostButton kind="secondary">
+      <Button kind="ghostSecondary">
         <HStack alignItems="center" gap={6}>
           <YouTubeIcon />
           <Text>watch on YouTube</Text>
         </HStack>
-      </GhostButton>
+      </Button>
     </ExternalLink>
   )
 }

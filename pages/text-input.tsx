@@ -1,16 +1,16 @@
-import type { NextPage } from 'next'
-import { SubmitFormButton } from 'lib/ui/buttons/rect/SubmitFormButton'
-import { Form } from 'lib/ui/Form/Form'
-import { TextInput } from 'lib/ui/inputs/TextInput'
-import { Controller, useForm } from 'react-hook-form'
-import { TextArea } from 'lib/ui/inputs/TextArea'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { DemoPage } from 'components/DemoPage'
-import { Panel } from 'lib/ui/Panel/Panel'
-import { TitledSection } from 'lib/ui/Layout/TitledSection'
-import { AmountTextInput } from 'lib/ui/inputs/AmountTextInput'
-import { DollarIcon } from 'lib/ui/icons/DollarIcon'
+import type { NextPage } from "next"
+import { Form } from "lib/ui/Form/Form"
+import { TextInput } from "lib/ui/inputs/TextInput"
+import { Controller, useForm } from "react-hook-form"
+import { TextArea } from "lib/ui/inputs/TextArea"
+import * as yup from "yup"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { DemoPage } from "components/DemoPage"
+import { Panel } from "lib/ui/Panel/Panel"
+import { TitledSection } from "lib/ui/Layout/TitledSection"
+import { AmountTextInput } from "lib/ui/inputs/AmountTextInput"
+import { DollarIcon } from "lib/ui/icons/DollarIcon"
+import Button from "./button"
 
 interface FormShape {
   name: string
@@ -36,7 +36,7 @@ const TextInputPage: NextPage = () => {
     control,
     formState: { errors },
   } = useForm<FormShape>({
-    mode: 'onSubmit',
+    mode: "onSubmit",
     resolver: yupResolver(schema),
   })
 
@@ -49,7 +49,7 @@ const TextInputPage: NextPage = () => {
               <>
                 <TextInput
                   label="Full name"
-                  {...register('name')}
+                  {...register("name")}
                   error={errors.name?.message}
                   autoFocus
                   placeholder="John Johnson"
@@ -58,7 +58,7 @@ const TextInputPage: NextPage = () => {
                   rows={4}
                   maxLength={bioMaxLength}
                   label="Bio"
-                  {...register('bio')}
+                  {...register("bio")}
                   error={errors.bio?.message}
                   placeholder="I'm a software engineer..."
                 />
@@ -80,7 +80,7 @@ const TextInputPage: NextPage = () => {
               </>
             }
             onSubmit={handleSubmit(console.log)}
-            actions={<SubmitFormButton text="Submit" />}
+            actions={<Button size="l">Submit</Button>}
           />
         </TitledSection>
       </Panel>

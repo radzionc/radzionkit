@@ -1,16 +1,15 @@
-import { ReactNode } from 'react'
-import styled, { css } from 'styled-components'
+import { ReactNode } from "react"
+import styled, { css } from "styled-components"
 
+import { MenuView } from "."
+import { Hoverable } from "../Hoverable"
+import { HStack } from "../Stack"
+import { defaultTransitionCSS } from "../animations/transitions"
+import { getVerticalPaddingCSS } from "../utils/getVerticalPaddingCSS"
+import { Text } from "../Text"
+import { Button } from "../buttons/Button"
 
-import { MenuView } from '.'
-import { Hoverable } from '../Hoverable'
-import { HStack } from '../Stack'
-import { defaultTransitionCSS } from '../animations/transitions'
-import { PrimaryButton } from '../buttons/rect/PrimaryButton'
-import { getVerticalPaddingCSS } from '../utils/getVerticalPaddingCSS'
-import { Text } from '../Text'
-
-type MenuOptionKind = 'regular' | 'alert'
+type MenuOptionKind = "regular" | "alert"
 
 export interface MenuOptionProps {
   icon?: ReactNode
@@ -24,7 +23,7 @@ interface ContentProps {
   kind: MenuOptionKind
 }
 
-const Content = styled(HStack) <ContentProps>`
+const Content = styled(HStack)<ContentProps>`
   ${defaultTransitionCSS};
   border-radius: 8px;
   width: 100%;
@@ -33,28 +32,28 @@ const Content = styled(HStack) <ContentProps>`
   gap: 12px;
 
   ${({ kind }) =>
-  ({
-    regular: css`
+    ({
+      regular: css`
         color: ${({ theme }) => theme.colors.text.toCssValue()};
       `,
-    alert: css`
+      alert: css`
         color: ${({ theme }) => theme.colors.alert.toCssValue()};
       `,
-  }[kind])};
+    }[kind])};
 `
 
 export const MenuOption = ({
   text,
   icon,
   onSelect,
-  kind = 'regular',
-  view = 'popover',
+  kind = "regular",
+  view = "popover",
 }: MenuOptionProps) => {
-  if (view === 'popover') {
+  if (view === "popover") {
     return (
       <Hoverable verticalOffset={0} onClick={onSelect}>
         <Content kind={kind}>
-          <Text style={{ display: 'flex' }}>{icon}</Text>
+          <Text style={{ display: "flex" }}>{icon}</Text>
           <Text>{text}</Text>
         </Content>
       </Hoverable>
@@ -62,9 +61,9 @@ export const MenuOption = ({
   }
 
   return (
-    <PrimaryButton
-      style={{ justifyContent: 'flex-start', height: 56 }}
-      kind={kind === 'regular' ? 'secondary' : 'alert'}
+    <Button
+      style={{ justifyContent: "flex-start", height: 56 }}
+      kind={kind === "regular" ? "secondary" : "alert"}
       size="l"
       isRounded={true}
       key={text}
@@ -73,6 +72,6 @@ export const MenuOption = ({
       <HStack alignItems="center" gap={8}>
         {icon} <Text>{text}</Text>
       </HStack>
-    </PrimaryButton>
+    </Button>
   )
 }

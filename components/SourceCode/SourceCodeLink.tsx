@@ -1,5 +1,5 @@
 import { ExternalLink } from "lib/navigation/Link/ExternalLink"
-import { GhostButton } from "lib/ui/buttons/rect/GhostButton"
+import { Button } from "lib/ui/buttons/Button"
 import { GitHubIcon } from "lib/ui/icons/GitHubIcon"
 import { HStack } from "lib/ui/Stack"
 import { Text } from "lib/ui/Text"
@@ -11,12 +11,12 @@ interface Props {
 export const SourceCodeLink = ({ to }: Props) => {
   return (
     <ExternalLink to={to}>
-      <GhostButton kind="secondary">
+      <Button as="div" kind="ghostSecondary">
         <HStack alignItems="center" gap={6}>
           <GitHubIcon />
           <Text>source code</Text>
         </HStack>
-      </GhostButton>
+      </Button>
     </ExternalLink>
   )
 }

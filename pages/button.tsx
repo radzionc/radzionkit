@@ -1,36 +1,26 @@
-import type { NextPage } from 'next'
-import { GhostButton } from 'lib/ui/buttons/rect/GhostButton'
-import { OutlinedButton } from 'lib/ui/buttons/rect/OutlinedButton'
-import { PrimaryButton } from 'lib/ui/buttons/rect/PrimaryButton'
-import { SimpleNamedList } from 'lib/ui/Layout/SimpleNamedList'
-import { HStack, VStack } from 'lib/ui/Stack'
-import { DemoPage } from 'components/DemoPage'
+import type { NextPage } from "next"
+import { VStack } from "lib/ui/Stack"
+import { DemoPage } from "components/DemoPage"
+import { Button, buttonKinds } from "lib/ui/buttons/Button"
+import { SameWidthChildrenRow } from "lib/ui/Layout/SameWidthChildrenRow"
+import { Text } from "lib/ui/Text"
 
 const ButtonPage: NextPage = () => {
   return (
-    <DemoPage youtubeVideoId="K5y_irnv34s" title="Button">
-      <VStack fullWidth gap={40}>
-        <SimpleNamedList name="Primary">
-          <HStack gap={20}>
-            <PrimaryButton kind="primary">Submit</PrimaryButton>
-            <PrimaryButton kind="attention">Submit</PrimaryButton>
-            <PrimaryButton isDisabled="Not enough balance">
-              Disabled
-            </PrimaryButton>
-          </HStack>
-        </SimpleNamedList>
-        <SimpleNamedList name="Ghost">
-          <HStack gap={20}>
-            <GhostButton kind="regular">Submit</GhostButton>
-            <GhostButton kind="secondary">Submit</GhostButton>
-          </HStack>
-        </SimpleNamedList>
-        <SimpleNamedList name="Outlined">
-          <HStack>
-            <OutlinedButton>Submit</OutlinedButton>
-          </HStack>
-        </SimpleNamedList>
-      </VStack>
+    <DemoPage title="Button">
+      <SameWidthChildrenRow
+        fullWidth
+        gap={40}
+        childrenWidth={160}
+        maxColumns={3}
+      >
+        {buttonKinds.map((kind) => (
+          <VStack alignItems="start" key={kind} gap={8}>
+            <Text color="supporting">{kind}</Text>
+            <Button kind={kind}>Submit</Button>
+          </VStack>
+        ))}
+      </SameWidthChildrenRow>
     </DemoPage>
   )
 }

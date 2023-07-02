@@ -1,17 +1,17 @@
-import { ReactNode } from 'react'
-import { handleWithStopPropagation } from 'lib/shared/events'
+import { ReactNode } from "react"
+import { handleWithStopPropagation } from "lib/shared/events"
 import {
   ClosableComponentProps,
   ComponentWithChildrenProps,
-} from 'lib/shared/props'
-import styled from 'styled-components'
-import { BodyPortal } from 'lib/ui/BodyPortal'
-import { ScreenCover } from 'lib/ui/ScreenCover'
-import { HStack, VStack } from 'lib/ui/Stack'
-import { Text } from 'lib/ui/Text'
-import { getHorizontalPaddingCSS } from 'lib/ui/utils/getHorizontalPaddingCSS'
-import { getVerticalPaddingCSS } from 'lib/ui/utils/getVerticalPaddingCSS'
-import { PrimaryButton } from './buttons/rect/PrimaryButton'
+} from "lib/shared/props"
+import styled from "styled-components"
+import { BodyPortal } from "lib/ui/BodyPortal"
+import { ScreenCover } from "lib/ui/ScreenCover"
+import { HStack, VStack } from "lib/ui/Stack"
+import { Text } from "lib/ui/Text"
+import { getHorizontalPaddingCSS } from "lib/ui/utils/getHorizontalPaddingCSS"
+import { getVerticalPaddingCSS } from "lib/ui/utils/getVerticalPaddingCSS"
+import { Button } from "./buttons/Button"
 
 export type BottomSlideOverProps = ComponentWithChildrenProps &
   ClosableComponentProps & {
@@ -56,14 +56,9 @@ export const BottomSlideOver = ({
             <Text cropped as="div" weight="bold" size={24}>
               {title}
             </Text>
-            <PrimaryButton
-              kind="secondary"
-              size="l"
-              onClick={onClose}
-              isRounded
-            >
+            <Button kind="secondary" size="l" onClick={onClose} isRounded>
               Close
-            </PrimaryButton>
+            </Button>
           </HStack>
           <Content gap={12}>{children}</Content>
         </Container>

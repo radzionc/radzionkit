@@ -20,8 +20,6 @@ export const lightTheme: DefaultTheme = {
 
     overlay: new HSLA(0, 0, 0, 0.4),
 
-    outlinedHover: new HSLA(0, 0, 88),
-
     contrast: new HSLA(0, 0, 0),
   },
   shadows: {

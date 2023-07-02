@@ -1,15 +1,15 @@
-import type { NextPage } from 'next'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { Form } from 'lib/ui/Form/Form'
-import { Controller, useForm } from 'react-hook-form'
-import { SubmitFormButton } from 'lib/ui/buttons/rect/SubmitFormButton'
-import { TextInput } from 'lib/ui/inputs/TextInput'
-import { Web3StorageProvider } from 'web3/components/Web3StorageProvider'
-import { PdfFileInput } from 'web3/components/PdfFileInput'
-import { DemoPage } from 'components/DemoPage'
-import { Panel } from 'lib/ui/Panel/Panel'
-import { TitledSection } from 'lib/ui/Layout/TitledSection'
+import type { NextPage } from "next"
+import * as yup from "yup"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { Form } from "lib/ui/Form/Form"
+import { Controller, useForm } from "react-hook-form"
+import { TextInput } from "lib/ui/inputs/TextInput"
+import { Web3StorageProvider } from "web3/components/Web3StorageProvider"
+import { PdfFileInput } from "web3/components/PdfFileInput"
+import { DemoPage } from "components/DemoPage"
+import { Panel } from "lib/ui/Panel/Panel"
+import { TitledSection } from "lib/ui/Layout/TitledSection"
+import { Button } from "lib/ui/buttons/Button"
 
 interface FormShape {
   name: string
@@ -31,7 +31,7 @@ const IPFSPage: NextPage = () => {
     formState: { errors },
     control,
   } = useForm<FormShape>({
-    mode: 'onSubmit',
+    mode: "onSubmit",
     resolver: yupResolver(schema),
   })
 
@@ -45,7 +45,7 @@ const IPFSPage: NextPage = () => {
                 <>
                   <TextInput
                     label="Paper name"
-                    {...register('name')}
+                    {...register("name")}
                     error={errors.name?.message}
                     autoFocus
                     placeholder="Research into ..."
@@ -64,7 +64,7 @@ const IPFSPage: NextPage = () => {
                 </>
               }
               onSubmit={handleSubmit(console.log)}
-              actions={<SubmitFormButton text="Submit" />}
+              actions={<Button size="l">Submit</Button>}
             />
           </TitledSection>
         </Panel>

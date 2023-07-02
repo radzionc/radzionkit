@@ -1,11 +1,11 @@
-import { ExternalLink } from 'lib/navigation/Link/ExternalLink'
-import type { NextPage } from 'next'
-import { PrimaryButton } from 'lib/ui/buttons/rect/PrimaryButton'
-import { Modal } from 'lib/ui/Modal'
-import { Opener } from 'lib/ui/Opener'
-import { HStack, VStack } from 'lib/ui/Stack'
-import { Text } from 'lib/ui/Text'
-import { DemoPage } from 'components/DemoPage'
+import { ExternalLink } from "lib/navigation/Link/ExternalLink"
+import type { NextPage } from "next"
+import { Modal } from "lib/ui/Modal"
+import { Opener } from "lib/ui/Opener"
+import { HStack, VStack } from "lib/ui/Stack"
+import { Text } from "lib/ui/Text"
+import { DemoPage } from "components/DemoPage"
+import { Button } from "lib/ui/buttons/Button"
 
 const ButtonPage: NextPage = () => {
   return (
@@ -13,7 +13,7 @@ const ButtonPage: NextPage = () => {
       <HStack fullWidth gap={40}>
         <Opener
           renderOpener={({ onOpen }) => (
-            <PrimaryButton onClick={onOpen}>Open Modal</PrimaryButton>
+            <Button onClick={onOpen}>Open Modal</Button>
           )}
           renderContent={({ onClose }) => (
             <Modal
@@ -31,7 +31,7 @@ const ButtonPage: NextPage = () => {
                   </Text>
                   <Text>☀️ Start work early. Enjoy the evening!</Text>
                   <ExternalLink to="https://increaser.org">
-                    <PrimaryButton>Start now</PrimaryButton>
+                    <Button>Start now</Button>
                   </ExternalLink>
                 </VStack>
               )}

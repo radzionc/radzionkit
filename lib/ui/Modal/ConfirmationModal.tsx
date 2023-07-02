@@ -1,20 +1,20 @@
-import { Modal, ModalProps } from '.'
-import { SameWidthChildrenRow } from '../Layout/SameWidthChildrenRow'
-import { PrimaryButton, PrimaryButtonKind } from '../buttons/rect/PrimaryButton'
+import { Modal, ModalProps } from "."
+import { SameWidthChildrenRow } from "../Layout/SameWidthChildrenRow"
+import { Button, ButtonKind } from "../buttons/Button"
 
 interface ConfirmationModalProps
-  extends Omit<ModalProps, 'footer' | 'onClose'> {
+  extends Omit<ModalProps, "footer" | "onClose"> {
   onClose: () => void
   onConfirm: () => void
   confirmActionText: string
-  confirmActionKind?: PrimaryButtonKind
+  confirmActionKind?: ButtonKind
 }
 
 export const ConfirmationModal = ({
   onClose,
   onConfirm,
   confirmActionText,
-  confirmActionKind = 'alert',
+  confirmActionKind = "alert",
   ...props
 }: ConfirmationModalProps) => {
   return (
@@ -23,10 +23,10 @@ export const ConfirmationModal = ({
       onClose={onClose}
       footer={
         <SameWidthChildrenRow gap={20}>
-          <PrimaryButton size="l" onClick={onClose} kind="secondary">
+          <Button size="l" onClick={onClose} kind="secondary">
             Cancel
-          </PrimaryButton>
-          <PrimaryButton
+          </Button>
+          <Button
             size="l"
             onClick={() => {
               onConfirm()
@@ -35,7 +35,7 @@ export const ConfirmationModal = ({
             kind={confirmActionKind}
           >
             {confirmActionText}
-          </PrimaryButton>
+          </Button>
         </SameWidthChildrenRow>
       }
     />

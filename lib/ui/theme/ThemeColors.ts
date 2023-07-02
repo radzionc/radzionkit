@@ -25,9 +25,10 @@ export type ThemeColors = {
 
   overlay: HSLA
 
-  outlinedHover: HSLA
-
   contrast: HSLA
+
+  white: HSLA
+  transparent: HSLA
 
   getPaletteColor: (index: number) => HSLA
 }

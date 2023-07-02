@@ -1,6 +1,5 @@
 import { useWeb3React } from "@web3-react/core"
-import { GhostButton } from "lib/ui/buttons/rect/GhostButton"
-import { PrimaryButton } from "lib/ui/buttons/rect/PrimaryButton"
+import { Button } from "lib/ui/buttons/Button"
 import { Spinner } from "lib/ui/Spinner"
 import { HStack } from "lib/ui/Stack"
 import { Text } from "lib/ui/Text"
@@ -18,7 +17,8 @@ export const ManageWallet = () => {
         <Text color="shy" weight="bold">
           {account}
         </Text>
-        <GhostButton
+        <Button
+          kind="ghost"
           onClick={() => {
             if (connector?.deactivate) {
               connector.deactivate()
@@ -28,14 +28,10 @@ export const ManageWallet = () => {
           }}
         >
           Disconnect
-        </GhostButton>
+        </Button>
       </HStack>
     )
   }
 
-  return (
-    <PrimaryButton onClick={() => connector.activate()}>
-      Connect MetaMask
-    </PrimaryButton>
-  )
+  return <Button onClick={() => connector.activate()}>Connect MetaMask</Button>
 }

@@ -1,16 +1,16 @@
-import type { NextPage } from 'next'
-import { SubmitFormButton } from 'lib/ui/buttons/rect/SubmitFormButton'
-import { Form } from 'lib/ui/Form/Form'
-import { TextInput } from 'lib/ui/inputs/TextInput'
-import { Controller, useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { LanguagesInput } from 'components/LanguagesInput'
-import { DemoPage } from 'components/DemoPage'
-import { Panel } from 'lib/ui/Panel/Panel'
-import { TitledSection } from 'lib/ui/Layout/TitledSection'
-import { FixedOptionsInput } from 'lib/ui/inputs/Combobox/FixedOptionsInput'
-import { capitalizeFirstLetter } from 'lib/shared/utils/capitalizeFirstLetter'
+import type { NextPage } from "next"
+import { Form } from "lib/ui/Form/Form"
+import { TextInput } from "lib/ui/inputs/TextInput"
+import { Controller, useForm } from "react-hook-form"
+import * as yup from "yup"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { LanguagesInput } from "components/LanguagesInput"
+import { DemoPage } from "components/DemoPage"
+import { Panel } from "lib/ui/Panel/Panel"
+import { TitledSection } from "lib/ui/Layout/TitledSection"
+import { FixedOptionsInput } from "lib/ui/inputs/Combobox/FixedOptionsInput"
+import { capitalizeFirstLetter } from "lib/shared/utils/capitalizeFirstLetter"
+import { Button } from "lib/ui/buttons/Button"
 
 interface FormShape {
   name: string
@@ -31,7 +31,7 @@ const ComboboxPage: NextPage = () => {
     control,
     formState: { errors },
   } = useForm<FormShape>({
-    mode: 'onSubmit',
+    mode: "onSubmit",
     resolver: yupResolver(schema),
     defaultValues: {
       languages: [],
@@ -47,7 +47,7 @@ const ComboboxPage: NextPage = () => {
               <>
                 <TextInput
                   label="Full name"
-                  {...register('name')}
+                  {...register("name")}
                   error={errors.name?.message}
                   autoFocus
                   placeholder="John Johnson"
@@ -67,24 +67,24 @@ const ComboboxPage: NextPage = () => {
                 <FixedOptionsInput
                   label="Loading example"
                   isLoading
-                  placeholder='Languages'
+                  placeholder="Languages"
                   value={null}
-                  onChange={() => { }}
-                  options={['one', 'two', 'three']}
+                  onChange={() => {}}
+                  options={["one", "two", "three"]}
                   optionToString={capitalizeFirstLetter}
                 />
                 <FixedOptionsInput
                   label="No options example"
-                  placeholder='Languages'
+                  placeholder="Languages"
                   value={null}
-                  onChange={() => { }}
+                  onChange={() => {}}
                   options={[]}
                   optionToString={capitalizeFirstLetter}
                 />
               </>
             }
             onSubmit={handleSubmit(console.log)}
-            actions={<SubmitFormButton text="Submit" />}
+            actions={<Button size="l">Submit</Button>}
           />
         </TitledSection>
       </Panel>

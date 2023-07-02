@@ -1,10 +1,10 @@
-import type { NextPage } from 'next'
-import { VStack } from 'lib/ui/Stack'
-import { DemoPage } from 'components/DemoPage'
-import { ExpandablePanel } from 'lib/ui/Panel/ExpandablePanel'
-import { Text } from 'lib/ui/Text'
-import { ExternalLink } from 'lib/navigation/Link/ExternalLink'
-import { PrimaryButton } from 'lib/ui/buttons/rect/PrimaryButton'
+import type { NextPage } from "next"
+import { VStack } from "lib/ui/Stack"
+import { DemoPage } from "components/DemoPage"
+import { ExpandablePanel } from "lib/ui/Panel/ExpandablePanel"
+import { Text } from "lib/ui/Text"
+import { ExternalLink } from "lib/navigation/Link/ExternalLink"
+import { Button } from "lib/ui/buttons/Button"
 
 const PanelPage: NextPage = () => {
   return (
@@ -26,7 +26,7 @@ const PanelPage: NextPage = () => {
             <Text>😌 Efficiency over long hours. More time for life!</Text>
             <Text>☀️ Start work early. Enjoy the evening!</Text>
             <ExternalLink to="https://increaser.org">
-              <PrimaryButton>Start now</PrimaryButton>
+              <Button>Start now</Button>
             </ExternalLink>
           </VStack>
         )}
