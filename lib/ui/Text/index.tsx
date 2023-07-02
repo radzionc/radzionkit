@@ -4,8 +4,7 @@ const getTextColorRecord = ({ colors }: DefaultTheme) =>
   ({
     regular: colors.text,
     supporting: colors.textSupporting,
-    supporting2: colors.textSupporting2,
-    supporting3: colors.textSupporting3,
+    shy: colors.textShy,
 
     primary: colors.primary,
     attention: colors.attention,

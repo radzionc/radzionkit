@@ -13,8 +13,7 @@ export const lightTheme: DefaultTheme = {
 
     text: new HSLA(60, 6, 20),
     textSupporting: new HSLA(45, 19, 8, 0.6),
-    textSupporting2: new HSLA(45, 8, 20, 0.65),
-    textSupporting3: new HSLA(45, 8, 81),
+    textShy: new HSLA(45, 8, 20, 0.65),
 
     backgroundGlass: new HSLA(45, 8, 20, 0.08),
     backgroundGlass2: new HSLA(45, 8, 20, 0.16),

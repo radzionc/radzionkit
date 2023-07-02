@@ -1,12 +1,12 @@
-import { CSSProperties } from 'react'
-import { ComponentWithChildrenProps } from 'lib/shared/props'
-import styled from 'styled-components'
-import { Line } from 'lib/ui/Line'
-import { Text } from 'lib/ui/Text'
+import { CSSProperties } from "react"
+import { ComponentWithChildrenProps } from "lib/shared/props"
+import styled from "styled-components"
+import { Line } from "lib/ui/Line"
+import { Text } from "lib/ui/Text"
 
 interface Props extends ComponentWithChildrenProps {
   columnNames: string[]
-  gridTemplateColumns: CSSProperties['gridTemplateColumns']
+  gridTemplateColumns: CSSProperties["gridTemplateColumns"]
 }
 
 const Container = styled.div`
@@ -27,7 +27,7 @@ export const TableLayout = ({
   return (
     <Container style={{ gridTemplateColumns }}>
       {columnNames.map((name) => (
-        <Text weight="regular" color="supporting3" key={name}>
+        <Text weight="regular" color="shy" key={name}>
           {name}
         </Text>
       ))}

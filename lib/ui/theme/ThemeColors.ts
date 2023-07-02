@@ -18,8 +18,7 @@ export type ThemeColors = {
 
   text: HSLA
   textSupporting: HSLA
-  textSupporting2: HSLA
-  textSupporting3: HSLA
+  textShy: HSLA
 
   backgroundGlass: HSLA
   backgroundGlass2: HSLA

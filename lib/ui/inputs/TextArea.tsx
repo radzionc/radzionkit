@@ -4,14 +4,14 @@ import {
   TextareaHTMLAttributes,
   forwardRef,
   useState,
-} from 'react'
-import styled from 'styled-components'
-import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
-import { Text } from 'lib/ui/Text'
+} from "react"
+import styled from "styled-components"
+import { getCSSUnit } from "lib/ui/utils/getCSSUnit"
+import { Text } from "lib/ui/Text"
 
-import { InputWrapperWithErrorMessage } from './InputWrapper'
-import { SharedTextInputProps } from './TextInput'
-import { commonInputCSS } from './commonInputCSS'
+import { InputWrapperWithErrorMessage } from "./InputWrapper"
+import { SharedTextInputProps } from "./TextInput"
+import { commonInputCSS } from "./commonInputCSS"
 
 const TextareaContainer = styled.textarea`
   ${commonInputCSS};
@@ -54,7 +54,7 @@ export const TextArea = forwardRef(function TextAreaInner(
       />
       {props.maxLength && (
         <CharacterCounterWrapper>
-          <Text color="supporting3" height="small" size={10}>
+          <Text color="shy" height="small" size={10}>
             {charactersCount} / {props.maxLength}
           </Text>
         </CharacterCounterWrapper>

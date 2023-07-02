@@ -1,15 +1,15 @@
-import { ReactNode } from 'react'
-import styled, { css } from 'styled-components'
-import { Hoverable } from '../Hoverable'
-import { defaultTransitionCSS } from '../animations/transitions'
-import { CheckIcon } from '../icons/CheckIcon'
+import { ReactNode } from "react"
+import styled, { css } from "styled-components"
+import { Hoverable } from "../Hoverable"
+import { defaultTransitionCSS } from "../animations/transitions"
+import { CheckIcon } from "../icons/CheckIcon"
 import {
   InvisibleHTMLCheckboxProps,
   InvisibleHTMLCheckbox,
-} from '../inputs/Checkbox/InvisibleHTMLCheckbox'
-import { centerContentCSS } from '../utils/centerContentCSS'
-import { Text } from '../Text'
-import { ChecklistItemFrame } from './ChecklistItemFrame'
+} from "../inputs/Checkbox/InvisibleHTMLCheckbox"
+import { centerContentCSS } from "../utils/centerContentCSS"
+import { Text } from "../Text"
+import { ChecklistItemFrame } from "./ChecklistItemFrame"
 
 interface ChecklistItemProps extends InvisibleHTMLCheckboxProps {
   name: ReactNode
@@ -23,7 +23,7 @@ export const Box = styled.div<{ isChecked: boolean }>`
   ${centerContentCSS};
 
   border-radius: 4px;
-  border: 2px solid ${({ theme }) => theme.colors.textSupporting3.toCssValue()};
+  border: 2px solid ${({ theme }) => theme.colors.textShy.toCssValue()};
   color: ${({ theme }) => theme.colors.background.toCssValue()};
 
   ${defaultTransitionCSS}
@@ -49,7 +49,7 @@ const Line = styled.span<{ isChecked: boolean }>`
   left: 0;
   border-top: 2px solid;
   bottom: 10px;
-  width: ${({ isChecked }) => (isChecked ? '100%' : '0%')};
+  width: ${({ isChecked }) => (isChecked ? "100%" : "0%")};
 `
 
 export const ChecklistItem = ({

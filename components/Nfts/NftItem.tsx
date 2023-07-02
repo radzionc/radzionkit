@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { SafeImage } from 'lib/ui/SafeImage'
-import { VStack } from 'lib/ui/Stack'
-import { Text } from 'lib/ui/Text'
+import styled from "styled-components"
+import { SafeImage } from "lib/ui/SafeImage"
+import { VStack } from "lib/ui/Stack"
+import { Text } from "lib/ui/Text"
 
 interface Props {
   address: string
@@ -36,15 +36,15 @@ export const NftItem = ({ title, address, tokenId, imageUrl }: Props) => {
       </ImageWrapper>
       <VStack fullWidth gap={4}>
         <Text cropped weight="bold" color="supporting">
-          <Text as="span" color="supporting3">
+          <Text as="span" color="shy">
             Addr
-          </Text>{' '}
+          </Text>{" "}
           {address}
         </Text>
         <Text cropped weight="bold" color="supporting">
-          <Text as="span" color="supporting3">
+          <Text as="span" color="shy">
             Id
-          </Text>{' '}
+          </Text>{" "}
           {tokenId}
         </Text>
       </VStack>

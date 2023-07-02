@@ -1,13 +1,14 @@
-import styled, { useTheme } from 'styled-components'
-import { defaultTransitionCSS } from '../animations/transitions'
-import { CheckIcon } from '../icons/CheckIcon'
-import { CloseIcon } from '../icons/CloseIcon'
-import { HStack } from '../Stack'
-import { Text } from '../Text'
-import { centerContentCSS } from '../utils/centerContentCSS'
-import { getCSSUnit } from '../utils/getCSSUnit'
-import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
-import { roundedCSS } from '../utils/roundedCSS'
+import styled, { useTheme } from "styled-components"
+import { defaultTransitionCSS } from "../animations/transitions"
+import { CheckIcon } from "../icons/CheckIcon"
+import { CloseIcon } from "../icons/CloseIcon"
+import { HStack } from "../Stack"
+import { Text } from "../Text"
+import { centerContentCSS } from "../utils/centerContentCSS"
+import { getCSSUnit } from "../utils/getCSSUnit"
+import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
+import { roundedCSS } from "../utils/roundedCSS"
+import { getColor } from "../theme/getters"
 
 interface SwitchProps {
   value: boolean
@@ -27,17 +28,21 @@ const Control = styled.div`
   ${defaultTransitionCSS};
 
   ${centerContentCSS};
-  color: ${({ theme }) => theme.colors.background.toCssValue()};
+  color: ${getColor("background")};
+  background: ${getColor("text")};
   font-size: 14px;
 `
 
 const Wrapper = styled(HStack)`
   cursor: pointer;
+  user-select: none;
 
-  color: ${({ theme }) => theme.colors.textSupporting.toCssValue()};
+  color: ${getColor("textSupporting")};
+
+  ${defaultTransitionCSS};
 
   :hover {
-    color: ${({ theme }) => theme.colors.text.toCssValue()};
+    color: ${getColor("text")};
   }
 
   :hover ${Control} {
@@ -69,15 +74,14 @@ export const Switch = ({ value, onChange, label }: SwitchProps) => {
       <Container
         style={{
           background: (value
-            ? colors.textSupporting3
-            : colors.backgroundGlass2
+            ? colors.backgroundGlass2
+            : colors.backgroundGlass
           ).toCssValue(),
         }}
       >
         <Control
           style={{
             marginLeft: value ? width - controlSize - spacing : spacing,
-            background: colors.text.toCssValue(),
           }}
         >
           {value ? <CheckIcon /> : <CloseIcon />}

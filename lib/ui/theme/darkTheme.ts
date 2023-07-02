@@ -25,8 +25,7 @@ export const darkTheme: DefaultTheme = {
     ),
     text: new HSLA(0, 0, 100, 0.81),
     textSupporting: new HSLA(0, 0, 61),
-    textSupporting2: new HSLA(0, 0, 100, 0.44),
-    textSupporting3: new HSLA(0, 0, 100, 0.28),
+    textShy: new HSLA(0, 0, 100, 0.28),
 
     backgroundGlass: new HSLA(0, 0, 100, 0.06),
     backgroundGlass2: new HSLA(0, 0, 100, 0.13),

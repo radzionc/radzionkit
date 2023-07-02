@@ -1,8 +1,8 @@
-import { formatDistance } from 'date-fns'
-import { StackSeparatedBy, dotSeparator } from 'lib/ui/StackSeparatedBy'
-import { HStack, VStack } from 'lib/ui/Stack'
-import { Text } from 'lib/ui/Text'
-import { Responsibilities } from './Responsibilities'
+import { formatDistance } from "date-fns"
+import { StackSeparatedBy, dotSeparator } from "lib/ui/StackSeparatedBy"
+import { HStack, VStack } from "lib/ui/Stack"
+import { Text } from "lib/ui/Text"
+import { Responsibilities } from "./Responsibilities"
 
 interface Props {
   position: string
@@ -13,9 +13,9 @@ interface Props {
   technologies?: string[]
 }
 
-const formatDate = new Intl.DateTimeFormat('en-US', {
-  month: 'short',
-  year: 'numeric',
+const formatDate = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  year: "numeric",
 }).format
 
 export const JobExperience = ({
@@ -31,26 +31,31 @@ export const JobExperience = ({
       <Text weight="bold">
         {position}
         <Text as="span" color="supporting">
-          {' '}
+          {" "}
           at {company}
         </Text>
       </Text>
-      <StackSeparatedBy alignItems='center' direction='row' gap={8} separator={<Text color="supporting">{dotSeparator}</Text>}>
+      <StackSeparatedBy
+        alignItems="center"
+        direction="row"
+        gap={8}
+        separator={<Text color="supporting">{dotSeparator}</Text>}
+      >
         <Text size={14} color="supporting">
-          {formatDate(startedAt)} -{' '}
-          {finishedAt ? formatDate(finishedAt) : 'Present'}
+          {formatDate(startedAt)} -{" "}
+          {finishedAt ? formatDate(finishedAt) : "Present"}
         </Text>
-        <Text color="supporting2" size={14}>
+        <Text color="shy" size={14}>
           {formatDistance(finishedAt ?? new Date(), startedAt)}
         </Text>
       </StackSeparatedBy>
       <Responsibilities items={responsibilities} />
       {technologies && (
         <HStack gap={4}>
-          <Text size={14} color="supporting3">
+          <Text size={14} color="shy">
             Stack:
           </Text>
-          <Text size={14}>{technologies.join(', ')}</Text>
+          <Text size={14}>{technologies.join(", ")}</Text>
         </HStack>
       )}
     </VStack>

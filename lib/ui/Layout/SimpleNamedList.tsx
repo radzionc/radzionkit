@@ -1,5 +1,5 @@
-import { VStack } from 'lib/ui/Stack'
-import { Text } from 'lib/ui/Text'
+import { VStack } from "lib/ui/Stack"
+import { Text } from "lib/ui/Text"
 
 interface Props {
   name: string
@@ -9,7 +9,7 @@ interface Props {
 export const SimpleNamedList = ({ name, children }: Props) => {
   return (
     <VStack fullWidth gap={8}>
-      <Text color="supporting2">{name}</Text>
+      <Text color="shy">{name}</Text>
       {children}
     </VStack>
   )

@@ -6,7 +6,7 @@ import { Text } from "lib/ui/Text"
 
 const TextPage: NextPage = () => {
   return (
-    <DemoPage title="Text">
+    <DemoPage youtubeVideoId="vtqVjskVe1s" title="Text">
       <VStack gap={24}>
         <Text as="h2">Text component</Text>
 

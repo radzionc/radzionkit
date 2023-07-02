@@ -1,18 +1,18 @@
-import type { NextPage } from 'next'
-import { DemoPage } from 'components/DemoPage'
-import { useMemo, useState } from 'react'
-import { Panel } from 'lib/ui/Panel/Panel'
-import { HStack, VStack } from 'lib/ui/Stack'
-import { TabNavigation } from 'lib/ui/TabNavigation'
-import { capitalizeFirstLetter } from 'lib/shared/utils/capitalizeFirstLetter'
-import { LabeledValue } from 'lib/ui/LabeledValue'
-import { Text } from 'lib/ui/Text'
-import { formatDuration } from 'lib/shared/utils/formatDuration'
-import { sum } from 'lib/shared/utils/sum'
-import { useTheme } from 'styled-components'
-import { BarChart } from 'lib/ui/BarChart'
+import type { NextPage } from "next"
+import { DemoPage } from "components/DemoPage"
+import { useMemo, useState } from "react"
+import { Panel } from "lib/ui/Panel/Panel"
+import { HStack, VStack } from "lib/ui/Stack"
+import { TabNavigation } from "lib/ui/TabNavigation"
+import { capitalizeFirstLetter } from "lib/shared/utils/capitalizeFirstLetter"
+import { LabeledValue } from "lib/ui/LabeledValue"
+import { Text } from "lib/ui/Text"
+import { formatDuration } from "lib/shared/utils/formatDuration"
+import { sum } from "lib/shared/utils/sum"
+import { useTheme } from "styled-components"
+import { BarChart } from "lib/ui/BarChart"
 
-const statsViews = ['days', 'weeks', 'months'] as const
+const statsViews = ["days", "weeks", "months"] as const
 type StatsView = (typeof statsViews)[number]
 
 interface StatsViewDataPoint {
@@ -25,84 +25,84 @@ const viewData: Record<StatsView, StatsViewDataPoint[]> = {
   days: [
     {
       value: 4335,
-      label: 'Mon',
+      label: "Mon",
     },
     {
       value: 5213,
-      label: 'Tue',
+      label: "Tue",
     },
     {
       value: 4399,
-      label: 'Wed',
+      label: "Wed",
     },
     {
       value: 4360,
-      label: 'Thu',
+      label: "Thu",
     },
     {
       value: 5365,
-      label: 'Fri',
+      label: "Fri",
     },
     {
       value: 5000,
-      label: 'Sat',
+      label: "Sat",
     },
     {
       isCurrent: true,
       value: 4800,
-      label: 'Sun',
+      label: "Sun",
     },
   ],
   weeks: [
     {
-      label: 'Week #16',
+      label: "Week #16",
       value: 42120,
     },
     {
-      label: 'Week #17',
+      label: "Week #17",
       value: 34235,
     },
     {
-      label: 'Week #18',
+      label: "Week #18",
       value: 24097,
     },
     {
-      label: 'Week #19',
+      label: "Week #19",
       value: 38655,
     },
     {
       isCurrent: true,
-      label: 'This week',
+      label: "This week",
       value: 23700,
     },
   ],
   months: [
     {
-      label: 'Jan',
+      label: "Jan",
       value: 82330,
     },
     {
-      label: 'Feb',
+      label: "Feb",
       value: 72330,
     },
     {
-      label: 'Mar',
+      label: "Mar",
       value: 71110,
     },
     {
-      label: 'Apr',
+      label: "Apr",
       value: 90000,
     },
     {
       isCurrent: true,
-      label: 'May',
+      label: "May",
       value: 62330,
     },
   ],
 }
 
 const BarChartPage: NextPage = () => {
-  const [view, setView] = useState<StatsView>('weeks')
+  const [view, setView] = useState<StatsView>("weeks")
 
   const data = viewData[view]
 
@@ -110,11 +110,11 @@ const BarChartPage: NextPage = () => {
 
   const previousAvg = useMemo(() => {
     const applicableItems = data.filter((data) => data.value).slice(0, -1)
-    if (!applicableItems.length) return '-'
+    if (!applicableItems.length) return "-"
 
     return formatDuration(
       sum(applicableItems.map((data) => data.value)) / applicableItems.length,
-      's'
+      "s"
     )
   }, [data])
 
@@ -149,17 +149,17 @@ const BarChartPage: NextPage = () => {
               return {
                 value,
                 label: (
-                  <Text color={isCurrent ? 'contrast' : undefined}>
+                  <Text color={isCurrent ? "contrast" : undefined}>
                     {label}
                   </Text>
                 ),
-                color: isCurrent ? colors.primary : colors.textSupporting3,
+                color: isCurrent ? colors.primary : colors.textShy,
 
                 renderValue:
                   value > 0
                     ? () => (
-                        <Text color={isCurrent ? 'contrast' : undefined}>
-                          {formatDuration(value, 's')}
+                        <Text color={isCurrent ? "contrast" : undefined}>
+                          {formatDuration(value, "s")}
                         </Text>
                       )
                     : undefined,

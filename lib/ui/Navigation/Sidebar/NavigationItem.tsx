@@ -1,7 +1,8 @@
-import styled, { css } from 'styled-components'
-import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
-import { HStack } from 'lib/ui/Stack'
-import { Text } from 'lib/ui/Text'
+import styled, { css } from "styled-components"
+import { defaultTransitionCSS } from "lib/ui/animations/transitions"
+import { HStack } from "lib/ui/Stack"
+import { Text } from "lib/ui/Text"
+import { getColor } from "lib/ui/theme/getters"
 
 interface Props {
   icon?: React.ReactNode
@@ -10,7 +11,7 @@ interface Props {
   decoration?: React.ReactNode
 }
 
-export const Container = styled.div<{ isActive?: boolean }>`
+export const Container = styled.div<{ isSelected?: boolean }>`
   padding: 0 16px;
   height: 48px;
   cursor: pointer;
@@ -19,13 +20,21 @@ export const Container = styled.div<{ isActive?: boolean }>`
   width: 100%;
   ${defaultTransitionCSS};
   border-radius: 8px;
+  font-weight: 500;
+  color: ${getColor("textSupporting")};
   :hover {
-    background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+    background: ${getColor("backgroundGlass")};
   }
-  ${({ isActive, theme }) =>
-    isActive &&
+
+  :active {
+    background: ${getColor("backgroundGlass2")};
+  }
+
+  ${({ isSelected, theme }) =>
+    isSelected &&
     css`
       background: ${theme.colors.backgroundGlass.toCssValue()};
+      color: ${theme.colors.text.toCssValue()};
     `}
 `
 
@@ -43,13 +52,8 @@ export const NavigationItem = ({
   decoration = null,
 }: Props) => {
   return (
-    <Container isActive={isActive}>
-      <Text
-        size={18}
-        style={{ position: 'relative' }}
-        as="div"
-        color={isActive ? 'regular' : 'supporting'}
-      >
+    <Container isSelected={isActive}>
+      <Text size={18} style={{ position: "relative" }} as="div">
         <HStack gap={8}>
           {icon && <IconWrapper>{icon}</IconWrapper>}
           <div>{name}</div>

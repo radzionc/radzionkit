@@ -15,7 +15,7 @@ interface CopyTextProps extends React.ComponentProps<typeof Text> {
 const IconWr = styled(Text)`
   margin-left: 4px;
   ${defaultTransitionCSS};
-  color: ${getColor("textSupporting3")};
+  color: ${getColor("textShy")};
 `
 
 const Container = styled(Text)`

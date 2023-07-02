@@ -1,6 +1,6 @@
-import { css } from 'styled-components'
-import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
-import { defaultInputShapeCSS } from './config'
+import { css } from "styled-components"
+import { defaultTransitionCSS } from "lib/ui/animations/transitions"
+import { defaultInputShapeCSS } from "./config"
 
 interface CommonInputCSSProps {
   isValid: boolean
@@ -16,7 +16,7 @@ export const commonInputCSS = css<CommonInputCSSProps>`
   ${defaultTransitionCSS};
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.textSupporting3.toCssValue()};
+    color: ${({ theme }) => theme.colors.textShy.toCssValue()};
   }
 
   outline: 1px solid transparent;

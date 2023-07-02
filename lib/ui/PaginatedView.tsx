@@ -1,9 +1,9 @@
-import { ReactNode, useEffect, useRef } from 'react'
-import { useIntersection } from 'react-use'
-import styled from 'styled-components'
-import { Spinner } from './Spinner'
-import { HStack, VStack } from './Stack'
-import { Text } from './Text'
+import { ReactNode, useEffect, useRef } from "react"
+import { useIntersection } from "react-use"
+import styled from "styled-components"
+import { Spinner } from "./Spinner"
+import { HStack, VStack } from "./Stack"
+import { Text } from "./Text"
 
 interface Props {
   children: ReactNode
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const LoaderContainer = styled(HStack)`
-  color: ${({ theme }) => theme.colors.textSupporting2.toCssValue()};
+  color: ${({ theme }) => theme.colors.textShy.toCssValue()};
 `
 
 const Footer = styled(VStack)`
@@ -28,7 +28,7 @@ export const PaginatedView = ({
 
   const intersection = useIntersection(ref, {
     root: null,
-    rootMargin: '200px',
+    rootMargin: "200px",
     threshold: 0,
   })
 
