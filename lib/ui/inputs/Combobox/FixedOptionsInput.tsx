@@ -7,55 +7,55 @@ import {
   useImperativeHandle,
   useRef,
   useState,
-} from 'react';
-import { usePrevious } from 'react-use';
-import { useBoolean } from 'lib/shared/hooks/useBoolean';
-import styled from 'styled-components';
-import { CollapseToggleIconButton } from 'lib/ui/buttons/square/CollapseToggleIconButton';
-import { useKeyPress } from 'lib/shared/hooks/useKeyPress';
+} from "react"
+import { usePrevious } from "react-use"
+import { useBoolean } from "lib/shared/hooks/useBoolean"
+import styled from "styled-components"
+import { CollapseToggleIconButton } from "lib/ui/buttons/square/CollapseToggleIconButton"
+import { useKeyPress } from "lib/shared/hooks/useKeyPress"
 
-import { InputWrapperWithErrorMessage } from '../InputWrapper';
-import { TextInputContainer, TextInputLoader } from '../TextInput';
-import { ComboboxOptions } from './ComboboxOptions';
-import { DropdownMenuPlacer } from './DropdownMenuPlacer';
-import { Text } from 'lib/ui/Text';
-import { defaultInputShapeCSS } from '../config';
-import { getColor } from 'lib/ui/theme/getters';
+import { InputWrapperWithErrorMessage } from "../InputWrapper"
+import { TextInputContainer, TextInputLoader } from "../TextInput"
+import { ComboboxOptions } from "./ComboboxOptions"
+import { DropdownMenuPlacer } from "./DropdownMenuPlacer"
+import { Text } from "lib/ui/Text"
+import { defaultInputShapeCSS } from "../config"
+import { getColor } from "lib/ui/theme/getters"
 
 interface Props<T> {
-  label: React.ReactNode;
-  placeholder: string;
-  error?: string;
-  value: T | null;
-  onChange: (value: T | null) => void;
+  label: React.ReactNode
+  placeholder: string
+  error?: string
+  value: T | null
+  onChange: (value: T | null) => void
 
-  isLoading?: boolean;
-  noOptionsMessage?: string;
+  isLoading?: boolean
+  noOptionsMessage?: string
 
-  options: T[];
-  optionToString: (option: T) => string;
-  renderOption?: (option: T) => ReactNode;
-  clearAfterOptionSelected?: boolean;
+  options: T[]
+  optionToString: (option: T) => string
+  renderOption?: (option: T) => ReactNode
+  clearAfterOptionSelected?: boolean
 }
 
 const Container = styled.div`
   position: relative;
   width: 100%;
-`;
+`
 
 const ToggleWrapper = styled.div`
   position: absolute;
   right: 8px;
   bottom: 26px;
   display: flex;
-`;
+`
 
 const NoOptions = styled.div`
   ${defaultInputShapeCSS};
-  background: ${getColor('backgroundGlass2')};
+  background: ${getColor("mistExtra")};
   display: flex;
   align-items: center;
-`;
+`
 
 function FixedOptionsInputInner<T>(
   {
@@ -68,7 +68,7 @@ function FixedOptionsInputInner<T>(
 
     optionToString,
 
-    noOptionsMessage = 'No options left',
+    noOptionsMessage = "No options left",
 
     isLoading,
 
@@ -78,76 +78,81 @@ function FixedOptionsInputInner<T>(
   }: Props<T>,
   ref: ForwardedRef<HTMLInputElement | null>
 ) {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null)
 
-  const inputRef = useRef<HTMLInputElement>(null);
-  useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
+  const inputRef = useRef<HTMLInputElement>(null)
+  useImperativeHandle(ref, () => inputRef.current as HTMLInputElement)
 
-  const [isMenuOpen, { set: openMenu, unset: closeMenu, toggle: toggleMenu }] = useBoolean(false);
+  const [isMenuOpen, { set: openMenu, unset: closeMenu, toggle: toggleMenu }] =
+    useBoolean(false)
   useEffect(() => {
-    const isInputFocused = document.activeElement === inputRef.current;
+    const isInputFocused = document.activeElement === inputRef.current
 
     if (isMenuOpen && !isInputFocused) {
-      inputRef.current?.focus();
+      inputRef.current?.focus()
     } else if (!isMenuOpen && isInputFocused) {
-      inputRef.current?.blur();
+      inputRef.current?.blur()
     }
-  }, [isMenuOpen]);
+  }, [isMenuOpen])
 
-  const previousValue = usePrevious(value);
+  const previousValue = usePrevious(value)
 
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("")
 
-  const [suggestions, setSuggestions] = useState(options);
+  const [suggestions, setSuggestions] = useState(options)
 
   useEffect(() => {
-    const lowerCaseInputValue = inputValue.toLowerCase();
+    const lowerCaseInputValue = inputValue.toLowerCase()
 
     const newSuggestions =
       value && optionToString(value).toLowerCase() === lowerCaseInputValue
         ? options
-        : options.filter((item) => optionToString(item).toLowerCase().includes(lowerCaseInputValue));
+        : options.filter((item) =>
+            optionToString(item).toLowerCase().includes(lowerCaseInputValue)
+          )
 
-    setSuggestions(newSuggestions);
-  }, [inputValue, onChange, optionToString, options, value]);
+    setSuggestions(newSuggestions)
+  }, [inputValue, onChange, optionToString, options, value])
 
-  const isSelectionAvailalbe = isMenuOpen && suggestions.length > 0;
+  const isSelectionAvailalbe = isMenuOpen && suggestions.length > 0
 
-  const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
+  const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null)
 
   const handleSelectOption = useCallback(
     (option: T) => {
-      const optionAsString = clearAfterOptionSelected ? '' : optionToString(option);
-      setInputValue(optionAsString);
+      const optionAsString = clearAfterOptionSelected
+        ? ""
+        : optionToString(option)
+      setInputValue(optionAsString)
 
-      onChange(option);
-      closeMenu();
+      onChange(option)
+      closeMenu()
     },
     [optionToString, onChange, closeMenu, clearAfterOptionSelected]
-  );
+  )
 
   useEffect(() => {
     if (previousValue !== value) {
-      setInputValue(value ? optionToString(value) : '');
+      setInputValue(value ? optionToString(value) : "")
     }
-  }, [optionToString, previousValue, value]);
+  }, [optionToString, previousValue, value])
 
   useKeyPress(
-    'Enter',
+    "Enter",
     () => {
       if (highlightedIndex !== null) {
-        handleSelectOption(suggestions[highlightedIndex]);
+        handleSelectOption(suggestions[highlightedIndex])
       }
     },
     { isEnabled: isSelectionAvailalbe, shouldStopPropagation: true }
-  );
+  )
 
   return (
     <Container
       ref={containerRef}
       onBlur={(event) => {
         if (!containerRef.current?.contains(event.relatedTarget as Node)) {
-          closeMenu();
+          closeMenu()
         }
       }}
     >
@@ -156,7 +161,9 @@ function FixedOptionsInputInner<T>(
           <TextInputLoader />
         ) : options.length === 0 ? (
           <NoOptions>
-            <Text as="div" color='supporting'>{noOptionsMessage}</Text>
+            <Text as="div" color="supporting">
+              {noOptionsMessage}
+            </Text>
           </NoOptions>
         ) : (
           <DropdownMenuPlacer
@@ -175,10 +182,10 @@ function FixedOptionsInputInner<T>(
           >
             <TextInputContainer
               onChange={({ currentTarget: { value } }) => {
-                setInputValue(value);
+                setInputValue(value)
 
-                if (value === '') {
-                  onChange(null);
+                if (value === "") {
+                  onChange(null)
                 }
               }}
               value={inputValue}
@@ -192,21 +199,18 @@ function FixedOptionsInputInner<T>(
       </InputWrapperWithErrorMessage>
       {!isLoading && options.length > 0 && (
         <ToggleWrapper>
-          <CollapseToggleIconButton
-            isOpen={isMenuOpen}
-            onClick={toggleMenu}
-          />
+          <CollapseToggleIconButton isOpen={isMenuOpen} onClick={toggleMenu} />
         </ToggleWrapper>
       )}
     </Container>
-  );
+  )
 }
 
 // Redecalare forwardRef
-declare module 'react' {
+declare module "react" {
   function forwardRef<T, P>(
     render: (props: P, ref: React.Ref<T>) => React.ReactElement | null
-  ): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
+  ): (props: P & React.RefAttributes<T>) => React.ReactElement | null
 }
 
-export const FixedOptionsInput = forwardRef(FixedOptionsInputInner);
+export const FixedOptionsInput = forwardRef(FixedOptionsInputInner)

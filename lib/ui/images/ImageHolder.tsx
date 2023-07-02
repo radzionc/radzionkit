@@ -15,7 +15,7 @@ export const Container = styled.div`
   overflow: hidden;
 
   border-radius: 16px;
-  background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+  background: ${({ theme }) => theme.colors.mist.toCssValue()};
   box-shadow: ${({ theme }) => theme.shadows.small};
 `
 

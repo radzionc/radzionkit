@@ -1,25 +1,25 @@
-import { handleWithStopPropagation } from 'lib/shared/events'
-import { useBoundingBox } from 'lib/shared/hooks/useBoundingBox'
-import { toPercents } from 'lib/shared/utils/toPercents'
-import { defaultTransition } from 'lib/ui/animations/transitions'
-import { HSLA } from 'lib/ui/colors/HSLA'
-import { centerContentCSS } from 'lib/ui/utils/centerContentCSS'
-import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
-import { getSameDimensionsCSS } from 'lib/ui/utils/getSameDimensionsCSS'
-import { useEffect, useRef, useState } from 'react'
-import styled, { useTheme } from 'styled-components'
+import { handleWithStopPropagation } from "lib/shared/events"
+import { useBoundingBox } from "lib/shared/hooks/useBoundingBox"
+import { toPercents } from "lib/shared/utils/toPercents"
+import { defaultTransition } from "lib/ui/animations/transitions"
+import { HSLA } from "lib/ui/colors/HSLA"
+import { centerContentCSS } from "lib/ui/utils/centerContentCSS"
+import { getCSSUnit } from "lib/ui/utils/getCSSUnit"
+import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS"
+import { useEffect, useRef, useState } from "react"
+import styled, { useTheme } from "styled-components"
 
 import {
   InvisibleHTMLSlider,
   InvisibleHTMLSliderProps,
-} from './InvisibleHtmlSlider'
+} from "./InvisibleHtmlSlider"
 
-type SliderSize = 'm' | 'l'
+type SliderSize = "m" | "l"
 
 export interface SliderProps extends InvisibleHTMLSliderProps {
   size?: SliderSize
   color?: HSLA
-  height?: React.CSSProperties['height']
+  height?: React.CSSProperties["height"]
 }
 
 const Control = styled.div<{ value: number; size: number; $color: HSLA }>`
@@ -55,7 +55,7 @@ const Line = styled.div`
   width: 100%;
 
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+  background-color: ${({ theme }) => theme.colors.mist.toCssValue()};
   border-radius: 1000px;
 `
 
@@ -82,7 +82,7 @@ export const Slider = ({
   max,
   step,
   autoFocus,
-  size = 'm',
+  size = "m",
   color: optionalColor,
   height = 40,
 }: SliderProps) => {
@@ -108,9 +108,9 @@ export const Slider = ({
     const handleMouseUp = () => {
       isActive.current = false
     }
-    window.addEventListener('mouseup', handleMouseUp)
+    window.addEventListener("mouseup", handleMouseUp)
     return () => {
-      window.removeEventListener('mouseup', handleMouseUp)
+      window.removeEventListener("mouseup", handleMouseUp)
     }
   })
 

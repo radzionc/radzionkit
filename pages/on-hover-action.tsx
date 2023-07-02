@@ -1,40 +1,40 @@
-import type { NextPage } from 'next'
+import type { NextPage } from "next"
 
-import { DemoPage } from 'components/DemoPage'
-import { useState } from 'react'
-import { Panel } from 'lib/ui/Panel/Panel'
-import { VStack } from 'lib/ui/Stack'
-import styled, { useTheme } from 'styled-components'
-import { HSLA } from 'lib/ui/colors/HSLA'
-import { StarIcon } from 'lib/ui/icons/StarIcon'
-import { OnHoverAction } from 'lib/ui/OnHoverAction'
-import { IconButton } from 'lib/ui/buttons/square/IconButton'
-import { Text } from 'lib/ui/Text'
-import { centerContentCSS } from 'lib/ui/utils/centerContentCSS'
-import { UnstyledButton } from 'lib/ui/buttons/UnstyledButton'
-import { PauseIcon } from 'lib/ui/icons/PauseIcon'
-import { PlayIcon } from 'lib/ui/icons/PlayIcon'
+import { DemoPage } from "components/DemoPage"
+import { useState } from "react"
+import { Panel } from "lib/ui/Panel/Panel"
+import { VStack } from "lib/ui/Stack"
+import styled, { useTheme } from "styled-components"
+import { HSLA } from "lib/ui/colors/HSLA"
+import { StarIcon } from "lib/ui/icons/StarIcon"
+import { OnHoverAction } from "lib/ui/OnHoverAction"
+import { IconButton } from "lib/ui/buttons/square/IconButton"
+import { Text } from "lib/ui/Text"
+import { centerContentCSS } from "lib/ui/utils/centerContentCSS"
+import { UnstyledButton } from "lib/ui/buttons/UnstyledButton"
+import { PauseIcon } from "lib/ui/icons/PauseIcon"
+import { PlayIcon } from "lib/ui/icons/PlayIcon"
 
 const options = [
-  'Lofi jazz study music',
-  'Productive music for work',
-  'Rainy night coffee shop',
-  'Cozy jazz coffee shop',
-  'Ambient study music',
-  'Focus music',
-  'Zen Music',
-  'Coffee shop with piano music',
-  'Cozy cabin ambience',
-  'Lofi hip hop',
-  'Yoga music',
-  'Chillstep music',
-  'Work & study lofi jazz',
-  'Classic music',
-  'Chill out beach sunset jazz',
-  'Synthwave',
-  'Brown noise',
-  'White noise',
-  'Inspirational music',
+  "Lofi jazz study music",
+  "Productive music for work",
+  "Rainy night coffee shop",
+  "Cozy jazz coffee shop",
+  "Ambient study music",
+  "Focus music",
+  "Zen Music",
+  "Coffee shop with piano music",
+  "Cozy cabin ambience",
+  "Lofi hip hop",
+  "Yoga music",
+  "Chillstep music",
+  "Work & study lofi jazz",
+  "Classic music",
+  "Chill out beach sunset jazz",
+  "Synthwave",
+  "Brown noise",
+  "White noise",
+  "Inspirational music",
 ]
 
 const PlayIndicator = styled.div<{ isActive: boolean }>`
@@ -67,7 +67,7 @@ const Container = styled(UnstyledButton)`
   color: ${({ theme }) => theme.colors.textSupporting.toCssValue()};
 
   :hover {
-    background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+    background: ${({ theme }) => theme.colors.mist.toCssValue()};
     color: ${({ theme }) => theme.colors.text.toCssValue()};
   }
 
@@ -137,9 +137,9 @@ const OnHoverActionPage: NextPage = () => {
                       </PlayIndicator>
                     </Identifier>
                     <Text
-                      style={{ maxWidth: '100%' }}
+                      style={{ maxWidth: "100%" }}
                       cropped
-                      color={isActive ? 'regular' : undefined}
+                      color={isActive ? "regular" : undefined}
                     >
                       {option}
                     </Text>

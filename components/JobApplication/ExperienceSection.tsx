@@ -24,7 +24,7 @@ export interface Props {
 const manageElementSizeInPx = 48
 
 const ExperienceNumber = styled(Circle)`
-  background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+  background: ${({ theme }) => theme.colors.mist.toCssValue()};
 `
 
 export const ExperienceSection = ({

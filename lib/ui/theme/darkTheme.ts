@@ -27,8 +27,8 @@ export const darkTheme: DefaultTheme = {
     textSupporting: new HSLA(0, 0, 61),
     textShy: new HSLA(0, 0, 100, 0.28),
 
-    backgroundGlass: new HSLA(0, 0, 100, 0.06),
-    backgroundGlass2: new HSLA(0, 0, 100, 0.13),
+    mist: new HSLA(0, 0, 100, 0.06),
+    mistExtra: new HSLA(0, 0, 100, 0.13),
 
     overlay: new HSLA(backgroundHue, backgroundSaturation, 1, 0.8),
 

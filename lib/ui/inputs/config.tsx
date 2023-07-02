@@ -1,10 +1,10 @@
-import { css } from 'styled-components'
+import { css } from "styled-components"
 
 export const inputBorderRadiusCSS = css`
   border-radius: 8px;
 `
 
-export const defaultInputHeight = '52px'
+export const defaultInputHeight = "52px"
 
 export const defaultInputShapeCSS = css`
   height: ${defaultInputHeight};
@@ -14,5 +14,5 @@ export const defaultInputShapeCSS = css`
 `
 
 export const inputBackgroundCSS = css`
-  background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+  background: ${({ theme }) => theme.colors.mist.toCssValue()};
 `

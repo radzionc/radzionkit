@@ -24,7 +24,7 @@ const Container = styled(Panel)`
   ${defaultTransitionCSS};
 
   :hover {
-    background: ${({ theme }) => theme.colors.backgroundGlass2.toCssValue()};
+    background: ${({ theme }) => theme.colors.mistExtra.toCssValue()};
   }
 `
 

@@ -1,11 +1,11 @@
-import styled from 'styled-components'
-import { defaultTransitionCSS } from '../animations/transitions'
-import { defaultBorderRadiusCSS } from '../borderRadius'
-import { UnstyledButton } from '../buttons/UnstyledButton'
-import { getColor } from '../theme/getters'
-import { centerContentCSS } from '../utils/centerContentCSS'
-import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
-import { defaultInputHeight, inputBackgroundCSS } from './config'
+import styled from "styled-components"
+import { defaultTransitionCSS } from "../animations/transitions"
+import { defaultBorderRadiusCSS } from "../borderRadius"
+import { UnstyledButton } from "../buttons/UnstyledButton"
+import { getColor } from "../theme/getters"
+import { centerContentCSS } from "../utils/centerContentCSS"
+import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
+import { defaultInputHeight, inputBackgroundCSS } from "./config"
 
 export const ExpandableInputOpener = styled(UnstyledButton)`
   ${centerContentCSS}
@@ -17,6 +17,6 @@ export const ExpandableInputOpener = styled(UnstyledButton)`
   ${inputBackgroundCSS};
 
   :hover {
-    background: ${getColor('backgroundGlass2')};
+    background: ${getColor("mistExtra")};
   }
 `

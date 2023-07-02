@@ -10,7 +10,7 @@ export const commonInputCSS = css<CommonInputCSSProps>`
   ${defaultInputShapeCSS};
   max-width: 100%;
 
-  background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+  background: ${({ theme }) => theme.colors.mist.toCssValue()};
   color: ${({ theme }) => theme.colors.text.toCssValue()};
 
   ${defaultTransitionCSS};
@@ -22,11 +22,9 @@ export const commonInputCSS = css<CommonInputCSSProps>`
   outline: 1px solid transparent;
   ${({ isValid, theme }) => {
     const errorColor = theme.colors.alert.toCssValue()
-    const regularColor = isValid
-      ? theme.colors.backgroundGlass.toCssValue()
-      : errorColor
+    const regularColor = isValid ? theme.colors.mist.toCssValue() : errorColor
     const activeColor = isValid
-      ? theme.colors.backgroundGlass2.toCssValue()
+      ? theme.colors.mistExtra.toCssValue()
       : errorColor
 
     return css`

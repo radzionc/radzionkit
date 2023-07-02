@@ -23,17 +23,17 @@ export const Container = styled.div<{ isSelected?: boolean }>`
   font-weight: 500;
   color: ${getColor("textSupporting")};
   :hover {
-    background: ${getColor("backgroundGlass")};
+    background: ${getColor("mist")};
   }
 
   :active {
-    background: ${getColor("backgroundGlass2")};
+    background: ${getColor("mistExtra")};
   }
 
   ${({ isSelected, theme }) =>
     isSelected &&
     css`
-      background: ${theme.colors.backgroundGlass.toCssValue()};
+      background: ${theme.colors.mist.toCssValue()};
       color: ${theme.colors.text.toCssValue()};
     `}
 `

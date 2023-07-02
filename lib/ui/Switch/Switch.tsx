@@ -73,10 +73,7 @@ export const Switch = ({ value, onChange, label }: SwitchProps) => {
     >
       <Container
         style={{
-          background: (value
-            ? colors.backgroundGlass2
-            : colors.backgroundGlass
-          ).toCssValue(),
+          background: (value ? colors.mistExtra : colors.mist).toCssValue(),
         }}
       >
         <Control

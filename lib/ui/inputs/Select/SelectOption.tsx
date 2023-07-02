@@ -1,20 +1,20 @@
-import { ReactNode } from 'react'
-import styled, { css } from 'styled-components'
-import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
-import { centerContentCSS } from 'lib/ui/utils/centerContentCSS'
+import { ReactNode } from "react"
+import styled, { css } from "styled-components"
+import { defaultTransitionCSS } from "lib/ui/animations/transitions"
+import { centerContentCSS } from "lib/ui/utils/centerContentCSS"
 
-import { defaultInputShapeCSS } from '../config'
+import { defaultInputShapeCSS } from "../config"
 import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
-} from '../InvisibleHTMLRadio'
+} from "../InvisibleHTMLRadio"
 
 const Container = styled.label<{ isSelected: boolean }>`
   position: relative;
   cursor: pointer;
 
   ${centerContentCSS}
-  background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+  background: ${({ theme }) => theme.colors.mist.toCssValue()};
 
   ${defaultInputShapeCSS};
   ${defaultTransitionCSS};
@@ -23,13 +23,13 @@ const Container = styled.label<{ isSelected: boolean }>`
 
   color: ${({ theme }) => theme.colors.textSupporting.toCssValue()};
   :hover {
-    background: ${({ theme }) => theme.colors.backgroundGlass2.toCssValue()};
+    background: ${({ theme }) => theme.colors.mistExtra.toCssValue()};
   }
 
   ${({ isSelected }) =>
     isSelected &&
     css`
-      background: ${({ theme }) => theme.colors.backgroundGlass2.toCssValue()};
+      background: ${({ theme }) => theme.colors.mistExtra.toCssValue()};
       color: ${({ theme }) => theme.colors.text.toCssValue()};
     `};
 `

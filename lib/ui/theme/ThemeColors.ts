@@ -20,8 +20,8 @@ export type ThemeColors = {
   textSupporting: HSLA
   textShy: HSLA
 
-  backgroundGlass: HSLA
-  backgroundGlass2: HSLA
+  mist: HSLA
+  mistExtra: HSLA
 
   overlay: HSLA
 

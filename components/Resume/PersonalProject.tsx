@@ -1,10 +1,10 @@
-import { ExternalLink } from 'lib/navigation/Link/ExternalLink'
-import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
-import { HStack, VStack } from 'lib/ui/Stack'
-import { Text } from 'lib/ui/Text'
-import { roundedCSS } from 'lib/ui/utils/roundedCSS'
-import styled from 'styled-components'
-import { Responsibilities } from './Responsibilities'
+import { ExternalLink } from "lib/navigation/Link/ExternalLink"
+import { defaultTransitionCSS } from "lib/ui/animations/transitions"
+import { HStack, VStack } from "lib/ui/Stack"
+import { Text } from "lib/ui/Text"
+import { roundedCSS } from "lib/ui/utils/roundedCSS"
+import styled from "styled-components"
+import { Responsibilities } from "./Responsibilities"
 
 interface Props {
   name: string
@@ -26,7 +26,7 @@ const Title = styled(Text)`
 
 const Badge = styled.div`
   padding: 4px 8px;
-  background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+  background: ${({ theme }) => theme.colors.mist.toCssValue()};
   ${roundedCSS};
 `
 
@@ -41,7 +41,7 @@ export const PersonalProject = ({
     <VStack alignItems="start" gap={4}>
       <HStack alignItems="center" gap={16}>
         <ExternalLink to={url}>
-          <Title weight="bold">{name}</Title>{' '}
+          <Title weight="bold">{name}</Title>{" "}
         </ExternalLink>
         {achievement && (
           <Badge>

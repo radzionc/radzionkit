@@ -94,7 +94,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
         color: ${getColor("white")};
       `,
       secondary: () => css`
-        background: ${getColor("backgroundGlass")};
+        background: ${getColor("mist")};
         color: ${getColor("contrast")};
       `,
       reversed: () => css`
@@ -110,7 +110,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
         color: ${getColor("white")};
       `,
       outlined: () => css`
-        border: 1px solid ${getColor("backgroundGlass2")};
+        border: 1px solid ${getColor("mistExtra")};
         color: ${getColor("contrast")};
       `,
       ghost: () => css`
@@ -131,7 +131,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
             background: ${getColor("primaryHover")};
           `,
           secondary: () => css`
-            background: ${getColor("backgroundGlass2")};
+            background: ${getColor("mistExtra")};
           `,
           reversed: () => css`
             background: ${getColor("text")};
@@ -146,14 +146,14 @@ const Container = styled(UnstyledButton)<ContainerProps>`
                 .toCssValue()};
           `,
           outlined: () => css`
-            background: ${getColor("backgroundGlass")};
+            background: ${getColor("mist")};
             color: ${getColor("contrast")};
           `,
           ghost: () => css`
-            background: ${getColor("backgroundGlass")};
+            background: ${getColor("mist")};
           `,
           ghostSecondary: () => css`
-            background: ${getColor("backgroundGlass")};
+            background: ${getColor("mist")};
           `,
         })}
       }

@@ -15,7 +15,7 @@ const ImageWrapper = styled.div`
   height: 100%;
   border-radius: 12px;
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+  background: ${({ theme }) => theme.colors.mist.toCssValue()};
 `
 
 const Image = styled.img`

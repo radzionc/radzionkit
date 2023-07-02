@@ -10,7 +10,7 @@ import { Panel } from "lib/ui/Panel/Panel"
 import { TitledSection } from "lib/ui/Layout/TitledSection"
 import { AmountTextInput } from "lib/ui/inputs/AmountTextInput"
 import { DollarIcon } from "lib/ui/icons/DollarIcon"
-import Button from "./button"
+import { Button } from "lib/ui/buttons/Button"
 
 interface FormShape {
   name: string

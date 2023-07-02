@@ -15,8 +15,8 @@ export const lightTheme: DefaultTheme = {
     textSupporting: new HSLA(45, 19, 8, 0.6),
     textShy: new HSLA(45, 8, 20, 0.65),
 
-    backgroundGlass: new HSLA(45, 8, 20, 0.08),
-    backgroundGlass2: new HSLA(45, 8, 20, 0.16),
+    mist: new HSLA(45, 8, 20, 0.08),
+    mistExtra: new HSLA(45, 8, 20, 0.16),
 
     overlay: new HSLA(0, 0, 0, 0.4),
 

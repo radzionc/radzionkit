@@ -1,27 +1,27 @@
-import FocusTrap from 'focus-trap-react'
-import React, { ReactNode, useEffect } from 'react'
-import { useKey } from 'react-use'
+import FocusTrap from "focus-trap-react"
+import React, { ReactNode, useEffect } from "react"
+import { useKey } from "react-use"
 
-import { ModalTitleText } from './ModalTitleText'
-import { handleWithStopPropagation } from 'lib/shared/events'
-import styled, { css } from 'styled-components'
-import { BodyPortal } from '../BodyPortal'
-import { ScreenCover } from '../ScreenCover'
-import { Spacer } from '../Spacer'
-import { HStack, VStack } from '../Stack'
-import { CloseIconButton } from '../buttons/square/CloseIconButton'
-import { useIsScreenWidthLessThan } from '../hooks/useIsScreenWidthLessThan'
-import { getCSSUnit } from '../utils/getCSSUnit'
-import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
-import { roundedCSS } from '../utils/roundedCSS'
+import { ModalTitleText } from "./ModalTitleText"
+import { handleWithStopPropagation } from "lib/shared/events"
+import styled, { css } from "styled-components"
+import { BodyPortal } from "../BodyPortal"
+import { ScreenCover } from "../ScreenCover"
+import { Spacer } from "../Spacer"
+import { HStack, VStack } from "../Stack"
+import { CloseIconButton } from "../buttons/square/CloseIconButton"
+import { useIsScreenWidthLessThan } from "../hooks/useIsScreenWidthLessThan"
+import { getCSSUnit } from "../utils/getCSSUnit"
+import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
+import { roundedCSS } from "../utils/roundedCSS"
 
 interface RenderContentParams {
   isFullScreen: boolean
 }
 
-type ModalTitlePlacement = 'left' | 'center'
+type ModalTitlePlacement = "left" | "center"
 
-type ModalPlacement = 'top' | 'center'
+type ModalPlacement = "top" | "center"
 
 export interface ModalProps {
   renderContent: (params: RenderContentParams) => React.ReactNode
@@ -54,16 +54,16 @@ export const Container = styled.div<ContainerProps>`
   max-height: 100%;
 
   background: ${({ theme: { name, colors } }) =>
-    (name === 'light' ? colors.background : colors.foreground).toCssValue()};
+    (name === "light" ? colors.background : colors.foreground).toCssValue()};
 
   ${({ isFullScreen, width, placement }) =>
     isFullScreen
-      ? getSameDimensionsCSS('100%')
+      ? getSameDimensionsCSS("100%")
       : css`
           width: ${getCSSUnit(width)};
           border-radius: 16px;
           max-height: 92%;
-          ${placement === 'top' &&
+          ${placement === "top" &&
           `
             align-self: start;
             margin-top: 4%;
@@ -86,11 +86,10 @@ const Content = styled.div`
   &::-webkit-scrollbar-thumb {
     ${roundedCSS}
     cursor: pointer;
-    background-color: ${({ theme: { colors } }) =>
-      colors.backgroundGlass.toCssValue()};
+    background-color: ${({ theme: { colors } }) => colors.mist.toCssValue()};
     :hover {
       background-color: ${({ theme: { colors } }) =>
-        colors.backgroundGlass2.toCssValue()};
+        colors.mistExtra.toCssValue()};
     }
   }
 `
@@ -101,8 +100,8 @@ export const Modal = ({
   title = null,
   width = 400,
   hasImplicitClose = true,
-  titlePlacement = 'left',
-  placement = 'center',
+  titlePlacement = "left",
+  placement = "center",
   padding = 20,
   className,
   style,
@@ -112,17 +111,17 @@ export const Modal = ({
     `calc(${getCSSUnit(width)} + ${MIN_HORIZONTAL_FREE_SPACE_IN_PX}px)`
   )
 
-  useKey('Escape', () => {
+  useKey("Escape", () => {
     onClose?.()
   })
 
   useEffect(() => {
-    window.history.pushState(null, 'modal')
+    window.history.pushState(null, "modal")
     window.onpopstate = () => {
       if (onClose) {
         onClose()
       } else {
-        window.history.pushState(null, 'modal')
+        window.history.pushState(null, "modal")
       }
     }
 
@@ -133,10 +132,10 @@ export const Modal = ({
 
   const hasCloseButton = (hasImplicitClose || isFullScreen) && onClose
 
-  const headerPadding = [padding, padding, 0, padding].map(getCSSUnit).join(' ')
+  const headerPadding = [padding, padding, 0, padding].map(getCSSUnit).join(" ")
   const contentPadding = [0, padding, padding, padding]
     .map(getCSSUnit)
-    .join(' ')
+    .join(" ")
 
   return (
     <BodyPortal>
@@ -144,7 +143,7 @@ export const Modal = ({
         <FocusTrap
           focusTrapOptions={{
             clickOutsideDeactivates: true,
-            fallbackFocus: '#container',
+            fallbackFocus: "#container",
           }}
         >
           <Container
@@ -161,7 +160,7 @@ export const Modal = ({
               alignItems="center"
               justifyContent="space-between"
             >
-              {(titlePlacement === 'center' || !title) &&
+              {(titlePlacement === "center" || !title) &&
                 (hasCloseButton ? <Spacer width={32} /> : <div />)}
               {title && <ModalTitleText>{title}</ModalTitleText>}
               {hasCloseButton && (

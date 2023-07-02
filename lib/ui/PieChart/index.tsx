@@ -1,12 +1,12 @@
-import { useMemo } from 'react'
-import { useTheme } from 'styled-components'
-import { HSLA } from 'lib/ui/colors/HSLA'
+import { useMemo } from "react"
+import { useTheme } from "styled-components"
+import { HSLA } from "lib/ui/colors/HSLA"
 
-import { SvgArc } from './SvgArc'
-import { SvgDisk } from './SvgDisk'
-import { sum } from 'lib/shared/utils/sum'
-import { PieChartLabel } from './PieChartLabel'
-import { degreesInCircle } from 'lib/shared/utils/degreesToRadians'
+import { SvgArc } from "./SvgArc"
+import { SvgDisk } from "./SvgDisk"
+import { sum } from "lib/shared/utils/sum"
+import { PieChartLabel } from "./PieChartLabel"
+import { degreesInCircle } from "lib/shared/utils/degreesToRadians"
 
 export interface PieChartItem {
   value: number
@@ -59,7 +59,7 @@ export const PieChart = ({ items }: Props) => {
     <svg viewBox={`0 0 ${svgViewBoxSize} ${svgViewBoxSize}`}>
       {items.length < 2 ? (
         <SvgDisk
-          color={items.length === 0 ? colors.backgroundGlass : items[0].color}
+          color={items.length === 0 ? colors.mist : items[0].color}
           radius={radius}
           cutoutRadius={cutoutRadius}
         />

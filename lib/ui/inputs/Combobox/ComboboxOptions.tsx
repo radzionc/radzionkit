@@ -1,7 +1,7 @@
-import { ReactNode, useEffect, useRef } from 'react'
-import { useKeyPress } from 'lib/shared/hooks/useKeyPress'
-import styled, { css } from 'styled-components'
-import { inputBorderRadiusCSS } from '../config'
+import { ReactNode, useEffect, useRef } from "react"
+import { useKeyPress } from "lib/shared/hooks/useKeyPress"
+import styled, { css } from "styled-components"
+import { inputBorderRadiusCSS } from "../config"
 
 interface Props<T> {
   options: T[]
@@ -15,7 +15,7 @@ interface Props<T> {
 const Container = styled.div`
   width: 100%;
   background: ${({ theme }) =>
-    theme.name === 'light'
+    theme.name === "light"
       ? theme.colors.background.toCssValue()
       : theme.colors.foreground.toCssValue()};
   box-shadow: ${({ theme }) => theme.shadows.small};
@@ -36,7 +36,7 @@ export const Option = styled.div<{ isHighlighted: boolean }>`
   ${({ isHighlighted }) =>
     isHighlighted &&
     css`
-      background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+      background: ${({ theme }) => theme.colors.mist.toCssValue()};
     `}
 `
 
@@ -61,8 +61,8 @@ export function ComboboxOptions<T>({
 
     const element = optionsRefs.current[newIndex]
     element?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
+      behavior: "smooth",
+      block: "center",
     })
   }
 
@@ -72,9 +72,9 @@ export function ComboboxOptions<T>({
     }
   }, [highlightedIndex, onOptionHighlight, options.length])
 
-  useKeyPress('ArrowUp', getHandleStep(-1))
+  useKeyPress("ArrowUp", getHandleStep(-1))
 
-  useKeyPress('ArrowDown', getHandleStep(1))
+  useKeyPress("ArrowDown", getHandleStep(1))
 
   return (
     <Container>

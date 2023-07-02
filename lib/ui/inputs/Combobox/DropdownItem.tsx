@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from "styled-components"
 
 export const DropdownItem = styled.div<{ isHighlighted: boolean }>`
   padding: 8px;
@@ -9,6 +9,6 @@ export const DropdownItem = styled.div<{ isHighlighted: boolean }>`
   ${({ isHighlighted }) =>
     isHighlighted &&
     css`
-      background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+      background: ${({ theme }) => theme.colors.mist.toCssValue()};
     `}
 `

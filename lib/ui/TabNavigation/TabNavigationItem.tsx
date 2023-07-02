@@ -1,13 +1,13 @@
-import { ReactNode, useEffect, useRef } from 'react'
-import styled, { css } from 'styled-components'
-import { centerContentCSS } from 'lib/ui/utils/centerContentCSS'
+import { ReactNode, useEffect, useRef } from "react"
+import styled, { css } from "styled-components"
+import { centerContentCSS } from "lib/ui/utils/centerContentCSS"
 
-import { roundedCSS } from 'lib/ui/utils/roundedCSS'
+import { roundedCSS } from "lib/ui/utils/roundedCSS"
 import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
-} from '../inputs/InvisibleHTMLRadio'
-import { defaultTransitionCSS } from '../animations/transitions'
+} from "../inputs/InvisibleHTMLRadio"
+import { defaultTransitionCSS } from "../animations/transitions"
 
 const Container = styled.label<{ isSelected: boolean }>`
   cursor: pointer;
@@ -29,13 +29,13 @@ const Container = styled.label<{ isSelected: boolean }>`
   ${defaultTransitionCSS}
 
   :hover {
-    background: ${({ theme }) => theme.colors.backgroundGlass.toCssValue()};
+    background: ${({ theme }) => theme.colors.mist.toCssValue()};
   }
 
   ${({ isSelected, theme }) =>
     isSelected &&
     css`
-      background: ${theme.colors.backgroundGlass2.toCssValue()};
+      background: ${theme.colors.mistExtra.toCssValue()};
     `};
 `
 
@@ -54,9 +54,9 @@ export const TabNavigationItem = ({
   useEffect(() => {
     if (isSelected) {
       ref.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        inline: 'center',
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
       })
     }
   }, [isSelected])

@@ -1,21 +1,21 @@
-import { Ref, forwardRef } from 'react'
-import styled, { css } from 'styled-components'
+import { Ref, forwardRef } from "react"
+import styled, { css } from "styled-components"
 
-import { UnstyledButton } from '../UnstyledButton'
-import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
-import { HSLA } from 'lib/ui/colors/HSLA'
-import { centerContentCSS } from 'lib/ui/utils/centerContentCSS'
-import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
-import { getSameDimensionsCSS } from 'lib/ui/utils/getSameDimensionsCSS'
+import { UnstyledButton } from "../UnstyledButton"
+import { defaultTransitionCSS } from "lib/ui/animations/transitions"
+import { HSLA } from "lib/ui/colors/HSLA"
+import { centerContentCSS } from "lib/ui/utils/centerContentCSS"
+import { getCSSUnit } from "lib/ui/utils/getCSSUnit"
+import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS"
 
-export const IconButtonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
+export const IconButtonSizes = ["xs", "s", "m", "l", "xl"] as const
 
 type IconButtonKind =
-  | 'regular'
-  | 'secondary'
-  | 'alert'
-  | 'minimalistic'
-  | 'minimalisticSecondary'
+  | "regular"
+  | "secondary"
+  | "alert"
+  | "minimalistic"
+  | "minimalisticSecondary"
 
 type IconButtonSize = (typeof IconButtonSizes)[number]
 
@@ -24,11 +24,11 @@ export interface IconButtonProps
   icon: React.ReactNode
   size?: IconButtonSize
   kind?: IconButtonKind
-  as?: 'div' | 'button'
+  as?: "div" | "button"
 }
 
 export const IconButton = forwardRef(function IconButton(
-  { size = 'm', kind = 'regular', icon, ...rest }: IconButtonProps,
+  { size = "m", kind = "regular", icon, ...rest }: IconButtonProps,
   ref: Ref<HTMLButtonElement> | null
 ) {
   return (
@@ -74,8 +74,8 @@ const Container = styled(UnstyledButton)<ContainerProps>`
     ({
       minimalisticSecondary: new HSLA(0, 0, 0, 0),
       minimalistic: new HSLA(0, 0, 0, 0),
-      regular: colors.backgroundGlass,
-      secondary: colors.backgroundGlass,
+      regular: colors.mist,
+      secondary: colors.mist,
 
       alert: colors.alert.getVariant({ a: (a) => a * 0.2 }),
     }[kind].toCssValue())};
@@ -83,14 +83,14 @@ const Container = styled(UnstyledButton)<ContainerProps>`
   :hover {
     background: ${({ kind, theme: { colors } }) =>
       ({
-        minimalisticSecondary: colors.backgroundGlass,
-        minimalistic: colors.backgroundGlass,
-        regular: colors.backgroundGlass2,
-        secondary: colors.backgroundGlass2,
+        minimalisticSecondary: colors.mist,
+        minimalistic: colors.mist,
+        regular: colors.mistExtra,
+        secondary: colors.mistExtra,
         alert: colors.alert.getVariant({ a: (a) => a * 0.28 }),
       }[kind].toCssValue())};
     ${({ kind, theme }) =>
-      (kind === 'secondary' || kind === 'minimalisticSecondary') &&
+      (kind === "secondary" || kind === "minimalisticSecondary") &&
       css`
          {
           color: ${theme.colors.contrast.toCssValue()};
