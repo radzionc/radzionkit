@@ -51,6 +51,8 @@ const Container = styled(UnstyledButton)<ContainerProps>`
   ${defaultTransitionCSS};
   ${centerContentCSS};
 
+  position: relative;
+
   white-space: nowrap;
   font-weight: 500;
 
@@ -167,6 +169,19 @@ const Container = styled(UnstyledButton)<ContainerProps>`
     `};
 `
 
+const LoaderWr = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  ${centerContentCSS};
+`
+
+const HideChildren = styled.div`
+  opacity: 0;
+`
+
 export const Button = ({
   children,
   size = "m",
@@ -190,11 +205,14 @@ export const Button = ({
           {...rest}
         >
           {isLoading ? (
-            <div>
-              <Spinner />
-            </div>
+            <>
+              <HideChildren>{children}</HideChildren>
+              <LoaderWr>
+                <Spinner size={18} />
+              </LoaderWr>
+            </>
           ) : (
-            <>{children}</>
+            children
           )}
         </Container>
       )}

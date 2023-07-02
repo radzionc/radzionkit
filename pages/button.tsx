@@ -1,26 +1,38 @@
 import type { NextPage } from "next"
-import { VStack } from "lib/ui/Stack"
+import { HStack, VStack } from "lib/ui/Stack"
 import { DemoPage } from "components/DemoPage"
-import { Button, buttonKinds } from "lib/ui/buttons/Button"
-import { SameWidthChildrenRow } from "lib/ui/Layout/SameWidthChildrenRow"
-import { Text } from "lib/ui/Text"
+import { Button, buttonKinds, buttonSizes } from "lib/ui/buttons/Button"
+import { TitledSection } from "lib/ui/Layout/TitledSection"
 
 const ButtonPage: NextPage = () => {
   return (
     <DemoPage title="Button">
-      <SameWidthChildrenRow
-        fullWidth
-        gap={40}
-        childrenWidth={160}
-        maxColumns={3}
-      >
-        {buttonKinds.map((kind) => (
-          <VStack alignItems="start" key={kind} gap={8}>
-            <Text color="supporting">{kind}</Text>
-            <Button kind={kind}>Submit</Button>
-          </VStack>
-        ))}
-      </SameWidthChildrenRow>
+      <VStack gap={40}>
+        <TitledSection title="Button kinds">
+          <HStack gap={40} wrap="wrap">
+            {buttonKinds.map((kind) => (
+              <Button key={kind} kind={kind}>
+                Submit
+              </Button>
+            ))}
+          </HStack>
+        </TitledSection>
+        <TitledSection title="Button sizes">
+          <HStack alignItems="center" gap={20} wrap="wrap">
+            {buttonSizes.map((size) => (
+              <Button kind="reversed" key={size} size={size}>
+                Submit
+              </Button>
+            ))}
+          </HStack>
+        </TitledSection>
+        <TitledSection title="Button states">
+          <HStack alignItems="center" gap={20} wrap="wrap">
+            <Button isLoading>Submit</Button>
+            <Button isDisabled="Not enough funds">Submit</Button>
+          </HStack>
+        </TitledSection>
+      </VStack>
     </DemoPage>
   )
 }
