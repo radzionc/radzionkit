@@ -1,4 +1,3 @@
-import { ComponentWithChildrenProps } from "lib/shared/props"
 import styled, { css } from "styled-components"
 import { defaultTransitionCSS } from "lib/ui/animations/transitions"
 import { centerContentCSS } from "lib/ui/utils/centerContentCSS"
@@ -11,6 +10,7 @@ import { Tooltip } from "lib/ui/Tooltip"
 import { UnstyledButton } from "./UnstyledButton"
 import { match } from "lib/shared/utils/match"
 import { getColor } from "../theme/getters"
+import { CenterAbsolutely } from "../CenterAbsolutely"
 
 export const buttonSizes = ["xs", "s", "m", "l", "xl"] as const
 
@@ -29,16 +29,6 @@ export const buttonKinds = [
 ] as const
 
 export type ButtonKind = (typeof buttonKinds)[number]
-
-export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
-  ComponentWithChildrenProps & {
-    as?: "button" | "div"
-    size?: ButtonSize
-    isDisabled?: boolean | string
-    isLoading?: boolean
-    isRounded?: boolean
-    kind?: ButtonKind
-  }
 
 interface ContainerProps {
   size: ButtonSize
@@ -180,16 +170,16 @@ const Container = styled(UnstyledButton)<ContainerProps>`
     `};
 `
 
-const LoaderWr = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  ${centerContentCSS};
-`
+export interface ButtonProps extends React.ComponentProps<typeof Container> {
+  size?: ButtonSize
+  isDisabled?: boolean | string
+  isLoading?: boolean
+  isRounded?: boolean
+  kind?: ButtonKind
+  onClick?: () => void
+}
 
-const HideChildren = styled.div`
+const Hide = styled.div`
   opacity: 0;
 `
 
@@ -204,10 +194,10 @@ export const Button = ({
 }: ButtonProps) => {
   const content = isLoading ? (
     <>
-      <HideChildren>{children}</HideChildren>
-      <LoaderWr>
+      <Hide>{children}</Hide>
+      <CenterAbsolutely>
         <Spinner size={18} />
-      </LoaderWr>
+      </CenterAbsolutely>
     </>
   ) : (
     children
