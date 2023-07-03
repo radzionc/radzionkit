@@ -23,6 +23,7 @@ export const buttonKinds = [
   "attention",
   "alert",
   "outlined",
+  "outlinedAlert",
   "ghost",
   "ghostSecondary",
 ] as const
@@ -113,6 +114,10 @@ const Container = styled(UnstyledButton)<ContainerProps>`
         border: 1px solid ${getColor("mistExtra")};
         color: ${getColor("contrast")};
       `,
+      outlinedAlert: () => css`
+        border: 1px solid ${getColor("alert")};
+        color: ${getColor("alert")};
+      `,
       ghost: () => css`
         color: ${getColor("contrast")};
       `,
@@ -148,6 +153,12 @@ const Container = styled(UnstyledButton)<ContainerProps>`
           outlined: () => css`
             background: ${getColor("mist")};
             color: ${getColor("contrast")};
+          `,
+          outlinedAlert: () => css`
+            background: ${({ theme }) =>
+              theme.colors.alert
+                .getVariant({ a: (a) => a * 0.12 })
+                .toCssValue()};
           `,
           ghost: () => css`
             background: ${getColor("mist")};
@@ -191,31 +202,38 @@ export const Button = ({
   kind = "primary",
   ...rest
 }: ButtonProps) => {
-  return (
-    <Tooltip
-      content={isDisabled}
-      renderOpener={(props) => (
-        <Container
-          {...props}
-          kind={kind}
-          size={size}
-          isDisabled={!!isDisabled}
-          isLoading={isLoading}
-          onClick={isDisabled || isLoading ? undefined : onClick}
-          {...rest}
-        >
-          {isLoading ? (
-            <>
-              <HideChildren>{children}</HideChildren>
-              <LoaderWr>
-                <Spinner size={18} />
-              </LoaderWr>
-            </>
-          ) : (
-            children
-          )}
-        </Container>
-      )}
-    />
+  const content = isLoading ? (
+    <>
+      <HideChildren>{children}</HideChildren>
+      <LoaderWr>
+        <Spinner size={18} />
+      </LoaderWr>
+    </>
+  ) : (
+    children
   )
+
+  const containerProps = {
+    kind,
+    size,
+    isDisabled: !!isDisabled,
+    isLoading,
+    onClick: isDisabled || isLoading ? undefined : onClick,
+    ...rest,
+  }
+
+  if (typeof isDisabled === "string") {
+    return (
+      <Tooltip
+        content={isDisabled}
+        renderOpener={(props) => (
+          <Container {...props} {...containerProps}>
+            {content}
+          </Container>
+        )}
+      />
+    )
+  }
+
+  return <Container {...containerProps}>{content}</Container>
 }
