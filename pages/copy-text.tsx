@@ -4,7 +4,7 @@ import { CopyText } from "lib/ui/CopyText"
 
 const CopyTextPage: NextPage = () => {
   return (
-    <DemoPage title="Copy Text">
+    <DemoPage youtubeVideoId="sUKTden0DSI" title="Copy Text">
       <CopyText content="https://increaser.org">Increaser URL</CopyText>
     </DemoPage>
   )

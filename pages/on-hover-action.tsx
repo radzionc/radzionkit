@@ -91,7 +91,7 @@ const OnHoverActionPage: NextPage = () => {
   const [isPlaying, setIsPlaying] = useState(false)
 
   return (
-    <DemoPage title="On hover action">
+    <DemoPage youtubeVideoId="35XAA5Hgag0" title="On hover action">
       <Panel style={{ padding: 0 }} kind="secondary">
         <VStack>
           {options.map((option, index) => {

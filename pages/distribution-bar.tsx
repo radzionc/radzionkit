@@ -1,7 +1,7 @@
-import type { NextPage } from 'next'
-import { DistributionBar } from 'lib/ui/DistributionBar'
-import { DemoPage } from 'components/DemoPage'
-import { useTheme } from 'styled-components'
+import type { NextPage } from "next"
+import { DistributionBar } from "lib/ui/DistributionBar"
+import { DemoPage } from "components/DemoPage"
+import { useTheme } from "styled-components"
 
 const DistributionBarPage: NextPage = () => {
   const {
@@ -9,7 +9,7 @@ const DistributionBarPage: NextPage = () => {
   } = useTheme()
 
   return (
-    <DemoPage title="DistributionBar">
+    <DemoPage youtubeVideoId="5iF5YOoAdzY" title="DistributionBar">
       <DistributionBar
         items={[
           { value: 100, color: getPaletteColor(1) },

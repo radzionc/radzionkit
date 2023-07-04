@@ -5,4 +5,5 @@ interface ThemeGetterParams {
   theme: DefaultTheme
 }
 
-export const getColor = (color: keyof Omit<ThemeColors, 'getPaletteColor'>) => ({ theme }: ThemeGetterParams) => theme.colors[color].toCssValue()
+export const getColor = (color: keyof Omit<ThemeColors, 'getPaletteColor'>) =>
+  ({ theme }: ThemeGetterParams) => theme.colors[color].toCssValue()

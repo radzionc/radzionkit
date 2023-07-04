@@ -1,11 +1,11 @@
-import { SourceCodeLink } from 'components/SourceCode/SourceCodeLink'
-import { ComponentWithChildrenProps } from 'lib/shared/props'
-import { RegularPage } from 'lib/ui/page/RegularPage'
-import { HStack } from 'lib/ui/Stack'
-import { Text } from 'lib/ui/Text'
-import { useRouter } from 'next/router'
-import Head from 'next/head'
-import { YouTubeLink } from 'components/YouTubeLink'
+import { SourceCodeLink } from "components/SourceCode/SourceCodeLink"
+import { ComponentWithChildrenProps } from "lib/shared/props"
+import { RegularPage } from "lib/ui/page/RegularPage"
+import { HStack } from "lib/ui/Stack"
+import { Text } from "lib/ui/Text"
+import { useRouter } from "next/router"
+import Head from "next/head"
+import { YouTubeLink } from "components/YouTubeLink"
 
 interface Props extends ComponentWithChildrenProps {
   title: string
@@ -30,7 +30,7 @@ export const DemoPage = ({
             {title}
           </Text>
           <SourceCodeLink
-            to={`https://github.com/RodionChachura/reactkit/blob/main/pages/${pathname}.tsx`}
+            to={`https://github.com/RodionChachura/reactkit/blob/main/pages${pathname}.tsx`}
           />
           {youtubeVideoId && <YouTubeLink videoId={youtubeVideoId} />}
         </HStack>

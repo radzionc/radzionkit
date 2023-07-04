@@ -5,7 +5,7 @@ import { Text } from "lib/ui/Text"
 
 const TooltipPage: NextPage = () => {
   return (
-    <DemoPage title="Tooltip">
+    <DemoPage youtubeVideoId="gt-29kdEwtA" title="Tooltip">
       <Tooltip
         renderOpener={(props) => (
           <Text {...props} weight="semibold" color="supporting">

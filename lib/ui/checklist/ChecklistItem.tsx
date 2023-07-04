@@ -48,7 +48,7 @@ const Line = styled.span<{ isChecked: boolean }>`
   ${defaultTransitionCSS};
   left: 0;
   border-top: 2px solid;
-  bottom: 10px;
+  bottom: 8px;
   width: ${({ isChecked }) => (isChecked ? "100%" : "0%")};
 `
 

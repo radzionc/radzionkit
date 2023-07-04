@@ -153,7 +153,7 @@ const BarChartPage: NextPage = () => {
                     {label}
                   </Text>
                 ),
-                color: isCurrent ? colors.primary : colors.textShy,
+                color: isCurrent ? colors.primary : colors.mist,
 
                 renderValue:
                   value > 0

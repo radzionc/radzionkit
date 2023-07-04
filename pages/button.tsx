@@ -6,7 +6,7 @@ import { TitledSection } from "lib/ui/Layout/TitledSection"
 
 const ButtonPage: NextPage = () => {
   return (
-    <DemoPage title="Button">
+    <DemoPage youtubeVideoId="D2AmZCuk18Q" title="Button">
       <VStack gap={40}>
         <TitledSection title="Button kinds">
           <HStack gap={40} wrap="wrap">
