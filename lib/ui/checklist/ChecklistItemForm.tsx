@@ -3,6 +3,7 @@ import { useKey } from "react-use"
 import styled from "styled-components"
 import { Box } from "./ChecklistItem"
 import { ChecklistItemFrame } from "./ChecklistItemFrame"
+import { getColor } from "../theme/getters"
 
 interface ChecklistItemFormShape {
   name: string
@@ -13,11 +14,11 @@ const Input = styled.input`
   border: none;
   height: 100%;
   width: 100%;
-  color: ${({ theme }) => theme.colors.text.toCssValue()};
+  color: ${getColor("text")};
   outline: none;
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.textShy.toCssValue()};
+    color: ${getColor("textShy")};
   }
 `
 

@@ -13,6 +13,7 @@ import {
   InvisibleHTMLSlider,
   InvisibleHTMLSliderProps,
 } from "./InvisibleHtmlSlider"
+import { getColor } from "lib/ui/theme/getters"
 
 type SliderSize = "m" | "l"
 
@@ -55,7 +56,7 @@ const Line = styled.div`
   width: 100%;
 
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.mist.toCssValue()};
+  background-color: ${getColor("mist")};
   border-radius: 1000px;
 `
 

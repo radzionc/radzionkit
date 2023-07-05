@@ -14,6 +14,7 @@ import { centerContentCSS } from "lib/ui/utils/centerContentCSS"
 import { UnstyledButton } from "lib/ui/buttons/UnstyledButton"
 import { PauseIcon } from "lib/ui/icons/PauseIcon"
 import { PlayIcon } from "lib/ui/icons/PlayIcon"
+import { getColor } from "lib/ui/theme/getters"
 
 const options = [
   "Lofi jazz study music",
@@ -67,7 +68,7 @@ const Container = styled(UnstyledButton)`
   color: ${({ theme }) => theme.colors.textSupporting.toCssValue()};
 
   :hover {
-    background: ${({ theme }) => theme.colors.mist.toCssValue()};
+    background: ${getColor("mist")};
     color: ${({ theme }) => theme.colors.text.toCssValue()};
   }
 

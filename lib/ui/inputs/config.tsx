@@ -1,4 +1,5 @@
 import { css } from "styled-components"
+import { getColor } from "../theme/getters"
 
 export const inputBorderRadiusCSS = css`
   border-radius: 8px;
@@ -14,5 +15,5 @@ export const defaultInputShapeCSS = css`
 `
 
 export const inputBackgroundCSS = css`
-  background: ${({ theme }) => theme.colors.mist.toCssValue()};
+  background: ${getColor("mist")};
 `

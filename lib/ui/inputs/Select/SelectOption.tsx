@@ -8,13 +8,14 @@ import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
 } from "../InvisibleHTMLRadio"
+import { getColor } from "lib/ui/theme/getters"
 
 const Container = styled.label<{ isSelected: boolean }>`
   position: relative;
   cursor: pointer;
 
   ${centerContentCSS}
-  background: ${({ theme }) => theme.colors.mist.toCssValue()};
+  background: ${getColor("mist")};
 
   ${defaultInputShapeCSS};
   ${defaultTransitionCSS};

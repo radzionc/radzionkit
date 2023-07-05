@@ -1,3 +1,4 @@
+import { getColor } from "lib/ui/theme/getters"
 import styled, { css } from "styled-components"
 
 export const DropdownItem = styled.div<{ isHighlighted: boolean }>`
@@ -9,6 +10,6 @@ export const DropdownItem = styled.div<{ isHighlighted: boolean }>`
   ${({ isHighlighted }) =>
     isHighlighted &&
     css`
-      background: ${({ theme }) => theme.colors.mist.toCssValue()};
+      background: ${getColor("mist")};
     `}
 `

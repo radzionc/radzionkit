@@ -4,6 +4,7 @@ import { defaultTransitionCSS } from "./animations/transitions"
 import { ComponentWithChildrenProps } from "lib/shared/props"
 import { UnstyledButton } from "./buttons/UnstyledButton"
 import { getCSSUnit } from "./utils/getCSSUnit"
+import { getColor } from "./theme/getters"
 
 const Highlight = styled.div`
   position: absolute;
@@ -15,7 +16,7 @@ const Container = styled(UnstyledButton)`
   position: relative;
 
   :hover ${Highlight} {
-    background: ${({ theme }) => theme.colors.mist.toCssValue()};
+    background: ${getColor("mist")};
   }
 `
 

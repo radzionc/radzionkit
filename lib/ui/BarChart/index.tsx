@@ -9,6 +9,7 @@ import { HSLA } from "../colors/HSLA"
 import { centerContentCSS } from "../utils/centerContentCSS"
 import { getCSSUnit } from "../utils/getCSSUnit"
 import { Text } from "../Text"
+import { getColor } from "../theme/getters"
 
 export interface BarChartItem {
   label?: ReactNode
@@ -41,7 +42,7 @@ const RelativeWrapper = styled.div`
 
 export const BarPlaceholder = styled(Bar)`
   height: 2px;
-  background: ${({ theme }) => theme.colors.mist.toCssValue()};
+  background: ${getColor("mist")};
 `
 
 const Value = styled(Text)`
@@ -49,7 +50,7 @@ const Value = styled(Text)`
   white-space: nowrap;
   line-height: 1;
   bottom: ${barValueGap};
-  color: ${({ theme }) => theme.colors.textSupporting.toCssValue()};
+  color: ${getColor("textSupporting")};
 `
 
 const Label = styled(Value)`

@@ -2,6 +2,8 @@ import styled, { css } from "styled-components"
 
 import { defaultBorderRadiusCSS } from "../borderRadius"
 import { getCSSUnit } from "../utils/getCSSUnit"
+import { match } from "lib/shared/utils/match"
+import { getColor } from "../theme/getters"
 
 type PanelKind = "regular" | "secondary"
 
@@ -15,15 +17,6 @@ export interface PanelProps {
   withSections?: boolean
 }
 
-export const panelBackgroundCSS = css`
-  background: ${({ theme: { name, colors } }) =>
-    (name === "light" ? colors.background : colors.mist).toCssValue()};
-`
-
-export const secondaryPanelBackgroundCSS = css`
-  background: ${({ theme: { colors } }) => colors.background.toCssValue()};
-`
-
 const panelPaddingCSS = css<{ padding?: React.CSSProperties["padding"] }>`
   padding: ${({ padding }) => getCSSUnit(padding || 20)};
 `
@@ -33,39 +26,33 @@ export const Panel = styled.div<PanelProps>`
   width: ${({ width }) => (width ? getCSSUnit(width) : undefined)};
   overflow: hidden;
 
-  ${({ withSections, direction = "column", kind }) =>
-    withSections
+  ${({ withSections, direction = "column", kind = "regular", theme }) => {
+    const contentBackground = match(kind, {
+      secondary: () => theme.colors.background.toCssValue(),
+      regular: () => theme.colors.mist.toCssValue(),
+    })
+
+    const contentCSS = css`
+      ${panelPaddingCSS}
+      background: ${contentBackground};
+    `
+
+    return withSections
       ? css`
           display: flex;
           flex-direction: ${direction};
           gap: 1px;
 
-          background: ${({ theme }) =>
-            theme.name === "light"
-              ? theme.colors.mistExtra.toCssValue()
-              : undefined};
-
           > * {
-            ${panelPaddingCSS}
-
-            ${kind === "secondary"
-              ? secondaryPanelBackgroundCSS
-              : panelBackgroundCSS}
+            ${contentCSS}
           }
         `
-      : css`
-          ${panelPaddingCSS}
-          ${kind === "secondary"
-            ? secondaryPanelBackgroundCSS
-            : panelBackgroundCSS}
-        `}
+      : contentCSS
+  }}
 
   ${({ kind }) =>
-    kind === "secondary"
-      ? css`
-          border: 2px solid ${({ theme }) => theme.colors.mist.toCssValue()};
-        `
-      : css`
-          box-shadow: ${({ theme }) => theme.shadows.small};
-        `}
+    kind === "secondary" &&
+    css`
+      border: 2px solid ${getColor("mist")};
+    `}
 `

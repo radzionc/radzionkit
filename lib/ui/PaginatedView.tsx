@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { Spinner } from "./Spinner"
 import { HStack, VStack } from "./Stack"
 import { Text } from "./Text"
+import { getColor } from "./theme/getters"
 
 interface Props {
   children: ReactNode
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const LoaderContainer = styled(HStack)`
-  color: ${({ theme }) => theme.colors.textShy.toCssValue()};
+  color: ${getColor("textShy")};
 `
 
 const Footer = styled(VStack)`

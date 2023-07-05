@@ -9,6 +9,7 @@ import { centerContentCSS } from "../utils/centerContentCSS"
 import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
 import { roundedCSS } from "../utils/roundedCSS"
 import { Panel, PanelProps } from "./Panel"
+import { getColor } from "../theme/getters"
 
 interface ExpandableProps extends PanelProps {
   header: ReactNode
@@ -20,7 +21,7 @@ const ExpandIconWrapper = styled.div<{ isExpanded: boolean }>`
   ${getSameDimensionsCSS(40)};
   ${centerContentCSS};
 
-  background: ${({ theme }) => theme.colors.mist.toCssValue()};
+  background: ${getColor("mist")};
 
   ${defaultTransitionCSS};
 

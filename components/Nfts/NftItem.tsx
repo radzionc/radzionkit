@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { SafeImage } from "lib/ui/SafeImage"
 import { VStack } from "lib/ui/Stack"
 import { Text } from "lib/ui/Text"
+import { getColor } from "lib/ui/theme/getters"
 
 interface Props {
   address: string
@@ -15,7 +16,7 @@ const ImageWrapper = styled.div`
   height: 100%;
   border-radius: 12px;
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.mist.toCssValue()};
+  background: ${getColor("mist")};
 `
 
 const Image = styled.img`

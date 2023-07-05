@@ -19,7 +19,6 @@ const Container = styled.div<{ isSelected: boolean }>`
   padding: 8px;
   cursor: pointer;
   border: 1px solid ${getColor("mist")};
-  /* background: ${getColor("mist")}; */
   background: ${({ isSelected, theme }) =>
     isSelected
       ? theme.colors.background.toCssValue()

@@ -5,6 +5,7 @@ import { getCSSUnit } from "lib/ui/utils/getCSSUnit"
 import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS"
 
 import { UnstyledButton } from "../UnstyledButton"
+import { getColor } from "lib/ui/theme/getters"
 
 type StickyIconButtonKind = "regular" | "secondary"
 
@@ -69,6 +70,6 @@ const InteractiveArea = styled(UnstyledButton)<InteractiveAreaProps>`
   ${defaultTransitionCSS};
 
   :hover {
-    background: ${({ theme }) => theme.colors.mist.toCssValue()};
+    background: ${getColor("mist")};
   }
 `

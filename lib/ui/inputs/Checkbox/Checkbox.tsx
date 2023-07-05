@@ -1,16 +1,17 @@
-import { ReactNode } from 'react'
-import styled, { css } from 'styled-components'
-import { defaultTransitionCSS } from 'lib/ui/animations/transitions'
-import { CheckIcon } from 'lib/ui/icons/CheckIcon'
-import { HStack } from 'lib/ui/Stack'
-import { Text } from 'lib/ui/Text'
-import { centerContentCSS } from 'lib/ui/utils/centerContentCSS'
-import { getSameDimensionsCSS } from 'lib/ui/utils/getSameDimensionsCSS'
+import { ReactNode } from "react"
+import styled, { css } from "styled-components"
+import { defaultTransitionCSS } from "lib/ui/animations/transitions"
+import { CheckIcon } from "lib/ui/icons/CheckIcon"
+import { HStack } from "lib/ui/Stack"
+import { Text } from "lib/ui/Text"
+import { centerContentCSS } from "lib/ui/utils/centerContentCSS"
+import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS"
 
 import {
   InvisibleHTMLCheckbox,
   InvisibleHTMLCheckboxProps,
-} from './InvisibleHTMLCheckbox'
+} from "./InvisibleHTMLCheckbox"
+import { getColor } from "lib/ui/theme/getters"
 
 interface CheckboxProps extends InvisibleHTMLCheckboxProps {
   label?: ReactNode
@@ -21,27 +22,27 @@ const Box = styled.div<{ isChecked: boolean }>`
   ${getSameDimensionsCSS(28)}
   ${centerContentCSS};
   border-radius: 4px;
-  border: 2px solid ${({ theme }) => theme.colors.text.toCssValue()};
-  color: ${({ theme }) => theme.colors.background.toCssValue()};
+  border: 2px solid ${getColor("text")};
+  color: ${getColor("background")};
 
   ${defaultTransitionCSS}
 
   ${({ isChecked }) =>
     isChecked &&
     css`
-      background: ${({ theme }) => theme.colors.text.toCssValue()};
+      background: ${getColor("text")};
     `};
 `
 
 const Container = styled(HStack)`
-  color: ${({ theme }) => theme.colors.textSupporting.toCssValue()};
+  color: ${getColor("textSupporting")};
 
   cursor: pointer;
 
   ${defaultTransitionCSS}
 
   :hover {
-    color: ${({ theme }) => theme.colors.text.toCssValue()};
+    color: ${getColor("text")};
   }
 
   font-weight: 500;
@@ -60,7 +61,7 @@ export const Checkbox = ({
   <Container className={className} as="label" alignItems="center" gap={12}>
     <Box isChecked={value}>{value && <CheckIcon />}</Box>
     {label && (
-      <Text style={{ transition: 'none' }} as="div">
+      <Text style={{ transition: "none" }} as="div">
         {label}
       </Text>
     )}

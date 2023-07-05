@@ -2,6 +2,7 @@ import { range } from "lib/shared/utils/range"
 import styled from "styled-components"
 import { VStack } from "../Stack"
 import { Text } from "../Text"
+import { getColor } from "../theme/getters"
 
 interface Props {
   start: number
@@ -37,7 +38,7 @@ const HourContent = styled.div<{ labelWidth: number }>`
 `
 
 const HourLine = styled.div`
-  background: ${({ theme }) => theme.colors.mist.toCssValue()};
+  background: ${getColor("mist")};
   height: 1px;
   width: 100%;
 `

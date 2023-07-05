@@ -8,6 +8,7 @@ import {
   InvisibleHTMLRadioProps,
 } from "../inputs/InvisibleHTMLRadio"
 import { defaultTransitionCSS } from "../animations/transitions"
+import { getColor } from "../theme/getters"
 
 const Container = styled.label<{ isSelected: boolean }>`
   cursor: pointer;
@@ -29,7 +30,7 @@ const Container = styled.label<{ isSelected: boolean }>`
   ${defaultTransitionCSS}
 
   :hover {
-    background: ${({ theme }) => theme.colors.mist.toCssValue()};
+    background: ${getColor("mist")};
   }
 
   ${({ isSelected, theme }) =>

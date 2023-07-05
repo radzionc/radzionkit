@@ -10,6 +10,7 @@ import {
 import { centerContentCSS } from "../utils/centerContentCSS"
 import { Text } from "../Text"
 import { ChecklistItemFrame } from "./ChecklistItemFrame"
+import { getColor, matchColor } from "../theme/getters"
 
 interface ChecklistItemProps extends InvisibleHTMLCheckboxProps {
   name: ReactNode
@@ -23,24 +24,26 @@ export const Box = styled.div<{ isChecked: boolean }>`
   ${centerContentCSS};
 
   border-radius: 4px;
-  border: 2px solid ${({ theme }) => theme.colors.textShy.toCssValue()};
-  color: ${({ theme }) => theme.colors.background.toCssValue()};
+  border: 2px solid ${getColor("textShy")};
+  color: ${getColor("background")};
 
   ${defaultTransitionCSS}
 
   ${({ isChecked }) =>
     isChecked &&
     css`
-      background: ${({ theme }) => theme.colors.primary.toCssValue()};
-      border-color: ${({ theme }) => theme.colors.primary.toCssValue()};
+      background: ${getColor("primary")};
+      border-color: ${getColor("primary")};
     `};
 `
 
 const Content = styled(Text)<{ isChecked: boolean }>`
   max-width: 100%;
   position: relative;
-  color: ${({ theme, isChecked }) =>
-    (isChecked ? theme.colors.textSupporting : theme.colors.text).toCssValue()};
+  color: ${matchColor("isChecked", {
+    true: "text",
+    false: "textShy",
+  })};
 `
 
 const Line = styled.span<{ isChecked: boolean }>`

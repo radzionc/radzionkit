@@ -16,6 +16,7 @@ import {
 import { TrashIcon } from "lib/ui/icons/TrashIcon"
 import { IconButton } from "lib/ui/buttons/square/IconButton"
 import { Button } from "lib/ui/buttons/Button"
+import { getColor } from "lib/ui/theme/getters"
 
 export interface Props {
   form: UseFormReturn<JobApplicationFormShape, any>
@@ -24,7 +25,7 @@ export interface Props {
 const manageElementSizeInPx = 48
 
 const ExperienceNumber = styled(Circle)`
-  background: ${({ theme }) => theme.colors.mist.toCssValue()};
+  background: ${getColor("mist")};
 `
 
 export const ExperienceSection = ({

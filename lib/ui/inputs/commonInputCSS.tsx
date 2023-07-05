@@ -1,6 +1,7 @@
 import { css } from "styled-components"
 import { defaultTransitionCSS } from "lib/ui/animations/transitions"
 import { defaultInputShapeCSS } from "./config"
+import { getColor } from "../theme/getters"
 
 interface CommonInputCSSProps {
   isValid: boolean
@@ -10,13 +11,13 @@ export const commonInputCSS = css<CommonInputCSSProps>`
   ${defaultInputShapeCSS};
   max-width: 100%;
 
-  background: ${({ theme }) => theme.colors.mist.toCssValue()};
-  color: ${({ theme }) => theme.colors.text.toCssValue()};
+  background: ${getColor("mist")};
+  color: ${getColor("text")};
 
   ${defaultTransitionCSS};
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.textShy.toCssValue()};
+    color: ${getColor("textShy")};
   }
 
   outline: 1px solid transparent;

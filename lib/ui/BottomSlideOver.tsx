@@ -12,6 +12,7 @@ import { Text } from "lib/ui/Text"
 import { getHorizontalPaddingCSS } from "lib/ui/utils/getHorizontalPaddingCSS"
 import { getVerticalPaddingCSS } from "lib/ui/utils/getVerticalPaddingCSS"
 import { Button } from "./buttons/Button"
+import { getColor } from "./theme/getters"
 
 export type BottomSlideOverProps = ComponentWithChildrenProps &
   ClosableComponentProps & {
@@ -28,7 +29,7 @@ const Container = styled(VStack)`
   border-radius: 20px 20px 0 0;
   ${getVerticalPaddingCSS(24)}
 
-  background: ${({ theme }) => theme.colors.background.toCssValue()};
+  background: ${getColor("background")};
   max-height: 80%;
 
   gap: 32px;

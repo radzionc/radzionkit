@@ -1,5 +1,6 @@
-import { defaultBorderRadiusCSS } from 'lib/ui/borderRadius'
-import styled from 'styled-components'
+import { defaultBorderRadiusCSS } from "lib/ui/borderRadius"
+import { getColor } from "lib/ui/theme/getters"
+import styled from "styled-components"
 
 export const ResumeContainer = styled.div`
   width: 880px;
@@ -8,14 +9,14 @@ export const ResumeContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
-  background: ${({ theme }) => theme.colors.foreground.toCssValue()};
-  border: 2px solid ${({ theme }) => theme.colors.foreground.toCssValue()};
+  background: ${getColor("foreground")};
+  border: 2px solid ${getColor("foreground")};
 
   ${defaultBorderRadiusCSS}
   overflow: hidden;
 
   > * {
-    background: ${({ theme }) => theme.colors.background.toCssValue()};
+    background: ${getColor("background")};
     padding: 20px;
   }
 

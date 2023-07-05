@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 import { themedScrollbarCSS } from "./utils/themedScrollbarCSS"
+import { getColor } from "./theme/getters"
 
 export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -35,8 +36,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.colors.background.toCssValue()};
-    color: ${({ theme }) => theme.colors.text.toCssValue()};
+    background: ${getColor("background")};
+    color: ${getColor("text")};
   }
 
   input::-webkit-outer-spin-button,

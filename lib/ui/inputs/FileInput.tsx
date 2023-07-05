@@ -7,6 +7,7 @@ import { defaultTransitionCSS } from "lib/ui/animations/transitions"
 import { UploadIcon } from "lib/ui/icons/UploadIcon"
 import { Panel } from "../Panel/Panel"
 import { Button } from "../buttons/Button"
+import { getColor } from "../theme/getters"
 
 interface Props {
   onSubmit: (file: File) => void
@@ -24,7 +25,7 @@ const Container = styled(Panel)`
   ${defaultTransitionCSS};
 
   :hover {
-    background: ${({ theme }) => theme.colors.mistExtra.toCssValue()};
+    background: ${getColor("mistExtra")};
   }
 `
 

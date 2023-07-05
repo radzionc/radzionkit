@@ -2,6 +2,7 @@ import { ReactNode, useEffect, useRef } from "react"
 import { useKeyPress } from "lib/shared/hooks/useKeyPress"
 import styled, { css } from "styled-components"
 import { inputBorderRadiusCSS } from "../config"
+import { getColor } from "lib/ui/theme/getters"
 
 interface Props<T> {
   options: T[]
@@ -31,12 +32,12 @@ export const Option = styled.div<{ isHighlighted: boolean }>`
   cursor: pointer;
   border-radius: 4px;
 
-  color: ${({ theme }) => theme.colors.text.toCssValue()};
+  color: ${getColor("text")};
 
   ${({ isHighlighted }) =>
     isHighlighted &&
     css`
-      background: ${({ theme }) => theme.colors.mist.toCssValue()};
+      background: ${getColor("mist")};
     `}
 `
 

@@ -5,6 +5,7 @@ import { Text } from "lib/ui/Text"
 import { roundedCSS } from "lib/ui/utils/roundedCSS"
 import styled from "styled-components"
 import { Responsibilities } from "./Responsibilities"
+import { getColor } from "lib/ui/theme/getters"
 
 interface Props {
   name: string
@@ -20,13 +21,13 @@ const Title = styled(Text)`
   line-height: 1.24;
 
   :hover {
-    color: ${({ theme }) => theme.colors.attention.toCssValue()};
+    color: ${getColor("attention")};
   }
 `
 
 const Badge = styled.div`
   padding: 4px 8px;
-  background: ${({ theme }) => theme.colors.mist.toCssValue()};
+  background: ${getColor("mist")};
   ${roundedCSS};
 `
 
