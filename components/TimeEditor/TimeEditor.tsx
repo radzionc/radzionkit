@@ -1,10 +1,10 @@
-import { millisecondsInHour } from 'date-fns'
-import { useStartOfDay } from 'lib/shared/hooks/useStartOfDay'
-import { TitledSection } from 'lib/ui/Layout/TitledSection'
-import { Panel } from 'lib/ui/Panel/Panel'
-import { TimeInput } from 'lib/ui/timeline/TimeInput'
-import { useState } from 'react'
-import { useTheme } from 'styled-components'
+import { millisecondsInHour } from "date-fns"
+import { useStartOfDay } from "lib/shared/hooks/useStartOfDay"
+import { TitledSection } from "lib/ui/Layout/TitledSection"
+import { Panel } from "lib/ui/Panel/Panel"
+import { TimeInput } from "lib/ui/timeline/TimeInput"
+import { useState } from "react"
+import { useTheme } from "styled-components"
 
 export const TimeEditor = () => {
   const startOfDay = useStartOfDay()
@@ -24,7 +24,7 @@ export const TimeEditor = () => {
           startOfDay={startOfDay}
           startHour={10}
           endHour={14}
-          color={theme.colors.getPaletteColor(5)}
+          color={theme.colors.getLabelColor(5)}
           value={value}
           onChange={setValue}
           max={startOfDay + millisecondsInHour * 13}

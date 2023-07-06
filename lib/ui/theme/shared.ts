@@ -1,5 +1,5 @@
-import { HSLA } from '../colors/HSLA'
-import { generatePaleteCollorGetter } from '../colors/palette'
+import { HSLA } from "../colors/HSLA"
+import { generateLabelColorGetter } from "../colors/generateLabelColorGetter"
 
 export const sharedColors = {
   primary: new HSLA(210, 77, 51),
@@ -11,8 +11,6 @@ export const sharedColors = {
   alert: new HSLA(0, 79, 63),
   idle: new HSLA(32, 79, 63),
   success: new HSLA(130, 56, 52),
-
-  getPaletteColor: generatePaleteCollorGetter(56, 52),
 
   white: new HSLA(0, 0, 100),
   transparent: new HSLA(0, 0, 0, 0),

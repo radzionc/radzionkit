@@ -1,4 +1,4 @@
-import { HSLA } from '../colors/HSLA'
+import { HSLA } from "../colors/HSLA"
 
 export const regularTextAlpha = 0.9
 
@@ -30,5 +30,5 @@ export type ThemeColors = {
   white: HSLA
   transparent: HSLA
 
-  getPaletteColor: (index: number) => HSLA
+  getLabelColor: (index: number) => HSLA
 }

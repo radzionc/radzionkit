@@ -5,7 +5,7 @@ interface ThemeGetterParams {
   theme: DefaultTheme
 }
 
-type ColorName = keyof Omit<ThemeColors, "getPaletteColor">
+type ColorName = keyof Omit<ThemeColors, "getLabelColor">
 
 export const getColor =
   (color: ColorName) =>
