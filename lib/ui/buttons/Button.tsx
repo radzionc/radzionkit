@@ -196,7 +196,7 @@ export const Button = ({
     <>
       <Hide>{children}</Hide>
       <CenterAbsolutely>
-        <Spinner size={18} />
+        <Spinner />
       </CenterAbsolutely>
     </>
   ) : (

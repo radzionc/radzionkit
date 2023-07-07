@@ -51,7 +51,7 @@ export const PaginatedView = ({
             justifyContent="center"
             alignItems="center"
           >
-            <Spinner size={16} />
+            <Spinner />
             <Text>Loading</Text>
           </LoaderContainer>
         )}

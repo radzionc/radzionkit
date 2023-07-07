@@ -1,18 +1,18 @@
-import { ChangeEvent, InputHTMLAttributes, Ref, forwardRef } from 'react'
-import styled from 'styled-components'
+import { ChangeEvent, InputHTMLAttributes, Ref, forwardRef } from "react"
+import styled from "styled-components"
 
 import {
   Props as InputWrapperProps,
   InputWrapperWithErrorMessage,
-} from './InputWrapper'
-import { Spinner } from '../Spinner'
-import { commonInputCSS } from './commonInputCSS'
-import { ComponentWithClassNameProps } from 'lib/shared/props'
-import { VStack } from '../Stack'
+} from "./InputWrapper"
+import { Spinner } from "../Spinner"
+import { commonInputCSS } from "./commonInputCSS"
+import { ComponentWithClassNameProps } from "lib/shared/props"
+import { VStack } from "../Stack"
 
 export type SharedTextInputProps = Pick<
   InputWrapperProps,
-  'label' | 'error'
+  "label" | "error"
 > & {
   onValueChange?: (value: string) => void
   isLoading?: boolean
@@ -73,7 +73,7 @@ export const TextInputContainer = styled.input`
 export const TextInputLoader = ({ className }: ComponentWithClassNameProps) => (
   <TextInputContainer as="div" className={className} isValid>
     <VStack fullHeight justifyContent="center">
-      <Spinner size={18} />
+      <Spinner />
     </VStack>
   </TextInputContainer>
 )
