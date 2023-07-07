@@ -1,14 +1,13 @@
-import { Fragment } from 'react'
+import { Fragment } from "react"
 
-
-import { TreeFilterNode } from './TreeFilterNode'
-import { areEqual } from 'lib/shared/hooks/areEqual'
-import { InputProps } from 'lib/shared/props'
-import { TreeNode } from 'lib/shared/utils/tree'
-import { ConditionalWrapper } from '../ConditionalWrapper'
-import { SameWidthChildrenRow } from '../Layout/SameWidthChildrenRow'
-import { NonEmptyOnly } from '../NonEmptyOnly'
-import { VStack } from '../Stack'
+import { TreeFilterNode } from "./TreeFilterNode"
+import { areEqual } from "lib/shared/utils/areEqual"
+import { InputProps } from "lib/shared/props"
+import { TreeNode } from "lib/shared/utils/tree"
+import { ConditionalWrapper } from "../ConditionalWrapper"
+import { SameWidthChildrenRow } from "../Layout/SameWidthChildrenRow"
+import { NonEmptyOnly } from "../NonEmptyOnly"
+import { VStack } from "../Stack"
 
 interface TreeFilterProps<T> extends InputProps<number[]> {
   tree: TreeNode<T>

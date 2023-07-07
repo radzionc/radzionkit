@@ -4,10 +4,8 @@ export const regularTextAlpha = 0.9
 
 export type ThemeColors = {
   primary: HSLA
-  primaryHover: HSLA
 
   attention: HSLA
-  attentionHover: HSLA
 
   alert: HSLA
   idle: HSLA

@@ -11,6 +11,7 @@ import { UnstyledButton } from "./UnstyledButton"
 import { match } from "lib/shared/utils/match"
 import { getColor } from "../theme/getters"
 import { CenterAbsolutely } from "../CenterAbsolutely"
+import { getHoverVariant } from "../colors/getHoverVariant"
 
 export const buttonSizes = ["xs", "s", "m", "l", "xl"] as const
 
@@ -123,7 +124,8 @@ const Container = styled(UnstyledButton)<ContainerProps>`
       :hover {
         ${match(kind, {
           primary: () => css`
-            background: ${getColor("primaryHover")};
+            background: ${({ theme }) =>
+              getHoverVariant(theme.colors.primary).toCssValue()};
           `,
           secondary: () => css`
             background: ${getColor("mistExtra")};
@@ -132,13 +134,12 @@ const Container = styled(UnstyledButton)<ContainerProps>`
             background: ${getColor("text")};
           `,
           attention: () => css`
-            background: ${getColor("attentionHover")};
+            background: ${({ theme }) =>
+              getHoverVariant(theme.colors.attention).toCssValue()};
           `,
           alert: () => css`
             background: ${({ theme }) =>
-              theme.colors.alert
-                .getVariant({ l: (l) => l * 0.92 })
-                .toCssValue()};
+              getHoverVariant(theme.colors.alert).toCssValue()};
           `,
           outlined: () => css`
             background: ${getColor("mist")};

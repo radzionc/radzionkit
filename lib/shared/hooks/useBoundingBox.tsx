@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import { useIsomorphicLayoutEffect } from 'react-use'
-import { pick } from '../utils/pick'
-import { areEqual } from './areEqual'
+import { useState } from "react"
+import { useIsomorphicLayoutEffect } from "react-use"
+import { pick } from "../utils/pick"
+import { areEqual } from "../utils/areEqual"
 
-export type BoundingBox = Omit<DOMRect, 'toJSON'>
+export type BoundingBox = Omit<DOMRect, "toJSON">
 
 const toBoundingBox = (rect: DOMRect): BoundingBox =>
-  pick(rect, ['height', 'width', 'x', 'y', 'bottom', 'left', 'right', 'top'])
+  pick(rect, ["height", "width", "x", "y", "bottom", "left", "right", "top"])
 
 export const useBoundingBox = (element: HTMLElement | null) => {
   const [box, setBox] = useState<BoundingBox | null>(() =>
