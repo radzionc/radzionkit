@@ -16,13 +16,13 @@ export const lightTheme: DefaultTheme = {
     textSupporting: new HSLA(45, 19, 8, 0.6),
     textShy: new HSLA(45, 8, 20, 0.65),
 
-    mist: new HSLA(45, 8, 20, 0.08),
+    mist: new HSLA(45, 8, 20, 0.06),
     mistExtra: new HSLA(45, 8, 20, 0.16),
 
     overlay: new HSLA(0, 0, 0, 0.4),
 
     getLabelColor: generateLabelColorGetter({
-      saturation: 80,
+      saturation: 64,
       lightness: 64,
     }),
 

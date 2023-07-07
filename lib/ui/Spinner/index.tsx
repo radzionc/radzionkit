@@ -1,9 +1,4 @@
-import styled, { keyframes } from 'styled-components'
-import { getCSSUnit } from 'lib/ui/utils/getCSSUnit'
-
-interface Props {
-  size?: string | number
-}
+import styled, { keyframes } from "styled-components"
 
 const animationForRotation = keyframes`
   to {
@@ -11,17 +6,14 @@ const animationForRotation = keyframes`
   }
 `
 
-const Container = styled.div<{ size: string | number }>`
-  width: ${({ size }) => getCSSUnit(size)};
-  height: ${({ size }) => getCSSUnit(size)};
+export const Spinner = styled.span`
+  width: 1em;
+  height: 1em;
+  display: inline-block;
 
-  border: calc(${({ size }) => getCSSUnit(size)} * 0.12) solid;
-  border-radius: 50%;
+  border: 0.08em solid;
+  border-radius: 100%;
   border-top-color: transparent;
 
   animation: ${animationForRotation} 1s infinite linear;
 `
-
-export const Spinner = ({ size = 24 }: Props) => {
-  return <Container size={size} />
-}
