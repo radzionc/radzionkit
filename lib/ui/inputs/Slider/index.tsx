@@ -1,12 +1,9 @@
-import { handleWithStopPropagation } from "lib/shared/events"
-import { useBoundingBox } from "lib/shared/hooks/useBoundingBox"
 import { toPercents } from "lib/shared/utils/toPercents"
 import { defaultTransition } from "lib/ui/animations/transitions"
 import { HSLA } from "lib/ui/colors/HSLA"
 import { centerContentCSS } from "lib/ui/utils/centerContentCSS"
 import { getCSSUnit } from "lib/ui/utils/getCSSUnit"
 import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS"
-import { useEffect, useRef, useState } from "react"
 import styled, { useTheme } from "styled-components"
 
 import {
@@ -14,6 +11,7 @@ import {
   InvisibleHTMLSliderProps,
 } from "./InvisibleHtmlSlider"
 import { getColor } from "lib/ui/theme/getters"
+import { PressTracker } from "lib/ui/PressTracker"
 
 type SliderSize = "m" | "l"
 
@@ -89,60 +87,33 @@ export const Slider = ({
 }: SliderProps) => {
   const theme = useTheme()
   const color = optionalColor ?? theme.colors.text
-  const [container, setContainer] = useState<HTMLDivElement | null>(null)
-  const box = useBoundingBox(container)
-  const isActive = useRef(false)
-
-  const handleMove = (clientX: number) => {
-    if (!box || !isActive.current) return
-
-    if (clientX < box.left || clientX > box.right) return
-
-    const ratio = (clientX - box.x) / box.width
-
-    const steps = Math.round((ratio * max) / step)
-    const newValue = Math.max(min, steps * step)
-    onChange(newValue)
-  }
-
-  useEffect(() => {
-    const handleMouseUp = () => {
-      isActive.current = false
-    }
-    window.addEventListener("mouseup", handleMouseUp)
-    return () => {
-      window.removeEventListener("mouseup", handleMouseUp)
-    }
-  })
-
   const ratio = value / max
 
   return (
-    <Container
-      style={{ height }}
-      $color={color}
-      ref={setContainer}
-      onClick={handleWithStopPropagation()}
-      onMouseDown={handleWithStopPropagation((event) => {
-        isActive.current = true
-        if (event) {
-          handleMove(event.clientX)
+    <PressTracker
+      onChange={({ position }) => {
+        if (position) {
+          const steps = Math.round((position.x * max) / step)
+          const newValue = Math.max(min, steps * step)
+          onChange(newValue)
         }
-      })}
-      onMouseMove={({ clientX }) => handleMove(clientX)}
-    >
-      <InvisibleHTMLSlider
-        step={step}
-        value={value}
-        onChange={onChange}
-        min={min}
-        max={max}
-        autoFocus={autoFocus}
-      />
-      <Line style={{ height: lineHeight[size] }}>
-        <Filler $color={color} value={ratio} />
-      </Line>
-      <Control $color={color} size={controlSize[size]} value={ratio} />
-    </Container>
+      }}
+      render={({ props }) => (
+        <Container style={{ height }} $color={color} {...props}>
+          <InvisibleHTMLSlider
+            step={step}
+            value={value}
+            onChange={onChange}
+            min={min}
+            max={max}
+            autoFocus={autoFocus}
+          />
+          <Line style={{ height: lineHeight[size] }}>
+            <Filler $color={color} value={ratio} />
+          </Line>
+          <Control $color={color} size={controlSize[size]} value={ratio} />
+        </Container>
+      )}
+    />
   )
 }

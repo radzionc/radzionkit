@@ -14,6 +14,7 @@ export enum Path {
   SelectView = "/select-view",
   Slider = "/slider",
   InfiniteScroll = "/infinite-scroll",
+  HSLA = "/hsla",
   Combobox = "/combobox",
   DistributionBar = "/distribution-bar",
   PieChart = "/piechart",
@@ -45,4 +46,5 @@ export enum Path {
   Text = "/text",
   Spinner = "/spinner",
   Tag = "/tag",
+  PressTracker = "/press-tracker",
 }

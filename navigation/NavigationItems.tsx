@@ -10,6 +10,7 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.Panel} name="Panel" />
     <NavigationToInternalPage path={Path.Modal} name="Modal" />
     <NavigationToInternalPage path={Path.TextInput} name="Text Input" />
+    <NavigationToInternalPage path={Path.HSLA} name="HSLA" />
     <NavigationToInternalPage path={Path.Colors} name="Colors" />
     <NavigationToInternalPage path={Path.Images} name="Images" />
     <NavigationToInternalPage path={Path.SizeAware} name="Size Aware" />
@@ -28,6 +29,7 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.Checklist} name="Checklist" />
     <NavigationToInternalPage path={Path.Confetti} name="Confetti" />
     <NavigationToInternalPage path={Path.GridTable} name="CSS Grid Table" />
+    <NavigationToInternalPage path={Path.PressTracker} name="Press Tracker" />
     <NavigationToInternalPage
       path={Path.SeparatedByLine}
       name="Separated By Line"

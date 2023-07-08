@@ -1,11 +1,20 @@
-import { degreesInCircle } from 'lib/shared/utils/degreesToRadians'
-import { enforceRange } from 'lib/shared/utils/enforceRange'
+import { degreesInCircle } from "lib/shared/utils/degreesToRadians"
+import { enforceRange } from "lib/shared/utils/enforceRange"
 
-export const hslaKeys = ['h', 's', 'l', 'a'] as const
+export const hslaKeys = ["h", "s", "l", "a"] as const
+
+export type HSLAParameter = (typeof hslaKeys)[number]
 
 export type ColorModifiers = Partial<
-  Record<(typeof hslaKeys)[number], (parameter: number) => number>
+  Record<HSLAParameter, (parameter: number) => number>
 >
+
+export const hslaParamMaxValue: Record<HSLAParameter, number> = {
+  h: degreesInCircle,
+  s: 100,
+  l: 100,
+  a: 1,
+}
 
 export class HSLA {
   private _h = 0
@@ -13,7 +22,7 @@ export class HSLA {
     return this._h
   }
   set h(newH: number) {
-    this._h = enforceRange(newH, 0, degreesInCircle)
+    this._h = enforceRange(newH, 0, hslaParamMaxValue.h)
   }
 
   private _l = 0
@@ -21,7 +30,7 @@ export class HSLA {
     return this._l
   }
   set l(newL: number) {
-    this._l = enforceRange(newL, 0, 100)
+    this._l = enforceRange(newL, 0, hslaParamMaxValue.l)
   }
 
   private _s = 0
@@ -29,7 +38,7 @@ export class HSLA {
     return this._s
   }
   set s(newS: number) {
-    this._s = enforceRange(newS, 0, 100)
+    this._s = enforceRange(newS, 0, hslaParamMaxValue.s)
   }
 
   private _a = 0
@@ -37,7 +46,7 @@ export class HSLA {
     return this._a
   }
   set a(newA: number) {
-    this._a = enforceRange(newA, 0, 100)
+    this._a = enforceRange(newA, 0, hslaParamMaxValue.a)
   }
 
   constructor(h: number, s: number, l: number, a = 1) {
