@@ -1,12 +1,12 @@
-import type { NextPage } from 'next'
-import { DemoPage } from 'components/DemoPage'
-import { useState } from 'react'
-import { VStack } from 'lib/ui/Stack'
-import { ChecklistItem } from 'lib/ui/checklist/ChecklistItem'
-import { Opener } from 'lib/ui/Opener'
-import { AddChecklistItemPrompt } from 'lib/ui/checklist/AddChecklistItemPrompt'
-import { ChecklistItemForm } from 'lib/ui/checklist/ChecklistItemForm'
-import { updateAtIndex } from 'lib/shared/utils/updateAtIndex'
+import type { NextPage } from "next"
+import { DemoPage } from "components/DemoPage"
+import { useState } from "react"
+import { VStack } from "lib/ui/Stack"
+import { ChecklistItem } from "lib/ui/checklist/ChecklistItem"
+import { Opener } from "lib/ui/Opener"
+import { AddChecklistItemPrompt } from "lib/ui/checklist/AddChecklistItemPrompt"
+import { ChecklistItemForm } from "lib/ui/checklist/ChecklistItemForm"
+import { updateAtIndex } from "lib/shared/utils/updateAtIndex"
 
 interface Task {
   name: string
@@ -14,16 +14,16 @@ interface Task {
 }
 
 const defaultTasks: Task[] = [
-  { name: 'Go to the gym', isComplete: false },
-  { name: 'Buy groceries', isComplete: false },
-  { name: 'Walk the dog', isComplete: false },
+  { name: "Go to the gym", isComplete: false },
+  { name: "Buy groceries", isComplete: false },
+  { name: "Walk the dog", isComplete: false },
 ]
 
 const ChecklistPage: NextPage = () => {
   const [tasks, setTasks] = useState(defaultTasks)
 
   return (
-    <DemoPage title="Checklist">
+    <DemoPage youtubeVideoId="kQERG9bauxY" title="Checklist">
       <VStack gap={16}>
         {tasks.map(({ name, isComplete }, index) => (
           <ChecklistItem

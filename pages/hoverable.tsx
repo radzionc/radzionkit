@@ -5,7 +5,7 @@ import { Text } from "lib/ui/Text"
 
 const HoberablePage: NextPage = () => {
   return (
-    <DemoPage title="Hoverable">
+    <DemoPage youtubeVideoId="35XAA5Hgag0" title="Hoverable">
       <Hoverable>
         <Text weight="bold" color="primary">
           Hover me!
