@@ -11,7 +11,6 @@ import { centerContentCSS } from "lib/ui/utils/centerContentCSS"
 import { getCSSUnit } from "lib/ui/utils/getCSSUnit"
 import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS"
 import { interactiveCSS } from "lib/ui/utils/interactiveCSS"
-import { roundedCSS } from "lib/ui/utils/roundedCSS"
 import styled from "styled-components"
 
 export interface ColorParameterInputProps
@@ -34,7 +33,7 @@ const Control = styled.div<{ value: number }>`
   border-radius: 4px;
 `
 
-const Container = styled.div`
+const Container = styled.label`
   width: 100%;
   height: 40px;
   ${interactiveCSS};

@@ -5,10 +5,7 @@ import { generateLabelColorGetter } from "../colors/generateLabelColorGetter"
 
 const backgroundHue = 0
 const backgroundSaturation = 0
-
 const backgroundLightness = 10
-
-export const regularTextAlpha = 0.9
 
 export const darkTheme: DefaultTheme = {
   name: "dark",

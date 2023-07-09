@@ -34,8 +34,9 @@ interface PressTrackerProps {
 
 export const PressTracker = ({ render, onChange }: PressTrackerProps) => {
   const [container, setContainer] = useState<HTMLElement | null>(null)
-  const [position, setPosition] = useState<Point | null>(null)
   const box = useBoundingBox(container)
+
+  const [position, setPosition] = useState<Point | null>(null)
 
   const handleMove = useCallback(
     ({ x, y }: Point) => {
@@ -77,9 +78,8 @@ export const PressTracker = ({ render, onChange }: PressTrackerProps) => {
   const clearPosition = useCallback(() => {
     setPosition(null)
   }, [])
-  useEvent("mouseup", clearPosition)
-  useEvent("touchend", clearPosition)
-
+  useEvent("mouseup", position ? clearPosition : undefined)
+  useEvent("touchend", position ? clearPosition : undefined)
   useEvent("mousemove", position ? handleMouse : undefined)
   useEvent("touchmove", position ? handleTouch : undefined)
 
