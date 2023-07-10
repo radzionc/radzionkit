@@ -1,20 +1,19 @@
-import {
-  ReferenceType,
-} from '@floating-ui/react'
-import { ReactNode } from 'react'
-import styled from 'styled-components'
+import { ReferenceType } from "@floating-ui/react"
+import { ReactNode } from "react"
+import styled from "styled-components"
 
-import { HStack, VStack } from '../Stack'
-import { Text } from '../Text'
-import { CloseIconButton } from '../buttons/square/CloseIconButton'
-import { SeparatedByLine } from '../SeparatedByLine'
-import { PopoverPanel, PopoverPanelProps } from './PopoverPanel'
+import { HStack, VStack } from "../Stack"
+import { Text } from "../Text"
+import { SeparatedByLine } from "../SeparatedByLine"
+import { PopoverPanel, PopoverPanelProps } from "./PopoverPanel"
+import { CloseButton } from "../buttons/CloseButton"
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void
 }
 
-export interface PopoverMenuProps extends Pick<PopoverPanelProps, 'renderContent' | 'renderOpener'> {
+export interface PopoverMenuProps
+  extends Pick<PopoverPanelProps, "renderContent" | "renderOpener"> {
   title: ReactNode
 }
 
@@ -34,18 +33,19 @@ export const PopoverMenu = ({
   title,
 }: PopoverMenuProps) => {
   return (
-    <Container renderContent={({ onClose }) => (
-      <SeparatedByLine gap={12}>
-        <Header>
-          <Text weight="semibold" color="supporting" cropped>
-            {title}
-          </Text>
-          <CloseIconButton onClick={onClose} />
-        </Header>
-        <VStack>
-          {renderContent({ onClose })}
-        </VStack>
-      </SeparatedByLine>
-    )} renderOpener={renderOpener} />
+    <Container
+      renderContent={({ onClose }) => (
+        <SeparatedByLine gap={12}>
+          <Header>
+            <Text weight="semibold" color="supporting" cropped>
+              {title}
+            </Text>
+            <CloseButton onClick={onClose} />
+          </Header>
+          <VStack>{renderContent({ onClose })}</VStack>
+        </SeparatedByLine>
+      )}
+      renderOpener={renderOpener}
+    />
   )
 }

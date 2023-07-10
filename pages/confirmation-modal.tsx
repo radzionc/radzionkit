@@ -1,12 +1,12 @@
-import { DemoPage } from 'components/DemoPage'
-import { ConfirmationModal } from 'lib/ui/Modal/ConfirmationModal'
-import { Opener } from 'lib/ui/Opener'
-import { VStack } from 'lib/ui/Stack'
-import { Text } from 'lib/ui/Text'
-import { ShyTextButton } from 'lib/ui/buttons/ShyTextButton'
-import { IconButton } from 'lib/ui/buttons/square/IconButton'
-import { TrashBinIcon } from 'lib/ui/icons/TrashBinIcon'
-import type { NextPage } from 'next'
+import { DemoPage } from "components/DemoPage"
+import { ConfirmationModal } from "lib/ui/Modal/ConfirmationModal"
+import { Opener } from "lib/ui/Opener"
+import { VStack } from "lib/ui/Stack"
+import { Text } from "lib/ui/Text"
+import { ShyTextButton } from "lib/ui/buttons/ShyTextButton"
+import { IconButton } from "lib/ui/buttons/IconButton"
+import { TrashBinIcon } from "lib/ui/icons/TrashBinIcon"
+import type { NextPage } from "next"
 
 const ConfirmationModalPage: NextPage = () => {
   return (
@@ -21,24 +21,24 @@ const ConfirmationModalPage: NextPage = () => {
             onClose={onClose}
             confirmActionText="Delete"
             onConfirm={() => {
-              console.log('Delete project')
+              console.log("Delete project")
             }}
             renderContent={() => (
               <VStack gap={12}>
                 <Text color="supporting">
-                  Are you sure you want to delete{' '}
+                  Are you sure you want to delete{" "}
                   <Text as="span" color="regular">
                     Job?
-                  </Text>{' '}
+                  </Text>{" "}
                   This action will remove all the analytics related to the
                   project.
                 </Text>
                 <Text color="supporting">
                   To keep the data but hide the project from other parts of the
-                  app -{' '}
+                  app -{" "}
                   <ShyTextButton
                     onClick={() => {
-                      console.log('Make project inactive')
+                      console.log("Make project inactive")
                       onClose()
                     }}
                     text="make it inactive."

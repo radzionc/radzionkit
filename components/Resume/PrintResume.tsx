@@ -1,14 +1,14 @@
-import styled from 'styled-components'
-import { StickyIconButton } from 'lib/ui/buttons/square/StickyIconButton'
-import ReactToPrint from 'react-to-print'
-import { DownloadIcon } from 'lib/ui/icons/DonwloadIcon'
-import { ReactInstance } from 'react'
+import styled from "styled-components"
+import ReactToPrint from "react-to-print"
+import { DownloadIcon } from "lib/ui/icons/DonwloadIcon"
+import { ReactInstance } from "react"
+import { IconButton } from "lib/ui/buttons/IconButton"
 
 interface Props {
   renderContent: () => ReactInstance | null
 }
 
-const PrintButton = styled(StickyIconButton)`
+const PrintButton = styled(IconButton)`
   @media print {
     display: none;
   }

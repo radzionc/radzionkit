@@ -14,9 +14,9 @@ import {
   responsibilityMaxLength,
 } from "./jobApplicationForm"
 import { TrashIcon } from "lib/ui/icons/TrashIcon"
-import { IconButton } from "lib/ui/buttons/square/IconButton"
 import { Button } from "lib/ui/buttons/Button"
 import { getColor } from "lib/ui/theme/getters"
+import { IconButton } from "lib/ui/buttons/IconButton"
 
 export interface Props {
   form: UseFormReturn<JobApplicationFormShape, any>

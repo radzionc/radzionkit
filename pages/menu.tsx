@@ -1,6 +1,6 @@
 import type { NextPage } from "next"
 import { DemoPage } from "components/DemoPage"
-import { OpenMenuButton } from "lib/ui/buttons/square/OpenMenuButton"
+import { OpenMenuButton } from "lib/ui/buttons/OpenMenuButton"
 import { EditIcon } from "lib/ui/icons/EditIcon"
 import { MoonIcon } from "lib/ui/icons/MoonIcon"
 import { TrashBinIcon } from "lib/ui/icons/TrashBinIcon"

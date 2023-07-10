@@ -47,4 +47,5 @@ export enum Path {
   Spinner = "/spinner",
   Tag = "/tag",
   PressTracker = "/press-tracker",
+  IconButton = "/icon-button",
 }

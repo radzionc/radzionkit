@@ -9,11 +9,11 @@ import { BodyPortal } from "../BodyPortal"
 import { ScreenCover } from "../ScreenCover"
 import { Spacer } from "../Spacer"
 import { HStack, VStack } from "../Stack"
-import { CloseIconButton } from "../buttons/square/CloseIconButton"
 import { useIsScreenWidthLessThan } from "../hooks/useIsScreenWidthLessThan"
 import { getCSSUnit } from "../utils/getCSSUnit"
 import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
 import { roundedCSS } from "../utils/roundedCSS"
+import { CloseButton } from "../buttons/CloseButton"
 
 interface RenderContentParams {
   isFullScreen: boolean
@@ -164,7 +164,7 @@ export const Modal = ({
                 (hasCloseButton ? <Spacer width={32} /> : <div />)}
               {title && <ModalTitleText>{title}</ModalTitleText>}
               {hasCloseButton && (
-                <CloseIconButton size="l" onClick={() => onClose?.()} />
+                <CloseButton size="l" onClick={() => onClose?.()} />
               )}
             </HStack>
             {(title || hasCloseButton) && <Spacer height={20} />}

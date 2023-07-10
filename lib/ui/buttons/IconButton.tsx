@@ -1,12 +1,11 @@
 import { Ref, forwardRef } from "react"
 import styled, { css } from "styled-components"
-
-import { UnstyledButton } from "../UnstyledButton"
-import { defaultTransitionCSS } from "lib/ui/animations/transitions"
-import { HSLA } from "lib/ui/colors/HSLA"
-import { centerContentCSS } from "lib/ui/utils/centerContentCSS"
-import { getCSSUnit } from "lib/ui/utils/getCSSUnit"
-import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS"
+import { defaultTransitionCSS } from "../animations/transitions"
+import { HSLA } from "../colors/HSLA"
+import { centerContentCSS } from "../utils/centerContentCSS"
+import { getCSSUnit } from "../utils/getCSSUnit"
+import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
+import { UnstyledButton } from "./UnstyledButton"
 
 export const IconButtonSizes = ["xs", "s", "m", "l", "xl"] as const
 
