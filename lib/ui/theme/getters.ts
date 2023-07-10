@@ -12,8 +12,8 @@ export const getColor =
   ({ theme }: ThemeGetterParams) =>
     theme.colors[color].toCssValue()
 
-type BooleanMatcher = { true: string; false: string }
-type Matcher<T extends string | number | symbol> = { [key in T]: string }
+type BooleanMatcher = { true: ColorName; false: ColorName }
+type Matcher<T extends string | number | symbol> = { [key in T]: ColorName }
 type MatcherType<T> = Extract<T, "string" | "number" | "symbol">
 
 export const matchColor =
@@ -24,10 +24,16 @@ export const matchColor =
   (params: T) => {
     if (typeof params[variable] === "boolean") {
       const booleanMatcher = matcher as BooleanMatcher
-      return params[variable] ? booleanMatcher.true : booleanMatcher.false
+      const color = params[variable]
+        ? booleanMatcher.true
+        : booleanMatcher.false
+
+      return getColor(color)
     }
 
-    return (matcher as Matcher<MatcherType<U>>)[
+    const color = (matcher as Matcher<MatcherType<U>>)[
       params[variable] as unknown as MatcherType<U>
     ]
+
+    return getColor(color)
   }

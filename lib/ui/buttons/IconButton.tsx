@@ -6,17 +6,19 @@ import { centerContentCSS } from "../utils/centerContentCSS"
 import { getCSSUnit } from "../utils/getCSSUnit"
 import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
 import { UnstyledButton } from "./UnstyledButton"
+import { matchColor } from "../theme/getters"
 
-export const IconButtonSizes = ["xs", "s", "m", "l", "xl"] as const
+export const iconButtonSizes = ["s", "m", "l"] as const
+export type IconButtonSize = (typeof iconButtonSizes)[number]
 
-type IconButtonKind =
-  | "regular"
-  | "secondary"
-  | "alert"
-  | "minimalistic"
-  | "minimalisticSecondary"
-
-type IconButtonSize = (typeof IconButtonSizes)[number]
+export const iconButtonKinds = [
+  "regular",
+  "secondary",
+  "alert",
+  "minimalistic",
+  "minimalisticSecondary",
+] as const
+export type IconButtonKind = (typeof iconButtonKinds)[number]
 
 export interface IconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -38,11 +40,9 @@ export const IconButton = forwardRef(function IconButton(
 })
 
 const sizeRecord: Record<IconButtonSize, number> = {
-  xs: 18,
   s: 24,
   m: 32,
   l: 40,
-  xl: 48,
 }
 
 interface ContainerProps {
@@ -55,14 +55,14 @@ const Container = styled(UnstyledButton)<ContainerProps>`
   ${centerContentCSS};
   ${({ size }) => getSameDimensionsCSS(sizeRecord[size])};
 
-  color: ${({ kind, theme: { colors } }) =>
-    ({
-      minimalisticSecondary: colors.textSupporting,
-      minimalistic: colors.contrast,
-      regular: colors.contrast,
-      alert: colors.alert,
-      secondary: colors.textSupporting,
-    }[kind].toCssValue())};
+  color: ${matchColor("kind", {
+    minimalisticSecondary: "textSupporting",
+    minimalistic: "contrast",
+    regular: "contrast",
+    alert: "alert",
+    secondary: "textSupporting",
+  })};
+
   font-size: ${({ size }) => `calc(${getCSSUnit(sizeRecord[size] * 0.6)})`};
 
   border-radius: 8px;
