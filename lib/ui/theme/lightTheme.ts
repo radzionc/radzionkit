@@ -9,6 +9,9 @@ export const lightTheme: DefaultTheme = {
   name: "light",
   colors: {
     ...sharedColors,
+
+    success: new HSLA(137, 66, 36),
+
     foreground: new HSLA(60, 11, 98),
     background: new HSLA(0, 0, 100),
 
