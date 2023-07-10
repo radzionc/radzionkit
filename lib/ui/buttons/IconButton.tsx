@@ -1,23 +1,17 @@
 import { Ref, forwardRef } from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { defaultTransitionCSS } from "../animations/transitions"
-import { HSLA } from "../colors/HSLA"
 import { centerContentCSS } from "../utils/centerContentCSS"
 import { getCSSUnit } from "../utils/getCSSUnit"
 import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
 import { UnstyledButton } from "./UnstyledButton"
 import { matchColor } from "../theme/getters"
+import { match } from "lib/shared/utils/match"
 
 export const iconButtonSizes = ["s", "m", "l"] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]
 
-export const iconButtonKinds = [
-  "regular",
-  "secondary",
-  "alert",
-  "minimalistic",
-  "minimalisticSecondary",
-] as const
+export const iconButtonKinds = ["regular", "secondary", "alert"] as const
 export type IconButtonKind = (typeof iconButtonKinds)[number]
 
 export interface IconButtonProps
@@ -56,11 +50,9 @@ const Container = styled(UnstyledButton)<ContainerProps>`
   ${({ size }) => getSameDimensionsCSS(sizeRecord[size])};
 
   color: ${matchColor("kind", {
-    minimalisticSecondary: "textSupporting",
-    minimalistic: "contrast",
-    regular: "contrast",
+    regular: "text",
+    secondary: "text",
     alert: "alert",
-    secondary: "textSupporting",
   })};
 
   font-size: ${({ size }) => `calc(${getCSSUnit(sizeRecord[size] * 0.6)})`};
@@ -70,30 +62,24 @@ const Container = styled(UnstyledButton)<ContainerProps>`
   ${defaultTransitionCSS};
 
   background: ${({ kind, theme: { colors } }) =>
-    ({
-      minimalisticSecondary: new HSLA(0, 0, 0, 0),
-      minimalistic: new HSLA(0, 0, 0, 0),
-      regular: colors.mist,
-      secondary: colors.mist,
-
-      alert: colors.alert.getVariant({ a: (a) => a * 0.2 }),
-    }[kind].toCssValue())};
+    match(kind, {
+      regular: () => colors.mist,
+      secondary: () => colors.transparent,
+      alert: () => colors.alert.getVariant({ a: (a) => a * 0.12 }),
+    }).toCssValue()};
 
   :hover {
     background: ${({ kind, theme: { colors } }) =>
-      ({
-        minimalisticSecondary: colors.mist,
-        minimalistic: colors.mist,
-        regular: colors.mistExtra,
-        secondary: colors.mistExtra,
-        alert: colors.alert.getVariant({ a: (a) => a * 0.28 }),
-      }[kind].toCssValue())};
-    ${({ kind, theme }) =>
-      (kind === "secondary" || kind === "minimalisticSecondary") &&
-      css`
-         {
-          color: ${theme.colors.contrast.toCssValue()};
-        }
-      `};
+      match(kind, {
+        regular: () => colors.mist,
+        secondary: () => colors.mist,
+        alert: () => colors.alert.getVariant({ a: (a) => a * 0.24 }),
+      }).toCssValue()};
+
+    color: ${matchColor("kind", {
+      regular: "contrast",
+      secondary: "contrast",
+      alert: "alert",
+    })};
   }
 `
