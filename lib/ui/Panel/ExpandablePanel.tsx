@@ -2,7 +2,6 @@ import { useBoolean } from "lib/shared/hooks/useBoolean"
 import { ReactNode } from "react"
 import styled from "styled-components"
 import { defaultTransitionCSS } from "../animations/transitions"
-import { UnstyledButton } from "../buttons/UnstyledButton"
 import { ChevronDownIcon } from "../icons/ChevronDownIcon"
 import { HStack } from "../Stack"
 import { centerContentCSS } from "../utils/centerContentCSS"
@@ -30,7 +29,9 @@ const ExpandIconWrapper = styled.div<{ isExpanded: boolean }>`
   transform: rotateZ(${({ isExpanded }) => (isExpanded ? "-180deg" : "0deg")});
 `
 
-const Header = styled(UnstyledButton)`
+const Header = styled.div`
+  all: unset;
+  ${centerContentCSS};
   ${defaultTransitionCSS};
 
   :hover ${ExpandIconWrapper} {

@@ -1,38 +1,18 @@
-import { Ref, forwardRef } from "react"
+import { ComponentProps, Ref, forwardRef } from "react"
 import styled from "styled-components"
 import { defaultTransitionCSS } from "../animations/transitions"
 import { centerContentCSS } from "../utils/centerContentCSS"
 import { getCSSUnit } from "../utils/getCSSUnit"
 import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
-import { UnstyledButton } from "./UnstyledButton"
 import { matchColor } from "../theme/getters"
 import { match } from "lib/shared/utils/match"
+import { interactiveCSS } from "../utils/interactiveCSS"
 
 export const iconButtonSizes = ["s", "m", "l"] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]
 
 export const iconButtonKinds = ["regular", "secondary", "alert"] as const
 export type IconButtonKind = (typeof iconButtonKinds)[number]
-
-export interface IconButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  icon: React.ReactNode
-  size?: IconButtonSize
-  kind?: IconButtonKind
-  title: string
-  as?: "div" | "button"
-}
-
-export const IconButton = forwardRef(function IconButton(
-  { size = "m", kind = "regular", icon, ...rest }: IconButtonProps,
-  ref: Ref<HTMLButtonElement> | null
-) {
-  return (
-    <Container kind={kind} ref={ref} size={size} {...rest}>
-      {icon}
-    </Container>
-  )
-})
 
 const sizeRecord: Record<IconButtonSize, number> = {
   s: 24,
@@ -45,7 +25,9 @@ interface ContainerProps {
   kind: IconButtonKind
 }
 
-const Container = styled(UnstyledButton)<ContainerProps>`
+const Container = styled.button<ContainerProps>`
+  all: unset;
+  ${interactiveCSS};
   position: relative;
   ${centerContentCSS};
   ${({ size }) => getSameDimensionsCSS(sizeRecord[size])};
@@ -84,3 +66,21 @@ const Container = styled(UnstyledButton)<ContainerProps>`
     })};
   }
 `
+
+export interface IconButtonProps extends ComponentProps<typeof Container> {
+  icon: React.ReactNode
+  size?: IconButtonSize
+  kind?: IconButtonKind
+  title: string
+}
+
+export const IconButton = forwardRef(function IconButton(
+  { size = "m", kind = "regular", icon, ...rest }: IconButtonProps,
+  ref: Ref<HTMLButtonElement> | null
+) {
+  return (
+    <Container kind={kind} ref={ref} size={size} {...rest}>
+      {icon}
+    </Container>
+  )
+})

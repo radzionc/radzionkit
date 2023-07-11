@@ -11,10 +11,10 @@ import { OnHoverAction } from "lib/ui/OnHoverAction"
 import { IconButton } from "lib/ui/buttons/IconButton"
 import { Text } from "lib/ui/Text"
 import { centerContentCSS } from "lib/ui/utils/centerContentCSS"
-import { UnstyledButton } from "lib/ui/buttons/UnstyledButton"
 import { PauseIcon } from "lib/ui/icons/PauseIcon"
 import { PlayIcon } from "lib/ui/icons/PlayIcon"
 import { getColor } from "lib/ui/theme/getters"
+import { interactiveCSS } from "lib/ui/utils/interactiveCSS"
 
 const options = [
   "Lofi jazz study music",
@@ -58,7 +58,9 @@ const Identifier = styled.div`
   position: relative;
 `
 
-const Container = styled(UnstyledButton)`
+const Container = styled.button`
+  all: unset;
+  ${interactiveCSS};
   width: 100%;
   display: grid;
   grid-template-columns: 32px 1fr 32px;

@@ -7,11 +7,11 @@ import { Spinner } from "lib/ui/Spinner"
 import { getCSSUnit } from "lib/ui/utils/getCSSUnit"
 
 import { Tooltip } from "lib/ui/Tooltip"
-import { UnstyledButton } from "./UnstyledButton"
 import { match } from "lib/shared/utils/match"
 import { getColor } from "../theme/getters"
 import { CenterAbsolutely } from "../CenterAbsolutely"
 import { getHoverVariant } from "../colors/getHoverVariant"
+import { interactiveCSS } from "../utils/interactiveCSS"
 
 export const buttonSizes = ["xs", "s", "m", "l", "xl"] as const
 
@@ -39,7 +39,9 @@ interface ContainerProps {
   kind: ButtonKind
 }
 
-const Container = styled(UnstyledButton)<ContainerProps>`
+const Container = styled.button<ContainerProps>`
+  all: unset;
+  ${interactiveCSS};
   ${defaultTransitionCSS};
   ${centerContentCSS};
 

@@ -3,8 +3,8 @@ import styled from "styled-components"
 import { defaultTransitionCSS } from "../animations/transitions"
 import { Text } from "../Text"
 
-import { UnstyledButton } from "./UnstyledButton"
 import { getColor } from "../theme/getters"
+import { interactiveCSS } from "../utils/interactiveCSS"
 
 interface Props {
   onClick?: () => void
@@ -12,7 +12,9 @@ interface Props {
   as?: any
 }
 
-const Container = styled(UnstyledButton)`
+const Container = styled.button`
+  all: unset;
+  ${interactiveCSS};
   color: ${getColor("textSupporting")};
   ${defaultTransitionCSS};
 

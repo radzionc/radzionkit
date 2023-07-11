@@ -2,9 +2,9 @@ import styled from "styled-components"
 
 import { defaultTransitionCSS } from "./animations/transitions"
 import { ComponentWithChildrenProps } from "lib/shared/props"
-import { UnstyledButton } from "./buttons/UnstyledButton"
 import { getCSSUnit } from "./utils/getCSSUnit"
 import { getColor } from "./theme/getters"
+import { interactiveCSS } from "./utils/interactiveCSS"
 
 const Highlight = styled.div`
   position: absolute;
@@ -12,7 +12,9 @@ const Highlight = styled.div`
   border-radius: 8px;
 `
 
-const Container = styled(UnstyledButton)`
+const Container = styled.button`
+  all: unset;
+  ${interactiveCSS};
   position: relative;
 
   :hover ${Highlight} {
