@@ -13,7 +13,12 @@ const ConfirmationModalPage: NextPage = () => {
     <DemoPage title="Confirmation Modal" youtubeVideoId="S_i04MKYfxk">
       <Opener
         renderOpener={({ onOpen }) => (
-          <IconButton kind="alert" icon={<TrashBinIcon />} onClick={onOpen} />
+          <IconButton
+            title="Delete"
+            kind="alert"
+            icon={<TrashBinIcon />}
+            onClick={onOpen}
+          />
         )}
         renderContent={({ onClose }) => (
           <ConfirmationModal

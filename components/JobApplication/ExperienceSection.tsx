@@ -50,6 +50,7 @@ export const ExperienceSection = ({
                 <Text>{index + 1}</Text>
               </ExperienceNumber>
               <IconButton
+                title="Remove experience"
                 onClick={() => remove(index)}
                 kind="alert"
                 as="div"

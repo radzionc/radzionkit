@@ -111,6 +111,7 @@ const OnHoverActionPage: NextPage = () => {
                 actionPlacerStyles={{ right: 8 }}
                 action={
                   <IconButton
+                    title={isFavourite ? "Remove from favourites" : "Favourite"}
                     icon={star}
                     onClick={() => {
                       setFavourites(

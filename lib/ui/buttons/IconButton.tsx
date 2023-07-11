@@ -19,6 +19,7 @@ export interface IconButtonProps
   icon: React.ReactNode
   size?: IconButtonSize
   kind?: IconButtonKind
+  title: string
   as?: "div" | "button"
 }
 

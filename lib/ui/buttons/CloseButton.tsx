@@ -3,8 +3,8 @@ import { IconButton } from "./IconButton"
 import { CloseIcon } from "../icons/CloseIcon"
 
 export const CloseButton = forwardRef(function CloseButton(
-  props: Omit<ComponentProps<typeof IconButton>, "icon">,
+  props: Omit<ComponentProps<typeof IconButton>, "icon" | "title">,
   ref: Ref<HTMLButtonElement> | null
 ) {
-  return <IconButton ref={ref} {...props} icon={<CloseIcon />} />
+  return <IconButton title="Close" ref={ref} {...props} icon={<CloseIcon />} />
 })

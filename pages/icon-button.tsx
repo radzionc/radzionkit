@@ -17,14 +17,14 @@ const IconButtonPage: NextPage = () => {
         <TitledSection title="Button kinds">
           <HStack gap={40} wrap="wrap">
             {iconButtonKinds.map((kind) => (
-              <IconButton icon={icon} key={kind} kind={kind} />
+              <IconButton title="Settings" icon={icon} key={kind} kind={kind} />
             ))}
           </HStack>
         </TitledSection>
         <TitledSection title="Button sizes">
           <HStack alignItems="center" gap={20} wrap="wrap">
             {iconButtonSizes.map((size) => (
-              <IconButton icon={icon} key={size} size={size} />
+              <IconButton title="Settings" icon={icon} key={size} size={size} />
             ))}
           </HStack>
         </TitledSection>

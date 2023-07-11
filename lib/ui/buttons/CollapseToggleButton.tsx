@@ -7,7 +7,7 @@ import { IconButton } from "./IconButton"
 
 type CollapseToggleButtonProps = Omit<
   ComponentProps<typeof IconButton>,
-  "icon"
+  "icon" | "title"
 > & {
   isOpen: boolean
 }
@@ -29,6 +29,7 @@ export const CollapseToggleButton = forwardRef(
       <IconButton
         ref={ref}
         {...props}
+        title={isOpen ? "Collapse" : "Expand"}
         type="button"
         icon={
           <IconWrapper isOpen={isOpen}>

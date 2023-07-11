@@ -16,7 +16,7 @@ const PrintButton = styled(IconButton)`
 
 export const PrintResume = ({ renderContent }: Props) => (
   <ReactToPrint
-    trigger={() => <PrintButton icon={<DownloadIcon />} />}
+    trigger={() => <PrintButton title="Print" icon={<DownloadIcon />} />}
     content={renderContent}
   />
 )
