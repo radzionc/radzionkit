@@ -18,9 +18,10 @@ const TextPage: NextPage = () => {
 
         <Text weight="bold">Bold text</Text>
 
-        <Text color="supporting">Supporting text</Text>
-
-        <Text color="contrast">Contrast text</Text>
+        <Text color="contrast">Contrast</Text>
+        <Text color="contrast">Text</Text>
+        <Text color="supporting">Text Supporting</Text>
+        <Text color="shy">Text Shy</Text>
       </VStack>
     </DemoPage>
   )
