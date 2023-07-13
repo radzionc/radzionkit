@@ -3,8 +3,6 @@ import { HSLA } from "../colors/HSLA"
 export type ThemeColors = {
   primary: HSLA
 
-  attention: HSLA
-
   alert: HSLA
   idle: HSLA
   success: HSLA

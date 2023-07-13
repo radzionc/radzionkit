@@ -1,11 +1,11 @@
-import type { NextPage } from 'next'
-import styled, { useTheme } from 'styled-components'
-import { HSLA } from 'lib/ui/colors/HSLA'
+import type { NextPage } from "next"
+import styled, { useTheme } from "styled-components"
+import { HSLA } from "lib/ui/colors/HSLA"
 
-import { HStack, VStack } from 'lib/ui/Stack'
-import { getSameDimensionsCSS } from 'lib/ui/utils/getSameDimensionsCSS'
-import { DemoPage } from 'components/DemoPage'
-import { Panel } from 'lib/ui/Panel/Panel'
+import { HStack, VStack } from "lib/ui/Stack"
+import { getSameDimensionsCSS } from "lib/ui/utils/getSameDimensionsCSS"
+import { DemoPage } from "components/DemoPage"
+import { Panel } from "lib/ui/Panel/Panel"
 
 const Conent = styled(Panel)<{ $color: HSLA }>`
   ${getSameDimensionsCSS(80)};
@@ -27,10 +27,10 @@ const StacksPage: NextPage = () => {
         </Panel>
         <Panel>
           <VStack gap={20}>
-            <Conent $color={colors.attention} />
-            <Conent $color={colors.attention} />
-            <Conent $color={colors.attention} />
-            <Conent $color={colors.attention} />
+            <Conent $color={colors.alert} />
+            <Conent $color={colors.alert} />
+            <Conent $color={colors.alert} />
+            <Conent $color={colors.alert} />
           </VStack>
         </Panel>
       </VStack>

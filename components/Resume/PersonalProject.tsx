@@ -21,7 +21,7 @@ const Title = styled(Text)`
   line-height: 1.24;
 
   :hover {
-    color: ${getColor("attention")};
+    color: ${getColor("primary")};
   }
 `
 

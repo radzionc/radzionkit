@@ -13,7 +13,7 @@ const Container = styled(Panel)`
 `
 
 const Highlight = styled.div`
-  background: ${getColor("attention")};
+  background: ${getColor("primary")};
 `
 
 const PressTrackerPage: NextPage = () => {

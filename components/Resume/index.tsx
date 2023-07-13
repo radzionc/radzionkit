@@ -45,7 +45,7 @@ export const Resume = () => {
       <ExperienceList>
         <VStack gap={20}>
           <Text weight="bold">
-            <Text as="span" color="attention">
+            <Text as="span" color="primary">
               Web3
             </Text>{" "}
             <Text as="span" color="supporting">
@@ -125,7 +125,7 @@ export const Resume = () => {
       <ExperienceList style={{ flex: 1 }}>
         <VStack gap={20}>
           <Text weight="bold">
-            <Text as="span" color="attention">
+            <Text as="span" color="primary">
               Making
             </Text>{" "}
             Tools & Content

@@ -106,7 +106,7 @@ export const InteractivePromotion = ({
                 </Text>
                 <HStack gap={8} justifyContent="start">
                   <ExternalLink to={url}>
-                    <Button onClick={onAccept} kind="attention" as="div">
+                    <Button onClick={onAccept} kind="primary" as="div">
                       Yes!
                     </Button>
                   </ExternalLink>

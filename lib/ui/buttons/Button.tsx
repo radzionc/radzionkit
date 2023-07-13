@@ -21,7 +21,6 @@ export const buttonKinds = [
   "primary",
   "secondary",
   "reversed",
-  "attention",
   "alert",
   "outlined",
   "outlinedAlert",
@@ -95,10 +94,6 @@ const Container = styled.button<ContainerProps>`
         background: ${getColor("contrast")};
         color: ${getColor("background")};
       `,
-      attention: () => css`
-        background: ${getColor("attention")};
-        color: ${getColor("white")};
-      `,
       alert: () => css`
         background: ${getColor("alert")};
         color: ${getColor("white")};
@@ -134,10 +129,6 @@ const Container = styled.button<ContainerProps>`
           `,
           reversed: () => css`
             background: ${getColor("text")};
-          `,
-          attention: () => css`
-            background: ${({ theme }) =>
-              getHoverVariant(theme.colors.attention).toCssValue()};
           `,
           alert: () => css`
             background: ${({ theme }) =>
