@@ -1,14 +1,14 @@
-import { GitHubIcon } from 'lib/ui/icons/GitHubIcon'
-import { MailIcon } from 'lib/ui/icons/MailIcon'
-import { TelegramIcon } from 'lib/ui/icons/TelegramIcon'
-import { TwitterIcon } from 'lib/ui/icons/TwitterIcon'
-import { HStack } from 'lib/ui/Stack'
-import { ResumeFooterLink } from './ResumeFooterLink'
+import { GitHubIcon } from "lib/ui/icons/GitHubIcon"
+import { MailIcon } from "lib/ui/icons/MailIcon"
+import { TelegramIcon } from "lib/ui/icons/TelegramIcon"
+import { TwitterIcon } from "lib/ui/icons/TwitterIcon"
+import { HStack } from "lib/ui/Stack"
+import { ResumeFooterLink } from "./ResumeFooterLink"
 
-const email = 'radzionchachura@gmail.com'
-const twitterHandle = 'radzionchachura'
-const githubHandle = 'RodionChachura'
-const telegramHandle = 'radzionchachura'
+const email = "radzionchachura@gmail.com"
+const twitterHandle = "radzionchachura"
+const githubHandle = "radzionc"
+const telegramHandle = "radzionchachura"
 
 export const ResumeFooter = () => (
   <HStack alignItems="center" gap={40}>

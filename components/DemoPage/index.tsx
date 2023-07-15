@@ -30,7 +30,7 @@ export const DemoPage = ({
             {title}
           </Text>
           <SourceCodeLink
-            to={`https://github.com/RodionChachura/reactkit/blob/main/pages${pathname}.tsx`}
+            to={`https://github.com/radzionc/reactkit/blob/main/pages${pathname}.tsx`}
           />
           {youtubeVideoId && <YouTubeLink videoId={youtubeVideoId} />}
         </HStack>
