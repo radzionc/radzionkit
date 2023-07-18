@@ -49,25 +49,56 @@ Add `baseUrl` to `tsconfig.json`
 }
 ```
 
-### 3. Add Prettier
+### 3. Add Prettier & Eslint
 
 ```sh
-yarn add --dev husky lint-staged prettier
+yarn add --dev husky lint-staged prettier eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
 ```
 
-Add to package.json
+Add to package.json:
 
 ```json
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write --single-quote --no-semi"
-    ]
   }
+```
+
+Create .prettierrc file:
+
+```json
+{
+  "singleQuote": true,
+  "semi": false
+}
+```
+
+Create .lintstagedrc file:
+
+```json
+{
+  "*.{js,jsx,ts,tsx}": ["prettier --write", "git add"]
+}
+```
+
+Create .eslintrc file:
+
+```json
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {}
+}
 ```
 
 ### 4. Add Sentry

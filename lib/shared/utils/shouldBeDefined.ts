@@ -1,6 +1,6 @@
-export function assertDefined<T>(
+export function shouldBeDefined<T>(
   value: T | undefined | null,
-  name = 'value'
+  name = "value"
 ): T {
   if (value === undefined || value === null) {
     throw new Error(`${name} is ${value}`)

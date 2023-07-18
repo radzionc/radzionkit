@@ -14,11 +14,12 @@ const getTextColorRecord = ({ colors }: DefaultTheme) =>
     contrast: colors.contrast,
   } as const)
 
-type TextWeight = "regular" | "semibold" | "bold"
+type TextWeight = "regular" | "semibold" | "bold" | "extraBold"
 const fontWeight: Record<TextWeight, number> = {
   regular: 400,
   semibold: 500,
   bold: 600,
+  extraBold: 800,
 }
 
 type TextHeight = "small" | "regular" | "large"

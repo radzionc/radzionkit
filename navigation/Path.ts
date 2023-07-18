@@ -48,4 +48,5 @@ export enum Path {
   Tag = "/tag",
   PressTracker = "/press-tracker",
   IconButton = "/icon-button",
+  ImageBanner = "/image-banner",
 }

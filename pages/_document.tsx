@@ -4,8 +4,8 @@ import Document, {
   Main,
   NextScript,
   DocumentContext,
-} from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+} from "next/document"
+import { ServerStyleSheet } from "styled-components"
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -34,7 +34,7 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap"
           />
         </Head>
         <body>
