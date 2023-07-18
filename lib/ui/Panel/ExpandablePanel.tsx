@@ -9,6 +9,7 @@ import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
 import { roundedCSS } from "../utils/roundedCSS"
 import { Panel, PanelProps } from "./Panel"
 import { getColor } from "../theme/getters"
+import { interactiveCSS } from "../utils/interactiveCSS"
 
 interface ExpandableProps extends PanelProps {
   header: ReactNode
@@ -30,7 +31,7 @@ const ExpandIconWrapper = styled.div<{ isExpanded: boolean }>`
 `
 
 const Header = styled.div`
-  all: unset;
+  ${interactiveCSS};
   ${centerContentCSS};
   ${defaultTransitionCSS};
 
