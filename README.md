@@ -1,4 +1,18 @@
-# How to use ReactKit in your project
+# ReactKit
+
+ReactKit is an ultimate component system with the following benefits:
+
+- lots of abstract building blocks for faster development
+- a vast range of beautiful components
+- minimalistic color system
+- dark and light themes
+- you have complete control over the code
+
+You can see all the components in action at [reactkit.radzion.com](https://reactkit.radzion.com). There is also a [YouTube channel](https://www.youtube.com/@radzion), covering almost every piece of code in ReactKit, explaining implementation and reasoning behind it.
+
+## How to add ReactKit to your project
+
+ReactKit is not a library, but a collection of amazing tools like components, hooks, and utilities. You can use them in your project by copying the code to your project. This way you have complete control over the code and can easily customize it to your needs.
 
 ### 1. Copy lib folder to your project
 
@@ -27,190 +41,4 @@ export const App = () => {
     </ThemeProvider>
   )
 }
-```
-
-# How I setup a regular SPA
-
-### 1. Create a new React app with TypeScript template
-
-```sh
-yarn create react-app {app_name} --template typescript
-```
-
-### 2. Setup tsconfig to use absolute imports
-
-Add `baseUrl` to `tsconfig.json`
-
-```json
-{
-  "compilerOptions": {
-    "baseUrl": "src"
-  }
-}
-```
-
-### 3. Add Prettier & Eslint
-
-```sh
-yarn add --dev husky lint-staged prettier eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
-```
-
-Add to package.json:
-
-```json
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  }
-```
-
-Create .prettierrc file:
-
-```json
-{
-  "singleQuote": true,
-  "semi": false
-}
-```
-
-Create .lintstagedrc file:
-
-```json
-{
-  "*.{js,jsx,ts,tsx}": ["prettier --write", "git add"]
-}
-```
-
-Create .eslintrc file:
-
-```json
-{
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": ["@typescript-eslint"],
-  "rules": {}
-}
-```
-
-### 4. Add Sentry
-
-1. Install dependencies
-
-```sh
-yarn add @sentry/react @sentry/integrations
-```
-
-2. Provide env variable for Sentry key during deployment
-
-```sh
-export REACT_APP_SENTRY_KEY=your_key
-```
-
-3. Provide version for Sentry during deployment
-
-An option could be to modify these scripts in package.json
-
-```json
-  "scripts": {
-    "start": "REACT_APP_VERSION=$npm_package_version react-scripts start",
-    "build": "REACT_APP_VERSION=$npm_package_version react-scripts build"
-  },
-```
-
-5. Create the `shared` directory
-
-6. Add a file `shared/assertEnvVar.ts` with the following content
-
-````ts
-type VariableName =
-  | 'SENTRY_KEY'
-  | 'VERSION'
-
-export const assertEnvVar = (name: VariableName): string => {
-  const envVarName = `REACT_APP_${name}`
-  const value = process.env[envVarName]
-  if (!value) {
-    throw new Error(`Missing ${envVarName} environment variable`)
-  }
-
-  return value
-}
-```
-
-7. Add a file `shared/index.ts` with the following content
-
-```ts
-export const isProduction = process.env.NODE_ENV === 'production'
-```
-
-8. Create the `errors` directory
-
-9. Add a file `errors/errorMonitoring.ts` with the following content
-
-```ts
-import { ExtraErrorData as ExtraErrorDataIntegration } from "@sentry/integrations"
-import * as Sentry from "@sentry/react"
-import { isProduction } from "shared"
-import { assertEnvVar } from "shared/assertEnvVar"
-
-export const setupErrorMonitoring = () => {
-  if (!isProduction) return
-
-  Sentry.init({
-    ignoreErrors: [
-      "ResizeObserver loop limit exceeded",
-      "ResizeObserver loop completed with undelivered notifications.",
-      "$ is not defined",
-      "window.fetch is not a function",
-    ],
-    dsn: assertEnvVar("SENTRY_KEY"),
-    integrations: [new ExtraErrorDataIntegration({ depth: 10 })],
-    tracesSampleRate: 1.0,
-  })
-
-  Sentry.configureScope((scope) =>
-    scope.setTag("version", assertEnvVar("VERSION"))
-  )
-}
-
-export const setUserIdForErrorMonitoring = (userId: string) => {
-  if (!isProduction) return
-
-  Sentry.configureScope((scope) => {
-    scope.setUser({ id: userId })
-  })
-}
-
-export const reportError = (error: any, extra: Record<string, string> = {}) => {
-  console.log("reportError", error, extra)
-  Sentry.withScope((scope) => {
-    Object.entries(extra).forEach(([key, value]) => {
-      scope.setExtra(key, value)
-    })
-    Sentry.captureException(error)
-  })
-}
-````
-
-10. Call `setupErrorMonitoring()` before `App` declaration.
-
-### 4. Setup Icon-related assets
-
-1. Put icon.svg at the root of the project
-
-2. Use pwa-asset-generator to generate icons
-
-```sh
-npx pwa-asset-generator icon.svg ./public --manifest ./public/manifest.json --index ./public/index.html --opaque false --icon-only --favicon --type png
-npx pwa-asset-generator icon.svg ./public --manifest ./public/manifest.json --index ./public/index.html --background "#ffffff" --icon-only
-npx pwa-asset-generator icon.svg ./assets --manifest ./public/manifest.json --index ./public/index.html --dark-mode --background 	"#1a1a1a" --splash-only
 ```
