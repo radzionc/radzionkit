@@ -1,6 +1,5 @@
 import type { NextPage } from "next"
 import { DemoPage } from "components/DemoPage"
-import { Text } from "lib/ui/Text"
 import { HStack } from "lib/ui/Stack"
 import { Tag } from "lib/ui/Tag"
 import { useTheme } from "styled-components"

@@ -33,6 +33,7 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.Confetti} name="Confetti" />
     <NavigationToInternalPage path={Path.GridTable} name="CSS Grid Table" />
     <NavigationToInternalPage path={Path.PressTracker} name="Press Tracker" />
+    <NavigationToInternalPage path={Path.NestedFilter} name="Nested Filter" />
     <NavigationToInternalPage
       path={Path.SeparatedByLine}
       name="Separated By Line"

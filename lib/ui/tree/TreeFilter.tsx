@@ -1,18 +1,34 @@
-import { Fragment } from "react"
-
-import { TreeFilterNode } from "./TreeFilterNode"
-import { areEqual } from "lib/shared/utils/areEqual"
+import { handleWithStopPropagation } from "lib/shared/events"
 import { InputProps } from "lib/shared/props"
 import { TreeNode } from "lib/shared/utils/tree"
-import { ConditionalWrapper } from "../ConditionalWrapper"
-import { SameWidthChildrenRow } from "../Layout/SameWidthChildrenRow"
+import { useState, Fragment } from "react"
+import styled, { useTheme } from "styled-components"
+import { Circle } from "../Circle"
 import { NonEmptyOnly } from "../NonEmptyOnly"
-import { VStack } from "../Stack"
+import { VStack, HStack } from "../Stack"
+import { defaultTransitionCSS } from "../animations/transitions"
+import { getVerticalPaddingCSS } from "../utils/getVerticalPaddingCSS"
+import { Text } from "../Text"
 
 interface TreeFilterProps<T> extends InputProps<number[]> {
   tree: TreeNode<T>
   renderName: (value: T) => string
 }
+
+const Content = styled(VStack)`
+  margin-left: 20px;
+`
+
+const Container = styled(VStack)`
+  cursor: pointer;
+`
+
+const Item = styled(HStack)`
+  ${getVerticalPaddingCSS(4)}
+  align-items: center;
+  gap: 8px;
+  ${defaultTransitionCSS}
+`
 
 export function TreeFilter<T>({
   tree,
@@ -20,39 +36,55 @@ export function TreeFilter<T>({
   value,
   onChange,
 }: TreeFilterProps<T>) {
+  const [hovered, setHovered] = useState<number[] | undefined>()
+
+  const { colors } = useTheme()
+
   const recursiveRender = (node: TreeNode<T>, path: number[]) => {
+    const isSelected = value.every((v, i) => v === path[i])
+
+    let color = isSelected ? colors.text : colors.textShy
+    if (hovered) {
+      const isHovered = hovered.every((v, i) => v === path[i])
+      color = isHovered ? colors.text : colors.textShy
+    }
+
     return (
-      <TreeFilterNode
-        onSelect={() => onChange(path)}
-        name={renderName(node.value)}
-        isSelected={areEqual(path, value)}
+      <Container
+        onClick={handleWithStopPropagation(() => onChange(path))}
+        onMouseEnter={() => setHovered(path)}
+        onMouseLeave={() => {
+          setHovered(
+            path.length === 0 ? undefined : path.slice(0, path.length - 1)
+          )
+        }}
       >
+        <Item
+          style={{
+            color: color.toCssValue(),
+          }}
+        >
+          <Circle
+            size={8}
+            background={isSelected ? colors.primary : colors.transparent}
+          />
+          <Text weight="bold">{renderName(node.value)}</Text>
+        </Item>
         <NonEmptyOnly
           array={node.children}
-          render={() => (
-            <ConditionalWrapper
-              content={node.children.map((child, index) => (
+          render={(items) => (
+            <Content>
+              {items.map((child, index) => (
                 <Fragment key={index}>
                   {recursiveRender(child, [...path, index])}
                 </Fragment>
               ))}
-              condition={path.length % 2 === 1}
-              true={(content) => (
-                <VStack fullWidth gap={8}>
-                  {content}
-                </VStack>
-              )}
-              false={(content) => (
-                <SameWidthChildrenRow fullWidth gap={8}>
-                  {content}
-                </SameWidthChildrenRow>
-              )}
-            />
+            </Content>
           )}
         />
-      </TreeFilterNode>
+      </Container>
     )
   }
 
-  return recursiveRender(tree, [])
+  return <>{recursiveRender(tree, [])}</>
 }

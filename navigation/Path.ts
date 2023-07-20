@@ -49,4 +49,5 @@ export enum Path {
   PressTracker = "/press-tracker",
   IconButton = "/icon-button",
   ImageBanner = "/image-banner",
+  NestedFilter = "/nested-filter",
 }
