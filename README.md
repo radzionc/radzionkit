@@ -8,7 +8,7 @@ ReactKit is an ultimate component system with the following benefits:
 - dark and light themes
 - you have complete control over the code
 
-You can see all the components in action at [reactkit.radzion.com](https://reactkit.radzion.com). There is also a [YouTube channel](https://www.youtube.com/@radzion), covering almost every piece of code in ReactKit, explaining implementation and reasoning behind it.
+You can see all the components in action at [reactkit.radzion.com](https://reactkit.radzion.com). There is also a [YouTube channel](https://www.youtube.com/@radzion), covering almost every piece of ReactKit, explaining implementation and reasoning behind it.
 
 ## How to add ReactKit to your project
 

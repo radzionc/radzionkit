@@ -5,3 +5,10 @@ export const croppedTextCSS = css`
   overflow: hidden;
   text-overflow: ellipsis;
 `
+
+export const getCroppedTextCSS = (maxLines: number) => css`
+  display: -webkit-box;
+  -webkit-line-clamp: ${maxLines};
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+`
