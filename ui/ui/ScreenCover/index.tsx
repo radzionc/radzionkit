@@ -1,10 +1,8 @@
 import { ComponentProps } from 'react'
-import {
-  handleWithStopPropagation,
-  handleWithStopPropagationAndPreventDefault,
-} from 'shared/events'
+
 import styled, { css } from 'styled-components'
-import { zIndex } from 'ui/zIndex'
+import { handleWithStopPropagation, handleWithStopPropagationAndPreventDefault } from '../../shared/events'
+import { zIndex } from '../zIndex'
 
 const Container = styled.div<{ isBlurred?: boolean }>`
   position: fixed;

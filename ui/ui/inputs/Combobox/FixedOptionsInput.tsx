@@ -9,18 +9,18 @@ import {
   useState,
 } from "react"
 import { usePrevious } from "react-use"
-import { useBoolean } from "shared/hooks/useBoolean"
 import styled from "styled-components"
-import { useKeyPress } from "shared/hooks/useKeyPress"
 
 import { InputWrapperWithErrorMessage } from "../InputWrapper"
 import { TextInputContainer, TextInputLoader } from "../TextInput"
 import { ComboboxOptions } from "./ComboboxOptions"
 import { DropdownMenuPlacer } from "./DropdownMenuPlacer"
-import { Text } from "ui/Text"
 import { defaultInputShapeCSS } from "../config"
-import { getColor } from "ui/theme/getters"
-import { CollapseToggleButton } from "ui/buttons/CollapseToggleButton"
+import { CollapseToggleButton } from "../../buttons/CollapseToggleButton"
+import { getColor } from "../../theme/getters"
+import { useBoolean } from "../../../shared/hooks/useBoolean"
+import { useKeyPress } from "../../../shared/hooks/useKeyPress"
+import { Text } from "../../Text"
 
 interface Props<T> {
   label: React.ReactNode

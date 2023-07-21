@@ -1,6 +1,6 @@
 import 'styled-components'
 
-import { ThemeColors } from 'ui/theme/ThemeColors'
+import { ThemeColors } from './ThemeColors'
 
 import { ThemeName } from './ThemeName'
 import { ThemeShadows } from './ThemeShadows'

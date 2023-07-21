@@ -1,9 +1,9 @@
 import styled from "styled-components"
-import { defaultTransitionCSS } from "ui/animations/transitions"
-import { ChevronDownIcon } from "ui/icons/ChevronDownIcon"
 import { ComponentProps, Ref, forwardRef } from "react"
 
 import { IconButton } from "./IconButton"
+import { defaultTransitionCSS } from "../animations/transitions"
+import { ChevronDownIcon } from "../icons/ChevronDownIcon"
 
 type CollapseToggleButtonProps = Omit<
   ComponentProps<typeof IconButton>,

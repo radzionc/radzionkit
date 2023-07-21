@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import { inputBackgroundCSS, inputBorderRadiusCSS } from "ui/inputs/config"
-import { HStack } from "ui/Stack"
-import { Text } from "ui/Text"
 import { Button } from "../buttons/Button"
+import { HStack } from "../Stack"
+import { inputBackgroundCSS, inputBorderRadiusCSS } from "./config"
+import { Text } from "../Text"
 
 interface Props {
   name: string

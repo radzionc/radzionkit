@@ -1,4 +1,4 @@
-import { OnValueChangeListener } from 'state/PersistentStorage'
+import { OnValueChangeListener } from './PersistentStorage'
 import { useCallback, useEffect, useState } from 'react'
 import { PersistentStorage } from './PersistentStorage'
 

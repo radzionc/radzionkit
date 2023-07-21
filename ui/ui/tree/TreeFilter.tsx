@@ -1,6 +1,4 @@
-import { handleWithStopPropagation } from "shared/events"
-import { InputProps } from "shared/props"
-import { TreeNode } from "shared/utils/tree"
+
 import { useState, Fragment } from "react"
 import styled, { useTheme } from "styled-components"
 import { Circle } from "../Circle"
@@ -9,6 +7,9 @@ import { VStack, HStack } from "../Stack"
 import { defaultTransitionCSS } from "../animations/transitions"
 import { getVerticalPaddingCSS } from "../utils/getVerticalPaddingCSS"
 import { Text } from "../Text"
+import { handleWithStopPropagation } from "../../shared/events"
+import { InputProps } from "../../shared/props"
+import { TreeNode } from "../../shared/utils/tree"
 
 interface TreeFilterProps<T> extends InputProps<number[]> {
   tree: TreeNode<T>

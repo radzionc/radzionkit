@@ -1,17 +1,14 @@
 import { ReactNode } from "react"
 import styled, { css } from "styled-components"
-import { defaultTransitionCSS } from "ui/animations/transitions"
-import { CheckIcon } from "ui/icons/CheckIcon"
-import { HStack } from "ui/Stack"
-import { Text } from "ui/Text"
-import { centerContentCSS } from "ui/utils/centerContentCSS"
-import { getSameDimensionsCSS } from "ui/utils/getSameDimensionsCSS"
+import { HStack } from "../../Stack"
+import { defaultTransitionCSS } from "../../animations/transitions"
+import { CheckIcon } from "../../icons/CheckIcon"
+import { getColor } from "../../theme/getters"
+import { centerContentCSS } from "../../utils/centerContentCSS"
+import { getSameDimensionsCSS } from "../../utils/getSameDimensionsCSS"
+import { InvisibleHTMLCheckboxProps, InvisibleHTMLCheckbox } from "./InvisibleHTMLCheckbox"
+import { Text } from "../../Text"
 
-import {
-  InvisibleHTMLCheckbox,
-  InvisibleHTMLCheckboxProps,
-} from "./InvisibleHTMLCheckbox"
-import { getColor } from "ui/theme/getters"
 
 interface CheckboxProps extends InvisibleHTMLCheckboxProps {
   label?: ReactNode

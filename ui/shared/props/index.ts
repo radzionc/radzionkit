@@ -1,4 +1,4 @@
-import { HSLA } from 'ui/colors/HSLA'
+import { HSLA } from '../../ui/colors/HSLA'
 import { ReactNode } from 'react'
 
 export type ClosableComponentProps = {

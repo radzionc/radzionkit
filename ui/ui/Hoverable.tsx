@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
 import { defaultTransitionCSS } from "./animations/transitions"
-import { ComponentWithChildrenProps } from "shared/props"
 import { getCSSUnit } from "./utils/getCSSUnit"
 import { getColor } from "./theme/getters"
 import { interactiveCSS } from "./utils/interactiveCSS"
+import { ComponentWithChildrenProps } from "../shared/props"
 
 const Highlight = styled.div`
   position: absolute;

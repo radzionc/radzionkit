@@ -5,6 +5,6 @@ export class MockStorage<T extends string> implements PersistentStorage<T> {
     return undefined
   }
   setItem() {}
-  addValueChangeListener<V>(): void {}
-  removeValueChangeListener<T>(): void {}
+  addValueChangeListener(): void {}
+  removeValueChangeListener(): void {}
 }

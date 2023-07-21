@@ -1,7 +1,7 @@
 import { css } from "styled-components"
-import { defaultTransitionCSS } from "ui/animations/transitions"
 import { defaultInputShapeCSS } from "./config"
 import { getColor } from "../theme/getters"
+import { defaultTransitionCSS } from "../animations/transitions"
 
 interface CommonInputCSSProps {
   isValid: boolean

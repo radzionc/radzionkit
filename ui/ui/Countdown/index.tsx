@@ -1,21 +1,17 @@
-import { useRhythmicRerender } from 'ui/hooks/useRhythmicRerender'
-import {
-  millisecondsInHour,
-  millisecondsInMinute,
-  millisecondsInSecond,
-} from 'date-fns'
-import { HStack, VStack } from 'ui/Stack'
-import { CountdownPart } from './CountdownPart'
-import { Text } from 'ui/Text'
-import { capitalizeFirstLetter } from 'shared/utils/capitalizeFirstLetter'
+import { capitalizeFirstLetter } from "../../shared/utils/capitalizeFirstLetter"
+import { HStack, VStack } from "../Stack"
+import { useRhythmicRerender } from "../hooks/useRhythmicRerender"
+import { CountdownPart } from "./CountdownPart"
+import { Text } from "../Text"
+import { MS_IN_HOUR, MS_IN_MIN, MS_IN_SEC } from "../../shared/utils/time"
 
 const countdownUnits = ['days', 'hours', 'minutes', 'seconds'] as const
 type CountdownUnit = (typeof countdownUnits)[number]
 const msInUnit: Record<CountdownUnit, number> = {
-  days: millisecondsInHour * 24,
-  hours: millisecondsInHour,
-  minutes: millisecondsInMinute,
-  seconds: millisecondsInSecond,
+  days: MS_IN_HOUR * 24,
+  hours: MS_IN_HOUR,
+  minutes: MS_IN_MIN,
+  seconds: MS_IN_SEC,
 }
 
 interface Props {

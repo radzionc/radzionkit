@@ -1,17 +1,16 @@
 import styled, { css } from "styled-components"
-import { defaultTransitionCSS } from "ui/animations/transitions"
-import { centerContentCSS } from "ui/utils/centerContentCSS"
-import { getHorizontalPaddingCSS } from "ui/utils/getHorizontalPaddingCSS"
-import { Spinner } from "ui/Spinner"
 
-import { getCSSUnit } from "ui/utils/getCSSUnit"
-
-import { Tooltip } from "ui/Tooltip"
-import { match } from "shared/utils/match"
 import { getColor } from "../theme/getters"
 import { CenterAbsolutely } from "../CenterAbsolutely"
 import { getHoverVariant } from "../colors/getHoverVariant"
 import { interactiveCSS } from "../utils/interactiveCSS"
+import { match } from "../../shared/utils/match"
+import { Spinner } from "../Spinner"
+import { Tooltip } from "../Tooltip"
+import { defaultTransitionCSS } from "../animations/transitions"
+import { centerContentCSS } from "../utils/centerContentCSS"
+import { getCSSUnit } from "../utils/getCSSUnit"
+import { getHorizontalPaddingCSS } from "../utils/getHorizontalPaddingCSS"
 
 export const buttonSizes = ["xs", "s", "m", "l", "xl"] as const
 

@@ -75,7 +75,5 @@ export const NavigationItems = () => (
     />
 
     <NavigationToInternalPage path={Path.Promotion} name="Promotion" />
-    <NavigationToInternalPage path={Path.Nfts} name="Wallet's NFTs" />
-    <NavigationToInternalPage path={Path.IPFS} name="Upload to IPFS" />
   </VStack>
 )

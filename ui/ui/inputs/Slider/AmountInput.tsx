@@ -1,10 +1,10 @@
-import { Panel } from 'ui/Panel/Panel'
-import { Text } from 'ui/Text'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Slider, SliderProps } from '.'
 
 import { InputWrapperWithErrorMessage } from '../InputWrapper'
+import { Panel } from '../../Panel/Panel'
+import { Text } from '../../Text'
 
 interface Props extends SliderProps {
   label: ReactNode

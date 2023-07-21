@@ -1,7 +1,6 @@
-import { degreesInCircle } from 'shared/utils/degreesToRadians'
-import { getPointOnCircle } from 'shared/utils/getPointOnCircle'
-import { toPercents } from 'shared/utils/toPercents'
 import styled from 'styled-components'
+import { degreesInCircle } from '../../shared/utils/degreesToRadians'
+import { getPointOnCircle } from '../../shared/utils/getPointOnCircle'
 
 interface Props {
   startAngle: number

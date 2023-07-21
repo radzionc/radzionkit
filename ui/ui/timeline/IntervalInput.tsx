@@ -1,6 +1,3 @@
-import { millisecondsInHour, millisecondsInMinute } from 'date-fns'
-import { Interval } from 'entities/Interval'
-import { enforceRange } from 'shared/utils/enforceRange'
 import {
   MouseEventHandler,
   ReactNode,
@@ -22,7 +19,10 @@ import { HourSpace } from './HourSpace'
 import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
 import { IntervalRect } from './IntervalRect'
 import { MaxIntervalEndBoundary } from './MaxIntervalEndBoundary'
-import { formatDuration } from 'shared/utils/formatDuration'
+import { enforceRange } from '../../shared/utils/enforceRange'
+import { Interval} from '../../entities/Interval'
+import { formatDuration } from '../../shared/utils/formatDuration'
+import { MS_IN_HOUR, MS_IN_MIN } from '../../shared/utils/time'
 
 interface RenderContentParams {
   pxInMs: number
@@ -85,19 +85,19 @@ export const IntervalInput = ({
   endHour,
   startHour,
   renderContent,
-  minDuration = defaultMinDurationInMin * millisecondsInMinute,
+  minDuration = defaultMinDurationInMin * MS_IN_MIN,
   maxIntervalEnd: optionalMaxIntervalEnd,
 }: IntervalInputProps) => {
   const hoursCount = endHour - startHour
 
   const maxIntervalEnd =
-    optionalMaxIntervalEnd ?? startOfDay + millisecondsInHour * endHour
+    optionalMaxIntervalEnd ?? startOfDay + MS_IN_HOUR * endHour
 
-  const minIntervalStart = startOfDay + millisecondsInHour * startHour
+  const minIntervalStart = startOfDay + MS_IN_HOUR * startHour
   const timelineStart = minIntervalStart
 
   const height = hoursCount * pxInHour
-  const pxInMs = height / (hoursCount * millisecondsInHour)
+  const pxInMs = height / (hoursCount * MS_IN_HOUR)
 
   const [activeControl, setActiveControl] =
     useState<IntervalEditorControl | null>(null)
@@ -183,7 +183,7 @@ export const IntervalInput = ({
     >
       <HourSpace
         formatHour={(hour) => {
-          const date = new Date(startOfDay + hour * millisecondsInHour)
+          const date = new Date(startOfDay + hour * MS_IN_HOUR)
           return date.toLocaleString(undefined, { hour: 'numeric' })
         }}
         start={startHour}

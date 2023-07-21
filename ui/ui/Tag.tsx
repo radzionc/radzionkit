@@ -2,7 +2,7 @@ import styled, { css } from "styled-components"
 
 import { HSLA } from "./colors/HSLA"
 import { Text } from "./Text"
-import { match } from "shared/utils/match"
+import { match } from "../shared/utils/match"
 
 export const Tag = styled(Text)<{ $color: HSLA }>`
   border-radius: 8px;

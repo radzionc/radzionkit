@@ -1,5 +1,3 @@
-import { sum } from 'shared/utils/sum'
-import { toPercents } from 'shared/utils/toPercents'
 import { useMemo } from 'react'
 import styled from 'styled-components'
 
@@ -9,6 +7,9 @@ import { ElementSizeAware } from './ElementSizeAware'
 import { Panel } from './Panel/Panel'
 import { VStack } from './Stack'
 import { Text } from './Text'
+import { sum } from '../shared/utils/sum'
+import { toPercents } from '../shared/utils/toPercents'
+import { getColor } from './theme/getters'
 
 export interface DistributionBarItem {
   value: number
@@ -30,6 +31,7 @@ const Container = styled(Panel)`
 
 const Segment = styled.div`
   height: 100%;
+  color: ${getColor('white')};
   ${defaultTransitionCSS};
 `
 
@@ -65,7 +67,7 @@ export const DistributionBar = ({
                 >
                   {!size ||
                     (size.width > 20 && (
-                      <Text color="contrast" weight="bold" size={14}>
+                      <Text weight="bold" size={14}>
                         {Math.round((value / total) * 100)}
                         <Text as="span" size={12}>
                           %

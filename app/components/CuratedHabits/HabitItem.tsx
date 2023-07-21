@@ -1,20 +1,10 @@
 import { VStack, HStack } from "@reactkit/ui/ui/Stack"
-import { centerContentCSS } from "@reactkit/ui/ui/utils/centerContentCSS"
-import { getHorizontalPaddingCSS } from "@reactkit/ui/ui/utils/getHorizontalPaddingCSS"
 import styled, { useTheme } from "styled-components"
 import { HabitInfo } from "./data/habits"
 import { Text } from "@reactkit/ui/ui/Text"
 import { Tag } from "@reactkit/ui/ui/Tag"
 import { Button } from "@reactkit/ui/ui/buttons/Button"
 import { ExternalLink } from "@reactkit/ui/navigation/Link/ExternalLink"
-
-const Added = styled.div`
-  background: transparent;
-  ${getHorizontalPaddingCSS(20)}
-  height: 40px;
-  font-weight: 600px;
-  ${centerContentCSS};
-`
 
 interface HabitItemTag {
   name: string

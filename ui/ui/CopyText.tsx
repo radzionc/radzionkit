@@ -1,4 +1,3 @@
-import { Text } from "ui/Text"
 import { CopyIcon } from "./icons/CopyIcon"
 import styled from "styled-components"
 import { getColor } from "./theme/getters"
@@ -7,6 +6,7 @@ import { defaultTransitionCSS } from "./animations/transitions"
 import { useState } from "react"
 import { Match } from "./Match"
 import { CheckIcon } from "./icons/CheckIcon"
+import { Text } from "./Text"
 
 interface CopyTextProps extends React.ComponentProps<typeof Text> {
   content: string

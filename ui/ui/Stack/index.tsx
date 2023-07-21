@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { getCSSUnit } from 'ui/utils/getCSSUnit'
+import { getCSSUnit } from '../utils/getCSSUnit'
 
 interface Props {
   gap?: React.CSSProperties['gap']

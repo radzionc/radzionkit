@@ -1,7 +1,7 @@
 import type { NextPage } from "next"
 import { DemoPage } from "components/DemoPage"
 import { useState } from "react"
-import { EmojiInput } from "@reactkit/ui/ui/inputs/EmojiInput"
+import { EmojiInput } from "components/EmojiInput"
 
 const EmojiInputPage: NextPage = () => {
   const [value, setValue] = useState("👍")

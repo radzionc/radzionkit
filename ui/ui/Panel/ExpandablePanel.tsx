@@ -1,4 +1,3 @@
-import { useBoolean } from "shared/hooks/useBoolean"
 import { ReactNode } from "react"
 import styled from "styled-components"
 import { defaultTransitionCSS } from "../animations/transitions"
@@ -10,6 +9,7 @@ import { roundedCSS } from "../utils/roundedCSS"
 import { Panel, PanelProps } from "./Panel"
 import { getColor } from "../theme/getters"
 import { interactiveCSS } from "../utils/interactiveCSS"
+import { useBoolean } from "../../shared/hooks/useBoolean"
 
 interface ExpandableProps extends PanelProps {
   header: ReactNode

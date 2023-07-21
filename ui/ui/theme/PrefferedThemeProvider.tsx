@@ -1,12 +1,12 @@
 import { createContext, useEffect, useState } from 'react'
 import { useMedia } from 'react-use'
-import { ComponentWithChildrenProps } from 'shared/props'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
-import { darkTheme } from 'ui/theme/darkTheme'
 
 import { lightTheme } from './lightTheme'
 import { ThemePreference } from './ThemePreference'
-import { createContextHook } from 'shared/utils/createContextHook'
+import { ComponentWithChildrenProps } from '../../shared/props'
+import { createContextHook } from '../../shared/utils/createContextHook'
+import { darkTheme } from './darkTheme'
 
 interface PrefferedThemeState {
   prefferedTheme: ThemePreference

@@ -1,9 +1,9 @@
 import { useToggle } from 'react-use'
 import styled from 'styled-components'
-import { ScreenCover } from 'ui/ScreenCover'
-import { Spacer } from 'ui/Spacer'
 
 import { SidebarOpener } from './SidebarOpener'
+import { ScreenCover } from '../../ScreenCover'
+import { Spacer } from '../../Spacer'
 
 const Container = styled.div`
   width: 100%;

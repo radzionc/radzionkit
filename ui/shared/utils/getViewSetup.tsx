@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useState } from 'react'
-import { ComponentWithChildrenProps } from 'shared/props'
+import { ComponentWithChildrenProps } from '../../shared/props'
 
 import { createContextHook } from './createContextHook'
 

@@ -1,8 +1,8 @@
 import { CSSProperties } from "react"
-import { ComponentWithChildrenProps } from "shared/props"
 import styled from "styled-components"
-import { Line } from "ui/Line"
-import { Text } from "ui/Text"
+import { ComponentWithChildrenProps } from "../../shared/props"
+import { Line } from "../Line"
+import { Text } from "../Text"
 
 interface Props extends ComponentWithChildrenProps {
   columnNames: string[]

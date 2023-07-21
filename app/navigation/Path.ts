@@ -23,8 +23,6 @@ export enum Path {
   ShowOnce = "/show-once",
   SeparatedByLine = "/separated-by-line",
   StackSeparatedBy = "/stack-separated-by",
-  Nfts = "/nfts",
-  IPFS = "/ipfs",
   Panel = "/panel",
   EmojiInput = "/emoji-input",
   ColorInput = "/color-input",

@@ -1,14 +1,14 @@
 import { ReactNode } from "react"
 import styled, { css } from "styled-components"
-import { defaultTransitionCSS } from "ui/animations/transitions"
-import { centerContentCSS } from "ui/utils/centerContentCSS"
 
 import { defaultInputShapeCSS } from "../config"
 import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
 } from "../InvisibleHTMLRadio"
-import { getColor } from "ui/theme/getters"
+import { defaultTransitionCSS } from "../../animations/transitions"
+import { getColor } from "../../theme/getters"
+import { centerContentCSS } from "../../utils/centerContentCSS"
 
 const Container = styled.label<{ isSelected: boolean }>`
   position: relative;

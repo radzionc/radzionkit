@@ -1,16 +1,10 @@
 import styled, { css } from "styled-components"
-import { VStack } from "ui/Stack"
-import { Text } from "ui/Text"
 
 import { InputErrorText } from "./InputErrorText"
 import { getColor, matchColor } from "../theme/getters"
-
-export interface Props {
-  label?: React.ReactNode
-  error?: string
-  children: React.ReactNode
-  as?: string | React.ComponentType<any>
-}
+import { VStack } from "../Stack"
+import { Text } from "../Text"
+import { ComponentProps } from "react"
 
 const Container = styled(VStack)<{ isValid: boolean }>`
   color: ${matchColor("isValid", {
@@ -27,19 +21,26 @@ const Container = styled(VStack)<{ isValid: boolean }>`
     `}
 `
 
+export interface InputWrapperProps extends ComponentProps<typeof Container> {
+  label?: React.ReactNode
+  error?: string
+  children: React.ReactNode
+}
+
 export const InputWrapper = ({
   label,
   children,
   error,
   as = "label",
-}: Props) => (
-  <Container tabIndex="-1" isValid={!error} fullWidth gap={8} as={as}>
+  ...props
+}: InputWrapperProps) => (
+  <Container tabIndex="-1" isValid={!error} fullWidth gap={8} as={as} {...props}>
     {label && <Text as="div">{label}</Text>}
     {children}
   </Container>
 )
 
-export const InputWrapperWithErrorMessage = ({ children, ...props }: Props) => (
+export const InputWrapperWithErrorMessage = ({ children, ...props }: InputWrapperProps) => (
   <InputWrapper {...props}>
     <VStack style={{ position: "relative" }} fullWidth gap={4}>
       {children}

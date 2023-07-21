@@ -1,14 +1,13 @@
 import { ReactNode, useEffect, useRef } from "react"
 import styled, { css } from "styled-components"
-import { centerContentCSS } from "ui/utils/centerContentCSS"
-
-import { roundedCSS } from "ui/utils/roundedCSS"
 import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
 } from "../inputs/InvisibleHTMLRadio"
 import { defaultTransitionCSS } from "../animations/transitions"
 import { getColor } from "../theme/getters"
+import { centerContentCSS } from "../utils/centerContentCSS"
+import { roundedCSS } from "../utils/roundedCSS"
 
 const Container = styled.label<{ isSelected: boolean }>`
   cursor: pointer;

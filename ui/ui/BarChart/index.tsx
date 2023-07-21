@@ -1,4 +1,3 @@
-import { toPercents } from "shared/utils/toPercents"
 import { ReactNode } from "react"
 import styled from "styled-components"
 import { SameWidthChildrenRow } from "../Layout/SameWidthChildrenRow"
@@ -10,6 +9,7 @@ import { centerContentCSS } from "../utils/centerContentCSS"
 import { getCSSUnit } from "../utils/getCSSUnit"
 import { Text } from "../Text"
 import { getColor } from "../theme/getters"
+import { toPercents } from "../../shared/utils/toPercents"
 
 export interface BarChartItem {
   label?: ReactNode

@@ -1,5 +1,3 @@
-import { enforceRange } from 'shared/utils/enforceRange'
-import { MS_IN_HOUR, MS_IN_MIN } from 'shared/utils/time'
 import { MouseEventHandler, useEffect, useRef, useState } from 'react'
 import { useEvent } from 'react-use'
 import styled from 'styled-components'
@@ -14,7 +12,9 @@ import { getVerticalMarginCSS } from '../utils/getVerticalMarginCSS'
 import { HourSpace } from './HourSpace'
 import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
 import { MaxIntervalEndBoundary } from './MaxIntervalEndBoundary'
-import { formatDuration } from 'shared/utils/formatDuration'
+import { enforceRange } from '../../shared/utils/enforceRange'
+import { MS_IN_HOUR, MS_IN_MIN } from '../../shared/utils/time'
+import { formatDuration } from '../../shared/utils/formatDuration'
 
 export interface TimeInputProps {
   color: HSLA

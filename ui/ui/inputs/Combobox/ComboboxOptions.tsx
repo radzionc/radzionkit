@@ -1,8 +1,8 @@
 import { ReactNode, useEffect, useRef } from "react"
-import { useKeyPress } from "shared/hooks/useKeyPress"
 import styled, { css } from "styled-components"
 import { inputBorderRadiusCSS } from "../config"
-import { getColor } from "ui/theme/getters"
+import { useKeyPress } from "../../../shared/hooks/useKeyPress"
+import { getColor } from "../../theme/getters"
 
 interface Props<T> {
   options: T[]

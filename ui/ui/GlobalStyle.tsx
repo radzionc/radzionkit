@@ -27,6 +27,10 @@ export const GlobalStyle = createGlobalStyle`
     font: inherit;
   }
 
+  a {
+    all: unset;
+  }
+
   #root {
     isolation: isolate;
   }

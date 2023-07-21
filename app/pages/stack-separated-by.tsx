@@ -4,7 +4,6 @@ import { Text } from "@reactkit/ui/ui/Text"
 import { SeparatedByLine } from "@reactkit/ui/ui/SeparatedByLine"
 import {
   HStackSeparatedBy,
-  StackSeparatedBy,
   dotSeparator,
   slashSeparator,
 } from "@reactkit/ui/ui/StackSeparatedBy"

@@ -12,7 +12,7 @@ import { SettingsIcon } from "@reactkit/ui/ui/icons/SettingsIcon"
 const IconButtonPage: NextPage = () => {
   const icon = <SettingsIcon />
   return (
-    <DemoPage title="Icon Button">
+    <DemoPage title="Icon Button" youtubeVideoId="zliCty-G8nA">
       <VStack gap={40}>
         <TitledSection title="Button kinds">
           <HStack gap={40} wrap="wrap">

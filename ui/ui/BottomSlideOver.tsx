@@ -1,18 +1,16 @@
 import { ReactNode } from "react"
-import { handleWithStopPropagation } from "shared/events"
-import {
-  ClosableComponentProps,
-  ComponentWithChildrenProps,
-} from "shared/props"
-import styled from "styled-components"
-import { BodyPortal } from "ui/BodyPortal"
-import { ScreenCover } from "ui/ScreenCover"
-import { HStack, VStack } from "ui/Stack"
-import { Text } from "ui/Text"
-import { getHorizontalPaddingCSS } from "ui/utils/getHorizontalPaddingCSS"
-import { getVerticalPaddingCSS } from "ui/utils/getVerticalPaddingCSS"
+
 import { Button } from "./buttons/Button"
 import { getColor } from "./theme/getters"
+import styled from "styled-components"
+import { handleWithStopPropagation } from "../shared/events"
+import { ComponentWithChildrenProps, ClosableComponentProps } from "../shared/props"
+import { BodyPortal } from "./BodyPortal"
+import { ScreenCover } from "./ScreenCover"
+import { VStack, HStack } from "./Stack"
+import { getHorizontalPaddingCSS } from "./utils/getHorizontalPaddingCSS"
+import { getVerticalPaddingCSS } from "./utils/getVerticalPaddingCSS"
+import { Text } from "./Text"
 
 export type BottomSlideOverProps = ComponentWithChildrenProps &
   ClosableComponentProps & {

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Text } from 'ui/Text'
+import { Text } from '../Text'
 
 const Boundary = styled(Text)`
   position: absolute;

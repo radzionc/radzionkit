@@ -1,6 +1,7 @@
 import { OnValueChangeListener, PersistentStorage } from './PersistentStorage'
 
 export class LocalStorage<T extends string> implements PersistentStorage<T> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   listeners: Record<string, OnValueChangeListener<any>[]> = {}
 
   getItem<V>(key: T) {
@@ -13,7 +14,9 @@ export class LocalStorage<T extends string> implements PersistentStorage<T> {
 
     try {
       return JSON.parse(item) as V
-    } catch {}
+    } catch (err) {
+      throw new Error(`Failed to parse value for key "${key}": ${item}`)
+    }
 
     return item as never as V
   }

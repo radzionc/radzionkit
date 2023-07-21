@@ -1,10 +1,11 @@
 import { SpringValue, animated, to } from '@react-spring/web'
-import { Point } from 'entities/Point'
-import { getRandomElement } from 'shared/utils/getRandomElement'
-import { randomInRange } from 'shared/utils/randomInRange'
-import { HSLA } from 'ui/colors/HSLA'
-import { getSameDimensionsCSS } from 'ui/utils/getSameDimensionsCSS'
+
 import styled from 'styled-components'
+import { Point } from '../../../entities/Point'
+import { getRandomElement } from '../../../shared/utils/getRandomElement'
+import { randomInRange } from '../../../shared/utils/randomInRange'
+import { HSLA } from '../../colors/HSLA'
+import { getSameDimensionsCSS } from '../../utils/getSameDimensionsCSS'
 
 const Container = animated(styled.svg`
   ${getSameDimensionsCSS(10)};

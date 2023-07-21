@@ -2,13 +2,13 @@ import { ChangeEvent, InputHTMLAttributes, Ref, forwardRef } from "react"
 import styled from "styled-components"
 
 import {
-  Props as InputWrapperProps,
+  InputWrapperProps,
   InputWrapperWithErrorMessage,
 } from "./InputWrapper"
 import { Spinner } from "../Spinner"
 import { commonInputCSS } from "./commonInputCSS"
-import { ComponentWithClassNameProps } from "shared/props"
 import { VStack } from "../Stack"
+import { ComponentWithClassNameProps } from "../../shared/props"
 
 export type SharedTextInputProps = Pick<
   InputWrapperProps,
@@ -28,7 +28,6 @@ export const TextInput = forwardRef(function TextInputInner(
     onValueChange,
     label,
     error,
-    height,
     inputOverlay,
     isLoading,
     className,

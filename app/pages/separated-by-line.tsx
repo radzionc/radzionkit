@@ -1,13 +1,12 @@
 import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
-import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { Text } from '@reactkit/ui/ui/Text'
 import { SeparatedByLine } from '@reactkit/ui/ui/SeparatedByLine'
 
 const SeparatedByLinePage: NextPage = () => {
 
   return (
-    <DemoPage title="Separated By Line">
+    <DemoPage title="Separated By Line" youtubeVideoId='r75UDbxnFDc'>
       <SeparatedByLine gap={16}>
         <Text>
           First section

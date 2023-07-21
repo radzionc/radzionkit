@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Text } from 'ui/Text'
+import { Text } from '../Text'
 
 export const InputErrorText = styled(Text)`
   --height: 0.86em;

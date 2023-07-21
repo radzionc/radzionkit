@@ -1,11 +1,10 @@
-import { millisecondsInMinute, secondsInMinute } from 'date-fns'
 import { pluralize } from './pluralize'
-import { S_IN_MIN } from './time'
+import { MS_IN_MIN, S_IN_MIN } from './time'
 
 type DurationUnit = 'ms' | 'min' | 's'
 
 const unitsInMinute: Record<DurationUnit, number> = {
-  ms: millisecondsInMinute,
+  ms: MS_IN_MIN,
   min: 1,
   s: S_IN_MIN,
 }
@@ -13,10 +12,10 @@ const unitsInMinute: Record<DurationUnit, number> = {
 export const formatDuration = (duration: number, unit: DurationUnit) => {
   const minutes = Math.round(duration / unitsInMinute[unit])
 
-  if (minutes < secondsInMinute) return `${minutes} min`
+  if (minutes < S_IN_MIN) return `${minutes} min`
 
-  const hours = Math.floor(minutes / secondsInMinute)
-  const minutesPart = Math.round(minutes % secondsInMinute)
+  const hours = Math.floor(minutes / S_IN_MIN)
+  const minutesPart = Math.round(minutes % S_IN_MIN)
   if (!minutesPart) {
     return pluralize(hours, 'hour')
   }

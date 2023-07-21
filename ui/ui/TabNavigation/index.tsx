@@ -1,7 +1,7 @@
-import { HStack } from 'ui/Stack'
-import { hideScrollbarsCSS } from 'ui/utils/hideScrollbarsCSS'
 import styled from 'styled-components'
 import { TabNavigationItem } from './TabNavigationItem'
+import { HStack } from '../Stack'
+import { hideScrollbarsCSS } from '../utils/hideScrollbarsCSS'
 
 interface TabNavigationProps<T extends string | number | symbol> {
   views: readonly T[]

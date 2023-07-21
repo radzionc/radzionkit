@@ -1,16 +1,10 @@
-import { ReactNode } from "react"
+import { ComponentProps, ReactNode } from "react"
 import styled from "styled-components"
 import { defaultTransitionCSS } from "../animations/transitions"
 import { Text } from "../Text"
 
 import { getColor } from "../theme/getters"
 import { interactiveCSS } from "../utils/interactiveCSS"
-
-interface Props {
-  onClick?: () => void
-  text: ReactNode
-  as?: any
-}
 
 const Container = styled.button`
   all: unset;
@@ -22,6 +16,10 @@ const Container = styled.button`
     color: ${getColor("contrast")};
   }
 `
+
+interface Props extends ComponentProps<typeof Container>  {
+  text: ReactNode
+}
 
 const Underline = styled.span`
   position: absolute;

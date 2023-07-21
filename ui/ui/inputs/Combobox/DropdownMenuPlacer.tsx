@@ -1,9 +1,9 @@
 import { useFloating, offset, flip, shift, size, autoUpdate } from '@floating-ui/react'
-import { getCSSUnit } from 'ui/utils/getCSSUnit'
-import { zIndex } from 'ui/zIndex'
 import React, { useRef } from 'react'
 import { useClickAway } from 'react-use'
 import styled from 'styled-components'
+import { getCSSUnit } from '../../utils/getCSSUnit'
+import { zIndex } from '../../zIndex'
 
 interface Props {
   children: React.ReactNode

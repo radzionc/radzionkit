@@ -1,8 +1,9 @@
-import { millisecondsInMinute, startOfDay } from 'date-fns'
-import { useRhythmicRerender } from 'ui/hooks/useRhythmicRerender'
+import { startOfDay } from 'date-fns'
+import { useRhythmicRerender } from '../../ui/hooks/useRhythmicRerender'
+import { MS_IN_MIN } from '../utils/time'
 
 export const useStartOfDay = () => {
-  useRhythmicRerender(millisecondsInMinute)
+  useRhythmicRerender(MS_IN_MIN)
 
   return startOfDay(new Date()).getTime()
 }

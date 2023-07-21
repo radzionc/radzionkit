@@ -10,7 +10,7 @@ import { ReactNode, useState } from 'react'
 import styled from 'styled-components'
 
 import { Panel } from '../Panel/Panel'
-import FocusTrap from 'focus-trap-react'
+import { FocusTrap } from '../FocusTrap'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void
@@ -68,11 +68,7 @@ export const PopoverPanel = ({
           style={{ ...floatingStyles, zIndex: 1 }}
           {...getFloatingProps()}
         >
-          <FocusTrap
-            focusTrapOptions={{
-              clickOutsideDeactivates: true,
-            }}
-          >
+          <FocusTrap>
             <Container padding={12} className={className}>
               {renderContent({ onClose: () => setIsOpen(false) })}
             </Container>

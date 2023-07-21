@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import { HStack } from "ui/Stack"
-import { Text } from "ui/Text"
-import { Panel } from "ui/Panel/Panel"
-import { CloseButton } from "ui/buttons/CloseButton"
+import { Panel } from "../../Panel/Panel"
+import { HStack } from "../../Stack"
+import { CloseButton } from "../../buttons/CloseButton"
+import { Text } from "../../Text"
 
 interface Props {
   value: string

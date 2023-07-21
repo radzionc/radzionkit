@@ -19,6 +19,7 @@ import { getColor } from "@reactkit/ui/ui/theme/getters"
 import { IconButton } from "@reactkit/ui/ui/buttons/IconButton"
 
 export interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   form: UseFormReturn<JobApplicationFormShape, any>
 }
 

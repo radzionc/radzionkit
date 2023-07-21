@@ -18,7 +18,7 @@ const Highlight = styled.div`
 
 const PressTrackerPage: NextPage = () => {
   return (
-    <DemoPage title="Press Tracker">
+    <DemoPage title="Press Tracker" youtubeVideoId="Gj4Szl5pYFM">
       <PressTracker
         render={({ props, position }) => (
           <Container {...props}>

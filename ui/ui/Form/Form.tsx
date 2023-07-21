@@ -1,6 +1,6 @@
 import { FormEvent } from 'react'
-import { handleWithPreventDefault } from 'shared/events'
-import { VStack } from 'ui/Stack'
+import { handleWithPreventDefault } from '../../shared/events'
+import { VStack } from '../Stack'
 
 interface Props {
   onSubmit: () => void

@@ -1,6 +1,6 @@
-import { millisecondsInHour } from "date-fns"
 import { Interval } from "@reactkit/ui/entities/Interval"
 import { useStartOfDay } from "@reactkit/ui/shared/hooks/useStartOfDay"
+import { MS_IN_HOUR } from "@reactkit/ui/shared/utils/time"
 import { TitledSection } from "@reactkit/ui/ui/Layout/TitledSection"
 import { Panel } from "@reactkit/ui/ui/Panel/Panel"
 import { IntervalInput } from "@reactkit/ui/ui/timeline/IntervalInput"
@@ -13,8 +13,8 @@ export const CalendarEditor = () => {
   const theme = useTheme()
 
   const [value, setValue] = useState<Interval>(() => ({
-    start: startOfDay + millisecondsInHour * 12,
-    end: startOfDay + millisecondsInHour * 13,
+    start: startOfDay + MS_IN_HOUR * 12,
+    end: startOfDay + MS_IN_HOUR * 13,
   }))
 
   return (
@@ -27,7 +27,7 @@ export const CalendarEditor = () => {
           color={theme.colors.getLabelColor(5)}
           value={value}
           onChange={setValue}
-          maxIntervalEnd={startOfDay + millisecondsInHour * 17}
+          maxIntervalEnd={startOfDay + MS_IN_HOUR * 17}
         />
       </TitledSection>
     </Panel>

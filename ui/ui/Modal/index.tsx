@@ -1,9 +1,7 @@
-import FocusTrap from "focus-trap-react"
 import React, { ReactNode, useEffect } from "react"
 import { useKey } from "react-use"
 
 import { ModalTitleText } from "./ModalTitleText"
-import { handleWithStopPropagation } from "shared/events"
 import styled, { css } from "styled-components"
 import { BodyPortal } from "../BodyPortal"
 import { ScreenCover } from "../ScreenCover"
@@ -14,6 +12,8 @@ import { getCSSUnit } from "../utils/getCSSUnit"
 import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
 import { roundedCSS } from "../utils/roundedCSS"
 import { CloseButton } from "../buttons/CloseButton"
+import { handleWithStopPropagation } from "../../shared/events"
+import { FocusTrap } from "../FocusTrap"
 
 interface RenderContentParams {
   isFullScreen: boolean
@@ -140,16 +140,10 @@ export const Modal = ({
   return (
     <BodyPortal>
       <ScreenCover onClick={onClose ? () => onClose() : undefined}>
-        <FocusTrap
-          focusTrapOptions={{
-            clickOutsideDeactivates: true,
-            fallbackFocus: "#container",
-          }}
-        >
+        <FocusTrap>
           <Container
             placement={placement}
             className={className}
-            id="container"
             style={style}
             isFullScreen={isFullScreen}
             width={width}

@@ -30,7 +30,7 @@ const ImageBannerPage: NextPage = () => {
   }
 
   return (
-    <DemoPage title="Image Banner">
+    <DemoPage title="Image Banner" youtubeVideoId="BcQ05BR5Pgw">
       <VStack fullWidth gap={40}>
         <ThemeProvider theme={darkTheme}>
           <ImageBanner

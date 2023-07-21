@@ -1,10 +1,10 @@
 import { Topbar } from './Topbar'
 import styled, { css } from 'styled-components'
-import { useIsScreenWidthLessThan } from 'ui/hooks/useIsScreenWidthLessThan'
-import { HStack, VStack } from 'ui/Stack'
 import { Sidebar } from './Sidebar'
 import { ReactNode } from 'react'
 import { ThemeToggleButton } from '../theme/ThemeToggleButton'
+import { HStack, VStack } from '../Stack'
+import { useIsScreenWidthLessThan } from '../hooks/useIsScreenWidthLessThan'
 
 interface Props {
   children: ReactNode

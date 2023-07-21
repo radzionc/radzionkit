@@ -1,17 +1,14 @@
-import { toPercents } from "shared/utils/toPercents"
-import { defaultTransition } from "ui/animations/transitions"
-import { HSLA } from "ui/colors/HSLA"
-import { centerContentCSS } from "ui/utils/centerContentCSS"
-import { getCSSUnit } from "ui/utils/getCSSUnit"
-import { getSameDimensionsCSS } from "ui/utils/getSameDimensionsCSS"
 import styled, { useTheme } from "styled-components"
+import { toPercents } from "../../../shared/utils/toPercents"
+import { PressTracker } from "../../PressTracker"
+import { defaultTransition } from "../../animations/transitions"
+import { HSLA } from "../../colors/HSLA"
+import { getColor } from "../../theme/getters"
+import { centerContentCSS } from "../../utils/centerContentCSS"
+import { getCSSUnit } from "../../utils/getCSSUnit"
+import { getSameDimensionsCSS } from "../../utils/getSameDimensionsCSS"
+import { InvisibleHTMLSliderProps, InvisibleHTMLSlider } from "./InvisibleHtmlSlider"
 
-import {
-  InvisibleHTMLSlider,
-  InvisibleHTMLSliderProps,
-} from "./InvisibleHtmlSlider"
-import { getColor } from "ui/theme/getters"
-import { PressTracker } from "ui/PressTracker"
 
 type SliderSize = "m" | "l"
 

@@ -1,4 +1,4 @@
-import { Point } from 'entities/Point'
+import { Point } from '../../entities/Point'
 import { degreesToRadians } from './degreesToRadians'
 
 export const getPointOnCircle = (

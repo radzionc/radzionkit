@@ -28,9 +28,6 @@ const Input = styled(TextInput)`
 export const AmountTextInput = forwardRef(function AmountInputInner(
   {
     onValueChange,
-    onChange,
-    max,
-    inputOverlay,
     unit,
     value,
     shouldBePositive,

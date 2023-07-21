@@ -1,6 +1,3 @@
-import { InputProps, StyledComponentWithColorProps } from "shared/props"
-import { range } from "shared/utils/range"
-import { splitBy } from "shared/utils/splitBy"
 import styled, { useTheme } from "styled-components"
 import { Menu } from "../Menu"
 import { VStack } from "../Stack"
@@ -14,6 +11,9 @@ import { InvisibleHTMLRadio } from "./InvisibleHTMLRadio"
 import { ExpandableInputOpener } from "./ExpandableInputOpener"
 import { ShySection } from "../ShySection"
 import { labelColorsCount } from "../colors/generateLabelColorGetter"
+import { InputProps, StyledComponentWithColorProps } from "../../shared/props"
+import { range } from "../../shared/utils/range"
+import { splitBy } from "../../shared/utils/splitBy"
 
 interface ColorLabelInputProps extends InputProps<number> {
   usedValues?: Set<number>

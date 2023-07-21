@@ -1,7 +1,7 @@
 import React, { Fragment, ReactNode } from 'react'
 
 import { Stack, StackProps } from './Stack'
-import { isLast } from 'shared/utils/isLast'
+import { isLast } from '../shared/utils/isLast'
 
 export const dotSeparator = '•'
 export const slashSeparator = '/'

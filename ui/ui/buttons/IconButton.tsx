@@ -5,8 +5,8 @@ import { centerContentCSS } from "../utils/centerContentCSS"
 import { getCSSUnit } from "../utils/getCSSUnit"
 import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
 import { matchColor } from "../theme/getters"
-import { match } from "shared/utils/match"
 import { interactiveCSS } from "../utils/interactiveCSS"
+import { match } from "../../shared/utils/match"
 
 export const iconButtonSizes = ["s", "m", "l"] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]

@@ -1,11 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { minutesInHour } from 'date-fns'
+import { MIN_IN_HOUR } from '@reactkit/ui/shared/utils/time'
 import { useForm } from 'react-hook-form'
 
 import * as yup from 'yup'
 
 const maxHoursPerDay = 10
-export const maxMinPerDay = maxHoursPerDay * minutesInHour
+export const maxMinPerDay = maxHoursPerDay * MIN_IN_HOUR
 
 export interface WorkBudgetFormShape {
   workdayMinutes: number
@@ -24,8 +24,8 @@ export const useWorkBudgetForm = () => {
   return useForm<WorkBudgetFormShape>({
     mode: 'onSubmit',
     defaultValues: {
-      workdayMinutes: 5 * minutesInHour,
-      weekendMinutes: 3 * minutesInHour,
+      workdayMinutes: 5 * MIN_IN_HOUR,
+      weekendMinutes: 3 * MIN_IN_HOUR,
     },
     resolver: yupResolver(formSchema),
   })

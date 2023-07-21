@@ -1,11 +1,11 @@
 import { usePrevious } from 'react-use'
-import { padWithZero } from 'shared/utils/padWithZero'
-import styled from 'styled-components'
-import { Center } from 'ui/Center'
-import { HStack } from 'ui/Stack'
-import { Text } from 'ui/Text'
 import { SlidingCharacter } from './SlidingCharacter'
 import { Panel } from '../Panel/Panel'
+import styled from 'styled-components'
+import { padWithZero } from '../../shared/utils/padWithZero'
+import { Center } from '../Center'
+import { HStack } from '../Stack'
+import { Text } from '../Text'
 
 interface Props {
   value: number

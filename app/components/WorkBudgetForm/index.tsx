@@ -1,4 +1,3 @@
-import { minutesInHour } from "date-fns"
 import { formatDuration } from "@reactkit/ui/shared/utils/formatDuration"
 import { DistributionBar } from "@reactkit/ui/ui/DistributionBar"
 import { AmountInput } from "@reactkit/ui/ui/inputs/Slider/AmountInput"
@@ -8,10 +7,11 @@ import { VStack } from "@reactkit/ui/ui/Stack"
 import { Controller, useWatch } from "react-hook-form"
 import { useTheme } from "styled-components"
 import { useWorkBudgetForm } from "./useWorkBudgetForm"
+import { MIN_IN_HOUR } from "@reactkit/ui/shared/utils/time"
 
 const minuteStep = 30
 
-const maxMinPerDay = 10 * minutesInHour
+const maxMinPerDay = 10 * MIN_IN_HOUR
 
 export const WorkBudgetForm = () => {
   const form = useWorkBudgetForm()

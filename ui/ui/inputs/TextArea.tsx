@@ -6,12 +6,13 @@ import {
   useState,
 } from "react"
 import styled from "styled-components"
-import { getCSSUnit } from "ui/utils/getCSSUnit"
-import { Text } from "ui/Text"
+
 
 import { InputWrapperWithErrorMessage } from "./InputWrapper"
 import { SharedTextInputProps } from "./TextInput"
 import { commonInputCSS } from "./commonInputCSS"
+import { getCSSUnit } from "../utils/getCSSUnit"
+import { Text } from "../Text"
 
 const TextareaContainer = styled.textarea`
   ${commonInputCSS};

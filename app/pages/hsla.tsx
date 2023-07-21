@@ -54,7 +54,7 @@ const HSLAPage: NextPage = () => {
   const [value, setValue] = useState(colors.primary)
 
   return (
-    <DemoPage title="HSLA">
+    <DemoPage title="HSLA" youtubeVideoId="f3_TYR-8Sd8">
       <SameWidthChildrenRow minChildrenWidth={320} fullWidth gap={40}>
         <SeparatedByLine gap={40}>
           <VStack gap={20}>

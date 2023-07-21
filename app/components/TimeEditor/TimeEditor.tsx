@@ -1,5 +1,5 @@
-import { millisecondsInHour } from "date-fns"
 import { useStartOfDay } from "@reactkit/ui/shared/hooks/useStartOfDay"
+import { MS_IN_HOUR } from "@reactkit/ui/shared/utils/time"
 import { TitledSection } from "@reactkit/ui/ui/Layout/TitledSection"
 import { Panel } from "@reactkit/ui/ui/Panel/Panel"
 import { TimeInput } from "@reactkit/ui/ui/timeline/TimeInput"
@@ -11,7 +11,7 @@ export const TimeEditor = () => {
 
   const theme = useTheme()
 
-  const initialValue = startOfDay + millisecondsInHour * 12
+  const initialValue = startOfDay + MS_IN_HOUR * 12
 
   const [value, setValue] = useState<number>(initialValue)
 
@@ -27,7 +27,7 @@ export const TimeEditor = () => {
           color={theme.colors.getLabelColor(5)}
           value={value}
           onChange={setValue}
-          max={startOfDay + millisecondsInHour * 13}
+          max={startOfDay + MS_IN_HOUR * 13}
         />
       </TitledSection>
     </Panel>

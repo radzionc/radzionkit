@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components"
-import { defaultTransitionCSS } from "ui/animations/transitions"
-import { HStack } from "ui/Stack"
-import { Text } from "ui/Text"
-import { getColor } from "ui/theme/getters"
+import { HStack } from "../../Stack"
+import { defaultTransitionCSS } from "../../animations/transitions"
+import { getColor } from "../../theme/getters"
+import { Text } from "../../Text"
 
 interface Props {
   icon?: React.ReactNode

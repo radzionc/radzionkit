@@ -2,8 +2,8 @@ import styled, { css } from "styled-components"
 
 import { defaultBorderRadiusCSS } from "../borderRadius"
 import { getCSSUnit } from "../utils/getCSSUnit"
-import { match } from "shared/utils/match"
 import { getColor } from "../theme/getters"
+import { match } from "../../shared/utils/match"
 
 type PanelKind = "regular" | "secondary"
 

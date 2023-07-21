@@ -13,6 +13,7 @@ const EmojiPicker = ({ onSelect }: SelectableComponentProps<string>) => {
       theme={name}
       showPreview={false}
       showSkinTones={false}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onEmojiSelect={(emoji: any) => {
         if (!emoji?.native) return
 
