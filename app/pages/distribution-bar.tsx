@@ -1,7 +1,7 @@
-import type { NextPage } from "next"
-import { DistributionBar } from "@reactkit/ui/ui/DistributionBar"
-import { DemoPage } from "components/DemoPage"
-import { useTheme } from "styled-components"
+import type { NextPage } from 'next'
+import { DistributionBar } from '@reactkit/ui/ui/DistributionBar'
+import { DemoPage } from 'components/DemoPage'
+import { useTheme } from 'styled-components'
 
 const DistributionBarPage: NextPage = () => {
   const {

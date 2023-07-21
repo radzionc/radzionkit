@@ -1,7 +1,7 @@
-import type { NextPage } from "next"
-import { DemoPage } from "components/DemoPage"
-import { ClientOnly } from "@reactkit/ui/ui/ClientOnly"
-import { TimeEditor } from "components/TimeEditor/TimeEditor"
+import type { NextPage } from 'next'
+import { DemoPage } from 'components/DemoPage'
+import { ClientOnly } from '@reactkit/ui/ui/ClientOnly'
+import { TimeEditor } from 'components/TimeEditor/TimeEditor'
 
 const TimeEditorPage: NextPage = () => {
   return (

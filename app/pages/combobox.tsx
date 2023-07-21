@@ -1,16 +1,16 @@
-import type { NextPage } from "next"
-import { Form } from "@reactkit/ui/ui/Form/Form"
-import { TextInput } from "@reactkit/ui/ui/inputs/TextInput"
-import { Controller, useForm } from "react-hook-form"
-import * as yup from "yup"
-import { yupResolver } from "@hookform/resolvers/yup"
-import { LanguagesInput } from "components/LanguagesInput"
-import { DemoPage } from "components/DemoPage"
-import { Panel } from "@reactkit/ui/ui/Panel/Panel"
-import { TitledSection } from "@reactkit/ui/ui/Layout/TitledSection"
-import { FixedOptionsInput } from "@reactkit/ui/ui/inputs/Combobox/FixedOptionsInput"
-import { capitalizeFirstLetter } from "@reactkit/ui/shared/utils/capitalizeFirstLetter"
-import { Button } from "@reactkit/ui/ui/buttons/Button"
+import type { NextPage } from 'next'
+import { Form } from '@reactkit/ui/ui/Form/Form'
+import { TextInput } from '@reactkit/ui/ui/inputs/TextInput'
+import { Controller, useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { LanguagesInput } from 'components/LanguagesInput'
+import { DemoPage } from 'components/DemoPage'
+import { Panel } from '@reactkit/ui/ui/Panel/Panel'
+import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
+import { FixedOptionsInput } from '@reactkit/ui/ui/inputs/Combobox/FixedOptionsInput'
+import { capitalizeFirstLetter } from '@reactkit/ui/shared/utils/capitalizeFirstLetter'
+import { Button } from '@reactkit/ui/ui/buttons/Button'
 
 interface FormShape {
   name: string
@@ -31,7 +31,7 @@ const ComboboxPage: NextPage = () => {
     control,
     formState: { errors },
   } = useForm<FormShape>({
-    mode: "onSubmit",
+    mode: 'onSubmit',
     resolver: yupResolver(schema),
     defaultValues: {
       languages: [],
@@ -47,7 +47,7 @@ const ComboboxPage: NextPage = () => {
               <>
                 <TextInput
                   label="Full name"
-                  {...register("name")}
+                  {...register('name')}
                   error={errors.name?.message}
                   autoFocus
                   placeholder="John Johnson"
@@ -70,7 +70,7 @@ const ComboboxPage: NextPage = () => {
                   placeholder="Languages"
                   value={null}
                   onChange={() => {}}
-                  options={["one", "two", "three"]}
+                  options={['one', 'two', 'three']}
                   optionToString={capitalizeFirstLetter}
                 />
                 <FixedOptionsInput

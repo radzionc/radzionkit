@@ -1,12 +1,12 @@
-import { Form } from "@reactkit/ui/ui/Form/Form"
-import { TextInput } from "@reactkit/ui/ui/inputs/TextInput"
-import { TextArea } from "@reactkit/ui/ui/inputs/TextArea"
-import { FormSection } from "@reactkit/ui/ui/Form/FormSection"
-import { bioMaxLength, useJobApplicationForm } from "./jobApplicationForm"
-import { ExperienceSection } from "./ExperienceSection"
-import { Panel } from "@reactkit/ui/ui/Panel/Panel"
-import { TitledSection } from "@reactkit/ui/ui/Layout/TitledSection"
-import { Button } from "@reactkit/ui/ui/buttons/Button"
+import { Form } from '@reactkit/ui/ui/Form/Form'
+import { TextInput } from '@reactkit/ui/ui/inputs/TextInput'
+import { TextArea } from '@reactkit/ui/ui/inputs/TextArea'
+import { FormSection } from '@reactkit/ui/ui/Form/FormSection'
+import { bioMaxLength, useJobApplicationForm } from './jobApplicationForm'
+import { ExperienceSection } from './ExperienceSection'
+import { Panel } from '@reactkit/ui/ui/Panel/Panel'
+import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
+import { Button } from '@reactkit/ui/ui/buttons/Button'
 
 export const JobApplication = () => {
   const form = useJobApplicationForm()
@@ -26,7 +26,7 @@ export const JobApplication = () => {
               <FormSection name="General info">
                 <TextInput
                   label="Full name"
-                  {...register("name")}
+                  {...register('name')}
                   error={errors.name?.message}
                   autoFocus
                   placeholder="John Johnson"
@@ -35,7 +35,7 @@ export const JobApplication = () => {
                   rows={4}
                   maxLength={bioMaxLength}
                   label="Bio"
-                  {...register("bio")}
+                  {...register('bio')}
                   error={errors.bio?.message}
                   placeholder="I'm a software engineer..."
                 />

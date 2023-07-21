@@ -1,11 +1,11 @@
-import { ExternalLink } from "@reactkit/ui/navigation/Link/ExternalLink"
-import type { NextPage } from "next"
-import { Modal } from "@reactkit/ui/ui/Modal"
-import { Opener } from "@reactkit/ui/ui/Opener"
-import { HStack, VStack } from "@reactkit/ui/ui/Stack"
-import { Text } from "@reactkit/ui/ui/Text"
-import { DemoPage } from "components/DemoPage"
-import { Button } from "@reactkit/ui/ui/buttons/Button"
+import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
+import type { NextPage } from 'next'
+import { Modal } from '@reactkit/ui/ui/Modal'
+import { Opener } from '@reactkit/ui/ui/Opener'
+import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { Text } from '@reactkit/ui/ui/Text'
+import { DemoPage } from 'components/DemoPage'
+import { Button } from '@reactkit/ui/ui/buttons/Button'
 
 const ButtonPage: NextPage = () => {
   return (

@@ -24,10 +24,10 @@ const getAvailableLanguageNames = (selectedLanguages: string[]) => {
 
 export const LanguagesInput = forwardRef(function InnerLanguagesInput(
   { value, onChange, error }: Props,
-  ref: ForwardedRef<HTMLInputElement | null>
+  ref: ForwardedRef<HTMLInputElement | null>,
 ) {
   const [availableLanguageNames, setAvaialableLanguageNames] = useState(() =>
-    getAvailableLanguageNames(value)
+    getAvailableLanguageNames(value),
   )
 
   useEffect(() => {

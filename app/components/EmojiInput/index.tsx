@@ -10,7 +10,7 @@ import { InputProps } from '@reactkit/ui/shared/props'
 
 const EmojiPicker = lazy(() => import('./EmojiPicker'))
 
-interface EmojiInputProps extends InputProps<string> { }
+interface EmojiInputProps extends InputProps<string> {}
 
 const EmojiMartFallback = styled.div`
   width: 352px;

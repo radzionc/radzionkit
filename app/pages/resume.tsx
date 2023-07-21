@@ -1,7 +1,7 @@
-import type { NextPage } from "next"
+import type { NextPage } from 'next'
 
-import { DemoPage } from "components/DemoPage"
-import { Resume } from "components/Resume"
+import { DemoPage } from 'components/DemoPage'
+import { Resume } from 'components/Resume'
 
 const ResumePage: NextPage = () => {
   return (

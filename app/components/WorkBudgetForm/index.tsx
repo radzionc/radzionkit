@@ -1,13 +1,13 @@
-import { formatDuration } from "@reactkit/ui/shared/utils/formatDuration"
-import { DistributionBar } from "@reactkit/ui/ui/DistributionBar"
-import { AmountInput } from "@reactkit/ui/ui/inputs/Slider/AmountInput"
-import { TitledSection } from "@reactkit/ui/ui/Layout/TitledSection"
-import { Panel } from "@reactkit/ui/ui/Panel/Panel"
-import { VStack } from "@reactkit/ui/ui/Stack"
-import { Controller, useWatch } from "react-hook-form"
-import { useTheme } from "styled-components"
-import { useWorkBudgetForm } from "./useWorkBudgetForm"
-import { MIN_IN_HOUR } from "@reactkit/ui/shared/utils/time"
+import { formatDuration } from '@reactkit/ui/shared/utils/formatDuration'
+import { DistributionBar } from '@reactkit/ui/ui/DistributionBar'
+import { AmountInput } from '@reactkit/ui/ui/inputs/Slider/AmountInput'
+import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
+import { Panel } from '@reactkit/ui/ui/Panel/Panel'
+import { VStack } from '@reactkit/ui/ui/Stack'
+import { Controller, useWatch } from 'react-hook-form'
+import { useTheme } from 'styled-components'
+import { useWorkBudgetForm } from './useWorkBudgetForm'
+import { MIN_IN_HOUR } from '@reactkit/ui/shared/utils/time'
 
 const minuteStep = 30
 
@@ -22,11 +22,11 @@ export const WorkBudgetForm = () => {
 
   const workdayMinutes = useWatch({
     control,
-    name: "workdayMinutes",
+    name: 'workdayMinutes',
   })
   const weekendMinutes = useWatch({
     control,
-    name: "weekendMinutes",
+    name: 'weekendMinutes',
   })
 
   const workdayColor = theme.colors.success
@@ -49,7 +49,7 @@ export const WorkBudgetForm = () => {
                   onChange={onChange}
                   step={minuteStep}
                   max={maxMinPerDay}
-                  formatValue={(value) => formatDuration(value, "min")}
+                  formatValue={(value) => formatDuration(value, 'min')}
                 />
               )}
             />
@@ -66,7 +66,7 @@ export const WorkBudgetForm = () => {
                   onChange={onChange}
                   step={minuteStep}
                   max={maxMinPerDay}
-                  formatValue={(value) => formatDuration(value, "min")}
+                  formatValue={(value) => formatDuration(value, 'min')}
                 />
               )}
             />

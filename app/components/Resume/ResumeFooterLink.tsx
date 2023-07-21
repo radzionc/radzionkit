@@ -1,10 +1,10 @@
-import { ExternalLink } from "@reactkit/ui/navigation/Link/ExternalLink"
-import { defaultTransitionCSS } from "@reactkit/ui/ui/animations/transitions"
-import { HStack } from "@reactkit/ui/ui/Stack"
-import { Text } from "@reactkit/ui/ui/Text"
-import { getColor } from "@reactkit/ui/ui/theme/getters"
-import { ReactNode } from "react"
-import styled from "styled-components"
+import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
+import { defaultTransitionCSS } from '@reactkit/ui/ui/animations/transitions'
+import { HStack } from '@reactkit/ui/ui/Stack'
+import { Text } from '@reactkit/ui/ui/Text'
+import { getColor } from '@reactkit/ui/ui/theme/getters'
+import { ReactNode } from 'react'
+import styled from 'styled-components'
 
 interface Props {
   name: string
@@ -13,11 +13,11 @@ interface Props {
 }
 
 const Container = styled(ExternalLink)`
-  color: ${getColor("textSupporting")};
+  color: ${getColor('textSupporting')};
   ${defaultTransitionCSS};
 
   :hover {
-    color: ${getColor("text")};
+    color: ${getColor('text')};
   }
 `
 

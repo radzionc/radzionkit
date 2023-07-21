@@ -1,20 +1,20 @@
-import { range } from "@reactkit/ui/shared/utils/range"
-import { toPercents } from "@reactkit/ui/shared/utils/toPercents"
-import { PressTracker } from "@reactkit/ui/ui/PressTracker"
-import { defaultTransition } from "@reactkit/ui/ui/animations/transitions"
+import { range } from '@reactkit/ui/shared/utils/range'
+import { toPercents } from '@reactkit/ui/shared/utils/toPercents'
+import { PressTracker } from '@reactkit/ui/ui/PressTracker'
+import { defaultTransition } from '@reactkit/ui/ui/animations/transitions'
 import {
   InvisibleHTMLSlider,
   InvisibleHTMLSliderProps,
-} from "@reactkit/ui/ui/inputs/Slider/InvisibleHtmlSlider"
-import { getColor } from "@reactkit/ui/ui/theme/getters"
-import { centerContentCSS } from "@reactkit/ui/ui/utils/centerContentCSS"
-import { getCSSUnit } from "@reactkit/ui/ui/utils/getCSSUnit"
-import { getSameDimensionsCSS } from "@reactkit/ui/ui/utils/getSameDimensionsCSS"
-import { interactiveCSS } from "@reactkit/ui/ui/utils/interactiveCSS"
-import styled from "styled-components"
+} from '@reactkit/ui/ui/inputs/Slider/InvisibleHtmlSlider'
+import { getColor } from '@reactkit/ui/ui/theme/getters'
+import { centerContentCSS } from '@reactkit/ui/ui/utils/centerContentCSS'
+import { getCSSUnit } from '@reactkit/ui/ui/utils/getCSSUnit'
+import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS'
+import { interactiveCSS } from '@reactkit/ui/ui/utils/interactiveCSS'
+import styled from 'styled-components'
 
 export interface ColorParameterInputProps
-  extends Omit<InvisibleHTMLSliderProps, "min"> {
+  extends Omit<InvisibleHTMLSliderProps, 'min'> {
   getColor: (param: number) => string
 }
 
@@ -29,7 +29,7 @@ const Control = styled.div<{ value: number }>`
   ${getSameDimensionsCSS(controlSize)};
   transition: outline ${defaultTransition};
   outline: 6px solid transparent;
-  border: ${getCSSUnit(controlBorderWidth)} solid ${getColor("contrast")};
+  border: ${getCSSUnit(controlBorderWidth)} solid ${getColor('contrast')};
   border-radius: 4px;
 `
 
@@ -41,11 +41,11 @@ const Container = styled.label`
   position: relative;
 
   :focus-within ${Control} {
-    outline: 12px solid ${getColor("mistExtra")};
+    outline: 12px solid ${getColor('mistExtra')};
   }
 
   :hover ${Control} {
-    outline-color: ${getColor("mist")};
+    outline-color: ${getColor('mist')};
   }
 `
 
@@ -64,7 +64,7 @@ export const ColorParameterInput = ({
   getColor,
 }: ColorParameterInputProps) => {
   const colors = range(Math.round(max / step)).map((index) =>
-    getColor(index * step)
+    getColor(index * step),
   )
   return (
     <PressTracker
@@ -84,7 +84,7 @@ export const ColorParameterInput = ({
           />
           <Line
             style={{
-              background: `linear-gradient(to right, ${colors.join(", ")})`,
+              background: `linear-gradient(to right, ${colors.join(', ')})`,
             }}
           />
           <Control value={value / max} />

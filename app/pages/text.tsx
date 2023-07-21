@@ -1,8 +1,8 @@
-import type { NextPage } from "next"
+import type { NextPage } from 'next'
 
-import { DemoPage } from "components/DemoPage"
-import { VStack } from "@reactkit/ui/ui/Stack"
-import { Text } from "@reactkit/ui/ui/Text"
+import { DemoPage } from 'components/DemoPage'
+import { VStack } from '@reactkit/ui/ui/Stack'
+import { Text } from '@reactkit/ui/ui/Text'
 
 const TextPage: NextPage = () => {
   return (

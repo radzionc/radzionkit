@@ -29,7 +29,7 @@ const schema: yup.SchemaOf<JobApplicationFormShape> = yup.object({
           .min(10)
           .max(responsibilityMaxLength)
           .required(),
-      })
+      }),
     )
     .required(),
 })

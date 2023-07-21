@@ -1,8 +1,12 @@
-import type { NextPage } from "next"
-import { HStack, VStack } from "@reactkit/ui/ui/Stack"
-import { DemoPage } from "components/DemoPage"
-import { Button, buttonKinds, buttonSizes } from "@reactkit/ui/ui/buttons/Button"
-import { TitledSection } from "@reactkit/ui/ui/Layout/TitledSection"
+import type { NextPage } from 'next'
+import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { DemoPage } from 'components/DemoPage'
+import {
+  Button,
+  buttonKinds,
+  buttonSizes,
+} from '@reactkit/ui/ui/buttons/Button'
+import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
 
 const ButtonPage: NextPage = () => {
   return (

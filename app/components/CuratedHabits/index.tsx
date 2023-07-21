@@ -1,14 +1,14 @@
-import { capitalizeFirstLetter } from "@reactkit/ui/shared/utils/capitalizeFirstLetter"
-import { getTreeNode, getTreeValues } from "@reactkit/ui/shared/utils/tree"
-import { withoutDuplicates } from "@reactkit/ui/shared/utils/withoutDuplicates"
-import { HStack, VStack } from "@reactkit/ui/ui/Stack"
-import { TreeFilter } from "@reactkit/ui/ui/tree/TreeFilter"
-import { useState, useMemo } from "react"
-import styled from "styled-components"
-import { HabitTreeNode, habitTree } from "./data/habitTree"
-import { habitRecord } from "./data/habits"
-import { Text } from "@reactkit/ui/ui/Text"
-import { HabitItem } from "./HabitItem"
+import { capitalizeFirstLetter } from '@reactkit/ui/shared/utils/capitalizeFirstLetter'
+import { getTreeNode, getTreeValues } from '@reactkit/ui/shared/utils/tree'
+import { withoutDuplicates } from '@reactkit/ui/shared/utils/withoutDuplicates'
+import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { TreeFilter } from '@reactkit/ui/ui/tree/TreeFilter'
+import { useState, useMemo } from 'react'
+import styled from 'styled-components'
+import { HabitTreeNode, habitTree } from './data/habitTree'
+import { habitRecord } from './data/habits'
+import { Text } from '@reactkit/ui/ui/Text'
+import { HabitItem } from './HabitItem'
 
 const Container = styled(HStack)`
   width: 100%;
@@ -30,7 +30,7 @@ const FilterWrapper = styled.div`
 // turn into tree helper
 const getCategoriesColors = (
   { value, children }: HabitTreeNode,
-  parentColor?: number
+  parentColor?: number,
 ): Record<string, number | undefined> => {
   const color = value.color ?? parentColor
 
@@ -41,7 +41,7 @@ const getCategoriesColors = (
         ...acc,
         ...getCategoriesColors(child, color),
       }),
-      {}
+      {},
     ),
   }
 }
@@ -57,7 +57,7 @@ export const CuratedHabits = () => {
   const categoryColorRecord = useMemo(() => getCategoriesColors(habitTree), [])
 
   const habits = withoutDuplicates(
-    getTreeValues(node).flatMap((value) => value.habits || [])
+    getTreeValues(node).flatMap((value) => value.habits || []),
   )
     .map((id) => ({
       id,
@@ -85,7 +85,7 @@ export const CuratedHabits = () => {
       </FilterWrapper>
       <Content>
         <Text weight="bold" size={24}>
-          {capitalizeFirstLetter(node.value.id)} habits{" "}
+          {capitalizeFirstLetter(node.value.id)} habits{' '}
           <Text as="span" color="supporting">
             ({habits.length})
           </Text>

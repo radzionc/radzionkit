@@ -1,11 +1,11 @@
-import type { NextPage } from "next"
-import styled, { useTheme } from "styled-components"
-import { HSLA } from "@reactkit/ui/ui/colors/HSLA"
+import type { NextPage } from 'next'
+import styled, { useTheme } from 'styled-components'
+import { HSLA } from '@reactkit/ui/ui/colors/HSLA'
 
-import { HStack, VStack } from "@reactkit/ui/ui/Stack"
-import { getSameDimensionsCSS } from "@reactkit/ui/ui/utils/getSameDimensionsCSS"
-import { DemoPage } from "components/DemoPage"
-import { Panel } from "@reactkit/ui/ui/Panel/Panel"
+import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS'
+import { DemoPage } from 'components/DemoPage'
+import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 
 const Conent = styled(Panel)<{ $color: HSLA }>`
   ${getSameDimensionsCSS(80)};

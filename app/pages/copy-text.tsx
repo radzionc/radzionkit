@@ -1,6 +1,6 @@
-import type { NextPage } from "next"
-import { DemoPage } from "components/DemoPage"
-import { CopyText } from "@reactkit/ui/ui/CopyText"
+import type { NextPage } from 'next'
+import { DemoPage } from 'components/DemoPage'
+import { CopyText } from '@reactkit/ui/ui/CopyText'
 
 const CopyTextPage: NextPage = () => {
   return (

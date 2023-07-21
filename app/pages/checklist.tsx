@@ -1,12 +1,12 @@
-import type { NextPage } from "next"
-import { DemoPage } from "components/DemoPage"
-import { useState } from "react"
-import { VStack } from "@reactkit/ui/ui/Stack"
-import { ChecklistItem } from "@reactkit/ui/ui/checklist/ChecklistItem"
-import { Opener } from "@reactkit/ui/ui/Opener"
-import { AddChecklistItemPrompt } from "@reactkit/ui/ui/checklist/AddChecklistItemPrompt"
-import { ChecklistItemForm } from "@reactkit/ui/ui/checklist/ChecklistItemForm"
-import { updateAtIndex } from "@reactkit/ui/shared/utils/updateAtIndex"
+import type { NextPage } from 'next'
+import { DemoPage } from 'components/DemoPage'
+import { useState } from 'react'
+import { VStack } from '@reactkit/ui/ui/Stack'
+import { ChecklistItem } from '@reactkit/ui/ui/checklist/ChecklistItem'
+import { Opener } from '@reactkit/ui/ui/Opener'
+import { AddChecklistItemPrompt } from '@reactkit/ui/ui/checklist/AddChecklistItemPrompt'
+import { ChecklistItemForm } from '@reactkit/ui/ui/checklist/ChecklistItemForm'
+import { updateAtIndex } from '@reactkit/ui/shared/utils/updateAtIndex'
 
 interface Task {
   name: string
@@ -14,9 +14,9 @@ interface Task {
 }
 
 const defaultTasks: Task[] = [
-  { name: "Go to the gym", isComplete: false },
-  { name: "Buy groceries", isComplete: false },
-  { name: "Walk the dog", isComplete: false },
+  { name: 'Go to the gym', isComplete: false },
+  { name: 'Buy groceries', isComplete: false },
+  { name: 'Walk the dog', isComplete: false },
 ]
 
 const ChecklistPage: NextPage = () => {
@@ -34,7 +34,7 @@ const ChecklistPage: NextPage = () => {
                 updateAtIndex(tasks, index, (task) => ({
                   ...task,
                   isComplete: value,
-                }))
+                })),
               )
             }}
             name={name}

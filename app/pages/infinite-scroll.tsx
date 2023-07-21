@@ -54,7 +54,7 @@ const InfiniteScrollPage: NextPage = () => {
       refetchOnMount: true,
       keepPreviousData: false,
       getNextPageParam: (lastPage) => lastPage?.nextItem || null,
-    }
+    },
   )
 
   const items = usePaginatedResultItems(data, (response) => response.items)

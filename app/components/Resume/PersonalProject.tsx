@@ -1,11 +1,11 @@
-import { ExternalLink } from "@reactkit/ui/navigation/Link/ExternalLink"
-import { defaultTransitionCSS } from "@reactkit/ui/ui/animations/transitions"
-import { HStack, VStack } from "@reactkit/ui/ui/Stack"
-import { Text } from "@reactkit/ui/ui/Text"
-import { roundedCSS } from "@reactkit/ui/ui/utils/roundedCSS"
-import styled from "styled-components"
-import { Responsibilities } from "./Responsibilities"
-import { getColor } from "@reactkit/ui/ui/theme/getters"
+import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
+import { defaultTransitionCSS } from '@reactkit/ui/ui/animations/transitions'
+import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { Text } from '@reactkit/ui/ui/Text'
+import { roundedCSS } from '@reactkit/ui/ui/utils/roundedCSS'
+import styled from 'styled-components'
+import { Responsibilities } from './Responsibilities'
+import { getColor } from '@reactkit/ui/ui/theme/getters'
 
 interface Props {
   name: string
@@ -21,13 +21,13 @@ const Title = styled(Text)`
   line-height: 1.24;
 
   :hover {
-    color: ${getColor("primary")};
+    color: ${getColor('primary')};
   }
 `
 
 const Badge = styled.div`
   padding: 4px 8px;
-  background: ${getColor("mist")};
+  background: ${getColor('mist')};
   ${roundedCSS};
 `
 
@@ -42,7 +42,7 @@ export const PersonalProject = ({
     <VStack alignItems="start" gap={4}>
       <HStack alignItems="center" gap={16}>
         <ExternalLink to={url}>
-          <Title weight="bold">{name}</Title>{" "}
+          <Title weight="bold">{name}</Title>{' '}
         </ExternalLink>
         {achievement && (
           <Badge>

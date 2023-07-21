@@ -1,5 +1,5 @@
-import { TreeNode } from "@reactkit/ui/shared/utils/tree"
-import { HabitId } from "./habits"
+import { TreeNode } from '@reactkit/ui/shared/utils/tree'
+import { HabitId } from './habits'
 
 export interface HabitTreeNodeValue {
   id: string
@@ -11,54 +11,54 @@ export interface HabitTreeNode extends TreeNode<HabitTreeNodeValue> {}
 
 export const habitTree: HabitTreeNode = {
   value: {
-    id: "happiness",
+    id: 'happiness',
     color: 5,
   },
   children: [
     {
       value: {
-        id: "health",
+        id: 'health',
         color: 4,
       },
       children: [
         {
           value: {
-            id: "sleep",
+            id: 'sleep',
             habits: [
-              "sunlight",
-              "limitCoffee",
-              "noAlcohol",
-              "earlySleep",
-              "noLateFood",
-              "noWorkAfterDinner",
-              "noElectronicsInBedroom",
+              'sunlight',
+              'limitCoffee',
+              'noAlcohol',
+              'earlySleep',
+              'noLateFood',
+              'noWorkAfterDinner',
+              'noElectronicsInBedroom',
             ],
           },
           children: [],
         },
         {
           value: {
-            id: "nutrition",
-            habits: ["morningFast", "noLateFood", "supplements", "content"],
+            id: 'nutrition',
+            habits: ['morningFast', 'noLateFood', 'supplements', 'content'],
           },
           children: [],
         },
         {
           value: {
-            id: "body",
-            habits: ["outdoors", "exercise", "walk"],
+            id: 'body',
+            habits: ['outdoors', 'exercise', 'walk'],
           },
           children: [],
         },
         {
           value: {
-            id: "mind",
+            id: 'mind',
             habits: [
-              "meditation",
-              "learn",
-              "max",
-              "noWorkAfterDinner",
-              "noElectronicsInBedroom",
+              'meditation',
+              'learn',
+              'max',
+              'noWorkAfterDinner',
+              'noElectronicsInBedroom',
             ],
           },
           children: [],
@@ -67,19 +67,19 @@ export const habitTree: HabitTreeNode = {
     },
     {
       value: {
-        id: "relationships",
+        id: 'relationships',
         color: 11,
       },
       children: [
         {
           value: {
-            id: "marriage",
+            id: 'marriage',
             habits: [
-              "compliment",
-              "review",
-              "help",
-              "noWorkAfterDinner",
-              "noElectronicsInBedroom",
+              'compliment',
+              'review',
+              'help',
+              'noWorkAfterDinner',
+              'noElectronicsInBedroom',
             ],
           },
           children: [],
@@ -88,26 +88,26 @@ export const habitTree: HabitTreeNode = {
     },
     {
       value: {
-        id: "work",
+        id: 'work',
         color: 2,
       },
       children: [
         {
           value: {
-            id: "productivity",
+            id: 'productivity',
             habits: [
-              "noWorkAfterDinner",
-              "sunlight",
-              "limitCoffee",
-              "noAlcohol",
-              "earlySleep",
-              "morningFast",
-              "prepare",
-              "noEarlyCoffee",
-              "noLateFood",
-              "outdoors",
-              "exercise",
-              "noElectronicsInBedroom",
+              'noWorkAfterDinner',
+              'sunlight',
+              'limitCoffee',
+              'noAlcohol',
+              'earlySleep',
+              'morningFast',
+              'prepare',
+              'noEarlyCoffee',
+              'noLateFood',
+              'outdoors',
+              'exercise',
+              'noElectronicsInBedroom',
             ],
           },
           children: [],

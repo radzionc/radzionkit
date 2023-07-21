@@ -1,13 +1,13 @@
-import type { NextPage } from "next"
-import { DemoPage } from "components/DemoPage"
-import { Text } from "@reactkit/ui/ui/Text"
-import { SeparatedByLine } from "@reactkit/ui/ui/SeparatedByLine"
+import type { NextPage } from 'next'
+import { DemoPage } from 'components/DemoPage'
+import { Text } from '@reactkit/ui/ui/Text'
+import { SeparatedByLine } from '@reactkit/ui/ui/SeparatedByLine'
 import {
   HStackSeparatedBy,
   dotSeparator,
   slashSeparator,
-} from "@reactkit/ui/ui/StackSeparatedBy"
-import { LabeledValue } from "@reactkit/ui/ui/LabeledValue"
+} from '@reactkit/ui/ui/StackSeparatedBy'
+import { LabeledValue } from '@reactkit/ui/ui/LabeledValue'
 
 const StackSeparatedByPage: NextPage = () => {
   return (

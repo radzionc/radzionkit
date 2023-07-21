@@ -1,22 +1,22 @@
-import { UseFormReturn, useFieldArray } from "react-hook-form"
-import { FormSection } from "@reactkit/ui/ui/Form/FormSection"
+import { UseFormReturn, useFieldArray } from 'react-hook-form'
+import { FormSection } from '@reactkit/ui/ui/Form/FormSection'
 
-import { HStack, VStack } from "@reactkit/ui/ui/Stack"
-import { Line } from "@reactkit/ui/ui/Line"
-import styled from "styled-components"
-import { Text } from "@reactkit/ui/ui/Text"
-import { TextArea } from "@reactkit/ui/ui/inputs/TextArea"
-import { TextInput } from "@reactkit/ui/ui/inputs/TextInput"
-import { Circle } from "@reactkit/ui/ui/Circle"
+import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { Line } from '@reactkit/ui/ui/Line'
+import styled from 'styled-components'
+import { Text } from '@reactkit/ui/ui/Text'
+import { TextArea } from '@reactkit/ui/ui/inputs/TextArea'
+import { TextInput } from '@reactkit/ui/ui/inputs/TextInput'
+import { Circle } from '@reactkit/ui/ui/Circle'
 import {
   emptyExperience,
   JobApplicationFormShape,
   responsibilityMaxLength,
-} from "./jobApplicationForm"
-import { TrashIcon } from "@reactkit/ui/ui/icons/TrashIcon"
-import { Button } from "@reactkit/ui/ui/buttons/Button"
-import { getColor } from "@reactkit/ui/ui/theme/getters"
-import { IconButton } from "@reactkit/ui/ui/buttons/IconButton"
+} from './jobApplicationForm'
+import { TrashIcon } from '@reactkit/ui/ui/icons/TrashIcon'
+import { Button } from '@reactkit/ui/ui/buttons/Button'
+import { getColor } from '@reactkit/ui/ui/theme/getters'
+import { IconButton } from '@reactkit/ui/ui/buttons/IconButton'
 
 export interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -26,7 +26,7 @@ export interface Props {
 const manageElementSizeInPx = 48
 
 const ExperienceNumber = styled(Circle)`
-  background: ${getColor("mist")};
+  background: ${getColor('mist')};
 `
 
 export const ExperienceSection = ({
@@ -38,7 +38,7 @@ export const ExperienceSection = ({
 }: Props) => {
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "experience",
+    name: 'experience',
   })
 
   return (

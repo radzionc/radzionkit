@@ -1,7 +1,7 @@
-import type { NextPage } from "next"
-import { DemoPage } from "components/DemoPage"
-import { Tooltip } from "@reactkit/ui/ui/Tooltip"
-import { Text } from "@reactkit/ui/ui/Text"
+import type { NextPage } from 'next'
+import { DemoPage } from 'components/DemoPage'
+import { Tooltip } from '@reactkit/ui/ui/Tooltip'
+import { Text } from '@reactkit/ui/ui/Text'
 
 const TooltipPage: NextPage = () => {
   return (
@@ -13,7 +13,7 @@ const TooltipPage: NextPage = () => {
           </Text>
         )}
         content={
-          "The app empowers you to take the freedom from remote work to live a more productive, healthier, and happier life by leveraging its holistic toolkit for managing time effectively, getting into a deep focus state, and building positive habits."
+          'The app empowers you to take the freedom from remote work to live a more productive, healthier, and happier life by leveraging its holistic toolkit for managing time effectively, getting into a deep focus state, and building positive habits.'
         }
       />
     </DemoPage>

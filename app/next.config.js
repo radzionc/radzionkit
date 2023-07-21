@@ -5,7 +5,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  transpilePackages: ["@reactkit/ui"],
+  transpilePackages: ['@reactkit/ui'],
 }
 
 module.exports = nextConfig

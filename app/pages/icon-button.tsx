@@ -1,13 +1,13 @@
-import type { NextPage } from "next"
-import { HStack, VStack } from "@reactkit/ui/ui/Stack"
-import { DemoPage } from "components/DemoPage"
-import { TitledSection } from "@reactkit/ui/ui/Layout/TitledSection"
+import type { NextPage } from 'next'
+import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { DemoPage } from 'components/DemoPage'
+import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
 import {
   IconButton,
   iconButtonKinds,
   iconButtonSizes,
-} from "@reactkit/ui/ui/buttons/IconButton"
-import { SettingsIcon } from "@reactkit/ui/ui/icons/SettingsIcon"
+} from '@reactkit/ui/ui/buttons/IconButton'
+import { SettingsIcon } from '@reactkit/ui/ui/icons/SettingsIcon'
 
 const IconButtonPage: NextPage = () => {
   const icon = <SettingsIcon />

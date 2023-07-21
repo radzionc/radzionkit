@@ -1,6 +1,6 @@
-import { defaultBorderRadiusCSS } from "@reactkit/ui/ui/borderRadius"
-import { getColor } from "@reactkit/ui/ui/theme/getters"
-import styled from "styled-components"
+import { defaultBorderRadiusCSS } from '@reactkit/ui/ui/borderRadius'
+import { getColor } from '@reactkit/ui/ui/theme/getters'
+import styled from 'styled-components'
 
 export const ResumeContainer = styled.div`
   width: 880px;
@@ -9,14 +9,14 @@ export const ResumeContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
-  background: ${getColor("foreground")};
-  border: 2px solid ${getColor("foreground")};
+  background: ${getColor('foreground')};
+  border: 2px solid ${getColor('foreground')};
 
   ${defaultBorderRadiusCSS}
   overflow: hidden;
 
   > * {
-    background: ${getColor("background")};
+    background: ${getColor('background')};
     padding: 20px;
   }
 

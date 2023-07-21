@@ -1,10 +1,10 @@
-import type { NextPage } from "next"
-import { VStack } from "@reactkit/ui/ui/Stack"
-import { DemoPage } from "components/DemoPage"
-import { ExpandablePanel } from "@reactkit/ui/ui/Panel/ExpandablePanel"
-import { Text } from "@reactkit/ui/ui/Text"
-import { ExternalLink } from "@reactkit/ui/navigation/Link/ExternalLink"
-import { Button } from "@reactkit/ui/ui/buttons/Button"
+import type { NextPage } from 'next'
+import { VStack } from '@reactkit/ui/ui/Stack'
+import { DemoPage } from 'components/DemoPage'
+import { ExpandablePanel } from '@reactkit/ui/ui/Panel/ExpandablePanel'
+import { Text } from '@reactkit/ui/ui/Text'
+import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
+import { Button } from '@reactkit/ui/ui/buttons/Button'
 
 const PanelPage: NextPage = () => {
   return (

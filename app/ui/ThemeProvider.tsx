@@ -10,7 +10,7 @@ export const ThemeProvider = ({ children }: ComponentWithChildrenProps) => {
   const [prefferedTheme, setPrefferedTheme] =
     usePersistentStorageValue<ThemePreference>(
       PersistentStorageKey.ThemePreference,
-      'system'
+      'system',
     )
 
   return (

@@ -1,9 +1,9 @@
-import { range } from "@reactkit/ui/shared/utils/range"
-import { SameWidthChildrenRow } from "@reactkit/ui/ui/Layout/SameWidthChildrenRow"
-import { Line } from "@reactkit/ui/ui/Line"
-import { useTheme } from "styled-components"
-import { ColorItem } from "./ColorItem"
-import { labelColorsCount } from "@reactkit/ui/ui/colors/generateLabelColorGetter"
+import { range } from '@reactkit/ui/shared/utils/range'
+import { SameWidthChildrenRow } from '@reactkit/ui/ui/Layout/SameWidthChildrenRow'
+import { Line } from '@reactkit/ui/ui/Line'
+import { useTheme } from 'styled-components'
+import { ColorItem } from './ColorItem'
+import { labelColorsCount } from '@reactkit/ui/ui/colors/generateLabelColorGetter'
 
 export const ColorList = () => {
   const {

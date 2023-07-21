@@ -17,7 +17,7 @@ const Image = styled.img`
 const PromotionPage: NextPage = () => {
   const [wasShown, setWasShown] = usePersistentStorageValue(
     PersistentStorageKey.Promotion,
-    false
+    false,
   )
   return (
     <DemoPage youtubeVideoId="Cnv0K3izNUk" title="Interactive Promotion">

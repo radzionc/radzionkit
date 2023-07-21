@@ -1,21 +1,25 @@
-import type { NextPage } from "next"
-import { DemoPage } from "components/DemoPage"
-import { VStack } from "@reactkit/ui/ui/Stack"
-import { HSLAParameter, hslaKeys, hslaParamMaxValue } from "@reactkit/ui/ui/colors/HSLA"
-import { ColorParameterInput } from "components/ColorParameterInput"
-import styled, { useTheme } from "styled-components"
-import { useState } from "react"
-import { Text } from "@reactkit/ui/ui/Text"
-import { SameWidthChildrenRow } from "@reactkit/ui/ui/Layout/SameWidthChildrenRow"
-import { Panel } from "@reactkit/ui/ui/Panel/Panel"
-import { CopyText } from "@reactkit/ui/ui/CopyText"
-import { SeparatedByLine } from "@reactkit/ui/ui/SeparatedByLine"
+import type { NextPage } from 'next'
+import { DemoPage } from 'components/DemoPage'
+import { VStack } from '@reactkit/ui/ui/Stack'
+import {
+  HSLAParameter,
+  hslaKeys,
+  hslaParamMaxValue,
+} from '@reactkit/ui/ui/colors/HSLA'
+import { ColorParameterInput } from 'components/ColorParameterInput'
+import styled, { useTheme } from 'styled-components'
+import { useState } from 'react'
+import { Text } from '@reactkit/ui/ui/Text'
+import { SameWidthChildrenRow } from '@reactkit/ui/ui/Layout/SameWidthChildrenRow'
+import { Panel } from '@reactkit/ui/ui/Panel/Panel'
+import { CopyText } from '@reactkit/ui/ui/CopyText'
+import { SeparatedByLine } from '@reactkit/ui/ui/SeparatedByLine'
 
 const colorParameterName: Record<HSLAParameter, string> = {
-  h: "Hue",
-  s: "Saturation",
-  l: "Lightness",
-  a: "Alpha",
+  h: 'Hue',
+  s: 'Saturation',
+  l: 'Lightness',
+  a: 'Alpha',
 }
 
 const formatColorParameter: Record<HSLAParameter, (value: number) => string> = {
@@ -64,7 +68,7 @@ const HSLAPage: NextPage = () => {
                 <ColorParameterInput
                   onChange={(parameter) => {
                     setValue(
-                      value.getVariant({ [key]: () => parameter.toFixed(2) })
+                      value.getVariant({ [key]: () => parameter.toFixed(2) }),
                     )
                   }}
                   value={value[key]}
@@ -82,7 +86,7 @@ const HSLAPage: NextPage = () => {
           </VStack>
 
           <CopyText
-            style={{ textAlign: "end" }}
+            style={{ textAlign: 'end' }}
             weight="bold"
             content={value.toCssValue()}
           >

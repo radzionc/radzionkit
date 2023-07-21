@@ -741,5 +741,5 @@ export const languages: { [key: string]: LanguageDescription } = {
 export const languagesNames = Object.values(languages).map(({ name }) => name)
 
 export const languageCodeForName = Object.fromEntries(
-  Object.entries(languages).map(([code, { name }]) => [name, code])
+  Object.entries(languages).map(([code, { name }]) => [name, code]),
 )
