@@ -15,7 +15,6 @@
     "react-is": "^18.2.0",
     "react-query": "^3.39.2",
     "react-spring": "^9.7.1",
-    "react-to-print": "^2.14.12",
     "react-use": "^17.4.0",
     "styled-components": "^5.3.5"
   },
