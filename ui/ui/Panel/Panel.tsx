@@ -1,23 +1,23 @@
-import styled, { css } from "styled-components"
+import styled, { css } from 'styled-components'
 
-import { defaultBorderRadiusCSS } from "../borderRadius"
-import { getCSSUnit } from "../utils/getCSSUnit"
-import { getColor } from "../theme/getters"
-import { match } from "../../shared/utils/match"
+import { defaultBorderRadiusCSS } from '../borderRadius'
+import { getCSSUnit } from '../utils/getCSSUnit'
+import { getColor } from '../theme/getters'
+import { match } from '../../shared/utils/match'
 
-type PanelKind = "regular" | "secondary"
+type PanelKind = 'regular' | 'secondary'
 
 export interface PanelProps {
-  width?: React.CSSProperties["width"]
-  padding?: React.CSSProperties["padding"]
-  direction?: React.CSSProperties["flexDirection"]
+  width?: React.CSSProperties['width']
+  padding?: React.CSSProperties['padding']
+  direction?: React.CSSProperties['flexDirection']
 
   kind?: PanelKind
 
   withSections?: boolean
 }
 
-const panelPaddingCSS = css<{ padding?: React.CSSProperties["padding"] }>`
+const panelPaddingCSS = css<{ padding?: React.CSSProperties['padding'] }>`
   padding: ${({ padding }) => getCSSUnit(padding || 20)};
 `
 
@@ -26,7 +26,7 @@ export const Panel = styled.div<PanelProps>`
   width: ${({ width }) => (width ? getCSSUnit(width) : undefined)};
   overflow: hidden;
 
-  ${({ withSections, direction = "column", kind = "regular", theme }) => {
+  ${({ withSections, direction = 'column', kind = 'regular', theme }) => {
     const contentBackground = match(kind, {
       secondary: () => theme.colors.background.toCssValue(),
       regular: () => theme.colors.mist.toCssValue(),
@@ -51,8 +51,8 @@ export const Panel = styled.div<PanelProps>`
   }}
 
   ${({ kind }) =>
-    kind === "secondary" &&
+    kind === 'secondary' &&
     css`
-      border: 2px solid ${getColor("mist")};
+      border: 2px solid ${getColor('mist')};
     `}
 `

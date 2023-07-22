@@ -1,9 +1,9 @@
-import { useForm } from "react-hook-form"
-import { useKey } from "react-use"
-import styled from "styled-components"
-import { Box } from "./ChecklistItem"
-import { ChecklistItemFrame } from "./ChecklistItemFrame"
-import { getColor } from "../theme/getters"
+import { useForm } from 'react-hook-form'
+import { useKey } from 'react-use'
+import styled from 'styled-components'
+import { Box } from './ChecklistItem'
+import { ChecklistItemFrame } from './ChecklistItemFrame'
+import { getColor } from '../theme/getters'
 
 interface ChecklistItemFormShape {
   name: string
@@ -14,11 +14,11 @@ const Input = styled.input`
   border: none;
   height: 100%;
   width: 100%;
-  color: ${getColor("text")};
+  color: ${getColor('text')};
   outline: none;
 
   &::placeholder {
-    color: ${getColor("textShy")};
+    color: ${getColor('textShy')};
   }
 `
 
@@ -31,21 +31,21 @@ interface ChecklistItemFormProps {
 export const ChecklistItemForm = ({
   onSubmit,
   onCancel,
-  namePlaceholder = "Name",
+  namePlaceholder = 'Name',
 }: ChecklistItemFormProps) => {
   const { register, handleSubmit } = useForm<ChecklistItemFormShape>({
-    mode: "all",
+    mode: 'all',
     defaultValues: {
-      name: "",
+      name: '',
     },
   })
 
-  useKey("Escape", onCancel)
+  useKey('Escape', onCancel)
 
   return (
     <ChecklistItemFrame
       as="form"
-      style={{ width: "100%" }}
+      style={{ width: '100%' }}
       onBlur={handleSubmit(onSubmit, onCancel)}
       onSubmit={handleSubmit(onSubmit)}
     >
@@ -53,7 +53,7 @@ export const ChecklistItemForm = ({
       <Input
         placeholder={namePlaceholder}
         autoFocus
-        {...register("name", { required: true })}
+        {...register('name', { required: true })}
       />
     </ChecklistItemFrame>
   )

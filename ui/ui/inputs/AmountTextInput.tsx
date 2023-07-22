@@ -38,7 +38,7 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
     type = 'number',
     ...props
   }: AmountTextInputProps,
-  ref: Ref<HTMLInputElement> | null
+  ref: Ref<HTMLInputElement> | null,
 ) {
   const valueAsString = value?.toString() ?? ''
   const [inputValue, setInputValue] = useState<string>(valueAsString)
@@ -84,7 +84,7 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
         }
 
         setInputValue(
-          valueAsNumber.toString() !== value ? value : valueAsNumber.toString()
+          valueAsNumber.toString() !== value ? value : valueAsNumber.toString(),
         )
         onValueChange?.(valueAsNumber)
       }}

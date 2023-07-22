@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components"
-import { HStack } from "../../Stack"
-import { defaultTransitionCSS } from "../../animations/transitions"
-import { getColor } from "../../theme/getters"
-import { Text } from "../../Text"
+import styled, { css } from 'styled-components'
+import { HStack } from '../../Stack'
+import { defaultTransitionCSS } from '../../animations/transitions'
+import { getColor } from '../../theme/getters'
+import { Text } from '../../Text'
 
 interface Props {
   icon?: React.ReactNode
@@ -21,13 +21,13 @@ export const Container = styled.div<{ isSelected?: boolean }>`
   ${defaultTransitionCSS};
   border-radius: 8px;
   font-weight: 500;
-  color: ${getColor("textSupporting")};
+  color: ${getColor('textSupporting')};
   :hover {
-    background: ${getColor("mist")};
+    background: ${getColor('mist')};
   }
 
   :active {
-    background: ${getColor("mistExtra")};
+    background: ${getColor('mistExtra')};
   }
 
   ${({ isSelected, theme }) =>
@@ -53,7 +53,7 @@ export const NavigationItem = ({
 }: Props) => {
   return (
     <Container isSelected={isActive}>
-      <Text size={18} style={{ position: "relative" }} as="div">
+      <Text size={18} style={{ position: 'relative' }} as="div">
         <HStack gap={8}>
           {icon && <IconWrapper>{icon}</IconWrapper>}
           <div>{name}</div>

@@ -1,6 +1,6 @@
 export function match<T extends string | number | symbol, V>(
   value: T,
-  handlers: { [key in T]: () => V }
+  handlers: { [key in T]: () => V },
 ): V {
   const handler = handlers[value]
 
@@ -9,7 +9,7 @@ export function match<T extends string | number | symbol, V>(
 
 export function booleanMatch<V>(
   value: boolean,
-  handlers: { true: () => V; false: () => V }
+  handlers: { true: () => V; false: () => V },
 ): V {
   const handler = value ? handlers.true : handlers.false
 

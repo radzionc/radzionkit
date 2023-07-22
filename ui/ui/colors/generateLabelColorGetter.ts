@@ -1,5 +1,5 @@
-import { degreesInCircle } from "../../shared/utils/degreesToRadians"
-import { HSLA } from "./HSLA"
+import { degreesInCircle } from '../../shared/utils/degreesToRadians'
+import { HSLA } from './HSLA'
 
 export const labelColorsCount = 12
 

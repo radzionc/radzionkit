@@ -1,6 +1,6 @@
 export function withoutDuplicates<T>(
   items: T[],
-  areEqual: (a: T, b: T) => boolean = (a, b) => a === b
+  areEqual: (a: T, b: T) => boolean = (a, b) => a === b,
 ): T[] {
   const result: T[] = []
 

@@ -1,10 +1,10 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import { defaultTransitionCSS } from "./animations/transitions"
-import { getCSSUnit } from "./utils/getCSSUnit"
-import { getColor } from "./theme/getters"
-import { interactiveCSS } from "./utils/interactiveCSS"
-import { ComponentWithChildrenProps } from "../shared/props"
+import { defaultTransitionCSS } from './animations/transitions'
+import { getCSSUnit } from './utils/getCSSUnit'
+import { getColor } from './theme/getters'
+import { interactiveCSS } from './utils/interactiveCSS'
+import { ComponentWithChildrenProps } from '../shared/props'
 
 const Highlight = styled.div`
   position: absolute;
@@ -18,7 +18,7 @@ const Container = styled.button`
   position: relative;
 
   :hover ${Highlight} {
-    background: ${getColor("mist")};
+    background: ${getColor('mist')};
   }
 `
 

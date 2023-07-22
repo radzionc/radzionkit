@@ -5,7 +5,7 @@ import { Text } from '.'
 
 export const getHighlightedTextCSS = (
   highlightColor: HSLA,
-  { name }: DefaultTheme
+  { name }: DefaultTheme,
 ) => {
   const color =
     name === 'dark'

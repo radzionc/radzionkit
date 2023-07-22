@@ -15,7 +15,7 @@ interface Props {
 const formatFlexAlignment = (
   value:
     | React.CSSProperties['alignItems']
-    | React.CSSProperties['justifyContent']
+    | React.CSSProperties['justifyContent'],
 ) => {
   if (value === 'end' || value === 'start') {
     return `flex-${value}`

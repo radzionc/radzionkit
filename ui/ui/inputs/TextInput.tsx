@@ -1,18 +1,15 @@
-import { ChangeEvent, InputHTMLAttributes, Ref, forwardRef } from "react"
-import styled from "styled-components"
+import { ChangeEvent, InputHTMLAttributes, Ref, forwardRef } from 'react'
+import styled from 'styled-components'
 
-import {
-  InputWrapperProps,
-  InputWrapperWithErrorMessage,
-} from "./InputWrapper"
-import { Spinner } from "../Spinner"
-import { commonInputCSS } from "./commonInputCSS"
-import { VStack } from "../Stack"
-import { ComponentWithClassNameProps } from "../../shared/props"
+import { InputWrapperProps, InputWrapperWithErrorMessage } from './InputWrapper'
+import { Spinner } from '../Spinner'
+import { commonInputCSS } from './commonInputCSS'
+import { VStack } from '../Stack'
+import { ComponentWithClassNameProps } from '../../shared/props'
 
 export type SharedTextInputProps = Pick<
   InputWrapperProps,
-  "label" | "error"
+  'label' | 'error'
 > & {
   onValueChange?: (value: string) => void
   isLoading?: boolean
@@ -33,7 +30,7 @@ export const TextInput = forwardRef(function TextInputInner(
     className,
     ...props
   }: TextInputProps,
-  ref: Ref<HTMLInputElement> | null
+  ref: Ref<HTMLInputElement> | null,
 ) {
   return (
     <InputWrapperWithErrorMessage error={error} label={label}>

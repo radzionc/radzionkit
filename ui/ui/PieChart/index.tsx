@@ -1,12 +1,12 @@
-import { useMemo } from "react"
-import { useTheme } from "styled-components"
+import { useMemo } from 'react'
+import { useTheme } from 'styled-components'
 
-import { SvgArc } from "./SvgArc"
-import { SvgDisk } from "./SvgDisk"
-import { PieChartLabel } from "./PieChartLabel"
-import { degreesInCircle } from "../../shared/utils/degreesToRadians"
-import { sum } from "../../shared/utils/sum"
-import { HSLA } from "../colors/HSLA"
+import { SvgArc } from './SvgArc'
+import { SvgDisk } from './SvgDisk'
+import { PieChartLabel } from './PieChartLabel'
+import { degreesInCircle } from '../../shared/utils/degreesToRadians'
+import { sum } from '../../shared/utils/sum'
+import { HSLA } from '../colors/HSLA'
 
 export interface PieChartItem {
   value: number

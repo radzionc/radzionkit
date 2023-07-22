@@ -1,15 +1,15 @@
-import { ReactNode, useState } from "react"
-import { useSpring, animated, config } from "react-spring"
-import styled from "styled-components"
-import { HStack, VStack } from "../Stack"
-import { Text } from "../Text"
-import { ReversedTheme } from "../theme/ReversedTheme"
-import { Button } from "../buttons/Button"
-import { ExternalLink } from "../../navigation/Link/ExternalLink"
+import { ReactNode, useState } from 'react'
+import { useSpring, animated, config } from 'react-spring'
+import styled from 'styled-components'
+import { HStack, VStack } from '../Stack'
+import { Text } from '../Text'
+import { ReversedTheme } from '../theme/ReversedTheme'
+import { Button } from '../buttons/Button'
+import { ExternalLink } from '../../navigation/Link/ExternalLink'
 
 interface speechPlaecement {
-  left: React.CSSProperties["left"]
-  bottom: React.CSSProperties["bottom"]
+  left: React.CSSProperties['left']
+  bottom: React.CSSProperties['bottom']
 }
 
 interface InteractivePromotionProps {

@@ -1,9 +1,9 @@
-import { Modal, ModalProps } from "."
-import { SameWidthChildrenRow } from "../Layout/SameWidthChildrenRow"
-import { Button, ButtonKind } from "../buttons/Button"
+import { Modal, ModalProps } from '.'
+import { SameWidthChildrenRow } from '../Layout/SameWidthChildrenRow'
+import { Button, ButtonKind } from '../buttons/Button'
 
 interface ConfirmationModalProps
-  extends Omit<ModalProps, "footer" | "onClose"> {
+  extends Omit<ModalProps, 'footer' | 'onClose'> {
   onClose: () => void
   onConfirm: () => void
   confirmActionText: string
@@ -14,7 +14,7 @@ export const ConfirmationModal = ({
   onClose,
   onConfirm,
   confirmActionText,
-  confirmActionKind = "alert",
+  confirmActionKind = 'alert',
   ...props
 }: ConfirmationModalProps) => {
   return (

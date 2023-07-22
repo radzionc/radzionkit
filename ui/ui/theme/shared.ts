@@ -1,4 +1,4 @@
-import { HSLA } from "../colors/HSLA"
+import { HSLA } from '../colors/HSLA'
 
 export const sharedColors = {
   primary: new HSLA(210, 77, 51),

@@ -27,7 +27,7 @@ export const PieChartLabel = ({
   const labelPosition = getPointOnCircle(
     radius,
     cutoutRadius + (radius - cutoutRadius) / 2,
-    labelAngle
+    labelAngle,
   )
   labelPosition.x -= labelWrapperSize / 2
   labelPosition.y -= labelWrapperSize / 2

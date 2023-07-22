@@ -1,9 +1,9 @@
-import { capitalizeFirstLetter } from "../../shared/utils/capitalizeFirstLetter"
-import { HStack, VStack } from "../Stack"
-import { useRhythmicRerender } from "../hooks/useRhythmicRerender"
-import { CountdownPart } from "./CountdownPart"
-import { Text } from "../Text"
-import { MS_IN_HOUR, MS_IN_MIN, MS_IN_SEC } from "../../shared/utils/time"
+import { capitalizeFirstLetter } from '../../shared/utils/capitalizeFirstLetter'
+import { HStack, VStack } from '../Stack'
+import { useRhythmicRerender } from '../hooks/useRhythmicRerender'
+import { CountdownPart } from './CountdownPart'
+import { Text } from '../Text'
+import { MS_IN_HOUR, MS_IN_MIN, MS_IN_SEC } from '../../shared/utils/time'
 
 const countdownUnits = ['days', 'hours', 'minutes', 'seconds'] as const
 type CountdownUnit = (typeof countdownUnits)[number]
@@ -42,7 +42,7 @@ export const Countdown = ({ endsAt, precision = 'seconds' }: Props) => {
 
   const unitsToShow = countdownUnits.slice(
     0,
-    countdownUnits.indexOf(precision) + 1
+    countdownUnits.indexOf(precision) + 1,
   )
 
   const duration = formatDuration(Math.max(endsAt - now, 0), unitsToShow)

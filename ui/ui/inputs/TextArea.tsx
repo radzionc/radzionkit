@@ -4,15 +4,14 @@ import {
   TextareaHTMLAttributes,
   forwardRef,
   useState,
-} from "react"
-import styled from "styled-components"
+} from 'react'
+import styled from 'styled-components'
 
-
-import { InputWrapperWithErrorMessage } from "./InputWrapper"
-import { SharedTextInputProps } from "./TextInput"
-import { commonInputCSS } from "./commonInputCSS"
-import { getCSSUnit } from "../utils/getCSSUnit"
-import { Text } from "../Text"
+import { InputWrapperWithErrorMessage } from './InputWrapper'
+import { SharedTextInputProps } from './TextInput'
+import { commonInputCSS } from './commonInputCSS'
+import { getCSSUnit } from '../utils/getCSSUnit'
+import { Text } from '../Text'
 
 const TextareaContainer = styled.textarea`
   ${commonInputCSS};
@@ -37,7 +36,7 @@ type Props = TextareaHTMLAttributes<HTMLTextAreaElement> &
 
 export const TextArea = forwardRef(function TextAreaInner(
   { onValueChange, label, error, ...props }: Props,
-  ref: Ref<HTMLTextAreaElement> | null
+  ref: Ref<HTMLTextAreaElement> | null,
 ) {
   const [charactersCount, setCharactersCount] = useState(0)
 

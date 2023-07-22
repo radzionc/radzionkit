@@ -1,12 +1,12 @@
-import { handleWithStopPropagation } from "shared/events"
-import { ComponentWithChildrenProps } from "shared/props"
-import { ReactNode } from "react"
-import styled from "styled-components"
-import { VStack } from "../Stack"
-import { defaultBorderRadiusCSS } from "../borderRadius"
-import { ReversedTheme } from "../theme/ReversedTheme"
-import { getColor } from "../theme/getters"
-import { Text } from "../Text"
+import { handleWithStopPropagation } from 'shared/events'
+import { ComponentWithChildrenProps } from 'shared/props'
+import { ReactNode } from 'react'
+import styled from 'styled-components'
+import { VStack } from '../Stack'
+import { defaultBorderRadiusCSS } from '../borderRadius'
+import { ReversedTheme } from '../theme/ReversedTheme'
+import { getColor } from '../theme/getters'
+import { Text } from '../Text'
 
 interface TreeFilterNodeProps extends ComponentWithChildrenProps {
   name: ReactNode
@@ -18,13 +18,13 @@ const Container = styled.div<{ isSelected: boolean }>`
   ${defaultBorderRadiusCSS}
   padding: 8px;
   cursor: pointer;
-  border: 1px solid ${getColor("mist")};
+  border: 1px solid ${getColor('mist')};
   background: ${({ isSelected, theme }) =>
     isSelected
       ? theme.colors.background.toCssValue()
       : theme.colors.mist.toCssValue()};
 
-  color: ${getColor("text")};
+  color: ${getColor('text')};
 `
 
 export const TreeFilterNode = ({

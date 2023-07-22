@@ -1,8 +1,7 @@
-import { ComponentWithChildrenProps } from "../../shared/props"
-import { Line } from "../Line"
-import { VStack } from "../Stack"
-import { Text } from "../Text"
-
+import { ComponentWithChildrenProps } from '../../shared/props'
+import { Line } from '../Line'
+import { VStack } from '../Stack'
+import { Text } from '../Text'
 
 interface Props extends ComponentWithChildrenProps {
   name: string

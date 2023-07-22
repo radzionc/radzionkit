@@ -21,10 +21,12 @@ export const Menu = ({ renderOpener, title, renderContent }: MenuProps) => {
     <ResponsiveView
       small={() => (
         <Opener
-          renderOpener={({ onOpen }) => renderOpener({
-            onClick: onOpen,
-            ref: () => { },
-          })}
+          renderOpener={({ onOpen }) =>
+            renderOpener({
+              onClick: onOpen,
+              ref: () => {},
+            })
+          }
           renderContent={({ onClose }) => (
             <BottomSlideOver onClose={onClose} title={title}>
               {renderContent({ onClose, view: 'slideover' })}

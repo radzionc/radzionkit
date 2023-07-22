@@ -1,15 +1,15 @@
-import { ReactNode } from "react"
-import styled, { css } from "styled-components"
+import { ReactNode } from 'react'
+import styled, { css } from 'styled-components'
 
-import { MenuView } from "."
-import { Hoverable } from "../Hoverable"
-import { HStack } from "../Stack"
-import { defaultTransitionCSS } from "../animations/transitions"
-import { getVerticalPaddingCSS } from "../utils/getVerticalPaddingCSS"
-import { Text } from "../Text"
-import { Button } from "../buttons/Button"
+import { MenuView } from '.'
+import { Hoverable } from '../Hoverable'
+import { HStack } from '../Stack'
+import { defaultTransitionCSS } from '../animations/transitions'
+import { getVerticalPaddingCSS } from '../utils/getVerticalPaddingCSS'
+import { Text } from '../Text'
+import { Button } from '../buttons/Button'
 
-type MenuOptionKind = "regular" | "alert"
+type MenuOptionKind = 'regular' | 'alert'
 
 export interface MenuOptionProps {
   icon?: ReactNode
@@ -39,21 +39,21 @@ const Content = styled(HStack)<ContentProps>`
       alert: css`
         color: ${({ theme }) => theme.colors.alert.toCssValue()};
       `,
-    }[kind])};
+    })[kind]};
 `
 
 export const MenuOption = ({
   text,
   icon,
   onSelect,
-  kind = "regular",
-  view = "popover",
+  kind = 'regular',
+  view = 'popover',
 }: MenuOptionProps) => {
-  if (view === "popover") {
+  if (view === 'popover') {
     return (
       <Hoverable verticalOffset={0} onClick={onSelect}>
         <Content kind={kind}>
-          <Text style={{ display: "flex" }}>{icon}</Text>
+          <Text style={{ display: 'flex' }}>{icon}</Text>
           <Text>{text}</Text>
         </Content>
       </Hoverable>
@@ -62,8 +62,8 @@ export const MenuOption = ({
 
   return (
     <Button
-      style={{ justifyContent: "flex-start", height: 56 }}
-      kind={kind === "regular" ? "secondary" : "alert"}
+      style={{ justifyContent: 'flex-start', height: 56 }}
+      kind={kind === 'regular' ? 'secondary' : 'alert'}
       size="l"
       isRounded={true}
       key={text}

@@ -1,12 +1,12 @@
-import { CSSProperties } from "react"
-import styled from "styled-components"
-import { ComponentWithChildrenProps } from "../../shared/props"
-import { Line } from "../Line"
-import { Text } from "../Text"
+import { CSSProperties } from 'react'
+import styled from 'styled-components'
+import { ComponentWithChildrenProps } from '../../shared/props'
+import { Line } from '../Line'
+import { Text } from '../Text'
 
 interface Props extends ComponentWithChildrenProps {
   columnNames: string[]
-  gridTemplateColumns: CSSProperties["gridTemplateColumns"]
+  gridTemplateColumns: CSSProperties['gridTemplateColumns']
 }
 
 const Container = styled.div`

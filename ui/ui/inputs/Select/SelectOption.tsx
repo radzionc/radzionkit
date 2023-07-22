@@ -1,21 +1,21 @@
-import { ReactNode } from "react"
-import styled, { css } from "styled-components"
+import { ReactNode } from 'react'
+import styled, { css } from 'styled-components'
 
-import { defaultInputShapeCSS } from "../config"
+import { defaultInputShapeCSS } from '../config'
 import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
-} from "../InvisibleHTMLRadio"
-import { defaultTransitionCSS } from "../../animations/transitions"
-import { getColor } from "../../theme/getters"
-import { centerContentCSS } from "../../utils/centerContentCSS"
+} from '../InvisibleHTMLRadio'
+import { defaultTransitionCSS } from '../../animations/transitions'
+import { getColor } from '../../theme/getters'
+import { centerContentCSS } from '../../utils/centerContentCSS'
 
 const Container = styled.label<{ isSelected: boolean }>`
   position: relative;
   cursor: pointer;
 
   ${centerContentCSS}
-  background: ${getColor("mist")};
+  background: ${getColor('mist')};
 
   ${defaultInputShapeCSS};
   ${defaultTransitionCSS};

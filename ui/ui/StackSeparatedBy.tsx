@@ -37,7 +37,7 @@ export const StackSeparatedBy = ({
 }
 
 export interface HStackSeparatedByProps
-  extends Omit<StackSeparatedByProps, 'direction'> { }
+  extends Omit<StackSeparatedByProps, 'direction'> {}
 
 export const HStackSeparatedBy = ({
   alignItems = 'center',
@@ -45,4 +45,3 @@ export const HStackSeparatedBy = ({
 }: HStackSeparatedByProps) => {
   return <StackSeparatedBy direction="row" alignItems={alignItems} {...props} />
 }
-

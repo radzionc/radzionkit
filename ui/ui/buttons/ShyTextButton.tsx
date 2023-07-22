@@ -1,23 +1,23 @@
-import { ComponentProps, ReactNode } from "react"
-import styled from "styled-components"
-import { defaultTransitionCSS } from "../animations/transitions"
-import { Text } from "../Text"
+import { ComponentProps, ReactNode } from 'react'
+import styled from 'styled-components'
+import { defaultTransitionCSS } from '../animations/transitions'
+import { Text } from '../Text'
 
-import { getColor } from "../theme/getters"
-import { interactiveCSS } from "../utils/interactiveCSS"
+import { getColor } from '../theme/getters'
+import { interactiveCSS } from '../utils/interactiveCSS'
 
 const Container = styled.button`
   all: unset;
   ${interactiveCSS};
-  color: ${getColor("textSupporting")};
+  color: ${getColor('textSupporting')};
   ${defaultTransitionCSS};
 
   :hover {
-    color: ${getColor("contrast")};
+    color: ${getColor('contrast')};
   }
 `
 
-interface Props extends ComponentProps<typeof Container>  {
+interface Props extends ComponentProps<typeof Container> {
   text: ReactNode
 }
 
@@ -35,7 +35,7 @@ export const ShyTextButton = ({ onClick, text, as }: Props) => {
       <Text
         size={14}
         nowrap
-        style={{ transition: "none", position: "relative" }}
+        style={{ transition: 'none', position: 'relative' }}
         weight="bold"
       >
         {text}

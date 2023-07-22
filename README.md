@@ -30,8 +30,8 @@ yarn add --dev @types/react @types/react-dom @types/styled-components eslint typ
 ### 5. Finish setup
 
 ```tsx
-import { GlobalStyle } from "lib/ui/GlobalStyle"
-import { ThemeProvider } from "ui/ThemeProvider"
+import { GlobalStyle } from 'lib/ui/GlobalStyle'
+import { ThemeProvider } from 'ui/ThemeProvider'
 
 export const App = () => {
   return (

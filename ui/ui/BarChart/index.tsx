@@ -1,15 +1,15 @@
-import { ReactNode } from "react"
-import styled from "styled-components"
-import { SameWidthChildrenRow } from "../Layout/SameWidthChildrenRow"
-import { Spacer } from "../Spacer"
-import { VStack } from "../Stack"
-import { defaultTransitionCSS } from "../animations/transitions"
-import { HSLA } from "../colors/HSLA"
-import { centerContentCSS } from "../utils/centerContentCSS"
-import { getCSSUnit } from "../utils/getCSSUnit"
-import { Text } from "../Text"
-import { getColor } from "../theme/getters"
-import { toPercents } from "../../shared/utils/toPercents"
+import { ReactNode } from 'react'
+import styled from 'styled-components'
+import { SameWidthChildrenRow } from '../Layout/SameWidthChildrenRow'
+import { Spacer } from '../Spacer'
+import { VStack } from '../Stack'
+import { defaultTransitionCSS } from '../animations/transitions'
+import { HSLA } from '../colors/HSLA'
+import { centerContentCSS } from '../utils/centerContentCSS'
+import { getCSSUnit } from '../utils/getCSSUnit'
+import { Text } from '../Text'
+import { getColor } from '../theme/getters'
+import { toPercents } from '../../shared/utils/toPercents'
 
 export interface BarChartItem {
   label?: ReactNode
@@ -20,13 +20,13 @@ export interface BarChartItem {
 
 interface BarChartProps {
   items: BarChartItem[]
-  height: React.CSSProperties["height"]
-  expectedValueHeight?: React.CSSProperties["height"]
-  expectedLabelHeight?: React.CSSProperties["height"]
+  height: React.CSSProperties['height']
+  expectedValueHeight?: React.CSSProperties['height']
+  expectedLabelHeight?: React.CSSProperties['height']
 }
 
-const barValueGap = "4px"
-const barLabelGap = "4px"
+const barValueGap = '4px'
+const barLabelGap = '4px'
 const defaultLabelSize = 12
 
 const Bar = styled.div`
@@ -42,7 +42,7 @@ const RelativeWrapper = styled.div`
 
 export const BarPlaceholder = styled(Bar)`
   height: 2px;
-  background: ${getColor("mist")};
+  background: ${getColor('mist')};
 `
 
 const Value = styled(Text)`
@@ -50,7 +50,7 @@ const Value = styled(Text)`
   white-space: nowrap;
   line-height: 1;
   bottom: ${barValueGap};
-  color: ${getColor("textSupporting")};
+  color: ${getColor('textSupporting')};
 `
 
 const Label = styled(Value)`
@@ -95,7 +95,7 @@ export const BarChart = ({
               <Bar
                 style={{
                   background: color.toCssValue(),
-                  height: value ? toPercents(value / maxValue) : "2px",
+                  height: value ? toPercents(value / maxValue) : '2px',
                 }}
               />
               {label && (

@@ -5,7 +5,7 @@ import { createContextHook } from './createContextHook'
 
 export function getViewSetup<T extends string | number | symbol>(
   defaultView: T,
-  name: string
+  name: string,
 ) {
   interface ViewState {
     view: T

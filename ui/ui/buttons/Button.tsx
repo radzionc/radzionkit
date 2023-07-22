@@ -1,30 +1,30 @@
-import styled, { css } from "styled-components"
+import styled, { css } from 'styled-components'
 
-import { getColor } from "../theme/getters"
-import { CenterAbsolutely } from "../CenterAbsolutely"
-import { getHoverVariant } from "../colors/getHoverVariant"
-import { interactiveCSS } from "../utils/interactiveCSS"
-import { match } from "../../shared/utils/match"
-import { Spinner } from "../Spinner"
-import { Tooltip } from "../Tooltip"
-import { defaultTransitionCSS } from "../animations/transitions"
-import { centerContentCSS } from "../utils/centerContentCSS"
-import { getCSSUnit } from "../utils/getCSSUnit"
-import { getHorizontalPaddingCSS } from "../utils/getHorizontalPaddingCSS"
+import { getColor } from '../theme/getters'
+import { CenterAbsolutely } from '../CenterAbsolutely'
+import { getHoverVariant } from '../colors/getHoverVariant'
+import { interactiveCSS } from '../utils/interactiveCSS'
+import { match } from '../../shared/utils/match'
+import { Spinner } from '../Spinner'
+import { Tooltip } from '../Tooltip'
+import { defaultTransitionCSS } from '../animations/transitions'
+import { centerContentCSS } from '../utils/centerContentCSS'
+import { getCSSUnit } from '../utils/getCSSUnit'
+import { getHorizontalPaddingCSS } from '../utils/getHorizontalPaddingCSS'
 
-export const buttonSizes = ["xs", "s", "m", "l", "xl"] as const
+export const buttonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 
 type ButtonSize = (typeof buttonSizes)[number]
 
 export const buttonKinds = [
-  "primary",
-  "secondary",
-  "reversed",
-  "alert",
-  "outlined",
-  "outlinedAlert",
-  "ghost",
-  "ghostSecondary",
+  'primary',
+  'secondary',
+  'reversed',
+  'alert',
+  'outlined',
+  'outlinedAlert',
+  'ghost',
+  'ghostSecondary',
 ] as const
 
 export type ButtonKind = (typeof buttonKinds)[number]
@@ -82,34 +82,34 @@ const Container = styled.button<ContainerProps>`
   ${({ kind }) =>
     match(kind, {
       primary: () => css`
-        background: ${getColor("primary")};
-        color: ${getColor("white")};
+        background: ${getColor('primary')};
+        color: ${getColor('white')};
       `,
       secondary: () => css`
-        background: ${getColor("mist")};
-        color: ${getColor("contrast")};
+        background: ${getColor('mist')};
+        color: ${getColor('contrast')};
       `,
       reversed: () => css`
-        background: ${getColor("contrast")};
-        color: ${getColor("background")};
+        background: ${getColor('contrast')};
+        color: ${getColor('background')};
       `,
       alert: () => css`
-        background: ${getColor("alert")};
-        color: ${getColor("white")};
+        background: ${getColor('alert')};
+        color: ${getColor('white')};
       `,
       outlined: () => css`
-        border: 1px solid ${getColor("mistExtra")};
-        color: ${getColor("contrast")};
+        border: 1px solid ${getColor('mistExtra')};
+        color: ${getColor('contrast')};
       `,
       outlinedAlert: () => css`
-        border: 1px solid ${getColor("alert")};
-        color: ${getColor("alert")};
+        border: 1px solid ${getColor('alert')};
+        color: ${getColor('alert')};
       `,
       ghost: () => css`
-        color: ${getColor("contrast")};
+        color: ${getColor('contrast')};
       `,
       ghostSecondary: () => css`
-        color: ${getColor("textSupporting")};
+        color: ${getColor('textSupporting')};
       `,
     })}
   
@@ -124,18 +124,18 @@ const Container = styled.button<ContainerProps>`
               getHoverVariant(theme.colors.primary).toCssValue()};
           `,
           secondary: () => css`
-            background: ${getColor("mistExtra")};
+            background: ${getColor('mistExtra')};
           `,
           reversed: () => css`
-            background: ${getColor("text")};
+            background: ${getColor('text')};
           `,
           alert: () => css`
             background: ${({ theme }) =>
               getHoverVariant(theme.colors.alert).toCssValue()};
           `,
           outlined: () => css`
-            background: ${getColor("mist")};
-            color: ${getColor("contrast")};
+            background: ${getColor('mist')};
+            color: ${getColor('contrast')};
           `,
           outlinedAlert: () => css`
             background: ${({ theme }) =>
@@ -144,17 +144,17 @@ const Container = styled.button<ContainerProps>`
                 .toCssValue()};
           `,
           ghost: () => css`
-            background: ${getColor("mist")};
+            background: ${getColor('mist')};
           `,
           ghostSecondary: () => css`
-            background: ${getColor("mist")};
+            background: ${getColor('mist')};
           `,
         })}
       }
     `};
 
   cursor: ${({ isDisabled, isLoading }) =>
-    isDisabled ? "initial" : isLoading ? "wait" : "pointer"};
+    isDisabled ? 'initial' : isLoading ? 'wait' : 'pointer'};
 
   ${({ isDisabled }) =>
     isDisabled &&
@@ -178,11 +178,11 @@ const Hide = styled.div`
 
 export const Button = ({
   children,
-  size = "m",
+  size = 'm',
   isDisabled = false,
   isLoading = false,
   onClick,
-  kind = "primary",
+  kind = 'primary',
   ...rest
 }: ButtonProps) => {
   const content = isLoading ? (
@@ -205,7 +205,7 @@ export const Button = ({
     ...rest,
   }
 
-  if (typeof isDisabled === "string") {
+  if (typeof isDisabled === 'string') {
     return (
       <Tooltip
         content={isDisabled}

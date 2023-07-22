@@ -1,7 +1,7 @@
-import { css } from "styled-components"
-import { defaultInputShapeCSS } from "./config"
-import { getColor } from "../theme/getters"
-import { defaultTransitionCSS } from "../animations/transitions"
+import { css } from 'styled-components'
+import { defaultInputShapeCSS } from './config'
+import { getColor } from '../theme/getters'
+import { defaultTransitionCSS } from '../animations/transitions'
 
 interface CommonInputCSSProps {
   isValid: boolean
@@ -11,13 +11,13 @@ export const commonInputCSS = css<CommonInputCSSProps>`
   ${defaultInputShapeCSS};
   max-width: 100%;
 
-  background: ${getColor("mist")};
-  color: ${getColor("text")};
+  background: ${getColor('mist')};
+  color: ${getColor('text')};
 
   ${defaultTransitionCSS};
 
   &::placeholder {
-    color: ${getColor("textShy")};
+    color: ${getColor('textShy')};
   }
 
   outline: 1px solid transparent;

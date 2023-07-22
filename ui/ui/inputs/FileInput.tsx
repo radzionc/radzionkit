@@ -1,13 +1,13 @@
-import styled from "styled-components"
-import { inputBackgroundCSS, inputBorderRadiusCSS } from "./config"
-import { useDropzone, Accept } from "react-dropzone"
-import { Panel } from "../Panel/Panel"
-import { Button } from "../buttons/Button"
-import { getColor } from "../theme/getters"
-import { VStack } from "../Stack"
-import { defaultTransitionCSS } from "../animations/transitions"
-import { UploadIcon } from "../icons/UploadIcon"
-import { Text } from "../Text"
+import styled from 'styled-components'
+import { inputBackgroundCSS, inputBorderRadiusCSS } from './config'
+import { useDropzone, Accept } from 'react-dropzone'
+import { Panel } from '../Panel/Panel'
+import { Button } from '../buttons/Button'
+import { getColor } from '../theme/getters'
+import { VStack } from '../Stack'
+import { defaultTransitionCSS } from '../animations/transitions'
+import { UploadIcon } from '../icons/UploadIcon'
+import { Text } from '../Text'
 
 interface Props {
   onSubmit: (file: File) => void
@@ -25,7 +25,7 @@ const Container = styled(Panel)`
   ${defaultTransitionCSS};
 
   :hover {
-    background: ${getColor("mistExtra")};
+    background: ${getColor('mistExtra')};
   }
 `
 
@@ -47,10 +47,10 @@ export const FileInput = ({ onSubmit, accept, isLoading }: Props) => {
           <UploadIcon />
         </Text>
         <Text color="supporting">
-          Drag and drop a{" "}
+          Drag and drop a{' '}
           {acceptedExtensions
             .map((extension) => extension.toUpperCase())
-            .join("/")}{" "}
+            .join('/')}{' '}
           file here or
         </Text>
         <Button isLoading={isLoading} as="div">

@@ -1,5 +1,7 @@
-
-import { TitledComponentProps, ComponentWithChildrenProps } from '../shared/props'
+import {
+  TitledComponentProps,
+  ComponentWithChildrenProps,
+} from '../shared/props'
 import { VStack } from './Stack'
 import { Text } from './Text'
 

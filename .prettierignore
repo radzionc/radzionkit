@@ -1,0 +1,4 @@
+.vscode
+.yarn
+app/.next
+app/out

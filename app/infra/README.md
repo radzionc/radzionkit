@@ -1,6 +1,7 @@
 ## Static App Hosting on AWS
 
 Your environment variables should have the following values:
+
 ```sh
 export AWS_SECRET_ACCESS_KEY=
 export AWS_ACCESS_KEY_ID=

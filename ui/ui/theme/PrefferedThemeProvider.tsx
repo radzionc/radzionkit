@@ -14,7 +14,7 @@ interface PrefferedThemeState {
 }
 
 const PrefferedThemeContext = createContext<PrefferedThemeState | undefined>(
-  undefined
+  undefined,
 )
 
 type Props = PrefferedThemeState & ComponentWithChildrenProps
@@ -46,5 +46,5 @@ export const PrefferedThemeProvider = ({
 
 export const usePrefferedTheme = createContextHook(
   PrefferedThemeContext,
-  'PrefferedThemeContext'
+  'PrefferedThemeContext',
 )

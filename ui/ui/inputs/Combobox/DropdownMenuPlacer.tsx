@@ -1,4 +1,11 @@
-import { useFloating, offset, flip, shift, size, autoUpdate } from '@floating-ui/react'
+import {
+  useFloating,
+  offset,
+  flip,
+  shift,
+  size,
+  autoUpdate,
+} from '@floating-ui/react'
 import React, { useRef } from 'react'
 import { useClickAway } from 'react-use'
 import styled from 'styled-components'

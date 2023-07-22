@@ -32,7 +32,7 @@ const Triangle = ({ color, size }: ShapeProps) => (
   <polygon
     points={`${size / 2},0 ${size},${randomInRange(0, size)} 0,${randomInRange(
       size / 2,
-      size
+      size,
     )}`}
     fill={color}
   />

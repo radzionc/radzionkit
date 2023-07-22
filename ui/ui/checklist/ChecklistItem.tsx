@@ -1,16 +1,16 @@
-import { ReactNode } from "react"
-import styled, { css } from "styled-components"
-import { Hoverable } from "../Hoverable"
-import { defaultTransitionCSS } from "../animations/transitions"
-import { CheckIcon } from "../icons/CheckIcon"
+import { ReactNode } from 'react'
+import styled, { css } from 'styled-components'
+import { Hoverable } from '../Hoverable'
+import { defaultTransitionCSS } from '../animations/transitions'
+import { CheckIcon } from '../icons/CheckIcon'
 import {
   InvisibleHTMLCheckboxProps,
   InvisibleHTMLCheckbox,
-} from "../inputs/Checkbox/InvisibleHTMLCheckbox"
-import { centerContentCSS } from "../utils/centerContentCSS"
-import { Text } from "../Text"
-import { ChecklistItemFrame } from "./ChecklistItemFrame"
-import { getColor, matchColor } from "../theme/getters"
+} from '../inputs/Checkbox/InvisibleHTMLCheckbox'
+import { centerContentCSS } from '../utils/centerContentCSS'
+import { Text } from '../Text'
+import { ChecklistItemFrame } from './ChecklistItemFrame'
+import { getColor, matchColor } from '../theme/getters'
 
 interface ChecklistItemProps extends InvisibleHTMLCheckboxProps {
   name: ReactNode
@@ -24,25 +24,25 @@ export const Box = styled.div<{ isChecked: boolean }>`
   ${centerContentCSS};
 
   border-radius: 4px;
-  border: 2px solid ${getColor("textShy")};
-  color: ${getColor("background")};
+  border: 2px solid ${getColor('textShy')};
+  color: ${getColor('background')};
 
   ${defaultTransitionCSS}
 
   ${({ isChecked }) =>
     isChecked &&
     css`
-      background: ${getColor("primary")};
-      border-color: ${getColor("primary")};
+      background: ${getColor('primary')};
+      border-color: ${getColor('primary')};
     `};
 `
 
 const Content = styled(Text)<{ isChecked: boolean }>`
   max-width: 100%;
   position: relative;
-  color: ${matchColor("isChecked", {
-    true: "text",
-    false: "textShy",
+  color: ${matchColor('isChecked', {
+    true: 'text',
+    false: 'textShy',
   })};
 `
 
@@ -52,7 +52,7 @@ const Line = styled.span<{ isChecked: boolean }>`
   left: 0;
   border-top: 2px solid;
   bottom: 8px;
-  width: ${({ isChecked }) => (isChecked ? "100%" : "0%")};
+  width: ${({ isChecked }) => (isChecked ? '100%' : '0%')};
 `
 
 export const ChecklistItem = ({

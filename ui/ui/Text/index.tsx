@@ -1,5 +1,5 @@
-import styled, { DefaultTheme, css } from "styled-components"
-import { croppedTextCSS } from "../utils/coppedTextCSS"
+import styled, { DefaultTheme, css } from 'styled-components'
+import { croppedTextCSS } from '../utils/coppedTextCSS'
 
 const getTextColorRecord = ({ colors }: DefaultTheme) =>
   ({
@@ -12,9 +12,9 @@ const getTextColorRecord = ({ colors }: DefaultTheme) =>
     success: colors.success,
     reversed: colors.background,
     contrast: colors.contrast,
-  } as const)
+  }) as const
 
-type TextWeight = "regular" | "semibold" | "bold" | "extraBold"
+type TextWeight = 'regular' | 'semibold' | 'bold' | 'extraBold'
 const fontWeight: Record<TextWeight, number> = {
   regular: 400,
   semibold: 500,
@@ -22,7 +22,7 @@ const fontWeight: Record<TextWeight, number> = {
   extraBold: 800,
 }
 
-type TextHeight = "small" | "regular" | "large"
+type TextHeight = 'small' | 'regular' | 'large'
 const lineHeight: Record<TextHeight, number> = {
   small: 1,
   regular: 1.2,

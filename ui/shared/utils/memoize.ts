@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const memoize = <T extends (...args: any[]) => any>(
   func: T,
-  getKey?: (...args: any[]) => string
+  getKey?: (...args: any[]) => string,
 ): T => {
   const cache = new Map<string, ReturnType<T>>()
 

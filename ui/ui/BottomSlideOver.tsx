@@ -1,16 +1,19 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
-import { Button } from "./buttons/Button"
-import { getColor } from "./theme/getters"
-import styled from "styled-components"
-import { handleWithStopPropagation } from "../shared/events"
-import { ComponentWithChildrenProps, ClosableComponentProps } from "../shared/props"
-import { BodyPortal } from "./BodyPortal"
-import { ScreenCover } from "./ScreenCover"
-import { VStack, HStack } from "./Stack"
-import { getHorizontalPaddingCSS } from "./utils/getHorizontalPaddingCSS"
-import { getVerticalPaddingCSS } from "./utils/getVerticalPaddingCSS"
-import { Text } from "./Text"
+import { Button } from './buttons/Button'
+import { getColor } from './theme/getters'
+import styled from 'styled-components'
+import { handleWithStopPropagation } from '../shared/events'
+import {
+  ComponentWithChildrenProps,
+  ClosableComponentProps,
+} from '../shared/props'
+import { BodyPortal } from './BodyPortal'
+import { ScreenCover } from './ScreenCover'
+import { VStack, HStack } from './Stack'
+import { getHorizontalPaddingCSS } from './utils/getHorizontalPaddingCSS'
+import { getVerticalPaddingCSS } from './utils/getVerticalPaddingCSS'
+import { Text } from './Text'
 
 export type BottomSlideOverProps = ComponentWithChildrenProps &
   ClosableComponentProps & {
@@ -27,7 +30,7 @@ const Container = styled(VStack)`
   border-radius: 20px 20px 0 0;
   ${getVerticalPaddingCSS(24)}
 
-  background: ${getColor("background")};
+  background: ${getColor('background')};
   max-height: 80%;
 
   gap: 32px;

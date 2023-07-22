@@ -1,14 +1,14 @@
-import styled, { useTheme } from "styled-components"
-import { defaultTransitionCSS } from "../animations/transitions"
-import { CheckIcon } from "../icons/CheckIcon"
-import { CloseIcon } from "../icons/CloseIcon"
-import { HStack } from "../Stack"
-import { Text } from "../Text"
-import { centerContentCSS } from "../utils/centerContentCSS"
-import { getCSSUnit } from "../utils/getCSSUnit"
-import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
-import { roundedCSS } from "../utils/roundedCSS"
-import { getColor } from "../theme/getters"
+import styled, { useTheme } from 'styled-components'
+import { defaultTransitionCSS } from '../animations/transitions'
+import { CheckIcon } from '../icons/CheckIcon'
+import { CloseIcon } from '../icons/CloseIcon'
+import { HStack } from '../Stack'
+import { Text } from '../Text'
+import { centerContentCSS } from '../utils/centerContentCSS'
+import { getCSSUnit } from '../utils/getCSSUnit'
+import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
+import { roundedCSS } from '../utils/roundedCSS'
+import { getColor } from '../theme/getters'
 
 interface SwitchProps {
   value: boolean
@@ -28,8 +28,8 @@ const Control = styled.div`
   ${defaultTransitionCSS};
 
   ${centerContentCSS};
-  color: ${getColor("background")};
-  background: ${getColor("text")};
+  color: ${getColor('background')};
+  background: ${getColor('text')};
   font-size: 14px;
 `
 
@@ -37,12 +37,12 @@ const Wrapper = styled(HStack)`
   cursor: pointer;
   user-select: none;
 
-  color: ${getColor("textSupporting")};
+  color: ${getColor('textSupporting')};
 
   ${defaultTransitionCSS};
 
   :hover {
-    color: ${getColor("text")};
+    color: ${getColor('text')};
   }
 
   :hover ${Control} {

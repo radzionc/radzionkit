@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { PersistentStorage } from './PersistentStorage'
 
 export function createUsePersistantStorageValueHook<T extends string>(
-  storage: PersistentStorage<T>
+  storage: PersistentStorage<T>,
 ) {
   function usePersistentStorageValue<V>(key: T, initialValue: V) {
     const [value, setValue] = useState<V>(() => {
@@ -28,7 +28,7 @@ export function createUsePersistantStorageValueHook<T extends string>(
           storage.setItem(key, newValue)
         }
       },
-      [key, value]
+      [key, value],
     )
 
     return [value, setPersistentStorageValue] as const

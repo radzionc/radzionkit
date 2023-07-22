@@ -1,19 +1,19 @@
-import styled, { useTheme } from "styled-components"
-import { Menu } from "../Menu"
-import { VStack } from "../Stack"
-import { defaultTransitionCSS } from "../animations/transitions"
-import { defaultBorderRadiusCSS } from "../borderRadius"
-import { CheckIcon } from "../icons/CheckIcon"
-import { getColor } from "../theme/getters"
-import { centerContentCSS } from "../utils/centerContentCSS"
-import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
-import { InvisibleHTMLRadio } from "./InvisibleHTMLRadio"
-import { ExpandableInputOpener } from "./ExpandableInputOpener"
-import { ShySection } from "../ShySection"
-import { labelColorsCount } from "../colors/generateLabelColorGetter"
-import { InputProps, StyledComponentWithColorProps } from "../../shared/props"
-import { range } from "../../shared/utils/range"
-import { splitBy } from "../../shared/utils/splitBy"
+import styled, { useTheme } from 'styled-components'
+import { Menu } from '../Menu'
+import { VStack } from '../Stack'
+import { defaultTransitionCSS } from '../animations/transitions'
+import { defaultBorderRadiusCSS } from '../borderRadius'
+import { CheckIcon } from '../icons/CheckIcon'
+import { getColor } from '../theme/getters'
+import { centerContentCSS } from '../utils/centerContentCSS'
+import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
+import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
+import { ExpandableInputOpener } from './ExpandableInputOpener'
+import { ShySection } from '../ShySection'
+import { labelColorsCount } from '../colors/generateLabelColorGetter'
+import { InputProps, StyledComponentWithColorProps } from '../../shared/props'
+import { range } from '../../shared/utils/range'
+import { splitBy } from '../../shared/utils/splitBy'
 
 interface ColorLabelInputProps extends InputProps<number> {
   usedValues?: Set<number>
@@ -22,7 +22,7 @@ interface ColorLabelInputProps extends InputProps<number> {
 const CurrentColor = styled.div<StyledComponentWithColorProps>`
   background: ${({ $color }) => $color.toCssValue()};
   border-radius: 8px;
-  ${getSameDimensionsCSS("68%")}
+  ${getSameDimensionsCSS('68%')}
 `
 
 const ColorOption = styled.label<StyledComponentWithColorProps>`
@@ -36,7 +36,7 @@ const ColorOption = styled.label<StyledComponentWithColorProps>`
   ${defaultBorderRadiusCSS};
 
   font-size: 32px;
-  color: ${getColor("foreground")};
+  color: ${getColor('foreground')};
 
   ${defaultTransitionCSS};
 
@@ -64,7 +64,7 @@ export const ColorLabelInput = ({
   const colors = range(labelColorsCount)
 
   const [free, used] = splitBy(colors, (value) =>
-    usedValues.has(value) ? 1 : 0
+    usedValues.has(value) ? 1 : 0,
   )
 
   return (

@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
 type MatchProps<T extends string | number | symbol> = Record<
   T,
@@ -8,7 +8,7 @@ type MatchProps<T extends string | number | symbol> = Record<
 }
 
 export function Match<T extends string | number | symbol>(
-  props: MatchProps<T>
+  props: MatchProps<T>,
 ) {
   const render = props[props.value]
 

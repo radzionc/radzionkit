@@ -1,6 +1,6 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
-type QueryStatus = "idle" | "error" | "loading" | "success"
+type QueryStatus = 'idle' | 'error' | 'loading' | 'success'
 
 interface QueryDependantProps<T> {
   status: QueryStatus
@@ -15,9 +15,9 @@ export function QueryDependant<T>({
   data,
   error,
   loading,
-  success
+  success,
 }: QueryDependantProps<T>) {
-  if (status === "error") {
+  if (status === 'error') {
     return <>{error()}</>
   }
 

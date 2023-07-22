@@ -153,7 +153,12 @@ export const TimeInput = ({
             top: valueInPx - 20,
           }}
         >
-          <StackSeparatedBy alignItems='center' direction='row' gap={8} separator={<Text color="supporting">{dotSeparator}</Text>}>
+          <StackSeparatedBy
+            alignItems="center"
+            direction="row"
+            gap={8}
+            separator={<Text color="supporting">{dotSeparator}</Text>}
+          >
             <Text>
               {new Date(value).toLocaleTimeString(undefined, {
                 hour: '2-digit',

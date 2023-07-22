@@ -1,17 +1,17 @@
-import { ComponentProps, Ref, forwardRef } from "react"
-import styled from "styled-components"
-import { defaultTransitionCSS } from "../animations/transitions"
-import { centerContentCSS } from "../utils/centerContentCSS"
-import { getCSSUnit } from "../utils/getCSSUnit"
-import { getSameDimensionsCSS } from "../utils/getSameDimensionsCSS"
-import { matchColor } from "../theme/getters"
-import { interactiveCSS } from "../utils/interactiveCSS"
-import { match } from "../../shared/utils/match"
+import { ComponentProps, Ref, forwardRef } from 'react'
+import styled from 'styled-components'
+import { defaultTransitionCSS } from '../animations/transitions'
+import { centerContentCSS } from '../utils/centerContentCSS'
+import { getCSSUnit } from '../utils/getCSSUnit'
+import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
+import { matchColor } from '../theme/getters'
+import { interactiveCSS } from '../utils/interactiveCSS'
+import { match } from '../../shared/utils/match'
 
-export const iconButtonSizes = ["s", "m", "l"] as const
+export const iconButtonSizes = ['s', 'm', 'l'] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]
 
-export const iconButtonKinds = ["regular", "secondary", "alert"] as const
+export const iconButtonKinds = ['regular', 'secondary', 'alert'] as const
 export type IconButtonKind = (typeof iconButtonKinds)[number]
 
 const sizeRecord: Record<IconButtonSize, number> = {
@@ -32,10 +32,10 @@ const Container = styled.button<ContainerProps>`
   ${centerContentCSS};
   ${({ size }) => getSameDimensionsCSS(sizeRecord[size])};
 
-  color: ${matchColor("kind", {
-    regular: "text",
-    secondary: "text",
-    alert: "alert",
+  color: ${matchColor('kind', {
+    regular: 'text',
+    secondary: 'text',
+    alert: 'alert',
   })};
 
   font-size: ${({ size }) => `calc(${getCSSUnit(sizeRecord[size] * 0.6)})`};
@@ -59,10 +59,10 @@ const Container = styled.button<ContainerProps>`
         alert: () => colors.alert.getVariant({ a: (a) => a * 0.24 }),
       }).toCssValue()};
 
-    color: ${matchColor("kind", {
-      regular: "contrast",
-      secondary: "contrast",
-      alert: "alert",
+    color: ${matchColor('kind', {
+      regular: 'contrast',
+      secondary: 'contrast',
+      alert: 'alert',
     })};
   }
 `
@@ -75,8 +75,8 @@ export interface IconButtonProps extends ComponentProps<typeof Container> {
 }
 
 export const IconButton = forwardRef(function IconButton(
-  { size = "m", kind = "regular", icon, ...rest }: IconButtonProps,
-  ref: Ref<HTMLButtonElement> | null
+  { size = 'm', kind = 'regular', icon, ...rest }: IconButtonProps,
+  ref: Ref<HTMLButtonElement> | null,
 ) {
   return (
     <Container kind={kind} ref={ref} size={size} {...rest}>

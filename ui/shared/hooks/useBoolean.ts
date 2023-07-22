@@ -8,7 +8,7 @@ export function useBoolean(initial: boolean) {
 
   const toggle = useCallback(() => setValue((old) => !old), [])
 
-  const update = useCallback((value: boolean) => setValue(value), []);
+  const update = useCallback((value: boolean) => setValue(value), [])
 
   return [value, { set, unset, toggle, update }] as const
 }

@@ -1,4 +1,4 @@
-import { ReactNode, useRef, useState } from "react"
+import { ReactNode, useRef, useState } from 'react'
 import {
   ReferenceType,
   offset,
@@ -15,9 +15,9 @@ import {
   FloatingArrow,
   useTransitionStyles,
   Placement,
-} from "@floating-ui/react"
-import styled from "styled-components"
-import { getColor } from "./theme/getters"
+} from '@floating-ui/react'
+import styled from 'styled-components'
+import { getColor } from './theme/getters'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void
@@ -31,8 +31,8 @@ interface TooltipProps {
 
 const Container = styled.div`
   border-radius: 8px;
-  background: ${getColor("contrast")};
-  color: ${getColor("background")};
+  background: ${getColor('contrast')};
+  color: ${getColor('background')};
   padding: 12px;
   font-size: 14px;
   font-weight: 500;
@@ -40,7 +40,7 @@ const Container = styled.div`
 `
 
 const Arrow = styled(FloatingArrow)`
-  fill: ${getColor("contrast")};
+  fill: ${getColor('contrast')};
 `
 
 export const Tooltip = ({ content, renderOpener, placement }: TooltipProps) => {
@@ -70,12 +70,12 @@ export const Tooltip = ({ content, renderOpener, placement }: TooltipProps) => {
   const hover = useHover(context, { move: false })
   const focus = useFocus(context)
   const dismiss = useDismiss(context)
-  const role = useRole(context, { role: "tooltip" })
+  const role = useRole(context, { role: 'tooltip' })
 
   const { styles: transitionStyles } = useTransitionStyles(context, {
     initial: {
       opacity: 0,
-      transform: "scale(0.8)",
+      transform: 'scale(0.8)',
     },
   })
 

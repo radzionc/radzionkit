@@ -1,5 +1,5 @@
-import { getPointOnCircle } from "../../shared/utils/getPointOnCircle"
-import { HSLA } from "../colors/HSLA"
+import { getPointOnCircle } from '../../shared/utils/getPointOnCircle'
+import { HSLA } from '../colors/HSLA'
 
 interface Props {
   color: HSLA
@@ -13,7 +13,7 @@ const getArcPath = (
   radius: number,
   cutoutRadius: number,
   startAngle: number,
-  endAngle: number
+  endAngle: number,
 ) => {
   const start = getPointOnCircle(radius, radius, endAngle)
   const end = getPointOnCircle(radius, radius, startAngle)

@@ -3,7 +3,7 @@ import { InfiniteData } from 'react-query'
 
 export function usePaginatedResultItems<T, V>(
   data: InfiniteData<T | undefined> | undefined,
-  getPageItems: (page: T) => V[]
+  getPageItems: (page: T) => V[],
 ): V[] {
   return useMemo(() => {
     const items: V[] = []

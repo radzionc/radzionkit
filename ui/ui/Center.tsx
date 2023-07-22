@@ -1,4 +1,7 @@
-import { ComponentWithChildrenProps, ComponentWithClassNameProps } from '../shared/props'
+import {
+  ComponentWithChildrenProps,
+  ComponentWithClassNameProps,
+} from '../shared/props'
 import { VStack } from './Stack'
 
 export const Center = ({

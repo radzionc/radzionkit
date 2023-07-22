@@ -1,13 +1,13 @@
-import { ReactNode } from "react"
-import { reverseIf } from "shared/utils/reverseIf"
-import styled from "styled-components"
-import { IntersectionAware } from "ui/IntersectionAware"
-import { VStack } from "ui/Stack"
-import { Text } from "ui/Text"
+import { ReactNode } from 'react'
+import { reverseIf } from 'shared/utils/reverseIf'
+import styled from 'styled-components'
+import { IntersectionAware } from 'ui/IntersectionAware'
+import { VStack } from 'ui/Stack'
+import { Text } from 'ui/Text'
 
-import { LandingSlice } from "./LandingSlice"
+import { LandingSlice } from './LandingSlice'
 
-type StartsWith = "preview" | "info"
+type StartsWith = 'preview' | 'info'
 
 interface Props {
   title: ReactNode
@@ -27,7 +27,7 @@ const Container = styled.div<{ isInfoFirst: boolean }>`
   grid-gap: 40px;
   align-items: center;
   grid-template-columns: ${({ isInfoFirst }) =>
-    reverseIf(["3fr", "2fr"], isInfoFirst).join(" ")};
+    reverseIf(['3fr', '2fr'], isInfoFirst).join(' ')};
 
   > * {
     :last-child {
@@ -58,14 +58,14 @@ export const LandingFeatureSlice = ({
     </VStack>
   )
 
-  const isInfoFirst = startsWith === "info"
+  const isInfoFirst = startsWith === 'info'
 
   return (
     <IntersectionAware<HTMLDivElement>
       render={({ ref, wasIntersected }) => {
         const content = reverseIf(
           [wasIntersected ? renderPreview() : null, info],
-          isInfoFirst
+          isInfoFirst,
         )
 
         return (

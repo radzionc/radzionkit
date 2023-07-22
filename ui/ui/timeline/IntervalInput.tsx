@@ -20,7 +20,7 @@ import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
 import { IntervalRect } from './IntervalRect'
 import { MaxIntervalEndBoundary } from './MaxIntervalEndBoundary'
 import { enforceRange } from '../../shared/utils/enforceRange'
-import { Interval} from '../../entities/Interval'
+import { Interval } from '../../entities/Interval'
 import { formatDuration } from '../../shared/utils/formatDuration'
 import { MS_IN_HOUR, MS_IN_MIN } from '../../shared/utils/time'
 
@@ -131,7 +131,7 @@ export const IntervalInput = ({
         const msOffset = enforceRange(
           offset / pxInMs,
           minIntervalStart - value.start,
-          maxIntervalEnd - value.end
+          maxIntervalEnd - value.end,
         )
 
         return {
@@ -146,14 +146,14 @@ export const IntervalInput = ({
             activeControl === 'start'
               ? Math.max(
                   Math.min(timestamp, value.end - minDuration),
-                  minIntervalStart
+                  minIntervalStart,
                 )
               : value.start,
           end:
             activeControl === 'end'
               ? Math.min(
                   Math.max(timestamp, value.start + minDuration),
-                  maxIntervalEnd
+                  maxIntervalEnd,
                 )
               : value.end,
         }

@@ -1,17 +1,17 @@
-import { ReactNode } from "react"
-import styled from "styled-components"
+import { ReactNode } from 'react'
+import styled from 'styled-components'
 
-import { ActionInsideInteractiveElement } from "./ActionInsideInteractiveElement"
-import { defaultTransitionCSS } from "./animations/transitions"
-import { CloseIcon } from "./icons/CloseIcon"
-import { Panel } from "./Panel/Panel"
-import { Text } from "./Text"
-import { getColor } from "./theme/getters"
-import { centerContentCSS } from "./utils/centerContentCSS"
-import { fullyCoverAbsolutely } from "./utils/fullyCoverAbsolutely"
-import { getSameDimensionsCSS } from "./utils/getSameDimensionsCSS"
-import { interactiveCSS } from "./utils/interactiveCSS"
-import { ComponentWithChildrenProps } from "../shared/props"
+import { ActionInsideInteractiveElement } from './ActionInsideInteractiveElement'
+import { defaultTransitionCSS } from './animations/transitions'
+import { CloseIcon } from './icons/CloseIcon'
+import { Panel } from './Panel/Panel'
+import { Text } from './Text'
+import { getColor } from './theme/getters'
+import { centerContentCSS } from './utils/centerContentCSS'
+import { fullyCoverAbsolutely } from './utils/fullyCoverAbsolutely'
+import { getSameDimensionsCSS } from './utils/getSameDimensionsCSS'
+import { interactiveCSS } from './utils/interactiveCSS'
+import { ComponentWithChildrenProps } from '../shared/props'
 
 interface ImageBannerProps {
   onClose: () => void
@@ -21,7 +21,7 @@ interface ImageBannerProps {
   renderInteractiveArea: (props: ComponentWithChildrenProps) => ReactNode
 }
 
-const padding = "20px"
+const padding = '20px'
 
 const ImagePosition = styled.div`
   ${fullyCoverAbsolutely}
@@ -56,7 +56,7 @@ const Container = styled(Panel)`
   }
 
   :hover ${Content} {
-    background: ${getColor("mistExtra")};
+    background: ${getColor('mistExtra')};
   }
 `
 
@@ -76,11 +76,11 @@ const Close = styled.button`
 
   ${interactiveCSS};
 
-  background: ${getColor("text")};
+  background: ${getColor('text')};
 
   ${defaultTransitionCSS};
 
-  color: ${getColor("background")};
+  color: ${getColor('background')};
 
   border-radius: 8px;
   ${centerContentCSS};
@@ -88,7 +88,7 @@ const Close = styled.button`
   font-size: 20px;
 
   :hover {
-    background: ${getColor("contrast")};
+    background: ${getColor('contrast')};
   }
 `
 

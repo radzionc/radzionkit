@@ -35,7 +35,7 @@ const CharacterContainer = styled.div`
 export const CountdownPart = ({ value }: Props) => {
   const previousValue = usePrevious(value)
   const [currentString, previousString] = [value, previousValue || value].map(
-    (number) => padWithZero(number)
+    (number) => padWithZero(number),
   )
 
   return (

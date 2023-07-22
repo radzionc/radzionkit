@@ -39,7 +39,7 @@ export class LocalStorage<T extends string> implements PersistentStorage<T> {
   }
   addValueChangeListener<V>(
     key: string,
-    listener: OnValueChangeListener<V>
+    listener: OnValueChangeListener<V>,
   ): void {
     if (!this.listeners[key]) {
       this.listeners[key] = []
@@ -49,10 +49,10 @@ export class LocalStorage<T extends string> implements PersistentStorage<T> {
   }
   removeValueChangeListener<T>(
     key: string,
-    listener: OnValueChangeListener<T>
+    listener: OnValueChangeListener<T>,
   ): void {
     this.listeners[key] = (this.listeners[key] || []).filter(
-      (l) => l !== listener
+      (l) => l !== listener,
     )
   }
 }

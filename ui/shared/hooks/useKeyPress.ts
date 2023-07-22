@@ -162,7 +162,7 @@ const defaultOptions: UseKeyPressOptions = {
 export const useKeyPress = (
   key: Key,
   handler: () => void,
-  { isEnabled, shouldStopPropagation }: UseKeyPressOptions = defaultOptions
+  { isEnabled, shouldStopPropagation }: UseKeyPressOptions = defaultOptions,
 ) => {
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
@@ -174,7 +174,7 @@ export const useKeyPress = (
 
       handler()
     },
-    [handler, key, shouldStopPropagation]
+    [handler, key, shouldStopPropagation],
   )
 
   useEffect(() => {

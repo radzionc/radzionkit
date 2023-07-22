@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import { Text } from "."
+import { Text } from '.'
 
 export const LinkText = styled(Text)`
   text-decoration: underline;
@@ -18,5 +18,5 @@ export const ShyLinkText = styled(Text)`
   }
 `
 ShyLinkText.defaultProps = {
-  color: "supporting",
+  color: 'supporting',
 }

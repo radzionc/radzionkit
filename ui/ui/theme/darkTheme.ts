@@ -1,14 +1,14 @@
-import { DefaultTheme } from "styled-components"
-import { sharedColors } from "./shared"
-import { generateLabelColorGetter } from "../colors/generateLabelColorGetter"
-import { HSLA } from "../colors/HSLA"
+import { DefaultTheme } from 'styled-components'
+import { sharedColors } from './shared'
+import { generateLabelColorGetter } from '../colors/generateLabelColorGetter'
+import { HSLA } from '../colors/HSLA'
 
 const backgroundHue = 0
 const backgroundSaturation = 0
 const backgroundLightness = 10
 
 export const darkTheme: DefaultTheme = {
-  name: "dark",
+  name: 'dark',
   colors: {
     ...sharedColors,
 
@@ -19,12 +19,12 @@ export const darkTheme: DefaultTheme = {
     foreground: new HSLA(
       backgroundHue,
       backgroundSaturation,
-      backgroundLightness + 3
+      backgroundLightness + 3,
     ),
     background: new HSLA(
       backgroundHue,
       backgroundSaturation,
-      backgroundLightness
+      backgroundLightness,
     ),
     text: new HSLA(0, 0, 100, 0.81),
     textSupporting: new HSLA(0, 0, 61),
@@ -44,8 +44,8 @@ export const darkTheme: DefaultTheme = {
   },
   shadows: {
     small:
-      "rgb(15 15 15 / 20%) 0px 0px 0px 1px, rgb(15 15 15 / 20%) 0px 2px 4px",
+      'rgb(15 15 15 / 20%) 0px 0px 0px 1px, rgb(15 15 15 / 20%) 0px 2px 4px',
     medium:
-      "rgb(15 15 15 / 10%) 0px 0px 0px 1px, rgb(15 15 15 / 20%) 0px 3px 6px, rgb(15 15 15 / 40%) 0px 9px 24px;",
+      'rgb(15 15 15 / 10%) 0px 0px 0px 1px, rgb(15 15 15 / 20%) 0px 3px 6px, rgb(15 15 15 / 40%) 0px 9px 24px;',
   },
 }

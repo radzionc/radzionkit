@@ -7,11 +7,11 @@ import {
   useCallback,
   useEffect,
   useState,
-} from "react"
-import { useEvent } from "react-use"
-import { Point } from "../entities/Point"
-import { useBoundingBox } from "../shared/hooks/useBoundingBox"
-import { enforceRange } from "../shared/utils/enforceRange"
+} from 'react'
+import { useEvent } from 'react-use'
+import { Point } from '../entities/Point'
+import { useBoundingBox } from '../shared/hooks/useBoundingBox'
+import { enforceRange } from '../shared/utils/enforceRange'
 
 interface ContainerProps {
   onMouseDown: MouseEventHandler<HTMLElement>
@@ -49,14 +49,14 @@ export const PressTracker = ({ render, onChange }: PressTrackerProps) => {
         y: enforceRange((y - top) / height, 0, 1),
       })
     },
-    [box]
+    [box],
   )
 
   const handleMouse = useCallback(
     (event: MouseEvent) => {
       handleMove({ x: event.clientX, y: event.clientY })
     },
-    [handleMove]
+    [handleMove],
   )
 
   const handleTouch = useCallback(
@@ -66,7 +66,7 @@ export const PressTracker = ({ render, onChange }: PressTrackerProps) => {
         handleMove({ x: touch.clientX, y: touch.clientY })
       }
     },
-    [handleMove]
+    [handleMove],
   )
 
   useEffect(() => {
@@ -78,10 +78,10 @@ export const PressTracker = ({ render, onChange }: PressTrackerProps) => {
   const clearPosition = useCallback(() => {
     setPosition(null)
   }, [])
-  useEvent("mouseup", position ? clearPosition : undefined)
-  useEvent("touchend", position ? clearPosition : undefined)
-  useEvent("mousemove", position ? handleMouse : undefined)
-  useEvent("touchmove", position ? handleTouch : undefined)
+  useEvent('mouseup', position ? clearPosition : undefined)
+  useEvent('touchend', position ? clearPosition : undefined)
+  useEvent('mousemove', position ? handleMouse : undefined)
+  useEvent('touchmove', position ? handleTouch : undefined)
 
   return (
     <>

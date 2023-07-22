@@ -4,7 +4,10 @@ import {
   useDismiss,
   useFloating,
   useInteractions,
-  autoUpdate, flip, offset, shift
+  autoUpdate,
+  flip,
+  offset,
+  shift,
 } from '@floating-ui/react'
 import { ReactNode, useState } from 'react'
 import styled from 'styled-components'

@@ -1,7 +1,7 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
-import { HStack } from "./Stack"
-import { Text } from "./Text"
+import { HStack } from './Stack'
+import { Text } from './Text'
 
 interface Props {
   name: string

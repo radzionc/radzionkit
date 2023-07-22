@@ -5,7 +5,7 @@ import { ElementSizeAware } from './ElementSizeAware'
 import { ElementSize } from './hooks/useElementSize'
 
 interface ActionInsideInteractiveElementRenderParams<
-  T extends React.CSSProperties
+  T extends React.CSSProperties,
 > {
   actionSize: ElementSize
   actionPlacerStyles: T

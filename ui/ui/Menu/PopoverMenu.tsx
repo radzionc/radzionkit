@@ -1,19 +1,19 @@
-import { ReferenceType } from "@floating-ui/react"
-import { ReactNode } from "react"
-import styled from "styled-components"
+import { ReferenceType } from '@floating-ui/react'
+import { ReactNode } from 'react'
+import styled from 'styled-components'
 
-import { HStack, VStack } from "../Stack"
-import { Text } from "../Text"
-import { SeparatedByLine } from "../SeparatedByLine"
-import { PopoverPanel, PopoverPanelProps } from "./PopoverPanel"
-import { CloseButton } from "../buttons/CloseButton"
+import { HStack, VStack } from '../Stack'
+import { Text } from '../Text'
+import { SeparatedByLine } from '../SeparatedByLine'
+import { PopoverPanel, PopoverPanelProps } from './PopoverPanel'
+import { CloseButton } from '../buttons/CloseButton'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void
 }
 
 export interface PopoverMenuProps
-  extends Pick<PopoverPanelProps, "renderContent" | "renderOpener"> {
+  extends Pick<PopoverPanelProps, 'renderContent' | 'renderOpener'> {
   title: ReactNode
 }
 

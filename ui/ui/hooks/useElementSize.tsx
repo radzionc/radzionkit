@@ -12,7 +12,7 @@ const getElementSize = (element: HTMLElement): ElementSize =>
 
 export const useElementSize = (element: HTMLElement | null) => {
   const [size, setSize] = useState<ElementSize | null>(() =>
-    element ? getElementSize(element) : null
+    element ? getElementSize(element) : null,
   )
 
   useLayoutEffect(() => {

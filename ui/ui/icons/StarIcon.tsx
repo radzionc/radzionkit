@@ -1,4 +1,4 @@
-import { ComponentWithClassNameProps } from "../../shared/props";
+import { ComponentWithClassNameProps } from '../../shared/props'
 
 export const StarIcon = ({ className }: ComponentWithClassNameProps) => (
   <svg

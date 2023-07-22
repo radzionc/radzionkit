@@ -2,7 +2,7 @@ import { Context as ReactContext, useContext } from 'react'
 
 export function createContextHook<T>(
   Context: ReactContext<T | undefined>,
-  contextName: string
+  contextName: string,
 ) {
   return () => {
     const context = useContext(Context)

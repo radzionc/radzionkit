@@ -4,7 +4,7 @@ interface AnyEvent {
 }
 
 export function handleWithStopPropagation<E extends AnyEvent>(
-  handler?: (event?: E) => void
+  handler?: (event?: E) => void,
 ) {
   return function handle(event?: E) {
     event?.stopPropagation?.()
@@ -14,7 +14,7 @@ export function handleWithStopPropagation<E extends AnyEvent>(
 }
 
 export function handleWithPreventDefault<E extends AnyEvent>(
-  handler?: (event: E) => void
+  handler?: (event: E) => void,
 ) {
   return function handle(event: E) {
     event?.preventDefault?.()
@@ -23,7 +23,7 @@ export function handleWithPreventDefault<E extends AnyEvent>(
 }
 
 export function handleWithStopPropagationAndPreventDefault<E extends AnyEvent>(
-  handler?: (event: E) => void
+  handler?: (event: E) => void,
 ) {
   return function handle(event: E) {
     event?.preventDefault?.()

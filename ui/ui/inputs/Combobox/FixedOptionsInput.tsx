@@ -7,20 +7,20 @@ import {
   useImperativeHandle,
   useRef,
   useState,
-} from "react"
-import { usePrevious } from "react-use"
-import styled from "styled-components"
+} from 'react'
+import { usePrevious } from 'react-use'
+import styled from 'styled-components'
 
-import { InputWrapperWithErrorMessage } from "../InputWrapper"
-import { TextInputContainer, TextInputLoader } from "../TextInput"
-import { ComboboxOptions } from "./ComboboxOptions"
-import { DropdownMenuPlacer } from "./DropdownMenuPlacer"
-import { defaultInputShapeCSS } from "../config"
-import { CollapseToggleButton } from "../../buttons/CollapseToggleButton"
-import { getColor } from "../../theme/getters"
-import { useBoolean } from "../../../shared/hooks/useBoolean"
-import { useKeyPress } from "../../../shared/hooks/useKeyPress"
-import { Text } from "../../Text"
+import { InputWrapperWithErrorMessage } from '../InputWrapper'
+import { TextInputContainer, TextInputLoader } from '../TextInput'
+import { ComboboxOptions } from './ComboboxOptions'
+import { DropdownMenuPlacer } from './DropdownMenuPlacer'
+import { defaultInputShapeCSS } from '../config'
+import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
+import { getColor } from '../../theme/getters'
+import { useBoolean } from '../../../shared/hooks/useBoolean'
+import { useKeyPress } from '../../../shared/hooks/useKeyPress'
+import { Text } from '../../Text'
 
 interface Props<T> {
   label: React.ReactNode
@@ -52,7 +52,7 @@ const ToggleWrapper = styled.div`
 
 const NoOptions = styled.div`
   ${defaultInputShapeCSS};
-  background: ${getColor("mistExtra")};
+  background: ${getColor('mistExtra')};
   display: flex;
   align-items: center;
 `
@@ -68,7 +68,7 @@ function FixedOptionsInputInner<T>(
 
     optionToString,
 
-    noOptionsMessage = "No options left",
+    noOptionsMessage = 'No options left',
 
     isLoading,
 
@@ -76,7 +76,7 @@ function FixedOptionsInputInner<T>(
     renderOption = optionToString,
     clearAfterOptionSelected,
   }: Props<T>,
-  ref: ForwardedRef<HTMLInputElement | null>
+  ref: ForwardedRef<HTMLInputElement | null>,
 ) {
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -97,7 +97,7 @@ function FixedOptionsInputInner<T>(
 
   const previousValue = usePrevious(value)
 
-  const [inputValue, setInputValue] = useState("")
+  const [inputValue, setInputValue] = useState('')
 
   const [suggestions, setSuggestions] = useState(options)
 
@@ -108,7 +108,7 @@ function FixedOptionsInputInner<T>(
       value && optionToString(value).toLowerCase() === lowerCaseInputValue
         ? options
         : options.filter((item) =>
-            optionToString(item).toLowerCase().includes(lowerCaseInputValue)
+            optionToString(item).toLowerCase().includes(lowerCaseInputValue),
           )
 
     setSuggestions(newSuggestions)
@@ -121,30 +121,30 @@ function FixedOptionsInputInner<T>(
   const handleSelectOption = useCallback(
     (option: T) => {
       const optionAsString = clearAfterOptionSelected
-        ? ""
+        ? ''
         : optionToString(option)
       setInputValue(optionAsString)
 
       onChange(option)
       closeMenu()
     },
-    [optionToString, onChange, closeMenu, clearAfterOptionSelected]
+    [optionToString, onChange, closeMenu, clearAfterOptionSelected],
   )
 
   useEffect(() => {
     if (previousValue !== value) {
-      setInputValue(value ? optionToString(value) : "")
+      setInputValue(value ? optionToString(value) : '')
     }
   }, [optionToString, previousValue, value])
 
   useKeyPress(
-    "Enter",
+    'Enter',
     () => {
       if (highlightedIndex !== null) {
         handleSelectOption(suggestions[highlightedIndex])
       }
     },
-    { isEnabled: isSelectionAvailalbe, shouldStopPropagation: true }
+    { isEnabled: isSelectionAvailalbe, shouldStopPropagation: true },
   )
 
   return (
@@ -184,7 +184,7 @@ function FixedOptionsInputInner<T>(
               onChange={({ currentTarget: { value } }) => {
                 setInputValue(value)
 
-                if (value === "") {
+                if (value === '') {
                   onChange(null)
                 }
               }}
@@ -207,9 +207,9 @@ function FixedOptionsInputInner<T>(
 }
 
 // Redecalare forwardRef
-declare module "react" {
+declare module 'react' {
   function forwardRef<T, P>(
-    render: (props: P, ref: React.Ref<T>) => React.ReactElement | null
+    render: (props: P, ref: React.Ref<T>) => React.ReactElement | null,
   ): (props: P & React.RefAttributes<T>) => React.ReactElement | null
 }
 

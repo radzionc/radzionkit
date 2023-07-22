@@ -1,5 +1,5 @@
-import { VStack } from "ui/Stack"
-import { Text } from "ui/Text"
+import { VStack } from 'ui/Stack'
+import { Text } from 'ui/Text'
 
 interface Props {
   name: string

@@ -1,5 +1,5 @@
-import { css } from "styled-components"
-import { roundedCSS } from "./roundedCSS"
+import { css } from 'styled-components'
+import { roundedCSS } from './roundedCSS'
 
 export const themedScrollbarCSS = css`
   &::-webkit-scrollbar {

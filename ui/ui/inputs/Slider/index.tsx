@@ -1,21 +1,23 @@
-import styled, { useTheme } from "styled-components"
-import { toPercents } from "../../../shared/utils/toPercents"
-import { PressTracker } from "../../PressTracker"
-import { defaultTransition } from "../../animations/transitions"
-import { HSLA } from "../../colors/HSLA"
-import { getColor } from "../../theme/getters"
-import { centerContentCSS } from "../../utils/centerContentCSS"
-import { getCSSUnit } from "../../utils/getCSSUnit"
-import { getSameDimensionsCSS } from "../../utils/getSameDimensionsCSS"
-import { InvisibleHTMLSliderProps, InvisibleHTMLSlider } from "./InvisibleHtmlSlider"
+import styled, { useTheme } from 'styled-components'
+import { toPercents } from '../../../shared/utils/toPercents'
+import { PressTracker } from '../../PressTracker'
+import { defaultTransition } from '../../animations/transitions'
+import { HSLA } from '../../colors/HSLA'
+import { getColor } from '../../theme/getters'
+import { centerContentCSS } from '../../utils/centerContentCSS'
+import { getCSSUnit } from '../../utils/getCSSUnit'
+import { getSameDimensionsCSS } from '../../utils/getSameDimensionsCSS'
+import {
+  InvisibleHTMLSliderProps,
+  InvisibleHTMLSlider,
+} from './InvisibleHtmlSlider'
 
-
-type SliderSize = "m" | "l"
+type SliderSize = 'm' | 'l'
 
 export interface SliderProps extends InvisibleHTMLSliderProps {
   size?: SliderSize
   color?: HSLA
-  height?: React.CSSProperties["height"]
+  height?: React.CSSProperties['height']
 }
 
 const Control = styled.div<{ value: number; size: number; $color: HSLA }>`
@@ -51,7 +53,7 @@ const Line = styled.div`
   width: 100%;
 
   overflow: hidden;
-  background-color: ${getColor("mist")};
+  background-color: ${getColor('mist')};
   border-radius: 1000px;
 `
 
@@ -78,7 +80,7 @@ export const Slider = ({
   max,
   step,
   autoFocus,
-  size = "m",
+  size = 'm',
   color: optionalColor,
   height = 40,
 }: SliderProps) => {
