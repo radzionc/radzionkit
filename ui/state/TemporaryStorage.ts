@@ -1,6 +1,8 @@
 import { OnValueChangeListener, PersistentStorage } from './PersistentStorage'
 
-export class TemporaryStorage<T extends string> implements PersistentStorage<T> {
+export class TemporaryStorage<T extends string>
+  implements PersistentStorage<T>
+{
   storage: Record<string, unknown> = {}
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   listeners: Record<string, OnValueChangeListener<any>[]> = {}
