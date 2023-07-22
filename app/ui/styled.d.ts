@@ -1,14 +1,7 @@
 import 'styled-components'
 
-import { ThemeColors } from '@reactkit/ui/ui/theme/ThemeColors'
-
-import { ThemeName } from '@reactkit/ui/ui/theme/ThemeName'
-import { ThemeShadows } from '@reactkit/ui/ui/theme/ThemeShadows'
+import { Theme } from '@reactkit/ui/ui/theme/Theme'
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    name: ThemeName
-    colors: ThemeColors
-    shadows: ThemeShadows
-  }
+  export interface DefaultTheme extends Theme {}
 }

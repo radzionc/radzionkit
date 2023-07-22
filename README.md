@@ -10,49 +10,83 @@ ReactKit is an ultimate component system with the following benefits:
 
 You can see all the components in action at [reactkit.radzion.com](https://reactkit.radzion.com). There is also a [YouTube channel](https://www.youtube.com/@radzion), covering almost every piece of ReactKit, explaining implementation and reasoning behind it.
 
-## How to use ReactKit for new project
+# How to start a new project with ReactKit
 
-#### 1. Use ReactKit as a template by clicking "Use this template" button on GitHub
+1. Use ReactKit as a template by clicking "Use this template" button on GitHub. This will create a new monorepo with Yarn workspaces.
 
-#### 2. Delete the app folder or rename it to `uidemo` to keep component showcase
+2. Choose a starter for your project:
+  - Use the `app` folder as a starting point for your project. It's a NextJS app that powers [reactkit.radzion.com](https://reactkit.radzion.com) and showcasing all the components. To keep the showcase you can duplicate the `app`, and rename it to your project name.
+  - Create a new NextJS app by following [these instructions](#how-to-add-a-nextjs-app-in-reactkit-monorepo).
 
-#### 2. Find all mentions of `reactkit` and replace them with your project name
+3. Find all mentions of `reactkit` and replace them with your project name.
 
-#### 3. Create a new NextJS project
+
+# How to add a NextJS app to ReactKit monorepo
+
+1. Create a project
 
 ```sh
 npx create-next-app@latest app
 ```
 
-## How to add ReactKit to existing project
-
-ReactKit is not a library, but a collection of amazing tools like components, hooks, and utilities. You can use them in your project by copying the code to your project. This way you have complete control over the code and can easily customize it to your needs.
-
-### 1. Copy lib folder to your project
-
-### 2. Install dependencies
+2. Update next.config.js
 
 ```sh
-yarn add @floating-ui/dom @floating-ui/react react-spring @react-spring/web date-fns focus-trap-react react react-dom react-dropzone react-to-print react-use styled-components react-query copy-to-clipboard
-yarn add --dev @types/react @types/react-dom @types/styled-components eslint typescript
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  compiler: {
+    styledComponents: true,
+  },
+  output: 'export',
+  transpilePackages: ['@reactkit/ui'],
+}
+
+// eslint-disable-next-line no-undef
+module.exports = nextConfig
 ```
 
-### 3. Copy state folder to your project
+3. Install dependencies
 
-### 4. Copy ui folder to your project
+```sh
+yarn add styled-components
+```
 
-### 5. Finish setup
+4. Add `baseUrl` for absolute import to `tsconfig.json``
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+  },
+}
+
+```
+
+5. Copy [state](https://github.com/radzionc/reactkit/tree/main/app/state) folder from ReactKit's `app` to your project.
+
+6. Copy [ui](https://github.com/radzionc/reactkit/tree/main/app/ui) folder from ReactKit's `app` to your project.
+
+6. Copy [_document.tsx](https://github.com/radzionc/reactkit/tree/main/app/_document.tsx) file from ReactKit's `app` to your project.
+
+
+8. Update your App at `pages/_app.tsx` with `ThemeProvider` and `GlobalStyle`
 
 ```tsx
-import { GlobalStyle } from 'lib/ui/GlobalStyle'
+import type { AppProps } from 'next/app'
+import { GlobalStyle } from '@increaser/ui/ui/GlobalStyle'
 import { ThemeProvider } from 'ui/ThemeProvider'
 
-export const App = () => {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
       <GlobalStyle />
-      <p>Your app goes here</p>
+      <Component {...pageProps} />
     </ThemeProvider>
   )
 }
+
+export default MyApp
 ```
+

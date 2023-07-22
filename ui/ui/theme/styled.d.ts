@@ -1,14 +1,7 @@
 import 'styled-components'
 
-import { ThemeColors } from './ThemeColors'
-
-import { ThemeName } from './ThemeName'
-import { ThemeShadows } from './ThemeShadows'
+import { Theme } from './Theme'
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    name: ThemeName
-    colors: ThemeColors
-    shadows: ThemeShadows
-  }
+  export interface DefaultTheme extends Theme {}
 }

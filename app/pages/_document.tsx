@@ -9,23 +9,27 @@ import { ServerStyleSheet } from 'styled-components'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
-
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
     try {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
-        })
-
-      const initialProps = await Document.getInitialProps(ctx)
+            sheet.collectStyles(<App {...props} />), //gets the styles from all the components inside <App>
+        });
+      const initialProps = await Document.getInitialProps(ctx);
       return {
         ...initialProps,
-        styles: [initialProps.styles, sheet.getStyleElement()],
-      }
+        styles: (
+          <>
+            {initialProps.styles}
+            {/*👇 insert the collected styles to the html document*/}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      };
     } finally {
-      sheet.seal()
+      sheet.seal();
     }
   }
   render() {
