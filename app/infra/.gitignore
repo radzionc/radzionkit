@@ -1,0 +1,4 @@
+.terraform/
+*.backup
+set_env_vars.sh
+.terraform.lock.hcl

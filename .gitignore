@@ -6,3 +6,5 @@
 !.yarn/sdks
 !.yarn/versions
 .DS_Store
+
+set_env_vars.sh
