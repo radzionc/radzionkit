@@ -1,32 +1,21 @@
 import { OnValueChangeListener, PersistentStorage } from './PersistentStorage'
 
-export class LocalStorage<T extends string> implements PersistentStorage<T> {
+export class TemporaryStorage<T extends string> implements PersistentStorage<T> {
+  storage: Record<string, unknown> = {}
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   listeners: Record<string, OnValueChangeListener<any>[]> = {}
 
   getItem<V>(key: T) {
-    const item = localStorage.getItem(key)
-
-    if (item === null) return undefined
-
-    if (item === 'null') return null as never as V
-    if (item === 'undefined') return undefined
-
-    try {
-      return JSON.parse(item) as V
-    } catch {
-      return item as V
-    }
+    return this.storage[key] as V
   }
   setItem<V>(key: T, value: V) {
     const oldValue = this.getItem(key)
-    const newValue = JSON.stringify(value)
-    if (oldValue === newValue) return
+    if (oldValue === value) return
 
     if (value === undefined) {
-      localStorage.removeItem(key)
+      delete this.storage[key]
     } else {
-      localStorage.setItem(key, JSON.stringify(value))
+      this.storage[key] = value
     }
 
     const listeners = this.listeners[key] || []
