@@ -3,6 +3,7 @@ import Document, {
   Main,
   NextScript,
   DocumentContext,
+  Head,
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
@@ -33,6 +34,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
+        <Head>
+          <meta name="application-name" content="Enterprise DAO" />
+        </Head>
         <body>
           <Main />
           <NextScript />
