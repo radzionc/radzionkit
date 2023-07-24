@@ -1,8 +1,8 @@
-import { ReactNode } from "react"
-import { useRhythmicRerender } from "./hooks/useRhythmicRerender"
+import { ReactNode } from 'react'
+import { useRhythmicRerender } from './hooks/useRhythmicRerender'
 
 interface RhytmicRerenderProps {
-  interval?: number,
+  interval?: number
   render: () => ReactNode
 }
 
