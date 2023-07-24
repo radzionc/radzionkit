@@ -5,9 +5,9 @@ import { Text } from '../Text'
 
 import { getColor } from '../theme/getters'
 import { interactiveCSS } from '../utils/interactiveCSS'
+import { UnstyledButton } from './UnstyledButton'
 
-const Container = styled.button`
-  all: unset;
+const Container = styled(UnstyledButton)`
   ${interactiveCSS};
   color: ${getColor('textSupporting')};
   ${defaultTransitionCSS};

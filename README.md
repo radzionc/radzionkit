@@ -68,8 +68,7 @@ yarn add styled-components
 
 6. Copy [ui](https://github.com/radzionc/reactkit/tree/main/app/ui) folder from ReactKit's `app` to your project.
 
-6. Copy [_document.tsx](https://github.com/radzionc/reactkit/tree/main/app/_document.tsx) file from ReactKit's `app` to your project.
-
+7. Copy [_document.tsx](https://github.com/radzionc/reactkit/tree/main/app/_document.tsx) file from ReactKit's `app` to your project.
 
 8. Update your App at `pages/_app.tsx` with `ThemeProvider` and `GlobalStyle`
 
@@ -90,3 +89,23 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp
 ```
 
+9. Update `.eslintrc.json`
+
+```json
+{
+  "extends": ["plugin:@next/next/recommended"]
+}
+```
+
+
+10. Update `next-sitemap.config.js` with your `siteUrl`:
+
+```js
+/** @type {import('next-sitemap').IConfig} */
+module.exports = {
+  siteUrl: '{YOUR_SITE_URL}}',
+  generateRobotsTxt: true,
+  generateIndexSitemap: false,
+  outDir: './out',
+}
+```

@@ -5,11 +5,9 @@ import { getColor } from '../theme/getters'
 import { centerContentCSS } from '../utils/centerContentCSS'
 import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
 import { defaultInputHeight, inputBackgroundCSS } from './config'
-import { interactiveCSS } from '../utils/interactiveCSS'
+import { UnstyledButton } from '../buttons/UnstyledButton'
 
-export const ExpandableInputOpener = styled.button`
-  all: unset;
-  ${interactiveCSS}
+export const ExpandableInputOpener = styled(UnstyledButton)`
   ${centerContentCSS}
   ${defaultBorderRadiusCSS}
   ${defaultTransitionCSS}

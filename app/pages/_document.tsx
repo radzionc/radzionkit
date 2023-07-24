@@ -1,6 +1,5 @@
 import Document, {
   Html,
-  Head,
   Main,
   NextScript,
   DocumentContext,
@@ -23,7 +22,6 @@ class MyDocument extends Document {
         styles: (
           <>
             {initialProps.styles}
-            {/*👇 insert the collected styles to the html document*/}
             {sheet.getStyleElement()}
           </>
         ),
@@ -34,13 +32,7 @@ class MyDocument extends Document {
   }
   render() {
     return (
-      <Html>
-        <Head>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap"
-          />
-        </Head>
+      <Html lang="en">
         <body>
           <Main />
           <NextScript />

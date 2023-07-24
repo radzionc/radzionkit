@@ -15,7 +15,7 @@ export class LocalStorage<T extends string> implements PersistentStorage<T> {
     try {
       return JSON.parse(item) as V
     } catch {
-      return item as V
+      return item as never as V
     }
   }
   setItem<V>(key: T, value: V) {

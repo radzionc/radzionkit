@@ -12,6 +12,7 @@ import { fullyCoverAbsolutely } from './utils/fullyCoverAbsolutely'
 import { getSameDimensionsCSS } from './utils/getSameDimensionsCSS'
 import { interactiveCSS } from './utils/interactiveCSS'
 import { ComponentWithChildrenProps } from '../shared/props'
+import { UnstyledButton } from './buttons/UnstyledButton'
 
 interface ImageBannerProps {
   onClose: () => void
@@ -71,9 +72,7 @@ const Title = styled(Text)`
   }
 `
 
-const Close = styled.button`
-  all: unset;
-
+const Close = styled(UnstyledButton)`
   ${interactiveCSS};
 
   background: ${getColor('text')};

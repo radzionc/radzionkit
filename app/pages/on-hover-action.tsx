@@ -14,7 +14,7 @@ import { centerContentCSS } from '@reactkit/ui/ui/utils/centerContentCSS'
 import { PauseIcon } from '@reactkit/ui/ui/icons/PauseIcon'
 import { PlayIcon } from '@reactkit/ui/ui/icons/PlayIcon'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
-import { interactiveCSS } from '@reactkit/ui/ui/utils/interactiveCSS'
+import { UnstyledButton } from '@reactkit/ui/ui/buttons/UnstyledButton'
 
 const options = [
   'Lofi jazz study music',
@@ -58,9 +58,7 @@ const Identifier = styled.div`
   position: relative;
 `
 
-const Container = styled.button`
-  all: unset;
-  ${interactiveCSS};
+const Container = styled(UnstyledButton)`
   width: 100%;
   display: grid;
   grid-template-columns: 32px 1fr 32px;

@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 import { getColor } from '../theme/getters'
 import { CenterAbsolutely } from '../CenterAbsolutely'
 import { getHoverVariant } from '../colors/getHoverVariant'
-import { interactiveCSS } from '../utils/interactiveCSS'
 import { match } from '../../shared/utils/match'
 import { Spinner } from '../Spinner'
 import { Tooltip } from '../Tooltip'
@@ -11,6 +10,7 @@ import { defaultTransitionCSS } from '../animations/transitions'
 import { centerContentCSS } from '../utils/centerContentCSS'
 import { getCSSUnit } from '../utils/getCSSUnit'
 import { getHorizontalPaddingCSS } from '../utils/getHorizontalPaddingCSS'
+import { UnstyledButton } from './UnstyledButton'
 
 export const buttonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 
@@ -37,9 +37,7 @@ interface ContainerProps {
   kind: ButtonKind
 }
 
-const Container = styled.button<ContainerProps>`
-  all: unset;
-  ${interactiveCSS};
+const Container = styled(UnstyledButton)<ContainerProps>`
   ${defaultTransitionCSS};
   ${centerContentCSS};
 

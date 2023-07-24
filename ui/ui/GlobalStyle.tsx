@@ -2,7 +2,11 @@ import { createGlobalStyle } from 'styled-components'
 import { themedScrollbarCSS } from './utils/themedScrollbarCSS'
 import { getColor } from './theme/getters'
 
-export const GlobalStyle = createGlobalStyle`
+interface GlobalStyleProps {
+  fontFamily: string
+}
+
+export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -28,7 +32,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    all: unset;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
   }
 
   #root {
@@ -36,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   * {
-    font-family: Inter, sans-serif;
+    font-family: ${({ fontFamily }) => fontFamily}, sans-serif;
   }
 
   body {

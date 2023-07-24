@@ -5,8 +5,8 @@ import { centerContentCSS } from '../utils/centerContentCSS'
 import { getCSSUnit } from '../utils/getCSSUnit'
 import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
 import { matchColor } from '../theme/getters'
-import { interactiveCSS } from '../utils/interactiveCSS'
 import { match } from '../../shared/utils/match'
+import { UnstyledButton } from './UnstyledButton'
 
 export const iconButtonSizes = ['s', 'm', 'l'] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]
@@ -25,9 +25,7 @@ interface ContainerProps {
   kind: IconButtonKind
 }
 
-const Container = styled.button<ContainerProps>`
-  all: unset;
-  ${interactiveCSS};
+const Container = styled(UnstyledButton)<ContainerProps>`
   position: relative;
   ${centerContentCSS};
   ${({ size }) => getSameDimensionsCSS(sizeRecord[size])};
