@@ -66,7 +66,7 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
       }
       ref={ref}
       inputOverlay={unit ? <UnitContainer>{unit}</UnitContainer> : undefined}
-      onValueChange={(value) => {
+      onValueChange={(value: string) => {
         if (shouldBePositive) {
           value = value.replace(/-/g, '')
         }

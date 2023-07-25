@@ -1,4 +1,4 @@
-import { ChangeEvent, InputHTMLAttributes, Ref, forwardRef } from 'react'
+import { ChangeEvent, ComponentProps, Ref, forwardRef } from 'react'
 import styled from 'styled-components'
 
 import { InputWrapperProps, InputWrapperWithErrorMessage } from './InputWrapper'
@@ -15,10 +15,11 @@ export type SharedTextInputProps = Pick<
   isLoading?: boolean
 }
 
-export type TextInputProps = InputHTMLAttributes<HTMLInputElement> &
-  SharedTextInputProps & {
-    inputOverlay?: React.ReactNode
-  }
+export interface TextInputProps
+  extends ComponentProps<typeof TextInputContainer>,
+    SharedTextInputProps {
+  inputOverlay?: React.ReactNode
+}
 
 export const TextInput = forwardRef(function TextInputInner(
   {

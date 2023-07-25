@@ -1,10 +1,4 @@
-import {
-  ChangeEvent,
-  Ref,
-  TextareaHTMLAttributes,
-  forwardRef,
-  useState,
-} from 'react'
+import { ChangeEvent, ComponentProps, Ref, forwardRef, useState } from 'react'
 import styled from 'styled-components'
 
 import { InputWrapperWithErrorMessage } from './InputWrapper'
@@ -29,13 +23,14 @@ const CharacterCounterWrapper = styled.div`
   user-select: none;
 `
 
-type Props = TextareaHTMLAttributes<HTMLTextAreaElement> &
-  SharedTextInputProps & {
-    value?: string
-  }
+interface TextAreaProps
+  extends ComponentProps<typeof TextareaContainer>,
+    SharedTextInputProps {
+  value?: string
+}
 
 export const TextArea = forwardRef(function TextAreaInner(
-  { onValueChange, label, error, ...props }: Props,
+  { onValueChange, label, error, ...props }: TextAreaProps,
   ref: Ref<HTMLTextAreaElement> | null,
 ) {
   const [charactersCount, setCharactersCount] = useState(0)
