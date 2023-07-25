@@ -1,14 +1,24 @@
 import { Spinner } from '@reactkit/ui/ui/Spinner'
 import { HStack } from '@reactkit/ui/ui/Stack'
 import { centerContentCSS } from '@reactkit/ui/ui/utils/centerContentCSS'
-import { Suspense, lazy } from 'react'
+import dynamic from 'next/dynamic'
 import styled from 'styled-components'
 import { ExpandableInputOpener } from '../../../ui/ui/inputs/ExpandableInputOpener'
 import { Menu } from '@reactkit/ui/ui/Menu'
 import { Text } from '@reactkit/ui/ui/Text'
 import { InputProps } from '@reactkit/ui/shared/props'
 
-const EmojiPicker = lazy(() => import('./EmojiPicker'))
+const EmojiPicker = dynamic(() => import('./EmojiPicker'), {
+  loading: () => (
+    <EmojiMartFallback>
+      <HStack gap={4} alignItems="center">
+        <Spinner />
+        <Text>Loading emoji picker</Text>
+      </HStack>
+    </EmojiMartFallback>
+  ),
+  ssr: false,
+})
 
 interface EmojiInputProps extends InputProps<string> {}
 
@@ -30,23 +40,12 @@ export const EmojiInput = ({ value, onChange }: EmojiInputProps) => {
         </ExpandableInputOpener>
       )}
       renderContent={({ onClose }) => (
-        <Suspense
-          fallback={
-            <EmojiMartFallback>
-              <HStack gap={4} alignItems="center">
-                <Spinner />
-                <Text>Loading emoji picker</Text>
-              </HStack>
-            </EmojiMartFallback>
-          }
-        >
-          <EmojiPicker
-            onSelect={(value) => {
-              onChange(value)
-              onClose()
-            }}
-          />
-        </Suspense>
+        <EmojiPicker
+          onSelect={(value) => {
+            onChange(value)
+            onClose()
+          }}
+        />
       )}
     />
   )
