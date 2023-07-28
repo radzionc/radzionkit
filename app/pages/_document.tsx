@@ -6,6 +6,7 @@ import Document, {
   Head,
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import { MetaTags } from '@reactkit/ui/metadata/MetaTags'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -35,7 +36,12 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="application-name" content="Enterprise DAO" />
+          <MetaTags
+            title="ReactKit"
+            description="A React components system for faster development"
+            url="https://reactkit.radzion.com"
+            twitterId="@radzionc"
+          />
         </Head>
         <body>
           <Main />
