@@ -1,5 +1,4 @@
-#!/bin/bash
-set -e
+#!/bin/zsh -e
 
 # Required environment variables:
 # - BUCKET: S3 bucket name
