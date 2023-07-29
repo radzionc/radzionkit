@@ -28,7 +28,7 @@ const PromotionPage: NextPage = () => {
             onAccept={() => setWasShown(true)}
             url="https://increaser.org"
             text="Hi there! Can I share a tool for deep work with you?"
-            character={<Image src="/hello.png" alt="hello" />}
+            character={<Image src="/images/hello.png" alt="hello" />}
             speechPlacement={{
               left: 280,
               bottom: 28,

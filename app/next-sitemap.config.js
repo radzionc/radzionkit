@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://reactkit.radzion.com/',
+  siteUrl: process.env.NEXT_PUBLIC_BASE_URL,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   outDir: './out',

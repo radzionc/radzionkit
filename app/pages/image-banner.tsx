@@ -57,7 +57,7 @@ const ImageBannerPage: NextPage = () => {
             )}
             image={
               <SafeImage
-                src="/mountains.webp"
+                src="images/mountains.webp"
                 render={(props) => <CoverImage {...props} />}
               />
             }

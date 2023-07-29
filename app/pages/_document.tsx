@@ -39,7 +39,7 @@ class MyDocument extends Document {
           <MetaTags
             title="ReactKit"
             description="A React components system for faster development"
-            url="https://reactkit.radzion.com"
+            url={process.env.NEXT_PUBLIC_BASE_URL}
             twitterId="@radzionc"
           />
         </Head>
