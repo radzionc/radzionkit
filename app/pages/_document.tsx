@@ -7,6 +7,7 @@ import Document, {
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 import { MetaTags } from '@reactkit/ui/metadata/MetaTags'
+import { AppIconMetaTags } from '@reactkit/ui/metadata/AppIconMetaTags'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -42,6 +43,7 @@ class MyDocument extends Document {
             url={process.env.NEXT_PUBLIC_BASE_URL}
             twitterId="@radzionc"
           />
+          <AppIconMetaTags />
         </Head>
         <body>
           <Main />

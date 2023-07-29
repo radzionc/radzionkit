@@ -1,6 +1,4 @@
-import { LogoMetaTags } from './LogoMetaTags'
-
-interface SeoMetaTagsProps {
+interface MetaTagsProps {
   title?: string
   description?: string
   image?: string
@@ -16,7 +14,7 @@ export const MetaTags = ({
   url,
   twitterId,
   imageAlt,
-}: SeoMetaTagsProps) => (
+}: MetaTagsProps) => (
   <>
     {title && (
       <>
@@ -69,7 +67,5 @@ export const MetaTags = ({
     />
 
     <meta http-equiv="Content-Language" content="en" />
-
-    <LogoMetaTags />
   </>
 )
