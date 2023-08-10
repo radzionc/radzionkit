@@ -66,6 +66,6 @@ export const MetaTags = ({
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <meta http-equiv="Content-Language" content="en" />
+    <meta httpEquiv="Content-Language" content="en" />
   </>
 )

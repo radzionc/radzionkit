@@ -41,13 +41,10 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     isolation: isolate;
   }
 
-  * {
-    font-family: ${({ fontFamily }) => fontFamily}, sans-serif;
-  }
-
   body {
     background: ${getColor('background')};
     color: ${getColor('text')};
+    font-family: ${({ fontFamily }) => fontFamily}, sans-serif;
   }
 
   input::-webkit-outer-spin-button,
