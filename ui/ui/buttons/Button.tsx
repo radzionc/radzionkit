@@ -146,6 +146,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
           `,
           ghostSecondary: () => css`
             background: ${getColor('mist')};
+            color: ${getColor('text')};
           `,
         })}
       }

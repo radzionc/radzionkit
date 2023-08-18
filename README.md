@@ -50,7 +50,7 @@ module.exports = nextConfig
 3. Install dependencies
 
 ```sh
-yarn add styled-components
+yarn add styled-components next-sitemap
 ```
 
 4. Add `baseUrl` for absolute import to `tsconfig.json``
@@ -109,3 +109,50 @@ module.exports = {
   outDir: './out',
 }
 ```
+
+# How to create a monorepo with Yarn workspaces
+
+1. Update Yarn
+
+```sh
+yarn set version stable
+```
+
+2. Create a new project and add `package.json` file - [source](./package.json)
+
+3. Add `tsconfig.json` file - [source](./tsconfig.json)
+
+4. Add `.prettierrc` file - [source](./.prettierrc)
+
+5. (optional) Add `.prettierignore` file - [source](./.prettierignore)
+
+6. Add `.gitignore` file - [source](./.gitignore)
+
+7. Add `.eslintrc` file - [source](./.eslintrc)
+
+8. Initialize Git:
+
+```sh
+git init
+```
+
+9. Setup Husky:
+
+```
+npx husky-init
+```
+
+10. Update `.husky/pre-commit` file - [source](./.husky/pre-commit)
+
+11. Setup Yarn
+
+```
+yarn
+yarn dlx @yarnpkg/sdks vscode
+```
+
+n. We have to explicitly activate the custom TS settings to support Yarn P'n'P in VSCode:
+
+1. Press ctrl+shift+p in a TypeScript file
+2. Choose "Select TypeScript Version"
+3. Pick "Use Workspace Version"
