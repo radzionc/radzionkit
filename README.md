@@ -10,18 +10,18 @@ ReactKit is an ultimate component system with the following benefits:
 
 You can see all the components in action at [reactkit.radzion.com](https://reactkit.radzion.com). There is also a [YouTube channel](https://www.youtube.com/@radzion), covering almost every piece of ReactKit, explaining implementation and reasoning behind it.
 
-# How to start a new project with ReactKit
+## How to start a new project with ReactKit
 
 1. Use ReactKit as a template by clicking "Use this template" button on GitHub. This will create a new monorepo with Yarn workspaces.
 
 2. Choose a starter for your project:
-  - Use the `app` folder as a starting point for your project. It's a NextJS app that powers [reactkit.radzion.com](https://reactkit.radzion.com) and showcasing all the components. To keep the showcase you can duplicate the `app`, and rename it to your project name.
-  - Create a new NextJS app by following [these instructions](#how-to-add-a-nextjs-app-in-reactkit-monorepo).
+
+- Use the `app` folder as a starting point for your project. It's a NextJS app that powers [reactkit.radzion.com](https://reactkit.radzion.com) and showcasing all the components. To keep the showcase you can duplicate the `app`, and rename it to your project name.
+- Create a new NextJS app by following [these instructions](#how-to-add-a-nextjs-app-in-reactkit-monorepo).
 
 3. Find all mentions of `reactkit` and replace them with your project name.
 
-
-# How to add a NextJS app to ReactKit monorepo
+## How to add a NextJS app to ReactKit monorepo
 
 1. Create a project
 
@@ -29,7 +29,9 @@ You can see all the components in action at [reactkit.radzion.com](https://react
 npx create-next-app@latest app
 ```
 
-2. Update next.config.js
+2. Update name in package.json, e.g. `@reactkit/app`
+
+3. Update next.config.js
 
 ```sh
 /** @type {import('next').NextConfig} */
@@ -47,40 +49,46 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 
-3. Install dependencies
+4. Install dependencies
 
 ```sh
-yarn add styled-components next-sitemap
+yarn add styled-components@^5.3.5 next-sitemap
+yarn add --dev @types/styled-components@^5.1.25
 ```
 
-4. Add `baseUrl` for absolute import to `tsconfig.json``
+5. Add `baseUrl` for absolute import to `tsconfig.json``
 
 ```json
 {
   "compilerOptions": {
-    "baseUrl": ".",
-  },
+    "baseUrl": "."
+  }
 }
-
 ```
 
-5. Copy [state](https://github.com/radzionc/reactkit/tree/main/app/state) folder from ReactKit's `app` to your project.
+6. Copy [state](https://github.com/radzionc/reactkit/tree/main/app/state) folder from ReactKit's `app` to your project.
 
-6. Copy [ui](https://github.com/radzionc/reactkit/tree/main/app/ui) folder from ReactKit's `app` to your project.
+7. Copy [ui](https://github.com/radzionc/reactkit/tree/main/app/ui) folder from ReactKit's `app` to your project.
 
-7. Copy [_document.tsx](https://github.com/radzionc/reactkit/tree/main/app/_document.tsx) file from ReactKit's `app` to your project.
+8. Copy [\_document.tsx](https://github.com/radzionc/reactkit/tree/main/app/_document.tsx) file from ReactKit's `app` to your project.
 
-8. Update your App at `pages/_app.tsx` with `ThemeProvider` and `GlobalStyle`
+9. Update your App at `pages/_app.tsx` with `ThemeProvider` and `GlobalStyle`
 
 ```tsx
 import type { AppProps } from 'next/app'
-import { GlobalStyle } from '@increaser/ui/ui/GlobalStyle'
+import { GlobalStyle } from '@reactkit/ui/ui/GlobalStyle'
 import { ThemeProvider } from 'ui/ThemeProvider'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '800'],
+})
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
-      <GlobalStyle />
+      <GlobalStyle fontFamily={inter.style.fontFamily} />
       <Component {...pageProps} />
     </ThemeProvider>
   )
@@ -89,7 +97,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp
 ```
 
-9. Update `.eslintrc.json`
+10. Update `.eslintrc.json`
 
 ```json
 {
@@ -97,8 +105,7 @@ export default MyApp
 }
 ```
 
-
-10. Update `next-sitemap.config.js` with your `siteUrl`:
+11. Update `next-sitemap.config.js` with your `siteUrl`:
 
 ```js
 /** @type {import('next-sitemap').IConfig} */
@@ -110,7 +117,7 @@ module.exports = {
 }
 ```
 
-# How to create a monorepo with Yarn workspaces
+## How to create a monorepo with Yarn workspaces
 
 1. Update Yarn
 
@@ -144,15 +151,4 @@ npx husky-init
 
 10. Update `.husky/pre-commit` file - [source](./.husky/pre-commit)
 
-11. Setup Yarn
-
-```
-yarn
-yarn dlx @yarnpkg/sdks vscode
-```
-
-n. We have to explicitly activate the custom TS settings to support Yarn P'n'P in VSCode:
-
-1. Press ctrl+shift+p in a TypeScript file
-2. Choose "Select TypeScript Version"
-3. Pick "Use Workspace Version"
+11. Disable Yarn P'n'p by copying `.yarnrc.yml` file - [source](./.yarnrc.yml)
