@@ -42,7 +42,10 @@ export function ActionInsideInteractiveElement<T extends React.CSSProperties>({
                 actionPlacerStyles,
                 actionSize: size,
               })}
-            <ActionPlacer ref={setElement} style={actionPlacerStyles}>
+            <ActionPlacer
+              ref={setElement}
+              style={{ opacity: size ? 1 : 0, ...actionPlacerStyles }}
+            >
               {action}
             </ActionPlacer>
           </>
