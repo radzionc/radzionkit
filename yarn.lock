@@ -12,6 +12,79 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@amplitude/analytics-browser@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "@amplitude/analytics-browser@npm:2.2.1"
+  dependencies:
+    "@amplitude/analytics-client-common": ^2.0.5
+    "@amplitude/analytics-core": ^2.0.4
+    "@amplitude/analytics-types": ^2.1.2
+    "@amplitude/plugin-page-view-tracking-browser": ^2.0.7
+    "@amplitude/plugin-web-attribution-browser": ^2.0.7
+    tslib: ^2.4.1
+  checksum: 40e3a5743d0ea08ca80ba538e5311a683fe985cd7a2f03e876390b1448893b1a43de9aae8445ae6660d3b39f534494373c0cfe68a99beff8500a93e362b5c9ba
+  languageName: node
+  linkType: hard
+
+"@amplitude/analytics-client-common@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "@amplitude/analytics-client-common@npm:2.0.5"
+  dependencies:
+    "@amplitude/analytics-connector": ^1.4.8
+    "@amplitude/analytics-core": ^2.0.4
+    "@amplitude/analytics-types": ^2.1.2
+    tslib: ^2.4.1
+  checksum: b6bf4515c80435d58a53dd8a8a026f9248edc764aea7e7d6f2657b23f9cc9ffdf0545ac6efb3833f07ae09ec46ee883583b6fd1403f6d5853ca6c7779dd2df17
+  languageName: node
+  linkType: hard
+
+"@amplitude/analytics-connector@npm:^1.4.8":
+  version: 1.5.0
+  resolution: "@amplitude/analytics-connector@npm:1.5.0"
+  checksum: 157115b642e8b254a88184fe3294150321fdd482388f262bdc08f9ab0c68b01b5f10d2e35a924edb8a8380f0944f8b1363133c2a3f42b59e33da319bfe21c8fa
+  languageName: node
+  linkType: hard
+
+"@amplitude/analytics-core@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "@amplitude/analytics-core@npm:2.0.4"
+  dependencies:
+    "@amplitude/analytics-types": ^2.1.2
+    tslib: ^2.4.1
+  checksum: 33edd6785ca6ee1b1f7e486bdec6e93130b27b25d40d6e2e1b2dbefa42f27538a77b34e45baa30ffa9b83dfa159cba6565d2713c9367f6265eb45818c2d5f03e
+  languageName: node
+  linkType: hard
+
+"@amplitude/analytics-types@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "@amplitude/analytics-types@npm:2.1.2"
+  checksum: f3cb92f6e7957398a8f9728c5e94b32f44420ebb5d7db78b9b577c574a69309341e40139155c3cc665d543dda23476d08f9900f33c52247a399e8f4b4e28285d
+  languageName: node
+  linkType: hard
+
+"@amplitude/plugin-page-view-tracking-browser@npm:^2.0.7":
+  version: 2.0.7
+  resolution: "@amplitude/plugin-page-view-tracking-browser@npm:2.0.7"
+  dependencies:
+    "@amplitude/analytics-client-common": ^2.0.5
+    "@amplitude/analytics-types": ^2.1.2
+    tslib: ^2.4.1
+  checksum: 5a086d450fa22b846f186d581ead1c19e099fcdb96792ed8d53612924489dfc9c4b22efdb4ce85f6bb0331f0a2d7a450247d546e30a1180294b696e581e45a4a
+  languageName: node
+  linkType: hard
+
+"@amplitude/plugin-web-attribution-browser@npm:^2.0.7":
+  version: 2.0.7
+  resolution: "@amplitude/plugin-web-attribution-browser@npm:2.0.7"
+  dependencies:
+    "@amplitude/analytics-client-common": ^2.0.5
+    "@amplitude/analytics-core": ^2.0.4
+    "@amplitude/analytics-types": ^2.1.2
+    tslib: ^2.4.1
+  checksum: db905928a5fad59f67ab4031a13054bc47fbe5204b0465f67d0503b763ad43c5fda9fdaa869db95ccd2986dcb846358bfb3dd5b79e3c29529ec3980093250bee
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.22.5":
   version: 7.22.5
   resolution: "@babel/code-frame@npm:7.22.5"
@@ -735,6 +808,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reactkit/ui@workspace:ui"
   dependencies:
+    "@amplitude/analytics-browser": ^2.2.1
     "@floating-ui/dom": ^1.2.8
     "@floating-ui/react": ^0.24.1
     "@react-spring/web": ^9.7.2
@@ -753,6 +827,14 @@ __metadata:
     react-spring: ^9.7.1
     react-use: ^17.4.0
     styled-components: ^5.3.5
+  languageName: unknown
+  linkType: soft
+
+"@reactkit/utils@workspace:utils":
+  version: 0.0.0-use.local
+  resolution: "@reactkit/utils@workspace:utils"
+  dependencies:
+    date-fns: ^2.30.0
   languageName: unknown
   linkType: soft
 
@@ -4642,6 +4724,13 @@ __metadata:
   version: 2.6.0
   resolution: "tslib@npm:2.6.0"
   checksum: c01066038f950016a18106ddeca4649b4d76caa76ec5a31e2a26e10586a59fceb4ee45e96719bf6c715648e7c14085a81fee5c62f7e9ebee68e77a5396e5538f
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.4.1":
+  version: 2.6.2
+  resolution: "tslib@npm:2.6.2"
+  checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
   languageName: node
   linkType: hard
 

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@amplitude/analytics-browser": "^2.2.1",
     "@floating-ui/dom": "^1.2.8",
     "@floating-ui/react": "^0.24.1",
     "@react-spring/web": "^9.7.2",

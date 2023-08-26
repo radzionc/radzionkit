@@ -1,0 +1,8 @@
+{
+  "name": "@reactkit/utils",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "date-fns": "^2.30.0"
+  }
+}
