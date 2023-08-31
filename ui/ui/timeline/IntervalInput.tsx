@@ -19,10 +19,10 @@ import { HourSpace } from './HourSpace'
 import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
 import { IntervalRect } from './IntervalRect'
 import { MaxIntervalEndBoundary } from './MaxIntervalEndBoundary'
-import { enforceRange } from '../../shared/utils/enforceRange'
 import { Interval } from '../../entities/Interval'
-import { formatDuration } from '../../shared/utils/formatDuration'
-import { MS_IN_HOUR, MS_IN_MIN } from '../../shared/utils/time'
+import { formatDuration } from '@reactkit/utils/time/formatDuration'
+import { enforceRange } from '@reactkit/utils/enforceRange'
+import { MS_IN_MIN, MS_IN_HOUR } from '@reactkit/utils/time'
 
 interface RenderContentParams {
   pxInMs: number

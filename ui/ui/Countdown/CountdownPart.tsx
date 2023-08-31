@@ -2,10 +2,10 @@ import { usePrevious } from 'react-use'
 import { SlidingCharacter } from './SlidingCharacter'
 import { Panel } from '../Panel/Panel'
 import styled from 'styled-components'
-import { padWithZero } from '../../shared/utils/padWithZero'
 import { Center } from '../Center'
 import { HStack } from '../Stack'
 import { Text } from '../Text'
+import { padWithZero } from '@reactkit/utils/padWithZero'
 
 interface Props {
   value: number

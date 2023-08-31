@@ -9,7 +9,7 @@ import { DemoPage } from 'components/DemoPage'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
 import { FixedOptionsInput } from '@reactkit/ui/ui/inputs/Combobox/FixedOptionsInput'
-import { capitalizeFirstLetter } from '@reactkit/ui/shared/utils/capitalizeFirstLetter'
+import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
 import { Button } from '@reactkit/ui/ui/buttons/Button'
 
 interface FormShape {

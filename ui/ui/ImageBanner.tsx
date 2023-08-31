@@ -11,7 +11,7 @@ import { centerContentCSS } from './utils/centerContentCSS'
 import { fullyCoverAbsolutely } from './utils/fullyCoverAbsolutely'
 import { getSameDimensionsCSS } from './utils/getSameDimensionsCSS'
 import { interactiveCSS } from './utils/interactiveCSS'
-import { ComponentWithChildrenProps } from '../shared/props'
+import { ComponentWithChildrenProps } from '../props'
 import { UnstyledButton } from './buttons/UnstyledButton'
 
 interface ImageBannerProps {

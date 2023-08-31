@@ -5,7 +5,7 @@ import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS'
 import { PressTracker } from '@reactkit/ui/ui/PressTracker'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
-import { toPercents } from '@reactkit/ui/shared/utils/toPercents'
+import { toPercents } from '@reactkit/utils/toPercents'
 
 const Container = styled(Panel)`
   ${getSameDimensionsCSS(320)}

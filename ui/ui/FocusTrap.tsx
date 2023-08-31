@@ -1,4 +1,4 @@
-import { ComponentWithChildrenProps } from '../shared/props'
+import { ComponentWithChildrenProps } from '../props'
 
 // TODO: implement this
 // before we were using https://github.com/focus-trap/focus-trap

@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { VStack } from '../Stack'
 import { Text } from '../Text'
-import { ComponentWithChildrenProps } from '../../shared/props'
+import { ComponentWithChildrenProps } from '../../props'
 
 interface Props extends ComponentWithChildrenProps {
   title: ReactNode

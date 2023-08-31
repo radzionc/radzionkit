@@ -1,7 +1,7 @@
 import { ThemeProvider, useTheme } from 'styled-components'
 import { darkTheme } from './darkTheme'
 import { lightTheme } from './lightTheme'
-import { ComponentWithChildrenProps } from '../../shared/props'
+import { ComponentWithChildrenProps } from '../../props'
 
 export const ReversedTheme = ({ children }: ComponentWithChildrenProps) => {
   const theme = useTheme()

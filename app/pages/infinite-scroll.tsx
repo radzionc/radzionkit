@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import { Text } from '@reactkit/ui/ui/Text'
 import { useInfiniteQuery } from 'react-query'
-import { range } from '@reactkit/ui/shared/utils/range'
+import { range } from '@reactkit/utils/array/range'
 import { PaginatedView } from '@reactkit/ui/ui/PaginatedView'
 import { usePaginatedResultItems } from '@reactkit/ui/query/hooks/usePaginatedResultItems'
 import { TableLayout } from '@reactkit/ui/ui/TableLayout'

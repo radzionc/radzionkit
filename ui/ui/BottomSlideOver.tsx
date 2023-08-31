@@ -4,10 +4,7 @@ import { Button } from './buttons/Button'
 import { getColor } from './theme/getters'
 import styled from 'styled-components'
 import { handleWithStopPropagation } from '../shared/events'
-import {
-  ComponentWithChildrenProps,
-  ClosableComponentProps,
-} from '../shared/props'
+import { ComponentWithChildrenProps, ClosableComponentProps } from '../props'
 import { BodyPortal } from './BodyPortal'
 import { ScreenCover } from './ScreenCover'
 import { VStack, HStack } from './Stack'

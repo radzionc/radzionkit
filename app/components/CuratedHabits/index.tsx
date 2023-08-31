@@ -1,6 +1,6 @@
-import { capitalizeFirstLetter } from '@reactkit/ui/shared/utils/capitalizeFirstLetter'
-import { getTreeNode, getTreeValues } from '@reactkit/ui/shared/utils/tree'
-import { withoutDuplicates } from '@reactkit/ui/shared/utils/withoutDuplicates'
+import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
+import { getTreeNode, getTreeValues } from '@reactkit/utils/tree'
+import { withoutDuplicates } from '@reactkit/utils/array/withoutDuplicates'
 import { HStack, VStack } from '@reactkit/ui/ui/Stack'
 import { TreeFilter } from '@reactkit/ui/ui/tree/TreeFilter'
 import { useState, useMemo } from 'react'
@@ -27,7 +27,6 @@ const FilterWrapper = styled.div`
   top: 0;
 `
 
-// turn into tree helper
 const getCategoriesColors = (
   { value, children }: HabitTreeNode,
   parentColor?: number,
@@ -51,10 +50,10 @@ const defaultColor = 3
 export const CuratedHabits = () => {
   const [path, setPath] = useState<number[]>([])
 
-  const node = getTreeNode(habitTree, path)
-
-  const nodes = useMemo(() => getTreeValues(habitTree), [])
+  const values = useMemo(() => getTreeValues(habitTree), [])
   const categoryColorRecord = useMemo(() => getCategoriesColors(habitTree), [])
+
+  const node = getTreeNode(habitTree, path)
 
   const habits = withoutDuplicates(
     getTreeValues(node).flatMap((value) => value.habits || []),
@@ -65,7 +64,7 @@ export const CuratedHabits = () => {
     }))
     .map((habit) => ({
       ...habit,
-      tags: nodes
+      tags: values
         .filter((value) => value.habits?.includes(habit.id))
         .map((value) => ({
           name: value.id,

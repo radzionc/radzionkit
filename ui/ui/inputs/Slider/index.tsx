@@ -1,5 +1,4 @@
 import styled, { useTheme } from 'styled-components'
-import { toPercents } from '../../../shared/utils/toPercents'
 import { PressTracker } from '../../PressTracker'
 import { defaultTransition } from '../../animations/transitions'
 import { HSLA } from '../../colors/HSLA'
@@ -11,6 +10,7 @@ import {
   InvisibleHTMLSliderProps,
   InvisibleHTMLSlider,
 } from './InvisibleHtmlSlider'
+import { toPercents } from '@reactkit/utils/toPercents'
 
 type SliderSize = 'm' | 'l'
 

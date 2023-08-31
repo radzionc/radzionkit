@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { defaultTransitionCSS } from './animations/transitions'
 import { getCSSUnit } from './utils/getCSSUnit'
 import { getColor } from './theme/getters'
-import { ComponentWithChildrenProps } from '../shared/props'
+import { ComponentWithChildrenProps } from '../props'
 import { UnstyledButton } from './buttons/UnstyledButton'
 
 const Highlight = styled.div`

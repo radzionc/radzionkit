@@ -1,4 +1,4 @@
-import { ComponentWithChildrenProps } from '@reactkit/ui/shared/props'
+import { ComponentWithChildrenProps } from '@reactkit/ui/props'
 import { useEffect } from 'react'
 import {
   PersistentStorageKey,

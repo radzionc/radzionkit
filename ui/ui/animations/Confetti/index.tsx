@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components'
 
 import { Confetto } from './Confetto'
 import { Point } from '../../../entities/Point'
-import { randomInRange } from '../../../shared/utils/randomInRange'
+import { randomInRange } from '@reactkit/utils/randomInRange'
 
 interface ConfettiProps extends Point {
   count?: number

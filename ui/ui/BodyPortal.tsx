@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useBody } from './hooks/useBody'
-import { ComponentWithChildrenProps } from '../shared/props'
+import { ComponentWithChildrenProps } from '../props'
 
 export function BodyPortal({ children }: ComponentWithChildrenProps) {
   const body = useBody()

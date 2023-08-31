@@ -1,4 +1,4 @@
-import { ComponentWithChildrenProps } from '@reactkit/ui/shared/props'
+import { ComponentWithChildrenProps } from '@reactkit/ui/props'
 import { PrefferedThemeProvider } from '@reactkit/ui/ui/theme/PrefferedThemeProvider'
 import { ThemePreference } from '@reactkit/ui/ui/theme/ThemePreference'
 import {

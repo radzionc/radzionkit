@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { VStack } from '../Stack'
 import { Text } from '../Text'
 import { getColor } from '../theme/getters'
-import { range } from '../../shared/utils/range'
+import { range } from '@reactkit/utils/array/range'
 
 interface Props {
   start: number

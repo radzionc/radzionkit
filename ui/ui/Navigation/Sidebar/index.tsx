@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ComponentWithChildrenProps } from '../../../shared/props'
+import { ComponentWithChildrenProps } from '../../../props'
 import { VStack } from '../../Stack'
 
 const Container = styled.div`

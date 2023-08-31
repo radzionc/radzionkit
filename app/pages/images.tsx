@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
-import { range } from '@reactkit/ui/shared/utils/range'
+import { range } from '@reactkit/utils/array/range'
 import { VStack } from '@reactkit/ui/ui/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 import { IntersectionAware } from '@reactkit/ui/ui/IntersectionAware'

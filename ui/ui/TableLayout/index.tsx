@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react'
 import styled from 'styled-components'
-import { ComponentWithChildrenProps } from '../../shared/props'
+import { ComponentWithChildrenProps } from '../../props'
 import { Line } from '../Line'
 import { Text } from '../Text'
 

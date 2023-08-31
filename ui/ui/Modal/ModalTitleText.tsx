@@ -1,4 +1,4 @@
-import { ComponentWithChildrenProps } from '../../shared/props'
+import { ComponentWithChildrenProps } from '../../props'
 import { Text } from '../Text'
 
 export const ModalTitleText = ({ children }: ComponentWithChildrenProps) => (

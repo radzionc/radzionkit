@@ -1,7 +1,6 @@
 import { ReactNode, createContext, useState } from 'react'
-import { ComponentWithChildrenProps } from '../../shared/props'
-
-import { createContextHook } from './createContextHook'
+import { ComponentWithChildrenProps } from '../props'
+import { createContextHook } from '../state/createContextHook'
 
 export function getViewSetup<T extends string | number | symbol>(
   defaultView: T,

@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { getViewSetup } from '@reactkit/ui/shared/utils/getViewSetup'
+import { getViewSetup } from '@reactkit/ui/view/getViewSetup'
 import styled from 'styled-components'
 import { ViewSelector } from '@reactkit/ui/ui/inputs/Select/ViewSelector'
 import { VStack } from '@reactkit/ui/ui/Stack'

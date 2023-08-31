@@ -6,7 +6,7 @@ import { ChecklistItem } from '@reactkit/ui/ui/checklist/ChecklistItem'
 import { Opener } from '@reactkit/ui/ui/Opener'
 import { AddChecklistItemPrompt } from '@reactkit/ui/ui/checklist/AddChecklistItemPrompt'
 import { ChecklistItemForm } from '@reactkit/ui/ui/checklist/ChecklistItemForm'
-import { updateAtIndex } from '@reactkit/ui/shared/utils/updateAtIndex'
+import { updateAtIndex } from '@reactkit/utils/array/updateAtIndex'
 
 interface Task {
   name: string

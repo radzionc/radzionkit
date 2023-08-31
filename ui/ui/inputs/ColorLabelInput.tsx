@@ -11,9 +11,9 @@ import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
 import { ExpandableInputOpener } from './ExpandableInputOpener'
 import { ShySection } from '../ShySection'
 import { labelColorsCount } from '../colors/generateLabelColorGetter'
-import { InputProps, StyledComponentWithColorProps } from '../../shared/props'
-import { range } from '../../shared/utils/range'
-import { splitBy } from '../../shared/utils/splitBy'
+import { InputProps, StyledComponentWithColorProps } from '../../props'
+import { range } from '@reactkit/utils/array/range'
+import { splitBy } from '@reactkit/utils/array/splitBy'
 
 interface ColorLabelInputProps extends InputProps<number> {
   usedValues?: Set<number>

@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
 import { TabNavigation } from '@reactkit/ui/ui/TabNavigation'
-import { capitalizeFirstLetter } from '@reactkit/ui/shared/utils/capitalizeFirstLetter'
+import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
 import { VStack } from '@reactkit/ui/ui/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 

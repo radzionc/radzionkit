@@ -5,7 +5,7 @@ import { InputWrapperProps, InputWrapperWithErrorMessage } from './InputWrapper'
 import { Spinner } from '../Spinner'
 import { commonInputCSS } from './commonInputCSS'
 import { VStack } from '../Stack'
-import { ComponentWithClassNameProps } from '../../shared/props'
+import { ComponentWithClassNameProps } from '../../props'
 
 export type SharedTextInputProps = Pick<
   InputWrapperProps,

@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { ExpandableInputOpener } from '../../../ui/ui/inputs/ExpandableInputOpener'
 import { Menu } from '@reactkit/ui/ui/Menu'
 import { Text } from '@reactkit/ui/ui/Text'
-import { InputProps } from '@reactkit/ui/shared/props'
+import { InputProps } from '@reactkit/ui/props'
 
 const EmojiPicker = dynamic(() => import('./EmojiPicker'), {
   loading: () => (

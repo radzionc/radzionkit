@@ -4,9 +4,9 @@ import { DefaultTheme, ThemeProvider } from 'styled-components'
 
 import { lightTheme } from './lightTheme'
 import { ThemePreference } from './ThemePreference'
-import { ComponentWithChildrenProps } from '../../shared/props'
-import { createContextHook } from '../../shared/utils/createContextHook'
+import { ComponentWithChildrenProps } from '../../props'
 import { darkTheme } from './darkTheme'
+import { createContextHook } from '../../state/createContextHook'
 
 interface PrefferedThemeState {
   prefferedTheme: ThemePreference

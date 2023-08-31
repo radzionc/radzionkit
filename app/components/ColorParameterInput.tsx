@@ -1,5 +1,5 @@
-import { range } from '@reactkit/ui/shared/utils/range'
-import { toPercents } from '@reactkit/ui/shared/utils/toPercents'
+import { range } from '@reactkit/utils/array/range'
+import { toPercents } from '@reactkit/utils/toPercents'
 import { PressTracker } from '@reactkit/ui/ui/PressTracker'
 import { defaultTransition } from '@reactkit/ui/ui/animations/transitions'
 import {

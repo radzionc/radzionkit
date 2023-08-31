@@ -1,4 +1,4 @@
-import { ComponentWithChildrenProps } from '@reactkit/ui/shared/props'
+import { ComponentWithChildrenProps } from '@reactkit/ui/props'
 import { SidebarNavigation } from '@reactkit/ui/ui/Navigation/SidebarNavigation'
 import { Logo } from './Logo'
 import { NavigationItems } from './NavigationItems'

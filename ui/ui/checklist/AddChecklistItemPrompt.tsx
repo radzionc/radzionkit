@@ -5,7 +5,7 @@ import { PlusIcon } from '../icons/PlusIcon'
 import {
   ClickableComponentProps,
   ComponentWithChildrenProps,
-} from '../../shared/props'
+} from '../../props'
 
 type AddChecklistItemPromptProps = ClickableComponentProps &
   ComponentWithChildrenProps

@@ -12,9 +12,9 @@ import { getVerticalMarginCSS } from '../utils/getVerticalMarginCSS'
 import { HourSpace } from './HourSpace'
 import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
 import { MaxIntervalEndBoundary } from './MaxIntervalEndBoundary'
-import { enforceRange } from '../../shared/utils/enforceRange'
-import { MS_IN_HOUR, MS_IN_MIN } from '../../shared/utils/time'
-import { formatDuration } from '../../shared/utils/formatDuration'
+import { formatDuration } from '@reactkit/utils/time/formatDuration'
+import { enforceRange } from '@reactkit/utils/enforceRange'
+import { MS_IN_HOUR, MS_IN_MIN } from '@reactkit/utils/time'
 
 export interface TimeInputProps {
   color: HSLA

@@ -9,7 +9,7 @@ import { centerContentCSS } from '../utils/centerContentCSS'
 import { getCSSUnit } from '../utils/getCSSUnit'
 import { Text } from '../Text'
 import { getColor } from '../theme/getters'
-import { toPercents } from '../../shared/utils/toPercents'
+import { toPercents } from '@reactkit/utils/toPercents'
 
 export interface BarChartItem {
   label?: ReactNode

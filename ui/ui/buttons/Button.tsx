@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 import { getColor } from '../theme/getters'
 import { CenterAbsolutely } from '../CenterAbsolutely'
 import { getHoverVariant } from '../colors/getHoverVariant'
-import { match } from '../../shared/utils/match'
 import { Spinner } from '../Spinner'
 import { Tooltip } from '../Tooltip'
 import { defaultTransitionCSS } from '../animations/transitions'
@@ -11,6 +10,7 @@ import { centerContentCSS } from '../utils/centerContentCSS'
 import { getCSSUnit } from '../utils/getCSSUnit'
 import { getHorizontalPaddingCSS } from '../utils/getHorizontalPaddingCSS'
 import { UnstyledButton } from './UnstyledButton'
+import { match } from '@reactkit/utils/match'
 
 export const buttonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 

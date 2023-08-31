@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { defaultBorderRadiusCSS } from '../borderRadius'
 import { getCSSUnit } from '../utils/getCSSUnit'
 import { getColor } from '../theme/getters'
-import { match } from '../../shared/utils/match'
+import { match } from '@reactkit/utils/match'
 
 type PanelKind = 'regular' | 'secondary'
 

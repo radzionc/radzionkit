@@ -1,4 +1,4 @@
-import { ComponentWithChildrenProps } from '../../shared/props'
+import { ComponentWithChildrenProps } from '../../props'
 import { Line } from '../Line'
 import { VStack } from '../Stack'
 import { Text } from '../Text'

@@ -7,9 +7,9 @@ import { ElementSizeAware } from './ElementSizeAware'
 import { Panel } from './Panel/Panel'
 import { VStack } from './Stack'
 import { Text } from './Text'
-import { sum } from '../shared/utils/sum'
-import { toPercents } from '../shared/utils/toPercents'
 import { getColor } from './theme/getters'
+import { sum } from '@reactkit/utils/array/sum'
+import { toPercents } from '@reactkit/utils/toPercents'
 
 export interface DistributionBarItem {
   value: number

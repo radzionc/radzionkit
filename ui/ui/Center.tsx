@@ -1,7 +1,7 @@
 import {
   ComponentWithChildrenProps,
   ComponentWithClassNameProps,
-} from '../shared/props'
+} from '../props'
 import { VStack } from './Stack'
 
 export const Center = ({
