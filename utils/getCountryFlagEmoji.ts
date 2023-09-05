@@ -1,4 +1,6 @@
-export const getCountryFlagEmoji = (countryCode: string) => {
+import { CountryCode } from './countryNameRecord'
+
+export const getCountryFlagEmoji = (countryCode: CountryCode) => {
   const codePoints = countryCode
     .toUpperCase()
     .split('')

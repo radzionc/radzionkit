@@ -48,4 +48,5 @@ export enum Path {
   IconButton = '/icon-button',
   ImageBanner = '/image-banner',
   NestedFilter = '/nested-filter',
+  CountryFlag = '/flag',
 }

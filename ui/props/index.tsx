@@ -45,3 +45,8 @@ export interface StyledComponentWithColorProps {
 export interface SelectableComponentProps<T> {
   onSelect: (value: T) => void
 }
+
+export interface UIComponentProps {
+  style?: React.CSSProperties
+  className?: string
+}
