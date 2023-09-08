@@ -24,7 +24,7 @@ interface Props extends ComponentProps<typeof Container> {
 const Underline = styled.span`
   position: absolute;
   left: 1px;
-  bottom: 1px;
+  bottom: -1px;
   width: calc(100% - 1px);
   border-bottom: 1px dashed;
 `
@@ -33,10 +33,9 @@ export const ShyTextButton = ({ onClick, text, as }: Props) => {
   return (
     <Container as={as} onClick={onClick}>
       <Text
-        size={14}
         nowrap
         style={{ transition: 'none', position: 'relative' }}
-        weight="bold"
+        weight="semibold"
       >
         {text}
         <Underline />

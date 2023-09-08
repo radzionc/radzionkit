@@ -6,6 +6,7 @@ import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS
 import { PressTracker } from '@reactkit/ui/ui/PressTracker'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
 import { toPercents } from '@reactkit/utils/toPercents'
+import { Navigation } from 'navigation'
 
 const Container = styled(Panel)`
   ${getSameDimensionsCSS(320)}
@@ -18,22 +19,24 @@ const Highlight = styled.div`
 
 const PressTrackerPage: NextPage = () => {
   return (
-    <DemoPage title="Press Tracker" youtubeVideoId="Gj4Szl5pYFM">
-      <PressTracker
-        render={({ props, position }) => (
-          <Container {...props}>
-            {position && (
-              <Highlight
-                style={{
-                  width: toPercents(position.x),
-                  height: toPercents(position.y),
-                }}
-              />
-            )}
-          </Container>
-        )}
-      />
-    </DemoPage>
+    <Navigation>
+      <DemoPage title="Press Tracker" youtubeVideoId="Gj4Szl5pYFM">
+        <PressTracker
+          render={({ props, position }) => (
+            <Container {...props}>
+              {position && (
+                <Highlight
+                  style={{
+                    width: toPercents(position.x),
+                    height: toPercents(position.y),
+                  }}
+                />
+              )}
+            </Container>
+          )}
+        />
+      </DemoPage>
+    </Navigation>
   )
 }
 

@@ -7,6 +7,7 @@ import {
   usePersistentStorageValue,
 } from 'state/persistentStorage'
 import { ShowAfterDelay } from '@reactkit/ui/ui/ShowAfterDelay'
+import { Navigation } from 'navigation'
 
 const Image = styled.img`
   width: 100%;
@@ -20,23 +21,25 @@ const PromotionPage: NextPage = () => {
     false,
   )
   return (
-    <DemoPage youtubeVideoId="Cnv0K3izNUk" title="Interactive Promotion">
-      {!wasShown && (
-        <ShowAfterDelay ms={3000}>
-          <InteractivePromotion
-            onDismiss={() => setWasShown(true)}
-            onAccept={() => setWasShown(true)}
-            url="https://increaser.org"
-            text="Hi there! Can I share a tool for deep work with you?"
-            character={<Image src="/images/hello.png" alt="hello" />}
-            speechPlacement={{
-              left: 280,
-              bottom: 28,
-            }}
-          />
-        </ShowAfterDelay>
-      )}
-    </DemoPage>
+    <Navigation>
+      <DemoPage youtubeVideoId="Cnv0K3izNUk" title="Interactive Promotion">
+        {!wasShown && (
+          <ShowAfterDelay ms={3000}>
+            <InteractivePromotion
+              onDismiss={() => setWasShown(true)}
+              onAccept={() => setWasShown(true)}
+              url="https://increaser.org"
+              text="Hi there! Can I share a tool for deep work with you?"
+              character={<Image src="/images/hello.png" alt="hello" />}
+              speechPlacement={{
+                left: 280,
+                bottom: 28,
+              }}
+            />
+          </ShowAfterDelay>
+        )}
+      </DemoPage>
+    </Navigation>
   )
 }
 

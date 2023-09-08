@@ -5,6 +5,7 @@ import { TabNavigation } from '@reactkit/ui/ui/TabNavigation'
 import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
 import { VStack } from '@reactkit/ui/ui/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
+import { Navigation } from 'navigation'
 
 const views = [
   'Overview',
@@ -22,21 +23,23 @@ const TabNavigationPage: NextPage = () => {
   const [activeView, setActiveView] = useState<View>('Overview')
 
   return (
-    <DemoPage youtubeVideoId="dDuWfi_Hvis" title="Tab Navigation">
-      <VStack fullWidth gap={40}>
-        <TabNavigation
-          views={views}
-          getViewName={capitalizeFirstLetter}
-          activeView={activeView}
-          onSelect={setActiveView}
-          groupName="tab-navigation"
-        />
+    <Navigation>
+      <DemoPage youtubeVideoId="dDuWfi_Hvis" title="Tab Navigation">
+        <VStack fullWidth gap={40}>
+          <TabNavigation
+            views={views}
+            getViewName={capitalizeFirstLetter}
+            activeView={activeView}
+            onSelect={setActiveView}
+            groupName="tab-navigation"
+          />
 
-        <Text size={20} weight="bold">
-          {activeView} view
-        </Text>
-      </VStack>
-    </DemoPage>
+          <Text size={20} weight="bold">
+            {activeView} view
+          </Text>
+        </VStack>
+      </DemoPage>
+    </Navigation>
   )
 }
 

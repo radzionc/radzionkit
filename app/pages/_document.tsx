@@ -38,8 +38,8 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <MetaTags
-            title="ReactKit"
-            description="A React components system for faster development"
+            title="Accelerate React App Development with ReactKit's Components System and Monorepo"
+            description="Discover how ReactKit's Components System and Monorepo can streamline your React app development process. Explore powerful tools and best practices to accelerate your projects."
             url={process.env.NEXT_PUBLIC_BASE_URL}
             twitterId="@radzionc"
           />

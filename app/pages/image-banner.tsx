@@ -15,6 +15,7 @@ import {
 } from 'state/persistentStorage'
 import { Button } from '@reactkit/ui/ui/buttons/Button'
 import { Text } from '@reactkit/ui/ui/Text'
+import { Navigation } from 'navigation'
 
 const titleColor = new HSLA(220, 45, 30)
 
@@ -30,46 +31,48 @@ const ImageBannerPage: NextPage = () => {
   }
 
   return (
-    <DemoPage title="Image Banner" youtubeVideoId="BcQ05BR5Pgw">
-      <VStack fullWidth gap={40}>
-        <ThemeProvider theme={darkTheme}>
-          <ImageBanner
-            onClose={handleInteraction}
-            action={
-              <Button size="xl" kind="reversed" as="div">
-                <HStack alignItems="center" gap={8}>
-                  <YouTubeIcon />
-                  <Text>Watch now</Text>
-                </HStack>
-              </Button>
-            }
-            title={
-              <Text as="span" style={{ color: titleColor.toCssValue() }}>
-                learn to build better habits
-              </Text>
-            }
-            renderInteractiveArea={(props) => (
-              <ExternalLink
-                onClick={handleInteraction}
-                to={HABITS_EDUCATION_URL}
-                {...props}
-              />
-            )}
-            image={
-              <SafeImage
-                src="images/mountains.webp"
-                render={(props) => <CoverImage {...props} />}
-              />
-            }
-          />
-        </ThemeProvider>
+    <Navigation>
+      <DemoPage title="Image Banner" youtubeVideoId="BcQ05BR5Pgw">
+        <VStack fullWidth gap={40}>
+          <ThemeProvider theme={darkTheme}>
+            <ImageBanner
+              onClose={handleInteraction}
+              action={
+                <Button size="xl" kind="reversed" as="div">
+                  <HStack alignItems="center" gap={8}>
+                    <YouTubeIcon />
+                    <Text>Watch now</Text>
+                  </HStack>
+                </Button>
+              }
+              title={
+                <Text as="span" style={{ color: titleColor.toCssValue() }}>
+                  learn to build better habits
+                </Text>
+              }
+              renderInteractiveArea={(props) => (
+                <ExternalLink
+                  onClick={handleInteraction}
+                  to={HABITS_EDUCATION_URL}
+                  {...props}
+                />
+              )}
+              image={
+                <SafeImage
+                  src="images/mountains.webp"
+                  render={(props) => <CoverImage {...props} />}
+                />
+              }
+            />
+          </ThemeProvider>
 
-        <Text>
-          Last interaction:{' '}
-          {interactionDate ? new Date(interactionDate).toUTCString() : '-'}
-        </Text>
-      </VStack>
-    </DemoPage>
+          <Text>
+            Last interaction:{' '}
+            {interactionDate ? new Date(interactionDate).toUTCString() : '-'}
+          </Text>
+        </VStack>
+      </DemoPage>
+    </Navigation>
   )
 }
 

@@ -5,6 +5,7 @@ import { ViewSelector } from '@reactkit/ui/ui/inputs/Select/ViewSelector'
 import { VStack } from '@reactkit/ui/ui/Stack'
 import { DemoPage } from 'components/DemoPage'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
+import { Navigation } from 'navigation'
 
 export const views = ['primary', 'attention'] as const
 export type View = (typeof views)[number]
@@ -43,19 +44,21 @@ const AttentionView = styled(Panel)`
 
 const SelectViewPage: NextPage = () => {
   return (
-    <DemoPage youtubeVideoId="aSiTQifBsAc" title="Select View">
-      <Panel width={320}>
-        <ViewProvider>
-          <VStack fullWidth gap={20}>
-            <Selector />
-            <RenderView
-              attention={() => <AttentionView />}
-              primary={() => <PrimaryView />}
-            />
-          </VStack>
-        </ViewProvider>
-      </Panel>
-    </DemoPage>
+    <Navigation>
+      <DemoPage youtubeVideoId="aSiTQifBsAc" title="Select View">
+        <Panel width={320}>
+          <ViewProvider>
+            <VStack fullWidth gap={20}>
+              <Selector />
+              <RenderView
+                attention={() => <AttentionView />}
+                primary={() => <PrimaryView />}
+              />
+            </VStack>
+          </ViewProvider>
+        </Panel>
+      </DemoPage>
+    </Navigation>
   )
 }
 

@@ -14,6 +14,7 @@ import { SameWidthChildrenRow } from '@reactkit/ui/ui/Layout/SameWidthChildrenRo
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { CopyText } from '@reactkit/ui/ui/CopyText'
 import { SeparatedByLine } from '@reactkit/ui/ui/SeparatedByLine'
+import { Navigation } from 'navigation'
 
 const colorParameterName: Record<HSLAParameter, string> = {
   h: 'Hue',
@@ -58,48 +59,50 @@ const HSLAPage: NextPage = () => {
   const [value, setValue] = useState(colors.primary)
 
   return (
-    <DemoPage title="HSLA" youtubeVideoId="f3_TYR-8Sd8">
-      <SameWidthChildrenRow minChildrenWidth={320} fullWidth gap={40}>
-        <SeparatedByLine gap={40}>
-          <VStack gap={20}>
-            {hslaKeys.map((key) => (
-              <InputContainer key={key}>
-                <Text>{colorParameterName[key]}</Text>
-                <ColorParameterInput
-                  onChange={(parameter) => {
-                    setValue(
-                      value.getVariant({ [key]: () => parameter.toFixed(2) }),
-                    )
-                  }}
-                  value={value[key]}
-                  getColor={(param) =>
-                    value.getVariant({ [key]: () => param }).toCssValue()
-                  }
-                  max={hslaParamMaxValue[key]}
-                  step={colorParameterStep[key]}
-                />
-                <Text weight="bold">
-                  {formatColorParameter[key](value[key])}
-                </Text>
-              </InputContainer>
-            ))}
-          </VStack>
+    <Navigation>
+      <DemoPage title="HSLA" youtubeVideoId="f3_TYR-8Sd8">
+        <SameWidthChildrenRow minChildrenWidth={320} fullWidth gap={40}>
+          <SeparatedByLine gap={40}>
+            <VStack gap={20}>
+              {hslaKeys.map((key) => (
+                <InputContainer key={key}>
+                  <Text>{colorParameterName[key]}</Text>
+                  <ColorParameterInput
+                    onChange={(parameter) => {
+                      setValue(
+                        value.getVariant({ [key]: () => parameter.toFixed(2) }),
+                      )
+                    }}
+                    value={value[key]}
+                    getColor={(param) =>
+                      value.getVariant({ [key]: () => param }).toCssValue()
+                    }
+                    max={hslaParamMaxValue[key]}
+                    step={colorParameterStep[key]}
+                  />
+                  <Text weight="bold">
+                    {formatColorParameter[key](value[key])}
+                  </Text>
+                </InputContainer>
+              ))}
+            </VStack>
 
-          <CopyText
-            style={{ textAlign: 'end' }}
-            weight="bold"
-            content={value.toCssValue()}
-          >
-            {value.toCssValue()}
-          </CopyText>
-        </SeparatedByLine>
-        <Preview
-          style={{
-            background: value.toCssValue(),
-          }}
-        />
-      </SameWidthChildrenRow>
-    </DemoPage>
+            <CopyText
+              style={{ textAlign: 'end' }}
+              weight="bold"
+              content={value.toCssValue()}
+            >
+              {value.toCssValue()}
+            </CopyText>
+          </SeparatedByLine>
+          <Preview
+            style={{
+              background: value.toCssValue(),
+            }}
+          />
+        </SameWidthChildrenRow>
+      </DemoPage>
+    </Navigation>
   )
 }
 

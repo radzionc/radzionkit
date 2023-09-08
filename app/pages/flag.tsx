@@ -12,6 +12,7 @@ import { Match } from '@reactkit/ui/ui/Match'
 import { Text } from '@reactkit/ui/ui/Text'
 import { CountryFlag } from '@reactkit/ui/country/CountryFlag'
 import { CountryFlagEmoji } from '@reactkit/ui/country/CountryFlagEmoji'
+import { Navigation } from 'navigation'
 
 const views = ['svg', 'emoji'] as const
 type View = (typeof views)[number]
@@ -20,33 +21,38 @@ const TabNavigationPage: NextPage = () => {
   const [activeView, setActiveView] = useState<View>('svg')
 
   return (
-    <DemoPage title="Country flag">
-      <VStack fullWidth gap={40}>
-        <TabNavigation
-          views={views}
-          getViewName={capitalizeFirstLetter}
-          activeView={activeView}
-          onSelect={setActiveView}
-          groupName="flags"
-        />
-        <HStack alignItems="center" wrap="wrap" gap={20}>
-          {Object.keys(countryNameRecord).map((code) => (
-            <Match
-              key={code}
-              value={activeView}
-              emoji={() => (
-                <Text size={24} color="contrast">
-                  <CountryFlagEmoji code={code as CountryCode} />
-                </Text>
-              )}
-              svg={() => (
-                <CountryFlag code={code as CountryCode} style={{ width: 24 }} />
-              )}
-            />
-          ))}
-        </HStack>
-      </VStack>
-    </DemoPage>
+    <Navigation>
+      <DemoPage youtubeVideoId="s3ve27fqORk" title="Country flag">
+        <VStack fullWidth gap={40}>
+          <TabNavigation
+            views={views}
+            getViewName={capitalizeFirstLetter}
+            activeView={activeView}
+            onSelect={setActiveView}
+            groupName="flags"
+          />
+          <HStack alignItems="center" wrap="wrap" gap={20}>
+            {Object.keys(countryNameRecord).map((code) => (
+              <Match
+                key={code}
+                value={activeView}
+                emoji={() => (
+                  <Text size={24} color="contrast">
+                    <CountryFlagEmoji code={code as CountryCode} />
+                  </Text>
+                )}
+                svg={() => (
+                  <CountryFlag
+                    code={code as CountryCode}
+                    style={{ width: 24 }}
+                  />
+                )}
+              />
+            ))}
+          </HStack>
+        </VStack>
+      </DemoPage>
+    </Navigation>
   )
 }
 

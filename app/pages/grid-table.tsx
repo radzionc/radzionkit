@@ -6,6 +6,7 @@ import { TableLayout } from '@reactkit/ui/ui/TableLayout'
 import { Text } from '@reactkit/ui/ui/Text'
 import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS'
 import { DemoPage } from 'components/DemoPage'
+import { Navigation } from 'navigation'
 
 interface Token {
   symbolImageUrl: string
@@ -41,23 +42,25 @@ const TokenIcon = styled.img`
 
 const GridTablePage: NextPage = () => {
   return (
-    <DemoPage youtubeVideoId="oVnpdHiI30E" title="CSS Grid Table">
-      <TableLayout
-        gridTemplateColumns="minmax(auto, 120px) auto 1fr"
-        columnNames={['Token name', 'Symbol', 'Price']}
-      >
-        {tokens.map(({ symbolImageUrl, symbol, name, price }) => (
-          <Fragment key={symbol}>
-            <HStack alignItems="center" gap={8}>
-              <TokenIcon src={symbolImageUrl} />
-              <Text cropped>{name}</Text>
-            </HStack>
-            <Text color="supporting">{symbol}</Text>
-            <Text color="supporting">${price}</Text>
-          </Fragment>
-        ))}
-      </TableLayout>
-    </DemoPage>
+    <Navigation>
+      <DemoPage youtubeVideoId="oVnpdHiI30E" title="CSS Grid Table">
+        <TableLayout
+          gridTemplateColumns="minmax(auto, 120px) auto 1fr"
+          columnNames={['Token name', 'Symbol', 'Price']}
+        >
+          {tokens.map(({ symbolImageUrl, symbol, name, price }) => (
+            <Fragment key={symbol}>
+              <HStack alignItems="center" gap={8}>
+                <TokenIcon src={symbolImageUrl} />
+                <Text cropped>{name}</Text>
+              </HStack>
+              <Text color="supporting">{symbol}</Text>
+              <Text color="supporting">${price}</Text>
+            </Fragment>
+          ))}
+        </TableLayout>
+      </DemoPage>
+    </Navigation>
   )
 }
 

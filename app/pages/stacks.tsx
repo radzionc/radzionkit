@@ -6,6 +6,7 @@ import { HStack, VStack } from '@reactkit/ui/ui/Stack'
 import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS'
 import { DemoPage } from 'components/DemoPage'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
+import { Navigation } from 'navigation'
 
 const Conent = styled(Panel)<{ $color: HSLA }>`
   ${getSameDimensionsCSS(80)};
@@ -15,26 +16,28 @@ const Conent = styled(Panel)<{ $color: HSLA }>`
 const StacksPage: NextPage = () => {
   const { colors } = useTheme()
   return (
-    <DemoPage youtubeVideoId="iVYo-gqyi90" title="Stacks">
-      <VStack alignItems="start" gap={40}>
-        <Panel>
-          <HStack gap={20}>
-            <Conent $color={colors.primary} />
-            <Conent $color={colors.primary} />
-            <Conent $color={colors.primary} />
-            <Conent $color={colors.primary} />
-          </HStack>
-        </Panel>
-        <Panel>
-          <VStack gap={20}>
-            <Conent $color={colors.alert} />
-            <Conent $color={colors.alert} />
-            <Conent $color={colors.alert} />
-            <Conent $color={colors.alert} />
-          </VStack>
-        </Panel>
-      </VStack>
-    </DemoPage>
+    <Navigation>
+      <DemoPage youtubeVideoId="iVYo-gqyi90" title="Stacks">
+        <VStack alignItems="start" gap={40}>
+          <Panel>
+            <HStack gap={20}>
+              <Conent $color={colors.primary} />
+              <Conent $color={colors.primary} />
+              <Conent $color={colors.primary} />
+              <Conent $color={colors.primary} />
+            </HStack>
+          </Panel>
+          <Panel>
+            <VStack gap={20}>
+              <Conent $color={colors.alert} />
+              <Conent $color={colors.alert} />
+              <Conent $color={colors.alert} />
+              <Conent $color={colors.alert} />
+            </VStack>
+          </Panel>
+        </VStack>
+      </DemoPage>
+    </Navigation>
   )
 }
 

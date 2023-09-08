@@ -7,6 +7,7 @@ import { usePaginatedResultItems } from '@reactkit/ui/query/hooks/usePaginatedRe
 import { TableLayout } from '@reactkit/ui/ui/TableLayout'
 import { Fragment } from 'react'
 import { DemoPage } from 'components/DemoPage'
+import { Navigation } from 'navigation'
 
 interface QueryItemsParams {
   startAt: number
@@ -61,28 +62,30 @@ const InfiniteScrollPage: NextPage = () => {
   const noItems = isFetched && items.length < 1
 
   return (
-    <DemoPage title="Infinite Scroll" youtubeVideoId="mZfDvfs2GtI">
-      <TableLayout
-        gridTemplateColumns="120px 80px"
-        columnNames={['Name', 'Price']}
-      >
-        <PaginatedView
-          onRequestToLoadMore={fetchNextPage}
-          isLoading={isLoading || isFetchingNextPage}
+    <Navigation>
+      <DemoPage title="Infinite Scroll" youtubeVideoId="mZfDvfs2GtI">
+        <TableLayout
+          gridTemplateColumns="120px 80px"
+          columnNames={['Name', 'Price']}
         >
-          {noItems && isIdle ? (
-            <Text>No items 😴</Text>
-          ) : (
-            items.map(({ name, price }) => (
-              <Fragment key={name}>
-                <Text>{name}</Text>
-                <Text color="supporting">${price}</Text>
-              </Fragment>
-            ))
-          )}
-        </PaginatedView>
-      </TableLayout>
-    </DemoPage>
+          <PaginatedView
+            onRequestToLoadMore={fetchNextPage}
+            isLoading={isLoading || isFetchingNextPage}
+          >
+            {noItems && isIdle ? (
+              <Text>No items 😴</Text>
+            ) : (
+              items.map(({ name, price }) => (
+                <Fragment key={name}>
+                  <Text>{name}</Text>
+                  <Text color="supporting">${price}</Text>
+                </Fragment>
+              ))
+            )}
+          </PaginatedView>
+        </TableLayout>
+      </DemoPage>
+    </Navigation>
   )
 }
 
