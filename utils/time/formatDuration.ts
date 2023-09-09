@@ -1,5 +1,5 @@
 import { padWithZero } from '../padWithZero'
-import { MIN_IN_HOUR, MS_IN_MIN, S_IN_HOUR, S_IN_MIN } from '.'
+import { H_IN_DAY, MIN_IN_HOUR, MS_IN_MIN, S_IN_HOUR, S_IN_MIN } from '.'
 
 type DurationUnit = 'ms' | 'min' | 's' | 'h'
 
@@ -13,14 +13,25 @@ const unitsInMinute: Record<DurationUnit, number> = {
 export const formatDuration = (duration: number, unit: DurationUnit) => {
   const minutes = Math.round(duration / unitsInMinute[unit])
 
-  if (minutes < S_IN_MIN) return `${minutes}m`
+  if (minutes < MIN_IN_HOUR) return `${minutes}m`
 
   const hours = Math.floor(minutes / S_IN_MIN)
-  const minutesPart = Math.round(minutes % S_IN_MIN)
-  if (!minutesPart) {
-    return `${hours}h`
+
+  if (hours < H_IN_DAY) {
+    const minutesPart = Math.round(minutes % S_IN_MIN)
+    if (!minutesPart) {
+      return `${hours}h`
+    }
+    return `${hours}h ${minutesPart}m`
   }
-  return `${hours}h ${minutesPart}m`
+
+  const days = Math.floor(hours / H_IN_DAY)
+  const hoursPart = Math.round(hours % H_IN_DAY)
+  if (!hoursPart) {
+    return `${days}d`
+  }
+
+  return `${days}d ${hoursPart}h`
 }
 
 export const formatDurationAsADigitalClock = (totalSeconds: number) => {
