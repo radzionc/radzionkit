@@ -2,12 +2,12 @@ import styled from 'styled-components'
 import { SafeImage } from '../ui/SafeImage'
 import { CoverImage } from '../ui/images/CoverImage'
 import { getColor } from '../ui/theme/getters'
-import { centerContentCSS } from '../ui/utils/centerContentCSS'
 import { UIComponentProps } from '../props'
 import {
   CountryCode,
   countryNameRecord,
 } from '@reactkit/utils/countryNameRecord'
+import { centerContent } from '../css/centerContent'
 
 interface CountryFlagProps extends UIComponentProps {
   code?: CountryCode
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   aspect-ratio: 4 / 3;
   background: ${getColor('mist')};
   overflow: hidden;
-  ${centerContentCSS};
+  ${centerContent};
 `
 
 export const CountryFlag = ({

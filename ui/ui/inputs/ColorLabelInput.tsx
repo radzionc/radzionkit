@@ -5,7 +5,6 @@ import { defaultTransitionCSS } from '../animations/transitions'
 import { defaultBorderRadiusCSS } from '../borderRadius'
 import { CheckIcon } from '../icons/CheckIcon'
 import { getColor } from '../theme/getters'
-import { centerContentCSS } from '../utils/centerContentCSS'
 import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
 import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
 import { ExpandableInputOpener } from './ExpandableInputOpener'
@@ -14,6 +13,7 @@ import { labelColorsCount } from '../colors/generateLabelColorGetter'
 import { InputProps, StyledComponentWithColorProps } from '../../props'
 import { range } from '@reactkit/utils/array/range'
 import { splitBy } from '@reactkit/utils/array/splitBy'
+import { centerContent } from '../../css/centerContent'
 
 interface ColorLabelInputProps extends InputProps<number> {
   usedValues?: Set<number>
@@ -28,7 +28,7 @@ const CurrentColor = styled.div<StyledComponentWithColorProps>`
 const ColorOption = styled.label<StyledComponentWithColorProps>`
   position: relative;
   cursor: pointer;
-  ${centerContentCSS};
+  ${centerContent};
   background: ${({ $color }) => $color.toCssValue()};
 
   aspect-ratio: 1/1;

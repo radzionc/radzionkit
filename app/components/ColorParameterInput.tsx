@@ -7,7 +7,7 @@ import {
   InvisibleHTMLSliderProps,
 } from '@reactkit/ui/ui/inputs/Slider/InvisibleHtmlSlider'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
-import { centerContentCSS } from '@reactkit/ui/ui/utils/centerContentCSS'
+import { centerContent } from '@reactkit/ui/css/centerContent'
 import { getCSSUnit } from '@reactkit/ui/ui/utils/getCSSUnit'
 import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS'
 import { interactiveCSS } from '@reactkit/ui/ui/utils/interactiveCSS'
@@ -37,7 +37,7 @@ const Container = styled.label`
   width: 100%;
   height: 40px;
   ${interactiveCSS};
-  ${centerContentCSS};
+  ${centerContent};
   position: relative;
 
   :focus-within ${Control} {

@@ -6,15 +6,15 @@ import {
 } from '../inputs/InvisibleHTMLRadio'
 import { defaultTransitionCSS } from '../animations/transitions'
 import { getColor } from '../theme/getters'
-import { centerContentCSS } from '../utils/centerContentCSS'
 import { roundedCSS } from '../utils/roundedCSS'
+import { centerContent } from '../../css/centerContent'
 
 const Container = styled.label<{ isSelected: boolean }>`
   cursor: pointer;
   ${roundedCSS}
   padding: 0 16px;
   text-decoration: none;
-  ${centerContentCSS};
+  ${centerContent};
   font-weight: 500;
   height: 48px;
 

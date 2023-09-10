@@ -5,11 +5,11 @@ import { Spacer } from '../Spacer'
 import { VStack } from '../Stack'
 import { defaultTransitionCSS } from '../animations/transitions'
 import { HSLA } from '../colors/HSLA'
-import { centerContentCSS } from '../utils/centerContentCSS'
 import { getCSSUnit } from '../utils/getCSSUnit'
 import { Text } from '../Text'
 import { getColor } from '../theme/getters'
 import { toPercents } from '@reactkit/utils/toPercents'
+import { centerContent } from '../../css/centerContent'
 
 export interface BarChartItem {
   label?: ReactNode
@@ -37,7 +37,7 @@ const Bar = styled.div`
 
 const RelativeWrapper = styled.div`
   position: relative;
-  ${centerContentCSS};
+  ${centerContent};
 `
 
 export const BarPlaceholder = styled(Bar)`

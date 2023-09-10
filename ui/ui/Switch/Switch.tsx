@@ -4,11 +4,11 @@ import { CheckIcon } from '../icons/CheckIcon'
 import { CloseIcon } from '../icons/CloseIcon'
 import { HStack } from '../Stack'
 import { Text } from '../Text'
-import { centerContentCSS } from '../utils/centerContentCSS'
 import { getCSSUnit } from '../utils/getCSSUnit'
 import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
 import { roundedCSS } from '../utils/roundedCSS'
 import { getColor } from '../theme/getters'
+import { centerContent } from '../../css/centerContent'
 
 interface SwitchProps {
   value: boolean
@@ -27,7 +27,7 @@ const Control = styled.div`
   ${roundedCSS};
   ${defaultTransitionCSS};
 
-  ${centerContentCSS};
+  ${centerContent};
   color: ${getColor('background')};
   background: ${getColor('text')};
   font-size: 14px;

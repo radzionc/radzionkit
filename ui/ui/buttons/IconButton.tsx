@@ -1,12 +1,12 @@
 import { ComponentProps, Ref, forwardRef } from 'react'
 import styled from 'styled-components'
 import { defaultTransitionCSS } from '../animations/transitions'
-import { centerContentCSS } from '../utils/centerContentCSS'
 import { getCSSUnit } from '../utils/getCSSUnit'
 import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
 import { matchColor } from '../theme/getters'
 import { UnstyledButton } from './UnstyledButton'
 import { match } from '@reactkit/utils/match'
+import { centerContent } from '../../css/centerContent'
 
 export const iconButtonSizes = ['s', 'm', 'l'] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]
@@ -27,7 +27,7 @@ interface ContainerProps {
 
 const Container = styled(UnstyledButton)<ContainerProps>`
   position: relative;
-  ${centerContentCSS};
+  ${centerContent};
   ${({ size }) => getSameDimensionsCSS(sizeRecord[size])};
 
   color: ${matchColor('kind', {

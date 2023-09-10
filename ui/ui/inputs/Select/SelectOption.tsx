@@ -8,13 +8,13 @@ import {
 } from '../InvisibleHTMLRadio'
 import { defaultTransitionCSS } from '../../animations/transitions'
 import { getColor } from '../../theme/getters'
-import { centerContentCSS } from '../../utils/centerContentCSS'
+import { centerContent } from '../../../css/centerContent'
 
 const Container = styled.label<{ isSelected: boolean }>`
   position: relative;
   cursor: pointer;
 
-  ${centerContentCSS}
+  ${centerContent}
   background: ${getColor('mist')};
 
   ${defaultInputShapeCSS};

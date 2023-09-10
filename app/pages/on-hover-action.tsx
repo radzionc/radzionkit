@@ -10,7 +10,7 @@ import { StarIcon } from '@reactkit/ui/ui/icons/StarIcon'
 import { OnHoverAction } from '@reactkit/ui/ui/OnHoverAction'
 import { IconButton } from '@reactkit/ui/ui/buttons/IconButton'
 import { Text } from '@reactkit/ui/ui/Text'
-import { centerContentCSS } from '@reactkit/ui/ui/utils/centerContentCSS'
+import { centerContent } from '@reactkit/ui/css/centerContent'
 import { PauseIcon } from '@reactkit/ui/ui/icons/PauseIcon'
 import { PlayIcon } from '@reactkit/ui/ui/icons/PlayIcon'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
@@ -55,7 +55,7 @@ const SoundNumber = styled(Text)`
 const Identifier = styled.div`
   width: 100%;
   height: 100%;
-  ${centerContentCSS};
+  ${centerContent};
   position: relative;
 `
 

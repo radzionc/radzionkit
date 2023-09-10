@@ -7,12 +7,12 @@ import { CloseIcon } from './icons/CloseIcon'
 import { Panel } from './Panel/Panel'
 import { Text } from './Text'
 import { getColor } from './theme/getters'
-import { centerContentCSS } from './utils/centerContentCSS'
 import { fullyCoverAbsolutely } from './utils/fullyCoverAbsolutely'
 import { getSameDimensionsCSS } from './utils/getSameDimensionsCSS'
 import { interactiveCSS } from './utils/interactiveCSS'
 import { ComponentWithChildrenProps } from '../props'
 import { UnstyledButton } from './buttons/UnstyledButton'
+import { centerContent } from '../css/centerContent'
 
 interface ImageBannerProps {
   onClose: () => void
@@ -82,7 +82,7 @@ const Close = styled(UnstyledButton)`
   color: ${getColor('background')};
 
   border-radius: 8px;
-  ${centerContentCSS};
+  ${centerContent};
   ${getSameDimensionsCSS(40)};
   font-size: 20px;
 

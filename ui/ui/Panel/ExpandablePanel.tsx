@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import { defaultTransitionCSS } from '../animations/transitions'
 import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 import { HStack } from '../Stack'
-import { centerContentCSS } from '../utils/centerContentCSS'
 import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
 import { roundedCSS } from '../utils/roundedCSS'
 import { Panel, PanelProps } from './Panel'
 import { getColor } from '../theme/getters'
 import { interactiveCSS } from '../utils/interactiveCSS'
 import { useBoolean } from '../../hooks/useBoolean'
+import { centerContent } from '../../css/centerContent'
 
 interface ExpandableProps extends PanelProps {
   header: ReactNode
@@ -19,7 +19,7 @@ interface ExpandableProps extends PanelProps {
 const ExpandIconWrapper = styled.div<{ isExpanded: boolean }>`
   ${roundedCSS};
   ${getSameDimensionsCSS(40)};
-  ${centerContentCSS};
+  ${centerContent};
 
   background: ${getColor('mist')};
 
@@ -32,7 +32,7 @@ const ExpandIconWrapper = styled.div<{ isExpanded: boolean }>`
 
 const Header = styled.div`
   ${interactiveCSS};
-  ${centerContentCSS};
+  ${centerContent};
   ${defaultTransitionCSS};
 
   :hover ${ExpandIconWrapper} {

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { centerContentCSS } from './utils/centerContentCSS'
+import { centerContent } from '../css/centerContent'
 
 export const CenterAbsolutely = styled.div`
   position: absolute;
@@ -7,5 +7,5 @@ export const CenterAbsolutely = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  ${centerContentCSS};
+  ${centerContent};
 `

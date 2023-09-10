@@ -7,10 +7,10 @@ import {
   InvisibleHTMLCheckboxProps,
   InvisibleHTMLCheckbox,
 } from '../inputs/Checkbox/InvisibleHTMLCheckbox'
-import { centerContentCSS } from '../utils/centerContentCSS'
 import { Text } from '../Text'
 import { ChecklistItemFrame } from './ChecklistItemFrame'
 import { getColor, matchColor } from '../theme/getters'
+import { centerContent } from '../../css/centerContent'
 
 interface ChecklistItemProps extends InvisibleHTMLCheckboxProps {
   name: ReactNode
@@ -21,7 +21,7 @@ export const Box = styled.div<{ isChecked: boolean }>`
   width: 100%;
   aspect-ratio: 1/1;
 
-  ${centerContentCSS};
+  ${centerContent};
 
   border-radius: 4px;
   border: 2px solid ${getColor('textShy')};

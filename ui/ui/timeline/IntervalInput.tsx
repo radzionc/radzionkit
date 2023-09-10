@@ -11,7 +11,6 @@ import styled, { css } from 'styled-components'
 import { HSLA } from '../colors/HSLA'
 import { MoveIcon } from '../icons/MoveIcon'
 import { Text } from '../Text'
-import { centerContentCSS } from '../utils/centerContentCSS'
 import { getIntervalDuration } from '../utils/getIntervalDuration'
 import { getVerticalMarginCSS } from '../utils/getVerticalMarginCSS'
 import { HourSpace } from './HourSpace'
@@ -23,6 +22,7 @@ import { Interval } from '../../entities/Interval'
 import { formatDuration } from '@reactkit/utils/time/formatDuration'
 import { enforceRange } from '@reactkit/utils/enforceRange'
 import { MS_IN_MIN, MS_IN_HOUR } from '@reactkit/utils/time'
+import { centerContent } from '../../css/centerContent'
 
 interface RenderContentParams {
   pxInMs: number
@@ -55,7 +55,7 @@ const MoveIconWr = styled.div`
 `
 
 const CurrentIntervalRect = styled(IntervalRect)`
-  ${centerContentCSS}
+  ${centerContent}
 
   ${({ $color }) => css`
     background: ${$color.getVariant({ a: () => 0.12 }).toCssValue()};

@@ -6,11 +6,11 @@ import { getHoverVariant } from '../colors/getHoverVariant'
 import { Spinner } from '../Spinner'
 import { Tooltip } from '../Tooltip'
 import { defaultTransitionCSS } from '../animations/transitions'
-import { centerContentCSS } from '../utils/centerContentCSS'
 import { getCSSUnit } from '../utils/getCSSUnit'
 import { getHorizontalPaddingCSS } from '../utils/getHorizontalPaddingCSS'
 import { UnstyledButton } from './UnstyledButton'
 import { match } from '@reactkit/utils/match'
+import { centerContent } from '../../css/centerContent'
 
 export const buttonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 
@@ -39,7 +39,7 @@ interface ContainerProps {
 
 const Container = styled(UnstyledButton)<ContainerProps>`
   ${defaultTransitionCSS};
-  ${centerContentCSS};
+  ${centerContent};
 
   position: relative;
 

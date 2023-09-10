@@ -3,7 +3,6 @@ import { PressTracker } from '../../PressTracker'
 import { defaultTransition } from '../../animations/transitions'
 import { HSLA } from '../../colors/HSLA'
 import { getColor } from '../../theme/getters'
-import { centerContentCSS } from '../../utils/centerContentCSS'
 import { getCSSUnit } from '../../utils/getCSSUnit'
 import { getSameDimensionsCSS } from '../../utils/getSameDimensionsCSS'
 import {
@@ -11,6 +10,7 @@ import {
   InvisibleHTMLSlider,
 } from './InvisibleHtmlSlider'
 import { toPercents } from '@reactkit/utils/toPercents'
+import { centerContent } from '../../../css/centerContent'
 
 type SliderSize = 'm' | 'l'
 
@@ -34,7 +34,7 @@ const Control = styled.div<{ value: number; size: number; $color: HSLA }>`
 const Container = styled.div<{ $color: HSLA }>`
   width: 100%;
   cursor: pointer;
-  ${centerContentCSS};
+  ${centerContent};
   position: relative;
 
   --active-outline-color: ${({ $color }) =>

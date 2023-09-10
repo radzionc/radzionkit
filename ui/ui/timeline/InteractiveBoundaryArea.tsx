@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { centerContentCSS } from '../utils/centerContentCSS'
+import { centerContent } from '../../css/centerContent'
 
 export const InteractiveBoundaryArea = styled.div<{ y: number }>`
   position: absolute;
@@ -10,5 +10,5 @@ export const InteractiveBoundaryArea = styled.div<{ y: number }>`
   height: var(--height);
   top: calc(${({ y }) => y}px - var(--height) / 2);
 
-  ${centerContentCSS};
+  ${centerContent};
 `

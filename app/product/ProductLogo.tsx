@@ -3,12 +3,12 @@ import { ProductIcon } from './ProductIcon'
 import { HStack } from '@reactkit/ui/ui/Stack'
 import styled from 'styled-components'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
-import { centerContentCSS } from '@reactkit/ui/ui/utils/centerContentCSS'
+import { centerContent } from '@reactkit/ui/css/centerContent'
 
 const IconWrapper = styled.div`
   color: ${getColor('contrast')};
   font-size: 22px;
-  ${centerContentCSS};
+  ${centerContent};
 `
 
 export const ProductLogo = () => {

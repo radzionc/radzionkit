@@ -1,9 +1,9 @@
 import { Ref, forwardRef, ReactNode, useState } from 'react'
 import styled from 'styled-components'
 import { HStack } from '../Stack'
-import { centerContentCSS } from '../utils/centerContentCSS'
 
 import { TextInput, TextInputProps } from './TextInput'
+import { centerContent } from '../../css/centerContent'
 
 type AmountTextInputProps = Omit<TextInputProps, 'value' | 'onValueChange'> & {
   value: number | undefined
@@ -18,7 +18,7 @@ const UnitContainer = styled.div`
   border-radius: 8px;
   position: absolute;
   left: 12px;
-  ${centerContentCSS};
+  ${centerContent};
 `
 
 const Input = styled(TextInput)`

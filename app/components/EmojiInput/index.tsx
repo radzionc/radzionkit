@@ -1,6 +1,6 @@
 import { Spinner } from '@reactkit/ui/ui/Spinner'
 import { HStack } from '@reactkit/ui/ui/Stack'
-import { centerContentCSS } from '@reactkit/ui/ui/utils/centerContentCSS'
+import { centerContent } from '@reactkit/ui/css/centerContent'
 import dynamic from 'next/dynamic'
 import styled from 'styled-components'
 import { ExpandableInputOpener } from '../../../ui/ui/inputs/ExpandableInputOpener'
@@ -25,7 +25,7 @@ interface EmojiInputProps extends InputProps<string> {}
 const EmojiMartFallback = styled.div`
   width: 352px;
   height: 435px;
-  ${centerContentCSS};
+  ${centerContent};
 `
 
 export const EmojiInput = ({ value, onChange }: EmojiInputProps) => {
