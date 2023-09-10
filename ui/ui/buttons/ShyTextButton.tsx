@@ -5,7 +5,7 @@ import { Text } from '../Text'
 
 import { getColor } from '../theme/getters'
 import { UnstyledButton } from './UnstyledButton'
-import { interactive } from '../../css/interfactive'
+import { interactive } from '../../css/interactive'
 
 const Container = styled(UnstyledButton)`
   ${interactive};

@@ -12,7 +12,7 @@ import { UnstyledButton } from './buttons/UnstyledButton'
 import { centerContent } from '../css/centerContent'
 import { takeWholeSpaceAbsolutely } from '../css/takeWholeSpaceAbsolutely'
 import { sameDimensions } from '../css/sameDimensions'
-import { interactive } from '../css/interfactive'
+import { interactive } from '../css/interactive'
 
 interface ImageBannerProps {
   onClose: () => void

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { interactive } from '../../css/interfactive'
+import { interactive } from '../../css/interactive'
 
 export const UnstyledButton = styled.button`
   ${interactive};

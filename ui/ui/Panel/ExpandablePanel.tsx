@@ -8,7 +8,7 @@ import { getColor } from '../theme/getters'
 import { useBoolean } from '../../hooks/useBoolean'
 import { centerContent } from '../../css/centerContent'
 import { sameDimensions } from '../../css/sameDimensions'
-import { interactive } from '../../css/interfactive'
+import { interactive } from '../../css/interactive'
 import { round } from '../../css/round'
 
 interface ExpandableProps extends PanelProps {

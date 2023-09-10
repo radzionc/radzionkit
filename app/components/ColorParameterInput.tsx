@@ -10,7 +10,7 @@ import { getColor } from '@reactkit/ui/ui/theme/getters'
 import { centerContent } from '@reactkit/ui/css/centerContent'
 import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import styled from 'styled-components'
-import { interactive } from '@reactkit/ui/css/interfactive'
+import { interactive } from '@reactkit/ui/css/interactive'
 import { toSizeUnit } from '@reactkit/ui/css/toSizeUnit'
 
 export interface ColorParameterInputProps
