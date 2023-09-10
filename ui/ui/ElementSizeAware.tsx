@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react'
 
-import { ElementSize, useElementSize } from './hooks/useElementSize'
+import { ElementSize, useElementSize } from '../hooks/useElementSize'
 
 interface ElementSizeAwareRenderParams {
   size: ElementSize | null

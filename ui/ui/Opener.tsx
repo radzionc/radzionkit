@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { useBoolean } from '../shared/hooks/useBoolean'
+import { useBoolean } from '../hooks/useBoolean'
 import { ClosableComponentProps } from '../props'
 
 interface RenderOpenerParams {

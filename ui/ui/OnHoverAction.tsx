@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 
 import { ElementSizeAware } from './ElementSizeAware'
-import { ElementSize } from './hooks/useElementSize'
+import { ElementSize } from '../hooks/useElementSize'
 
 interface OnHoverActionRenderParams<T extends React.CSSProperties> {
   actionSize: ElementSize

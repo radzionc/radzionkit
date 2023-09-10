@@ -18,8 +18,8 @@ import { DropdownMenuPlacer } from './DropdownMenuPlacer'
 import { defaultInputShapeCSS } from '../config'
 import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
 import { getColor } from '../../theme/getters'
-import { useBoolean } from '../../../shared/hooks/useBoolean'
-import { useKeyPress } from '../../../shared/hooks/useKeyPress'
+import { useBoolean } from '../../../hooks/useBoolean'
+import { useKeyPress } from '../../../hooks/useKeyPress'
 import { Text } from '../../Text'
 
 interface Props<T> {

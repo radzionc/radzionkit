@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { useRhythmicRerender } from './hooks/useRhythmicRerender'
+import { useRhythmicRerender } from '../hooks/useRhythmicRerender'
 
 interface RhytmicRerenderProps {
   interval?: number

@@ -1,5 +1,5 @@
 import { HStack, VStack } from '../Stack'
-import { useRhythmicRerender } from '../hooks/useRhythmicRerender'
+import { useRhythmicRerender } from '../../hooks/useRhythmicRerender'
 import { CountdownPart } from './CountdownPart'
 import { Text } from '../Text'
 import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'

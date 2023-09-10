@@ -10,7 +10,7 @@ import {
 } from 'react'
 import { useEvent } from 'react-use'
 import { Point } from '../entities/Point'
-import { useBoundingBox } from '../shared/hooks/useBoundingBox'
+import { useBoundingBox } from '../hooks/useBoundingBox'
 import { enforceRange } from '@reactkit/utils/enforceRange'
 
 interface ContainerProps {

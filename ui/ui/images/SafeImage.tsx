@@ -1,4 +1,4 @@
-import { useBoolean } from 'shared/hooks/useBoolean'
+import { useBoolean } from 'hooks/useBoolean'
 import { ReactNode } from 'react'
 
 interface RenderParams {

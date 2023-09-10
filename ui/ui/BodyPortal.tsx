@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { useBody } from './hooks/useBody'
+import { useBody } from '../hooks/useBody'
 import { ComponentWithChildrenProps } from '../props'
 
 export function BodyPortal({ children }: ComponentWithChildrenProps) {

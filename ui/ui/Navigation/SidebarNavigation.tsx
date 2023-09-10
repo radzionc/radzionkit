@@ -4,7 +4,7 @@ import { Sidebar } from './Sidebar'
 import { ReactNode } from 'react'
 import { ThemeToggleButton } from '../theme/ThemeToggleButton'
 import { HStack, VStack } from '../Stack'
-import { useIsScreenWidthLessThan } from '../hooks/useIsScreenWidthLessThan'
+import { useIsScreenWidthLessThan } from '../../hooks/useIsScreenWidthLessThan'
 
 interface Props {
   children: ReactNode
