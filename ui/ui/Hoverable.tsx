@@ -2,14 +2,20 @@ import styled from 'styled-components'
 
 import { defaultTransitionCSS } from './animations/transitions'
 import { getColor } from './theme/getters'
-import { ComponentWithChildrenProps } from '../props'
 import { UnstyledButton } from './buttons/UnstyledButton'
-import { toSizeUnit } from '../css/toSizeUnit'
+import { ComponentProps } from 'react'
+import { absoluteOutline } from '../css/absoluteOutline'
 
-const Highlight = styled.div`
+interface HighlightProps {
+  horizontalOffset: number | string
+  verticalOffset: number | string
+}
+
+const Highlight = styled.div<HighlightProps>`
   position: absolute;
   ${defaultTransitionCSS};
   border-radius: 8px;
+  ${(props) => absoluteOutline(props.horizontalOffset, props.verticalOffset)}
 `
 
 const Container = styled(UnstyledButton)`
@@ -24,31 +30,19 @@ const Content = styled.div`
   z-index: 1;
 `
 
-interface HoverableProps extends ComponentWithChildrenProps {
-  horizontalOffset?: number
-  verticalOffset?: number
-  as?: React.ElementType
-  onClick?: () => void
-  style?: React.CSSProperties
-}
+type HoverableProps = ComponentProps<typeof Container> & Partial<HighlightProps>
 
 export const Hoverable = ({
   children,
   horizontalOffset = 8,
   verticalOffset = 8,
-  onClick,
-  as,
-  style,
+  ...rest
 }: HoverableProps) => {
   return (
-    <Container onClick={onClick} as={as} style={style}>
+    <Container {...rest}>
       <Highlight
-        style={{
-          left: toSizeUnit(-horizontalOffset),
-          top: toSizeUnit(-verticalOffset),
-          width: `calc(100% + ${toSizeUnit(horizontalOffset * 2)})`,
-          height: `calc(100% + ${toSizeUnit(verticalOffset * 2)})`,
-        }}
+        verticalOffset={verticalOffset}
+        horizontalOffset={horizontalOffset}
       />
       <Content>{children}</Content>
     </Container>
