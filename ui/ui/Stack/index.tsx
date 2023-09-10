@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { getCSSUnit } from '../utils/getCSSUnit'
+import { toSizeUnit } from '../../css/toSizeUnit'
 
 interface Props {
   gap?: React.CSSProperties['gap']
@@ -29,7 +29,7 @@ const stackCSS = css<Props>`
   ${({ gap }) =>
     gap &&
     css`
-      gap: ${getCSSUnit(gap)};
+      gap: ${toSizeUnit(gap)};
     `}
   ${({ alignItems }) =>
     alignItems &&

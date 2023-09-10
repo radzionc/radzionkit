@@ -8,10 +8,10 @@ import {
 } from '@reactkit/ui/ui/inputs/Slider/InvisibleHtmlSlider'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
 import { centerContent } from '@reactkit/ui/css/centerContent'
-import { getCSSUnit } from '@reactkit/ui/ui/utils/getCSSUnit'
-import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS'
-import { interactiveCSS } from '@reactkit/ui/ui/utils/interactiveCSS'
+import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import styled from 'styled-components'
+import { interactive } from '@reactkit/ui/css/interfactive'
+import { toSizeUnit } from '@reactkit/ui/css/toSizeUnit'
 
 export interface ColorParameterInputProps
   extends Omit<InvisibleHTMLSliderProps, 'min'> {
@@ -25,18 +25,18 @@ const controlSize = railHeight + controlBorderWidth * 2
 const Control = styled.div<{ value: number }>`
   position: absolute;
   left: ${({ value }) =>
-    `calc(${toPercents(value)} - ${getCSSUnit(controlSize / 2)})`};
-  ${getSameDimensionsCSS(controlSize)};
+    `calc(${toPercents(value)} - ${toSizeUnit(controlSize / 2)})`};
+  ${sameDimensions(controlSize)};
   transition: outline ${defaultTransition};
   outline: 6px solid transparent;
-  border: ${getCSSUnit(controlBorderWidth)} solid ${getColor('contrast')};
+  border: ${toSizeUnit(controlBorderWidth)} solid ${getColor('contrast')};
   border-radius: 4px;
 `
 
 const Container = styled.label`
   width: 100%;
   height: 40px;
-  ${interactiveCSS};
+  ${interactive};
   ${centerContent};
   position: relative;
 
@@ -51,7 +51,7 @@ const Container = styled.label`
 
 const Line = styled.div`
   width: 100%;
-  height: ${getCSSUnit(railHeight)};
+  height: ${toSizeUnit(railHeight)};
 
   border-radius: 4px;
 `

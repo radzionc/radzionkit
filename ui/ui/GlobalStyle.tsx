@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import { themedScrollbarCSS } from './utils/themedScrollbarCSS'
 import { getColor } from './theme/getters'
+import { themedScrollbars } from '../css/themedScrollbars'
 
 interface GlobalStyleProps {
   fontFamily: string
@@ -56,5 +56,5 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     -moz-appearance: textfield;
   }
 
-  ${themedScrollbarCSS}
+  ${themedScrollbars}
 `

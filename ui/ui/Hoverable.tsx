@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import { defaultTransitionCSS } from './animations/transitions'
-import { getCSSUnit } from './utils/getCSSUnit'
 import { getColor } from './theme/getters'
 import { ComponentWithChildrenProps } from '../props'
 import { UnstyledButton } from './buttons/UnstyledButton'
+import { toSizeUnit } from '../css/toSizeUnit'
 
 const Highlight = styled.div`
   position: absolute;
@@ -44,10 +44,10 @@ export const Hoverable = ({
     <Container onClick={onClick} as={as} style={style}>
       <Highlight
         style={{
-          left: getCSSUnit(-horizontalOffset),
-          top: getCSSUnit(-verticalOffset),
-          width: `calc(100% + ${getCSSUnit(horizontalOffset * 2)})`,
-          height: `calc(100% + ${getCSSUnit(verticalOffset * 2)})`,
+          left: toSizeUnit(-horizontalOffset),
+          top: toSizeUnit(-verticalOffset),
+          width: `calc(100% + ${toSizeUnit(horizontalOffset * 2)})`,
+          height: `calc(100% + ${toSizeUnit(verticalOffset * 2)})`,
         }}
       />
       <Content>{children}</Content>

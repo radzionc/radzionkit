@@ -4,11 +4,11 @@ import { CheckIcon } from '../icons/CheckIcon'
 import { CloseIcon } from '../icons/CloseIcon'
 import { HStack } from '../Stack'
 import { Text } from '../Text'
-import { getCSSUnit } from '../utils/getCSSUnit'
-import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
-import { roundedCSS } from '../utils/roundedCSS'
+import { toSizeUnit } from '../../css/toSizeUnit'
 import { getColor } from '../theme/getters'
 import { centerContent } from '../../css/centerContent'
+import { sameDimensions } from '../../css/sameDimensions'
+import { round } from '../../css/round'
 
 interface SwitchProps {
   value: boolean
@@ -22,9 +22,9 @@ const spacing = 2
 const controlSize = height - spacing * 2
 
 const Control = styled.div`
-  ${getSameDimensionsCSS(controlSize)};
+  ${sameDimensions(controlSize)};
 
-  ${roundedCSS};
+  ${round};
   ${defaultTransitionCSS};
 
   ${centerContent};
@@ -51,13 +51,13 @@ const Wrapper = styled(HStack)`
 `
 
 const Container = styled.div`
-  width: ${getCSSUnit(width)};
-  height: ${getCSSUnit(height)};
+  width: ${toSizeUnit(width)};
+  height: ${toSizeUnit(height)};
 
   display: flex;
   align-items: center;
 
-  ${roundedCSS};
+  ${round};
   ${defaultTransitionCSS};
 `
 

@@ -3,14 +3,14 @@ import { PressTracker } from '../../PressTracker'
 import { defaultTransition } from '../../animations/transitions'
 import { HSLA } from '../../colors/HSLA'
 import { getColor } from '../../theme/getters'
-import { getCSSUnit } from '../../utils/getCSSUnit'
-import { getSameDimensionsCSS } from '../../utils/getSameDimensionsCSS'
 import {
   InvisibleHTMLSliderProps,
   InvisibleHTMLSlider,
 } from './InvisibleHtmlSlider'
 import { toPercents } from '@reactkit/utils/toPercents'
 import { centerContent } from '../../../css/centerContent'
+import { sameDimensions } from '../../../css/sameDimensions'
+import { toSizeUnit } from '../../../css/toSizeUnit'
 
 type SliderSize = 'm' | 'l'
 
@@ -23,8 +23,8 @@ export interface SliderProps extends InvisibleHTMLSliderProps {
 const Control = styled.div<{ value: number; size: number; $color: HSLA }>`
   position: absolute;
   left: ${({ value, size }) =>
-    `calc(${toPercents(value)} - ${getCSSUnit(size / 2)})`};
-  ${({ size }) => getSameDimensionsCSS(size)};
+    `calc(${toPercents(value)} - ${toSizeUnit(size / 2)})`};
+  ${({ size }) => sameDimensions(size)};
   border-radius: 1000px;
   background: ${({ $color }) => $color.getVariant({ a: () => 1 }).toCssValue()};
   transition: outline ${defaultTransition};

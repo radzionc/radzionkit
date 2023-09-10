@@ -3,13 +3,13 @@ import styled, { useTheme } from 'styled-components'
 import { HSLA } from '@reactkit/ui/ui/colors/HSLA'
 
 import { HStack, VStack } from '@reactkit/ui/ui/Stack'
-import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS'
+import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import { DemoPage } from 'components/DemoPage'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { Navigation } from 'navigation'
 
 const Conent = styled(Panel)<{ $color: HSLA }>`
-  ${getSameDimensionsCSS(80)};
+  ${sameDimensions(80)};
   background: ${({ $color }) => $color.toCssValue()};
 `
 

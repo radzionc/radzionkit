@@ -8,10 +8,10 @@ import {
 } from 'state/persistentStorage'
 import { ShowAfterDelay } from '@reactkit/ui/ui/ShowAfterDelay'
 import { Navigation } from 'navigation'
+import { takeWholeSpace } from '@reactkit/ui/css/takeWholeSpace'
 
 const Image = styled.img`
-  width: 100%;
-  height: 100%;
+  ${takeWholeSpace};
   object-fit: contain;
 `
 

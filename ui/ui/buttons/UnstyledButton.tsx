@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { interactiveCSS } from '../utils/interactiveCSS'
+import { interactive } from '../../css/interfactive'
 
 export const UnstyledButton = styled.button`
-  ${interactiveCSS};
+  ${interactive};
   padding: 0;
   margin: 0;
   border: none;

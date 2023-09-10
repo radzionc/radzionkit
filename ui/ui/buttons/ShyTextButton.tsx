@@ -4,11 +4,11 @@ import { defaultTransitionCSS } from '../animations/transitions'
 import { Text } from '../Text'
 
 import { getColor } from '../theme/getters'
-import { interactiveCSS } from '../utils/interactiveCSS'
 import { UnstyledButton } from './UnstyledButton'
+import { interactive } from '../../css/interfactive'
 
 const Container = styled(UnstyledButton)`
-  ${interactiveCSS};
+  ${interactive};
   color: ${getColor('textSupporting')};
   ${defaultTransitionCSS};
 

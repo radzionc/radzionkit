@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 
-export const hideScrollbarsCSS = css`
+export const hideScrollbars = css`
   &::-webkit-scrollbar {
     display: none;
   }

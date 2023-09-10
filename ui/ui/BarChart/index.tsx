@@ -5,7 +5,7 @@ import { Spacer } from '../Spacer'
 import { VStack } from '../Stack'
 import { defaultTransitionCSS } from '../animations/transitions'
 import { HSLA } from '../colors/HSLA'
-import { getCSSUnit } from '../utils/getCSSUnit'
+import { toSizeUnit } from '../../css/toSizeUnit'
 import { Text } from '../Text'
 import { getColor } from '../theme/getters'
 import { toPercents } from '@reactkit/utils/toPercents'
@@ -79,7 +79,7 @@ export const BarChart = ({
   return (
     <VStack style={{ height }}>
       <Spacer
-        height={`calc(${getCSSUnit(expectedValueHeight)} + ${barValueGap})`}
+        height={`calc(${toSizeUnit(expectedValueHeight)} + ${barValueGap})`}
       />
       <Content gap={4}>
         {items.map(({ value, color, renderValue, label }, index) => {
@@ -111,7 +111,7 @@ export const BarChart = ({
       </Content>
       {hasLabels && (
         <Spacer
-          height={`calc(${getCSSUnit(expectedLabelHeight)} + ${barLabelGap})`}
+          height={`calc(${toSizeUnit(expectedLabelHeight)} + ${barLabelGap})`}
         />
       )}
     </VStack>

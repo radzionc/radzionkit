@@ -11,18 +11,18 @@ import styled, { css } from 'styled-components'
 import { HSLA } from '../colors/HSLA'
 import { MoveIcon } from '../icons/MoveIcon'
 import { Text } from '../Text'
-import { getIntervalDuration } from '../utils/getIntervalDuration'
-import { getVerticalMarginCSS } from '../utils/getVerticalMarginCSS'
+import { getIntervalDuration } from '@reactkit/utils/interval/getIntervalDuration'
 import { HourSpace } from './HourSpace'
 
 import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
 import { IntervalRect } from './IntervalRect'
 import { MaxIntervalEndBoundary } from './MaxIntervalEndBoundary'
-import { Interval } from '../../entities/Interval'
+import { Interval } from '@reactkit/utils/interval/Interval'
 import { formatDuration } from '@reactkit/utils/time/formatDuration'
 import { enforceRange } from '@reactkit/utils/enforceRange'
 import { MS_IN_MIN, MS_IN_HOUR } from '@reactkit/utils/time'
 import { centerContent } from '../../css/centerContent'
+import { verticalMargin } from '../../css/verticalMargin'
 
 interface RenderContentParams {
   pxInMs: number
@@ -44,7 +44,7 @@ const pxInHour = 60
 const defaultMinDurationInMin = 10
 
 const Container = styled.div`
-  ${getVerticalMarginCSS(8)}
+  ${verticalMargin(8)}
   user-select: none;
 `
 

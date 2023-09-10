@@ -5,7 +5,6 @@ import { defaultTransitionCSS } from '../animations/transitions'
 import { defaultBorderRadiusCSS } from '../borderRadius'
 import { CheckIcon } from '../icons/CheckIcon'
 import { getColor } from '../theme/getters'
-import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
 import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
 import { ExpandableInputOpener } from './ExpandableInputOpener'
 import { ShySection } from '../ShySection'
@@ -14,6 +13,7 @@ import { InputProps, StyledComponentWithColorProps } from '../../props'
 import { range } from '@reactkit/utils/array/range'
 import { splitBy } from '@reactkit/utils/array/splitBy'
 import { centerContent } from '../../css/centerContent'
+import { sameDimensions } from '../../css/sameDimensions'
 
 interface ColorLabelInputProps extends InputProps<number> {
   usedValues?: Set<number>
@@ -22,7 +22,7 @@ interface ColorLabelInputProps extends InputProps<number> {
 const CurrentColor = styled.div<StyledComponentWithColorProps>`
   background: ${({ $color }) => $color.toCssValue()};
   border-radius: 8px;
-  ${getSameDimensionsCSS('68%')}
+  ${sameDimensions('68%')}
 `
 
 const ColorOption = styled.label<StyledComponentWithColorProps>`

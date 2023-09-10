@@ -4,11 +4,11 @@ import { Circle } from '../Circle'
 import { NonEmptyOnly } from '../NonEmptyOnly'
 import { VStack, HStack } from '../Stack'
 import { defaultTransitionCSS } from '../animations/transitions'
-import { getVerticalPaddingCSS } from '../utils/getVerticalPaddingCSS'
 import { Text } from '../Text'
 import { handleWithStopPropagation } from '../../shared/events'
 import { InputProps } from '../../props'
 import { TreeNode } from '@reactkit/utils/tree'
+import { verticalPadding } from '../../css/verticalPadding'
 
 interface TreeFilterProps<T> extends InputProps<number[]> {
   tree: TreeNode<T>
@@ -24,7 +24,7 @@ const Container = styled(VStack)`
 `
 
 const Item = styled(HStack)`
-  ${getVerticalPaddingCSS(4)}
+  ${verticalPadding(4)}
   align-items: center;
   gap: 8px;
   ${defaultTransitionCSS}

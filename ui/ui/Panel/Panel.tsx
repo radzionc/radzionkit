@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import { defaultBorderRadiusCSS } from '../borderRadius'
-import { getCSSUnit } from '../utils/getCSSUnit'
+import { toSizeUnit } from '../../css/toSizeUnit'
 import { getColor } from '../theme/getters'
 import { match } from '@reactkit/utils/match'
 
@@ -18,12 +18,12 @@ export interface PanelProps {
 }
 
 const panelPaddingCSS = css<{ padding?: React.CSSProperties['padding'] }>`
-  padding: ${({ padding }) => getCSSUnit(padding || 20)};
+  padding: ${({ padding }) => toSizeUnit(padding || 20)};
 `
 
 export const Panel = styled.div<PanelProps>`
   ${defaultBorderRadiusCSS};
-  width: ${({ width }) => (width ? getCSSUnit(width) : undefined)};
+  width: ${({ width }) => (width ? toSizeUnit(width) : undefined)};
   overflow: hidden;
 
   ${({ withSections, direction = 'column', kind = 'regular', theme }) => {

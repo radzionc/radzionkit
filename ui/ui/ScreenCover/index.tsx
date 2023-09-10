@@ -6,14 +6,14 @@ import {
   handleWithStopPropagationAndPreventDefault,
 } from '../../shared/events'
 import { zIndex } from '../zIndex'
+import { takeWholeSpace } from '../../css/takeWholeSpace'
 
 const Container = styled.div<{ isBlurred?: boolean }>`
   position: fixed;
   left: 0;
   top: 0;
 
-  width: 100%;
-  height: 100%;
+  ${takeWholeSpace};
 
   display: flex;
   align-items: center;

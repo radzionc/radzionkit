@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { getCSSUnit } from '../utils/getCSSUnit'
+import { toSizeUnit } from '../../css/toSizeUnit'
 
 interface Props {
   gap: number
@@ -14,7 +14,7 @@ const getColumnMax = (maxColumns: number | undefined, gap: number) => {
   if (!maxColumns) return `0px`
 
   const gapCount = maxColumns - 1
-  const totalGapWidth = `calc(${gapCount} * ${getCSSUnit(gap)})`
+  const totalGapWidth = `calc(${gapCount} * ${toSizeUnit(gap)})`
 
   return `calc((100% - ${totalGapWidth}) / ${maxColumns})`
 }
@@ -26,13 +26,13 @@ const getColumnWidth = ({
   childrenWidth,
 }: Props) => {
   if (childrenWidth !== undefined) {
-    return getCSSUnit(childrenWidth)
+    return toSizeUnit(childrenWidth)
   }
 
   return `
     minmax(
       max(
-        ${getCSSUnit(minChildrenWidth || 0)},
+        ${toSizeUnit(minChildrenWidth || 0)},
         ${getColumnMax(maxColumns, gap)}
       ),
       1fr
@@ -42,11 +42,11 @@ const getColumnWidth = ({
 export const SameWidthChildrenRow = styled.div<Props>`
   display: grid;
   grid-template-columns: repeat(auto-fit, ${getColumnWidth});
-  gap: ${({ gap }) => getCSSUnit(gap)};
+  gap: ${({ gap }) => toSizeUnit(gap)};
   ${({ rowHeight }) =>
     rowHeight &&
     css`
-      grid-auto-rows: ${getCSSUnit(rowHeight)};
+      grid-auto-rows: ${toSizeUnit(rowHeight)};
     `}
   ${({ fullWidth }) =>
     fullWidth &&

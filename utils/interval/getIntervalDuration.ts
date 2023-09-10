@@ -1,3 +1,3 @@
-import { Interval } from '../../entities/Interval'
+import { Interval } from './Interval'
 
 export const getIntervalDuration = ({ start, end }: Interval) => end - start

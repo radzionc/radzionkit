@@ -1,12 +1,12 @@
 import { ComponentProps, Ref, forwardRef } from 'react'
 import styled from 'styled-components'
 import { defaultTransitionCSS } from '../animations/transitions'
-import { getCSSUnit } from '../utils/getCSSUnit'
-import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
+import { toSizeUnit } from '../../css/toSizeUnit'
 import { matchColor } from '../theme/getters'
 import { UnstyledButton } from './UnstyledButton'
 import { match } from '@reactkit/utils/match'
 import { centerContent } from '../../css/centerContent'
+import { sameDimensions } from '../../css/sameDimensions'
 
 export const iconButtonSizes = ['s', 'm', 'l'] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]
@@ -28,7 +28,7 @@ interface ContainerProps {
 const Container = styled(UnstyledButton)<ContainerProps>`
   position: relative;
   ${centerContent};
-  ${({ size }) => getSameDimensionsCSS(sizeRecord[size])};
+  ${({ size }) => sameDimensions(sizeRecord[size])};
 
   color: ${matchColor('kind', {
     regular: 'text',
@@ -36,7 +36,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
     alert: 'alert',
   })};
 
-  font-size: ${({ size }) => `calc(${getCSSUnit(sizeRecord[size] * 0.6)})`};
+  font-size: ${({ size }) => `calc(${toSizeUnit(sizeRecord[size] * 0.6)})`};
 
   border-radius: 8px;
 

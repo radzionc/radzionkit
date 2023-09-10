@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { TabNavigationItem } from './TabNavigationItem'
 import { HStack } from '../Stack'
-import { hideScrollbarsCSS } from '../utils/hideScrollbarsCSS'
+import { hideScrollbars } from '../../css/hideScrollbars'
 
 interface TabNavigationProps<T extends string | number | symbol> {
   views: readonly T[]
@@ -15,7 +15,7 @@ const Container = styled(HStack)`
   gap: 4px;
   position: relative;
   overflow-x: auto;
-  ${hideScrollbarsCSS};
+  ${hideScrollbars};
 `
 
 export function TabNavigation<T extends string | number | symbol>({

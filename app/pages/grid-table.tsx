@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { HStack } from '@reactkit/ui/ui/Stack'
 import { TableLayout } from '@reactkit/ui/ui/TableLayout'
 import { Text } from '@reactkit/ui/ui/Text'
-import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS'
+import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import { DemoPage } from 'components/DemoPage'
 import { Navigation } from 'navigation'
 
@@ -37,7 +37,7 @@ const tokens: Token[] = [
 ]
 
 const TokenIcon = styled.img`
-  ${getSameDimensionsCSS(24)}
+  ${sameDimensions(24)}
 `
 
 const GridTablePage: NextPage = () => {

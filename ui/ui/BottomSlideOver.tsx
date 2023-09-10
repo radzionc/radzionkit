@@ -8,9 +8,9 @@ import { ComponentWithChildrenProps, ClosableComponentProps } from '../props'
 import { BodyPortal } from './BodyPortal'
 import { ScreenCover } from './ScreenCover'
 import { VStack, HStack } from './Stack'
-import { getHorizontalPaddingCSS } from './utils/getHorizontalPaddingCSS'
-import { getVerticalPaddingCSS } from './utils/getVerticalPaddingCSS'
 import { Text } from './Text'
+import { horizontalPadding } from '../css/horizontalPadding'
+import { verticalPadding } from '../css/verticalPadding'
 
 export type BottomSlideOverProps = ComponentWithChildrenProps &
   ClosableComponentProps & {
@@ -25,7 +25,7 @@ const Cover = styled(ScreenCover)`
 const Container = styled(VStack)`
   width: 100%;
   border-radius: 20px 20px 0 0;
-  ${getVerticalPaddingCSS(24)}
+  ${verticalPadding(24)}
 
   background: ${getColor('background')};
   max-height: 80%;
@@ -33,7 +33,7 @@ const Container = styled(VStack)`
   gap: 32px;
 
   > * {
-    ${getHorizontalPaddingCSS(16)}
+    ${horizontalPadding(16)}
   }
 `
 

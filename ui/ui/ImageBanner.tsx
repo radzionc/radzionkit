@@ -7,12 +7,12 @@ import { CloseIcon } from './icons/CloseIcon'
 import { Panel } from './Panel/Panel'
 import { Text } from './Text'
 import { getColor } from './theme/getters'
-import { fullyCoverAbsolutely } from './utils/fullyCoverAbsolutely'
-import { getSameDimensionsCSS } from './utils/getSameDimensionsCSS'
-import { interactiveCSS } from './utils/interactiveCSS'
 import { ComponentWithChildrenProps } from '../props'
 import { UnstyledButton } from './buttons/UnstyledButton'
 import { centerContent } from '../css/centerContent'
+import { takeWholeSpaceAbsolutely } from '../css/takeWholeSpaceAbsolutely'
+import { sameDimensions } from '../css/sameDimensions'
+import { interactive } from '../css/interfactive'
 
 interface ImageBannerProps {
   onClose: () => void
@@ -25,7 +25,7 @@ interface ImageBannerProps {
 const padding = '20px'
 
 const ImagePosition = styled.div`
-  ${fullyCoverAbsolutely}
+  ${takeWholeSpaceAbsolutely}
   ${defaultTransitionCSS}
 `
 
@@ -38,7 +38,7 @@ const PositionAction = styled.div`
 `
 
 const Content = styled.div`
-  ${fullyCoverAbsolutely}
+  ${takeWholeSpaceAbsolutely}
   padding: ${padding};
 `
 
@@ -73,7 +73,7 @@ const Title = styled(Text)`
 `
 
 const Close = styled(UnstyledButton)`
-  ${interactiveCSS};
+  ${interactive};
 
   background: ${getColor('text')};
 
@@ -83,7 +83,7 @@ const Close = styled(UnstyledButton)`
 
   border-radius: 8px;
   ${centerContent};
-  ${getSameDimensionsCSS(40)};
+  ${sameDimensions(40)};
   font-size: 20px;
 
   :hover {

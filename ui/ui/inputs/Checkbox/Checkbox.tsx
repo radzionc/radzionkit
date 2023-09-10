@@ -4,13 +4,13 @@ import { HStack } from '../../Stack'
 import { defaultTransitionCSS } from '../../animations/transitions'
 import { CheckIcon } from '../../icons/CheckIcon'
 import { getColor } from '../../theme/getters'
-import { getSameDimensionsCSS } from '../../utils/getSameDimensionsCSS'
 import {
   InvisibleHTMLCheckboxProps,
   InvisibleHTMLCheckbox,
 } from './InvisibleHTMLCheckbox'
 import { Text } from '../../Text'
 import { centerContent } from '../../../css/centerContent'
+import { sameDimensions } from '../../../css/sameDimensions'
 
 interface CheckboxProps extends InvisibleHTMLCheckboxProps {
   label?: ReactNode
@@ -18,7 +18,7 @@ interface CheckboxProps extends InvisibleHTMLCheckboxProps {
 }
 
 const Box = styled.div<{ isChecked: boolean }>`
-  ${getSameDimensionsCSS(28)}
+  ${sameDimensions(28)}
   ${centerContent};
   border-radius: 4px;
   border: 2px solid ${getColor('text')};

@@ -6,11 +6,11 @@ import { getHoverVariant } from '../colors/getHoverVariant'
 import { Spinner } from '../Spinner'
 import { Tooltip } from '../Tooltip'
 import { defaultTransitionCSS } from '../animations/transitions'
-import { getCSSUnit } from '../utils/getCSSUnit'
-import { getHorizontalPaddingCSS } from '../utils/getHorizontalPaddingCSS'
+import { toSizeUnit } from '../../css/toSizeUnit'
 import { UnstyledButton } from './UnstyledButton'
 import { match } from '@reactkit/utils/match'
 import { centerContent } from '../../css/centerContent'
+import { horizontalPadding } from '../../css/horizontalPadding'
 
 export const buttonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 
@@ -46,32 +46,32 @@ const Container = styled(UnstyledButton)<ContainerProps>`
   white-space: nowrap;
   font-weight: 500;
 
-  border-radius: ${({ isRounded }) => getCSSUnit(isRounded ? 100 : 8)};
+  border-radius: ${({ isRounded }) => toSizeUnit(isRounded ? 100 : 8)};
 
   ${({ size }) =>
     match(size, {
       xs: () => css`
-        ${getHorizontalPaddingCSS(8)}
+        ${horizontalPadding(8)}
         height: 28px;
         font-size: 14px;
       `,
       s: () => css`
-        ${getHorizontalPaddingCSS(16)}
+        ${horizontalPadding(16)}
         height: 36px;
         font-size: 14px;
       `,
       m: () => css`
-        ${getHorizontalPaddingCSS(20)}
+        ${horizontalPadding(20)}
         height: 40px;
         font-size: 16px;
       `,
       l: () => css`
-        ${getHorizontalPaddingCSS(20)}
+        ${horizontalPadding(20)}
         height: 48px;
         font-size: 16px;
       `,
       xl: () => css`
-        ${getHorizontalPaddingCSS(40)}
+        ${horizontalPadding(40)}
         height: 56px;
         font-size: 18px;
       `,

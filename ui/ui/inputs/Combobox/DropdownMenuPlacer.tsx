@@ -9,8 +9,8 @@ import {
 import React, { useRef } from 'react'
 import { useClickAway } from 'react-use'
 import styled from 'styled-components'
-import { getCSSUnit } from '../../utils/getCSSUnit'
 import { zIndex } from '../../zIndex'
+import { toSizeUnit } from '../../../css/toSizeUnit'
 
 interface Props {
   children: React.ReactNode
@@ -45,7 +45,7 @@ export const DropdownMenuPlacer = ({
       size({
         apply({ rects, elements }) {
           Object.assign(elements.floating.style, {
-            width: getCSSUnit(rects.reference.width),
+            width: toSizeUnit(rects.reference.width),
           })
         },
       }),

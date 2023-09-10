@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import { Center } from '@reactkit/ui/ui/Center'
 import { ElementSizeAware } from '@reactkit/ui/ui/ElementSizeAware'
 import { Text } from '@reactkit/ui/ui/Text'
-import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS'
+import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import { DemoPage } from 'components/DemoPage'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { Navigation } from 'navigation'
 
 const Container = styled(Panel)`
-  ${getSameDimensionsCSS('100%')}
+  ${sameDimensions('100%')}
 `
 
 const ButtonPage: NextPage = () => {

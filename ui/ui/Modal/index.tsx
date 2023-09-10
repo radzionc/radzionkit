@@ -8,12 +8,13 @@ import { ScreenCover } from '../ScreenCover'
 import { Spacer } from '../Spacer'
 import { HStack, VStack } from '../Stack'
 import { useIsScreenWidthLessThan } from '../../hooks/useIsScreenWidthLessThan'
-import { getCSSUnit } from '../utils/getCSSUnit'
-import { getSameDimensionsCSS } from '../utils/getSameDimensionsCSS'
-import { roundedCSS } from '../utils/roundedCSS'
+import { toSizeUnit } from '../../css/toSizeUnit'
 import { CloseButton } from '../buttons/CloseButton'
 import { handleWithStopPropagation } from '../../shared/events'
 import { FocusTrap } from '../FocusTrap'
+import { takeWholeSpace } from '../../css/takeWholeSpace'
+import { sameDimensions } from '../../css/sameDimensions'
+import { round } from '../../css/round'
 
 interface RenderContentParams {
   isFullScreen: boolean
@@ -58,9 +59,9 @@ export const Container = styled.div<ContainerProps>`
 
   ${({ isFullScreen, width, placement }) =>
     isFullScreen
-      ? getSameDimensionsCSS('100%')
+      ? sameDimensions('100%')
       : css`
-          width: ${getCSSUnit(width)};
+          width: ${toSizeUnit(width)};
           border-radius: 16px;
           max-height: 92%;
           ${placement === 'top' &&
@@ -72,8 +73,7 @@ export const Container = styled.div<ContainerProps>`
 `
 
 const Content = styled.div`
-  width: 100%;
-  height: 100%;
+  ${takeWholeSpace};
   overflow-y: auto;
 
   &::-webkit-scrollbar {
@@ -84,7 +84,7 @@ const Content = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    ${roundedCSS}
+    ${round}
     cursor: pointer;
     background-color: ${({ theme: { colors } }) => colors.mist.toCssValue()};
     :hover {
@@ -108,7 +108,7 @@ export const Modal = ({
   footer = null,
 }: ModalProps) => {
   const isFullScreen = useIsScreenWidthLessThan(
-    `calc(${getCSSUnit(width)} + ${MIN_HORIZONTAL_FREE_SPACE_IN_PX}px)`,
+    `calc(${toSizeUnit(width)} + ${MIN_HORIZONTAL_FREE_SPACE_IN_PX}px)`,
   )
 
   useKey('Escape', () => {
@@ -132,9 +132,9 @@ export const Modal = ({
 
   const hasCloseButton = (hasImplicitClose || isFullScreen) && onClose
 
-  const headerPadding = [padding, padding, 0, padding].map(getCSSUnit).join(' ')
+  const headerPadding = [padding, padding, 0, padding].map(toSizeUnit).join(' ')
   const contentPadding = [0, padding, padding, padding]
-    .map(getCSSUnit)
+    .map(toSizeUnit)
     .join(' ')
 
   return (

@@ -2,14 +2,14 @@ import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import styled from 'styled-components'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
-import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS'
+import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import { PressTracker } from '@reactkit/ui/ui/PressTracker'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
 import { toPercents } from '@reactkit/utils/toPercents'
 import { Navigation } from 'navigation'
 
 const Container = styled(Panel)`
-  ${getSameDimensionsCSS(320)}
+  ${sameDimensions(320)}
   padding: 0;
 `
 

@@ -1,6 +1,6 @@
 import { useMedia } from 'react-use'
-import { getCSSUnit } from '../ui/utils/getCSSUnit'
+import { toSizeUnit } from '../css/toSizeUnit'
 
 export const useIsScreenWidthLessThan = (width: number | string) => {
-  return useMedia(`(max-width: ${getCSSUnit(width)})`, false)
+  return useMedia(`(max-width: ${toSizeUnit(width)})`, false)
 }

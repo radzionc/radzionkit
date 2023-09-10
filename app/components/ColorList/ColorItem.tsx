@@ -2,7 +2,7 @@ import { defaultBorderRadiusCSS } from '@reactkit/ui/ui/borderRadius'
 import { HSLA } from '@reactkit/ui/ui/colors/HSLA'
 import { HStack } from '@reactkit/ui/ui/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
-import { getSameDimensionsCSS } from '@reactkit/ui/ui/utils/getSameDimensionsCSS'
+import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import styled from 'styled-components'
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Color = styled.div`
-  ${getSameDimensionsCSS(32)};
+  ${sameDimensions(32)};
   ${defaultBorderRadiusCSS};
 `
 

@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 
-export const interactiveCSS = css`
+export const interactive = css`
   cursor: pointer;
   user-select: none;
 `

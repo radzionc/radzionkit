@@ -1,4 +1,4 @@
-import { Interval } from '@reactkit/ui/entities/Interval'
+import { Interval } from '@reactkit/utils/interval/Interval'
 import { useStartOfDay } from '@reactkit/ui/hooks/useStartOfDay'
 import { MS_IN_HOUR } from '@reactkit/utils/time'
 import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'

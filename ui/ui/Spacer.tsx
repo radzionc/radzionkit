@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { getCSSUnit } from './utils/getCSSUnit'
+import { toSizeUnit } from '../css/toSizeUnit'
 
 interface Props {
   height?: React.CSSProperties['height']
@@ -11,11 +11,11 @@ export const Spacer = styled.div<Props>`
   ${({ height }) =>
     height &&
     css`
-      min-height: ${getCSSUnit(height)};
+      min-height: ${toSizeUnit(height)};
     `}
   ${({ width }) =>
     width &&
     css`
-      min-width: ${getCSSUnit(width)};
+      min-width: ${toSizeUnit(width)};
     `}
 `

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { InputWrapperWithErrorMessage } from './InputWrapper'
 import { SharedTextInputProps } from './TextInput'
 import { commonInputCSS } from './commonInputCSS'
-import { getCSSUnit } from '../utils/getCSSUnit'
+import { toSizeUnit } from '../../css/toSizeUnit'
 import { Text } from '../Text'
 
 const TextareaContainer = styled.textarea`
@@ -18,8 +18,8 @@ const characterCounterMargin = 16
 
 const CharacterCounterWrapper = styled.div`
   position: absolute;
-  bottom: ${getCSSUnit(characterCounterMargin + characterCounterHeight)};
-  right: ${getCSSUnit(characterCounterMargin)};
+  bottom: ${toSizeUnit(characterCounterMargin + characterCounterHeight)};
+  right: ${toSizeUnit(characterCounterMargin)};
   user-select: none;
 `
 

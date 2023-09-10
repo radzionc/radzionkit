@@ -1,5 +1,5 @@
 import styled, { DefaultTheme, css } from 'styled-components'
-import { croppedTextCSS } from '../utils/croppedTextCSS'
+import { cropText } from '../../css/cropText'
 
 const getTextColorRecord = ({ colors }: DefaultTheme) =>
   ({
@@ -86,5 +86,5 @@ export const Text = styled.p<TextProps>`
       white-space: nowrap;
     `}
 
-  ${({ cropped }) => cropped && croppedTextCSS}
+  ${({ cropped }) => cropped && cropText}
 `

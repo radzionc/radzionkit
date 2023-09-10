@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Spacer } from '../Spacer'
 import { VStack } from '../Stack'
-import { getCSSUnit } from '../utils/getCSSUnit'
+import { toSizeUnit } from '../../css/toSizeUnit'
 import { Text } from '../Text'
 
 type PageWidth = 'm' | 's'
@@ -19,10 +19,10 @@ const maxWidth: Record<PageWidth, number> = {
 }
 
 const Container = styled(VStack)<{ maxWidth: number }>`
-  max-width: ${({ maxWidth }) => getCSSUnit(maxWidth)};
+  max-width: ${({ maxWidth }) => toSizeUnit(maxWidth)};
   width: 100%;
 
-  @media (max-width: ${({ maxWidth }) => getCSSUnit(maxWidth)}) {
+  @media (max-width: ${({ maxWidth }) => toSizeUnit(maxWidth)}) {
     max-width: calc(100vw - 40px);
   }
 `

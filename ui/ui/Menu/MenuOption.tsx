@@ -5,9 +5,9 @@ import { MenuView } from '.'
 import { Hoverable } from '../Hoverable'
 import { HStack } from '../Stack'
 import { defaultTransitionCSS } from '../animations/transitions'
-import { getVerticalPaddingCSS } from '../utils/getVerticalPaddingCSS'
 import { Text } from '../Text'
 import { Button } from '../buttons/Button'
+import { verticalPadding } from '../../css/verticalPadding'
 
 type MenuOptionKind = 'regular' | 'alert'
 
@@ -27,7 +27,7 @@ const Content = styled(HStack)<ContentProps>`
   ${defaultTransitionCSS};
   border-radius: 8px;
   width: 100%;
-  ${getVerticalPaddingCSS(8)};
+  ${verticalPadding(8)};
   align-items: center;
   gap: 12px;
 

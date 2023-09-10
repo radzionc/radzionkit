@@ -11,6 +11,7 @@ import { OnHoverAction } from '@reactkit/ui/ui/OnHoverAction'
 import { IconButton } from '@reactkit/ui/ui/buttons/IconButton'
 import { Text } from '@reactkit/ui/ui/Text'
 import { centerContent } from '@reactkit/ui/css/centerContent'
+import { takeWholeSpace } from '@reactkit/ui/css/takeWholeSpace'
 import { PauseIcon } from '@reactkit/ui/ui/icons/PauseIcon'
 import { PlayIcon } from '@reactkit/ui/ui/icons/PlayIcon'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
@@ -53,8 +54,7 @@ const SoundNumber = styled(Text)`
 `
 
 const Identifier = styled.div`
-  width: 100%;
-  height: 100%;
+  ${takeWholeSpace};
   ${centerContent};
   position: relative;
 `

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
+import { takeWholeSpace } from '../../css/takeWholeSpace'
 
 export const ContainImage = styled.img`
-  width: 100%;
-  height: 100%;
+  ${takeWholeSpace};
   object-fit: contain;
 `

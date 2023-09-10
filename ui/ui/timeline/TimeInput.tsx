@@ -8,13 +8,13 @@ import { ChevronUpIcon } from '../icons/ChevronUpIcon'
 import { StackSeparatedBy, dotSeparator } from '../StackSeparatedBy'
 import { VStack } from '../Stack'
 import { Text } from '../Text'
-import { getVerticalMarginCSS } from '../utils/getVerticalMarginCSS'
 import { HourSpace } from './HourSpace'
 import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
 import { MaxIntervalEndBoundary } from './MaxIntervalEndBoundary'
 import { formatDuration } from '@reactkit/utils/time/formatDuration'
 import { enforceRange } from '@reactkit/utils/enforceRange'
 import { MS_IN_HOUR, MS_IN_MIN } from '@reactkit/utils/time'
+import { verticalMargin } from '../../css/verticalMargin'
 
 export interface TimeInputProps {
   color: HSLA
@@ -31,7 +31,7 @@ export interface TimeInputProps {
 }
 
 const Container = styled.div`
-  ${getVerticalMarginCSS(8)}
+  ${verticalMargin(8)}
   user-select: none;
 `
 
