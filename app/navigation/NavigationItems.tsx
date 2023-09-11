@@ -53,6 +53,10 @@ export const NavigationItems = () => (
       path={Path.OnHoverAction}
       name="On Hover Action"
     />
+    <NavigationToInternalPage
+      path={Path.TimeoutMessage}
+      name="Timeout Message"
+    />
     <NavigationToInternalPage path={Path.ColorInput} name="Color Input" />
     <NavigationToInternalPage path={Path.EmojiInput} name="Emoji Input" />
     <NavigationToInternalPage path={Path.TabNavigation} name="Tab Navigation" />

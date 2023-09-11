@@ -32,6 +32,7 @@ export enum Path {
   Menu = '/menu',
   TabNavigation = '/tab-navigation',
   OnHoverAction = '/on-hover-action',
+  TimeoutMessage = '/timeout',
   Promotion = '/promotion',
   AmountInput = '/amount-input',
   Confetti = '/confetti',
