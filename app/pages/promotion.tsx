@@ -2,13 +2,11 @@ import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import { InteractivePromotion } from '@reactkit/ui/ui/InteractivePromotion'
 import styled from 'styled-components'
-import {
-  PersistentStorageKey,
-  usePersistentStorageValue,
-} from 'state/persistentStorage'
+
 import { ShowAfterDelay } from '@reactkit/ui/ui/ShowAfterDelay'
 import { Navigation } from 'navigation'
 import { takeWholeSpace } from '@reactkit/ui/css/takeWholeSpace'
+import { PersistentStateKey, usePersistentState } from 'state/persistentState'
 
 const Image = styled.img`
   ${takeWholeSpace};
@@ -16,8 +14,8 @@ const Image = styled.img`
 `
 
 const PromotionPage: NextPage = () => {
-  const [wasShown, setWasShown] = usePersistentStorageValue(
-    PersistentStorageKey.Promotion,
+  const [wasShown, setWasShown] = usePersistentState(
+    PersistentStateKey.Promotion,
     false,
   )
   return (

@@ -1,18 +1,16 @@
 import { ComponentWithChildrenProps } from '@reactkit/ui/props'
 import { useEffect } from 'react'
-import {
-  PersistentStorageKey,
-  usePersistentStorageValue,
-} from 'state/persistentStorage'
+import { PersistentStateKey, usePersistentState } from './persistentState'
 
 interface ShowOnceProps extends ComponentWithChildrenProps {
-  storageKey: PersistentStorageKey
+  storageKey: PersistentStateKey
 }
 
 export const ShowOnce = ({ children, storageKey }: ShowOnceProps) => {
-  const [wasShownAt, setShowTime] = usePersistentStorageValue<
-    number | undefined
-  >(storageKey, undefined)
+  const [wasShownAt, setShowTime] = usePersistentState<number | undefined>(
+    storageKey,
+    undefined,
+  )
 
   useEffect(() => {
     return () => {

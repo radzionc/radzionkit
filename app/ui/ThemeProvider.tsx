@@ -1,15 +1,12 @@
 import { ComponentWithChildrenProps } from '@reactkit/ui/props'
 import { PrefferedThemeProvider } from '@reactkit/ui/ui/theme/PrefferedThemeProvider'
 import { ThemePreference } from '@reactkit/ui/ui/theme/ThemePreference'
-import {
-  PersistentStorageKey,
-  usePersistentStorageValue,
-} from 'state/persistentStorage'
+import { PersistentStateKey, usePersistentState } from 'state/persistentState'
 
 export const ThemeProvider = ({ children }: ComponentWithChildrenProps) => {
   const [prefferedTheme, setPrefferedTheme] =
-    usePersistentStorageValue<ThemePreference>(
-      PersistentStorageKey.ThemePreference,
+    usePersistentState<ThemePreference>(
+      PersistentStateKey.ThemePreference,
       'system',
     )
 

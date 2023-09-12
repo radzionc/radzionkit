@@ -2,10 +2,10 @@ import { OnValueChangeListener } from './PersistentStorage'
 import { useCallback, useEffect, useState } from 'react'
 import { PersistentStorage } from './PersistentStorage'
 
-export function createUsePersistantStorageValueHook<T extends string>(
+export function createPersistentStateHook<T extends string>(
   storage: PersistentStorage<T>,
 ) {
-  function usePersistentStorageValue<V>(key: T, initialValue: V) {
+  function usePersistentState<V>(key: T, initialValue: V) {
     const [value, setValue] = useState<V>(() => {
       const valueFromStorage = storage.getItem<V>(key)
 
@@ -24,15 +24,13 @@ export function createUsePersistantStorageValueHook<T extends string>(
 
     const setPersistentStorageValue = useCallback(
       (newValue: V) => {
-        if (newValue !== value) {
-          storage.setItem(key, newValue)
-        }
+        storage.setItem(key, newValue)
       },
-      [key, value],
+      [key],
     )
 
     return [value, setPersistentStorageValue] as const
   }
 
-  return usePersistentStorageValue
+  return usePersistentState
 }
