@@ -1,7 +1,6 @@
 import { OnValueChangeListener, PersistentStorage } from './PersistentStorage'
 
 export class LocalStorage<T extends string> implements PersistentStorage<T> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   listeners: Record<string, OnValueChangeListener<any>[]> = {}
 
   getItem<V>(key: T) {
@@ -26,7 +25,7 @@ export class LocalStorage<T extends string> implements PersistentStorage<T> {
     if (value === undefined) {
       localStorage.removeItem(key)
     } else {
-      localStorage.setItem(key, JSON.stringify(value))
+      localStorage.setItem(key, newValue)
     }
 
     const listeners = this.listeners[key] || []

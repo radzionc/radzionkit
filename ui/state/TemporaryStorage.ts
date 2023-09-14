@@ -4,7 +4,6 @@ export class TemporaryStorage<T extends string>
   implements PersistentStorage<T>
 {
   storage: Record<string, unknown> = {}
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   listeners: Record<string, OnValueChangeListener<any>[]> = {}
 
   getItem<V>(key: T) {
