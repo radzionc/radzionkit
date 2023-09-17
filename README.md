@@ -1,27 +1,38 @@
 # ReactKit
 
-ReactKit is an ultimate component system with the following benefits:
+Welcome to ReactKit, your go-to solution for rapid development with React. ReactKit offers a comprehensive set of abstract building blocks, a rich library of beautiful components, a minimalistic color system, and flexible dark and light themes to empower your projects. With ReactKit, you have complete control over your code, making it a versatile choice for your next venture. Plus, it's set up as a monorepo, allowing you to effortlessly add new apps and packages as your project evolves.
 
-- lots of abstract building blocks for faster development
-- a vast range of beautiful components
-- minimalistic color system
-- dark and light themes
-- you have complete control over the code
+Check out our live showcase at [reactkit.radzion.com](https://reactkit.radzion.com) and explore our [YouTube channel](https://www.youtube.com/@radzion)for in-depth tutorials and insights into ReactKit's implementation.
 
-You can see all the components in action at [reactkit.radzion.com](https://reactkit.radzion.com). There is also a [YouTube channel](https://www.youtube.com/@radzion), covering almost every piece of ReactKit, explaining implementation and reasoning behind it.
+## Getting Started with ReactKit
 
-## How to start a new project with ReactKit
+1. **Use ReactKit as a Template**: Begin by clicking the "Use this template" button on GitHub. This action will create a new monorepo with Yarn workspaces, giving you a solid foundation for your project.
 
-1. Use ReactKit as a template by clicking "Use this template" button on GitHub. This will create a new monorepo with Yarn workspaces.
+2. **Choose a Starter**:
 
-2. Choose a starter for your project:
+- **Use the app Folder**: If you want to start with a fully functional Next.js app, check out the `app` folder. It powers [reactkit.radzion.com](https://reactkit.radzion.com) and showcases all the available components. To maintain the showcase, you can duplicate the `app` folder and rename it to `demo`.
 
-- Use the `app` folder as a starting point for your project. It's a NextJS app that powers [reactkit.radzion.com](https://reactkit.radzion.com) and showcasing all the components. To keep the showcase you can duplicate the `app`, and rename it to your project name.
-- Create a new NextJS app by following [these instructions](#how-to-add-a-nextjs-app-in-reactkit-monorepo).
+- **Create a New Next.js App**: Alternatively, you can create a fresh Next.js app by following the instructions in the [following section](<(#how-to-add-a-nextjs-app-in-reactkit-monorepo).>).
 
-3. Find all mentions of `reactkit` and replace them with your project name.
+- Create a new NextJS app by following [these instructions](#adding-a-next.js-app-to-reactkit-monorepo).
 
-## How to add a NextJS app to ReactKit monorepo
+3. **Customize Your Project**: Search for all instances of `reactkit` in your codebase and replace them with your project's name. This step ensures that your project is uniquely yours.
+
+## Integrating ReactKit UI & Utils Packages
+
+### Adding ReactKit UI & Utils to Your Monorepo
+
+1. Copy the `ui` folder from ReactKit's monorepo to your project.
+2. Copy the `utils` folder from ReactKit's monorepo to your project.
+3. Replace all instances of `reactkit` in your codebase with your project's name.
+
+### Using ReactKit in a Non-Monorepo Project
+
+1. Copy the code from the `ui` folder in ReactKit's monorepo to your project.
+2. Copy the code from the `utils` folder in ReactKit's monorepo to your project.
+3. Replace all instances of `@reactkit/utils` with the path to your `utils` folder within your project.
+
+## Adding a Next.js App to ReactKit Monorepo
 
 1. Create a project
 

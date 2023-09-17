@@ -1,5 +1,5 @@
-import { Point } from '@reactkit/ui/entities/Point'
 import { degreesToRadians } from '@reactkit/utils/degreesToRadians'
+import { Point } from '../../entities/Point'
 
 export const getPointOnCircle = (
   radius: number,
