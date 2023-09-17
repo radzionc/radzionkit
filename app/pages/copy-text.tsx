@@ -1,16 +1,11 @@
-import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import { CopyText } from '@reactkit/ui/ui/CopyText'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
-const CopyTextPage: NextPage = () => {
+export default makeDemoPage(() => {
   return (
-    <Navigation>
-      <DemoPage youtubeVideoId="sUKTden0DSI" title="Copy Text">
-        <CopyText content="https://increaser.org">Increaser URL</CopyText>
-      </DemoPage>
-    </Navigation>
+    <DemoPage youtubeVideoId="sUKTden0DSI" title="Copy Text">
+      <CopyText content="https://increaser.org">Increaser URL</CopyText>
+    </DemoPage>
   )
-}
-
-export default CopyTextPage
+})

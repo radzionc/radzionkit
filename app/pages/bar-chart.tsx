@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import { useMemo, useState } from 'react'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
@@ -11,7 +10,7 @@ import { formatDuration } from '@reactkit/utils/time/formatDuration'
 import { sum } from '@reactkit/utils/array/sum'
 import { useTheme } from 'styled-components'
 import { BarChart } from '@reactkit/ui/ui/BarChart'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
 const statsViews = ['days', 'weeks', 'months'] as const
 type StatsView = (typeof statsViews)[number]
@@ -102,7 +101,7 @@ const viewData: Record<StatsView, StatsViewDataPoint[]> = {
   ],
 }
 
-const BarChartPage: NextPage = () => {
+export default makeDemoPage(() => {
   const [view, setView] = useState<StatsView>('weeks')
 
   const data = viewData[view]
@@ -120,59 +119,55 @@ const BarChartPage: NextPage = () => {
   }, [data])
 
   return (
-    <Navigation>
-      <DemoPage title="Bar chart" youtubeVideoId="z8YB2jiJG_4">
-        <Panel style={{ width: 520 }} kind="secondary">
-          <VStack gap={28}>
-            <HStack
-              justifyContent="space-between"
-              fullWidth
-              alignItems="center"
-              gap={16}
-              wrap="wrap"
-            >
-              <TabNavigation
-                views={statsViews}
-                getViewName={capitalizeFirstLetter}
-                activeView={view}
-                onSelect={setView}
-                groupName="stats"
-              />
-              <LabeledValue name="Previous avg">
-                <Text weight="semibold" as="div">
-                  {previousAvg}
-                </Text>
-              </LabeledValue>
-            </HStack>
-
-            <BarChart
-              height={160}
-              items={data.map(({ value, label, isCurrent }) => {
-                return {
-                  value,
-                  label: (
-                    <Text color={isCurrent ? 'contrast' : undefined}>
-                      {label}
-                    </Text>
-                  ),
-                  color: isCurrent ? colors.primary : colors.mist,
-
-                  renderValue:
-                    value > 0
-                      ? () => (
-                          <Text color={isCurrent ? 'contrast' : undefined}>
-                            {formatDuration(value, 's')}
-                          </Text>
-                        )
-                      : undefined,
-                }
-              })}
+    <DemoPage title="Bar chart" youtubeVideoId="z8YB2jiJG_4">
+      <Panel style={{ width: 520 }} kind="secondary">
+        <VStack gap={28}>
+          <HStack
+            justifyContent="space-between"
+            fullWidth
+            alignItems="center"
+            gap={16}
+            wrap="wrap"
+          >
+            <TabNavigation
+              views={statsViews}
+              getViewName={capitalizeFirstLetter}
+              activeView={view}
+              onSelect={setView}
+              groupName="stats"
             />
-          </VStack>
-        </Panel>
-      </DemoPage>
-    </Navigation>
-  )
-}
+            <LabeledValue name="Previous avg">
+              <Text weight="semibold" as="div">
+                {previousAvg}
+              </Text>
+            </LabeledValue>
+          </HStack>
 
-export default BarChartPage
+          <BarChart
+            height={160}
+            items={data.map(({ value, label, isCurrent }) => {
+              return {
+                value,
+                label: (
+                  <Text color={isCurrent ? 'contrast' : undefined}>
+                    {label}
+                  </Text>
+                ),
+                color: isCurrent ? colors.primary : colors.mist,
+
+                renderValue:
+                  value > 0
+                    ? () => (
+                        <Text color={isCurrent ? 'contrast' : undefined}>
+                          {formatDuration(value, 's')}
+                        </Text>
+                      )
+                    : undefined,
+              }
+            })}
+          />
+        </VStack>
+      </Panel>
+    </DemoPage>
+  )
+})

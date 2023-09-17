@@ -1,17 +1,9 @@
 import { padWithZero } from '../padWithZero'
-import { H_IN_DAY, MIN_IN_HOUR, MS_IN_MIN, S_IN_HOUR, S_IN_MIN } from '.'
-
-type DurationUnit = 'ms' | 'min' | 's' | 'h'
-
-const unitsInMinute: Record<DurationUnit, number> = {
-  ms: MS_IN_MIN,
-  min: 1,
-  h: 1 / MIN_IN_HOUR,
-  s: S_IN_MIN,
-}
+import { H_IN_DAY, MIN_IN_HOUR, S_IN_HOUR, S_IN_MIN } from '.'
+import { DurationUnit, convertDuration } from './convertDuration'
 
 export const formatDuration = (duration: number, unit: DurationUnit) => {
-  const minutes = Math.round(duration / unitsInMinute[unit])
+  const minutes = Math.round(convertDuration(duration, unit, 'min'))
 
   if (minutes < MIN_IN_HOUR) return `${minutes}m`
 

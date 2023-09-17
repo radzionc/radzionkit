@@ -1,16 +1,11 @@
-import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import { WorkBudgetForm } from 'components/WorkBudgetForm'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
-const SliderPage: NextPage = () => {
+export default makeDemoPage(() => {
   return (
-    <Navigation>
-      <DemoPage youtubeVideoId="HqfFtOh8_50" title="Slider">
-        <WorkBudgetForm />
-      </DemoPage>
-    </Navigation>
+    <DemoPage youtubeVideoId="HqfFtOh8_50" title="Slider">
+      <WorkBudgetForm />
+    </DemoPage>
   )
-}
-
-export default SliderPage
+})

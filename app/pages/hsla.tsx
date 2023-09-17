@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import { VStack } from '@reactkit/ui/ui/Stack'
 import {
@@ -14,7 +13,7 @@ import { SameWidthChildrenRow } from '@reactkit/ui/ui/Layout/SameWidthChildrenRo
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { CopyText } from '@reactkit/ui/ui/CopyText'
 import { SeparatedByLine } from '@reactkit/ui/ui/SeparatedByLine'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
 const colorParameterName: Record<HSLAParameter, string> = {
   h: 'Hue',
@@ -54,56 +53,52 @@ const Preview = styled(Panel)`
   display: flex;
 `
 
-const HSLAPage: NextPage = () => {
+export default makeDemoPage(() => {
   const { colors } = useTheme()
   const [value, setValue] = useState(colors.primary)
 
   return (
-    <Navigation>
-      <DemoPage title="HSLA" youtubeVideoId="f3_TYR-8Sd8">
-        <SameWidthChildrenRow minChildrenWidth={320} fullWidth gap={40}>
-          <SeparatedByLine gap={40}>
-            <VStack gap={20}>
-              {hslaKeys.map((key) => (
-                <InputContainer key={key}>
-                  <Text>{colorParameterName[key]}</Text>
-                  <ColorParameterInput
-                    onChange={(parameter) => {
-                      setValue(
-                        value.getVariant({ [key]: () => parameter.toFixed(2) }),
-                      )
-                    }}
-                    value={value[key]}
-                    getColor={(param) =>
-                      value.getVariant({ [key]: () => param }).toCssValue()
-                    }
-                    max={hslaParamMaxValue[key]}
-                    step={colorParameterStep[key]}
-                  />
-                  <Text weight="bold">
-                    {formatColorParameter[key](value[key])}
-                  </Text>
-                </InputContainer>
-              ))}
-            </VStack>
+    <DemoPage title="HSLA" youtubeVideoId="f3_TYR-8Sd8">
+      <SameWidthChildrenRow minChildrenWidth={320} fullWidth gap={40}>
+        <SeparatedByLine gap={40}>
+          <VStack gap={20}>
+            {hslaKeys.map((key) => (
+              <InputContainer key={key}>
+                <Text>{colorParameterName[key]}</Text>
+                <ColorParameterInput
+                  onChange={(parameter) => {
+                    setValue(
+                      value.getVariant({ [key]: () => parameter.toFixed(2) }),
+                    )
+                  }}
+                  value={value[key]}
+                  getColor={(param) =>
+                    value.getVariant({ [key]: () => param }).toCssValue()
+                  }
+                  max={hslaParamMaxValue[key]}
+                  step={colorParameterStep[key]}
+                />
+                <Text weight="bold">
+                  {formatColorParameter[key](value[key])}
+                </Text>
+              </InputContainer>
+            ))}
+          </VStack>
 
-            <CopyText
-              style={{ textAlign: 'end' }}
-              weight="bold"
-              content={value.toCssValue()}
-            >
-              {value.toCssValue()}
-            </CopyText>
-          </SeparatedByLine>
-          <Preview
-            style={{
-              background: value.toCssValue(),
-            }}
-          />
-        </SameWidthChildrenRow>
-      </DemoPage>
-    </Navigation>
+          <CopyText
+            style={{ textAlign: 'end' }}
+            weight="bold"
+            content={value.toCssValue()}
+          >
+            {value.toCssValue()}
+          </CopyText>
+        </SeparatedByLine>
+        <Preview
+          style={{
+            background: value.toCssValue(),
+          }}
+        />
+      </SameWidthChildrenRow>
+    </DemoPage>
   )
-}
-
-export default HSLAPage
+})

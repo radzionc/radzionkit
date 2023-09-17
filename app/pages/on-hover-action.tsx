@@ -1,5 +1,3 @@
-import type { NextPage } from 'next'
-
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
@@ -16,7 +14,7 @@ import { PauseIcon } from '@reactkit/ui/ui/icons/PauseIcon'
 import { PlayIcon } from '@reactkit/ui/ui/icons/PlayIcon'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
 import { UnstyledButton } from '@reactkit/ui/ui/buttons/UnstyledButton'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
 const options = [
   'Lofi jazz study music',
@@ -86,86 +84,80 @@ const Star = styled(StarIcon)<{ $color: HSLA }>`
   color: ${({ $color }) => $color.toCssValue()};
 `
 
-const OnHoverActionPage: NextPage = () => {
+export default makeDemoPage(() => {
   const [favourites, setFavourites] = useState<number[]>([])
   const { colors } = useTheme()
   const [activeItem, setActiveItem] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
 
   return (
-    <Navigation>
-      <DemoPage youtubeVideoId="35XAA5Hgag0" title="On hover action">
-        <Panel style={{ padding: 0 }} kind="secondary">
-          <VStack>
-            {options.map((option, index) => {
-              const isFavourite = favourites.includes(index)
-              const isActive = activeItem === index
+    <DemoPage youtubeVideoId="35XAA5Hgag0" title="On hover action">
+      <Panel style={{ padding: 0 }} kind="secondary">
+        <VStack>
+          {options.map((option, index) => {
+            const isFavourite = favourites.includes(index)
+            const isActive = activeItem === index
 
-              const star = (
-                <Star
-                  $color={isFavourite ? colors.idle : colors.textSupporting}
-                />
-              )
+            const star = (
+              <Star
+                $color={isFavourite ? colors.idle : colors.textSupporting}
+              />
+            )
 
-              return (
-                <OnHoverAction
-                  key={index}
-                  actionPlacerStyles={{ right: 8 }}
-                  action={
-                    <IconButton
-                      title={
-                        isFavourite ? 'Remove from favourites' : 'Favourite'
+            return (
+              <OnHoverAction
+                key={index}
+                actionPlacerStyles={{ right: 8 }}
+                action={
+                  <IconButton
+                    title={isFavourite ? 'Remove from favourites' : 'Favourite'}
+                    icon={star}
+                    onClick={() => {
+                      setFavourites(
+                        isFavourite
+                          ? favourites.filter((i) => i !== index)
+                          : [...favourites, index],
+                      )
+                    }}
+                  />
+                }
+                render={({ actionSize, actionPlacerStyles }) => (
+                  <Container
+                    style={{ padding: actionPlacerStyles.right }}
+                    onClick={() => {
+                      setActiveItem(index)
+                      if (isActive) {
+                        setIsPlaying(!isPlaying)
                       }
-                      icon={star}
-                      onClick={() => {
-                        setFavourites(
-                          isFavourite
-                            ? favourites.filter((i) => i !== index)
-                            : [...favourites, index],
-                        )
-                      }}
-                    />
-                  }
-                  render={({ actionSize, actionPlacerStyles }) => (
-                    <Container
-                      style={{ padding: actionPlacerStyles.right }}
-                      onClick={() => {
-                        setActiveItem(index)
-                        if (isActive) {
-                          setIsPlaying(!isPlaying)
-                        }
-                      }}
+                    }}
+                  >
+                    <Identifier>
+                      {!isActive && <SoundNumber>{index + 1}.</SoundNumber>}
+                      <PlayIndicator isActive={isActive}>
+                        {isActive && isPlaying ? <PauseIcon /> : <PlayIcon />}
+                      </PlayIndicator>
+                    </Identifier>
+                    <Text
+                      style={{ maxWidth: '100%' }}
+                      cropped
+                      color={isActive ? 'regular' : undefined}
                     >
-                      <Identifier>
-                        {!isActive && <SoundNumber>{index + 1}.</SoundNumber>}
-                        <PlayIndicator isActive={isActive}>
-                          {isActive && isPlaying ? <PauseIcon /> : <PlayIcon />}
-                        </PlayIndicator>
-                      </Identifier>
-                      <Text
-                        style={{ maxWidth: '100%' }}
-                        cropped
-                        color={isActive ? 'regular' : undefined}
-                      >
-                        {option}
-                      </Text>
-                      <VStack
-                        style={actionSize}
-                        alignItems="center"
-                        justifyContent="center"
-                      >
-                        {isFavourite && star}
-                      </VStack>
-                    </Container>
-                  )}
-                />
-              )
-            })}
-          </VStack>
-        </Panel>
-      </DemoPage>
-    </Navigation>
+                      {option}
+                    </Text>
+                    <VStack
+                      style={actionSize}
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                      {isFavourite && star}
+                    </VStack>
+                  </Container>
+                )}
+              />
+            )
+          })}
+        </VStack>
+      </Panel>
+    </DemoPage>
   )
-}
-
-export default OnHoverActionPage
+})

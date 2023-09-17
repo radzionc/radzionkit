@@ -1,19 +1,14 @@
-import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
 import { EmojiInput } from 'components/EmojiInput'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
-const EmojiInputPage: NextPage = () => {
+export default makeDemoPage(() => {
   const [value, setValue] = useState('👍')
 
   return (
-    <Navigation>
-      <DemoPage youtubeVideoId="sSGxGmUx00g" title="Emoji Input">
-        <EmojiInput value={value} onChange={setValue} />
-      </DemoPage>
-    </Navigation>
+    <DemoPage youtubeVideoId="sSGxGmUx00g" title="Emoji Input">
+      <EmojiInput value={value} onChange={setValue} />
+    </DemoPage>
   )
-}
-
-export default EmojiInputPage
+})

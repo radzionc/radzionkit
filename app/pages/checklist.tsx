@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
 import { VStack } from '@reactkit/ui/ui/Stack'
@@ -7,7 +6,7 @@ import { Opener } from '@reactkit/ui/ui/Opener'
 import { AddChecklistItemPrompt } from '@reactkit/ui/ui/checklist/AddChecklistItemPrompt'
 import { ChecklistItemForm } from '@reactkit/ui/ui/checklist/ChecklistItemForm'
 import { updateAtIndex } from '@reactkit/utils/array/updateAtIndex'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
 interface Task {
   name: string
@@ -20,51 +19,47 @@ const defaultTasks: Task[] = [
   { name: 'Walk the dog', isComplete: false },
 ]
 
-const ChecklistPage: NextPage = () => {
+export default makeDemoPage(() => {
   const [tasks, setTasks] = useState(defaultTasks)
 
   return (
-    <Navigation>
-      <DemoPage youtubeVideoId="kQERG9bauxY" title="Checklist">
-        <VStack gap={16}>
-          {tasks.map(({ name, isComplete }, index) => (
-            <ChecklistItem
-              key={index}
-              value={isComplete}
-              onChange={(value) => {
-                setTasks(
-                  updateAtIndex(tasks, index, (task) => ({
-                    ...task,
-                    isComplete: value,
-                  })),
-                )
-              }}
-              name={name}
-            />
-          ))}
-          <Opener
-            renderOpener={({ isOpen, onOpen }) =>
-              isOpen ? null : (
-                <AddChecklistItemPrompt onClick={onOpen}>
-                  Add task
-                </AddChecklistItemPrompt>
+    <DemoPage youtubeVideoId="kQERG9bauxY" title="Checklist">
+      <VStack gap={16}>
+        {tasks.map(({ name, isComplete }, index) => (
+          <ChecklistItem
+            key={index}
+            value={isComplete}
+            onChange={(value) => {
+              setTasks(
+                updateAtIndex(tasks, index, (task) => ({
+                  ...task,
+                  isComplete: value,
+                })),
               )
-            }
-            renderContent={({ onClose }) => (
-              <ChecklistItemForm
-                namePlaceholder="Enter task name"
-                onSubmit={({ name }) => {
-                  setTasks([...tasks, { name, isComplete: false }])
-                  onClose()
-                }}
-                onCancel={onClose}
-              />
-            )}
+            }}
+            name={name}
           />
-        </VStack>
-      </DemoPage>
-    </Navigation>
+        ))}
+        <Opener
+          renderOpener={({ isOpen, onOpen }) =>
+            isOpen ? null : (
+              <AddChecklistItemPrompt onClick={onOpen}>
+                Add task
+              </AddChecklistItemPrompt>
+            )
+          }
+          renderContent={({ onClose }) => (
+            <ChecklistItemForm
+              namePlaceholder="Enter task name"
+              onSubmit={({ name }) => {
+                setTasks([...tasks, { name, isComplete: false }])
+                onClose()
+              }}
+              onCancel={onClose}
+            />
+          )}
+        />
+      </VStack>
+    </DemoPage>
   )
-}
-
-export default ChecklistPage
+})

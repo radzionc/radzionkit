@@ -1,18 +1,23 @@
 import type { AppProps } from 'next/app'
-import { useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import { GlobalStyle } from '@reactkit/ui/ui/GlobalStyle'
 import { ThemeProvider } from 'ui/ThemeProvider'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Inter } from 'next/font/google'
 import { analytics } from 'analytics'
 import { useRouter } from 'next/router'
+import { Page } from 'components/Page'
 
 const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '500', '600', '800'],
 })
 
-function MyApp({ Component, pageProps }: AppProps) {
+interface MyAppProps extends AppProps {
+  Component: Page
+}
+
+function MyApp({ Component, pageProps }: MyAppProps) {
   const [queryClient] = useState(() => new QueryClient())
 
   const router = useRouter()
@@ -22,11 +27,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     analytics.trackEvent('Visit page', { pathname })
   }, [pathname])
 
+  const getLayout = Component.getLayout || ((page: ReactNode) => page)
+  const component = getLayout(<Component {...pageProps} />)
+
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <GlobalStyle fontFamily={inter.style.fontFamily} />
-        <Component {...pageProps} />
+        {component}
       </ThemeProvider>
     </QueryClientProvider>
   )

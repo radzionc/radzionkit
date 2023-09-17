@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import styled from 'styled-components'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
@@ -6,7 +5,7 @@ import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import { PressTracker } from '@reactkit/ui/ui/PressTracker'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
 import { toPercents } from '@reactkit/utils/toPercents'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
 const Container = styled(Panel)`
   ${sameDimensions(320)}
@@ -17,27 +16,23 @@ const Highlight = styled.div`
   background: ${getColor('primary')};
 `
 
-const PressTrackerPage: NextPage = () => {
+export default makeDemoPage(() => {
   return (
-    <Navigation>
-      <DemoPage title="Press Tracker" youtubeVideoId="Gj4Szl5pYFM">
-        <PressTracker
-          render={({ props, position }) => (
-            <Container {...props}>
-              {position && (
-                <Highlight
-                  style={{
-                    width: toPercents(position.x),
-                    height: toPercents(position.y),
-                  }}
-                />
-              )}
-            </Container>
-          )}
-        />
-      </DemoPage>
-    </Navigation>
+    <DemoPage title="Press Tracker" youtubeVideoId="Gj4Szl5pYFM">
+      <PressTracker
+        render={({ props, position }) => (
+          <Container {...props}>
+            {position && (
+              <Highlight
+                style={{
+                  width: toPercents(position.x),
+                  height: toPercents(position.y),
+                }}
+              />
+            )}
+          </Container>
+        )}
+      />
+    </DemoPage>
   )
-}
-
-export default PressTrackerPage
+})

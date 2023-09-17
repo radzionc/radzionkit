@@ -1,17 +1,11 @@
-import type { NextPage } from 'next'
-
 import { DemoPage } from 'components/DemoPage'
 import { Resume } from 'components/Resume'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
-const ResumePage: NextPage = () => {
+export default makeDemoPage(() => {
   return (
-    <Navigation>
-      <DemoPage youtubeVideoId="LyhdaMK7_uU" title="Radzion's Resume">
-        <Resume />
-      </DemoPage>
-    </Navigation>
+    <DemoPage youtubeVideoId="LyhdaMK7_uU" title="Radzion's Resume">
+      <Resume />
+    </DemoPage>
   )
-}
-
-export default ResumePage
+})

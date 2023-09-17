@@ -1,27 +1,22 @@
-import type { NextPage } from 'next'
 import { DistributionBar } from '@reactkit/ui/ui/DistributionBar'
 import { DemoPage } from 'components/DemoPage'
 import { useTheme } from 'styled-components'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
-const DistributionBarPage: NextPage = () => {
+export default makeDemoPage(() => {
   const {
     colors: { getLabelColor },
   } = useTheme()
 
   return (
-    <Navigation>
-      <DemoPage youtubeVideoId="5iF5YOoAdzY" title="DistributionBar">
-        <DistributionBar
-          items={[
-            { value: 100, color: getLabelColor(1) },
-            { value: 200, color: getLabelColor(5) },
-            { value: 300, color: getLabelColor(8) },
-          ]}
-        />
-      </DemoPage>
-    </Navigation>
+    <DemoPage youtubeVideoId="5iF5YOoAdzY" title="DistributionBar">
+      <DistributionBar
+        items={[
+          { value: 100, color: getLabelColor(1) },
+          { value: 200, color: getLabelColor(5) },
+          { value: 300, color: getLabelColor(8) },
+        ]}
+      />
+    </DemoPage>
   )
-}
-
-export default DistributionBarPage
+})

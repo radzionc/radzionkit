@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import { Form } from '@reactkit/ui/ui/Form/Form'
 import { TextInput } from '@reactkit/ui/ui/inputs/TextInput'
 import { Controller, useForm } from 'react-hook-form'
@@ -11,7 +10,6 @@ import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
 import { AmountTextInput } from '@reactkit/ui/ui/inputs/AmountTextInput'
 import { DollarIcon } from '@reactkit/ui/ui/icons/DollarIcon'
 import { Button } from '@reactkit/ui/ui/buttons/Button'
-import { Navigation } from 'navigation'
 
 interface FormShape {
   name: string
@@ -30,7 +28,7 @@ const schema = yup
   })
   .required()
 
-const TextInputPage: NextPage = () => {
+export default () => {
   const {
     handleSubmit,
     register,
@@ -42,53 +40,49 @@ const TextInputPage: NextPage = () => {
   })
 
   return (
-    <Navigation>
-      <DemoPage youtubeVideoId="V3scoHuQ19s" title="Text Input">
-        <Panel width={400}>
-          <TitledSection title="Who are You?">
-            <Form
-              content={
-                <>
-                  <TextInput
-                    label="Full name"
-                    {...register('name')}
-                    error={errors.name?.message}
-                    autoFocus
-                    placeholder="John Johnson"
-                  />
-                  <TextArea
-                    rows={4}
-                    maxLength={bioMaxLength}
-                    label="Bio"
-                    {...register('bio')}
-                    error={errors.bio?.message}
-                    placeholder="I'm a software engineer..."
-                  />
-                  <Controller
-                    control={control}
-                    name="salary"
-                    render={({ field: { onChange, ...props } }) => (
-                      <AmountTextInput
-                        type="number"
-                        error={errors.salary?.message}
-                        label="Salary"
-                        placeholder="Enter amount"
-                        onValueChange={onChange}
-                        unit={<DollarIcon />}
-                        {...props}
-                      />
-                    )}
-                  />
-                </>
-              }
-              onSubmit={handleSubmit(console.log)}
-              actions={<Button size="l">Submit</Button>}
-            />
-          </TitledSection>
-        </Panel>
-      </DemoPage>
-    </Navigation>
+    <DemoPage youtubeVideoId="V3scoHuQ19s" title="Text Input">
+      <Panel width={400}>
+        <TitledSection title="Who are You?">
+          <Form
+            content={
+              <>
+                <TextInput
+                  label="Full name"
+                  {...register('name')}
+                  error={errors.name?.message}
+                  autoFocus
+                  placeholder="John Johnson"
+                />
+                <TextArea
+                  rows={4}
+                  maxLength={bioMaxLength}
+                  label="Bio"
+                  {...register('bio')}
+                  error={errors.bio?.message}
+                  placeholder="I'm a software engineer..."
+                />
+                <Controller
+                  control={control}
+                  name="salary"
+                  render={({ field: { onChange, ...props } }) => (
+                    <AmountTextInput
+                      type="number"
+                      error={errors.salary?.message}
+                      label="Salary"
+                      placeholder="Enter amount"
+                      onValueChange={onChange}
+                      unit={<DollarIcon />}
+                      {...props}
+                    />
+                  )}
+                />
+              </>
+            }
+            onSubmit={handleSubmit(console.log)}
+            actions={<Button size="l">Submit</Button>}
+          />
+        </TitledSection>
+      </Panel>
+    </DemoPage>
   )
 }
-
-export default TextInputPage

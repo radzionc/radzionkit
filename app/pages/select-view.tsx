@@ -1,11 +1,10 @@
-import type { NextPage } from 'next'
 import { getViewSetup } from '@reactkit/ui/view/getViewSetup'
 import styled from 'styled-components'
 import { ViewSelector } from '@reactkit/ui/ui/inputs/Select/ViewSelector'
 import { VStack } from '@reactkit/ui/ui/Stack'
 import { DemoPage } from 'components/DemoPage'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
 export const views = ['primary', 'attention'] as const
 export type View = (typeof views)[number]
@@ -42,24 +41,20 @@ const AttentionView = styled(Panel)`
   background: ${({ theme }) => theme.colors.alert.toCssValue()};
 `
 
-const SelectViewPage: NextPage = () => {
+export default makeDemoPage(() => {
   return (
-    <Navigation>
-      <DemoPage youtubeVideoId="aSiTQifBsAc" title="Select View">
-        <Panel width={320}>
-          <ViewProvider>
-            <VStack fullWidth gap={20}>
-              <Selector />
-              <RenderView
-                attention={() => <AttentionView />}
-                primary={() => <PrimaryView />}
-              />
-            </VStack>
-          </ViewProvider>
-        </Panel>
-      </DemoPage>
-    </Navigation>
+    <DemoPage youtubeVideoId="aSiTQifBsAc" title="Select View">
+      <Panel width={320}>
+        <ViewProvider>
+          <VStack fullWidth gap={20}>
+            <Selector />
+            <RenderView
+              attention={() => <AttentionView />}
+              primary={() => <PrimaryView />}
+            />
+          </VStack>
+        </ViewProvider>
+      </Panel>
+    </DemoPage>
   )
-}
-
-export default SelectViewPage
+})

@@ -1,16 +1,11 @@
-import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import { CuratedHabits } from 'components/CuratedHabits'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
-const NestedFilterPage: NextPage = () => {
+export default makeDemoPage(() => {
   return (
-    <Navigation>
-      <DemoPage title="Nested Filter">
-        <CuratedHabits />
-      </DemoPage>
-    </Navigation>
+    <DemoPage title="Nested Filter" youtubeVideoId="Atk9g-KT144">
+      <CuratedHabits />
+    </DemoPage>
   )
-}
-
-export default NestedFilterPage
+})

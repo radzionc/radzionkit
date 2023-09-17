@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import { Text } from '@reactkit/ui/ui/Text'
 import { useInfiniteQuery } from 'react-query'
 import { range } from '@reactkit/utils/array/range'
@@ -7,7 +6,7 @@ import { usePaginatedResultItems } from '@reactkit/ui/query/hooks/usePaginatedRe
 import { TableLayout } from '@reactkit/ui/ui/TableLayout'
 import { Fragment } from 'react'
 import { DemoPage } from 'components/DemoPage'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
 interface QueryItemsParams {
   startAt: number
@@ -34,7 +33,7 @@ const queryItems = async ({ startAt = 0 }: QueryItemsParams) => {
   }
 }
 
-const InfiniteScrollPage: NextPage = () => {
+export default makeDemoPage(() => {
   const {
     data,
     isLoading,
@@ -62,31 +61,27 @@ const InfiniteScrollPage: NextPage = () => {
   const noItems = isFetched && items.length < 1
 
   return (
-    <Navigation>
-      <DemoPage title="Infinite Scroll" youtubeVideoId="mZfDvfs2GtI">
-        <TableLayout
-          gridTemplateColumns="120px 80px"
-          columnNames={['Name', 'Price']}
+    <DemoPage title="Infinite Scroll" youtubeVideoId="mZfDvfs2GtI">
+      <TableLayout
+        gridTemplateColumns="120px 80px"
+        columnNames={['Name', 'Price']}
+      >
+        <PaginatedView
+          onRequestToLoadMore={fetchNextPage}
+          isLoading={isLoading || isFetchingNextPage}
         >
-          <PaginatedView
-            onRequestToLoadMore={fetchNextPage}
-            isLoading={isLoading || isFetchingNextPage}
-          >
-            {noItems && isIdle ? (
-              <Text>No items 😴</Text>
-            ) : (
-              items.map(({ name, price }) => (
-                <Fragment key={name}>
-                  <Text>{name}</Text>
-                  <Text color="supporting">${price}</Text>
-                </Fragment>
-              ))
-            )}
-          </PaginatedView>
-        </TableLayout>
-      </DemoPage>
-    </Navigation>
+          {noItems && isIdle ? (
+            <Text>No items 😴</Text>
+          ) : (
+            items.map(({ name, price }) => (
+              <Fragment key={name}>
+                <Text>{name}</Text>
+                <Text color="supporting">${price}</Text>
+              </Fragment>
+            ))
+          )}
+        </PaginatedView>
+      </TableLayout>
+    </DemoPage>
   )
-}
-
-export default InfiniteScrollPage
+})

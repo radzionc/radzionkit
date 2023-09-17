@@ -1,11 +1,10 @@
-import type { NextPage } from 'next'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { ElementSizeAware } from '@reactkit/ui/ui/ElementSizeAware'
 import { SelectOption } from '@reactkit/ui/ui/inputs/Select/SelectOption'
 import { VStack } from '@reactkit/ui/ui/Stack'
 import { DemoPage } from 'components/DemoPage'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
 export const focusOptions = [
   15,
@@ -38,36 +37,32 @@ const SelectContainer = styled.div<{ isSmallScreen: boolean }>`
   }
 `
 
-const ButtonPage: NextPage = () => {
+export default makeDemoPage(() => {
   const [focusDuration, setFocusDuration] = useState<FocusDuration>(25)
 
   return (
-    <Navigation>
-      <DemoPage youtubeVideoId="o7V3vaIH7rM" title="Select">
-        <ElementSizeAware
-          render={({ setElement, size }) => (
-            <VStack alignItems="start" fullWidth ref={setElement}>
-              {size && (
-                <SelectContainer isSmallScreen={size.width < 400}>
-                  {focusOptions.map((option) => (
-                    <SelectOption
-                      groupName="focus-duration"
-                      isSelected={focusDuration === option}
-                      key={option}
-                      value={option}
-                      onSelect={() => setFocusDuration(option)}
-                    >
-                      {option === 'infinite' ? 'stopwatch' : option}
-                    </SelectOption>
-                  ))}
-                </SelectContainer>
-              )}
-            </VStack>
-          )}
-        />
-      </DemoPage>
-    </Navigation>
+    <DemoPage youtubeVideoId="o7V3vaIH7rM" title="Select">
+      <ElementSizeAware
+        render={({ setElement, size }) => (
+          <VStack alignItems="start" fullWidth ref={setElement}>
+            {size && (
+              <SelectContainer isSmallScreen={size.width < 400}>
+                {focusOptions.map((option) => (
+                  <SelectOption
+                    groupName="focus-duration"
+                    isSelected={focusDuration === option}
+                    key={option}
+                    value={option}
+                    onSelect={() => setFocusDuration(option)}
+                  >
+                    {option === 'infinite' ? 'stopwatch' : option}
+                  </SelectOption>
+                ))}
+              </SelectContainer>
+            )}
+          </VStack>
+        )}
+      />
+    </DemoPage>
   )
-}
-
-export default ButtonPage
+})

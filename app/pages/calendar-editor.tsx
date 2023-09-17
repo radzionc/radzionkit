@@ -1,19 +1,14 @@
-import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import { CalendarEditor } from 'components/CalendarEditor/CalendarEditor'
 import { ClientOnly } from '@reactkit/ui/ui/ClientOnly'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
-const CalendarEditorPage: NextPage = () => {
+export default makeDemoPage(() => {
   return (
-    <Navigation>
-      <DemoPage youtubeVideoId="sBfDwymJWw0" title="Calendar Editor">
-        <ClientOnly>
-          <CalendarEditor />
-        </ClientOnly>
-      </DemoPage>
-    </Navigation>
+    <DemoPage youtubeVideoId="sBfDwymJWw0" title="Calendar Editor">
+      <ClientOnly>
+        <CalendarEditor />
+      </ClientOnly>
+    </DemoPage>
   )
-}
-
-export default CalendarEditorPage
+})

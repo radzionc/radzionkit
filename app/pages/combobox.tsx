@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import { Form } from '@reactkit/ui/ui/Form/Form'
 import { TextInput } from '@reactkit/ui/ui/inputs/TextInput'
 import { Controller, useForm } from 'react-hook-form'
@@ -11,7 +10,7 @@ import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
 import { FixedOptionsInput } from '@reactkit/ui/ui/inputs/Combobox/FixedOptionsInput'
 import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
 import { Button } from '@reactkit/ui/ui/buttons/Button'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
 interface FormShape {
   name: string
@@ -25,7 +24,7 @@ const schema: yup.SchemaOf<FormShape> = yup
   })
   .required()
 
-const ComboboxPage: NextPage = () => {
+export default makeDemoPage(() => {
   const {
     handleSubmit,
     register,
@@ -40,59 +39,55 @@ const ComboboxPage: NextPage = () => {
   })
 
   return (
-    <Navigation>
-      <DemoPage title="Combobox" youtubeVideoId="iZGQE3-pqpg">
-        <Panel width={400}>
-          <TitledSection title="Who are You?">
-            <Form
-              content={
-                <>
-                  <TextInput
-                    label="Full name"
-                    {...register('name')}
-                    error={errors.name?.message}
-                    autoFocus
-                    placeholder="John Johnson"
-                  />
-                  <Controller
-                    control={control}
-                    name="languages"
-                    render={({ field: { value, onChange, ref } }) => (
-                      <LanguagesInput
-                        value={value}
-                        onChange={onChange}
-                        ref={ref}
-                        error={errors.languages?.message}
-                      />
-                    )}
-                  />
-                  <FixedOptionsInput
-                    label="Loading example"
-                    isLoading
-                    placeholder="Languages"
-                    value={null}
-                    onChange={() => {}}
-                    options={['one', 'two', 'three']}
-                    optionToString={capitalizeFirstLetter}
-                  />
-                  <FixedOptionsInput
-                    label="No options example"
-                    placeholder="Languages"
-                    value={null}
-                    onChange={() => {}}
-                    options={[]}
-                    optionToString={capitalizeFirstLetter}
-                  />
-                </>
-              }
-              onSubmit={handleSubmit(console.log)}
-              actions={<Button size="l">Submit</Button>}
-            />
-          </TitledSection>
-        </Panel>
-      </DemoPage>
-    </Navigation>
+    <DemoPage title="Combobox" youtubeVideoId="iZGQE3-pqpg">
+      <Panel width={400}>
+        <TitledSection title="Who are You?">
+          <Form
+            content={
+              <>
+                <TextInput
+                  label="Full name"
+                  {...register('name')}
+                  error={errors.name?.message}
+                  autoFocus
+                  placeholder="John Johnson"
+                />
+                <Controller
+                  control={control}
+                  name="languages"
+                  render={({ field: { value, onChange, ref } }) => (
+                    <LanguagesInput
+                      value={value}
+                      onChange={onChange}
+                      ref={ref}
+                      error={errors.languages?.message}
+                    />
+                  )}
+                />
+                <FixedOptionsInput
+                  label="Loading example"
+                  isLoading
+                  placeholder="Languages"
+                  value={null}
+                  onChange={() => {}}
+                  options={['one', 'two', 'three']}
+                  optionToString={capitalizeFirstLetter}
+                />
+                <FixedOptionsInput
+                  label="No options example"
+                  placeholder="Languages"
+                  value={null}
+                  onChange={() => {}}
+                  options={[]}
+                  optionToString={capitalizeFirstLetter}
+                />
+              </>
+            }
+            onSubmit={handleSubmit(console.log)}
+            actions={<Button size="l">Submit</Button>}
+          />
+        </TitledSection>
+      </Panel>
+    </DemoPage>
   )
-}
-
-export default ComboboxPage
+})

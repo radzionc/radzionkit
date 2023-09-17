@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import { DemoPage } from 'components/DemoPage'
 import { range } from '@reactkit/utils/array/range'
 import { VStack } from '@reactkit/ui/ui/Stack'
@@ -8,36 +7,32 @@ import { ImageHolder } from '@reactkit/ui/ui/images/ImageHolder'
 import { SafeImage } from '@reactkit/ui/ui/SafeImage'
 import { CoverImage } from '@reactkit/ui/ui/images/CoverImage'
 import { SameWidthChildrenRow } from '@reactkit/ui/ui/Layout/SameWidthChildrenRow'
-import { Navigation } from 'navigation'
+import { makeDemoPage } from 'layout/makeDemoPage'
 
-const ImagesPage: NextPage = () => {
+export default makeDemoPage(() => {
   return (
-    <Navigation>
-      <DemoPage youtubeVideoId="vGJcbhz9uKY" title="Images">
-        <SameWidthChildrenRow fullWidth minChildrenWidth={300} gap={40}>
-          {range(50).map((index) => (
-            <VStack alignItems="center" key={index} gap={8}>
-              <Text color="supporting" weight="bold" size={20}>
-                Image #{index + 1}
-              </Text>
-              <IntersectionAware<HTMLDivElement>
-                render={({ ref, wasIntersected }) => (
-                  <ImageHolder ref={ref} width={240} height={360}>
-                    {wasIntersected && (
-                      <SafeImage
-                        src={`https://picsum.photos/id/${index}/240/360`}
-                        render={(props) => <CoverImage {...props} />}
-                      />
-                    )}
-                  </ImageHolder>
-                )}
-              />
-            </VStack>
-          ))}
-        </SameWidthChildrenRow>
-      </DemoPage>
-    </Navigation>
+    <DemoPage youtubeVideoId="vGJcbhz9uKY" title="Images">
+      <SameWidthChildrenRow fullWidth minChildrenWidth={300} gap={40}>
+        {range(50).map((index) => (
+          <VStack alignItems="center" key={index} gap={8}>
+            <Text color="supporting" weight="bold" size={20}>
+              Image #{index + 1}
+            </Text>
+            <IntersectionAware<HTMLDivElement>
+              render={({ ref, wasIntersected }) => (
+                <ImageHolder ref={ref} width={240} height={360}>
+                  {wasIntersected && (
+                    <SafeImage
+                      src={`https://picsum.photos/id/${index}/240/360`}
+                      render={(props) => <CoverImage {...props} />}
+                    />
+                  )}
+                </ImageHolder>
+              )}
+            />
+          </VStack>
+        ))}
+      </SameWidthChildrenRow>
+    </DemoPage>
   )
-}
-
-export default ImagesPage
+})
