@@ -16,7 +16,9 @@ Check out our live showcase at [reactkit.radzion.com](https://reactkit.radzion.c
 
 - Create a new NextJS app by following [these instructions](#adding-a-next.js-app-to-reactkit-monorepo).
 
-3. **Customize Your Project**: Search for all instances of `reactkit` in your codebase and replace them with your project's name. This step ensures that your project is uniquely yours.
+3. **Customize Your Project**: Search for all instances of `reactkit` & `ReactKit` in your codebase and replace them with your project's name. This step ensures that your project is uniquely yours.
+
+4. **Run your app**: Run `yarn` in the root of the monorepo to install all dependencies. Then, go to the app folder and run `yarn dev` to start your app.
 
 ## Integrating ReactKit UI & Utils Packages
 
