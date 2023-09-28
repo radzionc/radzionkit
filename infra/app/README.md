@@ -6,7 +6,6 @@ Your environment variables should have the following values:
 export AWS_SECRET_ACCESS_KEY=
 export AWS_ACCESS_KEY_ID=
 export AWS_REGION=
-export AWS_ACCOUNT_ID=
 
 export TF_VAR_bucket_name=
 export TF_VAR_domain=
