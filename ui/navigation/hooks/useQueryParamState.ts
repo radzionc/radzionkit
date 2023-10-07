@@ -6,7 +6,7 @@ const parseValue = <T>(value: any): T => {
   try {
     return JSON.parse(value) as T
   } catch {
-    return value as never as T
+    return value as T
   }
 }
 
