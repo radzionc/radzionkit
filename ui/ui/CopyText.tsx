@@ -39,6 +39,7 @@ export const CopyText = ({ content, children, ...rest }: CopyTextProps) => {
         copy(content)
         setIconToShow('copied')
       }}
+      as="span"
       {...rest}
     >
       {children}
