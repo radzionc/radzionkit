@@ -1,5 +1,5 @@
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { Modal } from '@reactkit/ui/ui/Modal'
+import { Modal } from '@reactkit/ui/modal'
 import { Opener } from '@reactkit/ui/ui/Opener'
 import { HStack, VStack } from '@reactkit/ui/ui/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
@@ -20,22 +20,23 @@ export default makeDemoPage(() => {
               title="Get More Freedom"
               onClose={onClose}
               width={400}
-              renderContent={() => (
-                <VStack gap={20}>
-                  <Text>
-                    👨‍💻 No distractions, only deep work and quality breaks.
-                  </Text>
-                  <Text>💪 Build good habits. Break bad ones.</Text>
-                  <Text>
-                    😌 Efficiency over long hours. More time for life!
-                  </Text>
-                  <Text>☀️ Start work early. Enjoy the evening!</Text>
-                  <ExternalLink to="https://increaser.org">
-                    <Button>Start now</Button>
-                  </ExternalLink>
-                </VStack>
-              )}
-            />
+              footer={
+                <ExternalLink to="https://increaser.org">
+                  <Button size="l" as="div">
+                    Start now
+                  </Button>
+                </ExternalLink>
+              }
+            >
+              <VStack gap={20}>
+                <Text>
+                  👨‍💻 No distractions, only deep work and quality breaks.
+                </Text>
+                <Text>💪 Build good habits. Break bad ones.</Text>
+                <Text>😌 Efficiency over long hours. More time for life!</Text>
+                <Text>☀️ Start work early. Enjoy the evening!</Text>
+              </VStack>
+            </Modal>
           )}
         />
       </HStack>

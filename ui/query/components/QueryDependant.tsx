@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 type QueryStatus = 'idle' | 'error' | 'loading' | 'success'
 
-interface QueryDependantProps<T> {
+export interface QueryDependantProps<T> {
   status: QueryStatus
   data: T | undefined
   error: () => ReactNode
