@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { defaultTransitionCSS } from './animations/transitions'
 import { getColor } from './theme/getters'
 import { UnstyledButton } from './buttons/UnstyledButton'
 import { ComponentProps } from 'react'
 import { absoluteOutline } from '../css/absoluteOutline'
+import { transition } from '../css/transition'
 
 interface HighlightProps {
   horizontalOffset: number | string
@@ -13,7 +13,7 @@ interface HighlightProps {
 
 const Highlight = styled.div<HighlightProps>`
   position: absolute;
-  ${defaultTransitionCSS};
+  ${transition};
   border-radius: 8px;
   ${(props) => absoluteOutline(props.horizontalOffset, props.verticalOffset)}
 `

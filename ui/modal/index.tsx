@@ -15,7 +15,6 @@ import { ModalTitleText } from './ModalTitleText'
 import { ModalContent } from './ModalContent'
 import { ModalCloseButton } from './ModalCloseButton'
 import { stopPropagation } from '../utils/stopPropagation'
-import { preventDefault } from '../utils/preventDefault'
 import { ModalSubTitleText } from './ModalSubTitleText'
 
 export type ModalProps = TitledComponentProps &

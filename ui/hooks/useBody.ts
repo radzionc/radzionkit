@@ -6,7 +6,7 @@ export function useBody() {
 
   useIsomorphicLayoutEffect(() => {
     setBody(document.body as HTMLBodyElement)
-  })
+  }, [])
 
   return body
 }
