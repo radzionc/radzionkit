@@ -35,7 +35,7 @@ export interface InputProps<T> {
 }
 
 export interface TitledComponentProps {
-  title: string
+  title: ReactNode
 }
 
 export interface StyledComponentWithColorProps {
