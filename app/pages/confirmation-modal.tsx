@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
 import { ConfirmationModal } from '@reactkit/ui/modal/ConfirmationModal'
-import { Opener } from '@reactkit/ui/ui/Opener'
+import { Opener } from '@reactkit/ui/base/Opener'
 import { VStack } from '@reactkit/ui/ui/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 import { ShyTextButton } from '@reactkit/ui/ui/buttons/ShyTextButton'

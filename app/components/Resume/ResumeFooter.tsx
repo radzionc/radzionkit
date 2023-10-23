@@ -5,10 +5,10 @@ import { TwitterIcon } from '@reactkit/ui/ui/icons/TwitterIcon'
 import { HStack } from '@reactkit/ui/ui/Stack'
 import { ResumeFooterLink } from './ResumeFooterLink'
 
-const email = 'radzionchachura@gmail.com'
-const twitterHandle = 'radzionchachura'
+const email = 'radzionc@gmail.com'
+const twitterHandle = 'radzionc'
 const githubHandle = 'radzionc'
-const telegramHandle = 'radzionchachura'
+const telegramHandle = 'radzionc'
 
 export const ResumeFooter = () => (
   <HStack alignItems="center" gap={40}>

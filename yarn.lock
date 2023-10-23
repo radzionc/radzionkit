@@ -1421,6 +1421,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@reactkit/entities-utils@workspace:entities-utils":
+  version: 0.0.0-use.local
+  resolution: "@reactkit/entities-utils@workspace:entities-utils"
+  languageName: unknown
+  linkType: soft
+
 "@reactkit/entities@workspace:entities":
   version: 0.0.0-use.local
   resolution: "@reactkit/entities@workspace:entities"

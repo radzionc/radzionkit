@@ -1,19 +1,25 @@
-import styled, { useTheme } from 'styled-components'
-import { defaultTransitionCSS } from '../animations/transitions'
+import styled, { css, useTheme } from 'styled-components'
+
 import { CheckIcon } from '../icons/CheckIcon'
 import { CloseIcon } from '../icons/CloseIcon'
 import { HStack } from '../Stack'
 import { Text } from '../Text'
-import { toSizeUnit } from '../../css/toSizeUnit'
 import { getColor } from '../theme/getters'
-import { centerContent } from '../../css/centerContent'
 import { sameDimensions } from '../../css/sameDimensions'
 import { round } from '../../css/round'
+import { transition } from '../../css/transition'
+import { centerContent } from '../../css/centerContent'
+import { interactive } from '../../css/interactive'
+import { toSizeUnit } from '../../css/toSizeUnit'
+
+type SwitchKind = 'regular' | 'primary'
 
 interface SwitchProps {
   value: boolean
+  kind?: SwitchKind
   onChange: (value: boolean) => void
   label?: string
+  className?: string
 }
 
 const height = 28
@@ -25,7 +31,7 @@ const Control = styled.div`
   ${sameDimensions(controlSize)};
 
   ${round};
-  ${defaultTransitionCSS};
+  ${transition};
 
   ${centerContent};
   color: ${getColor('background')};
@@ -33,13 +39,21 @@ const Control = styled.div`
   font-size: 14px;
 `
 
-const Wrapper = styled(HStack)`
-  cursor: pointer;
-  user-select: none;
+const Wrapper = styled(HStack)<{ kind: SwitchKind }>`
+  ${interactive};
+
+  ${({ kind }) =>
+    kind === 'primary' &&
+    css`
+      padding: 2px;
+      padding-right: 10px;
+      background: ${getColor('background')};
+      border: 1px solid ${getColor('mist')};
+      ${round};
+    `}
 
   color: ${getColor('textSupporting')};
-
-  ${defaultTransitionCSS};
+  ${transition};
 
   :hover {
     color: ${getColor('text')};
@@ -58,10 +72,17 @@ const Container = styled.div`
   align-items: center;
 
   ${round};
-  ${defaultTransitionCSS};
+
+  ${transition};
 `
 
-export const Switch = ({ value, onChange, label }: SwitchProps) => {
+export const Switch = ({
+  value,
+  onChange,
+  label,
+  kind = 'regular',
+  className,
+}: SwitchProps) => {
   const { colors } = useTheme()
   return (
     <Wrapper
@@ -70,6 +91,8 @@ export const Switch = ({ value, onChange, label }: SwitchProps) => {
       alignItems="center"
       gap={8}
       id={label}
+      kind={kind}
+      className={className}
     >
       <Container
         style={{
@@ -84,7 +107,11 @@ export const Switch = ({ value, onChange, label }: SwitchProps) => {
           {value ? <CheckIcon /> : <CloseIcon />}
         </Control>
       </Container>
-      {label && <Text>{label}</Text>}
+      {label && (
+        <Text size={16} weight="semibold">
+          {label}
+        </Text>
+      )}
     </Wrapper>
   )
 }

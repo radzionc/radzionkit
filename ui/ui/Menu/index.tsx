@@ -2,8 +2,8 @@ import { ReactNode } from 'react'
 
 import { PopoverMenu, PopoverMenuProps } from './PopoverMenu'
 import { ResponsiveView } from '../ResponsiveView'
-import { Opener } from '../Opener'
 import { BottomSlideOver } from '../BottomSlideOver'
+import { Opener } from '../../base/Opener'
 
 export type MenuView = 'popover' | 'slideover'
 

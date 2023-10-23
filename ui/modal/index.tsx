@@ -64,7 +64,7 @@ export const Modal = ({
               {subTitle && <ModalSubTitleText>{subTitle}</ModalSubTitleText>}
             </VStack>
             <ModalContent>{children}</ModalContent>
-            <VStack>{footer}</VStack>
+            {footer && <VStack>{footer}</VStack>}
           </ModalContainer>
         </FocusTrap>
       </CompleteMist>

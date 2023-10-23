@@ -20,7 +20,7 @@ export const Resume = () => {
         <VStack gap={8}>
           <HStack alignItems="center" gap={8}>
             <Text weight="bold" color="supporting">
-              Radzion Chachura
+              Radzion
             </Text>
             <StackSeparatedBy
               alignItems="center"
