@@ -1,7 +1,6 @@
 import styled, { useTheme } from 'styled-components'
 import { Menu } from '../Menu'
 import { VStack } from '../Stack'
-import { defaultTransitionCSS } from '../animations/transitions'
 import { defaultBorderRadiusCSS } from '../borderRadius'
 import { CheckIcon } from '../icons/CheckIcon'
 import { getColor } from '../theme/getters'
@@ -14,6 +13,7 @@ import { range } from '@reactkit/utils/array/range'
 import { splitBy } from '@reactkit/utils/array/splitBy'
 import { centerContent } from '../../css/centerContent'
 import { sameDimensions } from '../../css/sameDimensions'
+import { transition } from '../../css/transition'
 
 interface ColorLabelInputProps extends InputProps<number> {
   usedValues?: Set<number>
@@ -38,7 +38,7 @@ const ColorOption = styled.label<StyledComponentWithColorProps>`
   font-size: 32px;
   color: ${getColor('foreground')};
 
-  ${defaultTransitionCSS};
+  ${transition};
 
   :hover {
     background: ${({ $color }) =>

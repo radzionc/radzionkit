@@ -2,7 +2,6 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 
 import { ActionInsideInteractiveElement } from './ActionInsideInteractiveElement'
-import { defaultTransitionCSS } from './animations/transitions'
 import { CloseIcon } from './icons/CloseIcon'
 import { Panel } from './Panel/Panel'
 import { Text } from './Text'
@@ -13,6 +12,7 @@ import { centerContent } from '../css/centerContent'
 import { takeWholeSpaceAbsolutely } from '../css/takeWholeSpaceAbsolutely'
 import { sameDimensions } from '../css/sameDimensions'
 import { interactive } from '../css/interactive'
+import { transition } from '../css/transition'
 
 interface ImageBannerProps {
   onClose: () => void
@@ -26,7 +26,7 @@ const padding = '20px'
 
 const ImagePosition = styled.div`
   ${takeWholeSpaceAbsolutely}
-  ${defaultTransitionCSS}
+  ${transition}
 `
 
 const PositionAction = styled.div`
@@ -34,7 +34,7 @@ const PositionAction = styled.div`
   bottom: ${padding};
   right: ${padding};
   pointer-events: none;
-  ${defaultTransitionCSS}
+  ${transition}
 `
 
 const Content = styled.div`
@@ -77,7 +77,7 @@ const Close = styled(UnstyledButton)`
 
   background: ${getColor('text')};
 
-  ${defaultTransitionCSS};
+  ${transition};
 
   color: ${getColor('background')};
 

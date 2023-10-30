@@ -2,11 +2,11 @@ import { CopyIcon } from './icons/CopyIcon'
 import styled from 'styled-components'
 import { getColor } from './theme/getters'
 import copy from 'copy-to-clipboard'
-import { defaultTransitionCSS } from './animations/transitions'
 import { useState } from 'react'
 import { Match } from '../base/Match'
 import { CheckIcon } from './icons/CheckIcon'
 import { Text } from './Text'
+import { transition } from '../css/transition'
 
 interface CopyTextProps extends React.ComponentProps<typeof Text> {
   content: string
@@ -14,7 +14,7 @@ interface CopyTextProps extends React.ComponentProps<typeof Text> {
 
 const IconWr = styled(Text)`
   margin-left: 4px;
-  ${defaultTransitionCSS};
+  ${transition};
   color: ${getColor('textShy')};
 `
 

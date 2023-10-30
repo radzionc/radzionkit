@@ -1,7 +1,6 @@
 import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 import { HStack } from '../../Stack'
-import { defaultTransitionCSS } from '../../animations/transitions'
 import { CheckIcon } from '../../icons/CheckIcon'
 import { getColor } from '../../theme/getters'
 import {
@@ -11,6 +10,7 @@ import {
 import { Text } from '../../Text'
 import { centerContent } from '../../../css/centerContent'
 import { sameDimensions } from '../../../css/sameDimensions'
+import { transition } from '../../../css/transition'
 
 interface CheckboxProps extends InvisibleHTMLCheckboxProps {
   label?: ReactNode
@@ -24,7 +24,7 @@ const Box = styled.div<{ isChecked: boolean }>`
   border: 2px solid ${getColor('text')};
   color: ${getColor('background')};
 
-  ${defaultTransitionCSS}
+  ${transition}
 
   ${({ isChecked }) =>
     isChecked &&
@@ -38,7 +38,7 @@ const Container = styled(HStack)`
 
   cursor: pointer;
 
-  ${defaultTransitionCSS}
+  ${transition}
 
   :hover {
     color: ${getColor('text')};

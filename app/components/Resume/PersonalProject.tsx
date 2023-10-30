@@ -1,11 +1,11 @@
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { defaultTransitionCSS } from '@reactkit/ui/ui/animations/transitions'
 import { HStack, VStack } from '@reactkit/ui/ui/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 import styled from 'styled-components'
 import { Responsibilities } from './Responsibilities'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
 import { round } from '@reactkit/ui/css/round'
+import { transition } from '@reactkit/ui/css/transition'
 
 interface Props {
   name: string
@@ -17,7 +17,7 @@ interface Props {
 
 const Title = styled(Text)`
   border-bottom: 1px solid;
-  ${defaultTransitionCSS}
+  ${transition}
   line-height: 1.24;
 
   :hover {

@@ -1,7 +1,6 @@
 import { range } from '@reactkit/utils/array/range'
 import { toPercents } from '@reactkit/utils/toPercents'
 import { PressTracker } from '@reactkit/ui/ui/PressTracker'
-import { defaultTransition } from '@reactkit/ui/ui/animations/transitions'
 import {
   InvisibleHTMLSlider,
   InvisibleHTMLSliderProps,
@@ -12,6 +11,7 @@ import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import styled from 'styled-components'
 import { interactive } from '@reactkit/ui/css/interactive'
 import { toSizeUnit } from '@reactkit/ui/css/toSizeUnit'
+import { defaultTransition } from '@reactkit/ui/css/transition'
 
 export interface ColorParameterInputProps
   extends Omit<InvisibleHTMLSliderProps, 'min'> {

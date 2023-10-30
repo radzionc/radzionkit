@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { defaultTransitionCSS } from '../animations/transitions'
+import { transition } from '../../css/transition'
 import { defaultBorderRadiusCSS } from '../borderRadius'
 import { getColor } from '../theme/getters'
 import { defaultInputHeight, inputBackgroundCSS } from './config'
@@ -10,7 +10,7 @@ import { sameDimensions } from '../../css/sameDimensions'
 export const ExpandableInputOpener = styled(UnstyledButton)`
   ${centerContent}
   ${defaultBorderRadiusCSS}
-  ${defaultTransitionCSS}
+  ${transition}
 
   ${sameDimensions(defaultInputHeight)};
 

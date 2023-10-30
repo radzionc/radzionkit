@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import { SameWidthChildrenRow } from '../Layout/SameWidthChildrenRow'
 import { Spacer } from '../Spacer'
 import { VStack } from '../Stack'
-import { defaultTransitionCSS } from '../animations/transitions'
 import { HSLA } from '../colors/HSLA'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { Text } from '../Text'
 import { getColor } from '../theme/getters'
 import { toPercents } from '@reactkit/utils/toPercents'
 import { centerContent } from '../../css/centerContent'
+import { transition } from '../../css/transition'
 
 export interface BarChartItem {
   label?: ReactNode
@@ -32,7 +32,7 @@ const defaultLabelSize = 12
 const Bar = styled.div`
   border-radius: 4px;
   width: 100%;
-  ${defaultTransitionCSS};
+  ${transition};
 `
 
 const RelativeWrapper = styled.div`

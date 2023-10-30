@@ -4,7 +4,7 @@ import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
 } from '../inputs/InvisibleHTMLRadio'
-import { defaultTransitionCSS } from '../animations/transitions'
+import { transition } from '../../css/transition'
 import { getColor } from '../theme/getters'
 import { centerContent } from '../../css/centerContent'
 import { round } from '../../css/round'
@@ -26,7 +26,7 @@ const Container = styled.label<{ isSelected: boolean }>`
       : theme.colors.textSupporting
     ).toCssValue()};
 
-  ${defaultTransitionCSS}
+  ${transition}
 
   :hover {
     background: ${getColor('mist')};

@@ -1,7 +1,6 @@
 import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 import { Hoverable } from '../Hoverable'
-import { defaultTransitionCSS } from '../animations/transitions'
 import { CheckIcon } from '../icons/CheckIcon'
 import {
   InvisibleHTMLCheckboxProps,
@@ -11,6 +10,7 @@ import { Text } from '../Text'
 import { ChecklistItemFrame } from './ChecklistItemFrame'
 import { getColor, matchColor } from '../theme/getters'
 import { centerContent } from '../../css/centerContent'
+import { transition } from '../../css/transition'
 
 interface ChecklistItemProps extends InvisibleHTMLCheckboxProps {
   name: ReactNode
@@ -27,7 +27,7 @@ export const Box = styled.div<{ isChecked: boolean }>`
   border: 2px solid ${getColor('textShy')};
   color: ${getColor('background')};
 
-  ${defaultTransitionCSS}
+  ${transition}
 
   ${({ isChecked }) =>
     isChecked &&
@@ -48,7 +48,7 @@ const Content = styled(Text)<{ isChecked: boolean }>`
 
 const Line = styled.span<{ isChecked: boolean }>`
   position: absolute;
-  ${defaultTransitionCSS};
+  ${transition};
   left: 0;
   border-top: 2px solid;
   bottom: 8px;

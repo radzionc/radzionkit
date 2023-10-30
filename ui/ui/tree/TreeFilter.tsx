@@ -3,7 +3,7 @@ import styled, { useTheme } from 'styled-components'
 import { Circle } from '../Circle'
 import { NonEmptyOnly } from '../NonEmptyOnly'
 import { VStack, HStack } from '../Stack'
-import { defaultTransitionCSS } from '../animations/transitions'
+import { transition } from '../../css/transition'
 import { Text } from '../Text'
 import { handleWithStopPropagation } from '../../shared/events'
 import { InputProps } from '../../props'
@@ -27,7 +27,7 @@ const Item = styled(HStack)`
   ${verticalPadding(4)}
   align-items: center;
   gap: 8px;
-  ${defaultTransitionCSS}
+  ${transition}
 `
 
 export function TreeFilter<T>({

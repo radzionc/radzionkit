@@ -6,9 +6,9 @@ import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
 } from '../InvisibleHTMLRadio'
-import { defaultTransitionCSS } from '../../animations/transitions'
 import { getColor } from '../../theme/getters'
 import { centerContent } from '../../../css/centerContent'
+import { transition } from '../../../css/transition'
 
 const Container = styled.label<{ isSelected: boolean }>`
   position: relative;
@@ -18,7 +18,7 @@ const Container = styled.label<{ isSelected: boolean }>`
   background: ${getColor('mist')};
 
   ${defaultInputShapeCSS};
-  ${defaultTransitionCSS};
+  ${transition};
 
   font-weight: 500;
 

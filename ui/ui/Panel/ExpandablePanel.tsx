@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
-import { defaultTransitionCSS } from '../animations/transitions'
+import { transition } from '../../css/transition'
 import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 import { HStack } from '../Stack'
 import { Panel, PanelProps } from './Panel'
@@ -23,7 +23,7 @@ const ExpandIconWrapper = styled.div<{ isExpanded: boolean }>`
 
   background: ${getColor('mist')};
 
-  ${defaultTransitionCSS};
+  ${transition};
 
   font-size: 20px;
 
@@ -33,7 +33,7 @@ const ExpandIconWrapper = styled.div<{ isExpanded: boolean }>`
 const Header = styled.div`
   ${interactive};
   ${centerContent};
-  ${defaultTransitionCSS};
+  ${transition};
 
   :hover ${ExpandIconWrapper} {
     background: ${({ theme }) => theme.colors.mistExtra.toCssValue()};

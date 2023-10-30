@@ -1,16 +1,16 @@
 import { ComponentProps, ReactNode } from 'react'
 import styled from 'styled-components'
-import { defaultTransitionCSS } from '../animations/transitions'
 import { Text } from '../Text'
 
 import { getColor } from '../theme/getters'
 import { UnstyledButton } from './UnstyledButton'
 import { interactive } from '../../css/interactive'
+import { transition } from '../../css/transition'
 
 const Container = styled(UnstyledButton)`
   ${interactive};
   color: ${getColor('textSupporting')};
-  ${defaultTransitionCSS};
+  ${transition};
 
   :hover {
     color: ${getColor('contrast')};

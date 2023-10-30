@@ -1,7 +1,7 @@
 import { css } from 'styled-components'
 import { defaultInputShapeCSS } from './config'
 import { getColor } from '../theme/getters'
-import { defaultTransitionCSS } from '../animations/transitions'
+import { transition } from '../../css/transition'
 
 interface CommonInputCSSProps {
   isValid: boolean
@@ -14,7 +14,7 @@ export const commonInputCSS = css<CommonInputCSSProps>`
   background: ${getColor('mist')};
   color: ${getColor('text')};
 
-  ${defaultTransitionCSS};
+  ${transition};
 
   &::placeholder {
     color: ${getColor('textShy')};

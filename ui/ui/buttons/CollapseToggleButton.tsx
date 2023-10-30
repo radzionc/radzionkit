@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import { ComponentProps, Ref, forwardRef } from 'react'
 
 import { IconButton } from './IconButton'
-import { defaultTransitionCSS } from '../animations/transitions'
 import { ChevronDownIcon } from '../icons/ChevronDownIcon'
+import { transition } from '../../css/transition'
 
 type CollapseToggleButtonProps = Omit<
   ComponentProps<typeof IconButton>,
@@ -15,7 +15,7 @@ type CollapseToggleButtonProps = Omit<
 const IconWrapper = styled.div<{ isOpen: boolean }>`
   display: flex;
   svg {
-    ${defaultTransitionCSS};
+    ${transition};
     transform: rotateZ(${({ isOpen }) => (isOpen ? '-180deg' : '0deg')});
   }
 `

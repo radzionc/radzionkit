@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { HStack } from '../../Stack'
-import { defaultTransitionCSS } from '../../animations/transitions'
+import { transition } from '../../../css/transition'
 import { getColor } from '../../theme/getters'
 import { Text } from '../../Text'
 
@@ -18,7 +18,7 @@ export const Container = styled.div<{ isSelected?: boolean }>`
   display: flex;
   align-items: center;
   width: 100%;
-  ${defaultTransitionCSS};
+  ${transition};
   border-radius: 8px;
   font-weight: 500;
   color: ${getColor('textSupporting')};

@@ -1,7 +1,6 @@
 import { useMemo } from 'react'
 import styled from 'styled-components'
 
-import { defaultTransitionCSS } from './animations/transitions'
 import { HSLA } from './colors/HSLA'
 import { ElementSizeAware } from './ElementSizeAware'
 import { Panel } from './Panel/Panel'
@@ -10,6 +9,7 @@ import { Text } from './Text'
 import { getColor } from './theme/getters'
 import { sum } from '@reactkit/utils/array/sum'
 import { toPercents } from '@reactkit/utils/toPercents'
+import { transition } from '../css/transition'
 
 export interface DistributionBarItem {
   value: number
@@ -32,7 +32,7 @@ const Container = styled(Panel)`
 const Segment = styled.div`
   height: 100%;
   color: ${getColor('white')};
-  ${defaultTransitionCSS};
+  ${transition};
 `
 
 export const DistributionBar = ({

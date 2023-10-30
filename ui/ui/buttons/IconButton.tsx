@@ -1,12 +1,12 @@
 import { ComponentProps, Ref, forwardRef } from 'react'
 import styled from 'styled-components'
-import { defaultTransitionCSS } from '../animations/transitions'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { matchColor } from '../theme/getters'
 import { UnstyledButton } from './UnstyledButton'
 import { match } from '@reactkit/utils/match'
 import { centerContent } from '../../css/centerContent'
 import { sameDimensions } from '../../css/sameDimensions'
+import { transition } from '../../css/transition'
 
 export const iconButtonSizes = ['s', 'm', 'l'] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]
@@ -40,7 +40,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
 
   border-radius: 8px;
 
-  ${defaultTransitionCSS};
+  ${transition};
 
   background: ${({ kind, theme: { colors } }) =>
     match(kind, {

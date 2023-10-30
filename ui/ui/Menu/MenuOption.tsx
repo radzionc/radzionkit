@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { MenuView } from '.'
 import { Hoverable } from '../Hoverable'
 import { HStack } from '../Stack'
-import { defaultTransitionCSS } from '../animations/transitions'
+import { transition } from '../../css/transition'
 import { Text } from '../Text'
 import { Button } from '../buttons/Button'
 import { verticalPadding } from '../../css/verticalPadding'
@@ -24,7 +24,7 @@ interface ContentProps {
 }
 
 const Content = styled(HStack)<ContentProps>`
-  ${defaultTransitionCSS};
+  ${transition};
   border-radius: 8px;
   width: 100%;
   ${verticalPadding(8)};

@@ -5,7 +5,7 @@ import { Panel } from '../Panel/Panel'
 import { Button } from '../buttons/Button'
 import { getColor } from '../theme/getters'
 import { VStack } from '../Stack'
-import { defaultTransitionCSS } from '../animations/transitions'
+import { transition } from '../../css/transition'
 import { UploadIcon } from '../icons/UploadIcon'
 import { Text } from '../Text'
 
@@ -22,7 +22,7 @@ const Container = styled(Panel)`
   ${inputBackgroundCSS};
   cursor: pointer;
 
-  ${defaultTransitionCSS};
+  ${transition};
 
   :hover {
     background: ${getColor('mistExtra')};

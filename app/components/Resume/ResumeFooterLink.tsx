@@ -1,5 +1,5 @@
+import { transition } from '@reactkit/ui/css/transition'
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { defaultTransitionCSS } from '@reactkit/ui/ui/animations/transitions'
 import { HStack } from '@reactkit/ui/ui/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
@@ -14,7 +14,7 @@ interface Props {
 
 const Container = styled(ExternalLink)`
   color: ${getColor('textSupporting')};
-  ${defaultTransitionCSS};
+  ${transition};
 
   :hover {
     color: ${getColor('text')};
