@@ -1,4 +1,4 @@
-import { HSLA } from '../colors/HSLA'
+import { HSLA } from '../../ui/colors/HSLA'
 import { getPointOnCircle } from './getPointOnCircle'
 
 interface Props {

@@ -5,7 +5,7 @@ import {
   IconButton,
   iconButtonKinds,
   iconButtonSizes,
-} from '@reactkit/ui/ui/buttons/IconButton'
+} from '@reactkit/ui/buttons/IconButton'
 import { SettingsIcon } from '@reactkit/ui/ui/icons/SettingsIcon'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

@@ -14,9 +14,9 @@ import {
   responsibilityMaxLength,
 } from './jobApplicationForm'
 import { TrashIcon } from '@reactkit/ui/ui/icons/TrashIcon'
-import { Button } from '@reactkit/ui/ui/buttons/Button'
+import { Button } from '@reactkit/ui/buttons/Button'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
-import { IconButton } from '@reactkit/ui/ui/buttons/IconButton'
+import { IconButton } from '@reactkit/ui/buttons/IconButton'
 
 export interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

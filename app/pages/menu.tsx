@@ -1,5 +1,5 @@
 import { DemoPage } from 'components/DemoPage'
-import { OpenMenuButton } from '@reactkit/ui/ui/buttons/OpenMenuButton'
+import { OpenMenuButton } from '@reactkit/ui/buttons/OpenMenuButton'
 import { EditIcon } from '@reactkit/ui/ui/icons/EditIcon'
 import { MoonIcon } from '@reactkit/ui/ui/icons/MoonIcon'
 import { TrashBinIcon } from '@reactkit/ui/ui/icons/TrashBinIcon'

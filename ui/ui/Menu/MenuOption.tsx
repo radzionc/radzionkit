@@ -6,8 +6,8 @@ import { Hoverable } from '../Hoverable'
 import { HStack } from '../Stack'
 import { transition } from '../../css/transition'
 import { Text } from '../Text'
-import { Button } from '../buttons/Button'
 import { verticalPadding } from '../../css/verticalPadding'
+import { Button } from '../../buttons/Button'
 
 type MenuOptionKind = 'regular' | 'alert'
 

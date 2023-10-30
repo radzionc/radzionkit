@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import { LandingPageHeader } from './LandingPageHeader'
 import { Center } from '@reactkit/ui/ui/Center'
 import { Text } from '@reactkit/ui/ui/Text'
-import { Button } from '@reactkit/ui/ui/buttons/Button'
+import { Button } from '@reactkit/ui/buttons/Button'
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
 import {
   increaserUrl,
   productGitHubUrl,
   productYouTubeChannelUrl,
 } from 'product/resources'
-import { ShyTextButton } from '@reactkit/ui/ui/buttons/ShyTextButton'
+import { ShyTextButton } from '@reactkit/ui/buttons/ShyTextButton'
 
 const Container = styled(VStack)`
   height: 100%;

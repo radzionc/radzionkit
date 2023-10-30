@@ -3,7 +3,7 @@ import styled, { useTheme } from 'styled-components'
 import { HabitInfo } from './data/habits'
 import { Text } from '@reactkit/ui/ui/Text'
 import { Tag } from '@reactkit/ui/ui/Tag'
-import { Button } from '@reactkit/ui/ui/buttons/Button'
+import { Button } from '@reactkit/ui/buttons/Button'
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
 
 interface HabitItemTag {

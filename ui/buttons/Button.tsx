@@ -1,16 +1,16 @@
 import styled, { css } from 'styled-components'
 
-import { getColor } from '../theme/getters'
-import { CenterAbsolutely } from '../CenterAbsolutely'
-import { getHoverVariant } from '../colors/getHoverVariant'
-import { Spinner } from '../Spinner'
-import { Tooltip } from '../Tooltip'
-import { toSizeUnit } from '../../css/toSizeUnit'
 import { UnstyledButton } from './UnstyledButton'
 import { match } from '@reactkit/utils/match'
-import { centerContent } from '../../css/centerContent'
-import { horizontalPadding } from '../../css/horizontalPadding'
-import { transition } from '../../css/transition'
+import { centerContent } from '../css/centerContent'
+import { horizontalPadding } from '../css/horizontalPadding'
+import { toSizeUnit } from '../css/toSizeUnit'
+import { transition } from '../css/transition'
+import { CenterAbsolutely } from '../ui/CenterAbsolutely'
+import { Spinner } from '../ui/Spinner'
+import { Tooltip } from '../ui/Tooltip'
+import { getHoverVariant } from '../ui/colors/getHoverVariant'
+import { getColor } from '../ui/theme/getters'
 
 export const buttonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 

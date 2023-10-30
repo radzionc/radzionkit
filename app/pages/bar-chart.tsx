@@ -9,7 +9,7 @@ import { Text } from '@reactkit/ui/ui/Text'
 import { formatDuration } from '@reactkit/utils/time/formatDuration'
 import { sum } from '@reactkit/utils/array/sum'
 import { useTheme } from 'styled-components'
-import { BarChart } from '@reactkit/ui/ui/BarChart'
+import { BarChart } from '@reactkit/ui/charts/BarChart'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 const statsViews = ['days', 'weeks', 'months'] as const

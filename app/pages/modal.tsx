@@ -4,7 +4,7 @@ import { Opener } from '@reactkit/ui/base/Opener'
 import { HStack, VStack } from '@reactkit/ui/ui/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 import { DemoPage } from 'components/DemoPage'
-import { Button } from '@reactkit/ui/ui/buttons/Button'
+import { Button } from '@reactkit/ui/buttons/Button'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

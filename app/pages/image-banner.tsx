@@ -9,7 +9,7 @@ import { YouTubeIcon } from '@reactkit/ui/ui/icons/YouTubeIcon'
 import { CoverImage } from '@reactkit/ui/ui/images/CoverImage'
 import { darkTheme } from '@reactkit/ui/ui/theme/darkTheme'
 import { PersistentStateKey, usePersistentState } from 'state/persistentState'
-import { Button } from '@reactkit/ui/ui/buttons/Button'
+import { Button } from '@reactkit/ui/buttons/Button'
 import { Text } from '@reactkit/ui/ui/Text'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

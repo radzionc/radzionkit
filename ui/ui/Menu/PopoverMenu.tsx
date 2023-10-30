@@ -6,7 +6,7 @@ import { HStack, VStack } from '../Stack'
 import { Text } from '../Text'
 import { SeparatedByLine } from '../SeparatedByLine'
 import { PopoverPanel, PopoverPanelProps } from './PopoverPanel'
-import { CloseButton } from '../buttons/CloseButton'
+import { CloseButton } from '../../buttons/CloseButton'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void

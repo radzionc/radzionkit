@@ -1,6 +1,5 @@
 import { ReactNode } from 'react'
 
-import { Button } from './buttons/Button'
 import { getColor } from './theme/getters'
 import styled from 'styled-components'
 import { handleWithStopPropagation } from '../shared/events'
@@ -11,6 +10,7 @@ import { VStack, HStack } from './Stack'
 import { Text } from './Text'
 import { horizontalPadding } from '../css/horizontalPadding'
 import { verticalPadding } from '../css/verticalPadding'
+import { Button } from '../buttons/Button'
 
 export type BottomSlideOverProps = ComponentWithChildrenProps &
   ClosableComponentProps & {

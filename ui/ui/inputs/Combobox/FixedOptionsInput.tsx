@@ -16,11 +16,11 @@ import { TextInputContainer, TextInputLoader } from '../TextInput'
 import { ComboboxOptions } from './ComboboxOptions'
 import { DropdownMenuPlacer } from './DropdownMenuPlacer'
 import { defaultInputShapeCSS } from '../config'
-import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
 import { getColor } from '../../theme/getters'
 import { useBoolean } from '../../../hooks/useBoolean'
 import { useKeyPress } from '../../../hooks/useKeyPress'
 import { Text } from '../../Text'
+import { CollapseToggleButton } from '../../../buttons/CollapseToggleButton'
 
 interface Props<T> {
   label: React.ReactNode

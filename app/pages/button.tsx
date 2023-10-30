@@ -1,10 +1,6 @@
 import { HStack, VStack } from '@reactkit/ui/ui/Stack'
 import { DemoPage } from 'components/DemoPage'
-import {
-  Button,
-  buttonKinds,
-  buttonSizes,
-} from '@reactkit/ui/ui/buttons/Button'
+import { Button, buttonKinds, buttonSizes } from '@reactkit/ui/buttons/Button'
 import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

@@ -9,7 +9,7 @@ import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
 import { AmountTextInput } from '@reactkit/ui/ui/inputs/AmountTextInput'
 import { DollarIcon } from '@reactkit/ui/ui/icons/DollarIcon'
-import { Button } from '@reactkit/ui/ui/buttons/Button'
+import { Button } from '@reactkit/ui/buttons/Button'
 
 interface FormShape {
   name: string

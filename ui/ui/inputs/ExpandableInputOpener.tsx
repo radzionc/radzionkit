@@ -3,9 +3,9 @@ import { transition } from '../../css/transition'
 import { defaultBorderRadiusCSS } from '../borderRadius'
 import { getColor } from '../theme/getters'
 import { defaultInputHeight, inputBackgroundCSS } from './config'
-import { UnstyledButton } from '../buttons/UnstyledButton'
 import { centerContent } from '../../css/centerContent'
 import { sameDimensions } from '../../css/sameDimensions'
+import { UnstyledButton } from '../../buttons/UnstyledButton'
 
 export const ExpandableInputOpener = styled(UnstyledButton)`
   ${centerContent}

@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
-import { ShyTextButton } from '../buttons/ShyTextButton'
 import { HStack } from '../Stack'
 import { Text } from '../Text'
+import { ShyTextButton } from '../../buttons/ShyTextButton'
 
 interface AmountSuggestionProps {
   name: ReactNode

@@ -7,12 +7,12 @@ import { Panel } from './Panel/Panel'
 import { Text } from './Text'
 import { getColor } from './theme/getters'
 import { ComponentWithChildrenProps } from '../props'
-import { UnstyledButton } from './buttons/UnstyledButton'
 import { centerContent } from '../css/centerContent'
 import { takeWholeSpaceAbsolutely } from '../css/takeWholeSpaceAbsolutely'
 import { sameDimensions } from '../css/sameDimensions'
 import { interactive } from '../css/interactive'
 import { transition } from '../css/transition'
+import { UnstyledButton } from '../buttons/UnstyledButton'
 
 interface ImageBannerProps {
   onClose: () => void

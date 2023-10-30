@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import { getColor } from './theme/getters'
-import { UnstyledButton } from './buttons/UnstyledButton'
 import { ComponentProps } from 'react'
 import { absoluteOutline } from '../css/absoluteOutline'
 import { transition } from '../css/transition'
+import { UnstyledButton } from '../buttons/UnstyledButton'
 
 interface HighlightProps {
   horizontalOffset: number | string

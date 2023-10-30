@@ -1,5 +1,5 @@
 import { DemoPage } from 'components/DemoPage'
-import { Confetti } from '@reactkit/ui/ui/animations/Confetti'
+import { Confetti } from '@reactkit/ui/animations/Confetti'
 import { Checkbox } from '@reactkit/ui/ui/inputs/Checkbox/Checkbox'
 import { useState } from 'react'
 import styled from 'styled-components'

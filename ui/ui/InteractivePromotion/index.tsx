@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { HStack, VStack } from '../Stack'
 import { Text } from '../Text'
 import { ReversedTheme } from '../theme/ReversedTheme'
-import { Button } from '../buttons/Button'
 import { ExternalLink } from '../../navigation/Link/ExternalLink'
+import { Button } from '../../buttons/Button'
 
 interface speechPlaecement {
   left: React.CSSProperties['left']
