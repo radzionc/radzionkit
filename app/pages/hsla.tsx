@@ -4,7 +4,7 @@ import {
   HSLAParameter,
   hslaKeys,
   hslaParamMaxValue,
-} from '@reactkit/ui/ui/colors/HSLA'
+} from '@reactkit/ui/colors/HSLA'
 import { ColorParameterInput } from 'components/ColorParameterInput'
 import styled, { useTheme } from 'styled-components'
 import { useState } from 'react'

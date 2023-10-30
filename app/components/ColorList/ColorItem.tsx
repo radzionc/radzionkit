@@ -1,5 +1,5 @@
 import { defaultBorderRadiusCSS } from '@reactkit/ui/ui/borderRadius'
-import { HSLA } from '@reactkit/ui/ui/colors/HSLA'
+import { HSLA } from '@reactkit/ui/colors/HSLA'
 import { HStack } from '@reactkit/ui/ui/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 import { sameDimensions } from '@reactkit/ui/css/sameDimensions'

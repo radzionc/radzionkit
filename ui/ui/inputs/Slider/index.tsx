@@ -1,7 +1,7 @@
 import styled, { useTheme } from 'styled-components'
 import { PressTracker } from '../../PressTracker'
 import { defaultTransition } from '../../../css/transition'
-import { HSLA } from '../../colors/HSLA'
+import { HSLA } from '../../../colors/HSLA'
 import { getColor } from '../../theme/getters'
 import {
   InvisibleHTMLSliderProps,

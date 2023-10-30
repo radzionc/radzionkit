@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components'
 import { sharedColors } from './shared'
-import { generateLabelColorGetter } from '../colors/generateLabelColorGetter'
-import { HSLA } from '../colors/HSLA'
+import { generateLabelColorGetter } from '../../colors/generateLabelColorGetter'
+import { HSLA } from '../../colors/HSLA'
 
 const backgroundHue = 0
 const backgroundSaturation = 0

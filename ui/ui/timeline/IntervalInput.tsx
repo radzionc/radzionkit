@@ -8,7 +8,7 @@ import {
 } from 'react'
 import { useEvent } from 'react-use'
 import styled, { css } from 'styled-components'
-import { HSLA } from '../colors/HSLA'
+import { HSLA } from '../../colors/HSLA'
 import { MoveIcon } from '../icons/MoveIcon'
 import { Text } from '../Text'
 import { getIntervalDuration } from '@reactkit/utils/interval/getIntervalDuration'

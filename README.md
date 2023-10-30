@@ -1,4 +1,4 @@
-# ReactKit
+# ReactKit - A Full-Stack Monorepo Template
 
 Welcome to ReactKit, your go-to solution for rapid development with React. ReactKit offers a comprehensive set of abstract building blocks, a rich library of beautiful components, a minimalistic color system, and flexible dark and light themes to empower your projects. With ReactKit, you have complete control over your code, making it a versatile choice for your next venture. Plus, it's set up as a monorepo, allowing you to effortlessly add new apps and packages as your project evolves.
 

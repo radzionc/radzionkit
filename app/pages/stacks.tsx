@@ -1,5 +1,5 @@
 import styled, { useTheme } from 'styled-components'
-import { HSLA } from '@reactkit/ui/ui/colors/HSLA'
+import { HSLA } from '@reactkit/ui/colors/HSLA'
 
 import { HStack, VStack } from '@reactkit/ui/ui/Stack'
 import { sameDimensions } from '@reactkit/ui/css/sameDimensions'

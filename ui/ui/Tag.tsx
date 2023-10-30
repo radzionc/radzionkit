@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { HSLA } from './colors/HSLA'
+import { HSLA } from '../colors/HSLA'
 import { Text } from './Text'
 import { match } from '@reactkit/utils/match'
 

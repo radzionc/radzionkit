@@ -2,7 +2,7 @@ import { MouseEventHandler, useEffect, useRef, useState } from 'react'
 import { useEvent } from 'react-use'
 import styled from 'styled-components'
 
-import { HSLA } from '../colors/HSLA'
+import { HSLA } from '../../colors/HSLA'
 import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 import { ChevronUpIcon } from '../icons/ChevronUpIcon'
 import { StackSeparatedBy, dotSeparator } from '../StackSeparatedBy'

@@ -1,14 +1,14 @@
 import { useState, Fragment } from 'react'
 import styled, { useTheme } from 'styled-components'
-import { Circle } from '../Circle'
-import { NonEmptyOnly } from '../NonEmptyOnly'
-import { VStack, HStack } from '../Stack'
-import { transition } from '../../css/transition'
-import { Text } from '../Text'
-import { handleWithStopPropagation } from '../../shared/events'
-import { InputProps } from '../../props'
 import { TreeNode } from '@reactkit/utils/tree'
-import { verticalPadding } from '../../css/verticalPadding'
+import { transition } from '../css/transition'
+import { verticalPadding } from '../css/verticalPadding'
+import { InputProps } from '../props'
+import { handleWithStopPropagation } from '../shared/events'
+import { Circle } from '../ui/Circle'
+import { NonEmptyOnly } from '../ui/NonEmptyOnly'
+import { VStack, HStack } from '../ui/Stack'
+import { Text } from '../ui/Text'
 
 interface TreeFilterProps<T> extends InputProps<number[]> {
   tree: TreeNode<T>

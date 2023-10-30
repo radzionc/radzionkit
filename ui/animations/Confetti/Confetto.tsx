@@ -5,7 +5,7 @@ import { getRandomElement } from '@reactkit/utils/array/getRandomElement'
 import { randomInRange } from '@reactkit/utils/randomInRange'
 import { sameDimensions } from '../../css/sameDimensions'
 import { Point } from '../../entities/Point'
-import { HSLA } from '../../ui/colors/HSLA'
+import { HSLA } from '../../colors/HSLA'
 
 const Container = animated(styled.svg`
   ${sameDimensions(10)};

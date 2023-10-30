@@ -1,7 +1,7 @@
 import { DemoPage } from 'components/DemoPage'
 import { HStack, VStack } from '@reactkit/ui/ui/Stack'
 import { ThemeProvider } from 'styled-components'
-import { HSLA } from '@reactkit/ui/ui/colors/HSLA'
+import { HSLA } from '@reactkit/ui/colors/HSLA'
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
 import { ImageBanner } from '@reactkit/ui/ui/ImageBanner'
 import { SafeImage } from '@reactkit/ui/ui/SafeImage'

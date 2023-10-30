@@ -3,7 +3,7 @@ import { SameWidthChildrenRow } from '@reactkit/ui/ui/Layout/SameWidthChildrenRo
 import { Line } from '@reactkit/ui/ui/Line'
 import { useTheme } from 'styled-components'
 import { ColorItem } from './ColorItem'
-import { labelColorsCount } from '@reactkit/ui/ui/colors/generateLabelColorGetter'
+import { labelColorsCount } from '@reactkit/ui/colors/generateLabelColorGetter'
 
 export const ColorList = () => {
   const {
