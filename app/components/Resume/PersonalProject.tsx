@@ -1,5 +1,5 @@
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 import styled from 'styled-components'
 import { Responsibilities } from './Responsibilities'

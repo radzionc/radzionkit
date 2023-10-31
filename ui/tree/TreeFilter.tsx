@@ -7,7 +7,7 @@ import { InputProps } from '../props'
 import { handleWithStopPropagation } from '../shared/events'
 import { Circle } from '../ui/Circle'
 import { NonEmptyOnly } from '../ui/NonEmptyOnly'
-import { VStack, HStack } from '../ui/Stack'
+import { VStack, HStack } from '../layout/Stack'
 import { Text } from '../ui/Text'
 
 interface TreeFilterProps<T> extends InputProps<number[]> {

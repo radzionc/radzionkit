@@ -1,7 +1,7 @@
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
 import { Modal } from '@reactkit/ui/modal'
 import { Opener } from '@reactkit/ui/base/Opener'
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 import { DemoPage } from 'components/DemoPage'
 import { Button } from '@reactkit/ui/buttons/Button'

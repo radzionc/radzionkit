@@ -1,6 +1,6 @@
 import { SourceCodeLink } from 'components/SourceCode/SourceCodeLink'
 import { RegularPage } from '@reactkit/ui/ui/page/RegularPage'
-import { HStack } from '@reactkit/ui/ui/Stack'
+import { HStack } from '@reactkit/ui/layout/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 import { useRouter } from 'next/router'
 import Head from 'next/head'

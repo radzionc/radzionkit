@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 import { MenuView } from '.'
 import { Hoverable } from '../Hoverable'
-import { HStack } from '../Stack'
+import { HStack } from '../../layout/Stack'
 import { transition } from '../../css/transition'
 import { Text } from '../Text'
 import { verticalPadding } from '../../css/verticalPadding'

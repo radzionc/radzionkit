@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Panel } from '../../Panel/Panel'
-import { HStack } from '../../Stack'
+import { HStack } from '../../../layout/Stack'
 import { Text } from '../../Text'
 import { CloseButton } from '../../../buttons/CloseButton'
 

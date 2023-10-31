@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 
-import { ActionInsideInteractiveElement } from './ActionInsideInteractiveElement'
+import { ActionInsideInteractiveElement } from '../base/ActionInsideInteractiveElement'
 import { CloseIcon } from './icons/CloseIcon'
 import { Panel } from './Panel/Panel'
 import { Text } from './Text'

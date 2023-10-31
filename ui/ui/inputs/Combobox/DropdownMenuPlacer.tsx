@@ -9,7 +9,6 @@ import {
 import React, { useRef } from 'react'
 import { useClickAway } from 'react-use'
 import styled from 'styled-components'
-import { zIndex } from '../../zIndex'
 import { toSizeUnit } from '../../../css/toSizeUnit'
 
 interface Props {
@@ -25,7 +24,7 @@ const Container = styled.div`
 `
 
 const DropdownMenu = styled.div`
-  z-index: ${zIndex.menu};
+  z-index: 7;
 `
 
 export const DropdownMenuPlacer = ({

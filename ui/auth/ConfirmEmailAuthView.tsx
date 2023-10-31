@@ -1,4 +1,4 @@
-import { VStack } from '../ui/Stack'
+import { VStack } from '../layout/Stack'
 import { Text } from '../ui/Text'
 import { useState } from 'react'
 import { useRouter } from 'next/router'

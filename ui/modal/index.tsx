@@ -4,13 +4,13 @@ import {
   ComponentWithChildrenProps,
   TitledComponentProps,
 } from '../props'
-import { BodyPortal } from '../ui/BodyPortal'
+import { BodyPortal } from '../dom/BodyPortal'
 import { CompleteMist } from './CompleteMist'
 import { useIsScreenWidthLessThan } from '../hooks/useIsScreenWidthLessThan'
 import { useKey } from 'react-use'
 import { FocusTrap } from './FocusTrap'
 import { ModalContainer, ModalPlacement } from './ModalContainer'
-import { HStack, VStack } from '../ui/Stack'
+import { HStack, VStack } from '../layout/Stack'
 import { ModalTitleText } from './ModalTitleText'
 import { ModalContent } from './ModalContent'
 import { ModalCloseButton } from './ModalCloseButton'

@@ -2,7 +2,7 @@ import { GitHubIcon } from '@reactkit/ui/ui/icons/GitHubIcon'
 import { MailIcon } from '@reactkit/ui/ui/icons/MailIcon'
 import { TelegramIcon } from '@reactkit/ui/ui/icons/TelegramIcon'
 import { TwitterIcon } from '@reactkit/ui/ui/icons/TwitterIcon'
-import { HStack } from '@reactkit/ui/ui/Stack'
+import { HStack } from '@reactkit/ui/layout/Stack'
 import { ResumeFooterLink } from './ResumeFooterLink'
 
 const email = 'radzionc@gmail.com'

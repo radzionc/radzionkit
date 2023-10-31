@@ -1,12 +1,12 @@
-import { handleWithStopPropagation } from 'shared/events'
-import { ComponentWithChildrenProps } from 'shared/props'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
-import { VStack } from '../Stack'
-import { defaultBorderRadiusCSS } from '../borderRadius'
-import { ReversedTheme } from '../theme/ReversedTheme'
-import { getColor } from '../theme/getters'
-import { Text } from '../Text'
+import { ComponentWithChildrenProps } from '../props'
+import { handleWithStopPropagation } from '../shared/events'
+import { VStack } from '../layout/Stack'
+import { ReversedTheme } from '../ui/theme/ReversedTheme'
+import { getColor } from '../ui/theme/getters'
+import { borderRadius } from '../css/borderRadius'
+import { Text } from '../ui/Text'
 
 interface TreeFilterNodeProps extends ComponentWithChildrenProps {
   name: ReactNode
@@ -15,7 +15,7 @@ interface TreeFilterNodeProps extends ComponentWithChildrenProps {
 }
 
 const Container = styled.div<{ isSelected: boolean }>`
-  ${defaultBorderRadiusCSS}
+  ${borderRadius.m}
   padding: 8px;
   cursor: pointer;
   border: 1px solid ${getColor('mist')};

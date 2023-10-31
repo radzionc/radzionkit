@@ -1,13 +1,13 @@
 import { formatDuration } from '@reactkit/utils/time/formatDuration'
 import { DistributionBar } from '@reactkit/ui/ui/DistributionBar'
 import { AmountInput } from '@reactkit/ui/ui/inputs/Slider/AmountInput'
-import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
-import { VStack } from '@reactkit/ui/ui/Stack'
+import { VStack } from '@reactkit/ui/layout/Stack'
 import { Controller, useWatch } from 'react-hook-form'
 import { useTheme } from 'styled-components'
 import { useWorkBudgetForm } from './useWorkBudgetForm'
 import { MIN_IN_HOUR } from '@reactkit/utils/time'
+import { TitledSection } from '@reactkit/ui/layout/TitledSection'
 
 const minuteStep = 30
 

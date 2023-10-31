@@ -1,7 +1,7 @@
 import { DemoPage } from 'components/DemoPage'
 import { useMemo, useState } from 'react'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 import { TabNavigation } from '@reactkit/ui/ui/TabNavigation'
 import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
 import { LabeledValue } from '@reactkit/ui/ui/LabeledValue'

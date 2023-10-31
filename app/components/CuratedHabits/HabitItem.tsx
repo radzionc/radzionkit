@@ -1,4 +1,4 @@
-import { VStack, HStack } from '@reactkit/ui/ui/Stack'
+import { VStack, HStack } from '@reactkit/ui/layout/Stack'
 import styled, { useTheme } from 'styled-components'
 import { HabitInfo } from './data/habits'
 import { Text } from '@reactkit/ui/ui/Text'

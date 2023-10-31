@@ -2,7 +2,7 @@ import {
   ComponentWithChildrenProps,
   ComponentWithClassNameProps,
 } from '../props'
-import { VStack } from './Stack'
+import { VStack } from '../layout/Stack'
 
 export const Center = ({
   children,

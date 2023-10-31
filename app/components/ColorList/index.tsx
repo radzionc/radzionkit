@@ -1,5 +1,5 @@
 import { range } from '@reactkit/utils/array/range'
-import { SameWidthChildrenRow } from '@reactkit/ui/ui/Layout/SameWidthChildrenRow'
+import { SameWidthChildrenRow } from '@reactkit/ui/layout/SameWidthChildrenRow'
 import { Line } from '@reactkit/ui/ui/Line'
 import { useTheme } from 'styled-components'
 import { ColorItem } from './ColorItem'

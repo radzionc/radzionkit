@@ -1,5 +1,5 @@
 import { DemoPage } from 'components/DemoPage'
-import { VStack } from '@reactkit/ui/ui/Stack'
+import { VStack } from '@reactkit/ui/layout/Stack'
 import {
   HSLAParameter,
   hslaKeys,
@@ -9,11 +9,11 @@ import { ColorParameterInput } from 'components/ColorParameterInput'
 import styled, { useTheme } from 'styled-components'
 import { useState } from 'react'
 import { Text } from '@reactkit/ui/ui/Text'
-import { SameWidthChildrenRow } from '@reactkit/ui/ui/Layout/SameWidthChildrenRow'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { CopyText } from '@reactkit/ui/ui/CopyText'
 import { SeparatedByLine } from '@reactkit/ui/ui/SeparatedByLine'
 import { makeDemoPage } from 'layout/makeDemoPage'
+import { SameWidthChildrenRow } from '@reactkit/ui/layout/SameWidthChildrenRow'
 
 const colorParameterName: Record<HSLAParameter, string> = {
   h: 'Hue',

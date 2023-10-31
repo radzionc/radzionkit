@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 
-import { ElementSizeAware } from './ElementSizeAware'
+import { ElementSizeAware } from '../ui/ElementSizeAware'
 import { ElementSize } from '../hooks/useElementSize'
 
 interface ActionInsideInteractiveElementRenderParams<

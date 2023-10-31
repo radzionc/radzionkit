@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { InputErrorText } from './InputErrorText'
 import { getColor, matchColor } from '../theme/getters'
-import { VStack } from '../Stack'
+import { VStack } from '../../layout/Stack'
 import { Text } from '../Text'
 import { ComponentProps } from 'react'
 

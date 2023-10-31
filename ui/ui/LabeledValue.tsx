@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import { HStack } from './Stack'
+import { HStack } from '../layout/Stack'
 import { Text } from './Text'
 
 interface Props {

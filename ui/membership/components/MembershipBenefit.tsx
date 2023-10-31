@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { HStack } from '../../ui/Stack'
+import { HStack } from '../../layout/Stack'
 import { Text } from '../../ui/Text'
 import { CheckCircleIcon } from '../../ui/icons/CheckCircleIcon'
 

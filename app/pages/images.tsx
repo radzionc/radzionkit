@@ -1,12 +1,12 @@
 import { DemoPage } from 'components/DemoPage'
 import { range } from '@reactkit/utils/array/range'
-import { VStack } from '@reactkit/ui/ui/Stack'
+import { VStack } from '@reactkit/ui/layout/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 import { IntersectionAware } from '@reactkit/ui/ui/IntersectionAware'
-import { ImageHolder } from '@reactkit/ui/ui/images/ImageHolder'
+import { ImageHolder } from '@reactkit/ui/images/ImageHolder'
 import { SafeImage } from '@reactkit/ui/ui/SafeImage'
-import { CoverImage } from '@reactkit/ui/ui/images/CoverImage'
-import { SameWidthChildrenRow } from '@reactkit/ui/ui/Layout/SameWidthChildrenRow'
+import { CoverImage } from '@reactkit/ui/images/CoverImage'
+import { SameWidthChildrenRow } from '@reactkit/ui/layout/SameWidthChildrenRow'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

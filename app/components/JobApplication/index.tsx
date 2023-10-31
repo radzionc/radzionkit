@@ -5,8 +5,8 @@ import { FormSection } from '@reactkit/ui/ui/Form/FormSection'
 import { bioMaxLength, useJobApplicationForm } from './jobApplicationForm'
 import { ExperienceSection } from './ExperienceSection'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
-import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
 import { Button } from '@reactkit/ui/buttons/Button'
+import { TitledSection } from '@reactkit/ui/layout/TitledSection'
 
 export const JobApplication = () => {
   const form = useJobApplicationForm()

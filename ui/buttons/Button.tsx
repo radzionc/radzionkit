@@ -8,7 +8,7 @@ import { toSizeUnit } from '../css/toSizeUnit'
 import { transition } from '../css/transition'
 import { CenterAbsolutely } from '../ui/CenterAbsolutely'
 import { Spinner } from '../ui/Spinner'
-import { Tooltip } from '../ui/Tooltip'
+import { Tooltip } from '../tooltips/Tooltip'
 import { getHoverVariant } from '../colors/getHoverVariant'
 import { getColor } from '../ui/theme/getters'
 

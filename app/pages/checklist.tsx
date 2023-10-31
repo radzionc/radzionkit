@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
-import { VStack } from '@reactkit/ui/ui/Stack'
+import { VStack } from '@reactkit/ui/layout/Stack'
 import { ChecklistItem } from '@reactkit/ui/ui/checklist/ChecklistItem'
 import { Opener } from '@reactkit/ui/base/Opener'
 import { AddChecklistItemPrompt } from '@reactkit/ui/ui/checklist/AddChecklistItemPrompt'

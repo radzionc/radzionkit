@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { TabNavigationItem } from './TabNavigationItem'
-import { HStack } from '../Stack'
+import { HStack } from '../../layout/Stack'
 import { hideScrollbars } from '../../css/hideScrollbars'
 
 interface TabNavigationProps<T extends string | number | symbol> {

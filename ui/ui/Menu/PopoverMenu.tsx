@@ -2,7 +2,7 @@ import { ReferenceType } from '@floating-ui/react'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 
-import { HStack, VStack } from '../Stack'
+import { HStack, VStack } from '../../layout/Stack'
 import { Text } from '../Text'
 import { SeparatedByLine } from '../SeparatedByLine'
 import { PopoverPanel, PopoverPanelProps } from './PopoverPanel'

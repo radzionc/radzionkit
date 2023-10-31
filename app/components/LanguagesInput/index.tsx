@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useState, ForwardedRef } from 'react'
 import { FixedOptionsInput } from '@reactkit/ui/ui/inputs/Combobox/FixedOptionsInput'
 import { SelectedOption } from '@reactkit/ui/ui/inputs/Select/SelectedOption'
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 
 import { languagesNames, languages, languageCodeForName } from './languages'
 

@@ -1,7 +1,7 @@
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 import { DemoPage } from 'components/DemoPage'
 import { Button, buttonKinds, buttonSizes } from '@reactkit/ui/buttons/Button'
-import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
+import { TitledSection } from '@reactkit/ui/layout/TitledSection'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

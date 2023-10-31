@@ -1,7 +1,7 @@
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
-import { VStack } from '@reactkit/ui/ui/Stack'
+import { VStack } from '@reactkit/ui/layout/Stack'
 import styled, { useTheme } from 'styled-components'
 import { HSLA } from '@reactkit/ui/colors/HSLA'
 import { StarIcon } from '@reactkit/ui/ui/icons/StarIcon'

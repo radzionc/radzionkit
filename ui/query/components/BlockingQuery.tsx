@@ -1,7 +1,7 @@
 import { supportEmail } from '@reactkit/entities'
 import { CopyText } from '../../ui/CopyText'
 import { Spinner } from '../../ui/Spinner'
-import { VStack } from '../../ui/Stack'
+import { VStack } from '../../layout/Stack'
 import { Text } from '../../ui/Text'
 import { InfoIcon } from '../../ui/icons/InfoIcon'
 

@@ -1,4 +1,4 @@
-import { SameWidthChildrenRow } from '../../Layout/SameWidthChildrenRow'
+import { SameWidthChildrenRow } from '../../../layout/SameWidthChildrenRow'
 import { SelectOption } from './SelectOption'
 
 interface Props<T> {

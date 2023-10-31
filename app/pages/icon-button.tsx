@@ -1,6 +1,5 @@
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 import { DemoPage } from 'components/DemoPage'
-import { TitledSection } from '@reactkit/ui/ui/Layout/TitledSection'
 import {
   IconButton,
   iconButtonKinds,
@@ -8,6 +7,7 @@ import {
 } from '@reactkit/ui/buttons/IconButton'
 import { SettingsIcon } from '@reactkit/ui/ui/icons/SettingsIcon'
 import { makeDemoPage } from 'layout/makeDemoPage'
+import { TitledSection } from '@reactkit/ui/layout/TitledSection'
 
 export default makeDemoPage(() => {
   const icon = <SettingsIcon />

@@ -5,7 +5,7 @@ import {
   HStackSeparatedBy,
   dotSeparator,
   slashSeparator,
-} from '@reactkit/ui/ui/StackSeparatedBy'
+} from '@reactkit/ui/layout/StackSeparatedBy'
 import { LabeledValue } from '@reactkit/ui/ui/LabeledValue'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

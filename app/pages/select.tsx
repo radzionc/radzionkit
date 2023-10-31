@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { ElementSizeAware } from '@reactkit/ui/ui/ElementSizeAware'
 import { SelectOption } from '@reactkit/ui/ui/inputs/Select/SelectOption'
-import { VStack } from '@reactkit/ui/ui/Stack'
+import { VStack } from '@reactkit/ui/layout/Stack'
 import { DemoPage } from 'components/DemoPage'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

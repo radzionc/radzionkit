@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Sidebar } from './Sidebar'
 import { ReactNode } from 'react'
 import { ThemeToggleButton } from '../theme/ThemeToggleButton'
-import { HStack, VStack } from '../Stack'
+import { HStack, VStack } from '../../layout/Stack'
 import { useIsScreenWidthLessThan } from '../../hooks/useIsScreenWidthLessThan'
 
 interface Props {

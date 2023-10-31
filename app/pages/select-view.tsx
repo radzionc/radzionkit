@@ -1,7 +1,7 @@
 import { getViewSetup } from '@reactkit/ui/view/getViewSetup'
 import styled from 'styled-components'
 import { ViewSelector } from '@reactkit/ui/ui/inputs/Select/ViewSelector'
-import { VStack } from '@reactkit/ui/ui/Stack'
+import { VStack } from '@reactkit/ui/layout/Stack'
 import { DemoPage } from 'components/DemoPage'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { makeDemoPage } from 'layout/makeDemoPage'

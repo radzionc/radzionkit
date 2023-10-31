@@ -1,7 +1,7 @@
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
 import { Button } from '@reactkit/ui/buttons/Button'
 import { YouTubeIcon } from '@reactkit/ui/ui/icons/YouTubeIcon'
-import { HStack } from '@reactkit/ui/ui/Stack'
+import { HStack } from '@reactkit/ui/layout/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 
 interface Props {

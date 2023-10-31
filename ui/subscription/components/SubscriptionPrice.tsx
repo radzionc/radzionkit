@@ -1,7 +1,10 @@
 import { SubscriptionBillingCycle } from '@reactkit/entities/Subscription'
 import { MONTHS_IN_YEAR } from '@reactkit/utils/time'
-import { VStack, HStack } from '../../ui/Stack'
-import { HStackSeparatedBy, slashSeparator } from '../../ui/StackSeparatedBy'
+import { VStack, HStack } from '../../layout/Stack'
+import {
+  HStackSeparatedBy,
+  slashSeparator,
+} from '../../layout/StackSeparatedBy'
 import { Text } from '../../ui/Text'
 
 interface SubscriptionPriceProps {

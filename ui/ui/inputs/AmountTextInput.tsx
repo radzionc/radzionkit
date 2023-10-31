@@ -1,6 +1,6 @@
 import { Ref, forwardRef, ReactNode, useState } from 'react'
 import styled from 'styled-components'
-import { HStack } from '../Stack'
+import { HStack } from '../../layout/Stack'
 
 import { TextInput, TextInputProps } from './TextInput'
 import { centerContent } from '../../css/centerContent'

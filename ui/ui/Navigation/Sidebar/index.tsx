@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { ComponentWithChildrenProps } from '../../../props'
-import { VStack } from '../../Stack'
+import { VStack } from '../../../layout/Stack'
 
 const Container = styled.div`
   min-width: 260px;

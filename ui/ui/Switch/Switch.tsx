@@ -2,7 +2,7 @@ import styled, { css, useTheme } from 'styled-components'
 
 import { CheckIcon } from '../icons/CheckIcon'
 import { CloseIcon } from '../icons/CloseIcon'
-import { HStack } from '../Stack'
+import { HStack } from '../../layout/Stack'
 import { Text } from '../Text'
 import { getColor } from '../theme/getters'
 import { sameDimensions } from '../../css/sameDimensions'

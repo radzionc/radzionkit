@@ -1,5 +1,5 @@
 import { Spinner } from '@reactkit/ui/ui/Spinner'
-import { HStack } from '@reactkit/ui/ui/Stack'
+import { HStack } from '@reactkit/ui/layout/Stack'
 import { centerContent } from '@reactkit/ui/css/centerContent'
 import dynamic from 'next/dynamic'
 import styled from 'styled-components'

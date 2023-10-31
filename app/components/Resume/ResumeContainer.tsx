@@ -1,4 +1,4 @@
-import { defaultBorderRadiusCSS } from '@reactkit/ui/ui/borderRadius'
+import { borderRadius } from '@reactkit/ui/css/borderRadius'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
 import styled from 'styled-components'
 
@@ -12,7 +12,7 @@ export const ResumeContainer = styled.div`
   background: ${getColor('foreground')};
   border: 2px solid ${getColor('foreground')};
 
-  ${defaultBorderRadiusCSS}
+  ${borderRadius.m}
   overflow: hidden;
 
   > * {

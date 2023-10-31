@@ -1,4 +1,4 @@
-import { VStack } from '@reactkit/ui/ui/Stack'
+import { VStack } from '@reactkit/ui/layout/Stack'
 import { DemoPage } from 'components/DemoPage'
 import { ExpandablePanel } from '@reactkit/ui/ui/Panel/ExpandablePanel'
 import { Text } from '@reactkit/ui/ui/Text'

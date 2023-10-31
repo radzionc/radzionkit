@@ -1,4 +1,4 @@
-import { VStack } from '@reactkit/ui/ui/Stack'
+import { VStack } from '@reactkit/ui/layout/Stack'
 import styled from 'styled-components'
 import { LandingPageHeader } from './LandingPageHeader'
 import { Center } from '@reactkit/ui/ui/Center'

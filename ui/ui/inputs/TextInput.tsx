@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { InputWrapperProps, InputWrapperWithErrorMessage } from './InputWrapper'
 import { Spinner } from '../Spinner'
 import { commonInputCSS } from './commonInputCSS'
-import { VStack } from '../Stack'
+import { VStack } from '../../layout/Stack'
 import { ComponentWithClassNameProps } from '../../props'
 
 export type SharedTextInputProps = Pick<

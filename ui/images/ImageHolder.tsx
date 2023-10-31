@@ -1,8 +1,8 @@
 import React, { forwardRef, ReactNode } from 'react'
 import styled from 'styled-components'
-import { Center } from '../Center'
-import { ImageIcon } from '../icons/ImageIcon'
-import { getColor } from '../theme/getters'
+import { getColor } from '../ui/theme/getters'
+import { Center } from '../ui/Center'
+import { ImageIcon } from '../ui/icons/ImageIcon'
 
 interface Props {
   width?: React.CSSProperties['width']

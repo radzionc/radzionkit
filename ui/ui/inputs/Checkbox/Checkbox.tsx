@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
-import { HStack } from '../../Stack'
+import { HStack } from '../../../layout/Stack'
 import { CheckIcon } from '../../icons/CheckIcon'
 import { getColor } from '../../theme/getters'
 import {

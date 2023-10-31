@@ -1,7 +1,7 @@
 import { UseFormReturn, useFieldArray } from 'react-hook-form'
 import { FormSection } from '@reactkit/ui/ui/Form/FormSection'
 
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 import { Line } from '@reactkit/ui/ui/Line'
 import styled from 'styled-components'
 import { Text } from '@reactkit/ui/ui/Text'

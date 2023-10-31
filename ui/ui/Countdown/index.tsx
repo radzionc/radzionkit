@@ -1,4 +1,4 @@
-import { HStack, VStack } from '../Stack'
+import { HStack, VStack } from '../../layout/Stack'
 import { useRhythmicRerender } from '../../hooks/useRhythmicRerender'
 import { CountdownPart } from './CountdownPart'
 import { Text } from '../Text'

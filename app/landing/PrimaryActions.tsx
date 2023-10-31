@@ -1,5 +1,5 @@
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { HStack } from '@reactkit/ui/ui/Stack'
+import { HStack } from '@reactkit/ui/layout/Stack'
 import { Button } from '@reactkit/ui/buttons/Button'
 import { GitHubIcon } from '@reactkit/ui/ui/icons/GitHubIcon'
 import { Path } from 'navigation/Path'

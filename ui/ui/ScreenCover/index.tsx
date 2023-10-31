@@ -5,7 +5,6 @@ import {
   handleWithStopPropagation,
   handleWithStopPropagationAndPreventDefault,
 } from '../../shared/events'
-import { zIndex } from '../zIndex'
 import { takeWholeSpace } from '../../css/takeWholeSpace'
 
 const Container = styled.div<{ isBlurred?: boolean }>`
@@ -19,7 +18,7 @@ const Container = styled.div<{ isBlurred?: boolean }>`
   align-items: center;
   justify-content: center;
 
-  z-index: ${zIndex.screenCover};
+  z-index: 4;
 
   background: ${({ theme }) => theme.colors.overlay.toCssValue()};
 

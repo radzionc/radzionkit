@@ -3,7 +3,7 @@ import { SlidingCharacter } from './SlidingCharacter'
 import { Panel } from '../Panel/Panel'
 import styled from 'styled-components'
 import { Center } from '../Center'
-import { HStack } from '../Stack'
+import { HStack } from '../../layout/Stack'
 import { Text } from '../Text'
 import { padWithZero } from '@reactkit/utils/padWithZero'
 

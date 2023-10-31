@@ -2,8 +2,8 @@ import { formatDistance } from 'date-fns'
 import {
   StackSeparatedBy,
   dotSeparator,
-} from '@reactkit/ui/ui/StackSeparatedBy'
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+} from '@reactkit/ui/layout/StackSeparatedBy'
+import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 import { Responsibilities } from './Responsibilities'
 

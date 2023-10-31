@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react'
 import { useSpring, animated, config } from 'react-spring'
 import styled from 'styled-components'
-import { HStack, VStack } from '../Stack'
+import { HStack, VStack } from '../../layout/Stack'
 import { Text } from '../Text'
 import { ReversedTheme } from '../theme/ReversedTheme'
 import { ExternalLink } from '../../navigation/Link/ExternalLink'

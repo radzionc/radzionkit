@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { VStack } from '../../Stack'
+import { VStack } from '../../../layout/Stack'
 import { range } from '@reactkit/utils/array/range'
 
 const Line = styled.div`

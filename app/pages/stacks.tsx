@@ -1,7 +1,7 @@
 import styled, { useTheme } from 'styled-components'
 import { HSLA } from '@reactkit/ui/colors/HSLA'
 
-import { HStack, VStack } from '@reactkit/ui/ui/Stack'
+import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import { DemoPage } from 'components/DemoPage'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
