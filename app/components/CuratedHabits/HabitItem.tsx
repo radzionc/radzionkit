@@ -2,7 +2,7 @@ import { VStack, HStack } from '@reactkit/ui/layout/Stack'
 import styled, { useTheme } from 'styled-components'
 import { HabitInfo } from './data/habits'
 import { Text } from '@reactkit/ui/ui/Text'
-import { Tag } from '@reactkit/ui/ui/Tag'
+import { Tag } from '@reactkit/ui/tags/Tag'
 import { Button } from '@reactkit/ui/buttons/Button'
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
 

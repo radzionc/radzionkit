@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import { HSLA } from '../colors/HSLA'
-import { Text } from './Text'
+import { Text } from '../ui/Text'
 import { match } from '@reactkit/utils/match'
 
 export const Tag = styled(Text)<{ $color: HSLA }>`

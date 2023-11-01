@@ -3,7 +3,7 @@ import { InputProps } from '../../props'
 import { toPercents } from '@reactkit/utils/toPercents'
 import { HStack } from '../../layout/Stack'
 import { Switch } from '../../ui/Switch/Switch'
-import { Tag } from '../../ui/Tag'
+import { Tag } from '../../tags/Tag'
 import { SubscriptionBillingCycle } from '@reactkit/entities/Subscription'
 
 interface SubscriptionBillingCycleInputProps

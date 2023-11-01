@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Spacer } from '../Spacer'
+import { Spacer } from '../../layout/Spacer'
 import { VStack } from '../../layout/Stack'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { Text } from '../Text'

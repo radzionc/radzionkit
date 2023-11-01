@@ -1,5 +1,5 @@
-import { useBoolean } from 'hooks/useBoolean'
 import { ReactNode } from 'react'
+import { useBoolean } from '../hooks/useBoolean'
 
 interface RenderParams {
   src: string

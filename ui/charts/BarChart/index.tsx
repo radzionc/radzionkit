@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { SameWidthChildrenRow } from '../../layout/SameWidthChildrenRow'
-import { Spacer } from '../../ui/Spacer'
+import { Spacer } from '../../layout/Spacer'
 import { VStack } from '../../layout/Stack'
 import { HSLA } from '../../colors/HSLA'
 import { toSizeUnit } from '../../css/toSizeUnit'

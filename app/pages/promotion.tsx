@@ -2,7 +2,7 @@ import { DemoPage } from 'components/DemoPage'
 import { InteractivePromotion } from '@reactkit/ui/ui/InteractivePromotion'
 import styled from 'styled-components'
 
-import { ShowAfterDelay } from '@reactkit/ui/ui/ShowAfterDelay'
+import { ShowAfterDelay } from '@reactkit/ui/base/ShowAfterDelay'
 import { takeWholeSpace } from '@reactkit/ui/css/takeWholeSpace'
 import { PersistentStateKey, usePersistentState } from 'state/persistentState'
 import { makeDemoPage } from 'layout/makeDemoPage'

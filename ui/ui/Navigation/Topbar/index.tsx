@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { SidebarOpener } from './SidebarOpener'
 import { ScreenCover } from '../../ScreenCover'
-import { Spacer } from '../../Spacer'
+import { Spacer } from '../../../layout/Spacer'
 
 const Container = styled.div`
   width: 100%;

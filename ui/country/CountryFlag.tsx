@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { SafeImage } from '../ui/SafeImage'
 import { getColor } from '../ui/theme/getters'
 import { UIComponentProps } from '../props'
 import {
@@ -8,6 +7,7 @@ import {
 } from '@reactkit/utils/countryNameRecord'
 import { centerContent } from '../css/centerContent'
 import { CoverImage } from '../images/CoverImage'
+import { SafeImage } from '../images/SafeImage'
 
 interface CountryFlagProps extends UIComponentProps {
   code?: CountryCode

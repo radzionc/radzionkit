@@ -11,7 +11,7 @@ import { useState } from 'react'
 import { Text } from '@reactkit/ui/ui/Text'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { CopyText } from '@reactkit/ui/ui/CopyText'
-import { SeparatedByLine } from '@reactkit/ui/ui/SeparatedByLine'
+import { SeparatedByLine } from '@reactkit/ui/layout/SeparatedByLine'
 import { makeDemoPage } from 'layout/makeDemoPage'
 import { SameWidthChildrenRow } from '@reactkit/ui/layout/SameWidthChildrenRow'
 
