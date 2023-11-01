@@ -4,7 +4,7 @@ import { interactive } from '../css/interactive'
 import { transition } from '../css/transition'
 import { getColor } from '../ui/theme/getters'
 import { UnstyledButton } from './UnstyledButton'
-import { Text } from '../ui/Text'
+import { Text } from '../text'
 
 const Container = styled(UnstyledButton)`
   ${interactive};

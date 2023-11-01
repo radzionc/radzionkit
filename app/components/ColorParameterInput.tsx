@@ -1,6 +1,6 @@
 import { range } from '@reactkit/utils/array/range'
 import { toPercents } from '@reactkit/utils/toPercents'
-import { PressTracker } from '@reactkit/ui/ui/PressTracker'
+import { PressTracker } from '@reactkit/ui/base/PressTracker'
 import {
   InvisibleHTMLSlider,
   InvisibleHTMLSliderProps,

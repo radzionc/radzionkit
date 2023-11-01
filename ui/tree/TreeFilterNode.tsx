@@ -6,7 +6,7 @@ import { VStack } from '../layout/Stack'
 import { ReversedTheme } from '../ui/theme/ReversedTheme'
 import { getColor } from '../ui/theme/getters'
 import { borderRadius } from '../css/borderRadius'
-import { Text } from '../ui/Text'
+import { Text } from '../text'
 
 interface TreeFilterNodeProps extends ComponentWithChildrenProps {
   name: ReactNode

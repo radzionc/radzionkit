@@ -5,7 +5,7 @@ import { MenuView } from '.'
 import { Hoverable } from '../Hoverable'
 import { HStack } from '../../layout/Stack'
 import { transition } from '../../css/transition'
-import { Text } from '../Text'
+import { Text } from '../../text'
 import { verticalPadding } from '../../css/verticalPadding'
 import { Button } from '../../buttons/Button'
 

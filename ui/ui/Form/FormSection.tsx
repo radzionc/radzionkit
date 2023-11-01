@@ -1,7 +1,7 @@
 import { ComponentWithChildrenProps } from '../../props'
 import { Line } from '../Line'
 import { VStack } from '../../layout/Stack'
-import { Text } from '../Text'
+import { Text } from '../../text'
 
 interface Props extends ComponentWithChildrenProps {
   name: string

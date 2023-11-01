@@ -19,7 +19,7 @@ import { defaultInputShapeCSS } from '../config'
 import { getColor } from '../../theme/getters'
 import { useBoolean } from '../../../hooks/useBoolean'
 import { useKeyPress } from '../../../hooks/useKeyPress'
-import { Text } from '../../Text'
+import { Text } from '../../../text'
 import { CollapseToggleButton } from '../../../buttons/CollapseToggleButton'
 
 interface Props<T> {

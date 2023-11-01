@@ -8,7 +8,7 @@ import {
 import { ColorParameterInput } from 'components/ColorParameterInput'
 import styled, { useTheme } from 'styled-components'
 import { useState } from 'react'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { CopyText } from '@reactkit/ui/ui/CopyText'
 import { SeparatedByLine } from '@reactkit/ui/layout/SeparatedByLine'

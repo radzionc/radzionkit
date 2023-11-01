@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { InputErrorText } from './InputErrorText'
 import { getColor, matchColor } from '../theme/getters'
 import { VStack } from '../../layout/Stack'
-import { Text } from '../Text'
+import { Text } from '../../text'
 import { ComponentProps } from 'react'
 
 const Container = styled(VStack)<{ isValid: boolean }>`

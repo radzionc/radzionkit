@@ -6,7 +6,7 @@ import {
   InvisibleHTMLCheckboxProps,
   InvisibleHTMLCheckbox,
 } from './InvisibleHTMLCheckbox'
-import { Text } from '../../Text'
+import { Text } from '../../../text'
 import { centerContent } from '../../../css/centerContent'
 import { sameDimensions } from '../../../css/sameDimensions'
 import { transition } from '../../../css/transition'

@@ -1,5 +1,5 @@
 import { Spinner } from '../../ui/Spinner'
-import { Text } from '../../ui/Text'
+import { Text } from '../../text'
 import { QueryDependantProps } from '../components/QueryDependant'
 
 export const getQueryDependantDefaultProps = (

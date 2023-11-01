@@ -1,5 +1,5 @@
 import { VStack } from '../layout/Stack'
-import { Text } from '../ui/Text'
+import { Text } from '../text'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { AuthView } from './AuthView'

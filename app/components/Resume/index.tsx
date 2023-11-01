@@ -1,5 +1,5 @@
 import { HStack, VStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { useRef } from 'react'
 import { ResumeContainer } from './ResumeContainer'
 import { PrintResume } from './PrintResume'

@@ -5,7 +5,7 @@ import {
   HStackSeparatedBy,
   slashSeparator,
 } from '../../layout/StackSeparatedBy'
-import { Text } from '../../ui/Text'
+import { Text } from '../../text'
 
 interface SubscriptionPriceProps {
   billingCycle: SubscriptionBillingCycle

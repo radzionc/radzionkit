@@ -7,7 +7,7 @@ import { getColor } from '../theme/getters'
 import { VStack } from '../../layout/Stack'
 import { transition } from '../../css/transition'
 import { UploadIcon } from '../icons/UploadIcon'
-import { Text } from '../Text'
+import { Text } from '../../text'
 
 interface Props {
   onSubmit: (file: File) => void

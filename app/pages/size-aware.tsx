@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Center } from '@reactkit/ui/ui/Center'
 import { ElementSizeAware } from '@reactkit/ui/ui/ElementSizeAware'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { DemoPage } from 'components/DemoPage'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { makeDemoPage } from 'layout/makeDemoPage'

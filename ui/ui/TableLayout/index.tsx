@@ -2,7 +2,7 @@ import { CSSProperties } from 'react'
 import styled from 'styled-components'
 import { ComponentWithChildrenProps } from '../../props'
 import { Line } from '../Line'
-import { Text } from '../Text'
+import { Text } from '../../text'
 
 interface Props extends ComponentWithChildrenProps {
   columnNames: string[]

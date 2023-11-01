@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 import styled from 'styled-components'
 import { ExpandableInputOpener } from '../../../ui/ui/inputs/ExpandableInputOpener'
 import { Menu } from '@reactkit/ui/ui/Menu'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { InputProps } from '@reactkit/ui/props'
 
 const EmojiPicker = dynamic(() => import('./EmojiPicker'), {

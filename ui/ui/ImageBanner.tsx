@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { ActionInsideInteractiveElement } from '../base/ActionInsideInteractiveElement'
 import { Panel } from './Panel/Panel'
-import { Text } from './Text'
+import { Text } from '../text'
 import { getColor } from './theme/getters'
 import { ComponentWithChildrenProps } from '../props'
 import { centerContent } from '../css/centerContent'

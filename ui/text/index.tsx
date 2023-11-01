@@ -1,5 +1,5 @@
 import styled, { DefaultTheme, css } from 'styled-components'
-import { cropText } from '../../css/cropText'
+import { cropText } from '../css/cropText'
 
 const getTextColorRecord = ({ colors }: DefaultTheme) =>
   ({

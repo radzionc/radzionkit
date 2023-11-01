@@ -1,12 +1,12 @@
 import { DemoPage } from 'components/DemoPage'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { SeparatedByLine } from '@reactkit/ui/layout/SeparatedByLine'
 import {
   HStackSeparatedBy,
   dotSeparator,
   slashSeparator,
 } from '@reactkit/ui/layout/StackSeparatedBy'
-import { LabeledValue } from '@reactkit/ui/ui/LabeledValue'
+import { LabeledValue } from '@reactkit/ui/text/LabeledValue'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

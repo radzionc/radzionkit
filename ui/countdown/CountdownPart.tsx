@@ -5,7 +5,7 @@ import { padWithZero } from '@reactkit/utils/padWithZero'
 import { Panel } from '../ui/Panel/Panel'
 import { Center } from '../ui/Center'
 import { HStack } from '../layout/Stack'
-import { Text } from '../ui/Text'
+import { Text } from '../text'
 
 interface Props {
   value: number

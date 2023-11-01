@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
 import { Spinner } from '@reactkit/ui/ui/Spinner'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { HStack } from '@reactkit/ui/layout/Stack'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

@@ -1,7 +1,7 @@
 import { transition } from '@reactkit/ui/css/transition'
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
 import { HStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
 import { ReactNode } from 'react'
 import styled from 'styled-components'

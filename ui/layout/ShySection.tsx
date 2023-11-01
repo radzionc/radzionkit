@@ -1,6 +1,6 @@
 import { TitledComponentProps, ComponentWithChildrenProps } from '../props'
 import { VStack } from './Stack'
-import { Text } from '../ui/Text'
+import { Text } from '../text'
 
 type ShySectionProps = TitledComponentProps & ComponentWithChildrenProps
 

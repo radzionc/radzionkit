@@ -1,5 +1,5 @@
 import styled, { useTheme } from 'styled-components'
-import { PressTracker } from '../../PressTracker'
+import { PressTracker } from '../../../base/PressTracker'
 import { defaultTransition } from '../../../css/transition'
 import { HSLA } from '../../../colors/HSLA'
 import { getColor } from '../../theme/getters'

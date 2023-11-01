@@ -1,4 +1,4 @@
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { ProductIcon } from './ProductIcon'
 import { HStack } from '@reactkit/ui/layout/Stack'
 import styled from 'styled-components'

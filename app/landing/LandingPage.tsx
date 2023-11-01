@@ -2,7 +2,7 @@ import { VStack } from '@reactkit/ui/layout/Stack'
 import styled from 'styled-components'
 import { LandingPageHeader } from './LandingPageHeader'
 import { Center } from '@reactkit/ui/ui/Center'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { Button } from '@reactkit/ui/buttons/Button'
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
 import {

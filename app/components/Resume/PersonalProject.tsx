@@ -1,6 +1,6 @@
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
 import { HStack, VStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import styled from 'styled-components'
 import { Responsibilities } from './Responsibilities'
 import { getColor } from '@reactkit/ui/ui/theme/getters'

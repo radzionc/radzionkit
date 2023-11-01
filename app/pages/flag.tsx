@@ -8,7 +8,7 @@ import {
   countryNameRecord,
 } from '@reactkit/utils/countryNameRecord'
 import { Match } from '@reactkit/ui/base/Match'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { CountryFlag } from '@reactkit/ui/country/CountryFlag'
 import { CountryFlagEmoji } from '@reactkit/ui/country/CountryFlagEmoji'
 import { makeDemoPage } from 'layout/makeDemoPage'

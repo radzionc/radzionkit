@@ -1,5 +1,5 @@
 import { DemoPage } from 'components/DemoPage'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { SeparatedByLine } from '@reactkit/ui/layout/SeparatedByLine'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

@@ -1,6 +1,6 @@
 import { HSLA } from '@reactkit/ui/colors/HSLA'
 import { HStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import styled from 'styled-components'
 import { borderRadius } from '@reactkit/ui/css/borderRadius'

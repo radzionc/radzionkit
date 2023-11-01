@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 import { HStack } from '../layout/Stack'
-import { Text } from './Text'
+import { Text } from '.'
 
 interface Props {
   name: string

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Panel } from '../../Panel/Panel'
 import { HStack } from '../../../layout/Stack'
-import { Text } from '../../Text'
+import { Text } from '../../../text'
 import { CloseButton } from '../../../buttons/CloseButton'
 
 interface Props {

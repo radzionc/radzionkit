@@ -9,7 +9,7 @@ import {
 import { useEvent } from 'react-use'
 import styled, { css } from 'styled-components'
 import { HSLA } from '../../colors/HSLA'
-import { Text } from '../Text'
+import { Text } from '../../text'
 import { getIntervalDuration } from '@reactkit/utils/interval/getIntervalDuration'
 import { HourSpace } from './HourSpace'
 

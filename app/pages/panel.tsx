@@ -1,7 +1,7 @@
 import { VStack } from '@reactkit/ui/layout/Stack'
 import { DemoPage } from 'components/DemoPage'
 import { ExpandablePanel } from '@reactkit/ui/ui/Panel/ExpandablePanel'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
 import { Button } from '@reactkit/ui/buttons/Button'
 import { makeDemoPage } from 'layout/makeDemoPage'

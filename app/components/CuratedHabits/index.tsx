@@ -7,7 +7,7 @@ import { useState, useMemo } from 'react'
 import styled from 'styled-components'
 import { HabitTreeNode, habitTree } from './data/habitTree'
 import { habitRecord } from './data/habits'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { HabitItem } from './HabitItem'
 
 const Container = styled(HStack)`

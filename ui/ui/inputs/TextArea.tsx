@@ -5,7 +5,7 @@ import { InputWrapperWithErrorMessage } from './InputWrapper'
 import { SharedTextInputProps } from './TextInput'
 import { commonInputCSS } from './commonInputCSS'
 import { toSizeUnit } from '../../css/toSizeUnit'
-import { Text } from '../Text'
+import { Text } from '../../text'
 
 const TextareaContainer = styled.textarea`
   ${commonInputCSS};

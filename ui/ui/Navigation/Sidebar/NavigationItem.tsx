@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { HStack } from '../../../layout/Stack'
 import { transition } from '../../../css/transition'
 import { getColor } from '../../theme/getters'
-import { Text } from '../../Text'
+import { Text } from '../../../text'
 
 interface Props {
   icon?: React.ReactNode

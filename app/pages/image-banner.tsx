@@ -10,7 +10,7 @@ import { CoverImage } from '@reactkit/ui/images/CoverImage'
 import { darkTheme } from '@reactkit/ui/ui/theme/darkTheme'
 import { PersistentStateKey, usePersistentState } from 'state/persistentState'
 import { Button } from '@reactkit/ui/buttons/Button'
-import { Text } from '@reactkit/ui/ui/Text'
+import { Text } from '@reactkit/ui/text'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 const titleColor = new HSLA(220, 45, 30)

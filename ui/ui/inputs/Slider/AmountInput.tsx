@@ -4,7 +4,7 @@ import { Slider, SliderProps } from '.'
 
 import { InputWrapperWithErrorMessage } from '../InputWrapper'
 import { Panel } from '../../Panel/Panel'
-import { Text } from '../../Text'
+import { Text } from '../../../text'
 
 interface Props extends SliderProps {
   label: ReactNode

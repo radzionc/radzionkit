@@ -2,7 +2,7 @@ import { supportEmail } from '@reactkit/entities'
 import { CopyText } from '../../ui/CopyText'
 import { Spinner } from '../../ui/Spinner'
 import { VStack } from '../../layout/Stack'
-import { Text } from '../../ui/Text'
+import { Text } from '../../text'
 import { InfoIcon } from '../../icons/InfoIcon'
 
 interface BlockingQueryProps {

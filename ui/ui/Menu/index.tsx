@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 import { PopoverMenu, PopoverMenuProps } from './PopoverMenu'
-import { ResponsiveView } from '../ResponsiveView'
+import { ResponsiveView } from '../../layout/ResponsiveView'
 import { BottomSlideOver } from '../BottomSlideOver'
 import { Opener } from '../../base/Opener'
 

@@ -6,7 +6,7 @@ import {
   InvisibleHTMLCheckboxProps,
   InvisibleHTMLCheckbox,
 } from '../ui/inputs/Checkbox/InvisibleHTMLCheckbox'
-import { Text } from '../ui/Text'
+import { Text } from '../text'
 import { ChecklistItemFrame } from './ChecklistItemFrame'
 import { getColor, matchColor } from '../ui/theme/getters'
 import { centerContent } from '../css/centerContent'

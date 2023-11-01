@@ -1,5 +1,5 @@
 import { VStack } from './Stack'
-import { Text } from '../ui/Text'
+import { Text } from '../text'
 
 interface Props {
   name: string

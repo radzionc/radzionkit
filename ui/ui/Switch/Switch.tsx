@@ -1,7 +1,7 @@
 import styled, { css, useTheme } from 'styled-components'
 
 import { HStack } from '../../layout/Stack'
-import { Text } from '../Text'
+import { Text } from '../../text'
 import { getColor } from '../theme/getters'
 import { sameDimensions } from '../../css/sameDimensions'
 import { round } from '../../css/round'

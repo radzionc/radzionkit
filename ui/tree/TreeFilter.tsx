@@ -6,9 +6,9 @@ import { verticalPadding } from '../css/verticalPadding'
 import { InputProps } from '../props'
 import { handleWithStopPropagation } from '../shared/events'
 import { Circle } from '../ui/Circle'
-import { NonEmptyOnly } from '../ui/NonEmptyOnly'
+import { NonEmptyOnly } from '../base/NonEmptyOnly'
 import { VStack, HStack } from '../layout/Stack'
-import { Text } from '../ui/Text'
+import { Text } from '../text'
 
 interface TreeFilterProps<T> extends InputProps<number[]> {
   tree: TreeNode<T>
