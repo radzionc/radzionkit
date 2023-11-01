@@ -1,6 +1,6 @@
 import { range } from '@reactkit/utils/array/range'
 import { SameWidthChildrenRow } from '@reactkit/ui/layout/SameWidthChildrenRow'
-import { Line } from '@reactkit/ui/ui/Line'
+import { Line } from '@reactkit/ui/layout/Line'
 import { useTheme } from 'styled-components'
 import { ColorItem } from './ColorItem'
 import { labelColorsCount } from '@reactkit/ui/colors/generateLabelColorGetter'

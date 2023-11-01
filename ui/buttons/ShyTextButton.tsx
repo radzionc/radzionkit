@@ -2,7 +2,7 @@ import { ComponentProps, ReactNode } from 'react'
 import styled from 'styled-components'
 import { interactive } from '../css/interactive'
 import { transition } from '../css/transition'
-import { getColor } from '../ui/theme/getters'
+import { getColor } from '../theme/getters'
 import { UnstyledButton } from './UnstyledButton'
 import { Text } from '../text'
 

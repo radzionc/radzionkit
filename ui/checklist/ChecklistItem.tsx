@@ -5,10 +5,10 @@ import { CheckIcon } from '../icons/CheckIcon'
 import {
   InvisibleHTMLCheckboxProps,
   InvisibleHTMLCheckbox,
-} from '../ui/inputs/Checkbox/InvisibleHTMLCheckbox'
+} from '../inputs/Checkbox/InvisibleHTMLCheckbox'
 import { Text } from '../text'
 import { ChecklistItemFrame } from './ChecklistItemFrame'
-import { getColor, matchColor } from '../ui/theme/getters'
+import { getColor, matchColor } from '../theme/getters'
 import { centerContent } from '../css/centerContent'
 import { transition } from '../css/transition'
 

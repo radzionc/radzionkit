@@ -3,7 +3,7 @@ import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 import { Text } from '@reactkit/ui/text'
 import styled from 'styled-components'
 import { Responsibilities } from './Responsibilities'
-import { getColor } from '@reactkit/ui/ui/theme/getters'
+import { getColor } from '@reactkit/ui/theme/getters'
 import { round } from '@reactkit/ui/css/round'
 import { transition } from '@reactkit/ui/css/transition'
 

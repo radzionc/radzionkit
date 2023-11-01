@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 import { round } from './round'
-import { getColor } from '../ui/theme/getters'
+import { getColor } from '../theme/getters'
 
 export const themedScrollbars = css`
   &::-webkit-scrollbar {

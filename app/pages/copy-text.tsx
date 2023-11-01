@@ -1,5 +1,5 @@
 import { DemoPage } from 'components/DemoPage'
-import { CopyText } from '@reactkit/ui/ui/CopyText'
+import { CopyText } from '@reactkit/ui/text/CopyText'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

@@ -9,11 +9,11 @@ import { ColorParameterInput } from 'components/ColorParameterInput'
 import styled, { useTheme } from 'styled-components'
 import { useState } from 'react'
 import { Text } from '@reactkit/ui/text'
-import { Panel } from '@reactkit/ui/ui/Panel/Panel'
-import { CopyText } from '@reactkit/ui/ui/CopyText'
+import { Panel } from '@reactkit/ui/panel/Panel'
 import { SeparatedByLine } from '@reactkit/ui/layout/SeparatedByLine'
 import { makeDemoPage } from 'layout/makeDemoPage'
 import { SameWidthChildrenRow } from '@reactkit/ui/layout/SameWidthChildrenRow'
+import { CopyText } from '@reactkit/ui/text/CopyText'
 
 const colorParameterName: Record<HSLAParameter, string> = {
   h: 'Hue',

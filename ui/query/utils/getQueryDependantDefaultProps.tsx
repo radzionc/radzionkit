@@ -1,4 +1,4 @@
-import { Spinner } from '../../ui/Spinner'
+import { Spinner } from '../../loaders/Spinner'
 import { Text } from '../../text'
 import { QueryDependantProps } from '../components/QueryDependant'
 

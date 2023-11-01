@@ -6,11 +6,11 @@ import { centerContent } from '../css/centerContent'
 import { horizontalPadding } from '../css/horizontalPadding'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { transition } from '../css/transition'
-import { CenterAbsolutely } from '../ui/CenterAbsolutely'
-import { Spinner } from '../ui/Spinner'
+import { CenterAbsolutely } from '../layout/CenterAbsolutely'
+import { Spinner } from '../loaders/Spinner'
 import { Tooltip } from '../tooltips/Tooltip'
 import { getHoverVariant } from '../colors/getHoverVariant'
-import { getColor } from '../ui/theme/getters'
+import { getColor } from '../theme/getters'
 
 export const buttonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 

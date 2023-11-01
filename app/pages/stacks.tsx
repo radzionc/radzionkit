@@ -4,7 +4,7 @@ import { HSLA } from '@reactkit/ui/colors/HSLA'
 import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import { DemoPage } from 'components/DemoPage'
-import { Panel } from '@reactkit/ui/ui/Panel/Panel'
+import { Panel } from '@reactkit/ui/panel/Panel'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 const Conent = styled(Panel)<{ $color: HSLA }>`

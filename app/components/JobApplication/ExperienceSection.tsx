@@ -1,13 +1,13 @@
 import { UseFormReturn, useFieldArray } from 'react-hook-form'
-import { FormSection } from '@reactkit/ui/ui/Form/FormSection'
+import { FormSection } from '@reactkit/ui/forms/FormSection'
 
 import { HStack, VStack } from '@reactkit/ui/layout/Stack'
-import { Line } from '@reactkit/ui/ui/Line'
+import { Line } from '@reactkit/ui/layout/Line'
 import styled from 'styled-components'
 import { Text } from '@reactkit/ui/text'
-import { TextArea } from '@reactkit/ui/ui/inputs/TextArea'
-import { TextInput } from '@reactkit/ui/ui/inputs/TextInput'
-import { Circle } from '@reactkit/ui/ui/Circle'
+import { TextArea } from '@reactkit/ui/inputs/TextArea'
+import { TextInput } from '@reactkit/ui/inputs/TextInput'
+import { Circle } from '@reactkit/ui/layout/Circle'
 import {
   emptyExperience,
   JobApplicationFormShape,
@@ -15,7 +15,7 @@ import {
 } from './jobApplicationForm'
 import { TrashIcon } from '@reactkit/ui/icons/TrashIcon'
 import { Button } from '@reactkit/ui/buttons/Button'
-import { getColor } from '@reactkit/ui/ui/theme/getters'
+import { getColor } from '@reactkit/ui/theme/getters'
 import { IconButton } from '@reactkit/ui/buttons/IconButton'
 
 export interface Props {

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { getColor } from '../ui/theme/getters'
+import { getColor } from '../theme/getters'
 import { UIComponentProps } from '../props'
 import {
   CountryCode,

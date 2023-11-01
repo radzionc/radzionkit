@@ -4,11 +4,11 @@ import { TreeNode } from '@reactkit/utils/tree'
 import { transition } from '../css/transition'
 import { verticalPadding } from '../css/verticalPadding'
 import { InputProps } from '../props'
-import { handleWithStopPropagation } from '../shared/events'
-import { Circle } from '../ui/Circle'
+import { Circle } from '../layout/Circle'
 import { NonEmptyOnly } from '../base/NonEmptyOnly'
 import { VStack, HStack } from '../layout/Stack'
 import { Text } from '../text'
+import { stopPropagation } from '../utils/stopPropagation'
 
 interface TreeFilterProps<T> extends InputProps<number[]> {
   tree: TreeNode<T>
@@ -51,7 +51,7 @@ export function TreeFilter<T>({
 
     return (
       <Container
-        onClick={handleWithStopPropagation(() => onChange(path))}
+        onClick={stopPropagation(() => onChange(path))}
         onMouseEnter={() => setHovered(path)}
         onMouseLeave={() => {
           setHovered(

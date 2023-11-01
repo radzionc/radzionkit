@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { getColor } from '../ui/theme/getters'
+import { getColor } from '../theme/getters'
 import { takeWholeSpace } from '../css/takeWholeSpace'
 import { toSizeUnit } from '../css/toSizeUnit'
 

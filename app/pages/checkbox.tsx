@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
-import { Checkbox } from '@reactkit/ui/ui/inputs/Checkbox/Checkbox'
+import { Checkbox } from '@reactkit/ui/inputs/Checkbox/Checkbox'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

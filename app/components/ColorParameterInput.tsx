@@ -4,8 +4,8 @@ import { PressTracker } from '@reactkit/ui/base/PressTracker'
 import {
   InvisibleHTMLSlider,
   InvisibleHTMLSliderProps,
-} from '@reactkit/ui/ui/inputs/Slider/InvisibleHtmlSlider'
-import { getColor } from '@reactkit/ui/ui/theme/getters'
+} from '@reactkit/ui/inputs/Slider/InvisibleHtmlSlider'
+import { getColor } from '@reactkit/ui/theme/getters'
 import { centerContent } from '@reactkit/ui/css/centerContent'
 import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import styled from 'styled-components'

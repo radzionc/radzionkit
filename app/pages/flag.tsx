@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
-import { TabNavigation } from '@reactkit/ui/ui/TabNavigation'
+import { TabNavigation } from '@reactkit/ui/navigation/TabNavigation'
 import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
 import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 import {

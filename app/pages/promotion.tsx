@@ -1,5 +1,5 @@
 import { DemoPage } from 'components/DemoPage'
-import { InteractivePromotion } from '@reactkit/ui/ui/InteractivePromotion'
+import { InteractivePromotion } from '@reactkit/ui/marketing/InteractivePromotion'
 import styled from 'styled-components'
 
 import { ShowAfterDelay } from '@reactkit/ui/base/ShowAfterDelay'

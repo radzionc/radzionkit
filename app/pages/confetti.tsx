@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
 import { Confetti } from '@reactkit/ui/animations/Confetti'
-import { Checkbox } from '@reactkit/ui/ui/inputs/Checkbox/Checkbox'
+import { Checkbox } from '@reactkit/ui/inputs/Checkbox/Checkbox'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { makeDemoPage } from 'layout/makeDemoPage'

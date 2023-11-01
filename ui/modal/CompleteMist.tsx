@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { takeWholeSpace } from '../css/takeWholeSpace'
 import { centerContent } from '../css/centerContent'
-import { getColor } from '../ui/theme/getters'
+import { getColor } from '../theme/getters'
 
 export const CompleteMist = styled.div`
   z-index: 1;

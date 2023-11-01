@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
-import { ColorLabelInput } from '@reactkit/ui/ui/inputs/ColorLabelInput'
+import { ColorLabelInput } from '@reactkit/ui/inputs/ColorLabelInput'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

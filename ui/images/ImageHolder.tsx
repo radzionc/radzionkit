@@ -1,6 +1,6 @@
 import React, { forwardRef, ReactNode } from 'react'
 import styled from 'styled-components'
-import { getColor } from '../ui/theme/getters'
+import { getColor } from '../theme/getters'
 import { Center } from '../layout/Center'
 import { ImageIcon } from '../icons/ImageIcon'
 

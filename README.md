@@ -89,8 +89,8 @@ yarn add --dev @types/styled-components@^5.1.25
 
 ```tsx
 import type { AppProps } from 'next/app'
-import { GlobalStyle } from '@reactkit/ui/ui/GlobalStyle'
-import { ThemeProvider } from 'ui/ThemeProvider'
+import { GlobalStyle } from '@reactkit/ui/css/GlobalStyle'
+import { ThemeProvider } from 'themeProvider'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({

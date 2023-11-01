@@ -1,5 +1,5 @@
 import { borderRadius } from '@reactkit/ui/css/borderRadius'
-import { getColor } from '@reactkit/ui/ui/theme/getters'
+import { getColor } from '@reactkit/ui/theme/getters'
 import styled from 'styled-components'
 
 export const ResumeContainer = styled.div`

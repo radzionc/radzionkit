@@ -17,7 +17,7 @@ import {
   Placement,
 } from '@floating-ui/react'
 import styled from 'styled-components'
-import { getColor } from '../ui/theme/getters'
+import { getColor } from '../theme/getters'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void

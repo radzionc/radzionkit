@@ -1,9 +1,9 @@
 import { DemoPage } from 'components/DemoPage'
 import styled from 'styled-components'
-import { Panel } from '@reactkit/ui/ui/Panel/Panel'
+import { Panel } from '@reactkit/ui/panel/Panel'
 import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
 import { PressTracker } from '@reactkit/ui/base/PressTracker'
-import { getColor } from '@reactkit/ui/ui/theme/getters'
+import { getColor } from '@reactkit/ui/theme/getters'
 import { toPercents } from '@reactkit/utils/toPercents'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

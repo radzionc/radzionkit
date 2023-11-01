@@ -3,8 +3,8 @@ import { OpenMenuButton } from '@reactkit/ui/buttons/OpenMenuButton'
 import { EditIcon } from '@reactkit/ui/icons/EditIcon'
 import { MoonIcon } from '@reactkit/ui/icons/MoonIcon'
 import { TrashBinIcon } from '@reactkit/ui/icons/TrashBinIcon'
-import { Menu } from '@reactkit/ui/ui/Menu'
-import { MenuOption, MenuOptionProps } from '@reactkit/ui/ui/Menu/MenuOption'
+import { Menu } from '@reactkit/ui/menu'
+import { MenuOption, MenuOptionProps } from '@reactkit/ui/menu/MenuOption'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

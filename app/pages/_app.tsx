@@ -1,12 +1,12 @@
 import type { AppProps } from 'next/app'
 import { ReactNode, useEffect, useState } from 'react'
 import { GlobalStyle } from '@reactkit/ui/css/GlobalStyle'
-import { ThemeProvider } from 'ui/ThemeProvider'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Inter } from 'next/font/google'
 import { analytics } from 'analytics'
 import { useRouter } from 'next/router'
 import { Page } from 'layout/Page'
+import { ThemeProvider } from 'ui/ThemeProvider'
 
 const inter = Inter({
   subsets: ['latin'],

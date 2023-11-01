@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { VStack } from './Stack'
 import { toSizeUnit } from '../css/toSizeUnit'
-import { getColor } from '../ui/theme/getters'
+import { getColor } from '../theme/getters'
 
 export const SeparatedByLine = styled(VStack)`
   > *:not(:last-child) {

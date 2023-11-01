@@ -1,5 +1,5 @@
 import { DemoPage } from 'components/DemoPage'
-import { Switch } from '@reactkit/ui/ui/Switch/Switch'
+import { Switch } from '@reactkit/ui/inputs/Switch/Switch'
 import { useState } from 'react'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

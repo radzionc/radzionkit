@@ -1,10 +1,10 @@
-import { Spinner } from '@reactkit/ui/ui/Spinner'
+import { Spinner } from '@reactkit/ui/loaders/Spinner'
 import { HStack } from '@reactkit/ui/layout/Stack'
 import { centerContent } from '@reactkit/ui/css/centerContent'
 import dynamic from 'next/dynamic'
 import styled from 'styled-components'
-import { ExpandableInputOpener } from '../../../ui/ui/inputs/ExpandableInputOpener'
-import { Menu } from '@reactkit/ui/ui/Menu'
+import { ExpandableInputOpener } from '@reactkit/ui/inputs/ExpandableInputOpener'
+import { Menu } from '@reactkit/ui/menu'
 import { Text } from '@reactkit/ui/text'
 import { InputProps } from '@reactkit/ui/props'
 

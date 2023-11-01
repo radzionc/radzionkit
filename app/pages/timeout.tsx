@@ -1,5 +1,5 @@
 import { DemoPage } from 'components/DemoPage'
-import { Checkbox } from '@reactkit/ui/ui/inputs/Checkbox/Checkbox'
+import { Checkbox } from '@reactkit/ui/inputs/Checkbox/Checkbox'
 import { useState } from 'react'
 import { VStack } from '@reactkit/ui/layout/Stack'
 import { Text } from '@reactkit/ui/text'

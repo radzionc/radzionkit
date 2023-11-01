@@ -1,6 +1,6 @@
 import { ComponentWithChildrenProps } from '@reactkit/ui/props'
-import { PrefferedThemeProvider } from '@reactkit/ui/ui/theme/PrefferedThemeProvider'
-import { ThemePreference } from '@reactkit/ui/ui/theme/ThemePreference'
+import { PrefferedThemeProvider } from '@reactkit/ui/theme/PrefferedThemeProvider'
+import { ThemePreference } from '@reactkit/ui/theme/ThemePreference'
 import { PersistentStateKey, usePersistentState } from 'state/persistentState'
 
 export const ThemeProvider = ({ children }: ComponentWithChildrenProps) => {

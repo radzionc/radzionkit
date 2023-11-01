@@ -1,7 +1,7 @@
-import { DistributionBar } from '@reactkit/ui/ui/DistributionBar'
 import { DemoPage } from 'components/DemoPage'
 import { useTheme } from 'styled-components'
 import { makeDemoPage } from 'layout/makeDemoPage'
+import { DistributionBar } from '@reactkit/ui/charts/DistributionBar'
 
 export default makeDemoPage(() => {
   const {

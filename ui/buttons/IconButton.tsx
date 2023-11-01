@@ -6,7 +6,7 @@ import { centerContent } from '../css/centerContent'
 import { sameDimensions } from '../css/sameDimensions'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { transition } from '../css/transition'
-import { matchColor } from '../ui/theme/getters'
+import { matchColor } from '../theme/getters'
 
 export const iconButtonSizes = ['s', 'm', 'l'] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]
