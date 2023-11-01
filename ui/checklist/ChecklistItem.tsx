@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
-import { Hoverable } from '../ui/Hoverable'
+import { Hoverable } from '../base/Hoverable'
 import { CheckIcon } from '../icons/CheckIcon'
 import {
   InvisibleHTMLCheckboxProps,

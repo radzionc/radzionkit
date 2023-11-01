@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { Center } from '@reactkit/ui/ui/Center'
-import { ElementSizeAware } from '@reactkit/ui/ui/ElementSizeAware'
+import { Center } from '@reactkit/ui/layout/Center'
 import { Text } from '@reactkit/ui/text'
 import { DemoPage } from 'components/DemoPage'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { makeDemoPage } from 'layout/makeDemoPage'
 import { takeWholeSpace } from '@reactkit/ui/css/takeWholeSpace'
+import { ElementSizeAware } from '@reactkit/ui/base/ElementSizeAware'
 
 const Container = styled(Panel)`
   ${takeWholeSpace}

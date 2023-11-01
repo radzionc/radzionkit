@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import styled from 'styled-components'
 
 import { HSLA } from '../colors/HSLA'
-import { ElementSizeAware } from './ElementSizeAware'
+import { ElementSizeAware } from '../base/ElementSizeAware'
 import { Panel } from './Panel/Panel'
 import { VStack } from '../layout/Stack'
 import { Text } from '../text'

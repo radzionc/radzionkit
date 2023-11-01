@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import { getColor } from './theme/getters'
-import { themedScrollbars } from '../css/themedScrollbars'
+import { getColor } from '../ui/theme/getters'
+import { themedScrollbars } from './themedScrollbars'
 
 interface GlobalStyleProps {
   fontFamily: string

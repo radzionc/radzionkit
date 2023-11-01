@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { getColor } from './theme/getters'
+import { getColor } from '../ui/theme/getters'
 import { ComponentProps } from 'react'
 import { absoluteOutline } from '../css/absoluteOutline'
 import { transition } from '../css/transition'

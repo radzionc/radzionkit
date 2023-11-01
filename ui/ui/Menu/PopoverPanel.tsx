@@ -13,7 +13,7 @@ import { ReactNode, useState } from 'react'
 import styled from 'styled-components'
 
 import { Panel } from '../Panel/Panel'
-import { FocusTrap } from '../FocusTrap'
+import { FocusTrap } from '../../modal/FocusTrap'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void

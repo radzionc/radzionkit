@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 
 import { MenuView } from '.'
-import { Hoverable } from '../Hoverable'
+import { Hoverable } from '../../base/Hoverable'
 import { HStack } from '../../layout/Stack'
 import { transition } from '../../css/transition'
 import { Text } from '../../text'

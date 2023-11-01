@@ -1,7 +1,7 @@
 import { DemoPage } from 'components/DemoPage'
-import { Hoverable } from '@reactkit/ui/ui/Hoverable'
 import { Text } from '@reactkit/ui/text'
 import { makeDemoPage } from 'layout/makeDemoPage'
+import { Hoverable } from '@reactkit/ui/base/Hoverable'
 
 export default makeDemoPage(() => {
   return (
