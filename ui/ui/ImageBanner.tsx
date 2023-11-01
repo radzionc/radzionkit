@@ -2,7 +2,6 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 
 import { ActionInsideInteractiveElement } from '../base/ActionInsideInteractiveElement'
-import { CloseIcon } from './icons/CloseIcon'
 import { Panel } from './Panel/Panel'
 import { Text } from './Text'
 import { getColor } from './theme/getters'
@@ -13,6 +12,7 @@ import { sameDimensions } from '../css/sameDimensions'
 import { interactive } from '../css/interactive'
 import { transition } from '../css/transition'
 import { UnstyledButton } from '../buttons/UnstyledButton'
+import { CloseIcon } from '../icons/CloseIcon'
 
 interface ImageBannerProps {
   onClose: () => void

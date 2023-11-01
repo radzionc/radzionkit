@@ -1,12 +1,12 @@
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
 import { VStack } from '@reactkit/ui/layout/Stack'
-import { ChecklistItem } from '@reactkit/ui/ui/checklist/ChecklistItem'
 import { Opener } from '@reactkit/ui/base/Opener'
-import { AddChecklistItemPrompt } from '@reactkit/ui/ui/checklist/AddChecklistItemPrompt'
-import { ChecklistItemForm } from '@reactkit/ui/ui/checklist/ChecklistItemForm'
 import { updateAtIndex } from '@reactkit/utils/array/updateAtIndex'
 import { makeDemoPage } from 'layout/makeDemoPage'
+import { ChecklistItem } from '@reactkit/ui/checklist/ChecklistItem'
+import { AddChecklistItemPrompt } from '@reactkit/ui/checklist/AddChecklistItemPrompt'
+import { ChecklistItemForm } from '@reactkit/ui/checklist/ChecklistItemForm'
 
 interface Task {
   name: string

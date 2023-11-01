@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
 import { AmountTextInput } from '@reactkit/ui/ui/inputs/AmountTextInput'
-import { DollarIcon } from '@reactkit/ui/ui/icons/DollarIcon'
+import { DollarIcon } from '@reactkit/ui/icons/DollarIcon'
 import { useState } from 'react'
 import { AmountSuggestion } from '@reactkit/ui/ui/inputs/AmountSuggestion'
 import { makeDemoPage } from 'layout/makeDemoPage'

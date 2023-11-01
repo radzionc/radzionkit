@@ -1,7 +1,6 @@
 import styled, { useTheme } from 'styled-components'
 import { Menu } from '../Menu'
 import { VStack } from '../../layout/Stack'
-import { CheckIcon } from '../icons/CheckIcon'
 import { getColor } from '../theme/getters'
 import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
 import { ExpandableInputOpener } from './ExpandableInputOpener'
@@ -14,6 +13,7 @@ import { centerContent } from '../../css/centerContent'
 import { sameDimensions } from '../../css/sameDimensions'
 import { transition } from '../../css/transition'
 import { borderRadius } from '../../css/borderRadius'
+import { CheckIcon } from '../../icons/CheckIcon'
 
 interface ColorLabelInputProps extends InputProps<number> {
   usedValues?: Set<number>

@@ -3,8 +3,6 @@ import { useEvent } from 'react-use'
 import styled from 'styled-components'
 
 import { HSLA } from '../../colors/HSLA'
-import { ChevronDownIcon } from '../icons/ChevronDownIcon'
-import { ChevronUpIcon } from '../icons/ChevronUpIcon'
 import { StackSeparatedBy, dotSeparator } from '../../layout/StackSeparatedBy'
 import { VStack } from '../../layout/Stack'
 import { Text } from '../Text'
@@ -15,6 +13,8 @@ import { formatDuration } from '@reactkit/utils/time/formatDuration'
 import { enforceRange } from '@reactkit/utils/enforceRange'
 import { MS_IN_HOUR, MS_IN_MIN } from '@reactkit/utils/time'
 import { verticalMargin } from '../../css/verticalMargin'
+import { ChevronDownIcon } from '../../icons/ChevronDownIcon'
+import { ChevronUpIcon } from '../../icons/ChevronUpIcon'
 
 export interface TimeInputProps {
   color: HSLA

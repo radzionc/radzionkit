@@ -1,9 +1,9 @@
-import { HStack, VStack } from '../../layout/Stack'
-import { useRhythmicRerender } from '../../hooks/useRhythmicRerender'
 import { CountdownPart } from './CountdownPart'
-import { Text } from '../Text'
 import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
 import { MS_IN_HOUR, MS_IN_MIN, MS_IN_SEC } from '@reactkit/utils/time'
+import { useRhythmicRerender } from '../hooks/useRhythmicRerender'
+import { HStack, VStack } from '../layout/Stack'
+import { Text } from '../ui/Text'
 
 const countdownUnits = ['days', 'hours', 'minutes', 'seconds'] as const
 type CountdownUnit = (typeof countdownUnits)[number]

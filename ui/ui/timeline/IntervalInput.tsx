@@ -9,7 +9,6 @@ import {
 import { useEvent } from 'react-use'
 import styled, { css } from 'styled-components'
 import { HSLA } from '../../colors/HSLA'
-import { MoveIcon } from '../icons/MoveIcon'
 import { Text } from '../Text'
 import { getIntervalDuration } from '@reactkit/utils/interval/getIntervalDuration'
 import { HourSpace } from './HourSpace'
@@ -23,6 +22,7 @@ import { enforceRange } from '@reactkit/utils/enforceRange'
 import { MS_IN_MIN, MS_IN_HOUR } from '@reactkit/utils/time'
 import { centerContent } from '../../css/centerContent'
 import { verticalMargin } from '../../css/verticalMargin'
+import { MoveIcon } from '../../icons/MoveIcon'
 
 interface RenderContentParams {
   pxInMs: number

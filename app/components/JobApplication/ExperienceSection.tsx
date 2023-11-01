@@ -13,7 +13,7 @@ import {
   JobApplicationFormShape,
   responsibilityMaxLength,
 } from './jobApplicationForm'
-import { TrashIcon } from '@reactkit/ui/ui/icons/TrashIcon'
+import { TrashIcon } from '@reactkit/ui/icons/TrashIcon'
 import { Button } from '@reactkit/ui/buttons/Button'
 import { getColor } from '@reactkit/ui/ui/theme/getters'
 import { IconButton } from '@reactkit/ui/buttons/IconButton'

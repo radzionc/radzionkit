@@ -3,7 +3,7 @@ import { useKey } from 'react-use'
 import styled from 'styled-components'
 import { Box } from './ChecklistItem'
 import { ChecklistItemFrame } from './ChecklistItemFrame'
-import { getColor } from '../theme/getters'
+import { getColor } from '../ui/theme/getters'
 
 interface ChecklistItemFormShape {
   name: string

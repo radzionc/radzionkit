@@ -3,7 +3,7 @@ import { Checkbox } from '@reactkit/ui/ui/inputs/Checkbox/Checkbox'
 import { useState } from 'react'
 import { VStack } from '@reactkit/ui/layout/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
-import { InfoIcon } from '@reactkit/ui/ui/icons/InfoIcon'
+import { InfoIcon } from '@reactkit/ui/icons/InfoIcon'
 import { makeDemoPage } from 'layout/makeDemoPage'
 import { TimeoutMessage } from '@reactkit/ui/base/TimeoutMessage'
 

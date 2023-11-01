@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { ClickableComponentProps } from '../props'
 import { Hoverable } from '../ui/Hoverable'
-import { CloseIcon } from '../ui/icons/CloseIcon'
+import { CloseIcon } from '../icons/CloseIcon'
 import { centerContent } from '../css/centerContent'
 import { getColor } from '../ui/theme/getters'
 import { transition } from '../css/transition'

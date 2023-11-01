@@ -1,7 +1,6 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { transition } from '../../css/transition'
-import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 import { HStack } from '../../layout/Stack'
 import { Panel, PanelProps } from './Panel'
 import { getColor } from '../theme/getters'
@@ -10,6 +9,7 @@ import { centerContent } from '../../css/centerContent'
 import { sameDimensions } from '../../css/sameDimensions'
 import { interactive } from '../../css/interactive'
 import { round } from '../../css/round'
+import { ChevronDownIcon } from '../../icons/ChevronDownIcon'
 
 interface ExpandableProps extends PanelProps {
   header: ReactNode

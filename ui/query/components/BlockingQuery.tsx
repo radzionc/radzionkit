@@ -3,7 +3,7 @@ import { CopyText } from '../../ui/CopyText'
 import { Spinner } from '../../ui/Spinner'
 import { VStack } from '../../layout/Stack'
 import { Text } from '../../ui/Text'
-import { InfoIcon } from '../../ui/icons/InfoIcon'
+import { InfoIcon } from '../../icons/InfoIcon'
 
 interface BlockingQueryProps {
   error?: Error | null

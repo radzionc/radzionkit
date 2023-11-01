@@ -5,7 +5,7 @@ import { VStack } from '@reactkit/ui/layout/Stack'
 import { Text } from '@reactkit/ui/ui/Text'
 import { ShyTextButton } from '@reactkit/ui/buttons/ShyTextButton'
 import { IconButton } from '@reactkit/ui/buttons/IconButton'
-import { TrashBinIcon } from '@reactkit/ui/ui/icons/TrashBinIcon'
+import { TrashBinIcon } from '@reactkit/ui/icons/TrashBinIcon'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

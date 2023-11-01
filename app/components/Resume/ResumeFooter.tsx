@@ -1,7 +1,7 @@
-import { GitHubIcon } from '@reactkit/ui/ui/icons/GitHubIcon'
-import { MailIcon } from '@reactkit/ui/ui/icons/MailIcon'
-import { TelegramIcon } from '@reactkit/ui/ui/icons/TelegramIcon'
-import { TwitterIcon } from '@reactkit/ui/ui/icons/TwitterIcon'
+import { GitHubIcon } from '@reactkit/ui/icons/GitHubIcon'
+import { MailIcon } from '@reactkit/ui/icons/MailIcon'
+import { TelegramIcon } from '@reactkit/ui/icons/TelegramIcon'
+import { TwitterIcon } from '@reactkit/ui/icons/TwitterIcon'
 import { HStack } from '@reactkit/ui/layout/Stack'
 import { ResumeFooterLink } from './ResumeFooterLink'
 

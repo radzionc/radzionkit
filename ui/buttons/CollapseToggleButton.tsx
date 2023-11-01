@@ -3,7 +3,7 @@ import { ComponentProps, Ref, forwardRef } from 'react'
 
 import { IconButton } from './IconButton'
 import { transition } from '../css/transition'
-import { ChevronDownIcon } from '../ui/icons/ChevronDownIcon'
+import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 
 type CollapseToggleButtonProps = Omit<
   ComponentProps<typeof IconButton>,

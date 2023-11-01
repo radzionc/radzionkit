@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import ReactToPrint from 'react-to-print'
-import { DownloadIcon } from '@reactkit/ui/ui/icons/DonwloadIcon'
+import { DownloadIcon } from '@reactkit/ui/icons/DonwloadIcon'
 import { ReactInstance } from 'react'
 import { IconButton } from '@reactkit/ui/buttons/IconButton'
 

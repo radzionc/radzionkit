@@ -1,16 +1,16 @@
 import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
-import { Hoverable } from '../Hoverable'
+import { Hoverable } from '../ui/Hoverable'
 import { CheckIcon } from '../icons/CheckIcon'
 import {
   InvisibleHTMLCheckboxProps,
   InvisibleHTMLCheckbox,
-} from '../inputs/Checkbox/InvisibleHTMLCheckbox'
-import { Text } from '../Text'
+} from '../ui/inputs/Checkbox/InvisibleHTMLCheckbox'
+import { Text } from '../ui/Text'
 import { ChecklistItemFrame } from './ChecklistItemFrame'
-import { getColor, matchColor } from '../theme/getters'
-import { centerContent } from '../../css/centerContent'
-import { transition } from '../../css/transition'
+import { getColor, matchColor } from '../ui/theme/getters'
+import { centerContent } from '../css/centerContent'
+import { transition } from '../css/transition'
 
 interface ChecklistItemProps extends InvisibleHTMLCheckboxProps {
   name: ReactNode

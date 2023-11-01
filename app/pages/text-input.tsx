@@ -8,7 +8,7 @@ import { DemoPage } from 'components/DemoPage'
 import { Panel } from '@reactkit/ui/ui/Panel/Panel'
 import { TitledSection } from '@reactkit/ui/layout/TitledSection'
 import { AmountTextInput } from '@reactkit/ui/ui/inputs/AmountTextInput'
-import { DollarIcon } from '@reactkit/ui/ui/icons/DollarIcon'
+import { DollarIcon } from '@reactkit/ui/icons/DollarIcon'
 import { Button } from '@reactkit/ui/buttons/Button'
 
 interface FormShape {

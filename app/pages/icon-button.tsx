@@ -5,7 +5,7 @@ import {
   iconButtonKinds,
   iconButtonSizes,
 } from '@reactkit/ui/buttons/IconButton'
-import { SettingsIcon } from '@reactkit/ui/ui/icons/SettingsIcon'
+import { SettingsIcon } from '@reactkit/ui/icons/SettingsIcon'
 import { makeDemoPage } from 'layout/makeDemoPage'
 import { TitledSection } from '@reactkit/ui/layout/TitledSection'
 
