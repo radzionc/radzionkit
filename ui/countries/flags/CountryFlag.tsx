@@ -3,260 +3,994 @@ import dynamic from 'next/dynamic'
 import { SVGProps } from 'react'
 import { ComponentType } from 'react'
 import { CountryCode } from '@reactkit/utils/countries'
+import {
+  CountryFlagDynamicFallback,
+  CountryFlagFallbackPropsProvider,
+} from '../CountryFlagDynamicFallback'
 
 const countryFlagRecord: Record<
   CountryCode,
   ComponentType<SVGProps<SVGSVGElement>>
 > = {
-  AF: dynamic(() => import('./AfFlag'), { ssr: false }),
-  AL: dynamic(() => import('./AlFlag'), { ssr: false }),
-  DZ: dynamic(() => import('./DzFlag'), { ssr: false }),
-  AS: dynamic(() => import('./AsFlag'), { ssr: false }),
-  AD: dynamic(() => import('./AdFlag'), { ssr: false }),
-  AO: dynamic(() => import('./AoFlag'), { ssr: false }),
-  AI: dynamic(() => import('./AiFlag'), { ssr: false }),
-  AQ: dynamic(() => import('./AqFlag'), { ssr: false }),
-  AG: dynamic(() => import('./AgFlag'), { ssr: false }),
-  AR: dynamic(() => import('./ArFlag'), { ssr: false }),
-  AM: dynamic(() => import('./AmFlag'), { ssr: false }),
-  AW: dynamic(() => import('./AwFlag'), { ssr: false }),
-  AU: dynamic(() => import('./AuFlag'), { ssr: false }),
-  AT: dynamic(() => import('./AtFlag'), { ssr: false }),
-  AZ: dynamic(() => import('./AzFlag'), { ssr: false }),
-  BS: dynamic(() => import('./BsFlag'), { ssr: false }),
-  BH: dynamic(() => import('./BhFlag'), { ssr: false }),
-  BD: dynamic(() => import('./BdFlag'), { ssr: false }),
-  BB: dynamic(() => import('./BbFlag'), { ssr: false }),
-  BY: dynamic(() => import('./ByFlag'), { ssr: false }),
-  BE: dynamic(() => import('./BeFlag'), { ssr: false }),
-  BZ: dynamic(() => import('./BzFlag'), { ssr: false }),
-  BJ: dynamic(() => import('./BjFlag'), { ssr: false }),
-  BM: dynamic(() => import('./BmFlag'), { ssr: false }),
-  BT: dynamic(() => import('./BtFlag'), { ssr: false }),
-  BO: dynamic(() => import('./BoFlag'), { ssr: false }),
-  BA: dynamic(() => import('./BaFlag'), { ssr: false }),
-  BW: dynamic(() => import('./BwFlag'), { ssr: false }),
-  BV: dynamic(() => import('./BvFlag'), { ssr: false }),
-  BR: dynamic(() => import('./BrFlag'), { ssr: false }),
-  IO: dynamic(() => import('./IoFlag'), { ssr: false }),
-  BN: dynamic(() => import('./BnFlag'), { ssr: false }),
-  BG: dynamic(() => import('./BgFlag'), { ssr: false }),
-  BF: dynamic(() => import('./BfFlag'), { ssr: false }),
-  BI: dynamic(() => import('./BiFlag'), { ssr: false }),
-  KH: dynamic(() => import('./KhFlag'), { ssr: false }),
-  CM: dynamic(() => import('./CmFlag'), { ssr: false }),
-  CA: dynamic(() => import('./CaFlag'), { ssr: false }),
-  CV: dynamic(() => import('./CvFlag'), { ssr: false }),
-  KY: dynamic(() => import('./KyFlag'), { ssr: false }),
-  CF: dynamic(() => import('./CfFlag'), { ssr: false }),
-  TD: dynamic(() => import('./TdFlag'), { ssr: false }),
-  CL: dynamic(() => import('./ClFlag'), { ssr: false }),
-  CN: dynamic(() => import('./CnFlag'), { ssr: false }),
-  CX: dynamic(() => import('./CxFlag'), { ssr: false }),
-  CC: dynamic(() => import('./CcFlag'), { ssr: false }),
-  CO: dynamic(() => import('./CoFlag'), { ssr: false }),
-  KM: dynamic(() => import('./KmFlag'), { ssr: false }),
-  CG: dynamic(() => import('./CgFlag'), { ssr: false }),
-  CK: dynamic(() => import('./CkFlag'), { ssr: false }),
-  CR: dynamic(() => import('./CrFlag'), { ssr: false }),
-  HR: dynamic(() => import('./HrFlag'), { ssr: false }),
-  CU: dynamic(() => import('./CuFlag'), { ssr: false }),
-  CY: dynamic(() => import('./CyFlag'), { ssr: false }),
-  CZ: dynamic(() => import('./CzFlag'), { ssr: false }),
-  DK: dynamic(() => import('./DkFlag'), { ssr: false }),
-  DJ: dynamic(() => import('./DjFlag'), { ssr: false }),
-  DM: dynamic(() => import('./DmFlag'), { ssr: false }),
-  DO: dynamic(() => import('./DoFlag'), { ssr: false }),
-  EC: dynamic(() => import('./EcFlag'), { ssr: false }),
-  EG: dynamic(() => import('./EgFlag'), { ssr: false }),
-  SV: dynamic(() => import('./SvFlag'), { ssr: false }),
-  GQ: dynamic(() => import('./GqFlag'), { ssr: false }),
-  ER: dynamic(() => import('./ErFlag'), { ssr: false }),
-  EE: dynamic(() => import('./EeFlag'), { ssr: false }),
-  ET: dynamic(() => import('./EtFlag'), { ssr: false }),
-  FK: dynamic(() => import('./FkFlag'), { ssr: false }),
-  FO: dynamic(() => import('./FoFlag'), { ssr: false }),
-  FJ: dynamic(() => import('./FjFlag'), { ssr: false }),
-  FI: dynamic(() => import('./FiFlag'), { ssr: false }),
-  FR: dynamic(() => import('./FrFlag'), { ssr: false }),
-  GF: dynamic(() => import('./GfFlag'), { ssr: false }),
-  PF: dynamic(() => import('./PfFlag'), { ssr: false }),
-  TF: dynamic(() => import('./TfFlag'), { ssr: false }),
-  GA: dynamic(() => import('./GaFlag'), { ssr: false }),
-  GM: dynamic(() => import('./GmFlag'), { ssr: false }),
-  GE: dynamic(() => import('./GeFlag'), { ssr: false }),
-  DE: dynamic(() => import('./DeFlag'), { ssr: false }),
-  GH: dynamic(() => import('./GhFlag'), { ssr: false }),
-  GI: dynamic(() => import('./GiFlag'), { ssr: false }),
-  GR: dynamic(() => import('./GrFlag'), { ssr: false }),
-  GL: dynamic(() => import('./GlFlag'), { ssr: false }),
-  GD: dynamic(() => import('./GdFlag'), { ssr: false }),
-  GP: dynamic(() => import('./GpFlag'), { ssr: false }),
-  GU: dynamic(() => import('./GuFlag'), { ssr: false }),
-  GT: dynamic(() => import('./GtFlag'), { ssr: false }),
-  GG: dynamic(() => import('./GgFlag'), { ssr: false }),
-  GN: dynamic(() => import('./GnFlag'), { ssr: false }),
-  GW: dynamic(() => import('./GwFlag'), { ssr: false }),
-  GY: dynamic(() => import('./GyFlag'), { ssr: false }),
-  HT: dynamic(() => import('./HtFlag'), { ssr: false }),
-  HM: dynamic(() => import('./HmFlag'), { ssr: false }),
-  VA: dynamic(() => import('./VaFlag'), { ssr: false }),
-  HN: dynamic(() => import('./HnFlag'), { ssr: false }),
-  HK: dynamic(() => import('./HkFlag'), { ssr: false }),
-  HU: dynamic(() => import('./HuFlag'), { ssr: false }),
-  IS: dynamic(() => import('./IsFlag'), { ssr: false }),
-  IN: dynamic(() => import('./InFlag'), { ssr: false }),
-  ID: dynamic(() => import('./IdFlag'), { ssr: false }),
-  IR: dynamic(() => import('./IrFlag'), { ssr: false }),
-  IQ: dynamic(() => import('./IqFlag'), { ssr: false }),
-  IE: dynamic(() => import('./IeFlag'), { ssr: false }),
-  IM: dynamic(() => import('./ImFlag'), { ssr: false }),
-  IL: dynamic(() => import('./IlFlag'), { ssr: false }),
-  IT: dynamic(() => import('./ItFlag'), { ssr: false }),
-  CI: dynamic(() => import('./CiFlag'), { ssr: false }),
-  JM: dynamic(() => import('./JmFlag'), { ssr: false }),
-  JP: dynamic(() => import('./JpFlag'), { ssr: false }),
-  JE: dynamic(() => import('./JeFlag'), { ssr: false }),
-  JO: dynamic(() => import('./JoFlag'), { ssr: false }),
-  KZ: dynamic(() => import('./KzFlag'), { ssr: false }),
-  KE: dynamic(() => import('./KeFlag'), { ssr: false }),
-  KI: dynamic(() => import('./KiFlag'), { ssr: false }),
-  KW: dynamic(() => import('./KwFlag'), { ssr: false }),
-  KG: dynamic(() => import('./KgFlag'), { ssr: false }),
-  LA: dynamic(() => import('./LaFlag'), { ssr: false }),
-  LV: dynamic(() => import('./LvFlag'), { ssr: false }),
-  LB: dynamic(() => import('./LbFlag'), { ssr: false }),
-  LS: dynamic(() => import('./LsFlag'), { ssr: false }),
-  LR: dynamic(() => import('./LrFlag'), { ssr: false }),
-  LY: dynamic(() => import('./LyFlag'), { ssr: false }),
-  LI: dynamic(() => import('./LiFlag'), { ssr: false }),
-  LT: dynamic(() => import('./LtFlag'), { ssr: false }),
-  LU: dynamic(() => import('./LuFlag'), { ssr: false }),
-  MO: dynamic(() => import('./MoFlag'), { ssr: false }),
-  MK: dynamic(() => import('./MkFlag'), { ssr: false }),
-  MG: dynamic(() => import('./MgFlag'), { ssr: false }),
-  MW: dynamic(() => import('./MwFlag'), { ssr: false }),
-  MY: dynamic(() => import('./MyFlag'), { ssr: false }),
-  MV: dynamic(() => import('./MvFlag'), { ssr: false }),
-  ML: dynamic(() => import('./MlFlag'), { ssr: false }),
-  MT: dynamic(() => import('./MtFlag'), { ssr: false }),
-  MH: dynamic(() => import('./MhFlag'), { ssr: false }),
-  MQ: dynamic(() => import('./MqFlag'), { ssr: false }),
-  MR: dynamic(() => import('./MrFlag'), { ssr: false }),
-  MU: dynamic(() => import('./MuFlag'), { ssr: false }),
-  YT: dynamic(() => import('./YtFlag'), { ssr: false }),
-  MX: dynamic(() => import('./MxFlag'), { ssr: false }),
-  FM: dynamic(() => import('./FmFlag'), { ssr: false }),
-  MD: dynamic(() => import('./MdFlag'), { ssr: false }),
-  MC: dynamic(() => import('./McFlag'), { ssr: false }),
-  MN: dynamic(() => import('./MnFlag'), { ssr: false }),
-  ME: dynamic(() => import('./MeFlag'), { ssr: false }),
-  MS: dynamic(() => import('./MsFlag'), { ssr: false }),
-  MA: dynamic(() => import('./MaFlag'), { ssr: false }),
-  MZ: dynamic(() => import('./MzFlag'), { ssr: false }),
-  MM: dynamic(() => import('./MmFlag'), { ssr: false }),
-  NA: dynamic(() => import('./NaFlag'), { ssr: false }),
-  NR: dynamic(() => import('./NrFlag'), { ssr: false }),
-  NP: dynamic(() => import('./NpFlag'), { ssr: false }),
-  NL: dynamic(() => import('./NlFlag'), { ssr: false }),
-  NC: dynamic(() => import('./NcFlag'), { ssr: false }),
-  NZ: dynamic(() => import('./NzFlag'), { ssr: false }),
-  NI: dynamic(() => import('./NiFlag'), { ssr: false }),
-  NE: dynamic(() => import('./NeFlag'), { ssr: false }),
-  NG: dynamic(() => import('./NgFlag'), { ssr: false }),
-  NU: dynamic(() => import('./NuFlag'), { ssr: false }),
-  NF: dynamic(() => import('./NfFlag'), { ssr: false }),
-  KP: dynamic(() => import('./KpFlag'), { ssr: false }),
-  GB: dynamic(() => import('./GbFlag'), { ssr: false }),
-  MP: dynamic(() => import('./MpFlag'), { ssr: false }),
-  NO: dynamic(() => import('./NoFlag'), { ssr: false }),
-  OM: dynamic(() => import('./OmFlag'), { ssr: false }),
-  PK: dynamic(() => import('./PkFlag'), { ssr: false }),
-  PW: dynamic(() => import('./PwFlag'), { ssr: false }),
-  PS: dynamic(() => import('./PsFlag'), { ssr: false }),
-  PA: dynamic(() => import('./PaFlag'), { ssr: false }),
-  PG: dynamic(() => import('./PgFlag'), { ssr: false }),
-  PY: dynamic(() => import('./PyFlag'), { ssr: false }),
-  PE: dynamic(() => import('./PeFlag'), { ssr: false }),
-  PH: dynamic(() => import('./PhFlag'), { ssr: false }),
-  PN: dynamic(() => import('./PnFlag'), { ssr: false }),
-  PL: dynamic(() => import('./PlFlag'), { ssr: false }),
-  PT: dynamic(() => import('./PtFlag'), { ssr: false }),
-  PR: dynamic(() => import('./PrFlag'), { ssr: false }),
-  QA: dynamic(() => import('./QaFlag'), { ssr: false }),
-  RE: dynamic(() => import('./ReFlag'), { ssr: false }),
-  RO: dynamic(() => import('./RoFlag'), { ssr: false }),
-  RU: dynamic(() => import('./RuFlag'), { ssr: false }),
-  RW: dynamic(() => import('./RwFlag'), { ssr: false }),
-  SH: dynamic(() => import('./ShFlag'), { ssr: false }),
-  KN: dynamic(() => import('./KnFlag'), { ssr: false }),
-  LC: dynamic(() => import('./LcFlag'), { ssr: false }),
-  PM: dynamic(() => import('./PmFlag'), { ssr: false }),
-  VC: dynamic(() => import('./VcFlag'), { ssr: false }),
-  WS: dynamic(() => import('./WsFlag'), { ssr: false }),
-  SM: dynamic(() => import('./SmFlag'), { ssr: false }),
-  ST: dynamic(() => import('./StFlag'), { ssr: false }),
-  SA: dynamic(() => import('./SaFlag'), { ssr: false }),
-  SN: dynamic(() => import('./SnFlag'), { ssr: false }),
-  RS: dynamic(() => import('./RsFlag'), { ssr: false }),
-  SC: dynamic(() => import('./ScFlag'), { ssr: false }),
-  SL: dynamic(() => import('./SlFlag'), { ssr: false }),
-  SG: dynamic(() => import('./SgFlag'), { ssr: false }),
-  SK: dynamic(() => import('./SkFlag'), { ssr: false }),
-  SI: dynamic(() => import('./SiFlag'), { ssr: false }),
-  SB: dynamic(() => import('./SbFlag'), { ssr: false }),
-  SO: dynamic(() => import('./SoFlag'), { ssr: false }),
-  ZA: dynamic(() => import('./ZaFlag'), { ssr: false }),
-  GS: dynamic(() => import('./GsFlag'), { ssr: false }),
-  KR: dynamic(() => import('./KrFlag'), { ssr: false }),
-  SS: dynamic(() => import('./SsFlag'), { ssr: false }),
-  ES: dynamic(() => import('./EsFlag'), { ssr: false }),
-  LK: dynamic(() => import('./LkFlag'), { ssr: false }),
-  SD: dynamic(() => import('./SdFlag'), { ssr: false }),
-  SR: dynamic(() => import('./SrFlag'), { ssr: false }),
-  SJ: dynamic(() => import('./SjFlag'), { ssr: false }),
-  SZ: dynamic(() => import('./SzFlag'), { ssr: false }),
-  SE: dynamic(() => import('./SeFlag'), { ssr: false }),
-  CH: dynamic(() => import('./ChFlag'), { ssr: false }),
-  SY: dynamic(() => import('./SyFlag'), { ssr: false }),
-  TJ: dynamic(() => import('./TjFlag'), { ssr: false }),
-  TZ: dynamic(() => import('./TzFlag'), { ssr: false }),
-  TH: dynamic(() => import('./ThFlag'), { ssr: false }),
-  CD: dynamic(() => import('./CdFlag'), { ssr: false }),
-  TL: dynamic(() => import('./TlFlag'), { ssr: false }),
-  TG: dynamic(() => import('./TgFlag'), { ssr: false }),
-  TK: dynamic(() => import('./TkFlag'), { ssr: false }),
-  TO: dynamic(() => import('./ToFlag'), { ssr: false }),
-  TT: dynamic(() => import('./TtFlag'), { ssr: false }),
-  TN: dynamic(() => import('./TnFlag'), { ssr: false }),
-  TR: dynamic(() => import('./TrFlag'), { ssr: false }),
-  TM: dynamic(() => import('./TmFlag'), { ssr: false }),
-  TC: dynamic(() => import('./TcFlag'), { ssr: false }),
-  TV: dynamic(() => import('./TvFlag'), { ssr: false }),
-  UG: dynamic(() => import('./UgFlag'), { ssr: false }),
-  UA: dynamic(() => import('./UaFlag'), { ssr: false }),
-  AE: dynamic(() => import('./AeFlag'), { ssr: false }),
-  US: dynamic(() => import('./UsFlag'), { ssr: false }),
-  UM: dynamic(() => import('./UmFlag'), { ssr: false }),
-  UY: dynamic(() => import('./UyFlag'), { ssr: false }),
-  UZ: dynamic(() => import('./UzFlag'), { ssr: false }),
-  VU: dynamic(() => import('./VuFlag'), { ssr: false }),
-  VE: dynamic(() => import('./VeFlag'), { ssr: false }),
-  VN: dynamic(() => import('./VnFlag'), { ssr: false }),
-  VG: dynamic(() => import('./VgFlag'), { ssr: false }),
-  VI: dynamic(() => import('./ViFlag'), { ssr: false }),
-  WF: dynamic(() => import('./WfFlag'), { ssr: false }),
-  EH: dynamic(() => import('./EhFlag'), { ssr: false }),
-  YE: dynamic(() => import('./YeFlag'), { ssr: false }),
-  ZM: dynamic(() => import('./ZmFlag'), { ssr: false }),
-  ZW: dynamic(() => import('./ZwFlag'), { ssr: false }),
+  AF: dynamic(() => import('./AfFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AL: dynamic(() => import('./AlFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  DZ: dynamic(() => import('./DzFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AS: dynamic(() => import('./AsFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AD: dynamic(() => import('./AdFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AO: dynamic(() => import('./AoFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AI: dynamic(() => import('./AiFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AQ: dynamic(() => import('./AqFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AG: dynamic(() => import('./AgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AR: dynamic(() => import('./ArFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AM: dynamic(() => import('./AmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AW: dynamic(() => import('./AwFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AU: dynamic(() => import('./AuFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AT: dynamic(() => import('./AtFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AZ: dynamic(() => import('./AzFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BS: dynamic(() => import('./BsFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BH: dynamic(() => import('./BhFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BD: dynamic(() => import('./BdFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BB: dynamic(() => import('./BbFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BY: dynamic(() => import('./ByFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BE: dynamic(() => import('./BeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BZ: dynamic(() => import('./BzFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BJ: dynamic(() => import('./BjFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BM: dynamic(() => import('./BmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BT: dynamic(() => import('./BtFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BO: dynamic(() => import('./BoFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BA: dynamic(() => import('./BaFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BW: dynamic(() => import('./BwFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BV: dynamic(() => import('./BvFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BR: dynamic(() => import('./BrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  IO: dynamic(() => import('./IoFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BN: dynamic(() => import('./BnFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BG: dynamic(() => import('./BgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BF: dynamic(() => import('./BfFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  BI: dynamic(() => import('./BiFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  KH: dynamic(() => import('./KhFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CM: dynamic(() => import('./CmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CA: dynamic(() => import('./CaFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CV: dynamic(() => import('./CvFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  KY: dynamic(() => import('./KyFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CF: dynamic(() => import('./CfFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TD: dynamic(() => import('./TdFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CL: dynamic(() => import('./ClFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CN: dynamic(() => import('./CnFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CX: dynamic(() => import('./CxFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CC: dynamic(() => import('./CcFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CO: dynamic(() => import('./CoFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  KM: dynamic(() => import('./KmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CG: dynamic(() => import('./CgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CK: dynamic(() => import('./CkFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CR: dynamic(() => import('./CrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  HR: dynamic(() => import('./HrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CU: dynamic(() => import('./CuFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CY: dynamic(() => import('./CyFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CZ: dynamic(() => import('./CzFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  DK: dynamic(() => import('./DkFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  DJ: dynamic(() => import('./DjFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  DM: dynamic(() => import('./DmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  DO: dynamic(() => import('./DoFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  EC: dynamic(() => import('./EcFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  EG: dynamic(() => import('./EgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SV: dynamic(() => import('./SvFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GQ: dynamic(() => import('./GqFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  ER: dynamic(() => import('./ErFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  EE: dynamic(() => import('./EeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  ET: dynamic(() => import('./EtFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  FK: dynamic(() => import('./FkFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  FO: dynamic(() => import('./FoFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  FJ: dynamic(() => import('./FjFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  FI: dynamic(() => import('./FiFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  FR: dynamic(() => import('./FrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GF: dynamic(() => import('./GfFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PF: dynamic(() => import('./PfFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TF: dynamic(() => import('./TfFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GA: dynamic(() => import('./GaFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GM: dynamic(() => import('./GmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GE: dynamic(() => import('./GeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  DE: dynamic(() => import('./DeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GH: dynamic(() => import('./GhFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GI: dynamic(() => import('./GiFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GR: dynamic(() => import('./GrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GL: dynamic(() => import('./GlFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GD: dynamic(() => import('./GdFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GP: dynamic(() => import('./GpFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GU: dynamic(() => import('./GuFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GT: dynamic(() => import('./GtFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GG: dynamic(() => import('./GgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GN: dynamic(() => import('./GnFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GW: dynamic(() => import('./GwFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GY: dynamic(() => import('./GyFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  HT: dynamic(() => import('./HtFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  HM: dynamic(() => import('./HmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  VA: dynamic(() => import('./VaFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  HN: dynamic(() => import('./HnFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  HK: dynamic(() => import('./HkFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  HU: dynamic(() => import('./HuFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  IS: dynamic(() => import('./IsFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  IN: dynamic(() => import('./InFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  ID: dynamic(() => import('./IdFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  IR: dynamic(() => import('./IrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  IQ: dynamic(() => import('./IqFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  IE: dynamic(() => import('./IeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  IM: dynamic(() => import('./ImFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  IL: dynamic(() => import('./IlFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  IT: dynamic(() => import('./ItFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CI: dynamic(() => import('./CiFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  JM: dynamic(() => import('./JmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  JP: dynamic(() => import('./JpFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  JE: dynamic(() => import('./JeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  JO: dynamic(() => import('./JoFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  KZ: dynamic(() => import('./KzFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  KE: dynamic(() => import('./KeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  KI: dynamic(() => import('./KiFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  KW: dynamic(() => import('./KwFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  KG: dynamic(() => import('./KgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  LA: dynamic(() => import('./LaFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  LV: dynamic(() => import('./LvFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  LB: dynamic(() => import('./LbFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  LS: dynamic(() => import('./LsFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  LR: dynamic(() => import('./LrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  LY: dynamic(() => import('./LyFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  LI: dynamic(() => import('./LiFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  LT: dynamic(() => import('./LtFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  LU: dynamic(() => import('./LuFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MO: dynamic(() => import('./MoFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MK: dynamic(() => import('./MkFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MG: dynamic(() => import('./MgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MW: dynamic(() => import('./MwFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MY: dynamic(() => import('./MyFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MV: dynamic(() => import('./MvFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  ML: dynamic(() => import('./MlFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MT: dynamic(() => import('./MtFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MH: dynamic(() => import('./MhFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MQ: dynamic(() => import('./MqFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MR: dynamic(() => import('./MrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MU: dynamic(() => import('./MuFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  YT: dynamic(() => import('./YtFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MX: dynamic(() => import('./MxFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  FM: dynamic(() => import('./FmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MD: dynamic(() => import('./MdFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MC: dynamic(() => import('./McFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MN: dynamic(() => import('./MnFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  ME: dynamic(() => import('./MeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MS: dynamic(() => import('./MsFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MA: dynamic(() => import('./MaFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MZ: dynamic(() => import('./MzFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MM: dynamic(() => import('./MmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  NA: dynamic(() => import('./NaFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  NR: dynamic(() => import('./NrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  NP: dynamic(() => import('./NpFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  NL: dynamic(() => import('./NlFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  NC: dynamic(() => import('./NcFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  NZ: dynamic(() => import('./NzFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  NI: dynamic(() => import('./NiFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  NE: dynamic(() => import('./NeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  NG: dynamic(() => import('./NgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  NU: dynamic(() => import('./NuFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  NF: dynamic(() => import('./NfFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  KP: dynamic(() => import('./KpFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GB: dynamic(() => import('./GbFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  MP: dynamic(() => import('./MpFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  NO: dynamic(() => import('./NoFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  OM: dynamic(() => import('./OmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PK: dynamic(() => import('./PkFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PW: dynamic(() => import('./PwFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PS: dynamic(() => import('./PsFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PA: dynamic(() => import('./PaFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PG: dynamic(() => import('./PgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PY: dynamic(() => import('./PyFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PE: dynamic(() => import('./PeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PH: dynamic(() => import('./PhFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PN: dynamic(() => import('./PnFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PL: dynamic(() => import('./PlFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PT: dynamic(() => import('./PtFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PR: dynamic(() => import('./PrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  QA: dynamic(() => import('./QaFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  RE: dynamic(() => import('./ReFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  RO: dynamic(() => import('./RoFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  RU: dynamic(() => import('./RuFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  RW: dynamic(() => import('./RwFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SH: dynamic(() => import('./ShFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  KN: dynamic(() => import('./KnFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  LC: dynamic(() => import('./LcFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  PM: dynamic(() => import('./PmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  VC: dynamic(() => import('./VcFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  WS: dynamic(() => import('./WsFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SM: dynamic(() => import('./SmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  ST: dynamic(() => import('./StFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SA: dynamic(() => import('./SaFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SN: dynamic(() => import('./SnFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  RS: dynamic(() => import('./RsFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SC: dynamic(() => import('./ScFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SL: dynamic(() => import('./SlFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SG: dynamic(() => import('./SgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SK: dynamic(() => import('./SkFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SI: dynamic(() => import('./SiFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SB: dynamic(() => import('./SbFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SO: dynamic(() => import('./SoFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  ZA: dynamic(() => import('./ZaFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  GS: dynamic(() => import('./GsFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  KR: dynamic(() => import('./KrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SS: dynamic(() => import('./SsFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  ES: dynamic(() => import('./EsFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  LK: dynamic(() => import('./LkFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SD: dynamic(() => import('./SdFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SR: dynamic(() => import('./SrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SJ: dynamic(() => import('./SjFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SZ: dynamic(() => import('./SzFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SE: dynamic(() => import('./SeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CH: dynamic(() => import('./ChFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  SY: dynamic(() => import('./SyFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TJ: dynamic(() => import('./TjFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TZ: dynamic(() => import('./TzFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TH: dynamic(() => import('./ThFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  CD: dynamic(() => import('./CdFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TL: dynamic(() => import('./TlFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TG: dynamic(() => import('./TgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TK: dynamic(() => import('./TkFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TO: dynamic(() => import('./ToFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TT: dynamic(() => import('./TtFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TN: dynamic(() => import('./TnFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TR: dynamic(() => import('./TrFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TM: dynamic(() => import('./TmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TC: dynamic(() => import('./TcFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  TV: dynamic(() => import('./TvFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  UG: dynamic(() => import('./UgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  UA: dynamic(() => import('./UaFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  AE: dynamic(() => import('./AeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  US: dynamic(() => import('./UsFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  UM: dynamic(() => import('./UmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  UY: dynamic(() => import('./UyFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  UZ: dynamic(() => import('./UzFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  VU: dynamic(() => import('./VuFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  VE: dynamic(() => import('./VeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  VN: dynamic(() => import('./VnFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  VG: dynamic(() => import('./VgFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  VI: dynamic(() => import('./ViFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  WF: dynamic(() => import('./WfFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  EH: dynamic(() => import('./EhFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  YE: dynamic(() => import('./YeFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  ZM: dynamic(() => import('./ZmFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
+  ZW: dynamic(() => import('./ZwFlag'), {
+    ssr: false,
+    loading: () => <CountryFlagDynamicFallback />,
+  }),
 }
 
 interface CountryFlagProps extends SVGProps<SVGSVGElement> {
   code: CountryCode
 }
 
-export const CountryFlag = ({ code, ...props }: CountryFlagProps) => {
-  const Component = countryFlagRecord[code]
-  return <Component {...props} />
+export const CountryFlag = (props: CountryFlagProps) => {
+  const Component = countryFlagRecord[props.code]
+  return (
+    <CountryFlagFallbackPropsProvider value={props}>
+      <Component {...props} />
+    </CountryFlagFallbackPropsProvider>
+  )
 }

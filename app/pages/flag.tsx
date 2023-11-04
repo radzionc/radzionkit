@@ -3,12 +3,13 @@ import { useState } from 'react'
 import { TabNavigation } from '@reactkit/ui/navigation/TabNavigation'
 import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
 import { HStack, VStack } from '@reactkit/ui/layout/Stack'
-import { CountryCode, countryNameRecord } from '@reactkit/utils/countries'
+import { countryCodes, countryNameRecord } from '@reactkit/utils/countries'
 import { Match } from '@reactkit/ui/base/Match'
 import { Text } from '@reactkit/ui/text'
 import { CountryFlag } from '@reactkit/ui/countries/flags/CountryFlag'
 import { CountryFlagEmoji } from '@reactkit/ui/countries/CountryFlagEmoji'
 import { makeDemoPage } from 'layout/makeDemoPage'
+import { SameWidthChildrenRow } from '@reactkit/ui/layout/SameWidthChildrenRow'
 
 const views = ['svg', 'emoji'] as const
 type View = (typeof views)[number]
@@ -26,22 +27,22 @@ export default makeDemoPage(() => {
           onSelect={setActiveView}
           groupName="flags"
         />
-        <HStack alignItems="center" wrap="wrap" gap={20}>
-          {Object.keys(countryNameRecord).map((code) => (
-            <Match
-              key={code}
-              value={activeView}
-              emoji={() => (
-                <Text size={24} color="contrast">
-                  <CountryFlagEmoji code={code as CountryCode} />
-                </Text>
-              )}
-              svg={() => (
-                <CountryFlag code={code as CountryCode} style={{ width: 24 }} />
-              )}
-            />
+        <SameWidthChildrenRow childrenWidth={240} gap={20}>
+          {countryCodes.map((code) => (
+            <HStack key={code} alignItems="center" gap={12}>
+              <Text size={24} color="contrast">
+                <Match
+                  value={activeView}
+                  emoji={() => <CountryFlagEmoji code={code} />}
+                  svg={() => (
+                    <CountryFlag code={code} style={{ borderRadius: 4 }} />
+                  )}
+                />
+              </Text>
+              <Text size={14}>{countryNameRecord[code]}</Text>
+            </HStack>
           ))}
-        </HStack>
+        </SameWidthChildrenRow>
       </VStack>
     </DemoPage>
   )

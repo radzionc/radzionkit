@@ -44,11 +44,12 @@ const generateFlags = async () => {
     `import { SVGProps } from 'react'`,
     `import { ComponentType } from 'react'`,
     `import { CountryCode } from '@reactkit/utils/countries'`,
+    `import { CountryFlagDynamicFallback, CountryFlagFallbackPropsProvider } from '../CountryFlagDynamicFallback'`,
   ].join('\n')
 
   const countryFlagComponentRecord = makeRecord(countryCodes, (code) => {
     const componentName = getFlagComponentName(code)
-    return `dynamic(() => import('./${componentName}'), { ssr: false })`
+    return `dynamic(() => import('./${componentName}'), { ssr: false, loading: () => <CountryFlagDynamicFallback /> })`
   })
 
   const content = [
@@ -61,9 +62,13 @@ const generateFlags = async () => {
         .join(',')}
     }`,
     `interface CountryFlagProps extends SVGProps<SVGSVGElement> { code: CountryCode }`,
-    `export const CountryFlag = ({ code, ...props }: CountryFlagProps) => {
-      const Component = countryFlagRecord[code]
-      return <Component {...props} />
+    `export const CountryFlag = (props: CountryFlagProps) => {
+      const Component = countryFlagRecord[props.code]
+      return (
+        <CountryFlagFallbackPropsProvider value={props}>
+          <Component {...props} />
+        </CountryFlagFallbackPropsProvider>
+      )
     }`,
   ].join('\n\n')
 
