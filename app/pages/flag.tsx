@@ -3,14 +3,11 @@ import { useState } from 'react'
 import { TabNavigation } from '@reactkit/ui/navigation/TabNavigation'
 import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
 import { HStack, VStack } from '@reactkit/ui/layout/Stack'
-import {
-  CountryCode,
-  countryNameRecord,
-} from '@reactkit/utils/countryNameRecord'
+import { CountryCode, countryNameRecord } from '@reactkit/utils/countries'
 import { Match } from '@reactkit/ui/base/Match'
 import { Text } from '@reactkit/ui/text'
-import { CountryFlag } from '@reactkit/ui/country/CountryFlag'
-import { CountryFlagEmoji } from '@reactkit/ui/country/CountryFlagEmoji'
+import { CountryFlag } from '@reactkit/ui/countries/flags/CountryFlag'
+import { CountryFlagEmoji } from '@reactkit/ui/countries/CountryFlagEmoji'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 const views = ['svg', 'emoji'] as const

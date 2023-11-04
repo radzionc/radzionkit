@@ -34,6 +34,10 @@ export interface InputProps<T> {
   onChange: (value: T) => void
 }
 
+export interface ComponentWithErrorProps {
+  error?: string
+}
+
 export interface TitledComponentProps {
   title: ReactNode
 }

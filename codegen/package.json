@@ -1,0 +1,8 @@
+{
+  "name": "@reactkit/codegen",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "prettier": "^3.0.3"
+  }
+}

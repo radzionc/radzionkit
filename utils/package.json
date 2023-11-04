@@ -2,6 +2,9 @@
   "name": "@reactkit/utils",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "generateCountries": "npx tsx countries/codegen/generateCountries"
+  },
   "dependencies": {
     "date-fns": "^2.30.0"
   }
