@@ -70,6 +70,7 @@ const generateFlags = async () => {
         </CountryFlagFallbackPropsProvider>
       )
     }`,
+    `export default CountryFlag`,
   ].join('\n\n')
 
   await createTsFile({

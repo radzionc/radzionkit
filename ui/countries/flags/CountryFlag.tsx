@@ -994,3 +994,5 @@ export const CountryFlag = (props: CountryFlagProps) => {
     </CountryFlagFallbackPropsProvider>
   )
 }
+
+export default CountryFlag
