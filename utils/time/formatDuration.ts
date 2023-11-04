@@ -2,14 +2,23 @@ import { padWithZero } from '../padWithZero'
 import { H_IN_DAY, MIN_IN_HOUR, S_IN_HOUR, S_IN_MIN } from '.'
 import { DurationUnit, convertDuration } from './convertDuration'
 
-export const formatDuration = (duration: number, unit: DurationUnit) => {
+interface FormatDurationOptions {
+  maxUnit?: 'd' | 'h'
+}
+
+export const formatDuration = (
+  duration: number,
+  unit: DurationUnit,
+  options: FormatDurationOptions = {},
+) => {
+  const maxUnit = options.maxUnit || 'd'
   const minutes = Math.round(convertDuration(duration, unit, 'min'))
 
   if (minutes < MIN_IN_HOUR) return `${minutes}m`
 
   const hours = Math.floor(minutes / S_IN_MIN)
 
-  if (hours < H_IN_DAY) {
+  if (hours < H_IN_DAY || maxUnit === 'h') {
     const minutesPart = Math.round(minutes % S_IN_MIN)
     if (!minutesPart) {
       return `${hours}h`
