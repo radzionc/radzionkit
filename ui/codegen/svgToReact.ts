@@ -46,7 +46,7 @@ export const svgToReact = async ({ svg, componentName }: SvgToReactParams) => {
     .replace('svg', 'svg {...props}')
 
   return [
-    `import { SvgIconProps } from '@reactkit/icons/SvgIconProps'`,
+    `import { SvgIconProps } from '@reactkit/ui/icons/SvgIconProps'`,
     `const ${componentName} = (props: SvgIconProps) => ${cleanedSvg}`,
     `export default ${componentName}`,
   ].join('\n\n')
