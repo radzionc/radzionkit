@@ -10,7 +10,7 @@ import { CountryFlag } from '@reactkit/ui/countries/flags/CountryFlag'
 import { CountryFlagEmoji } from '@reactkit/ui/countries/CountryFlagEmoji'
 import { makeDemoPage } from 'layout/makeDemoPage'
 import { SameWidthChildrenRow } from '@reactkit/ui/layout/SameWidthChildrenRow'
-import { RoundSvg } from '@reactkit/ui/icons/RoundSvg'
+import { IconWrapper } from '@reactkit/ui/icons/IconWrapper'
 
 const views = ['svg', 'emoji'] as const
 type View = (typeof views)[number]
@@ -36,9 +36,9 @@ export default makeDemoPage(() => {
                   value={activeView}
                   emoji={() => <CountryFlagEmoji code={code} />}
                   svg={() => (
-                    <RoundSvg borderRadius={4}>
+                    <IconWrapper style={{ borderRadius: 4 }}>
                       <CountryFlag code={code} />
-                    </RoundSvg>
+                    </IconWrapper>
                   )}
                 />
               </Text>
