@@ -10,6 +10,7 @@ import { CountryFlag } from '@reactkit/ui/countries/flags/CountryFlag'
 import { CountryFlagEmoji } from '@reactkit/ui/countries/CountryFlagEmoji'
 import { makeDemoPage } from 'layout/makeDemoPage'
 import { SameWidthChildrenRow } from '@reactkit/ui/layout/SameWidthChildrenRow'
+import { RoundSvg } from '@reactkit/ui/icons/RoundSvg'
 
 const views = ['svg', 'emoji'] as const
 type View = (typeof views)[number]
@@ -30,12 +31,14 @@ export default makeDemoPage(() => {
         <SameWidthChildrenRow childrenWidth={240} gap={20}>
           {countryCodes.map((code) => (
             <HStack key={code} alignItems="center" gap={12}>
-              <Text size={24} color="contrast">
+              <Text height="small" size={24} color="contrast">
                 <Match
                   value={activeView}
                   emoji={() => <CountryFlagEmoji code={code} />}
                   svg={() => (
-                    <CountryFlag code={code} style={{ borderRadius: 4 }} />
+                    <RoundSvg borderRadius={4}>
+                      <CountryFlag code={code} />
+                    </RoundSvg>
                   )}
                 />
               </Text>

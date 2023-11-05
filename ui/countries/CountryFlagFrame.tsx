@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { getColor } from '../theme/getters'
+import { fitInOneEm } from '../css/fitInOneEm'
+import { flagAspectRatio } from './config'
 
 export const CountryFlagFrame = styled.svg`
-  width: 1em;
-  height: 0.75em;
+  ${fitInOneEm(flagAspectRatio)};
   background: ${getColor('mist')};
 `

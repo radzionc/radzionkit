@@ -1,11 +1,10 @@
 import { CountryCode } from '@reactkit/utils/countries'
-import { SVGProps } from 'react'
 import styled from 'styled-components'
 import { getColor } from '../theme/getters'
 import { CountryFlagFrame } from './CountryFlagFrame'
+import { SvgIconProps } from '../icons/SvgIconProps'
 
-export interface CountryFlagFallbackProps
-  extends Omit<SVGProps<SVGSVGElement>, 'ref'> {
+export interface CountryFlagFallbackProps extends SvgIconProps {
   code: CountryCode
 }
 
