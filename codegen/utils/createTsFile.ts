@@ -21,7 +21,6 @@ export const createTsFile = async ({
 
   const configPath = path.resolve(__dirname, '../../.prettierrc')
 
-  // Resolve the Prettier config
   const config = await resolveConfig(configPath)
 
   const formattedContent = await format(

@@ -28,7 +28,6 @@ interface SvgToReactParams {
 }
 
 export const svgToReact = async ({ svg, componentName }: SvgToReactParams) => {
-  // Convert kebab-case attributes to camelCase.
   const svgComponent = await transform(
     svg,
     {
@@ -40,8 +39,8 @@ export const svgToReact = async ({ svg, componentName }: SvgToReactParams) => {
   const { width, height } = normalizeToMaxDimension(getSvgDimensions(svg))
 
   const cleanedSvg = extractSvg(svgComponent)
-    .replace(/\s*width="[^"]*"/g, '') // Remove width attribute
-    .replace(/\s*height="[^"]*"/g, '') // Remove height attribute
+    .replace(/\s*width="[^"]*"/g, '')
+    .replace(/\s*height="[^"]*"/g, '')
     .replace('svg', `svg width="${width}em" height="${height}em"`)
     .replace('svg', 'svg {...props}')
 
