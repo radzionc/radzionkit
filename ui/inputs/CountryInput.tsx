@@ -1,11 +1,51 @@
-import { CountryCode } from '@reactkit/utils/countries'
-import { ComponentWithErrorProps, InputProps } from '../props'
+import {
+  CountryCode,
+  countryCodes,
+  countryNameRecord,
+} from '@reactkit/utils/countries'
+import { InputProps } from '../props'
+import { FixedOptionsInput } from './FixedOptionsInput'
+import CountryFlag from '../countries/flags/CountryFlag'
+import { IconWrapper } from '../icons/IconWrapper'
+import styled from 'styled-components'
+import { CountryFlagFrame } from '../countries/CountryFlagFrame'
+import { OptionContent } from './FixedOptionsInput/OptionContent'
 
-interface CountryInputProps
-  extends InputProps<CountryCode | undefined>,
-    ComponentWithErrorProps {}
+interface CountryInputProps extends InputProps<CountryCode | undefined> {}
 
-export const CountryInput = ({ value, onChange, error }: CountryInputProps) => {
-  console.log(value, onChange, error)
-  return null
+const FlagWrapper = styled(IconWrapper)`
+  border-radius: 2px;
+`
+
+export const CountryInput = ({ value, onChange }: CountryInputProps) => {
+  return (
+    <FixedOptionsInput
+      value={value}
+      onChange={onChange}
+      placeholder="Search for a country"
+      options={countryCodes}
+      getOptionSearchStrings={(code) => [countryNameRecord[code]]}
+      getOptionName={(code) => countryNameRecord[code]}
+      renderOptionIdentifier={(code) => (
+        <FlagWrapper>
+          <CountryFlag code={code} />
+        </FlagWrapper>
+      )}
+      optionIdentifierPlaceholder={
+        <FlagWrapper>
+          <CountryFlagFrame />
+        </FlagWrapper>
+      }
+      renderOption={(code) => (
+        <OptionContent
+          identifier={
+            <FlagWrapper>
+              <CountryFlag code={code} />
+            </FlagWrapper>
+          }
+          name={countryNameRecord[code]}
+        />
+      )}
+    />
+  )
 }
