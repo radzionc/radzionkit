@@ -30,6 +30,7 @@ import { HStack } from '../../layout/Stack'
 import { CloseIcon } from '../../icons/CloseIcon'
 import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
 import { useHasFocusWithin } from '../../hooks/useHasFocusWithin'
+import { getSuggestions } from './getSuggestions'
 
 interface FixedOptionsInputProps<T> extends InputProps<T | undefined> {
   placeholder?: string
@@ -156,13 +157,11 @@ export function FixedOptionsInput<T>({
       return options
     }
 
-    const matchString = textInputValue.toLowerCase()
-
-    return options.filter((option) =>
-      getOptionSearchStrings(option).some((searchString) =>
-        searchString.toLowerCase().includes(matchString),
-      ),
-    )
+    return getSuggestions({
+      inputValue: textInputValue,
+      options,
+      getOptionSearchStrings,
+    })
   }, [getOptionSearchStrings, options, textInputValue, value])
 
   useKey('Escape', hideOptions)
