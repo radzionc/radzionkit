@@ -14,7 +14,7 @@ export type IconButtonSize = (typeof iconButtonSizes)[number]
 export const iconButtonKinds = ['regular', 'secondary', 'alert'] as const
 export type IconButtonKind = (typeof iconButtonKinds)[number]
 
-const sizeRecord: Record<IconButtonSize, number> = {
+export const iconButtonSizeRecord: Record<IconButtonSize, number> = {
   s: 24,
   m: 32,
   l: 40,
@@ -28,7 +28,7 @@ interface ContainerProps {
 const Container = styled(UnstyledButton)<ContainerProps>`
   position: relative;
   ${centerContent};
-  ${({ size }) => sameDimensions(sizeRecord[size])};
+  ${({ size }) => sameDimensions(iconButtonSizeRecord[size])};
 
   color: ${matchColor('kind', {
     regular: 'text',
@@ -36,7 +36,8 @@ const Container = styled(UnstyledButton)<ContainerProps>`
     alert: 'alert',
   })};
 
-  font-size: ${({ size }) => `calc(${toSizeUnit(sizeRecord[size] * 0.6)})`};
+  font-size: ${({ size }) =>
+    `calc(${toSizeUnit(iconButtonSizeRecord[size] * 0.6)})`};
 
   border-radius: 8px;
 

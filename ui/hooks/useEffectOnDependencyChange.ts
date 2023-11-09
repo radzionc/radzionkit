@@ -11,5 +11,5 @@ export const useEffectOnDependencyChange = (
       effect()
       prevDeps.current = deps
     }
-  }, deps)
+  }, [deps, effect])
 }

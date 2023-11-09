@@ -1,17 +1,20 @@
-import { ReactNode, useCallback, useMemo, useRef, useState } from 'react'
+import {
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { InputProps } from '../../props'
 import styled from 'styled-components'
-import { textInput, textInputPadding } from '../../css/textInput'
+import {
+  textInput,
+  textInputBorderRadius,
+  textInputPadding,
+} from '../../css/textInput'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { useEffectOnDependencyChange } from '../../hooks/useEffectOnDependencyChange'
-import {
-  useFloating,
-  offset,
-  flip,
-  shift,
-  size,
-  autoUpdate,
-} from '@floating-ui/react'
 import { getColor } from '../../theme/getters'
 import { transition } from '../../css/transition'
 import { horizontalPadding } from '../../css/horizontalPadding'
@@ -20,7 +23,13 @@ import { UnstyledButton } from '../../buttons/UnstyledButton'
 import { preventDefault } from '../../utils/preventDefault'
 import { useKey } from 'react-use'
 import { useBoolean } from '../../hooks/useBoolean'
-import { identifierSize } from './config'
+import { buttonSize, buttonsSpacing, identifierSize } from './config'
+import { useFloatingOptionsContainer } from './useFloatingOptionsContainer'
+import { IconButton, iconButtonSizeRecord } from '../../buttons/IconButton'
+import { HStack } from '../../layout/Stack'
+import { CloseIcon } from '../../icons/CloseIcon'
+import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
+import { useHasFocusWithin } from '../../hooks/useHasFocusWithin'
 
 interface FixedOptionsInputProps<T> extends InputProps<T | undefined> {
   placeholder?: string
@@ -45,12 +54,12 @@ const OptionsContainer = styled.div`
   position: absolute;
   width: 100%;
   background: ${getColor('foreground')};
-  border-radius: 8px;
+  border: 1px solid ${getColor('mist')};
+
+  border-radius: ${toSizeUnit(textInputBorderRadius)};
   overflow: hidden;
   max-height: 280px;
   overflow-y: auto;
-
-  display: none;
 `
 
 const Wrapper = styled.div`
@@ -58,15 +67,14 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-
-  :focus-within ${OptionsContainer} {
-    display: initial;
-  }
 `
 
 const TextInput = styled.input`
   ${textInput};
   padding-left: ${toSizeUnit(identifierSize + textInputPadding * 2)};
+  padding-right: ${toSizeUnit(
+    iconButtonSizeRecord[buttonSize] * 2 + buttonsSpacing + textInputPadding,
+  )};
 `
 
 const OptionItem = styled(UnstyledButton)`
@@ -81,6 +89,18 @@ const OptionItem = styled(UnstyledButton)`
   }
 `
 
+const NoOptionsMessage = styled.div`
+  ${horizontalPadding(textInputPadding)};
+  ${verticalPadding(8)}
+`
+
+const ButtonsContainer = styled(HStack)`
+  align-items: center;
+  gap: ${toSizeUnit(buttonsSpacing)};
+  position: absolute;
+  right: ${toSizeUnit(textInputPadding)};
+`
+
 export function FixedOptionsInput<T>({
   value,
   onChange,
@@ -92,27 +112,19 @@ export function FixedOptionsInput<T>({
   renderOptionIdentifier,
   optionIdentifierPlaceholder,
 }: FixedOptionsInputProps<T>) {
-  const inputElement = useRef<HTMLInputElement>(null)
-  const [shouldHideOptions, { set: hideOptions, unset: stopHidingOptions }] =
-    useBoolean(false)
+  const wrapperElement = useRef<HTMLDivElement>(null)
+  const hasFocusWithin = useHasFocusWithin(wrapperElement)
 
-  const optionsContainer = useFloating({
-    placement: 'bottom-start',
-    strategy: 'absolute',
-    whileElementsMounted: autoUpdate,
-    middleware: [
-      offset(4),
-      flip(),
-      shift(),
-      size({
-        apply({ rects, elements }) {
-          Object.assign(elements.floating.style, {
-            width: toSizeUnit(rects.reference.width),
-          })
-        },
-      }),
-    ],
-  })
+  const inputElement = useRef<HTMLInputElement>(null)
+  const [
+    shouldHideOptions,
+    { set: hideOptions, unset: stopHidingOptions, toggle: toggleOptionsHiding },
+  ] = useBoolean(false)
+
+  const floatingOptionsContainer = useFloatingOptionsContainer()
+  useEffect(() => {
+    floatingOptionsContainer.refs.setReference(wrapperElement.current)
+  }, [floatingOptionsContainer.refs])
 
   const [textInputValue, setTextInputValue] = useState(() =>
     value ? getOptionName(value) : '',
@@ -155,11 +167,38 @@ export function FixedOptionsInput<T>({
 
   useKey('Escape', hideOptions)
 
+  const areOptionsVisible = hasFocusWithin && !shouldHideOptions
+
   return (
-    <Wrapper ref={optionsContainer.refs.setReference}>
+    <Wrapper ref={wrapperElement}>
       <IdentifierWrapper>
         {value ? renderOptionIdentifier(value) : optionIdentifierPlaceholder}
       </IdentifierWrapper>
+      <ButtonsContainer>
+        {value && (
+          <IconButton
+            size={buttonSize}
+            icon={<CloseIcon />}
+            title="Clear"
+            as="div"
+            kind="secondary"
+            onClick={preventDefault(() => {
+              onTextInputChange('')
+            })}
+          />
+        )}
+        <CollapseToggleButton
+          size={buttonSize}
+          as="div"
+          type="button"
+          kind="secondary"
+          isOpen={areOptionsVisible}
+          onClick={preventDefault(() => {
+            if (!hasFocusWithin) return
+            toggleOptionsHiding()
+          })}
+        />
+      </ButtonsContainer>
       <TextInput
         ref={inputElement}
         value={textInputValue}
@@ -167,24 +206,28 @@ export function FixedOptionsInput<T>({
         placeholder={placeholder}
         onClick={stopHidingOptions}
       />
-      {!shouldHideOptions && (
+      {areOptionsVisible && (
         <OptionsContainer
-          style={optionsContainer.floatingStyles}
-          ref={optionsContainer.refs.setFloating}
+          style={floatingOptionsContainer.floatingStyles}
+          ref={floatingOptionsContainer.refs.setFloating}
         >
-          {optionsToDisplay.map((option, index) => (
-            <OptionItem
-              type="button"
-              onClick={preventDefault(() => {
-                onChange(option)
-                inputElement.current?.focus()
-                hideOptions()
-              })}
-              key={index}
-            >
-              {renderOption(option)}
-            </OptionItem>
-          ))}
+          {optionsToDisplay.length > 0 ? (
+            optionsToDisplay.map((option, index) => (
+              <OptionItem
+                type="button"
+                onClick={preventDefault(() => {
+                  onChange(option)
+                  inputElement.current?.focus()
+                  hideOptions()
+                })}
+                key={index}
+              >
+                {renderOption(option)}
+              </OptionItem>
+            ))
+          ) : (
+            <NoOptionsMessage>No results</NoOptionsMessage>
+          )}
         </OptionsContainer>
       )}
     </Wrapper>

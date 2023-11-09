@@ -5,19 +5,20 @@ import { toSizeUnit } from './toSizeUnit'
 
 export const textInputPadding = 12
 export const textInputHeight = 52
+export const textInputBorderRadius = 8
 
 export const textInputFrame = css`
   height: ${toSizeUnit(textInputHeight)};
   width: 100%;
   padding: ${toSizeUnit(textInputPadding)};
-  border-radius: 8px;
+  border-radius: ${toSizeUnit(textInputBorderRadius)};
 `
 
 export const textInput = css`
   ${textInputFrame};
   ${transition};
 
-  background: ${getColor('mist')};
+  background: ${getColor('foreground')};
   color: ${getColor('text')};
 
   &::placeholder {
