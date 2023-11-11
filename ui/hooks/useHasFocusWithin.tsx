@@ -1,10 +1,41 @@
-import { RefObject } from 'react'
-import { useFocusedElement } from './useFocusedElement'
+import { useEffect, RefObject } from 'react'
+import { useBoolean } from './useBoolean'
+
+const containsRelatedTarget = ({
+  currentTarget,
+  relatedTarget,
+}: FocusEvent) => {
+  if (
+    currentTarget instanceof HTMLElement &&
+    relatedTarget instanceof HTMLElement
+  ) {
+    return currentTarget.contains(relatedTarget)
+  }
+
+  return false
+}
 
 export function useHasFocusWithin(ref: RefObject<HTMLElement>): boolean {
-  const focusedElement = useFocusedElement()
+  const [isFocused, { set: focus, unset: blur }] = useBoolean(false)
 
-  if (!ref.current) return false
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
 
-  return ref.current === focusedElement || ref.current.contains(focusedElement)
+    const handleFocusOut = (event: FocusEvent) => {
+      if (!containsRelatedTarget(event)) {
+        blur()
+      }
+    }
+
+    element.addEventListener('focusin', focus)
+    element.addEventListener('focusout', handleFocusOut)
+
+    return () => {
+      element.removeEventListener('focusin', focus)
+      element.removeEventListener('focusout', handleFocusOut)
+    }
+  }, [blur, focus, ref])
+
+  return isFocused
 }

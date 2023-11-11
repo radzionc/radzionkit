@@ -12,6 +12,5 @@ export const OptionsContainer = styled.div`
   max-height: 280px;
   overflow-y: auto;
 
-  display: none;
   z-index: 1;
 `
