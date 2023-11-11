@@ -1,40 +1,25 @@
-import {
-  ReactNode,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
+import { ReactNode, useCallback, useMemo, useRef, useState } from 'react'
 import { InputProps } from '../../props'
 import styled from 'styled-components'
-import {
-  textInput,
-  textInputBorderRadius,
-  textInputPadding,
-} from '../../css/textInput'
+import { textInput, textInputPadding } from '../../css/textInput'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { useEffectOnDependencyChange } from '../../hooks/useEffectOnDependencyChange'
-import { getColor } from '../../theme/getters'
-import { transition } from '../../css/transition'
-import { horizontalPadding } from '../../css/horizontalPadding'
-import { verticalPadding } from '../../css/verticalPadding'
-import { UnstyledButton } from '../../buttons/UnstyledButton'
 import { preventDefault } from '../../utils/preventDefault'
 import { useKey } from 'react-use'
 import { useBoolean } from '../../hooks/useBoolean'
 import { buttonSize, buttonsSpacing, identifierSize } from './config'
 import { useFloatingOptionsContainer } from './useFloatingOptionsContainer'
-import { IconButton, iconButtonSizeRecord } from '../../buttons/IconButton'
-import { HStack } from '../../layout/Stack'
-import { CloseIcon } from '../../icons/CloseIcon'
-import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
+import { iconButtonSizeRecord } from '../../buttons/IconButton'
 import { useHasFocusWithin } from '../../hooks/useHasFocusWithin'
 import { getSuggestions } from './getSuggestions'
+import { NoMatchesMessage } from './NoMatchesMessage'
+import { OptionItem } from './OptionItem'
+import { OptionsContainer } from './OptionsContainer'
+import { IdentifierWrapper } from './IdentifierWrapper'
+import { InputButtons } from './InputButtons'
 
 interface FixedOptionsInputProps<T> extends InputProps<T | undefined> {
   placeholder?: string
-
   options: T[]
   renderOption: (option: T) => ReactNode
   getOptionSearchStrings: (option: T) => string[]
@@ -42,26 +27,6 @@ interface FixedOptionsInputProps<T> extends InputProps<T | undefined> {
   renderOptionIdentifier: (option: T) => ReactNode
   optionIdentifierPlaceholder: ReactNode
 }
-
-const IdentifierWrapper = styled.div`
-  position: absolute;
-  font-size: ${toSizeUnit(identifierSize)};
-  left: ${toSizeUnit(textInputPadding)};
-  pointer-events: none;
-  display: flex;
-`
-
-const OptionsContainer = styled.div`
-  position: absolute;
-  width: 100%;
-  background: ${getColor('foreground')};
-  border: 1px solid ${getColor('mist')};
-
-  border-radius: ${toSizeUnit(textInputBorderRadius)};
-  overflow: hidden;
-  max-height: 280px;
-  overflow-y: auto;
-`
 
 const Wrapper = styled.div`
   width: 100%;
@@ -78,30 +43,6 @@ const TextInput = styled.input`
   )};
 `
 
-const OptionItem = styled(UnstyledButton)`
-  width: 100%;
-  ${transition};
-  cursor: pointer;
-
-  ${horizontalPadding(textInputPadding)};
-  ${verticalPadding(8)}
-  :hover {
-    background: ${getColor('mist')};
-  }
-`
-
-const NoOptionsMessage = styled.div`
-  ${horizontalPadding(textInputPadding)};
-  ${verticalPadding(8)}
-`
-
-const ButtonsContainer = styled(HStack)`
-  align-items: center;
-  gap: ${toSizeUnit(buttonsSpacing)};
-  position: absolute;
-  right: ${toSizeUnit(textInputPadding)};
-`
-
 export function FixedOptionsInput<T>({
   value,
   onChange,
@@ -113,9 +54,6 @@ export function FixedOptionsInput<T>({
   renderOptionIdentifier,
   optionIdentifierPlaceholder,
 }: FixedOptionsInputProps<T>) {
-  const wrapperElement = useRef<HTMLDivElement>(null)
-  const hasFocusWithin = useHasFocusWithin(wrapperElement)
-
   const inputElement = useRef<HTMLInputElement>(null)
   const [
     shouldHideOptions,
@@ -123,9 +61,9 @@ export function FixedOptionsInput<T>({
   ] = useBoolean(false)
 
   const floatingOptionsContainer = useFloatingOptionsContainer()
-  useEffect(() => {
-    floatingOptionsContainer.refs.setReference(wrapperElement.current)
-  }, [floatingOptionsContainer.refs])
+  const hasFocusWithin = useHasFocusWithin(
+    floatingOptionsContainer.refs.domReference,
+  )
 
   const [textInputValue, setTextInputValue] = useState(() =>
     value ? getOptionName(value) : '',
@@ -167,37 +105,25 @@ export function FixedOptionsInput<T>({
   useKey('Escape', hideOptions)
 
   const areOptionsVisible = hasFocusWithin && !shouldHideOptions
+  // const areOptionsVisible = true
 
   return (
-    <Wrapper ref={wrapperElement}>
+    <Wrapper ref={floatingOptionsContainer.refs.setReference}>
       <IdentifierWrapper>
         {value ? renderOptionIdentifier(value) : optionIdentifierPlaceholder}
       </IdentifierWrapper>
-      <ButtonsContainer>
-        {value && (
-          <IconButton
-            size={buttonSize}
-            icon={<CloseIcon />}
-            title="Clear"
-            as="div"
-            kind="secondary"
-            onClick={preventDefault(() => {
-              onTextInputChange('')
-            })}
-          />
-        )}
-        <CollapseToggleButton
-          size={buttonSize}
-          as="div"
-          type="button"
-          kind="secondary"
-          isOpen={areOptionsVisible}
-          onClick={preventDefault(() => {
-            if (!hasFocusWithin) return
+      <InputButtons
+        hasValue={!!value}
+        onClean={() => {
+          onTextInputChange('')
+        }}
+        areOptionsVisible={areOptionsVisible}
+        toggleOptionsVisibility={() => {
+          if (hasFocusWithin) {
             toggleOptionsHiding()
-          })}
-        />
-      </ButtonsContainer>
+          }
+        }}
+      />
       <TextInput
         ref={inputElement}
         value={textInputValue}
@@ -225,7 +151,7 @@ export function FixedOptionsInput<T>({
               </OptionItem>
             ))
           ) : (
-            <NoOptionsMessage>No results</NoOptionsMessage>
+            <NoMatchesMessage />
           )}
         </OptionsContainer>
       )}

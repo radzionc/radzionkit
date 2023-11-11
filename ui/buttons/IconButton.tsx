@@ -74,11 +74,17 @@ export interface IconButtonProps extends ComponentProps<typeof Container> {
 }
 
 export const IconButton = forwardRef(function IconButton(
-  { size = 'm', kind = 'regular', icon, ...rest }: IconButtonProps,
+  {
+    size = 'm',
+    kind = 'regular',
+    icon,
+    type = 'button',
+    ...rest
+  }: IconButtonProps,
   ref: Ref<HTMLButtonElement> | null,
 ) {
   return (
-    <Container kind={kind} ref={ref} size={size} {...rest}>
+    <Container type={type} kind={kind} ref={ref} size={size} {...rest}>
       {icon}
     </Container>
   )

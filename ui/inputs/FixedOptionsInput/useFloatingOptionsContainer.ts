@@ -9,7 +9,7 @@ import {
 import { toSizeUnit } from '../../css/toSizeUnit'
 
 export const useFloatingOptionsContainer = () => {
-  return useFloating({
+  return useFloating<HTMLDivElement>({
     placement: 'bottom-start',
     strategy: 'absolute',
     whileElementsMounted: autoUpdate,

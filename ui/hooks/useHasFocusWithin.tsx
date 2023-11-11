@@ -1,31 +1,10 @@
-import { useEffect, RefObject, useState } from 'react'
+import { RefObject } from 'react'
+import { useFocusedElement } from './useFocusedElement'
 
 export function useHasFocusWithin(ref: RefObject<HTMLElement>): boolean {
-  const [isFocused, setIsFocused] = useState(false)
+  const focusedElement = useFocusedElement()
 
-  useEffect(() => {
-    const node = ref.current
+  if (!ref.current) return false
 
-    const handleFocusIn = (event: FocusEvent) => {
-      if (node && node.contains(event.target as Node)) {
-        setIsFocused(true)
-      }
-    }
-
-    const handleFocusOut = (event: FocusEvent) => {
-      if (node && !node.contains(event.target as Node)) {
-        setIsFocused(false)
-      }
-    }
-
-    document.addEventListener('focusin', handleFocusIn)
-    document.addEventListener('focusout', handleFocusOut)
-
-    return () => {
-      document.removeEventListener('focusin', handleFocusIn)
-      document.removeEventListener('focusout', handleFocusOut)
-    }
-  }, [ref])
-
-  return isFocused
+  return ref.current === focusedElement || ref.current.contains(focusedElement)
 }
