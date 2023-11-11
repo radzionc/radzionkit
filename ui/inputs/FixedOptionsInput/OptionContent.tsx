@@ -13,6 +13,8 @@ interface OptionContentProps {
 export const OptionContent = ({ identifier, name }: OptionContentProps) => (
   <HStack alignItems="center" gap={textInputPadding}>
     <IconWrapper style={{ fontSize: identifierSize }}>{identifier}</IconWrapper>
-    <Text cropped>{name}</Text>
+    <Text as="div" cropped>
+      {name}
+    </Text>
   </HStack>
 )

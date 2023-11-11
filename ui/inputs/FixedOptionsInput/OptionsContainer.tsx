@@ -13,4 +13,5 @@ export const OptionsContainer = styled.div`
   overflow-y: auto;
 
   display: none;
+  z-index: 1;
 `
