@@ -35,7 +35,7 @@ import { HStack } from '../../layout/Stack'
 import { CloseIcon } from '../../icons/CloseIcon'
 import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
 
-interface FixedOptionsInputProps<T> extends InputProps<T | undefined> {
+interface FixedOptionsInputProps<T> extends InputProps<T | null> {
   placeholder?: string
   label?: ReactNode
 
@@ -122,7 +122,7 @@ export function FixedOptionsInput<T>({
 
   const floatingOptions = useFloating<HTMLDivElement>({
     placement: 'bottom-start',
-    strategy: 'absolute',
+    strategy: 'fixed',
     open: !shouldHideOptions,
     whileElementsMounted: autoUpdate,
     middleware: [
@@ -167,7 +167,7 @@ export function FixedOptionsInput<T>({
       stopHidingOptions()
 
       if (value && newValue !== getOptionName(value)) {
-        onChange(undefined)
+        onChange(null)
       }
 
       setTextInputValue(newValue)
@@ -189,6 +189,7 @@ export function FixedOptionsInput<T>({
         <Container
           onKeyDown={(event) => {
             if (event.key === 'Enter' && activeIndex != null) {
+              event.preventDefault()
               onChange(optionsToDisplay[activeIndex])
               setActiveIndex(null)
               hideOptions()

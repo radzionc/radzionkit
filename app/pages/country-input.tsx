@@ -12,7 +12,7 @@ const Container = styled.div`
 `
 
 export default makeDemoPage(() => {
-  const [value, setValue] = useState<CountryCode | undefined>('PT')
+  const [value, setValue] = useState<CountryCode | null>('PT')
 
   return (
     <DemoPage title="Country Input">
