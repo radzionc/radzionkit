@@ -4,16 +4,30 @@ import { horizontalPadding } from '../../css/horizontalPadding'
 import { textInputPadding } from '../../css/textInput'
 import { verticalPadding } from '../../css/verticalPadding'
 import { getColor } from '../../theme/getters'
-import { UnstyledButton } from '../../buttons/UnstyledButton'
+import { ComponentProps, forwardRef, useId } from 'react'
+import { interactive } from '../../css/interactive'
 
-export const OptionItem = styled(UnstyledButton)`
+export const Container = styled.div`
   width: 100%;
   ${transition};
-  cursor: pointer;
+  ${interactive};
 
   ${horizontalPadding(textInputPadding)};
   ${verticalPadding(8)}
-  :hover {
+  &[aria-selected='true'] {
     background: ${getColor('mist')};
   }
 `
+
+export const OptionItem = forwardRef<
+  HTMLDivElement,
+  ComponentProps<typeof Container>
+>(({ children, active, ...rest }, ref) => {
+  const id = useId()
+
+  return (
+    <Container ref={ref} role="option" id={id} aria-selected={active} {...rest}>
+      {children}
+    </Container>
+  )
+})

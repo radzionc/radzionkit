@@ -1,10 +1,16 @@
-import { ReactNode, useCallback, useMemo, useRef, useState } from 'react'
+import {
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { InputProps } from '../../props'
 import styled from 'styled-components'
 import { textInput, textInputPadding } from '../../css/textInput'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { useEffectOnDependencyChange } from '../../hooks/useEffectOnDependencyChange'
-import { preventDefault } from '../../utils/preventDefault'
 import { useKey } from 'react-use'
 import { useBoolean } from '../../hooks/useBoolean'
 import { buttonSize, buttonsSpacing, identifierSize } from './config'
@@ -24,6 +30,9 @@ import {
   shift,
   size,
   autoUpdate,
+  useRole,
+  useListNavigation,
+  useInteractions,
 } from '@floating-ui/react'
 import { Text } from '../../text'
 
@@ -32,6 +41,7 @@ interface FixedOptionsInputProps<T> extends InputProps<T | undefined> {
   label?: ReactNode
 
   options: T[]
+  getOptionKey: (option: T) => string
   renderOption: (option: T) => ReactNode
   getOptionSearchStrings: (option: T) => string[]
   getOptionName: (option: T) => string
@@ -69,6 +79,7 @@ export function FixedOptionsInput<T>({
   getOptionName,
   renderOptionIdentifier,
   optionIdentifierPlaceholder,
+  getOptionKey,
 }: FixedOptionsInputProps<T>) {
   const containerRef = useRef<HTMLLabelElement>(null)
   const hasFocusWithin = useHasFocusWithin(containerRef)
@@ -79,9 +90,39 @@ export function FixedOptionsInput<T>({
     { set: hideOptions, unset: stopHidingOptions, toggle: toggleOptionsHiding },
   ] = useBoolean(false)
 
+  const [textInputValue, setTextInputValue] = useState(() =>
+    value ? getOptionName(value) : '',
+  )
+
+  const optionsToDisplay = useMemo(() => {
+    if (value) {
+      return options
+    }
+
+    return getSuggestions({
+      inputValue: textInputValue,
+      options,
+      getOptionSearchStrings,
+    })
+  }, [getOptionSearchStrings, options, textInputValue, value])
+
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+
   const areOptionsVisible = hasFocusWithin && !shouldHideOptions
 
-  const floatingOptionsContainer = useFloating<HTMLDivElement>({
+  useEffect(() => {
+    if (
+      areOptionsVisible &&
+      optionsToDisplay.length > 0 &&
+      activeIndex === null
+    ) {
+      setActiveIndex(0)
+    }
+  }, [activeIndex, areOptionsVisible, optionsToDisplay.length])
+
+  const listRef = useRef<Array<HTMLElement | null>>([])
+
+  const { refs, floatingStyles, context } = useFloating<HTMLDivElement>({
     placement: 'bottom-start',
     strategy: 'absolute',
     open: areOptionsVisible,
@@ -100,8 +141,18 @@ export function FixedOptionsInput<T>({
     ],
   })
 
-  const [textInputValue, setTextInputValue] = useState(() =>
-    value ? getOptionName(value) : '',
+  const listNav = useListNavigation(context, {
+    listRef,
+    activeIndex,
+    onNavigate: setActiveIndex,
+    virtual: true,
+    loop: true,
+  })
+
+  const role = useRole(context, { role: 'listbox' })
+
+  const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions(
+    [role, listNav],
   )
 
   useEffectOnDependencyChange(() => {
@@ -125,24 +176,25 @@ export function FixedOptionsInput<T>({
     [getOptionName, onChange, stopHidingOptions, value],
   )
 
-  const optionsToDisplay = useMemo(() => {
-    if (value) {
-      return options
-    }
-
-    return getSuggestions({
-      inputValue: textInputValue,
-      options,
-      getOptionSearchStrings,
-    })
-  }, [getOptionSearchStrings, options, textInputValue, value])
-
   useKey('Escape', hideOptions)
 
   return (
-    <Container ref={containerRef}>
+    <Container
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' && activeIndex != null) {
+          onChange(optionsToDisplay[activeIndex])
+          setActiveIndex(null)
+          hideOptions()
+        }
+      }}
+      ref={containerRef}
+    >
       {label && <Text as="div">{label}</Text>}
-      <Wrapper ref={floatingOptionsContainer.refs.setReference}>
+      <Wrapper
+        {...getReferenceProps({
+          ref: refs.setReference,
+        })}
+      >
         <IdentifierWrapper>
           {value ? renderOptionIdentifier(value) : optionIdentifierPlaceholder}
         </IdentifierWrapper>
@@ -164,22 +216,30 @@ export function FixedOptionsInput<T>({
           onChange={(event) => onTextInputChange(event.currentTarget.value)}
           placeholder={placeholder}
           onClick={stopHidingOptions}
+          aria-autocomplete="list"
         />
         {areOptionsVisible && (
           <OptionsContainer
-            style={floatingOptionsContainer.floatingStyles}
-            ref={floatingOptionsContainer.refs.setFloating}
+            {...getFloatingProps({
+              ref: refs.setFloating,
+              style: floatingStyles,
+            })}
           >
             {optionsToDisplay.length > 0 ? (
               optionsToDisplay.map((option, index) => (
                 <OptionItem
-                  type="button"
-                  onClick={preventDefault(() => {
-                    onChange(option)
-                    inputElement.current?.focus()
-                    hideOptions()
+                  {...getItemProps({
+                    ref: (element) => {
+                      listRef.current[index] = element
+                    },
+                    key: getOptionKey(option),
+                    onClick: () => {
+                      onChange(option)
+                      inputElement.current?.focus()
+                      hideOptions()
+                    },
                   })}
-                  key={index}
+                  active={index === activeIndex}
                 >
                   {renderOption(option)}
                 </OptionItem>

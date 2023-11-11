@@ -29,6 +29,7 @@ export const CountryInput = ({ value, onChange, label }: CountryInputProps) => {
       options={countryCodes}
       getOptionSearchStrings={(code) => [countryNameRecord[code]]}
       getOptionName={(code) => countryNameRecord[code]}
+      getOptionKey={(code) => code}
       renderOptionIdentifier={(code) => (
         <FlagWrapper>
           <CountryFlag code={code} />
