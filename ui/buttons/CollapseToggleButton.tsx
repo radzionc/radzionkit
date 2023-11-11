@@ -30,7 +30,6 @@ export const CollapseToggleButton = forwardRef(
         ref={ref}
         {...props}
         title={isOpen ? 'Collapse' : 'Expand'}
-        type="button"
         icon={
           <IconWrapper isOpen={isOpen}>
             <ChevronDownIcon />

@@ -1,27 +1,22 @@
-import {
-  ReactNode,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
+import { ReactNode, useCallback, useMemo, useRef, useState } from 'react'
 import { InputProps } from '../../props'
 import styled from 'styled-components'
-import { textInput, textInputPadding } from '../../css/textInput'
+import {
+  textInput,
+  textInputHeight,
+  textInputPadding,
+} from '../../css/textInput'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { useEffectOnDependencyChange } from '../../hooks/useEffectOnDependencyChange'
 import { useKey } from 'react-use'
 import { useBoolean } from '../../hooks/useBoolean'
 import { buttonSize, buttonsSpacing, identifierSize } from './config'
-import { iconButtonSizeRecord } from '../../buttons/IconButton'
-import { useHasFocusWithin } from '../../hooks/useHasFocusWithin'
+import { IconButton, iconButtonSizeRecord } from '../../buttons/IconButton'
 import { getSuggestions } from './getSuggestions'
 import { NoMatchesMessage } from './NoMatchesMessage'
 import { OptionItem } from './OptionItem'
 import { OptionsContainer } from './OptionsContainer'
 import { IdentifierWrapper } from './IdentifierWrapper'
-import { InputButtons } from './InputButtons'
 import { inputContainer } from '../../css/inputContainer'
 import {
   useFloating,
@@ -35,6 +30,10 @@ import {
   useInteractions,
 } from '@floating-ui/react'
 import { Text } from '../../text'
+import { preventDefault } from '../../utils/preventDefault'
+import { HStack } from '../../layout/Stack'
+import { CloseIcon } from '../../icons/CloseIcon'
+import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
 
 interface FixedOptionsInputProps<T> extends InputProps<T | undefined> {
   placeholder?: string
@@ -66,6 +65,19 @@ const TextInput = styled.input`
 
 const Container = styled.label`
   ${inputContainer};
+
+  :focus-within ${OptionsContainer} {
+    display: initial;
+  }
+`
+
+const ButtonsContainer = styled(HStack)`
+  position: absolute;
+  gap: 4px;
+  right: ${toSizeUnit(textInputPadding)};
+  bottom: ${toSizeUnit(
+    (textInputHeight - iconButtonSizeRecord[buttonSize]) / 2,
+  )};
 `
 
 export function FixedOptionsInput<T>({
@@ -81,10 +93,8 @@ export function FixedOptionsInput<T>({
   optionIdentifierPlaceholder,
   getOptionKey,
 }: FixedOptionsInputProps<T>) {
-  const containerRef = useRef<HTMLLabelElement>(null)
-  const hasFocusWithin = useHasFocusWithin(containerRef)
-
   const inputElement = useRef<HTMLInputElement>(null)
+
   const [
     shouldHideOptions,
     { set: hideOptions, unset: stopHidingOptions, toggle: toggleOptionsHiding },
@@ -108,24 +118,12 @@ export function FixedOptionsInput<T>({
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
-  const areOptionsVisible = hasFocusWithin && !shouldHideOptions
-
-  useEffect(() => {
-    if (
-      areOptionsVisible &&
-      optionsToDisplay.length > 0 &&
-      activeIndex === null
-    ) {
-      setActiveIndex(0)
-    }
-  }, [activeIndex, areOptionsVisible, optionsToDisplay.length])
-
   const listRef = useRef<Array<HTMLElement | null>>([])
 
-  const { refs, floatingStyles, context } = useFloating<HTMLDivElement>({
+  const floatingOptions = useFloating<HTMLDivElement>({
     placement: 'bottom-start',
     strategy: 'absolute',
-    open: areOptionsVisible,
+    open: !shouldHideOptions,
     whileElementsMounted: autoUpdate,
     middleware: [
       offset(4),
@@ -141,7 +139,7 @@ export function FixedOptionsInput<T>({
     ],
   })
 
-  const listNav = useListNavigation(context, {
+  const listNav = useListNavigation(floatingOptions.context, {
     listRef,
     activeIndex,
     onNavigate: setActiveIndex,
@@ -149,7 +147,7 @@ export function FixedOptionsInput<T>({
     loop: true,
   })
 
-  const role = useRole(context, { role: 'listbox' })
+  const role = useRole(floatingOptions.context, { role: 'listbox' })
 
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions(
     [role, listNav],
@@ -167,6 +165,7 @@ export function FixedOptionsInput<T>({
   const onTextInputChange = useCallback(
     (newValue: string) => {
       stopHidingOptions()
+
       if (value && newValue !== getOptionName(value)) {
         onChange(undefined)
       }
@@ -176,80 +175,100 @@ export function FixedOptionsInput<T>({
     [getOptionName, onChange, stopHidingOptions, value],
   )
 
+  useEffectOnDependencyChange(() => {
+    if (shouldHideOptions || optionsToDisplay.length === 0) return
+
+    setActiveIndex(0)
+  }, [textInputValue])
+
   useKey('Escape', hideOptions)
 
   return (
-    <Container
-      onKeyDown={(event) => {
-        if (event.key === 'Enter' && activeIndex != null) {
-          onChange(optionsToDisplay[activeIndex])
-          setActiveIndex(null)
-          hideOptions()
-        }
-      }}
-      ref={containerRef}
-    >
-      {label && <Text as="div">{label}</Text>}
-      <Wrapper
-        {...getReferenceProps({
-          ref: refs.setReference,
-        })}
-      >
-        <IdentifierWrapper>
-          {value ? renderOptionIdentifier(value) : optionIdentifierPlaceholder}
-        </IdentifierWrapper>
-        <InputButtons
-          hasValue={!!value}
-          onClean={() => {
-            onTextInputChange('')
-          }}
-          areOptionsVisible={areOptionsVisible}
-          toggleOptionsVisibility={() => {
-            if (hasFocusWithin) {
-              toggleOptionsHiding()
+    <>
+      <Wrapper>
+        <Container
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' && activeIndex != null) {
+              onChange(optionsToDisplay[activeIndex])
+              setActiveIndex(null)
+              hideOptions()
             }
           }}
-        />
-        <TextInput
-          ref={inputElement}
-          value={textInputValue}
-          onChange={(event) => onTextInputChange(event.currentTarget.value)}
-          placeholder={placeholder}
-          onClick={stopHidingOptions}
-          aria-autocomplete="list"
-        />
-        {areOptionsVisible && (
-          <OptionsContainer
-            {...getFloatingProps({
-              ref: refs.setFloating,
-              style: floatingStyles,
+        >
+          {label && <Text as="div">{label}</Text>}
+          <Wrapper
+            {...getReferenceProps({
+              ref: floatingOptions.refs.setReference,
             })}
           >
-            {optionsToDisplay.length > 0 ? (
-              optionsToDisplay.map((option, index) => (
-                <OptionItem
-                  {...getItemProps({
-                    ref: (element) => {
-                      listRef.current[index] = element
-                    },
-                    key: getOptionKey(option),
-                    onClick: () => {
-                      onChange(option)
-                      inputElement.current?.focus()
-                      hideOptions()
-                    },
-                  })}
-                  active={index === activeIndex}
-                >
-                  {renderOption(option)}
-                </OptionItem>
-              ))
-            ) : (
-              <NoMatchesMessage />
+            <IdentifierWrapper>
+              {value
+                ? renderOptionIdentifier(value)
+                : optionIdentifierPlaceholder}
+            </IdentifierWrapper>
+            <TextInput
+              ref={inputElement}
+              value={textInputValue}
+              onChange={(event) => onTextInputChange(event.currentTarget.value)}
+              placeholder={placeholder}
+              onClick={stopHidingOptions}
+              aria-autocomplete="list"
+            />
+            {!shouldHideOptions && (
+              <OptionsContainer
+                {...getFloatingProps({
+                  ref: floatingOptions.refs.setFloating,
+                  style: floatingOptions.floatingStyles,
+                })}
+              >
+                {optionsToDisplay.length > 0 ? (
+                  optionsToDisplay.map((option, index) => (
+                    <OptionItem
+                      {...getItemProps({
+                        ref: (element) => {
+                          listRef.current[index] = element
+                        },
+                        key: getOptionKey(option),
+                        onClick: preventDefault(() => {
+                          onChange(option)
+                          inputElement.current?.focus()
+                          hideOptions()
+                        }),
+                      })}
+                      active={index === activeIndex}
+                    >
+                      {renderOption(option)}
+                    </OptionItem>
+                  ))
+                ) : (
+                  <NoMatchesMessage />
+                )}
+              </OptionsContainer>
             )}
-          </OptionsContainer>
-        )}
+          </Wrapper>
+        </Container>
+        <ButtonsContainer>
+          <IconButton
+            size={buttonSize}
+            icon={<CloseIcon />}
+            title="Clear"
+            kind="secondary"
+            onClick={() => {
+              onTextInputChange('')
+              inputElement.current?.focus()
+            }}
+          />
+          <CollapseToggleButton
+            size={buttonSize}
+            kind="secondary"
+            isOpen={!shouldHideOptions}
+            onClick={() => {
+              toggleOptionsHiding()
+              inputElement.current?.focus()
+            }}
+          />
+        </ButtonsContainer>
       </Wrapper>
-    </Container>
+    </>
   )
 }
