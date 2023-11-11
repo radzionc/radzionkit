@@ -21,7 +21,6 @@ import { inputContainer } from '../../css/inputContainer'
 import {
   useFloating,
   offset,
-  flip,
   shift,
   size,
   autoUpdate,
@@ -124,7 +123,6 @@ export function FixedOptionsInput<T>({
     whileElementsMounted: autoUpdate,
     middleware: [
       offset(4),
-      flip(),
       shift(),
       size({
         apply({ rects, elements }) {
