@@ -8,7 +8,6 @@ import { preventDefault } from '../../utils/preventDefault'
 import { useKey } from 'react-use'
 import { useBoolean } from '../../hooks/useBoolean'
 import { buttonSize, buttonsSpacing, identifierSize } from './config'
-import { useFloatingOptionsContainer } from './useFloatingOptionsContainer'
 import { iconButtonSizeRecord } from '../../buttons/IconButton'
 import { useHasFocusWithin } from '../../hooks/useHasFocusWithin'
 import { getSuggestions } from './getSuggestions'
@@ -17,9 +16,21 @@ import { OptionItem } from './OptionItem'
 import { OptionsContainer } from './OptionsContainer'
 import { IdentifierWrapper } from './IdentifierWrapper'
 import { InputButtons } from './InputButtons'
+import { inputContainer } from '../../css/inputContainer'
+import {
+  useFloating,
+  offset,
+  flip,
+  shift,
+  size,
+  autoUpdate,
+} from '@floating-ui/react'
+import { Text } from '../../text'
 
 interface FixedOptionsInputProps<T> extends InputProps<T | undefined> {
   placeholder?: string
+  label?: ReactNode
+
   options: T[]
   renderOption: (option: T) => ReactNode
   getOptionSearchStrings: (option: T) => string[]
@@ -43,8 +54,13 @@ const TextInput = styled.input`
   )};
 `
 
+const Container = styled.label`
+  ${inputContainer};
+`
+
 export function FixedOptionsInput<T>({
   value,
+  label,
   onChange,
   placeholder,
   options,
@@ -54,16 +70,35 @@ export function FixedOptionsInput<T>({
   renderOptionIdentifier,
   optionIdentifierPlaceholder,
 }: FixedOptionsInputProps<T>) {
+  const containerRef = useRef<HTMLLabelElement>(null)
+  const hasFocusWithin = useHasFocusWithin(containerRef)
+
   const inputElement = useRef<HTMLInputElement>(null)
   const [
     shouldHideOptions,
     { set: hideOptions, unset: stopHidingOptions, toggle: toggleOptionsHiding },
   ] = useBoolean(false)
 
-  const floatingOptionsContainer = useFloatingOptionsContainer()
-  const hasFocusWithin = useHasFocusWithin(
-    floatingOptionsContainer.refs.domReference,
-  )
+  const areOptionsVisible = hasFocusWithin && !shouldHideOptions
+
+  const floatingOptionsContainer = useFloating<HTMLDivElement>({
+    placement: 'bottom-start',
+    strategy: 'absolute',
+    open: areOptionsVisible,
+    whileElementsMounted: autoUpdate,
+    middleware: [
+      offset(4),
+      flip(),
+      shift(),
+      size({
+        apply({ rects, elements }) {
+          Object.assign(elements.floating.style, {
+            width: toSizeUnit(rects.reference.width),
+          })
+        },
+      }),
+    ],
+  })
 
   const [textInputValue, setTextInputValue] = useState(() =>
     value ? getOptionName(value) : '',
@@ -104,57 +139,57 @@ export function FixedOptionsInput<T>({
 
   useKey('Escape', hideOptions)
 
-  const areOptionsVisible = hasFocusWithin && !shouldHideOptions
-  // const areOptionsVisible = true
-
   return (
-    <Wrapper ref={floatingOptionsContainer.refs.setReference}>
-      <IdentifierWrapper>
-        {value ? renderOptionIdentifier(value) : optionIdentifierPlaceholder}
-      </IdentifierWrapper>
-      <InputButtons
-        hasValue={!!value}
-        onClean={() => {
-          onTextInputChange('')
-        }}
-        areOptionsVisible={areOptionsVisible}
-        toggleOptionsVisibility={() => {
-          if (hasFocusWithin) {
-            toggleOptionsHiding()
-          }
-        }}
-      />
-      <TextInput
-        ref={inputElement}
-        value={textInputValue}
-        onChange={(event) => onTextInputChange(event.currentTarget.value)}
-        placeholder={placeholder}
-        onClick={stopHidingOptions}
-      />
-      {areOptionsVisible && (
-        <OptionsContainer
-          style={floatingOptionsContainer.floatingStyles}
-          ref={floatingOptionsContainer.refs.setFloating}
-        >
-          {optionsToDisplay.length > 0 ? (
-            optionsToDisplay.map((option, index) => (
-              <OptionItem
-                type="button"
-                onClick={preventDefault(() => {
-                  onChange(option)
-                  inputElement.current?.focus()
-                  hideOptions()
-                })}
-                key={index}
-              >
-                {renderOption(option)}
-              </OptionItem>
-            ))
-          ) : (
-            <NoMatchesMessage />
-          )}
-        </OptionsContainer>
-      )}
-    </Wrapper>
+    <Container ref={containerRef}>
+      {label && <Text as="div">{label}</Text>}
+      <Wrapper ref={floatingOptionsContainer.refs.setReference}>
+        <IdentifierWrapper>
+          {value ? renderOptionIdentifier(value) : optionIdentifierPlaceholder}
+        </IdentifierWrapper>
+        <InputButtons
+          hasValue={!!value}
+          onClean={() => {
+            onTextInputChange('')
+          }}
+          areOptionsVisible={areOptionsVisible}
+          toggleOptionsVisibility={() => {
+            if (hasFocusWithin) {
+              toggleOptionsHiding()
+            }
+          }}
+        />
+        <TextInput
+          ref={inputElement}
+          value={textInputValue}
+          onChange={(event) => onTextInputChange(event.currentTarget.value)}
+          placeholder={placeholder}
+          onClick={stopHidingOptions}
+        />
+        {areOptionsVisible && (
+          <OptionsContainer
+            style={floatingOptionsContainer.floatingStyles}
+            ref={floatingOptionsContainer.refs.setFloating}
+          >
+            {optionsToDisplay.length > 0 ? (
+              optionsToDisplay.map((option, index) => (
+                <OptionItem
+                  type="button"
+                  onClick={preventDefault(() => {
+                    onChange(option)
+                    inputElement.current?.focus()
+                    hideOptions()
+                  })}
+                  key={index}
+                >
+                  {renderOption(option)}
+                </OptionItem>
+              ))
+            ) : (
+              <NoMatchesMessage />
+            )}
+          </OptionsContainer>
+        )}
+      </Wrapper>
+    </Container>
   )
 }

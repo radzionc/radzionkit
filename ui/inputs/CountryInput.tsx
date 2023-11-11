@@ -11,16 +11,19 @@ import styled from 'styled-components'
 import { CountryFlagFrame } from '../countries/CountryFlagFrame'
 import { OptionContent } from './FixedOptionsInput/OptionContent'
 
-interface CountryInputProps extends InputProps<CountryCode | undefined> {}
+interface CountryInputProps extends InputProps<CountryCode | undefined> {
+  label?: React.ReactNode
+}
 
 const FlagWrapper = styled(IconWrapper)`
   border-radius: 2px;
 `
 
-export const CountryInput = ({ value, onChange }: CountryInputProps) => {
+export const CountryInput = ({ value, onChange, label }: CountryInputProps) => {
   return (
     <FixedOptionsInput
       value={value}
+      label={label}
       onChange={onChange}
       placeholder="Search for a country"
       options={countryCodes}

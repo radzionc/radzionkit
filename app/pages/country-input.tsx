@@ -4,7 +4,6 @@ import { makeDemoPage } from 'layout/makeDemoPage'
 import { useState } from 'react'
 import { CountryInput } from '@reactkit/ui/inputs/CountryInput'
 import styled from 'styled-components'
-import { InputWrapper } from '@reactkit/ui/inputs/InputWrapper'
 
 const Container = styled.div`
   max-width: 360px;
@@ -18,9 +17,11 @@ export default makeDemoPage(() => {
   return (
     <DemoPage title="Country Input">
       <Container>
-        <InputWrapper label="Select a country">
-          <CountryInput value={value} onChange={setValue} />
-        </InputWrapper>
+        <CountryInput
+          label="Country of residence"
+          value={value}
+          onChange={setValue}
+        />
       </Container>
     </DemoPage>
   )
