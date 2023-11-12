@@ -1,6 +1,5 @@
 import { ReactNode, useCallback, useMemo, useRef, useState } from 'react'
 import { InputProps } from '../../props'
-import { toSizeUnit } from '../../css/toSizeUnit'
 import { useEffectOnDependencyChange } from '../../hooks/useEffectOnDependencyChange'
 import { useKey } from 'react-use'
 import { useBoolean } from '../../hooks/useBoolean'
@@ -10,16 +9,6 @@ import { NoMatchesMessage } from './NoMatchesMessage'
 import { FixedOptionsInputItem } from './OptionItem'
 import { FixedOptionsInputOptionsContainer } from './OptionsContainer'
 import { FixedOptionsInputIdentifierWrapper } from './IdentifierWrapper'
-import {
-  useFloating,
-  offset,
-  shift,
-  size,
-  autoUpdate,
-  useRole,
-  useListNavigation,
-  useInteractions,
-} from '@floating-ui/react'
 import { Text } from '../../text'
 import { preventDefault } from '../../utils/preventDefault'
 import { CloseIcon } from '../../icons/CloseIcon'
@@ -30,6 +19,7 @@ import { InputContainer } from '../InputContainer'
 import { FixedOptionsInputButtonsContainer } from './ButtonsContainer'
 import { FixedOptionsInputTextInput } from './TextInput'
 import { fixedOptionsInputConfig } from './config'
+import { useFloatingOptions } from './useFloatingOptions'
 
 interface FixedOptionsInputProps<T> extends InputProps<T | null> {
   placeholder?: string
@@ -80,47 +70,22 @@ export function FixedOptionsInput<T>({
     })
   }, [getOptionSearchStrings, options, textInputValue, value])
 
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const {
+    referenceRef,
+    activeIndex,
+    setActiveIndex,
+    getReferenceProps,
+    setReferenceRef,
+    getFloatingProps,
+    setFloatingRef,
+    floatingStyles,
+    getItemProps,
+    optionsRef,
+  } = useFloatingOptions()
 
-  const listRef = useRef<Array<HTMLElement | null>>([])
-
-  const floatingOptions = useFloating<HTMLDivElement>({
-    placement: 'bottom-start',
-    strategy: 'fixed',
-    open: !shouldHideOptions,
-    whileElementsMounted: autoUpdate,
-    middleware: [
-      offset(4),
-      shift(),
-      size({
-        apply({ rects, elements }) {
-          Object.assign(elements.floating.style, {
-            width: toSizeUnit(rects.reference.width),
-          })
-        },
-      }),
-    ],
-  })
-
-  const labelHasFocusWithin = useHasFocusWithin(
-    floatingOptions.refs.domReference,
-  )
+  const labelHasFocusWithin = useHasFocusWithin(referenceRef)
 
   const areOptionsVisible = !shouldHideOptions && labelHasFocusWithin
-
-  const listNav = useListNavigation(floatingOptions.context, {
-    listRef,
-    activeIndex,
-    onNavigate: setActiveIndex,
-    virtual: true,
-    loop: true,
-  })
-
-  const role = useRole(floatingOptions.context, { role: 'listbox' })
-
-  const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions(
-    [role, listNav],
-  )
 
   useEffectOnDependencyChange(() => {
     if (!value) return
@@ -167,7 +132,7 @@ export function FixedOptionsInput<T>({
         {label && <Text as="div">{label}</Text>}
         <RelativeRow
           {...getReferenceProps({
-            ref: floatingOptions.refs.setReference,
+            ref: setReferenceRef,
           })}
         >
           <FixedOptionsInputIdentifierWrapper>
@@ -186,8 +151,8 @@ export function FixedOptionsInput<T>({
           {areOptionsVisible && (
             <FixedOptionsInputOptionsContainer
               {...getFloatingProps({
-                ref: floatingOptions.refs.setFloating,
-                style: floatingOptions.floatingStyles,
+                ref: setFloatingRef,
+                style: floatingStyles,
               })}
             >
               {optionsToDisplay.length > 0 ? (
@@ -195,7 +160,7 @@ export function FixedOptionsInput<T>({
                   <FixedOptionsInputItem
                     {...getItemProps({
                       ref: (element) => {
-                        listRef.current[index] = element
+                        optionsRef.current[index] = element
                       },
                       key: getOptionKey(option),
                       onClick: preventDefault(() => {
