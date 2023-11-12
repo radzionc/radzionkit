@@ -19,7 +19,7 @@ export const Container = styled.div`
   }
 `
 
-export const OptionItem = forwardRef<
+export const FixedOptionsInputItem = forwardRef<
   HTMLDivElement,
   ComponentProps<typeof Container>
 >(({ children, active, ...rest }, ref) => {
