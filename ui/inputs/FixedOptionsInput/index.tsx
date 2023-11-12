@@ -3,7 +3,6 @@ import { InputProps } from '../../props'
 import { useEffectOnDependencyChange } from '../../hooks/useEffectOnDependencyChange'
 import { useKey } from 'react-use'
 import { useBoolean } from '../../hooks/useBoolean'
-import { IconButton } from '../../buttons/IconButton'
 import { getSuggestions } from './getSuggestions'
 import { NoMatchesMessage } from './NoMatchesMessage'
 import { FixedOptionsInputItem } from './OptionItem'
@@ -11,15 +10,12 @@ import { FixedOptionsInputOptionsContainer } from './OptionsContainer'
 import { FixedOptionsInputIdentifierWrapper } from './IdentifierWrapper'
 import { Text } from '../../text'
 import { preventDefault } from '../../utils/preventDefault'
-import { CloseIcon } from '../../icons/CloseIcon'
-import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
 import { useHasFocusWithin } from '../../hooks/useHasFocusWithin'
 import { RelativeRow } from '../../layout/RelativeRow'
 import { InputContainer } from '../InputContainer'
-import { FixedOptionsInputButtonsContainer } from './ButtonsContainer'
 import { FixedOptionsInputTextInput } from './TextInput'
-import { fixedOptionsInputConfig } from './config'
 import { useFloatingOptions } from './useFloatingOptions'
+import { FixedOptionsInputButtons } from './Buttons'
 
 interface FixedOptionsInputProps<T> extends InputProps<T | null> {
   placeholder?: string
@@ -181,31 +177,23 @@ export function FixedOptionsInput<T>({
           )}
         </RelativeRow>
       </InputContainer>
-      <FixedOptionsInputButtonsContainer>
-        {textInputValue && (
-          <IconButton
-            size={fixedOptionsInputConfig.iconButtonSize}
-            icon={<CloseIcon />}
-            title="Clear"
-            kind="secondary"
-            onClick={() => {
-              onTextInputChange('')
-              inputElement.current?.focus()
-            }}
-          />
-        )}
-        <CollapseToggleButton
-          size={fixedOptionsInputConfig.iconButtonSize}
-          kind="secondary"
-          isOpen={areOptionsVisible}
-          onClick={() => {
-            if (labelHasFocusWithin) {
-              toggleOptionsHiding()
-            }
-            inputElement.current?.focus()
-          }}
-        />
-      </FixedOptionsInputButtonsContainer>
+      <FixedOptionsInputButtons
+        onClear={
+          textInputValue
+            ? () => {
+                onTextInputChange('')
+                inputElement.current?.focus()
+              }
+            : undefined
+        }
+        areOptionsVisible={areOptionsVisible}
+        toggleOptionsVisibility={() => {
+          if (labelHasFocusWithin) {
+            toggleOptionsHiding()
+          }
+          inputElement.current?.focus()
+        }}
+      />
     </RelativeRow>
   )
 }
