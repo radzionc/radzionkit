@@ -43,7 +43,8 @@ export const FixedOptionsInputButtons = ({
       size={fixedOptionsInputConfig.iconButtonSize}
       kind="secondary"
       isOpen={areOptionsVisible}
-      onClick={toggleOptionsVisibility}
+      onMouseDown={toggleOptionsVisibility}
+      onTouchStart={toggleOptionsVisibility}
     />
   </Container>
 )

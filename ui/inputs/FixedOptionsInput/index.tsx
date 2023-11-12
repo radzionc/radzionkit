@@ -10,12 +10,12 @@ import { FixedOptionsInputOptionsContainer } from './OptionsContainer'
 import { FixedOptionsInputIdentifierWrapper } from './IdentifierWrapper'
 import { Text } from '../../text'
 import { preventDefault } from '../../utils/preventDefault'
-import { useHasFocusWithin } from '../../hooks/useHasFocusWithin'
 import { RelativeRow } from '../../layout/RelativeRow'
 import { InputContainer } from '../InputContainer'
 import { FixedOptionsInputTextInput } from './TextInput'
 import { useFloatingOptions } from './useFloatingOptions'
 import { FixedOptionsInputButtons } from './Buttons'
+import { useHasFocusWithin } from '../../hooks/useHasFocusWithin'
 
 interface FixedOptionsInputProps<T> extends InputProps<T | null> {
   placeholder?: string
@@ -46,8 +46,8 @@ export function FixedOptionsInput<T>({
   const inputElement = useRef<HTMLInputElement>(null)
 
   const [
-    shouldHideOptions,
-    { set: hideOptions, unset: stopHidingOptions, toggle: toggleOptionsHiding },
+    areOptionsVisible,
+    { set: showOptions, unset: hideOptions, toggle: toggleOptionsHiding },
   ] = useBoolean(false)
 
   const [textInputValue, setTextInputValue] = useState(() =>
@@ -80,8 +80,13 @@ export function FixedOptionsInput<T>({
   } = useFloatingOptions()
 
   const labelHasFocusWithin = useHasFocusWithin(referenceRef)
-
-  const areOptionsVisible = !shouldHideOptions && labelHasFocusWithin
+  useEffectOnDependencyChange(() => {
+    if (labelHasFocusWithin) {
+      showOptions()
+    } else {
+      hideOptions()
+    }
+  }, [labelHasFocusWithin])
 
   useEffectOnDependencyChange(() => {
     if (!value) return
@@ -94,7 +99,7 @@ export function FixedOptionsInput<T>({
 
   const onTextInputChange = useCallback(
     (newValue: string) => {
-      stopHidingOptions()
+      showOptions()
 
       if (value && newValue !== getOptionName(value)) {
         onChange(null)
@@ -102,11 +107,11 @@ export function FixedOptionsInput<T>({
 
       setTextInputValue(newValue)
     },
-    [getOptionName, onChange, stopHidingOptions, value],
+    [getOptionName, onChange, showOptions, value],
   )
 
   useEffectOnDependencyChange(() => {
-    if (shouldHideOptions || optionsToDisplay.length === 0) return
+    if (!areOptionsVisible || optionsToDisplay.length === 0) return
 
     setActiveIndex(0)
   }, [textInputValue])
@@ -114,86 +119,79 @@ export function FixedOptionsInput<T>({
   useKey('Escape', hideOptions)
 
   return (
-    <RelativeRow>
-      <InputContainer
-        onKeyDown={(event) => {
-          if (event.key === 'Enter' && activeIndex != null) {
-            event.preventDefault()
-            onChange(optionsToDisplay[activeIndex])
-            setActiveIndex(null)
-            hideOptions()
-          }
-        }}
-      >
-        {label && <Text as="div">{label}</Text>}
-        <RelativeRow
-          {...getReferenceProps({
-            ref: setReferenceRef,
-          })}
-        >
-          <FixedOptionsInputIdentifierWrapper>
-            {value
-              ? renderOptionIdentifier(value)
-              : optionIdentifierPlaceholder}
-          </FixedOptionsInputIdentifierWrapper>
-          <FixedOptionsInputTextInput
-            ref={inputElement}
-            value={textInputValue}
-            onChange={(event) => onTextInputChange(event.currentTarget.value)}
-            placeholder={placeholder}
-            onClick={stopHidingOptions}
-            aria-autocomplete="list"
-          />
-          {areOptionsVisible && (
-            <FixedOptionsInputOptionsContainer
-              {...getFloatingProps({
-                ref: setFloatingRef,
-                style: floatingStyles,
-              })}
-            >
-              {optionsToDisplay.length > 0 ? (
-                optionsToDisplay.map((option, index) => (
-                  <FixedOptionsInputItem
-                    {...getItemProps({
-                      ref: (element) => {
-                        optionsRef.current[index] = element
-                      },
-                      key: getOptionKey(option),
-                      onClick: preventDefault(() => {
-                        onChange(option)
-                        inputElement.current?.focus()
-                        hideOptions()
-                      }),
-                    })}
-                    active={index === activeIndex}
-                  >
-                    {renderOption(option)}
-                  </FixedOptionsInputItem>
-                ))
-              ) : (
-                <NoMatchesMessage />
-              )}
-            </FixedOptionsInputOptionsContainer>
-          )}
-        </RelativeRow>
-      </InputContainer>
-      <FixedOptionsInputButtons
-        onClear={
-          textInputValue
-            ? () => {
-                onTextInputChange('')
-                inputElement.current?.focus()
-              }
-            : undefined
+    <InputContainer
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' && activeIndex != null) {
+          event.preventDefault()
+          onChange(optionsToDisplay[activeIndex])
+          setActiveIndex(null)
+          hideOptions()
         }
-        areOptionsVisible={areOptionsVisible}
-        toggleOptionsVisibility={() => {
-          if (labelHasFocusWithin) {
-            toggleOptionsHiding()
+      }}
+    >
+      {label && <Text as="div">{label}</Text>}
+      <RelativeRow
+        {...getReferenceProps({
+          ref: setReferenceRef,
+        })}
+      >
+        <FixedOptionsInputIdentifierWrapper>
+          {value ? renderOptionIdentifier(value) : optionIdentifierPlaceholder}
+        </FixedOptionsInputIdentifierWrapper>
+        <FixedOptionsInputTextInput
+          ref={inputElement}
+          value={textInputValue}
+          onChange={(event) => onTextInputChange(event.currentTarget.value)}
+          placeholder={placeholder}
+          aria-autocomplete="list"
+        />
+        {areOptionsVisible && (
+          <FixedOptionsInputOptionsContainer
+            {...getFloatingProps({
+              ref: setFloatingRef,
+              style: floatingStyles,
+            })}
+          >
+            {optionsToDisplay.length > 0 ? (
+              optionsToDisplay.map((option, index) => (
+                <FixedOptionsInputItem
+                  {...getItemProps({
+                    ref: (element) => {
+                      optionsRef.current[index] = element
+                    },
+                    key: getOptionKey(option),
+                    onClick: preventDefault(() => {
+                      onChange(option)
+                      inputElement.current?.focus()
+                      hideOptions()
+                    }),
+                  })}
+                  active={index === activeIndex}
+                >
+                  {renderOption(option)}
+                </FixedOptionsInputItem>
+              ))
+            ) : (
+              <NoMatchesMessage />
+            )}
+          </FixedOptionsInputOptionsContainer>
+        )}
+        <FixedOptionsInputButtons
+          onClear={
+            textInputValue
+              ? () => {
+                  onTextInputChange('')
+                  inputElement.current?.focus()
+                }
+              : undefined
           }
-          inputElement.current?.focus()
-        }}
-      />
-    </RelativeRow>
+          areOptionsVisible={areOptionsVisible}
+          toggleOptionsVisibility={() => {
+            toggleOptionsHiding()
+            inputElement.current?.focus()
+          }}
+        />
+      </RelativeRow>
+    </InputContainer>
   )
 }
