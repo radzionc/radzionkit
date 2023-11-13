@@ -11,6 +11,7 @@ export const FixedOptionsInputTextInput = styled.input`
   )};
   padding-right: ${toSizeUnit(
     iconButtonSizeRecord[fixedOptionsInputConfig.iconButtonSize] * 2 +
-      textInputPadding,
+      textInputPadding +
+      fixedOptionsInputConfig.buttonsSpacing,
   )};
 `
