@@ -1,21 +1,17 @@
 import { ReactNode, useCallback, useMemo, useRef, useState } from 'react'
 import { InputProps } from '../../props'
 import { useEffectOnDependencyChange } from '../../hooks/useEffectOnDependencyChange'
-import { useKey } from 'react-use'
-import { useBoolean } from '../../hooks/useBoolean'
 import { getSuggestions } from './getSuggestions'
 import { NoMatchesMessage } from './NoMatchesMessage'
 import { FixedOptionsInputItem } from './OptionItem'
 import { FixedOptionsInputOptionsContainer } from './OptionsContainer'
 import { FixedOptionsInputIdentifierWrapper } from './IdentifierWrapper'
 import { Text } from '../../text'
-import { preventDefault } from '../../utils/preventDefault'
 import { RelativeRow } from '../../layout/RelativeRow'
 import { InputContainer } from '../InputContainer'
 import { FixedOptionsInputTextInput } from './TextInput'
 import { useFloatingOptions } from './useFloatingOptions'
 import { FixedOptionsInputButtons } from './Buttons'
-import { useHasFocusWithin } from '../../hooks/useHasFocusWithin'
 
 interface FixedOptionsInputProps<T> extends InputProps<T | null> {
   placeholder?: string
@@ -45,11 +41,6 @@ export function FixedOptionsInput<T>({
 }: FixedOptionsInputProps<T>) {
   const inputElement = useRef<HTMLInputElement>(null)
 
-  const [
-    areOptionsVisible,
-    { set: showOptions, unset: hideOptions, toggle: toggleOptionsHiding },
-  ] = useBoolean(false)
-
   const [textInputValue, setTextInputValue] = useState(() =>
     value ? getOptionName(value) : '',
   )
@@ -67,7 +58,6 @@ export function FixedOptionsInput<T>({
   }, [getOptionSearchStrings, options, textInputValue, value])
 
   const {
-    referenceRef,
     activeIndex,
     setActiveIndex,
     getReferenceProps,
@@ -77,16 +67,11 @@ export function FixedOptionsInput<T>({
     floatingStyles,
     getItemProps,
     optionsRef,
+    areOptionsVisible,
+    showOptions,
+    hideOptions,
+    toggleOptionsVisibility,
   } = useFloatingOptions()
-
-  const labelHasFocusWithin = useHasFocusWithin(referenceRef)
-  useEffectOnDependencyChange(() => {
-    if (labelHasFocusWithin) {
-      showOptions()
-    } else {
-      hideOptions()
-    }
-  }, [labelHasFocusWithin])
 
   useEffectOnDependencyChange(() => {
     if (!value) return
@@ -116,10 +101,11 @@ export function FixedOptionsInput<T>({
     setActiveIndex(0)
   }, [textInputValue])
 
-  useKey('Escape', hideOptions)
-
   return (
     <InputContainer
+      onClick={() => {
+        inputElement.current?.focus()
+      }}
       onKeyDown={(event) => {
         if (event.key === 'Enter' && activeIndex != null) {
           event.preventDefault()
@@ -160,11 +146,11 @@ export function FixedOptionsInput<T>({
                       optionsRef.current[index] = element
                     },
                     key: getOptionKey(option),
-                    onClick: preventDefault(() => {
+                    onClick: () => {
                       onChange(option)
                       inputElement.current?.focus()
                       hideOptions()
-                    }),
+                    },
                   })}
                   active={index === activeIndex}
                 >
@@ -187,7 +173,7 @@ export function FixedOptionsInput<T>({
           }
           areOptionsVisible={areOptionsVisible}
           toggleOptionsVisibility={() => {
-            toggleOptionsHiding()
+            toggleOptionsVisibility()
             inputElement.current?.focus()
           }}
         />

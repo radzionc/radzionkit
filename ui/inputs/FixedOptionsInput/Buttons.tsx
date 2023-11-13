@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { HStack } from '../../layout/Stack'
 import { toSizeUnit } from '../../css/toSizeUnit'
-import { textInputHeight, textInputPadding } from '../../css/textInput'
-import { IconButton, iconButtonSizeRecord } from '../../buttons/IconButton'
+import { textInputPadding } from '../../css/textInput'
+import { IconButton } from '../../buttons/IconButton'
 import { fixedOptionsInputConfig } from './config'
 import { CloseIcon } from '../../icons/CloseIcon'
 import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
@@ -11,11 +11,6 @@ const Container = styled(HStack)`
   position: absolute;
   gap: 4px;
   right: ${toSizeUnit(textInputPadding)};
-  bottom: ${toSizeUnit(
-    (textInputHeight -
-      iconButtonSizeRecord[fixedOptionsInputConfig.iconButtonSize]) /
-      2,
-  )};
 `
 
 interface FixedOptionsInputButtonsProps {
