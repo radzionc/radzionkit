@@ -8,4 +8,6 @@ export const IconWrapper = styled.span`
   width: fit-content;
   height: fit-content;
   overflow: hidden;
+  min-width: 1em;
+  min-height: 1em;
 `
