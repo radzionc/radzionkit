@@ -6,7 +6,7 @@ import { AuthView } from './AuthView'
 import { useHandleQueryParams } from '../navigation/hooks/useHandleQueryParams'
 import { suggestInboxLink } from '@reactkit/utils/suggestInboxLink'
 import { ExternalLink } from '../navigation/Link/ExternalLink'
-import { Button } from '../ui/buttons/Button'
+import { Button } from '../buttons/Button'
 
 interface EmailConfirmQueryParams {
   email: string

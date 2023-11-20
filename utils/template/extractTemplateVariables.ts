@@ -1,4 +1,4 @@
-import { withoutDuplicates } from './array/withoutDuplicates'
+import { withoutDuplicates } from '../array/withoutDuplicates'
 
 export const extractTemplateVariables = (str: string): string[] => {
   const variableRegex = /\{\{(\w+)\}\}/g

@@ -1,16 +1,19 @@
-import styled from 'styled-components'
-import { InputProps } from '../../props'
-import { defaultBorderRadiusCSS } from '../borderRadius'
+import styled, { css } from 'styled-components'
 import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
 import { getColor, matchColor } from '../theme/getters'
-import { HStack } from '../../layout/Stack'
-import { interactive } from '../../css/interactive'
-import { sameDimensions } from '../../css/sameDimensions'
-import { transition } from '../../css/transition'
+import { interactive } from '../css/interactive'
+import { sameDimensions } from '../css/sameDimensions'
+import { transition } from '../css/transition'
+import { HStack } from '../layout/Stack'
+import { InputProps } from '../props'
+import { borderRadius } from '../css/borderRadius'
+import { useId } from 'react'
+import { Tooltip } from '../tooltips/Tooltip'
 
 interface RadioInputProps<T extends string> extends InputProps<T> {
   options: readonly T[]
   renderOption: (option: T) => React.ReactNode
+  isOptionDisabled?: (option: T) => string | false
 }
 
 const Indicator = styled.div<{ selected: boolean }>`
@@ -22,16 +25,22 @@ const Indicator = styled.div<{ selected: boolean }>`
   })};
 `
 
-const Container = styled.label<{ selected: boolean }>`
+const Container = styled.label<{ selected: boolean; disabled?: boolean }>`
   padding: 12px 20px;
-  ${defaultBorderRadiusCSS};
+  ${borderRadius.m};
   background: ${getColor('foreground')};
   ${transition};
-  ${interactive};
-
-  :hover {
-    background: ${getColor('mist')};
-  }
+  ${({ disabled }) =>
+    disabled
+      ? css`
+          opacity: 0.6;
+        `
+      : css`
+          ${interactive};
+          :hover {
+            background: ${getColor('mist')};
+          }
+        `}
 
   color: ${matchColor('selected', {
     true: 'contrast',
@@ -45,13 +54,17 @@ export const RadioInput = <T extends string>({
   onChange,
   options,
   renderOption,
+  isOptionDisabled = () => false,
 }: RadioInputProps<T>) => {
+  const groupName = useId()
+
   return (
     <HStack gap={4}>
       {options.map((option) => {
         const isSelected = option === value
-        return (
-          <Container selected={isSelected} key={option}>
+        const disabledMessage = isOptionDisabled(option)
+        const content = (
+          <>
             <HStack alignItems="center" gap={8}>
               <Indicator selected={isSelected} />
               {renderOption(option)}
@@ -59,9 +72,37 @@ export const RadioInput = <T extends string>({
             <InvisibleHTMLRadio
               isSelected={isSelected}
               value={option}
-              groupName="project"
-              onSelect={() => onChange(option)}
+              groupName={groupName}
+              onSelect={() => {
+                if (!disabledMessage) {
+                  onChange(option)
+                }
+              }}
             />
+          </>
+        )
+
+        if (disabledMessage) {
+          return (
+            <Tooltip
+              content={disabledMessage}
+              renderOpener={(props) => (
+                <Container
+                  {...props}
+                  disabled
+                  selected={isSelected}
+                  key={option}
+                >
+                  {content}
+                </Container>
+              )}
+            />
+          )
+        }
+
+        return (
+          <Container selected={isSelected} key={option}>
+            {content}
           </Container>
         )
       })}
