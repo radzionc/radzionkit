@@ -10,7 +10,6 @@ import { useRef, useState } from 'react'
 import { useBoolean } from '../../hooks/useBoolean'
 import { useHasFocusWithin } from '../../hooks/useHasFocusWithin'
 import { useEffectOnDependencyChange } from '../../hooks/useEffectOnDependencyChange'
-import { useKey } from 'react-use'
 
 export const useFloatingOptions = () => {
   const [
@@ -44,8 +43,6 @@ export const useFloatingOptions = () => {
       hideOptions()
     }
   }, [labelHasFocusWithin])
-
-  useKey('Escape', hideOptions)
 
   const optionsRef = useRef<Array<HTMLElement | null>>([])
 

@@ -113,6 +113,10 @@ export function FixedOptionsInput<T>({
           setActiveIndex(null)
           hideOptions()
         }
+        if (event.key === 'Escape' && areOptionsVisible) {
+          event.stopPropagation()
+          hideOptions()
+        }
       }}
     >
       {label && <Text as="div">{label}</Text>}
