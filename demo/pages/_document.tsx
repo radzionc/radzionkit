@@ -6,8 +6,8 @@ import Document, {
   Head,
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import { MetaTags } from '@reactkit/ui/metadata/MetaTags'
-import { AppIconMetaTags } from '@reactkit/ui/metadata/AppIconMetaTags'
+import { DocumentMetaTags } from '@reactkit/ui/metadata/DocumentMetaTags'
+import { IconMetaTags } from 'icon/IconMetaTags'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -37,12 +37,12 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <MetaTags
-            title="Accelerate React App Development with ReactKit's Components System and Monorepo"
-            description="Discover how ReactKit's Components System and Monorepo can streamline your React app development process. Explore powerful tools and best practices to accelerate your projects."
+          <DocumentMetaTags
             twitterId="@radzionc"
+            image="images/banner.png"
+            language="en"
           />
-          <AppIconMetaTags />
+          <IconMetaTags />
         </Head>
         <body>
           <Main />

@@ -3,9 +3,9 @@ import { RegularPage } from '@reactkit/ui/layout/RegularPage'
 import { HStack } from '@reactkit/ui/layout/Stack'
 import { Text } from '@reactkit/ui/text'
 import { useRouter } from 'next/router'
-import Head from 'next/head'
 import { YouTubeLink } from 'components/YouTubeLink'
 import { ComponentWithChildrenProps } from '@reactkit/ui/props'
+import { PageMetaTags } from '@reactkit/ui/metadata/PageMetaTags'
 
 interface Props extends ComponentWithChildrenProps {
   title: string
@@ -30,18 +30,13 @@ export const DemoPage = ({
             {title}
           </Text>
           <SourceCodeLink
-            to={`https://github.com/radzionc/reactkit/blob/main/app/pages${pathname}.tsx`}
+            to={`https://github.com/radzionc/reactkit/blob/main/demo/pages${pathname}.tsx`}
           />
           {youtubeVideoId && <YouTubeLink videoId={youtubeVideoId} />}
         </HStack>
       }
     >
-      <Head>
-        <title>{seoTitle}</title>
-        {seoDescription && (
-          <meta name="description" content={seoDescription} key="desc" />
-        )}
-      </Head>
+      <PageMetaTags title={seoTitle} description={seoDescription} />
       {children}
     </RegularPage>
   )

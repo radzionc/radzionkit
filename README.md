@@ -10,17 +10,13 @@ Check out our live showcase at [reactkit.radzion.com](https://reactkit.radzion.c
 
 2. **Choose a Starter**:
 
-- **Use the app Folder**: If you want to start with a fully functional Next.js app, check out the `app` folder. It powers [reactkit.radzion.com](https://reactkit.radzion.com) and showcases all the available components. To maintain the showcase, you can duplicate the `app` folder and rename it to `demo`.
+- **Use the demo Folder**: If you want to start with a fully functional Next.js app, check out the `demo` folder. It powers [reactkit.radzion.com](https://reactkit.radzion.com) and showcases all the available components.
 
-- **Create a New Next.js App**: Alternatively, you can create a fresh Next.js app by following the instructions in the [following section](<(#how-to-add-a-nextjs-app-in-reactkit-monorepo).>).
-
-- Create a new NextJS app by following [these instructions](#adding-a-next.js-app-to-reactkit-monorepo).
+- **Create a New Next.js App**: Alternatively, you can create a fresh Next.js app by following the instructions in the [following section](#adding-a-nextjs-app-to-reactkit-monorepo)
 
 3. **Customize Your Project**: Search for all instances of `reactkit` & `ReactKit` in your codebase and replace them with your project's name. This step ensures that your project is uniquely yours.
 
 4. **Run your app**: Run `yarn` in the root of the monorepo to install all dependencies. Then, go to the app folder and run `yarn dev` to start your app.
-
-## Integrating ReactKit UI & Utils Packages
 
 ### Adding ReactKit UI & Utils to Your Monorepo
 
@@ -79,16 +75,16 @@ yarn add --dev @types/styled-components@^5.1.25
 }
 ```
 
-6. Copy [state](https://github.com/radzionc/reactkit/tree/main/app/state) folder from ReactKit's `app` to your project.
+6. Copy [state](https://github.com/radzionc/reactkit/tree/main/demo/state) folder from ReactKit's `demo` to your project.
 
-7. Copy [ui](https://github.com/radzionc/reactkit/tree/main/app/ui) folder from ReactKit's `app` to your project.
+7. Copy [ui](https://github.com/radzionc/reactkit/tree/main/demo/ui) folder from ReactKit's `demo` to your project.
 
-8. Copy [\_document.tsx](https://github.com/radzionc/reactkit/tree/main/app/_document.tsx) file from ReactKit's `app` to your project.
+8. Copy [\_document.tsx](https://github.com/radzionc/reactkit/tree/main/demo/_document.tsx) file from ReactKit's `demo` to your project.
 
 9. Update your App at `pages/_app.tsx` with `ThemeProvider` and `GlobalStyle`
 
 ```tsx
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/demo'
 import { GlobalStyle } from '@reactkit/ui/css/GlobalStyle'
 import { ThemeProvider } from 'themeProvider'
 import { Inter } from 'next/font/google'
