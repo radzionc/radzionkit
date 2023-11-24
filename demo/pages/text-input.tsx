@@ -1,4 +1,3 @@
-import { Form } from '@reactkit/ui/forms/Form'
 import { TextInput } from '@reactkit/ui/inputs/TextInput'
 import { Controller, useForm } from 'react-hook-form'
 import { TextArea } from '@reactkit/ui/inputs/TextArea'
@@ -10,6 +9,7 @@ import { TitledSection } from '@reactkit/ui/layout/TitledSection'
 import { AmountTextInput } from '@reactkit/ui/inputs/AmountTextInput'
 import { DollarIcon } from '@reactkit/ui/icons/DollarIcon'
 import { Button } from '@reactkit/ui/buttons/Button'
+import { Form } from '@reactkit/ui/form/components/Form'
 
 interface FormShape {
   name: string

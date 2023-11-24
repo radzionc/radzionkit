@@ -54,3 +54,7 @@ export interface UIComponentProps {
   style?: React.CSSProperties
   className?: string
 }
+
+export interface LabeledComponentProps {
+  label: ReactNode
+}

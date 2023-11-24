@@ -2,9 +2,10 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Slider, SliderProps } from '.'
 
-import { InputWrapperWithErrorMessage } from '../InputWrapper'
 import { Panel } from '../../panel/Panel'
 import { Text } from '../../text'
+import { InputContainer } from '../InputContainer'
+import { LabelText } from '../LabelText'
 
 interface Props extends SliderProps {
   label: ReactNode
@@ -34,7 +35,8 @@ export const AmountInput = ({
   alignValue = 'end',
 }: Props) => {
   return (
-    <InputWrapperWithErrorMessage label={label}>
+    <InputContainer>
+      {label && <LabelText>{label}</LabelText>}
       <Panel>
         <Content>
           <Slider
@@ -51,6 +53,6 @@ export const AmountInput = ({
           </Text>
         </Content>
       </Panel>
-    </InputWrapperWithErrorMessage>
+    </InputContainer>
   )
 }

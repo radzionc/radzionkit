@@ -6,12 +6,12 @@ import { NoMatchesMessage } from './NoMatchesMessage'
 import { FixedOptionsInputItem } from './OptionItem'
 import { FixedOptionsInputOptionsContainer } from './OptionsContainer'
 import { FixedOptionsInputIdentifierWrapper } from './IdentifierWrapper'
-import { Text } from '../../text'
 import { RelativeRow } from '../../layout/RelativeRow'
 import { InputContainer } from '../InputContainer'
 import { FixedOptionsInputTextInput } from './TextInput'
 import { useFloatingOptions } from './useFloatingOptions'
 import { FixedOptionsInputButtons } from './Buttons'
+import { LabelText } from '../LabelText'
 
 interface FixedOptionsInputProps<T> extends InputProps<T | null> {
   placeholder?: string
@@ -119,7 +119,7 @@ export function FixedOptionsInput<T>({
         }
       }}
     >
-      {label && <Text as="div">{label}</Text>}
+      {label && <LabelText>{label}</LabelText>}
       <RelativeRow
         {...getReferenceProps({
           ref: setReferenceRef,

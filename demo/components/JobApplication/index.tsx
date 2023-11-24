@@ -1,12 +1,12 @@
-import { Form } from '@reactkit/ui/forms/Form'
 import { TextInput } from '@reactkit/ui/inputs/TextInput'
 import { TextArea } from '@reactkit/ui/inputs/TextArea'
-import { FormSection } from '@reactkit/ui/forms/FormSection'
 import { bioMaxLength, useJobApplicationForm } from './jobApplicationForm'
 import { ExperienceSection } from './ExperienceSection'
 import { Panel } from '@reactkit/ui/panel/Panel'
 import { Button } from '@reactkit/ui/buttons/Button'
 import { TitledSection } from '@reactkit/ui/layout/TitledSection'
+import { Form } from '@reactkit/ui/form/components/Form'
+import { FormSection } from '@reactkit/ui/form/components/FormSection'
 
 export const JobApplication = () => {
   const form = useJobApplicationForm()

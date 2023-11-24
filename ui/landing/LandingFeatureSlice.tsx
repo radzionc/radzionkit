@@ -1,11 +1,11 @@
 import { ReactNode } from 'react'
-import { reverseIf } from 'shared/utils/reverseIf'
 import styled from 'styled-components'
-import { IntersectionAware } from 'ui/IntersectionAware'
-import { VStack } from 'ui/Stack'
-import { Text } from 'ui/Text'
 
 import { LandingSlice } from './LandingSlice'
+import { reverseIf } from '@reactkit/utils/array/reverseIf'
+import { IntersectionAware } from '../base/IntersectionAware'
+import { VStack } from '../layout/Stack'
+import { Text } from '../text'
 
 type StartsWith = 'preview' | 'info'
 

@@ -1,16 +1,14 @@
 import { ChangeEvent, ComponentProps, Ref, forwardRef } from 'react'
 import styled from 'styled-components'
 
-import { InputWrapperProps, InputWrapperWithErrorMessage } from './InputWrapper'
 import { commonInputCSS } from './commonInputCSS'
 import { VStack } from '../layout/Stack'
 import { Spinner } from '../loaders/Spinner'
-import { ComponentWithClassNameProps } from '../props'
+import { ComponentWithClassNameProps, LabeledComponentProps } from '../props'
+import { InputContainer } from './InputContainer'
+import { LabelText } from './LabelText'
 
-export type SharedTextInputProps = Pick<
-  InputWrapperProps,
-  'label' | 'error'
-> & {
+export type SharedTextInputProps = Partial<LabeledComponentProps> & {
   onValueChange?: (value: string) => void
   isLoading?: boolean
 }
@@ -24,17 +22,18 @@ export interface TextInputProps
 export const TextInput = forwardRef(function TextInputInner(
   {
     onValueChange,
-    label,
     error,
     inputOverlay,
     isLoading,
     className,
+    label,
     ...props
   }: TextInputProps,
   ref: Ref<HTMLInputElement> | null,
 ) {
   return (
-    <InputWrapperWithErrorMessage error={error} label={label}>
+    <InputContainer>
+      {label && <LabelText>{label}</LabelText>}
       <InputWr>
         {isLoading ? (
           <TextInputLoader className={className} />
@@ -52,7 +51,7 @@ export const TextInput = forwardRef(function TextInputInner(
         )}
         {inputOverlay}
       </InputWr>
-    </InputWrapperWithErrorMessage>
+    </InputContainer>
   )
 })
 

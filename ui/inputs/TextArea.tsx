@@ -1,11 +1,12 @@
 import { ChangeEvent, ComponentProps, Ref, forwardRef, useState } from 'react'
 import styled from 'styled-components'
 
-import { InputWrapperWithErrorMessage } from './InputWrapper'
 import { SharedTextInputProps } from './TextInput'
 import { commonInputCSS } from './commonInputCSS'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { Text } from '../text'
+import { InputContainer } from './InputContainer'
+import { LabelText } from './LabelText'
 
 const TextareaContainer = styled.textarea`
   ${commonInputCSS};
@@ -36,7 +37,8 @@ export const TextArea = forwardRef(function TextAreaInner(
   const [charactersCount, setCharactersCount] = useState(0)
 
   return (
-    <InputWrapperWithErrorMessage error={error} label={label}>
+    <InputContainer>
+      {label && <LabelText>{label}</LabelText>}
       <TextareaContainer
         {...props}
         isValid={!error}
@@ -54,6 +56,6 @@ export const TextArea = forwardRef(function TextAreaInner(
           </Text>
         </CharacterCounterWrapper>
       )}
-    </InputWrapperWithErrorMessage>
+    </InputContainer>
   )
 })

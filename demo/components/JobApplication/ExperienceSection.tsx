@@ -1,5 +1,5 @@
 import { UseFormReturn, useFieldArray } from 'react-hook-form'
-import { FormSection } from '@reactkit/ui/forms/FormSection'
+import { FormSection } from '@reactkit/ui/form/components/FormSection'
 
 import { HStack, VStack } from '@reactkit/ui/layout/Stack'
 import { Line } from '@reactkit/ui/layout/Line'
@@ -19,7 +19,6 @@ import { getColor } from '@reactkit/ui/theme/getters'
 import { IconButton } from '@reactkit/ui/buttons/IconButton'
 
 export interface Props {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   form: UseFormReturn<JobApplicationFormShape, any>
 }
 
