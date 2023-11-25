@@ -1,5 +1,5 @@
+import { degreesToRadians } from '@reactkit/utils/degreesToRadians'
 import { HSLA } from '../../colors/HSLA'
-import { getPointOnCircle } from './getPointOnCircle'
 
 interface Props {
   color: HSLA
@@ -9,18 +9,30 @@ interface Props {
   cutoutRadius: number
 }
 
+export const polarToCartesian = (
+  radius: number,
+  cutoutRadius: number,
+  angleInDegrees: number,
+) => {
+  const angleInRadians = degreesToRadians(angleInDegrees - 90)
+  return {
+    x: radius + cutoutRadius * Math.cos(angleInRadians),
+    y: radius + cutoutRadius * Math.sin(angleInRadians),
+  }
+}
+
 const getArcPath = (
   radius: number,
   cutoutRadius: number,
   startAngle: number,
   endAngle: number,
 ) => {
-  const start = getPointOnCircle(radius, radius, endAngle)
-  const end = getPointOnCircle(radius, radius, startAngle)
+  const start = polarToCartesian(radius, radius, endAngle)
+  const end = polarToCartesian(radius, radius, startAngle)
   const largeArcFlag = endAngle - startAngle <= 180 ? 0 : 1
 
-  const start2 = getPointOnCircle(radius, cutoutRadius, endAngle)
-  const end2 = getPointOnCircle(radius, cutoutRadius, startAngle)
+  const start2 = polarToCartesian(radius, cutoutRadius, endAngle)
+  const end2 = polarToCartesian(radius, cutoutRadius, startAngle)
 
   return [
     'M',
