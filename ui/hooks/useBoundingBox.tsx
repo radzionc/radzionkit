@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useIsomorphicLayoutEffect } from 'react-use'
-import { pick } from '@reactkit/utils/pick'
-import { areEqual } from '@reactkit/utils/areEqual'
+import { areEqualRecords } from '@reactkit/utils/record/areEqualRecords'
+import { pick } from '@reactkit/utils/record/pick'
 
 export type BoundingBox = Omit<DOMRect, 'toJSON'>
 
@@ -19,7 +19,7 @@ export const useBoundingBox = (element: HTMLElement | null) => {
     const handleElementChange = () => {
       const newBox = toBoundingBox(element.getBoundingClientRect())
 
-      if (areEqual(newBox, box)) return
+      if (box && areEqualRecords(newBox, box)) return
 
       setBox(newBox)
     }
