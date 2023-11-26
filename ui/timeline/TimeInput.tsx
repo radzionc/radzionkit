@@ -2,47 +2,29 @@ import { MouseEventHandler, useEffect, useRef, useState } from 'react'
 import { useEvent } from 'react-use'
 import styled from 'styled-components'
 
-import { HourSpace } from './HourSpace'
-import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
-import { MaxIntervalEndBoundary } from './MaxIntervalEndBoundary'
-import { formatDuration } from '@reactkit/utils/time/formatDuration'
+import { HSLA } from '../colors/HSLA'
 import { enforceRange } from '@reactkit/utils/enforceRange'
 import { MS_IN_HOUR, MS_IN_MIN } from '@reactkit/utils/time'
-import { HSLA } from '../colors/HSLA'
-import { verticalMargin } from '../css/verticalMargin'
-import { StackSeparatedBy, dotSeparator } from '../layout/StackSeparatedBy'
+import { HStack } from '../layout/Stack'
+import { TimeSpace } from './TimeSpace'
 import { Text } from '../text'
-import { ChevronDownIcon } from '../icons/ChevronDownIcon'
-import { ChevronUpIcon } from '../icons/ChevronUpIcon'
-import { VStack } from '../layout/Stack'
+import { formatDuration } from '@reactkit/utils/time/formatDuration'
+import { EditorActiveSession } from './EditorActiveSession'
+import { BoundaryInteractiveArea } from './BoundaryInteractiveArea'
 
 export interface TimeInputProps {
   color: HSLA
   value: number
   onChange: (value: number) => void
-  startOfDay: number
-  startHour: number
-  endHour: number
-  max?: number
+  timelineStartsAt: number
+  timelineEndsAt: number
 
   intialValue: number
-
-  pxInHour?: number
 }
 
-const Container = styled.div`
-  ${verticalMargin(8)}
-  user-select: none;
-`
-
-const currentLineHeightInPx = 2
-
-const CurrentLine = styled.div`
-  position: absolute;
-  width: 100%;
-  border-radius: 100px;
-  height: ${currentLineHeightInPx}px;
-`
+const pxInHour = 180
+const pxInMs = pxInHour / MS_IN_HOUR
+const msToPx = (ms: number) => ms * pxInMs
 
 const TimeValue = styled(Text)`
   position: absolute;
@@ -51,31 +33,22 @@ const TimeValue = styled(Text)`
   transition: none;
 `
 
-const Session = styled.div`
+const Container = styled.div`
   width: 100%;
-  position: absolute;
+  height: 100%;
 `
 
 export const TimeInput = ({
   color,
   value,
   onChange,
-  startOfDay,
-  endHour,
-  startHour,
-  pxInHour = 60,
-  max: optionalMax,
+  timelineStartsAt,
+  timelineEndsAt,
   intialValue,
 }: TimeInputProps) => {
-  const hoursCount = endHour - startHour
+  const timelineDuration = timelineEndsAt - timelineStartsAt
 
-  const max = optionalMax ?? startOfDay + MS_IN_HOUR * endHour
-
-  const minTimeStart = startOfDay + MS_IN_HOUR * startHour
-  const timelineStart = minTimeStart
-
-  const height = hoursCount * pxInHour
-  const pxInMs = height / (hoursCount * MS_IN_HOUR)
+  const height = msToPx(timelineDuration)
 
   const [isActive, setIsActive] = useState(false)
 
@@ -97,54 +70,33 @@ export const TimeInput = ({
       enforceRange(clientY, containerRect.top, containerRect.bottom) -
       containerRect.top
 
-    const timestamp = timelineStart + y / pxInMs
+    const timestamp = timelineStartsAt + y / pxInMs
 
-    onChange(enforceRange(timestamp, minTimeStart, max))
+    onChange(enforceRange(timestamp, timelineStartsAt, timelineEndsAt))
   }
 
   const cursor = isActive ? 'row-resize' : undefined
 
-  const valueInPx = pxInMs * (value - timelineStart)
+  const valueInPx = msToPx(value - timelineStartsAt)
 
   const minDiff = Math.round(intialValue - value) / MS_IN_MIN
 
   return (
-    <Container
-      ref={containerElement}
-      style={{ height: height, cursor }}
-      onMouseMove={handleMouseMove}
+    <TimeSpace
+      startsAt={timelineStartsAt}
+      endsAt={timelineEndsAt}
+      msToPx={msToPx}
     >
-      <HourSpace
-        formatHour={(hour) => {
-          const date = new Date(startOfDay + hour * MS_IN_HOUR)
-          return date.toLocaleString(undefined, { hour: 'numeric' })
-        }}
-        start={startHour}
-        end={endHour}
-        hourLabelWidthInPx={20}
+      <Container
+        ref={containerElement}
+        style={{ height: height, cursor }}
+        onMouseMove={handleMouseMove}
       >
-        {optionalMax && (
-          <>
-            <MaxIntervalEndBoundary
-              timestamp={optionalMax}
-              y={pxInMs * (optionalMax - timelineStart)}
-              isActive={isActive}
-            />
-            <Session
-              style={{
-                top: valueInPx,
-                height: pxInMs * (max - timelineStart) - valueInPx,
-                background: color.getVariant({ a: () => 0.2 }).toCssValue(),
-              }}
-            />
-          </>
-        )}
-
-        <CurrentLine
-          ref={timeElement}
+        <EditorActiveSession
+          $color={color}
           style={{
-            background: color.toCssValue(),
-            top: valueInPx - currentLineHeightInPx / 2,
+            top: msToPx(value - timelineStartsAt),
+            height: msToPx(timelineEndsAt - value),
           }}
         />
 
@@ -153,12 +105,7 @@ export const TimeInput = ({
             top: valueInPx - 20,
           }}
         >
-          <StackSeparatedBy
-            alignItems="center"
-            direction="row"
-            gap={8}
-            separator={<Text color="supporting">{dotSeparator}</Text>}
-          >
+          <HStack alignItems="center" justifyContent="space-between" gap={8}>
             <Text>
               {new Date(value).toLocaleTimeString(undefined, {
                 hour: '2-digit',
@@ -171,21 +118,13 @@ export const TimeInput = ({
                 {minDiff < 0 ? 'later' : 'earlier'}
               </Text>
             )}
-          </StackSeparatedBy>
+          </HStack>
         </TimeValue>
-
-        {!isActive && (
-          <InteractiveBoundaryArea
-            y={valueInPx}
-            onMouseDown={() => setIsActive(true)}
-          >
-            <VStack style={{ color: color.toCssValue() }} alignItems="center">
-              <ChevronUpIcon />
-              <ChevronDownIcon />
-            </VStack>
-          </InteractiveBoundaryArea>
-        )}
-      </HourSpace>
-    </Container>
+        <BoundaryInteractiveArea
+          top={valueInPx}
+          onMouseDown={() => setIsActive(true)}
+        />
+      </Container>
+    </TimeSpace>
   )
 }

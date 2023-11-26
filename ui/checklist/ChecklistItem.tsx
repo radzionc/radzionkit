@@ -1,20 +1,23 @@
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { Hoverable } from '../base/Hoverable'
-import { CheckIcon } from '../icons/CheckIcon'
 import {
   InvisibleHTMLCheckboxProps,
   InvisibleHTMLCheckbox,
 } from '../inputs/Checkbox/InvisibleHTMLCheckbox'
-import { Text } from '../text'
 import { ChecklistItemFrame } from './ChecklistItemFrame'
 import { getColor, matchColor } from '../theme/getters'
+import { Confetti } from '../animations/Confetti'
 import { centerContent } from '../css/centerContent'
 import { transition } from '../css/transition'
+import { Text } from '../text'
+import { Hoverable } from '../base/Hoverable'
+import { CheckIcon } from '../icons/CheckIcon'
 
 interface ChecklistItemProps extends InvisibleHTMLCheckboxProps {
   name: ReactNode
   style?: React.CSSProperties
+  shouldCrossOut?: boolean
+  hasCongratulation?: boolean
 }
 
 export const Box = styled.div<{ isChecked: boolean }>`
@@ -41,8 +44,8 @@ const Content = styled(Text)<{ isChecked: boolean }>`
   max-width: 100%;
   position: relative;
   color: ${matchColor('isChecked', {
-    true: 'text',
-    false: 'textShy',
+    true: 'textSupporting',
+    false: 'text',
   })};
 `
 
@@ -60,16 +63,30 @@ export const ChecklistItem = ({
   onChange,
   name,
   style,
+  shouldCrossOut,
+  hasCongratulation,
 }: ChecklistItemProps) => {
+  const [showConfetti, setShowConfetti] = useState(false)
+
   return (
     <Hoverable style={style} as="label">
       <ChecklistItemFrame>
         <Box isChecked={value}>{value && <CheckIcon />}</Box>
-        <Content isChecked={value} cropped>
+        {showConfetti && <Confetti x={20} y={-20} />}
+        <Content as="div" isChecked={value} cropped>
           {name}
-          <Line isChecked={value} />
+          {shouldCrossOut && <Line isChecked={value} />}
         </Content>
-        <InvisibleHTMLCheckbox value={value} onChange={onChange} />
+        <InvisibleHTMLCheckbox
+          value={value}
+          onChange={() => {
+            const newValue = !value
+            onChange(newValue)
+            if (hasCongratulation) {
+              setShowConfetti(newValue)
+            }
+          }}
+        />
       </ChecklistItemFrame>
     </Hoverable>
   )

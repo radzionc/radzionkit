@@ -8,44 +8,47 @@ import {
 } from 'react'
 import { useEvent } from 'react-use'
 import styled, { css } from 'styled-components'
-import { getIntervalDuration } from '@reactkit/utils/interval/getIntervalDuration'
-import { HourSpace } from './HourSpace'
-
-import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
-import { IntervalRect } from './IntervalRect'
-import { MaxIntervalEndBoundary } from './MaxIntervalEndBoundary'
-import { Interval } from '@reactkit/utils/interval/Interval'
-import { formatDuration } from '@reactkit/utils/time/formatDuration'
-import { enforceRange } from '@reactkit/utils/enforceRange'
-import { MS_IN_MIN, MS_IN_HOUR } from '@reactkit/utils/time'
 import { HSLA } from '../colors/HSLA'
-import { verticalMargin } from '../css/verticalMargin'
+
+import { IntervalRect } from './IntervalRect'
+import { enforceRange } from '@reactkit/utils/enforceRange'
+import { getIntervalDuration } from '@reactkit/utils/interval/getIntervalDuration'
+import { MS_IN_HOUR, MS_IN_MIN } from '@reactkit/utils/time'
+import { MoveIcon } from '../icons/MoveIcon'
+import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
+import { TimeSpace } from './TimeSpace'
 import { centerContent } from '../css/centerContent'
 import { Text } from '../text'
-import { MoveIcon } from '../icons/MoveIcon'
+import { Interval } from '@reactkit/utils/interval/Interval'
+import { formatDuration } from '@reactkit/utils/time/formatDuration'
 
 interface RenderContentParams {
-  pxInMs: number
+  msToPx: (ms: number) => number
 }
 
 export interface IntervalInputProps {
   color: HSLA
   value: Interval
   onChange: (value: Interval) => void
-  startOfDay: number
-  startHour: number
-  endHour: number
-  maxIntervalEnd?: number
+  timelineStartsAt: number
+  timelineEndsAt: number
   minDuration?: number
   renderContent?: (params: RenderContentParams) => ReactNode
 }
 
 const pxInHour = 60
+const pxInMs = pxInHour / MS_IN_HOUR
+const msToPx = (ms: number) => ms * pxInMs
+const pxToMs = (px: number) => px / pxInMs
 const defaultMinDurationInMin = 10
 
+const Wrapper = styled.div`
+  margin-bottom: 20px;
+`
+
 const Container = styled.div`
-  ${verticalMargin(8)}
-  user-select: none;
+  width: 100%;
+  height: 100%;
 `
 
 type IntervalEditorControl = 'start' | 'end' | 'position'
@@ -62,6 +65,12 @@ const CurrentIntervalRect = styled(IntervalRect)`
     border: 2px solid ${$color.toCssValue()};
     color: ${$color.toCssValue()};
   `}
+`
+
+export const InteractiveBoundaryArea = styled.div`
+  width: 100%;
+  cursor: row-resize;
+  height: 10px;
 `
 
 const InteractiveDragArea = styled.div`
@@ -81,24 +90,11 @@ export const IntervalInput = ({
   color,
   value,
   onChange,
-  startOfDay,
-  endHour,
-  startHour,
+  timelineStartsAt,
+  timelineEndsAt,
   renderContent,
   minDuration = defaultMinDurationInMin * MS_IN_MIN,
-  maxIntervalEnd: optionalMaxIntervalEnd,
 }: IntervalInputProps) => {
-  const hoursCount = endHour - startHour
-
-  const maxIntervalEnd =
-    optionalMaxIntervalEnd ?? startOfDay + MS_IN_HOUR * endHour
-
-  const minIntervalStart = startOfDay + MS_IN_HOUR * startHour
-  const timelineStart = minIntervalStart
-
-  const height = hoursCount * pxInHour
-  const pxInMs = height / (hoursCount * MS_IN_HOUR)
-
   const [activeControl, setActiveControl] =
     useState<IntervalEditorControl | null>(null)
 
@@ -118,42 +114,41 @@ export const IntervalInput = ({
     const containerRect = containerElement?.current?.getBoundingClientRect()
     if (!containerRect) return
 
-    const y =
-      enforceRange(clientY, containerRect.top, containerRect.bottom) -
-      containerRect.top
+    const timestamp = timelineStartsAt + pxToMs(clientY - containerRect.top)
 
     const getNewInterval = () => {
       if (activeControl === 'position') {
-        const oldCenter =
-          (value.start + valueDuration / 2 - timelineStart) * pxInMs
+        const halfDuration = valueDuration / 2
+        const oldCenter = value.start + halfDuration
 
-        const offset = y - oldCenter
-        const msOffset = enforceRange(
-          offset / pxInMs,
-          minIntervalStart - value.start,
-          maxIntervalEnd - value.end,
+        const newCenter = enforceRange(
+          timestamp,
+          timelineStartsAt + halfDuration,
+          timelineEndsAt - halfDuration,
         )
 
+        const offset = newCenter - oldCenter
+
         return {
-          start: value.start + msOffset,
-          end: value.end + msOffset,
+          start: value.start + offset,
+          end: value.end + offset,
         }
       } else {
-        const timestamp = timelineStart + y / pxInMs
-
         return {
           start:
             activeControl === 'start'
-              ? Math.max(
-                  Math.min(timestamp, value.end - minDuration),
-                  minIntervalStart,
+              ? enforceRange(
+                  timestamp,
+                  timelineStartsAt,
+                  value.end - minDuration,
                 )
               : value.start,
           end:
             activeControl === 'end'
-              ? Math.min(
-                  Math.max(timestamp, value.start + minDuration),
-                  maxIntervalEnd,
+              ? enforceRange(
+                  timestamp,
+                  value.start + minDuration,
+                  timelineEndsAt,
                 )
               : value.end,
         }
@@ -171,78 +166,76 @@ export const IntervalInput = ({
     return 'row-resize'
   }, [activeControl])
 
-  const intervalStartInPx = pxInMs * (value.start - timelineStart)
-  const intervalEndInPx = pxInMs * (value.end - timelineStart)
-  const intervalDurationInPx = pxInMs * valueDuration
+  const intervalStartInPx = msToPx(value.start - timelineStartsAt)
+  const intervalEndInPx = msToPx(value.end - timelineStartsAt)
+  const intervalDurationInPx = msToPx(valueDuration)
 
   return (
-    <Container
-      ref={containerElement}
-      style={{ height: height, cursor }}
-      onMouseMove={handleMouseMove}
-    >
-      <HourSpace
-        formatHour={(hour) => {
-          const date = new Date(startOfDay + hour * MS_IN_HOUR)
-          return date.toLocaleString(undefined, { hour: 'numeric' })
-        }}
-        start={startHour}
-        end={endHour}
-        hourLabelWidthInPx={20}
+    <Wrapper>
+      <TimeSpace
+        msToPx={msToPx}
+        startsAt={timelineStartsAt}
+        endsAt={timelineEndsAt}
       >
-        {renderContent && renderContent({ pxInMs })}
-        <CurrentIntervalRect
-          $color={color}
-          ref={intervalElement}
-          style={{
-            top: intervalStartInPx,
-            height: intervalDurationInPx,
-          }}
+        <Container
+          ref={containerElement}
+          style={{ cursor }}
+          onMouseMove={handleMouseMove}
         >
-          <MoveIconWr style={{ opacity: activeControl ? 0 : 1 }}>
-            <MoveIcon />
-          </MoveIconWr>
-        </CurrentIntervalRect>
+          {renderContent && renderContent({ msToPx })}
+          <CurrentIntervalRect
+            $color={color}
+            ref={intervalElement}
+            style={{
+              top: intervalStartInPx,
+              height: intervalDurationInPx,
+            }}
+          >
+            <MoveIconWr style={{ opacity: activeControl ? 0 : 1 }}>
+              <MoveIcon />
+            </MoveIconWr>
+          </CurrentIntervalRect>
 
-        <DurationText
-          style={{
-            top: intervalEndInPx + 2,
-          }}
-          weight="bold"
-        >
-          {formatDuration(valueDuration, 'ms')}
-        </DurationText>
+          <DurationText
+            style={{
+              top: intervalEndInPx + 2,
+            }}
+            weight="bold"
+          >
+            {formatDuration(valueDuration, 'ms')}
+          </DurationText>
 
-        {optionalMaxIntervalEnd && (
-          <MaxIntervalEndBoundary
-            timestamp={optionalMaxIntervalEnd}
-            y={pxInMs * (optionalMaxIntervalEnd - timelineStart)}
-            isActive={!!activeControl}
-          />
-        )}
+          {!activeControl && (
+            <>
+              <InteractiveDragArea
+                style={{
+                  top: intervalStartInPx,
+                  height: intervalDurationInPx,
+                }}
+                onMouseDown={() => setActiveControl('position')}
+              />
 
-        {!activeControl && (
-          <>
-            <InteractiveDragArea
-              style={{
-                top: intervalStartInPx,
-                height: intervalDurationInPx,
-              }}
-              onMouseDown={() => setActiveControl('position')}
-            />
+              <PositionAbsolutelyCenterHorizontally
+                fullWidth
+                top={intervalStartInPx}
+              >
+                <InteractiveBoundaryArea
+                  onMouseDown={() => setActiveControl('start')}
+                />
+              </PositionAbsolutelyCenterHorizontally>
 
-            <InteractiveBoundaryArea
-              y={intervalStartInPx}
-              onMouseDown={() => setActiveControl('start')}
-            />
-
-            <InteractiveBoundaryArea
-              y={intervalEndInPx}
-              onMouseDown={() => setActiveControl('end')}
-            />
-          </>
-        )}
-      </HourSpace>
-    </Container>
+              <PositionAbsolutelyCenterHorizontally
+                fullWidth
+                top={intervalEndInPx}
+              >
+                <InteractiveBoundaryArea
+                  onMouseDown={() => setActiveControl('end')}
+                />
+              </PositionAbsolutelyCenterHorizontally>
+            </>
+          )}
+        </Container>
+      </TimeSpace>
+    </Wrapper>
   )
 }

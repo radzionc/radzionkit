@@ -17,7 +17,7 @@ export const Form = ({ content, actions, onSubmit, gap = 28 }: Props) => {
       fullWidth
       onSubmit={preventDefault<FormEvent<HTMLFormElement>>(onSubmit)}
     >
-      <VStack fullWidth gap={8}>
+      <VStack fullWidth gap={20}>
         {content}
       </VStack>
       {actions}
