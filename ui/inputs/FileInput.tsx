@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import { inputBackgroundCSS, inputBorderRadiusCSS } from './config'
 import { useDropzone, Accept } from 'react-dropzone'
-import { Panel } from '../Panel/Panel'
 import { Button } from '../buttons/Button'
 import { getColor } from '../theme/getters'
-import { VStack } from '../../layout/Stack'
-import { transition } from '../../css/transition'
 import { UploadIcon } from '../icons/UploadIcon'
-import { Text } from '../../text'
+import { transition } from '../css/transition'
+import { VStack } from '../layout/Stack'
+import { Panel } from '../panel/Panel'
+import { Text } from '../text'
 
 interface Props {
   onSubmit: (file: File) => void

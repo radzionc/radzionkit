@@ -1,6 +1,6 @@
 import { UpdateCommand } from '@aws-sdk/lib-dynamodb'
 import { isNullOrUndefined } from '@reactkit/utils/isNullOrUndefined'
-import { splitObject } from '@reactkit/utils/splitObject'
+import { splitRecord } from '@reactkit/utils/record/splitRecord'
 import { getUpdateParams } from './getUpdateParams'
 import { getRemoveParams } from './getRemoveParams'
 import { dbDocClient } from './client'
@@ -16,7 +16,7 @@ interface UpdateItemParams {
 type Operation = 'remove' | 'update'
 
 export const updateItem = ({ tableName, key, fields }: UpdateItemParams) => {
-  const fieldsByOperation: Record<Operation, Record<string, any>> = splitObject(
+  const fieldsByOperation: Record<Operation, Record<string, any>> = splitRecord(
     fields,
     (_, value) => (isNullOrUndefined(value) ? 'remove' : 'update'),
     {

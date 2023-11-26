@@ -1,12 +1,12 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { ComponentWithChildrenProps } from '../props'
-import { handleWithStopPropagation } from '../shared/events'
 import { VStack } from '../layout/Stack'
 import { ReversedTheme } from '../theme/ReversedTheme'
 import { getColor } from '../theme/getters'
 import { borderRadius } from '../css/borderRadius'
 import { Text } from '../text'
+import { stopPropagation } from '../utils/stopPropagation'
 
 interface TreeFilterNodeProps extends ComponentWithChildrenProps {
   name: ReactNode
@@ -34,10 +34,7 @@ export const TreeFilterNode = ({
   isSelected,
 }: TreeFilterNodeProps) => {
   const content = (
-    <Container
-      isSelected={isSelected}
-      onClick={handleWithStopPropagation(onSelect)}
-    >
+    <Container isSelected={isSelected} onClick={stopPropagation(onSelect)}>
       <VStack alignItems="center" gap={16}>
         <Text weight="semibold">{name}</Text>
         {children}

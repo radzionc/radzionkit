@@ -1,4 +1,4 @@
-export const splitObject = <K extends string, T extends Record<string, any>>(
+export const splitRecord = <K extends string, T extends Record<string, any>>(
   obj: T,
   organize: (key: string, value: any) => K,
   initialValue: Record<K, Partial<T>>,

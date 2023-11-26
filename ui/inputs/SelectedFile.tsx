@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { Button } from '../buttons/Button'
-import { HStack } from '../../layout/Stack'
 import { inputBackgroundCSS, inputBorderRadiusCSS } from './config'
-import { Text } from '../../text'
+import { HStack } from '../layout/Stack'
+import { Text } from '../text'
 
 interface Props {
   name: string
