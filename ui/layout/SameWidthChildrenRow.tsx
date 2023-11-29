@@ -4,6 +4,7 @@ import { toSizeUnit } from '../css/toSizeUnit'
 interface Props {
   gap: number
   minChildrenWidth?: number
+  maxChildrenWidth?: number
   childrenWidth?: number
   rowHeight?: number
   fullWidth?: boolean
@@ -21,6 +22,7 @@ const getColumnMax = (maxColumns: number | undefined, gap: number) => {
 
 const getColumnWidth = ({
   minChildrenWidth,
+  maxChildrenWidth,
   maxColumns,
   gap,
   childrenWidth,
@@ -35,7 +37,7 @@ const getColumnWidth = ({
         ${toSizeUnit(minChildrenWidth || 0)},
         ${getColumnMax(maxColumns, gap)}
       ),
-      1fr
+      ${maxChildrenWidth ? toSizeUnit(maxChildrenWidth) : '1fr'}
   )`
 }
 

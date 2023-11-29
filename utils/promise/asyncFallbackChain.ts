@@ -1,4 +1,4 @@
-export const oneShouldResolve = async <T>(
+export const asyncFallbackChain = async <T>(
   ...functions: (() => Promise<T>)[]
 ): Promise<T> => {
   try {
@@ -9,6 +9,6 @@ export const oneShouldResolve = async <T>(
       throw error
     }
 
-    return oneShouldResolve(...functions.slice(1))
+    return asyncFallbackChain(...functions.slice(1))
   }
 }
