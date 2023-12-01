@@ -1,5 +1,5 @@
 export const arraysToRecord = <T extends string | number | symbol, U>(
-  keys: T[],
+  keys: readonly T[],
   values: U[],
 ): Record<T, U> => {
   return keys.reduce(

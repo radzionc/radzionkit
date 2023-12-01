@@ -1,6 +1,6 @@
 import { Dimensions } from '@reactkit/utils/entities/Dimensions'
 import { normalizeToMaxDimension } from '@reactkit/utils/normalizeToMaxDimension'
-import { shouldBeDefined } from '@reactkit/utils/shouldBeDefined'
+import { shouldBeDefined } from '@reactkit/utils/assert/shouldBeDefined'
 import { transform } from '@svgr/core'
 
 const getSvgDimensions = (svg: string): Dimensions => {

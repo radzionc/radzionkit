@@ -1,5 +1,5 @@
 import { isProduction } from 'shared'
-import { shouldBeDefined } from '@reactkit/utils/shouldBeDefined'
+import { shouldBeDefined } from '@reactkit/utils/assert/shouldBeDefined'
 import { AmplitudeAnalytics } from '@reactkit/ui/analytics/AmplitudeAnalytics'
 import { LocalAnalytics } from '@reactkit/ui/analytics/LocalAnalytics'
 

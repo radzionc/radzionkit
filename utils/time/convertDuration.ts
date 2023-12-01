@@ -1,8 +1,16 @@
-import { MS_IN_DAY, MS_IN_HOUR, MS_IN_MIN, MS_IN_SEC, MS_IN_WEEK } from '.'
+import {
+  MS_IN_DAY,
+  MS_IN_HOUR,
+  MS_IN_MIN,
+  MS_IN_SEC,
+  MS_IN_WEEK,
+  NS_IN_MS,
+} from '.'
 
-export type DurationUnit = 'ms' | 's' | 'min' | 'h' | 'd' | 'w'
+export type DurationUnit = 'ms' | 's' | 'min' | 'h' | 'd' | 'w' | 'ns'
 
 const msInUnit: Record<DurationUnit, number> = {
+  ns: 1 / NS_IN_MS,
   ms: 1,
   s: MS_IN_SEC,
   min: MS_IN_MIN,
