@@ -1,12 +1,12 @@
 import { ChangeEvent, ComponentProps, Ref, forwardRef } from 'react'
 import styled from 'styled-components'
 
-import { commonInputCSS } from './commonInputCSS'
 import { VStack } from '../layout/Stack'
 import { Spinner } from '../loaders/Spinner'
 import { ComponentWithClassNameProps, LabeledComponentProps } from '../props'
 import { InputContainer } from './InputContainer'
 import { LabelText } from './LabelText'
+import { textInput } from '../css/textInput'
 
 export type SharedTextInputProps = Partial<LabeledComponentProps> & {
   onValueChange?: (value: string) => void
@@ -63,11 +63,11 @@ const InputWr = styled.div`
 `
 
 export const TextInputContainer = styled.input`
-  ${commonInputCSS};
+  ${textInput};
 `
 
 export const TextInputLoader = ({ className }: ComponentWithClassNameProps) => (
-  <TextInputContainer as="div" className={className} isValid>
+  <TextInputContainer as="div" className={className}>
     <VStack fullHeight justifyContent="center">
       <Spinner />
     </VStack>

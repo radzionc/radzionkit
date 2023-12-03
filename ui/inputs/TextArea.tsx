@@ -2,14 +2,14 @@ import { ChangeEvent, ComponentProps, Ref, forwardRef, useState } from 'react'
 import styled from 'styled-components'
 
 import { SharedTextInputProps } from './TextInput'
-import { commonInputCSS } from './commonInputCSS'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { Text } from '../text'
 import { InputContainer } from './InputContainer'
 import { LabelText } from './LabelText'
+import { textInput } from '../css/textInput'
 
 const TextareaContainer = styled.textarea`
-  ${commonInputCSS};
+  ${textInput};
   resize: none;
   height: initial;
 `
