@@ -1,5 +1,5 @@
 import { debounce } from '@reactkit/utils/debounce'
-import { pick } from '@reactkit/utils/pick'
+import { pick } from '@reactkit/utils/record/pick'
 import { useLayoutEffect, useState } from 'react'
 
 export interface ElementSize {
