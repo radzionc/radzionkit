@@ -12,7 +12,7 @@ import { Text } from '@reactkit/ui/text'
 import { Panel } from '@reactkit/ui/panel/Panel'
 import { SeparatedByLine } from '@reactkit/ui/layout/SeparatedByLine'
 import { makeDemoPage } from 'layout/makeDemoPage'
-import { SameWidthChildrenRow } from '@reactkit/ui/layout/SameWidthChildrenRow'
+import { UniformColumnGrid } from '@reactkit/ui/layout/UniformColumnGrid'
 import { CopyText } from '@reactkit/ui/text/CopyText'
 
 const colorParameterName: Record<HSLAParameter, string> = {
@@ -59,7 +59,7 @@ export default makeDemoPage(() => {
 
   return (
     <DemoPage title="HSLA" youtubeVideoId="f3_TYR-8Sd8">
-      <SameWidthChildrenRow minChildrenWidth={320} fullWidth gap={40}>
+      <UniformColumnGrid minChildrenWidth={320} fullWidth gap={40}>
         <SeparatedByLine gap={40}>
           <VStack gap={20}>
             {hslaKeys.map((key) => (
@@ -98,7 +98,7 @@ export default makeDemoPage(() => {
             background: value.toCssValue(),
           }}
         />
-      </SameWidthChildrenRow>
+      </UniformColumnGrid>
     </DemoPage>
   )
 })

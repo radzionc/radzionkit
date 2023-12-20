@@ -9,7 +9,7 @@ import { Text } from '@reactkit/ui/text'
 import { CountryFlag } from '@reactkit/ui/countries/flags/CountryFlag'
 import { CountryFlagEmoji } from '@reactkit/ui/countries/CountryFlagEmoji'
 import { makeDemoPage } from 'layout/makeDemoPage'
-import { SameWidthChildrenRow } from '@reactkit/ui/layout/SameWidthChildrenRow'
+import { UniformColumnGrid } from '@reactkit/ui/layout/UniformColumnGrid'
 import { IconWrapper } from '@reactkit/ui/icons/IconWrapper'
 
 const views = ['svg', 'emoji'] as const
@@ -28,7 +28,7 @@ export default makeDemoPage(() => {
           onSelect={setActiveView}
           groupName="flags"
         />
-        <SameWidthChildrenRow childrenWidth={240} gap={20}>
+        <UniformColumnGrid childrenWidth={240} gap={20}>
           {countryCodes.map((code) => (
             <HStack key={code} alignItems="center" gap={12}>
               <Text height="small" size={24} color="contrast">
@@ -45,7 +45,7 @@ export default makeDemoPage(() => {
               <Text size={14}>{countryNameRecord[code]}</Text>
             </HStack>
           ))}
-        </SameWidthChildrenRow>
+        </UniformColumnGrid>
       </VStack>
     </DemoPage>
   )

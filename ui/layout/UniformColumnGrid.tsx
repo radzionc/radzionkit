@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { toSizeUnit } from '../css/toSizeUnit'
 
-interface Props {
+interface UniformColumnGridProps {
   gap: number
   minChildrenWidth?: number
   maxChildrenWidth?: number
@@ -26,7 +26,7 @@ const getColumnWidth = ({
   maxColumns,
   gap,
   childrenWidth,
-}: Props) => {
+}: UniformColumnGridProps) => {
   if (childrenWidth !== undefined) {
     return toSizeUnit(childrenWidth)
   }
@@ -41,7 +41,7 @@ const getColumnWidth = ({
   )`
 }
 
-export const SameWidthChildrenRow = styled.div<Props>`
+export const UniformColumnGrid = styled.div<UniformColumnGridProps>`
   display: grid;
   grid-template-columns: repeat(auto-fit, ${getColumnWidth});
   gap: ${({ gap }) => toSizeUnit(gap)};

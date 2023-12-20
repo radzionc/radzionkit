@@ -1,4 +1,4 @@
-import { SameWidthChildrenRow } from '../../layout/SameWidthChildrenRow'
+import { UniformColumnGrid } from '../../layout/UniformColumnGrid'
 import { SelectOption } from './SelectOption'
 
 interface Props<T> {
@@ -17,7 +17,7 @@ export function ViewSelector<T>({
   onSelect,
 }: Props<T>) {
   return (
-    <SameWidthChildrenRow gap={8}>
+    <UniformColumnGrid gap={8}>
       {options.map((option) => (
         <SelectOption
           groupName={groupName}
@@ -29,6 +29,6 @@ export function ViewSelector<T>({
           {getName(option)}
         </SelectOption>
       ))}
-    </SameWidthChildrenRow>
+    </UniformColumnGrid>
   )
 }

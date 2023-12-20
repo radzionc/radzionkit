@@ -1,6 +1,6 @@
 import { Modal, ModalProps } from '.'
 import { ButtonKind, Button } from '../buttons/Button'
-import { SameWidthChildrenRow } from '../layout/SameWidthChildrenRow'
+import { UniformColumnGrid } from '../layout/UniformColumnGrid'
 
 interface ConfirmationModalProps
   extends Omit<ModalProps, 'footer' | 'onClose'> {
@@ -22,7 +22,7 @@ export const ConfirmationModal = ({
       {...props}
       onClose={onClose}
       footer={
-        <SameWidthChildrenRow gap={20}>
+        <UniformColumnGrid gap={20}>
           <Button type="button" size="l" onClick={onClose} kind="secondary">
             Cancel
           </Button>
@@ -36,7 +36,7 @@ export const ConfirmationModal = ({
           >
             {confirmActionText}
           </Button>
-        </SameWidthChildrenRow>
+        </UniformColumnGrid>
       }
     />
   )

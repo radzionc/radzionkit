@@ -74,25 +74,29 @@ export function FixedOptionsInput<T>({
   } = useFloatingOptions()
 
   useEffectOnDependencyChange(() => {
-    if (!value) return
+    if (!value) {
+      if (textInputValue) {
+        setTextInputValue('')
+      }
+    } else {
+      const valueName = getOptionName(value)
+      if (textInputValue === valueName) return
 
-    const valueName = getOptionName(value)
-    if (textInputValue === valueName) return
-
-    setTextInputValue(valueName)
+      setTextInputValue(valueName)
+    }
   }, [value])
 
   const onTextInputChange = useCallback(
     (newValue: string) => {
       showOptions()
 
-      if (value && newValue !== getOptionName(value)) {
+      if (newValue === '') {
         onChange(null)
       }
 
       setTextInputValue(newValue)
     },
-    [getOptionName, onChange, showOptions, value],
+    [onChange, showOptions],
   )
 
   useEffectOnDependencyChange(() => {
@@ -168,7 +172,7 @@ export function FixedOptionsInput<T>({
         )}
         <FixedOptionsInputButtons
           onClear={
-            textInputValue
+            textInputValue || value
               ? () => {
                   onTextInputChange('')
                   inputElement.current?.focus()

@@ -6,13 +6,13 @@ import { IntersectionAware } from '@reactkit/ui/base/IntersectionAware'
 import { ImageHolder } from '@reactkit/ui/images/ImageHolder'
 import { SafeImage } from '@reactkit/ui/images/SafeImage'
 import { CoverImage } from '@reactkit/ui/images/CoverImage'
-import { SameWidthChildrenRow } from '@reactkit/ui/layout/SameWidthChildrenRow'
+import { UniformColumnGrid } from '@reactkit/ui/layout/UniformColumnGrid'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (
     <DemoPage youtubeVideoId="vGJcbhz9uKY" title="Images">
-      <SameWidthChildrenRow fullWidth minChildrenWidth={300} gap={40}>
+      <UniformColumnGrid fullWidth minChildrenWidth={300} gap={40}>
         {range(50).map((index) => (
           <VStack alignItems="center" key={index} gap={8}>
             <Text color="supporting" weight="bold" size={20}>
@@ -32,7 +32,7 @@ export default makeDemoPage(() => {
             />
           </VStack>
         ))}
-      </SameWidthChildrenRow>
+      </UniformColumnGrid>
     </DemoPage>
   )
 })

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
-import { SameWidthChildrenRow } from '../../layout/SameWidthChildrenRow'
+import { UniformColumnGrid } from '../../layout/UniformColumnGrid'
 import { Spacer } from '../../layout/Spacer'
 import { VStack } from '../../layout/Stack'
 import { HSLA } from '../../colors/HSLA'
@@ -57,7 +57,7 @@ const Label = styled(Value)`
   top: ${barLabelGap};
 `
 
-const Content = styled(SameWidthChildrenRow)`
+const Content = styled(UniformColumnGrid)`
   flex: 1;
 `
 
