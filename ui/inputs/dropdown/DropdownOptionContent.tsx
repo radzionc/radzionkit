@@ -2,17 +2,20 @@ import { ReactNode } from 'react'
 import { HStack } from '../../layout/Stack'
 import { textInputPadding } from '../../css/textInput'
 import { IconWrapper } from '../../icons/IconWrapper'
-import { fixedOptionsInputConfig } from './config'
 import { Text } from '../../text'
+import { dropdownInputConfig } from './config'
 
-interface OptionContentProps {
+interface DropdownOptionContentProps {
   identifier: ReactNode
   name: ReactNode
 }
 
-export const OptionContent = ({ identifier, name }: OptionContentProps) => (
+export const DropdownOptionContent = ({
+  identifier,
+  name,
+}: DropdownOptionContentProps) => (
   <HStack alignItems="center" gap={textInputPadding}>
-    <IconWrapper style={{ fontSize: fixedOptionsInputConfig.identifierSize }}>
+    <IconWrapper style={{ fontSize: dropdownInputConfig.identifierSize }}>
       {identifier}
     </IconWrapper>
     <Text as="div" cropped>

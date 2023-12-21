@@ -5,13 +5,13 @@ import {
   useListNavigation,
   useRole,
 } from '@floating-ui/react'
-import { toSizeUnit } from '../../css/toSizeUnit'
+import { toSizeUnit } from '../../../css/toSizeUnit'
 import { useRef, useState } from 'react'
-import { useBoolean } from '../../hooks/useBoolean'
-import { useHasFocusWithin } from '../../hooks/useHasFocusWithin'
-import { useEffectOnDependencyChange } from '../../hooks/useEffectOnDependencyChange'
+import { useBoolean } from '../../../hooks/useBoolean'
+import { useHasFocusWithin } from '../../../hooks/useHasFocusWithin'
+import { useEffectOnDependencyChange } from '../../../hooks/useEffectOnDependencyChange'
 
-export const useFloatingOptions = () => {
+export const useFixedOptionsInputFloatingOptions = () => {
   const [
     areOptionsVisible,
     { set: showOptions, unset: hideOptions, toggle: toggleOptionsVisibility },

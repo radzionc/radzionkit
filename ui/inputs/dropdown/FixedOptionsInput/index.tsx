@@ -1,19 +1,19 @@
 import { ReactNode, useCallback, useMemo, useRef, useState } from 'react'
-import { InputProps } from '../../props'
-import { useEffectOnDependencyChange } from '../../hooks/useEffectOnDependencyChange'
+import { InputProps } from '../../../props'
+import { useEffectOnDependencyChange } from '../../../hooks/useEffectOnDependencyChange'
 import { getSuggestions } from './getSuggestions'
-import { NoMatchesMessage } from './NoMatchesMessage'
+import { FixedOptionInputMessage } from './FixedOptionInputMessage'
 import { FixedOptionsInputItem } from './OptionItem'
-import { FixedOptionsInputOptionsContainer } from './OptionsContainer'
 import { FixedOptionsInputIdentifierWrapper } from './IdentifierWrapper'
-import { RelativeRow } from '../../layout/RelativeRow'
-import { InputContainer } from '../InputContainer'
-import { FixedOptionsInputTextInput } from './TextInput'
-import { useFloatingOptions } from './useFloatingOptions'
+import { RelativeRow } from '../../../layout/RelativeRow'
+import { InputContainer } from '../../InputContainer'
+import { useFixedOptionsInputFloatingOptions } from './useFixedOptionsInputFloatingOptions'
 import { FixedOptionsInputButtons } from './Buttons'
-import { LabelText } from '../LabelText'
+import { LabelText } from '../../LabelText'
+import { DropdownContainer } from '../DropdownContainer'
+import { DropdownInputFrame } from '../DropdownInputFrame'
 
-interface FixedOptionsInputProps<T> extends InputProps<T | null> {
+export interface FixedOptionsInputProps<T> extends InputProps<T | null> {
   placeholder?: string
   label?: ReactNode
 
@@ -24,7 +24,23 @@ interface FixedOptionsInputProps<T> extends InputProps<T | null> {
   getOptionName: (option: T) => string
   renderOptionIdentifier: (option: T) => ReactNode
   optionIdentifierPlaceholder: ReactNode
+
+  clearTextInputOnOptionSelect?: boolean
+  noOptionsMessage?: ReactNode
+  onTextInputValueChange?: (value: string) => void
 }
+
+export type FixedOptionsInputWrapperProps<T> = Pick<
+  FixedOptionsInputProps<T>,
+  | 'value'
+  | 'onChange'
+  | 'placeholder'
+  | 'label'
+  | 'options'
+  | 'noOptionsMessage'
+  | 'onTextInputValueChange'
+  | 'clearTextInputOnOptionSelect'
+>
 
 export function FixedOptionsInput<T>({
   value,
@@ -38,6 +54,9 @@ export function FixedOptionsInput<T>({
   renderOptionIdentifier,
   optionIdentifierPlaceholder,
   getOptionKey,
+  noOptionsMessage,
+  onTextInputValueChange,
+  clearTextInputOnOptionSelect,
 }: FixedOptionsInputProps<T>) {
   const inputElement = useRef<HTMLInputElement>(null)
 
@@ -71,7 +90,7 @@ export function FixedOptionsInput<T>({
     showOptions,
     hideOptions,
     toggleOptionsVisibility,
-  } = useFloatingOptions()
+  } = useFixedOptionsInputFloatingOptions()
 
   useEffectOnDependencyChange(() => {
     if (!value) {
@@ -86,9 +105,21 @@ export function FixedOptionsInput<T>({
     }
   }, [value])
 
+  const onOptionSelect = useCallback(
+    (option: T) => {
+      onChange(option)
+      if (clearTextInputOnOptionSelect) {
+        setTextInputValue('')
+      }
+    },
+    [clearTextInputOnOptionSelect, onChange],
+  )
+
   const onTextInputChange = useCallback(
     (newValue: string) => {
       showOptions()
+
+      onTextInputValueChange?.(newValue)
 
       if (newValue === '') {
         onChange(null)
@@ -96,7 +127,7 @@ export function FixedOptionsInput<T>({
 
       setTextInputValue(newValue)
     },
-    [onChange, showOptions],
+    [onChange, onTextInputValueChange, showOptions],
   )
 
   useEffectOnDependencyChange(() => {
@@ -113,7 +144,7 @@ export function FixedOptionsInput<T>({
       onKeyDown={(event) => {
         if (event.key === 'Enter' && activeIndex != null) {
           event.preventDefault()
-          onChange(optionsToDisplay[activeIndex])
+          onOptionSelect(optionsToDisplay[activeIndex])
           setActiveIndex(null)
           hideOptions()
         }
@@ -132,7 +163,7 @@ export function FixedOptionsInput<T>({
         <FixedOptionsInputIdentifierWrapper>
           {value ? renderOptionIdentifier(value) : optionIdentifierPlaceholder}
         </FixedOptionsInputIdentifierWrapper>
-        <FixedOptionsInputTextInput
+        <DropdownInputFrame
           ref={inputElement}
           value={textInputValue}
           onChange={(event) => onTextInputChange(event.currentTarget.value)}
@@ -140,7 +171,7 @@ export function FixedOptionsInput<T>({
           aria-autocomplete="list"
         />
         {areOptionsVisible && (
-          <FixedOptionsInputOptionsContainer
+          <DropdownContainer
             {...getFloatingProps({
               ref: setFloatingRef,
               style: floatingStyles,
@@ -155,7 +186,7 @@ export function FixedOptionsInput<T>({
                     },
                     key: getOptionKey(option),
                     onClick: () => {
-                      onChange(option)
+                      onOptionSelect(option)
                       inputElement.current?.focus()
                       hideOptions()
                     },
@@ -166,9 +197,11 @@ export function FixedOptionsInput<T>({
                 </FixedOptionsInputItem>
               ))
             ) : (
-              <NoMatchesMessage />
+              <FixedOptionInputMessage>
+                {noOptionsMessage ?? 'No options'}
+              </FixedOptionInputMessage>
             )}
-          </FixedOptionsInputOptionsContainer>
+          </DropdownContainer>
         )}
         <FixedOptionsInputButtons
           onClear={

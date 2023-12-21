@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { HStack } from '../../layout/Stack'
-import { toSizeUnit } from '../../css/toSizeUnit'
-import { textInputPadding } from '../../css/textInput'
-import { IconButton } from '../../buttons/IconButton'
-import { fixedOptionsInputConfig } from './config'
-import { CloseIcon } from '../../icons/CloseIcon'
-import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
+import { HStack } from '../../../layout/Stack'
+import { toSizeUnit } from '../../../css/toSizeUnit'
+import { textInputPadding } from '../../../css/textInput'
+import { IconButton } from '../../../buttons/IconButton'
+import { CloseIcon } from '../../../icons/CloseIcon'
+import { CollapseToggleButton } from '../../../buttons/CollapseToggleButton'
+import { dropdownInputConfig } from '../config'
 
 const Container = styled(HStack)`
   position: absolute;
@@ -27,7 +27,7 @@ export const FixedOptionsInputButtons = ({
   <Container>
     {onClear && (
       <IconButton
-        size={fixedOptionsInputConfig.iconButtonSize}
+        size={dropdownInputConfig.iconButtonSize}
         icon={<CloseIcon />}
         title="Clear"
         kind="secondary"
@@ -35,7 +35,7 @@ export const FixedOptionsInputButtons = ({
       />
     )}
     <CollapseToggleButton
-      size={fixedOptionsInputConfig.iconButtonSize}
+      size={dropdownInputConfig.iconButtonSize}
       kind="secondary"
       isOpen={areOptionsVisible}
       onMouseDown={toggleOptionsVisibility}

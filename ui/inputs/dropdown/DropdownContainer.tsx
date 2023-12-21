@@ -3,7 +3,7 @@ import { getColor } from '../../theme/getters'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { textInputBorderRadius } from '../../css/textInput'
 
-export const FixedOptionsInputOptionsContainer = styled.div`
+export const DropdownContainer = styled.div`
   background: ${getColor('foreground')};
   border: 1px solid ${getColor('mist')};
 

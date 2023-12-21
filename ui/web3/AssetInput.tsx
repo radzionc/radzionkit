@@ -1,7 +1,5 @@
 import { InputProps } from '../props'
-import { FixedOptionsInput } from '../inputs/FixedOptionsInput'
 import styled from 'styled-components'
-import { OptionContent } from '../inputs/FixedOptionsInput/OptionContent'
 import { Asset } from '@reactkit/entities/Asset'
 import { round } from '../css/round'
 import { sameDimensions } from '../css/sameDimensions'
@@ -9,6 +7,8 @@ import { getColor } from '../theme/getters'
 import { VStack } from '../layout/Stack'
 import { Text } from '../text'
 import { AssetIcon } from './AssetIcon'
+import { FixedOptionsInput } from '../inputs/dropdown/FixedOptionsInput'
+import { DropdownOptionContent } from '../inputs/dropdown/DropdownOptionContent'
 
 interface AssetInputProps extends InputProps<Asset | null> {
   label?: React.ReactNode
@@ -42,7 +42,7 @@ export const AssetInput = ({
       )}
       optionIdentifierPlaceholder={<IdentifierPlaceholder />}
       renderOption={({ name, id, icon }) => (
-        <OptionContent
+        <DropdownOptionContent
           identifier={<AssetIcon name={name} src={icon} />}
           name={
             <VStack>

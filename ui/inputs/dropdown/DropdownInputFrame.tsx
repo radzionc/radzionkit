@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 import { textInput, textInputPadding } from '../../css/textInput'
 import { toSizeUnit } from '../../css/toSizeUnit'
-import { fixedOptionsInputConfig } from './config'
 import { iconButtonSizeRecord } from '../../buttons/IconButton'
+import { dropdownInputConfig } from './config'
 
-export const FixedOptionsInputTextInput = styled.input`
+export const DropdownInputFrame = styled.input`
   ${textInput};
   padding-left: ${toSizeUnit(
-    fixedOptionsInputConfig.identifierSize + textInputPadding * 2,
+    dropdownInputConfig.identifierSize + textInputPadding * 2,
   )};
   padding-right: ${toSizeUnit(
-    iconButtonSizeRecord[fixedOptionsInputConfig.iconButtonSize] * 2 +
+    iconButtonSizeRecord[dropdownInputConfig.iconButtonSize] * 2 +
       textInputPadding +
-      fixedOptionsInputConfig.buttonsSpacing,
+      dropdownInputConfig.buttonsSpacing,
   )};
 `

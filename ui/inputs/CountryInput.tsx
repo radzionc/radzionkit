@@ -4,12 +4,12 @@ import {
   countryNameRecord,
 } from '@reactkit/utils/countries'
 import { InputProps } from '../props'
-import { FixedOptionsInput } from './FixedOptionsInput'
 import CountryFlag from '../countries/flags/CountryFlag'
 import { IconWrapper } from '../icons/IconWrapper'
 import styled from 'styled-components'
 import { CountryFlagFrame } from '../countries/CountryFlagFrame'
-import { OptionContent } from './FixedOptionsInput/OptionContent'
+import { FixedOptionsInput } from './dropdown/FixedOptionsInput'
+import { DropdownOptionContent } from './dropdown/DropdownOptionContent'
 
 interface CountryInputProps extends InputProps<CountryCode | null> {
   label?: React.ReactNode
@@ -41,7 +41,7 @@ export const CountryInput = ({ value, onChange, label }: CountryInputProps) => {
         </FlagWrapper>
       }
       renderOption={(code) => (
-        <OptionContent
+        <DropdownOptionContent
           identifier={
             <FlagWrapper>
               <CountryFlag code={code} />
