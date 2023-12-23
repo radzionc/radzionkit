@@ -1,4 +1,4 @@
-import { match } from '@reactkit/utils/match'
+import { match } from '@radzionkit/utils/match'
 import path from 'path'
 import { format, resolveConfig } from 'prettier'
 

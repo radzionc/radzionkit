@@ -1,5 +1,5 @@
-import { getId } from '@reactkit/entities-utils/shared/getId'
-import { User } from '@reactkit/entities/User'
+import { getId } from '@radzionkit/entities-utils/shared/getId'
+import { User } from '@radzionkit/entities/User'
 
 export const getUserInitialFields = ({
   email,

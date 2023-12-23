@@ -1,4 +1,4 @@
-import { normalize } from '@reactkit/utils/math/normalize'
+import { normalize } from '@radzionkit/utils/math/normalize'
 import { useMemo } from 'react'
 import { Point } from '../../entities/Point'
 import { useTheme } from 'styled-components'

@@ -1,12 +1,12 @@
-import { TextInput } from '@reactkit/ui/inputs/TextInput'
-import { TextArea } from '@reactkit/ui/inputs/TextArea'
+import { TextInput } from '@radzionkit/ui/inputs/TextInput'
+import { TextArea } from '@radzionkit/ui/inputs/TextArea'
 import { bioMaxLength, useJobApplicationForm } from './jobApplicationForm'
 import { ExperienceSection } from './ExperienceSection'
-import { Panel } from '@reactkit/ui/panel/Panel'
-import { Button } from '@reactkit/ui/buttons/Button'
-import { TitledSection } from '@reactkit/ui/layout/TitledSection'
-import { Form } from '@reactkit/ui/form/components/Form'
-import { FormSection } from '@reactkit/ui/form/components/FormSection'
+import { Panel } from '@radzionkit/ui/panel/Panel'
+import { Button } from '@radzionkit/ui/buttons/Button'
+import { TitledSection } from '@radzionkit/ui/layout/TitledSection'
+import { Form } from '@radzionkit/ui/form/components/Form'
+import { FormSection } from '@radzionkit/ui/form/components/FormSection'
 
 export const JobApplication = () => {
   const form = useJobApplicationForm()

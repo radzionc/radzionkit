@@ -1,11 +1,11 @@
 import { DemoPage } from 'components/DemoPage'
-import { Checkbox } from '@reactkit/ui/inputs/Checkbox/Checkbox'
+import { Checkbox } from '@radzionkit/ui/inputs/Checkbox/Checkbox'
 import { useState } from 'react'
-import { VStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/text'
-import { InfoIcon } from '@reactkit/ui/icons/InfoIcon'
+import { VStack } from '@radzionkit/ui/layout/Stack'
+import { Text } from '@radzionkit/ui/text'
+import { InfoIcon } from '@radzionkit/ui/icons/InfoIcon'
 import { makeDemoPage } from 'layout/makeDemoPage'
-import { TimeoutMessage } from '@reactkit/ui/base/TimeoutMessage'
+import { TimeoutMessage } from '@radzionkit/ui/base/TimeoutMessage'
 
 export default makeDemoPage(() => {
   const [one, setOne] = useState(false)

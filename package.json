@@ -1,5 +1,5 @@
 {
-  "name": "reactkit",
+  "name": "radzionkit",
   "packageManager": "yarn@3.6.1",
   "engines": {
     "yarn": "3.x"

@@ -1,12 +1,12 @@
-import { Spinner } from '@reactkit/ui/loaders/Spinner'
-import { HStack } from '@reactkit/ui/layout/Stack'
-import { centerContent } from '@reactkit/ui/css/centerContent'
+import { Spinner } from '@radzionkit/ui/loaders/Spinner'
+import { HStack } from '@radzionkit/ui/layout/Stack'
+import { centerContent } from '@radzionkit/ui/css/centerContent'
 import dynamic from 'next/dynamic'
 import styled from 'styled-components'
-import { ExpandableInputOpener } from '@reactkit/ui/inputs/ExpandableInputOpener'
-import { Menu } from '@reactkit/ui/menu'
-import { Text } from '@reactkit/ui/text'
-import { InputProps } from '@reactkit/ui/props'
+import { ExpandableInputOpener } from '@radzionkit/ui/inputs/ExpandableInputOpener'
+import { Menu } from '@radzionkit/ui/menu'
+import { Text } from '@radzionkit/ui/text'
+import { InputProps } from '@radzionkit/ui/props'
 
 const EmojiPicker = dynamic(() => import('./EmojiPicker'), {
   loading: () => (

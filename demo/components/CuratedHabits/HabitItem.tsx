@@ -1,10 +1,10 @@
-import { VStack, HStack } from '@reactkit/ui/layout/Stack'
+import { VStack, HStack } from '@radzionkit/ui/layout/Stack'
 import styled, { useTheme } from 'styled-components'
 import { HabitInfo } from './data/habits'
-import { Text } from '@reactkit/ui/text'
-import { Tag } from '@reactkit/ui/tags/Tag'
-import { Button } from '@reactkit/ui/buttons/Button'
-import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
+import { Text } from '@radzionkit/ui/text'
+import { Tag } from '@radzionkit/ui/tags/Tag'
+import { Button } from '@radzionkit/ui/buttons/Button'
+import { ExternalLink } from '@radzionkit/ui/navigation/Link/ExternalLink'
 
 interface HabitItemTag {
   name: string

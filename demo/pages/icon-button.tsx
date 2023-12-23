@@ -1,13 +1,13 @@
-import { HStack, VStack } from '@reactkit/ui/layout/Stack'
+import { HStack, VStack } from '@radzionkit/ui/layout/Stack'
 import { DemoPage } from 'components/DemoPage'
 import {
   IconButton,
   iconButtonKinds,
   iconButtonSizes,
-} from '@reactkit/ui/buttons/IconButton'
-import { SettingsIcon } from '@reactkit/ui/icons/SettingsIcon'
+} from '@radzionkit/ui/buttons/IconButton'
+import { SettingsIcon } from '@radzionkit/ui/icons/SettingsIcon'
 import { makeDemoPage } from 'layout/makeDemoPage'
-import { TitledSection } from '@reactkit/ui/layout/TitledSection'
+import { TitledSection } from '@radzionkit/ui/layout/TitledSection'
 
 export default makeDemoPage(() => {
   const icon = <SettingsIcon />

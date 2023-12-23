@@ -1,17 +1,17 @@
-import { range } from '@reactkit/utils/array/range'
-import { toPercents } from '@reactkit/utils/toPercents'
-import { PressTracker } from '@reactkit/ui/base/PressTracker'
+import { range } from '@radzionkit/utils/array/range'
+import { toPercents } from '@radzionkit/utils/toPercents'
+import { PressTracker } from '@radzionkit/ui/base/PressTracker'
 import {
   InvisibleHTMLSlider,
   InvisibleHTMLSliderProps,
-} from '@reactkit/ui/inputs/Slider/InvisibleHtmlSlider'
-import { getColor } from '@reactkit/ui/theme/getters'
-import { centerContent } from '@reactkit/ui/css/centerContent'
-import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
+} from '@radzionkit/ui/inputs/Slider/InvisibleHtmlSlider'
+import { getColor } from '@radzionkit/ui/theme/getters'
+import { centerContent } from '@radzionkit/ui/css/centerContent'
+import { sameDimensions } from '@radzionkit/ui/css/sameDimensions'
 import styled from 'styled-components'
-import { interactive } from '@reactkit/ui/css/interactive'
-import { toSizeUnit } from '@reactkit/ui/css/toSizeUnit'
-import { defaultTransition } from '@reactkit/ui/css/transition'
+import { interactive } from '@radzionkit/ui/css/interactive'
+import { toSizeUnit } from '@radzionkit/ui/css/toSizeUnit'
+import { defaultTransition } from '@radzionkit/ui/css/transition'
 
 export interface ColorParameterInputProps
   extends Omit<InvisibleHTMLSliderProps, 'min'> {

@@ -1,5 +1,5 @@
-import { getWeekday } from '@reactkit/utils/time/getWeekday'
-import { MS_IN_MIN } from '@reactkit/utils/time'
+import { getWeekday } from '@radzionkit/utils/time/getWeekday'
+import { MS_IN_MIN } from '@radzionkit/utils/time'
 import { useRhythmicRerender } from './useRhythmicRerender'
 
 export const useWeekday = () => {

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import { NavigationItem } from '@reactkit/ui/navigation/Sidebar/NavigationItem'
+import { NavigationItem } from '@radzionkit/ui/navigation/Sidebar/NavigationItem'
 import Link from 'next/link'
 
 interface Props {

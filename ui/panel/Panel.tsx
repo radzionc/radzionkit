@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { toSizeUnit } from '../css/toSizeUnit'
 import { getColor } from '../theme/getters'
-import { match } from '@reactkit/utils/match'
+import { match } from '@radzionkit/utils/match'
 import { borderRadius } from '../css/borderRadius'
 
 type PanelKind = 'regular' | 'secondary'

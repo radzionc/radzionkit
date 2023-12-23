@@ -3,7 +3,7 @@ import React from 'react'
 import { useTheme } from 'styled-components'
 
 import { Confetto } from './Confetto'
-import { randomInRange } from '@reactkit/utils/randomInRange'
+import { randomInRange } from '@radzionkit/utils/randomInRange'
 import { Point } from '../../entities/Point'
 
 interface ConfettiProps extends Point {

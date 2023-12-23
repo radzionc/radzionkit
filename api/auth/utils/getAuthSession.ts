@@ -1,7 +1,7 @@
-import { convertDuration } from '@reactkit/utils/time/convertDuration'
+import { convertDuration } from '@radzionkit/utils/time/convertDuration'
 import jwt from 'jsonwebtoken'
 import { getSecret } from '../../utils/getSecret'
-import { AuthSession } from '@reactkit/entities/AuthSession'
+import { AuthSession } from '@radzionkit/entities/AuthSession'
 
 const tokenLifespanInDays = 300
 

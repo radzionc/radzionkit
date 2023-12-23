@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import { createTsFile } from '@reactkit/codegen/utils/createTsFile'
+import { createTsFile } from '@radzionkit/codegen/utils/createTsFile'
 
 const generateCountries = async () => {
   const countryNameRecord = JSON.parse(
@@ -19,7 +19,7 @@ const generateCountries = async () => {
     directory: path.resolve(__dirname, '../'),
     fileName: 'index',
     content,
-    generatedBy: '@reactkit/utils/countries/codegen/generateCountries.ts',
+    generatedBy: '@radzionkit/utils/countries/codegen/generateCountries.ts',
   })
 }
 

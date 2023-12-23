@@ -1,5 +1,5 @@
-import { CountryCode, countryNameRecord } from '@reactkit/utils/countries'
-import { getCountryFlagEmoji } from '@reactkit/utils/countries/getCountryFlagEmoji'
+import { CountryCode, countryNameRecord } from '@radzionkit/utils/countries'
+import { getCountryFlagEmoji } from '@radzionkit/utils/countries/getCountryFlagEmoji'
 
 interface CountryFlagEmojiProps {
   code?: CountryCode

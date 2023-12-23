@@ -4,7 +4,7 @@ import {
   InvisibleHTMLSliderProps,
   InvisibleHTMLSlider,
 } from './InvisibleHtmlSlider'
-import { toPercents } from '@reactkit/utils/toPercents'
+import { toPercents } from '@radzionkit/utils/toPercents'
 import { PressTracker } from '../../base/PressTracker'
 import { HSLA } from '../../colors/HSLA'
 import { centerContent } from '../../css/centerContent'

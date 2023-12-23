@@ -1,7 +1,7 @@
 import { usePrevious } from 'react-use'
 import { SlidingCharacter } from './SlidingCharacter'
 import styled from 'styled-components'
-import { padWithZero } from '@reactkit/utils/padWithZero'
+import { padWithZero } from '@radzionkit/utils/padWithZero'
 import { Panel } from '../panel/Panel'
 import { Center } from '../layout/Center'
 import { HStack } from '../layout/Stack'

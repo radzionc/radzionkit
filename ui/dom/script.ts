@@ -1,4 +1,4 @@
-import { memoize } from '@reactkit/utils/memoize'
+import { memoize } from '@radzionkit/utils/memoize'
 
 export const getScriptBySrc = (src: string) =>
   document.querySelectorAll(`script[src="${src}"]`)[0] as

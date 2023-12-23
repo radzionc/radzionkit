@@ -1,4 +1,4 @@
-import { CountryCode } from '@reactkit/utils/countries'
+import { CountryCode } from '@radzionkit/utils/countries'
 
 export interface ApiResolverContext {
   country?: CountryCode

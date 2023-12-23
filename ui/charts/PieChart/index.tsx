@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import React from 'react'
 import styled, { useTheme } from 'styled-components'
 import { SvgArc, polarToCartesian } from './SvgArc'
-import { sum } from '@reactkit/utils/array/sum'
+import { sum } from '@radzionkit/utils/array/sum'
 import { HSLA } from '../../colors/HSLA'
 
 export interface PieChartItem {

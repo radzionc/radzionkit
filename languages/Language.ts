@@ -1,4 +1,4 @@
-import { CountryCode } from '@reactkit/utils/countries'
+import { CountryCode } from '@radzionkit/utils/countries'
 
 export const languages = ['en', 'ru', 'ka'] as const
 export type Language = (typeof languages)[number]

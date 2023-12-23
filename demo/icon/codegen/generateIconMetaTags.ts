@@ -1,10 +1,10 @@
-import { createTsFile } from '@reactkit/codegen/utils/createTsFile'
-import { lightTheme } from '@reactkit/ui/theme/lightTheme'
-import { withoutDuplicates } from '@reactkit/utils/array/withoutDuplicates'
+import { createTsFile } from '@radzionkit/codegen/utils/createTsFile'
+import { lightTheme } from '@radzionkit/ui/theme/lightTheme'
+import { withoutDuplicates } from '@radzionkit/utils/array/withoutDuplicates'
 import path from 'path'
 import fs from 'fs'
 import { generateImages } from 'pwa-asset-generator'
-import { darkTheme } from '@reactkit/ui/theme/darkTheme'
+import { darkTheme } from '@radzionkit/ui/theme/darkTheme'
 
 const codeDirectory = path.resolve(__dirname, '../')
 

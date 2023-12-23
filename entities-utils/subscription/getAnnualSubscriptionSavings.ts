@@ -1,4 +1,4 @@
-import { MONTHS_IN_YEAR } from '@reactkit/utils/time'
+import { MONTHS_IN_YEAR } from '@radzionkit/utils/time'
 
 export const getAnnualSubscriptionSavings = (
   annualPrice: number,

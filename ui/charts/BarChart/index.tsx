@@ -7,7 +7,7 @@ import { HSLA } from '../../colors/HSLA'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { Text } from '../../text'
 import { getColor } from '../../theme/getters'
-import { toPercents } from '@reactkit/utils/toPercents'
+import { toPercents } from '@radzionkit/utils/toPercents'
 import { centerContent } from '../../css/centerContent'
 import { transition } from '../../css/transition'
 

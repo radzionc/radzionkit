@@ -1,7 +1,7 @@
 import { ComponentProps, Ref, forwardRef } from 'react'
 import styled from 'styled-components'
 import { UnstyledButton } from './UnstyledButton'
-import { match } from '@reactkit/utils/match'
+import { match } from '@radzionkit/utils/match'
 import { centerContent } from '../css/centerContent'
 import { sameDimensions } from '../css/sameDimensions'
 import { toSizeUnit } from '../css/toSizeUnit'

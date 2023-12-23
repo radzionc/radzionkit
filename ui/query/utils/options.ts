@@ -1,4 +1,4 @@
-import { convertDuration } from '@reactkit/utils/time/convertDuration'
+import { convertDuration } from '@radzionkit/utils/time/convertDuration'
 
 export const rarelyChangingQueryOptions = {
   refetchOnMount: false,

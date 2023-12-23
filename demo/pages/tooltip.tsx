@@ -1,7 +1,7 @@
 import { DemoPage } from 'components/DemoPage'
-import { Text } from '@reactkit/ui/text'
+import { Text } from '@radzionkit/ui/text'
 import { makeDemoPage } from 'layout/makeDemoPage'
-import { Tooltip } from '@reactkit/ui/tooltips/Tooltip'
+import { Tooltip } from '@radzionkit/ui/tooltips/Tooltip'
 
 export default makeDemoPage(() => {
   return (

@@ -1,19 +1,19 @@
 import { DemoPage } from 'components/DemoPage'
-import { VStack } from '@reactkit/ui/layout/Stack'
+import { VStack } from '@radzionkit/ui/layout/Stack'
 import {
   HSLAParameter,
   hslaKeys,
   hslaParamMaxValue,
-} from '@reactkit/ui/colors/HSLA'
+} from '@radzionkit/ui/colors/HSLA'
 import { ColorParameterInput } from 'components/ColorParameterInput'
 import styled, { useTheme } from 'styled-components'
 import { useState } from 'react'
-import { Text } from '@reactkit/ui/text'
-import { Panel } from '@reactkit/ui/panel/Panel'
-import { SeparatedByLine } from '@reactkit/ui/layout/SeparatedByLine'
+import { Text } from '@radzionkit/ui/text'
+import { Panel } from '@radzionkit/ui/panel/Panel'
+import { SeparatedByLine } from '@radzionkit/ui/layout/SeparatedByLine'
 import { makeDemoPage } from 'layout/makeDemoPage'
-import { UniformColumnGrid } from '@reactkit/ui/layout/UniformColumnGrid'
-import { CopyText } from '@reactkit/ui/text/CopyText'
+import { UniformColumnGrid } from '@radzionkit/ui/layout/UniformColumnGrid'
+import { CopyText } from '@radzionkit/ui/text/CopyText'
 
 const colorParameterName: Record<HSLAParameter, string> = {
   h: 'Hue',

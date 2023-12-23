@@ -1,4 +1,4 @@
-import { CountryCode } from '@reactkit/utils/countries'
+import { CountryCode } from '@radzionkit/utils/countries'
 import styled from 'styled-components'
 import { getColor } from '../theme/getters'
 import { CountryFlagFrame } from './CountryFlagFrame'

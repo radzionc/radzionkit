@@ -7,8 +7,8 @@ import { Panel } from '../panel/Panel'
 import { VStack } from '../layout/Stack'
 import { Text } from '../text'
 import { getColor } from '../theme/getters'
-import { sum } from '@reactkit/utils/array/sum'
-import { toPercents } from '@reactkit/utils/toPercents'
+import { sum } from '@radzionkit/utils/array/sum'
+import { toPercents } from '@radzionkit/utils/toPercents'
 import { transition } from '../css/transition'
 
 export interface DistributionBarItem {

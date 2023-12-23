@@ -1,6 +1,6 @@
 import { render } from '@react-email/render'
 import { sendEmail } from './sendEmail'
-import { productName } from '@reactkit/entities'
+import { productName } from '@radzionkit/entities'
 import { getEnvVar } from './getEnvVar'
 import LoginLinkEmail, { LoginLinkEmailProps } from '../emails/LoginLinkEmail'
 

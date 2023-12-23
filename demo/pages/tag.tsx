@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
-import { HStack } from '@reactkit/ui/layout/Stack'
-import { Tag } from '@reactkit/ui/tags/Tag'
+import { HStack } from '@radzionkit/ui/layout/Stack'
+import { Tag } from '@radzionkit/ui/tags/Tag'
 import { useTheme } from 'styled-components'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

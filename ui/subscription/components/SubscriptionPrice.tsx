@@ -1,5 +1,5 @@
-import { SubscriptionBillingCycle } from '@reactkit/entities/Subscription'
-import { MONTHS_IN_YEAR } from '@reactkit/utils/time'
+import { SubscriptionBillingCycle } from '@radzionkit/entities/Subscription'
+import { MONTHS_IN_YEAR } from '@radzionkit/utils/time'
 import { VStack, HStack } from '../../layout/Stack'
 import {
   HStackSeparatedBy,

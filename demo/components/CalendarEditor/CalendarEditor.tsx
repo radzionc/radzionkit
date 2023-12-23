@@ -1,11 +1,11 @@
-import { Interval } from '@reactkit/utils/interval/Interval'
-import { useStartOfDay } from '@reactkit/ui/hooks/useStartOfDay'
-import { Panel } from '@reactkit/ui/panel/Panel'
-import { IntervalInput } from '@reactkit/ui/timeline/IntervalInput'
+import { Interval } from '@radzionkit/utils/interval/Interval'
+import { useStartOfDay } from '@radzionkit/ui/hooks/useStartOfDay'
+import { Panel } from '@radzionkit/ui/panel/Panel'
+import { IntervalInput } from '@radzionkit/ui/timeline/IntervalInput'
 import { useState } from 'react'
 import { useTheme } from 'styled-components'
-import { TitledSection } from '@reactkit/ui/layout/TitledSection'
-import { convertDuration } from '@reactkit/utils/time/convertDuration'
+import { TitledSection } from '@radzionkit/ui/layout/TitledSection'
+import { convertDuration } from '@radzionkit/utils/time/convertDuration'
 
 export const CalendarEditor = () => {
   const startOfDay = useStartOfDay()

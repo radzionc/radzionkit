@@ -1,5 +1,5 @@
-import { productName } from '@reactkit/entities'
-import { lightTheme } from '@reactkit/ui/theme/lightTheme'
+import { productName } from '@radzionkit/entities'
+import { lightTheme } from '@radzionkit/ui/theme/lightTheme'
 import {
   Body,
   Button,

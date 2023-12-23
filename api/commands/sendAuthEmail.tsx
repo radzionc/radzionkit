@@ -1,6 +1,6 @@
 import { generateAuthLinkToken } from '../auth/helpers/generateAuthLinkToken'
-import { sendLoginLinkEmail } from '@reactkit/email/utils/sendLogInLinkEmail'
-import { addQueryParams } from '@reactkit/utils/query/addQueryParams'
+import { sendLoginLinkEmail } from '@radzionkit/email/utils/sendLogInLinkEmail'
+import { addQueryParams } from '@radzionkit/utils/query/addQueryParams'
 import { getEnvVar } from '../getEnvVar'
 
 const sendAuthEmail = async (email: string) => {

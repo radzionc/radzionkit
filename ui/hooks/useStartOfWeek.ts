@@ -1,6 +1,6 @@
-import { useStartOfDay } from '@reactkit/ui/hooks/useStartOfDay'
+import { useStartOfDay } from '@radzionkit/ui/hooks/useStartOfDay'
 import { useWeekday } from './useWeekday'
-import { convertDuration } from '@reactkit/utils/time/convertDuration'
+import { convertDuration } from '@radzionkit/utils/time/convertDuration'
 
 export const useStartOfWeek = () => {
   const startOfDay = useStartOfDay()

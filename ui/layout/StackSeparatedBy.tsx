@@ -1,7 +1,7 @@
 import React, { Fragment, ReactNode } from 'react'
 
 import { Stack, StackProps } from './Stack'
-import { isLast } from '@reactkit/utils/array/isLast'
+import { isLast } from '@radzionkit/utils/array/isLast'
 
 export const dotSeparator = '•'
 export const slashSeparator = '/'

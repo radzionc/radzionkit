@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import { ElementSizeAware } from '@reactkit/ui/base/ElementSizeAware'
-import { SelectOption } from '@reactkit/ui/inputs/Select/SelectOption'
-import { VStack } from '@reactkit/ui/layout/Stack'
+import { ElementSizeAware } from '@radzionkit/ui/base/ElementSizeAware'
+import { SelectOption } from '@radzionkit/ui/inputs/Select/SelectOption'
+import { VStack } from '@radzionkit/ui/layout/Stack'
 import { DemoPage } from 'components/DemoPage'
 import { makeDemoPage } from 'layout/makeDemoPage'
 

@@ -1,6 +1,6 @@
 import { useState, Fragment } from 'react'
 import styled, { useTheme } from 'styled-components'
-import { TreeNode } from '@reactkit/utils/tree'
+import { TreeNode } from '@radzionkit/utils/tree'
 import { transition } from '../css/transition'
 import { verticalPadding } from '../css/verticalPadding'
 import { InputProps } from '../props'

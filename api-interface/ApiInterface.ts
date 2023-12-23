@@ -1,10 +1,10 @@
-import { OAuthProvider } from '@reactkit/entities/OAuthProvider'
-import { AuthSession } from '@reactkit/entities/AuthSession'
-import { Habit } from '@reactkit/entities/Habit'
-import { UserPerformanceRecord } from '@reactkit/entities/PerformanceScoreboard'
-import { Project } from '@reactkit/entities/Project'
-import { Subscription } from '@reactkit/entities/Subscription'
-import { Set, User } from '@reactkit/entities/User'
+import { OAuthProvider } from '@radzionkit/entities/OAuthProvider'
+import { AuthSession } from '@radzionkit/entities/AuthSession'
+import { Habit } from '@radzionkit/entities/Habit'
+import { UserPerformanceRecord } from '@radzionkit/entities/PerformanceScoreboard'
+import { Project } from '@radzionkit/entities/Project'
+import { Subscription } from '@radzionkit/entities/Subscription'
+import { Set, User } from '@radzionkit/entities/User'
 import { ApiMethod } from './ApiMethod'
 
 export interface ApiInterface {

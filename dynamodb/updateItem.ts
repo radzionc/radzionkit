@@ -1,11 +1,11 @@
 import { UpdateCommand } from '@aws-sdk/lib-dynamodb'
-import { isNullOrUndefined } from '@reactkit/utils/isNullOrUndefined'
-import { splitRecord } from '@reactkit/utils/record/splitRecord'
+import { isNullOrUndefined } from '@radzionkit/utils/isNullOrUndefined'
+import { splitRecord } from '@radzionkit/utils/record/splitRecord'
 import { getUpdateParams } from './getUpdateParams'
 import { getRemoveParams } from './getRemoveParams'
 import { dbDocClient } from './client'
-import { withoutUndefined } from '@reactkit/utils/array/withoutUndefined'
-import { match } from '@reactkit/utils/match'
+import { withoutUndefined } from '@radzionkit/utils/array/withoutUndefined'
+import { match } from '@radzionkit/utils/match'
 
 interface UpdateItemParams {
   tableName: string

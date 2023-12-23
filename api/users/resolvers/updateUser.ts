@@ -1,5 +1,5 @@
 import { assertUserId } from '../../auth/assertUserId'
-import * as usersDb from '@reactkit/db/user'
+import * as usersDb from '@radzionkit/db/user'
 import { ApiResolver } from '../../resolvers/ApiResolver'
 
 export const updateUser: ApiResolver<'updateUser'> = async ({

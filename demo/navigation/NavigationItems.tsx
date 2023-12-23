@@ -1,5 +1,5 @@
 import { NavigationToInternalPage } from 'navigation/NavigationToInternalPage'
-import { VStack } from '@reactkit/ui/layout/Stack'
+import { VStack } from '@radzionkit/ui/layout/Stack'
 import { Path } from 'navigation/Path'
 
 export const NavigationItems = () => (

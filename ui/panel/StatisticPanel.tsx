@@ -1,6 +1,6 @@
-import { VStack } from '@reactkit/ui/layout/Stack'
-import { Panel } from '@reactkit/ui/panel/Panel'
-import { Text } from '@reactkit/ui/text'
+import { VStack } from '@radzionkit/ui/layout/Stack'
+import { Panel } from '@radzionkit/ui/panel/Panel'
+import { Text } from '@radzionkit/ui/text'
 import { ReactNode } from 'react'
 
 interface StatisticPanelProps {

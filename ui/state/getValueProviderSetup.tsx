@@ -2,7 +2,7 @@ import { createContext } from 'react'
 
 import { createContextHook } from './createContextHook'
 import { ComponentWithChildrenProps } from '../props'
-import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
+import { capitalizeFirstLetter } from '@radzionkit/utils/capitalizeFirstLetter'
 
 export function getValueProviderSetup<T>(name: string) {
   const ValueContext = createContext<T | undefined>(undefined)

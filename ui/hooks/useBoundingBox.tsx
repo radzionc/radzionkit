@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useIsomorphicLayoutEffect } from 'react-use'
-import { areEqualRecords } from '@reactkit/utils/record/areEqualRecords'
-import { pick } from '@reactkit/utils/record/pick'
+import { areEqualRecords } from '@radzionkit/utils/record/areEqualRecords'
+import { pick } from '@radzionkit/utils/record/pick'
 
 export type BoundingBox = Omit<DOMRect, 'toJSON'>
 

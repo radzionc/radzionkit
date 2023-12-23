@@ -19,14 +19,14 @@ Then run the following commands:
 app/utils/callApi.ts
 
 ```ts
-import { ApiError } from '@reactkit/api-interface/ApiError'
+import { ApiError } from '@radzionkit/api-interface/ApiError'
 import {
   ApiMethodName,
   ApiInterface,
-} from '@reactkit/api-interface/ApiInterface'
-import { asyncFallbackChain } from '@reactkit/utils/promise/asyncFallbackChain'
-import { joinPaths } from '@reactkit/utils/query/joinPaths'
-import { safeResolve } from '@reactkit/utils/promise/safeResolve'
+} from '@radzionkit/api-interface/ApiInterface'
+import { asyncFallbackChain } from '@radzionkit/utils/promise/asyncFallbackChain'
+import { joinPaths } from '@radzionkit/utils/query/joinPaths'
+import { safeResolve } from '@radzionkit/utils/promise/safeResolve'
 
 interface CallApiParams<M extends ApiMethodName> {
   baseUrl: string
@@ -85,12 +85,12 @@ app/api/hooks/useApi.ts
 import {
   ApiInterface,
   ApiMethodName,
-} from '@reactkit/api-interface/ApiInterface'
+} from '@radzionkit/api-interface/ApiInterface'
 import { useCallback } from 'react'
 import { callApi } from '../utils/callApi'
-import { shouldBeDefined } from '@reactkit/utils/shouldBeDefined'
+import { shouldBeDefined } from '@radzionkit/utils/shouldBeDefined'
 import { useAuthSession } from 'auth/hooks/useAuthSession'
-import { ApiError } from '@reactkit/api-interface/ApiError'
+import { ApiError } from '@radzionkit/api-interface/ApiError'
 
 const baseUrl = shouldBeDefined(process.env.NEXT_PUBLIC_API_URL)
 
@@ -129,13 +129,13 @@ export const useApi = () => {
 app/api/hooks/useApiQuery.ts
 
 ```ts
-import { withoutUndefined } from '@reactkit/utils/array/withoutUndefined'
+import { withoutUndefined } from '@radzionkit/utils/array/withoutUndefined'
 import { useQuery } from 'react-query'
 import { useApi } from './useApi'
 import {
   ApiInterface,
   ApiMethodName,
-} from '@reactkit/api-interface/ApiInterface'
+} from '@radzionkit/api-interface/ApiInterface'
 
 export const getApiQueryKey = <M extends ApiMethodName>(
   method: M,
@@ -158,7 +158,7 @@ app/api/hooks/useApiMutation.ts
 import {
   ApiInterface,
   ApiMethodName,
-} from '@reactkit/api-interface/ApiInterface'
+} from '@radzionkit/api-interface/ApiInterface'
 import { useMutation } from 'react-query'
 import { useApi } from './useApi'
 

@@ -1,8 +1,8 @@
 import { IncomingHttpHeaders } from 'http'
 import { ApiResolverContext } from '../ApiResolverContext'
-import { CountryCode } from '@reactkit/utils/countries'
+import { CountryCode } from '@radzionkit/utils/countries'
 import { userIdFromToken } from '../../auth/userIdFromToken'
-import { safeResolve } from '@reactkit/utils/promise/safeResolve'
+import { safeResolve } from '@radzionkit/utils/promise/safeResolve'
 import { extractHeaderValue } from '../../utils/extractHeaderValue'
 
 interface GetResolverContextParams {

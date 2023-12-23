@@ -1,5 +1,5 @@
 import { assertUserId } from '../../auth/assertUserId'
-import { getUser } from '@reactkit/db/user'
+import { getUser } from '@radzionkit/db/user'
 import { ApiResolver } from '../../resolvers/ApiResolver'
 
 export const user: ApiResolver<'user'> = async ({ context }) => {

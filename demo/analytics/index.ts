@@ -1,7 +1,7 @@
 import { isProduction } from 'shared'
-import { shouldBeDefined } from '@reactkit/utils/assert/shouldBeDefined'
-import { AmplitudeAnalytics } from '@reactkit/ui/analytics/AmplitudeAnalytics'
-import { LocalAnalytics } from '@reactkit/ui/analytics/LocalAnalytics'
+import { shouldBeDefined } from '@radzionkit/utils/assert/shouldBeDefined'
+import { AmplitudeAnalytics } from '@radzionkit/ui/analytics/AmplitudeAnalytics'
+import { LocalAnalytics } from '@radzionkit/ui/analytics/LocalAnalytics'
 
 export const analytics = isProduction
   ? new AmplitudeAnalytics(

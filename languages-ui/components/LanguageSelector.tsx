@@ -1,17 +1,17 @@
-import { Menu } from '@reactkit/ui/Menu'
+import { Menu } from '@radzionkit/ui/Menu'
 import { useLanguage } from './LanguageProvider'
 import styled from 'styled-components'
-import { IconWrapper } from '@reactkit/ui/icons/IconWrapper'
-import { HStack } from '@reactkit/ui/layout/Stack'
-import { MenuOptionProps, MenuOption } from '@reactkit/ui/menu/MenuOption'
+import { IconWrapper } from '@radzionkit/ui/icons/IconWrapper'
+import { HStack } from '@radzionkit/ui/layout/Stack'
+import { MenuOptionProps, MenuOption } from '@radzionkit/ui/menu/MenuOption'
 import {
   languageNativeName,
   languagePrimaryCountry,
   languages,
-} from '@reactkit/languages/Language'
-import CountryFlag from '@reactkit/ui/countries/flags/CountryFlag'
-import { Text } from '@reactkit/ui/text'
-import { Button } from '@reactkit/ui/buttons/Button'
+} from '@radzionkit/languages/Language'
+import CountryFlag from '@radzionkit/ui/countries/flags/CountryFlag'
+import { Text } from '@radzionkit/ui/text'
+import { Button } from '@radzionkit/ui/buttons/Button'
 
 const FlagWrapper = styled(IconWrapper)`
   border-radius: 2px;

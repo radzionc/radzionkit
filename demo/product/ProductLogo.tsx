@@ -1,9 +1,9 @@
-import { Text } from '@reactkit/ui/text'
+import { Text } from '@radzionkit/ui/text'
 import { ProductIcon } from './ProductIcon'
-import { HStack } from '@reactkit/ui/layout/Stack'
+import { HStack } from '@radzionkit/ui/layout/Stack'
 import styled from 'styled-components'
-import { getColor } from '@reactkit/ui/theme/getters'
-import { centerContent } from '@reactkit/ui/css/centerContent'
+import { getColor } from '@radzionkit/ui/theme/getters'
+import { centerContent } from '@radzionkit/ui/css/centerContent'
 
 const IconWrapper = styled.div`
   color: ${getColor('contrast')};

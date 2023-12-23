@@ -1,9 +1,9 @@
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
-import { TabNavigation } from '@reactkit/ui/navigation/TabNavigation'
-import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
-import { VStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/text'
+import { TabNavigation } from '@radzionkit/ui/navigation/TabNavigation'
+import { capitalizeFirstLetter } from '@radzionkit/utils/capitalizeFirstLetter'
+import { VStack } from '@radzionkit/ui/layout/Stack'
+import { Text } from '@radzionkit/ui/text'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 const views = [

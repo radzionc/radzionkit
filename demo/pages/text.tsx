@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
-import { VStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/text'
+import { VStack } from '@radzionkit/ui/layout/Stack'
+import { Text } from '@radzionkit/ui/text'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

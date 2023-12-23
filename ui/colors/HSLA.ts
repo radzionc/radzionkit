@@ -1,5 +1,5 @@
-import { degreesInCircle } from '@reactkit/utils/degreesToRadians'
-import { enforceRange } from '@reactkit/utils/enforceRange'
+import { degreesInCircle } from '@radzionkit/utils/degreesToRadians'
+import { enforceRange } from '@radzionkit/utils/enforceRange'
 
 export const hslaKeys = ['h', 's', 'l', 'a'] as const
 

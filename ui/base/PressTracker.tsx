@@ -11,7 +11,7 @@ import {
 import { useEvent } from 'react-use'
 import { Point } from '../entities/Point'
 import { useBoundingBox } from '../hooks/useBoundingBox'
-import { enforceRange } from '@reactkit/utils/enforceRange'
+import { enforceRange } from '@radzionkit/utils/enforceRange'
 
 interface ContainerProps {
   onMouseDown: MouseEventHandler<HTMLElement>

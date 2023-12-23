@@ -1,9 +1,9 @@
-import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
+import { capitalizeFirstLetter } from '@radzionkit/utils/capitalizeFirstLetter'
 import { AuthenticationResult } from './AuthenticationResult'
 import { getOAuthAccessToken } from './getOAuthAccessToken'
 import { getOAuthUserInfo } from './getOAuthUserInfo'
-import { OAuthProvider } from '@reactkit/entities/OAuthProvider'
-import { ApiError } from '@reactkit/api-interface/ApiError'
+import { OAuthProvider } from '@radzionkit/entities/OAuthProvider'
+import { ApiError } from '@radzionkit/api-interface/ApiError'
 
 interface AuthenticateWithOAuthParams {
   provider: OAuthProvider

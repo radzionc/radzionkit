@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { Center } from '@reactkit/ui/layout/Center'
-import { Text } from '@reactkit/ui/text'
+import { Center } from '@radzionkit/ui/layout/Center'
+import { Text } from '@radzionkit/ui/text'
 import { DemoPage } from 'components/DemoPage'
-import { Panel } from '@reactkit/ui/panel/Panel'
+import { Panel } from '@radzionkit/ui/panel/Panel'
 import { makeDemoPage } from 'layout/makeDemoPage'
-import { takeWholeSpace } from '@reactkit/ui/css/takeWholeSpace'
-import { ElementSizeAware } from '@reactkit/ui/base/ElementSizeAware'
+import { takeWholeSpace } from '@radzionkit/ui/css/takeWholeSpace'
+import { ElementSizeAware } from '@radzionkit/ui/base/ElementSizeAware'
 
 const Container = styled(Panel)`
   ${takeWholeSpace}

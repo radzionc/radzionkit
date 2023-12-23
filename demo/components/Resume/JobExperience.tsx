@@ -2,9 +2,9 @@ import { formatDistance } from 'date-fns'
 import {
   StackSeparatedBy,
   dotSeparator,
-} from '@reactkit/ui/layout/StackSeparatedBy'
-import { HStack, VStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/text'
+} from '@radzionkit/ui/layout/StackSeparatedBy'
+import { HStack, VStack } from '@radzionkit/ui/layout/Stack'
+import { Text } from '@radzionkit/ui/text'
 import { Responsibilities } from './Responsibilities'
 
 interface Props {

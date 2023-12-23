@@ -1,10 +1,10 @@
-import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { Modal } from '@reactkit/ui/modal'
-import { Opener } from '@reactkit/ui/base/Opener'
-import { HStack, VStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/text'
+import { ExternalLink } from '@radzionkit/ui/navigation/Link/ExternalLink'
+import { Modal } from '@radzionkit/ui/modal'
+import { Opener } from '@radzionkit/ui/base/Opener'
+import { HStack, VStack } from '@radzionkit/ui/layout/Stack'
+import { Text } from '@radzionkit/ui/text'
 import { DemoPage } from 'components/DemoPage'
-import { Button } from '@reactkit/ui/buttons/Button'
+import { Button } from '@radzionkit/ui/buttons/Button'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

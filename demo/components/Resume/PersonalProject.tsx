@@ -1,11 +1,11 @@
-import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { HStack, VStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/text'
+import { ExternalLink } from '@radzionkit/ui/navigation/Link/ExternalLink'
+import { HStack, VStack } from '@radzionkit/ui/layout/Stack'
+import { Text } from '@radzionkit/ui/text'
 import styled from 'styled-components'
 import { Responsibilities } from './Responsibilities'
-import { getColor } from '@reactkit/ui/theme/getters'
-import { round } from '@reactkit/ui/css/round'
-import { transition } from '@reactkit/ui/css/transition'
+import { getColor } from '@radzionkit/ui/theme/getters'
+import { round } from '@radzionkit/ui/css/round'
+import { transition } from '@radzionkit/ui/css/transition'
 
 interface Props {
   name: string

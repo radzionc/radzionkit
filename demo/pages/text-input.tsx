@@ -1,15 +1,15 @@
-import { TextInput } from '@reactkit/ui/inputs/TextInput'
+import { TextInput } from '@radzionkit/ui/inputs/TextInput'
 import { Controller, useForm } from 'react-hook-form'
-import { TextArea } from '@reactkit/ui/inputs/TextArea'
+import { TextArea } from '@radzionkit/ui/inputs/TextArea'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { DemoPage } from 'components/DemoPage'
-import { Panel } from '@reactkit/ui/panel/Panel'
-import { TitledSection } from '@reactkit/ui/layout/TitledSection'
-import { AmountTextInput } from '@reactkit/ui/inputs/AmountTextInput'
-import { DollarIcon } from '@reactkit/ui/icons/DollarIcon'
-import { Button } from '@reactkit/ui/buttons/Button'
-import { Form } from '@reactkit/ui/form/components/Form'
+import { Panel } from '@radzionkit/ui/panel/Panel'
+import { TitledSection } from '@radzionkit/ui/layout/TitledSection'
+import { AmountTextInput } from '@radzionkit/ui/inputs/AmountTextInput'
+import { DollarIcon } from '@radzionkit/ui/icons/DollarIcon'
+import { Button } from '@radzionkit/ui/buttons/Button'
+import { Form } from '@radzionkit/ui/form/components/Form'
 
 interface FormShape {
   name: string

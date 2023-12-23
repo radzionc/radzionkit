@@ -1,9 +1,9 @@
-import { range } from '@reactkit/utils/array/range'
-import { UniformColumnGrid } from '@reactkit/ui/layout/UniformColumnGrid'
-import { Line } from '@reactkit/ui/layout/Line'
+import { range } from '@radzionkit/utils/array/range'
+import { UniformColumnGrid } from '@radzionkit/ui/layout/UniformColumnGrid'
+import { Line } from '@radzionkit/ui/layout/Line'
 import { useTheme } from 'styled-components'
 import { ColorItem } from './ColorItem'
-import { labelColorsCount } from '@reactkit/ui/colors/generateLabelColorGetter'
+import { labelColorsCount } from '@radzionkit/ui/colors/generateLabelColorGetter'
 
 export const ColorList = () => {
   const {

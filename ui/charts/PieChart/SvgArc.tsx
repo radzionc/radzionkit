@@ -1,4 +1,4 @@
-import { degreesToRadians } from '@reactkit/utils/degreesToRadians'
+import { degreesToRadians } from '@radzionkit/utils/degreesToRadians'
 import { HSLA } from '../../colors/HSLA'
 
 interface Props {

@@ -1,10 +1,10 @@
-import { CountryCode, countryCodes } from '@reactkit/utils/countries'
+import { CountryCode, countryCodes } from '@radzionkit/utils/countries'
 import fs from 'fs'
 import path from 'path'
-import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
-import { createTsFile } from '@reactkit/codegen/utils/createTsFile'
+import { capitalizeFirstLetter } from '@radzionkit/utils/capitalizeFirstLetter'
+import { createTsFile } from '@radzionkit/codegen/utils/createTsFile'
 import { svgToReact } from '../../codegen/svgToReact'
-import { makeRecord } from '@reactkit/utils/record/makeRecord'
+import { makeRecord } from '@radzionkit/utils/record/makeRecord'
 
 const getSvgFlagPath = (code: CountryCode) =>
   path.resolve(__dirname, './flags', `${code.toLowerCase()}.svg`)
@@ -19,7 +19,7 @@ const generateFlags = async () => {
     fs.readFileSync(getSvgFlagPath(code), 'utf8'),
   )
 
-  const generatedBy = '@reactkit/ui/country/codegen/generateFlags.ts'
+  const generatedBy = '@radzionkit/ui/country/codegen/generateFlags.ts'
 
   await Promise.all(
     countryCodes.map(async (code) => {
@@ -46,8 +46,8 @@ const generateFlags = async () => {
 
   const content = [
     `import React, { ComponentType, Suspense } from 'react';`,
-    `import { CountryCode } from '@reactkit/utils/countries';`,
-    `import { SvgIconProps } from '@reactkit/ui/icons/SvgIconProps';`,
+    `import { CountryCode } from '@radzionkit/utils/countries';`,
+    `import { SvgIconProps } from '@radzionkit/ui/icons/SvgIconProps';`,
     `import { CountryFlagFallback } from '../CountryFlagFallback';`,
     `const countryFlagRecord: Record<CountryCode, ComponentType<SvgIconProps>> = {
       ${Object.entries(countryFlagComponentRecord)

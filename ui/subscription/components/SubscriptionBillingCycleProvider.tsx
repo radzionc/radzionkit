@@ -1,4 +1,4 @@
-import { SubscriptionBillingCycle } from '@reactkit/entities/Subscription'
+import { SubscriptionBillingCycle } from '@radzionkit/entities/Subscription'
 import { createContext, useContext, useState } from 'react'
 import { ComponentWithChildrenProps } from '../../props'
 

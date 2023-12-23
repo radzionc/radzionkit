@@ -1,8 +1,8 @@
-import { HStack } from '@reactkit/ui/layout/Stack'
+import { HStack } from '@radzionkit/ui/layout/Stack'
 import { ProductLogo } from 'product/ProductLogo'
 import styled from 'styled-components'
 import { PrimaryActions } from './PrimaryActions'
-import { verticalPadding } from '@reactkit/ui/css/verticalPadding'
+import { verticalPadding } from '@radzionkit/ui/css/verticalPadding'
 
 const Container = styled.div`
   ${verticalPadding(20)};

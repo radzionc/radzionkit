@@ -1,17 +1,17 @@
-import { User } from '@reactkit/entities/User'
+import { User } from '@radzionkit/entities/User'
 import { DeleteCommand, PutCommand, ScanCommand } from '@aws-sdk/lib-dynamodb'
 import { DescribeTableCommand } from '@aws-sdk/client-dynamodb'
 import {
   getAttributeNameKey,
   getAttributeParams,
   getAttributeValueKey,
-} from '@reactkit/dynamodb/attributes'
-import { getPickParams } from '@reactkit/dynamodb/getPickParams'
-import { dbDocClient } from '@reactkit/dynamodb/client'
-import { updateItem } from '@reactkit/dynamodb/updateItem'
-import { makeGetItem } from '@reactkit/dynamodb/makeGetItem'
+} from '@radzionkit/dynamodb/attributes'
+import { getPickParams } from '@radzionkit/dynamodb/getPickParams'
+import { dbDocClient } from '@radzionkit/dynamodb/client'
+import { updateItem } from '@radzionkit/dynamodb/updateItem'
+import { makeGetItem } from '@radzionkit/dynamodb/makeGetItem'
 import { getTableName } from './getTableName'
-import { shouldBeDefined } from '@reactkit/utils/assert/shouldBeDefined'
+import { shouldBeDefined } from '@radzionkit/utils/assert/shouldBeDefined'
 
 export const getUserItemParams = (id: string) => ({
   TableName: getTableName('users'),

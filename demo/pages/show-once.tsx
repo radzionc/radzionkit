@@ -2,7 +2,7 @@ import { DemoPage } from 'components/DemoPage'
 import { ShowOnce } from 'state/ShowOnce'
 import { PersistentStateKey } from 'state/persistentState'
 import { makeDemoPage } from 'layout/makeDemoPage'
-import { ClientOnly } from '@reactkit/ui/base/ClientOnly'
+import { ClientOnly } from '@radzionkit/ui/base/ClientOnly'
 
 export default makeDemoPage(() => {
   return (

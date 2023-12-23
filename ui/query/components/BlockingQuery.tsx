@@ -1,4 +1,4 @@
-import { supportEmail } from '@reactkit/entities'
+import { supportEmail } from '@radzionkit/entities'
 import { CopyText } from '../../text/CopyText'
 import { Spinner } from '../../loaders/Spinner'
 import { VStack } from '../../layout/Stack'

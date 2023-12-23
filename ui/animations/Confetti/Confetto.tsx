@@ -1,8 +1,8 @@
 import { SpringValue, animated, to } from '@react-spring/web'
 
 import styled from 'styled-components'
-import { getRandomElement } from '@reactkit/utils/array/getRandomElement'
-import { randomInRange } from '@reactkit/utils/randomInRange'
+import { getRandomElement } from '@radzionkit/utils/array/getRandomElement'
+import { randomInRange } from '@radzionkit/utils/randomInRange'
 import { sameDimensions } from '../../css/sameDimensions'
 import { Point } from '../../entities/Point'
 import { HSLA } from '../../colors/HSLA'

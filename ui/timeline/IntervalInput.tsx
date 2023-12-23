@@ -11,16 +11,16 @@ import styled, { css } from 'styled-components'
 import { HSLA } from '../colors/HSLA'
 
 import { IntervalRect } from './IntervalRect'
-import { enforceRange } from '@reactkit/utils/enforceRange'
-import { getIntervalDuration } from '@reactkit/utils/interval/getIntervalDuration'
-import { MS_IN_HOUR, MS_IN_MIN } from '@reactkit/utils/time'
+import { enforceRange } from '@radzionkit/utils/enforceRange'
+import { getIntervalDuration } from '@radzionkit/utils/interval/getIntervalDuration'
+import { MS_IN_HOUR, MS_IN_MIN } from '@radzionkit/utils/time'
 import { MoveIcon } from '../icons/MoveIcon'
 import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
 import { TimeSpace } from './TimeSpace'
 import { centerContent } from '../css/centerContent'
 import { Text } from '../text'
-import { Interval } from '@reactkit/utils/interval/Interval'
-import { formatDuration } from '@reactkit/utils/time/formatDuration'
+import { Interval } from '@radzionkit/utils/interval/Interval'
+import { formatDuration } from '@radzionkit/utils/time/formatDuration'
 
 interface RenderContentParams {
   msToPx: (ms: number) => number

@@ -1,7 +1,7 @@
 import { FieldError } from 'react-hook-form'
 import { toFieldError } from './toFieldError'
 import { Validators } from './Validators'
-import { getErrorMessage } from '@reactkit/utils/getErrorMessage'
+import { getErrorMessage } from '@radzionkit/utils/getErrorMessage'
 
 export const validate = <T>(
   values: T,

@@ -1,5 +1,5 @@
-import { ApiError } from '@reactkit/api-interface/ApiError'
-import { safeResolve } from '@reactkit/utils/promise/safeResolve'
+import { ApiError } from '@radzionkit/api-interface/ApiError'
+import { safeResolve } from '@radzionkit/utils/promise/safeResolve'
 
 export const queryOAuthProvider = async <T>(
   action: string,

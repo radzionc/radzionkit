@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { MIN_IN_HOUR } from '@reactkit/utils/time'
+import { MIN_IN_HOUR } from '@radzionkit/utils/time'
 import { useForm } from 'react-hook-form'
 
 import * as yup from 'yup'

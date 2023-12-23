@@ -6,7 +6,7 @@ const nextConfig = {
     styledComponents: true,
   },
   output: 'export',
-  transpilePackages: ['@reactkit/ui'],
+  transpilePackages: ['@radzionkit/ui'],
 }
 
 // eslint-disable-next-line no-undef

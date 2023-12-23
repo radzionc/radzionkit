@@ -1,8 +1,8 @@
-import { transition } from '@reactkit/ui/css/transition'
-import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { HStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/text'
-import { getColor } from '@reactkit/ui/theme/getters'
+import { transition } from '@radzionkit/ui/css/transition'
+import { ExternalLink } from '@radzionkit/ui/navigation/Link/ExternalLink'
+import { HStack } from '@radzionkit/ui/layout/Stack'
+import { Text } from '@radzionkit/ui/text'
+import { getColor } from '@radzionkit/ui/theme/getters'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 

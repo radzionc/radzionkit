@@ -1,6 +1,6 @@
-import { addQueryParams } from '@reactkit/utils/query/addQueryParams'
+import { addQueryParams } from '@radzionkit/utils/query/addQueryParams'
 import { generateAuthLinkToken } from '../helpers/generateAuthLinkToken'
-import { sendLoginLinkEmail } from '@reactkit/email/utils/sendLogInLinkEmail'
+import { sendLoginLinkEmail } from '@radzionkit/email/utils/sendLogInLinkEmail'
 import { ApiResolver } from '../../resolvers/ApiResolver'
 import { getEnvVar } from '../../getEnvVar'
 

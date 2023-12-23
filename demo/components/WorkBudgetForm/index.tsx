@@ -1,13 +1,13 @@
-import { formatDuration } from '@reactkit/utils/time/formatDuration'
-import { DistributionBar } from '@reactkit/ui/charts/DistributionBar'
-import { AmountInput } from '@reactkit/ui/inputs/Slider/AmountInput'
-import { Panel } from '@reactkit/ui/panel/Panel'
-import { VStack } from '@reactkit/ui/layout/Stack'
+import { formatDuration } from '@radzionkit/utils/time/formatDuration'
+import { DistributionBar } from '@radzionkit/ui/charts/DistributionBar'
+import { AmountInput } from '@radzionkit/ui/inputs/Slider/AmountInput'
+import { Panel } from '@radzionkit/ui/panel/Panel'
+import { VStack } from '@radzionkit/ui/layout/Stack'
 import { Controller, useWatch } from 'react-hook-form'
 import { useTheme } from 'styled-components'
 import { useWorkBudgetForm } from './useWorkBudgetForm'
-import { MIN_IN_HOUR } from '@reactkit/utils/time'
-import { TitledSection } from '@reactkit/ui/layout/TitledSection'
+import { MIN_IN_HOUR } from '@radzionkit/utils/time'
+import { TitledSection } from '@radzionkit/ui/layout/TitledSection'
 
 const minuteStep = 30
 

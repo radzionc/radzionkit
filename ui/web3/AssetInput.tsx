@@ -1,6 +1,6 @@
 import { InputProps } from '../props'
 import styled from 'styled-components'
-import { Asset } from '@reactkit/entities/Asset'
+import { Asset } from '@radzionkit/entities/Asset'
 import { round } from '../css/round'
 import { sameDimensions } from '../css/sameDimensions'
 import { getColor } from '../theme/getters'

@@ -1,8 +1,8 @@
-import { GitHubIcon } from '@reactkit/ui/icons/GitHubIcon'
-import { MailIcon } from '@reactkit/ui/icons/MailIcon'
-import { TelegramIcon } from '@reactkit/ui/icons/TelegramIcon'
-import { TwitterIcon } from '@reactkit/ui/icons/TwitterIcon'
-import { HStack } from '@reactkit/ui/layout/Stack'
+import { GitHubIcon } from '@radzionkit/ui/icons/GitHubIcon'
+import { MailIcon } from '@radzionkit/ui/icons/MailIcon'
+import { TelegramIcon } from '@radzionkit/ui/icons/TelegramIcon'
+import { TwitterIcon } from '@radzionkit/ui/icons/TwitterIcon'
+import { HStack } from '@radzionkit/ui/layout/Stack'
 import { ResumeFooterLink } from './ResumeFooterLink'
 
 const email = 'radzionc@gmail.com'

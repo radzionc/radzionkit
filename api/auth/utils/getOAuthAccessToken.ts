@@ -1,8 +1,8 @@
-import { match } from '@reactkit/utils/match'
-import { addQueryParams } from '@reactkit/utils/query/addQueryParams'
+import { match } from '@radzionkit/utils/match'
+import { addQueryParams } from '@radzionkit/utils/query/addQueryParams'
 import { queryOAuthProvider } from './queryOAuthProvider'
 import { getSecret } from '../../utils/getSecret'
-import { OAuthProvider } from '@reactkit/entities/OAuthProvider'
+import { OAuthProvider } from '@radzionkit/entities/OAuthProvider'
 import { getEnvVar } from '../../getEnvVar'
 
 interface GetOAuthAccessTokenParams {

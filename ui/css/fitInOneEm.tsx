@@ -1,4 +1,4 @@
-import { aspectRatioToDimensions } from '@reactkit/utils/normalizeToMaxDimension'
+import { aspectRatioToDimensions } from '@radzionkit/utils/normalizeToMaxDimension'
 import { css } from 'styled-components'
 
 export const fitInOneEm = (aspectRatio: number) => () => {

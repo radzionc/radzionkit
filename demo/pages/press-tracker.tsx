@@ -1,10 +1,10 @@
 import { DemoPage } from 'components/DemoPage'
 import styled from 'styled-components'
-import { Panel } from '@reactkit/ui/panel/Panel'
-import { sameDimensions } from '@reactkit/ui/css/sameDimensions'
-import { PressTracker } from '@reactkit/ui/base/PressTracker'
-import { getColor } from '@reactkit/ui/theme/getters'
-import { toPercents } from '@reactkit/utils/toPercents'
+import { Panel } from '@radzionkit/ui/panel/Panel'
+import { sameDimensions } from '@radzionkit/ui/css/sameDimensions'
+import { PressTracker } from '@radzionkit/ui/base/PressTracker'
+import { getColor } from '@radzionkit/ui/theme/getters'
+import { toPercents } from '@radzionkit/utils/toPercents'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 const Container = styled(Panel)`

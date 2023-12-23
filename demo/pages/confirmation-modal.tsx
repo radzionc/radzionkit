@@ -1,11 +1,11 @@
 import { DemoPage } from 'components/DemoPage'
-import { ConfirmationModal } from '@reactkit/ui/modal/ConfirmationModal'
-import { Opener } from '@reactkit/ui/base/Opener'
-import { VStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/text'
-import { ShyTextButton } from '@reactkit/ui/buttons/ShyTextButton'
-import { IconButton } from '@reactkit/ui/buttons/IconButton'
-import { TrashBinIcon } from '@reactkit/ui/icons/TrashBinIcon'
+import { ConfirmationModal } from '@radzionkit/ui/modal/ConfirmationModal'
+import { Opener } from '@radzionkit/ui/base/Opener'
+import { VStack } from '@radzionkit/ui/layout/Stack'
+import { Text } from '@radzionkit/ui/text'
+import { ShyTextButton } from '@radzionkit/ui/buttons/ShyTextButton'
+import { IconButton } from '@radzionkit/ui/buttons/IconButton'
+import { TrashBinIcon } from '@radzionkit/ui/icons/TrashBinIcon'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

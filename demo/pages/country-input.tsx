@@ -1,8 +1,8 @@
-import { CountryCode } from '@reactkit/utils/countries'
+import { CountryCode } from '@radzionkit/utils/countries'
 import { DemoPage } from 'components/DemoPage'
 import { makeDemoPage } from 'layout/makeDemoPage'
 import { useState } from 'react'
-import { CountryInput } from '@reactkit/ui/inputs/CountryInput'
+import { CountryInput } from '@radzionkit/ui/inputs/CountryInput'
 import styled from 'styled-components'
 
 const Container = styled.div`

@@ -1,4 +1,4 @@
-import { getUserByEmail } from '@reactkit/db/user'
+import { getUserByEmail } from '@radzionkit/db/user'
 
 const command = async (email: string) => {
   const user = await getUserByEmail(email, ['id'])

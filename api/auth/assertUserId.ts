@@ -1,4 +1,4 @@
-import { ApiError } from '@reactkit/api-interface/ApiError'
+import { ApiError } from '@radzionkit/api-interface/ApiError'
 import { ApiResolverContext } from '../resolvers/ApiResolverContext'
 
 export const assertUserId = ({ userId }: ApiResolverContext) => {

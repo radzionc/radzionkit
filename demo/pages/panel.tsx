@@ -1,9 +1,9 @@
-import { VStack } from '@reactkit/ui/layout/Stack'
+import { VStack } from '@radzionkit/ui/layout/Stack'
 import { DemoPage } from 'components/DemoPage'
-import { ExpandablePanel } from '@reactkit/ui/panel/ExpandablePanel'
-import { Text } from '@reactkit/ui/text'
-import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { Button } from '@reactkit/ui/buttons/Button'
+import { ExpandablePanel } from '@radzionkit/ui/panel/ExpandablePanel'
+import { Text } from '@radzionkit/ui/text'
+import { ExternalLink } from '@radzionkit/ui/navigation/Link/ExternalLink'
+import { Button } from '@radzionkit/ui/buttons/Button'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

@@ -1,4 +1,4 @@
-import { match } from '@reactkit/utils/match'
+import { match } from '@radzionkit/utils/match'
 import { getEnvVar } from './getEnvVar'
 
 type TableName = 'users'

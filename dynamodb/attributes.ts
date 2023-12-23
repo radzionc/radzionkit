@@ -1,4 +1,4 @@
-import { arraysToRecord } from '@reactkit/utils/array/arraysToRecord'
+import { arraysToRecord } from '@radzionkit/utils/array/arraysToRecord'
 
 export const getAttributeNameKey = (key: string) => `#${key.replace('.', '_')}`
 export const getAttributeValueKey = (key: string) => `:${key}`

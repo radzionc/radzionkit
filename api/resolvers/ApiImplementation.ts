@@ -1,4 +1,4 @@
-import { ApiInterface } from '@reactkit/api-interface/ApiInterface'
+import { ApiInterface } from '@radzionkit/api-interface/ApiInterface'
 import { ApiResolver } from './ApiResolver'
 
 export type ApiImplementation = {

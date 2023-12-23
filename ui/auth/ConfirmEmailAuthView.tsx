@@ -3,7 +3,7 @@ import { Text } from '../text'
 import { useState } from 'react'
 import { AuthView } from './AuthView'
 import { useHandleQueryParams } from '../navigation/hooks/useHandleQueryParams'
-import { suggestInboxLink } from '@reactkit/utils/suggestInboxLink'
+import { suggestInboxLink } from '@radzionkit/utils/suggestInboxLink'
 import { ExternalLink } from '../navigation/Link/ExternalLink'
 import { Button } from '../buttons/Button'
 

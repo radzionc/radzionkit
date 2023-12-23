@@ -1,10 +1,10 @@
 import { useTheme } from 'styled-components'
 import { InputProps } from '../../props'
-import { toPercents } from '@reactkit/utils/toPercents'
+import { toPercents } from '@radzionkit/utils/toPercents'
 import { HStack } from '../../layout/Stack'
 import { Switch } from '../../inputs/Switch/Switch'
 import { Tag } from '../../tags/Tag'
-import { SubscriptionBillingCycle } from '@reactkit/entities/Subscription'
+import { SubscriptionBillingCycle } from '@radzionkit/entities/Subscription'
 
 interface SubscriptionBillingCycleInputProps
   extends InputProps<SubscriptionBillingCycle> {

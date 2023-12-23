@@ -1,10 +1,10 @@
-import { useStartOfDay } from '@reactkit/ui/hooks/useStartOfDay'
-import { Panel } from '@reactkit/ui/panel/Panel'
-import { TimeInput } from '@reactkit/ui/timeline/TimeInput'
+import { useStartOfDay } from '@radzionkit/ui/hooks/useStartOfDay'
+import { Panel } from '@radzionkit/ui/panel/Panel'
+import { TimeInput } from '@radzionkit/ui/timeline/TimeInput'
 import { useState } from 'react'
 import { useTheme } from 'styled-components'
-import { TitledSection } from '@reactkit/ui/layout/TitledSection'
-import { convertDuration } from '@reactkit/utils/time/convertDuration'
+import { TitledSection } from '@radzionkit/ui/layout/TitledSection'
+import { convertDuration } from '@radzionkit/utils/time/convertDuration'
 
 export const TimeEditor = () => {
   const startOfDay = useStartOfDay()

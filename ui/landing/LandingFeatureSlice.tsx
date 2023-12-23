@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 
 import { LandingSlice } from './LandingSlice'
-import { reverseIf } from '@reactkit/utils/array/reverseIf'
+import { reverseIf } from '@radzionkit/utils/array/reverseIf'
 import { IntersectionAware } from '../base/IntersectionAware'
 import { VStack } from '../layout/Stack'
 import { Text } from '../text'

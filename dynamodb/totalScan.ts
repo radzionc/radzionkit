@@ -3,7 +3,7 @@ import {
   ScanCommand,
   ScanCommandInput,
 } from '@aws-sdk/lib-dynamodb'
-import { fetchAll } from '@reactkit/utils/fetchAll'
+import { fetchAll } from '@radzionkit/utils/fetchAll'
 
 export const totalScan = <T>(
   client: DynamoDBDocumentClient,

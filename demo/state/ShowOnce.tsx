@@ -1,4 +1,4 @@
-import { ComponentWithChildrenProps } from '@reactkit/ui/props'
+import { ComponentWithChildrenProps } from '@radzionkit/ui/props'
 import { useEffect } from 'react'
 import { PersistentStateKey, usePersistentState } from './persistentState'
 

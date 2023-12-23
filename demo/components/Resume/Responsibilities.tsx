@@ -1,6 +1,6 @@
-import { dotSeparator } from '@reactkit/ui/layout/StackSeparatedBy'
-import { HStack, VStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/text'
+import { dotSeparator } from '@radzionkit/ui/layout/StackSeparatedBy'
+import { HStack, VStack } from '@radzionkit/ui/layout/Stack'
+import { Text } from '@radzionkit/ui/text'
 
 interface Props {
   items: string[]

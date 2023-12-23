@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import { ReactNode, useEffect, useState } from 'react'
-import { GlobalStyle } from '@reactkit/ui/css/GlobalStyle'
+import { GlobalStyle } from '@radzionkit/ui/css/GlobalStyle'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Inter } from 'next/font/google'
 import { analytics } from 'analytics'

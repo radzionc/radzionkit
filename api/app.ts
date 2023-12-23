@@ -1,13 +1,13 @@
 import express, { Router } from 'express'
 import cors from 'cors'
 import { implementation } from './resolvers'
-import { getErrorMessage } from '@reactkit/utils/getErrorMessage'
+import { getErrorMessage } from '@radzionkit/utils/getErrorMessage'
 import { ApiResolverParams } from './resolvers/ApiResolver'
 import { getResolverContext } from './resolvers/utils/getResolverContext'
-import { ApiError } from '@reactkit/api-interface/ApiError'
+import { ApiError } from '@radzionkit/api-interface/ApiError'
 import { reportError } from './utils/reportError'
-import { pick } from '@reactkit/utils/record/pick'
-import { ApiMethodName } from '@reactkit/api-interface/ApiInterface'
+import { pick } from '@radzionkit/utils/record/pick'
+import { ApiMethodName } from '@radzionkit/api-interface/ApiInterface'
 
 const router = Router()
 

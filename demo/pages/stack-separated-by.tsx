@@ -1,12 +1,12 @@
 import { DemoPage } from 'components/DemoPage'
-import { Text } from '@reactkit/ui/text'
-import { SeparatedByLine } from '@reactkit/ui/layout/SeparatedByLine'
+import { Text } from '@radzionkit/ui/text'
+import { SeparatedByLine } from '@radzionkit/ui/layout/SeparatedByLine'
 import {
   HStackSeparatedBy,
   dotSeparator,
   slashSeparator,
-} from '@reactkit/ui/layout/StackSeparatedBy'
-import { LabeledValue } from '@reactkit/ui/text/LabeledValue'
+} from '@radzionkit/ui/layout/StackSeparatedBy'
+import { LabeledValue } from '@radzionkit/ui/text/LabeledValue'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

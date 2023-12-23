@@ -1,2 +1,2 @@
-export const productName = 'ReactKit'
-export const supportEmail = 'radzion@reactkit.org'
+export const productName = 'RadzionKit'
+export const supportEmail = 'radzion@radzionkit.org'

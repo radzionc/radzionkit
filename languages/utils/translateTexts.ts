@@ -1,12 +1,12 @@
-import { Language } from '@reactkit/languages/Language'
-import { toBatches } from '@reactkit/utils/array/toBatches'
+import { Language } from '@radzionkit/languages/Language'
+import { toBatches } from '@radzionkit/utils/array/toBatches'
 import { TranslationServiceClient } from '@google-cloud/translate'
 import { getEnvVar } from '../getEnvVar'
-import { extractTemplateVariables } from '@reactkit/utils/template/extractTemplateVariables'
-import { withoutDuplicates } from '@reactkit/utils/array/withoutDuplicates'
-import { injectVariables } from '@reactkit/utils/template/injectVariables'
-import { makeRecord } from '@reactkit/utils/makeRecord'
-import { toTemplateVariable } from '@reactkit/utils/template/toTemplateVariable'
+import { extractTemplateVariables } from '@radzionkit/utils/template/extractTemplateVariables'
+import { withoutDuplicates } from '@radzionkit/utils/array/withoutDuplicates'
+import { injectVariables } from '@radzionkit/utils/template/injectVariables'
+import { makeRecord } from '@radzionkit/utils/makeRecord'
+import { toTemplateVariable } from '@radzionkit/utils/template/toTemplateVariable'
 
 const batchSize = 600
 

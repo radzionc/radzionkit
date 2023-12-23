@@ -1,8 +1,8 @@
-import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
-import { Button } from '@reactkit/ui/buttons/Button'
-import { GitHubIcon } from '@reactkit/ui/icons/GitHubIcon'
-import { HStack } from '@reactkit/ui/layout/Stack'
-import { Text } from '@reactkit/ui/text'
+import { ExternalLink } from '@radzionkit/ui/navigation/Link/ExternalLink'
+import { Button } from '@radzionkit/ui/buttons/Button'
+import { GitHubIcon } from '@radzionkit/ui/icons/GitHubIcon'
+import { HStack } from '@radzionkit/ui/layout/Stack'
+import { Text } from '@radzionkit/ui/text'
 
 interface Props {
   to: string

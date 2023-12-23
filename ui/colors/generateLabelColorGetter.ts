@@ -1,4 +1,4 @@
-import { degreesInCircle } from '@reactkit/utils/degreesToRadians'
+import { degreesInCircle } from '@radzionkit/utils/degreesToRadians'
 import { HSLA } from './HSLA'
 
 export const labelColorsCount = 12

@@ -1,4 +1,4 @@
-import { Language } from '@reactkit/languages/Language'
+import { Language } from '@radzionkit/languages/Language'
 
 interface UpdateLanguageInPathnameParams {
   pathname: string

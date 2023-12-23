@@ -1,6 +1,6 @@
-import { Dimensions } from '@reactkit/utils/entities/Dimensions'
-import { normalizeToMaxDimension } from '@reactkit/utils/normalizeToMaxDimension'
-import { shouldBeDefined } from '@reactkit/utils/assert/shouldBeDefined'
+import { Dimensions } from '@radzionkit/utils/entities/Dimensions'
+import { normalizeToMaxDimension } from '@radzionkit/utils/normalizeToMaxDimension'
+import { shouldBeDefined } from '@radzionkit/utils/assert/shouldBeDefined'
 import { transform } from '@svgr/core'
 
 const getSvgDimensions = (svg: string): Dimensions => {
@@ -45,7 +45,7 @@ export const svgToReact = async ({ svg, componentName }: SvgToReactParams) => {
   // .replace('svg', 'svg {...props}')
 
   return [
-    `import { SvgIconProps } from '@reactkit/ui/icons/SvgIconProps'`,
+    `import { SvgIconProps } from '@radzionkit/ui/icons/SvgIconProps'`,
     `const ${componentName} = (props: SvgIconProps) => ${cleanedSvg}`,
     `export default ${componentName}`,
   ].join('\n\n')

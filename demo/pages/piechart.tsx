@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
 import { useTheme } from 'styled-components'
-import { PieChart } from '@reactkit/ui/charts/PieChart'
+import { PieChart } from '@radzionkit/ui/charts/PieChart'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {

@@ -1,16 +1,16 @@
-import { VStack } from '@reactkit/ui/layout/Stack'
+import { VStack } from '@radzionkit/ui/layout/Stack'
 import styled from 'styled-components'
 import { LandingPageHeader } from './LandingPageHeader'
-import { Center } from '@reactkit/ui/layout/Center'
-import { Text } from '@reactkit/ui/text'
-import { Button } from '@reactkit/ui/buttons/Button'
-import { ExternalLink } from '@reactkit/ui/navigation/Link/ExternalLink'
+import { Center } from '@radzionkit/ui/layout/Center'
+import { Text } from '@radzionkit/ui/text'
+import { Button } from '@radzionkit/ui/buttons/Button'
+import { ExternalLink } from '@radzionkit/ui/navigation/Link/ExternalLink'
 import {
   increaserUrl,
   productGitHubUrl,
   productYouTubeChannelUrl,
 } from 'product/resources'
-import { ShyTextButton } from '@reactkit/ui/buttons/ShyTextButton'
+import { ShyTextButton } from '@radzionkit/ui/buttons/ShyTextButton'
 
 const Container = styled(VStack)`
   height: 100%;
@@ -28,7 +28,8 @@ export const LandingPage = () => {
       <Content>
         <VStack style={{ maxWidth: 480 }} alignItems="center" gap={24}>
           <Text color="contrast" as="h1" centered size={32}>
-            Build React Apps Faster with ReactKit's Components System & Monorepo
+            Build React Apps Faster with RadzionKit's Components System &
+            Monorepo
           </Text>
           <ExternalLink to={productGitHubUrl}>
             <Button kind="reversed" size="l">

@@ -1,5 +1,5 @@
-import { Language } from '@reactkit/languages/Language'
-import { getValueProviderSetup } from '@reactkit/ui/state/getValueProviderSetup'
+import { Language } from '@radzionkit/languages/Language'
+import { getValueProviderSetup } from '@radzionkit/ui/state/getValueProviderSetup'
 import { useRouter } from 'next/router'
 import { updateLanguageInPathname } from '../utils/updateLanguageInPathname'
 

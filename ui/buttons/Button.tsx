@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import { UnstyledButton } from './UnstyledButton'
-import { match } from '@reactkit/utils/match'
+import { match } from '@radzionkit/utils/match'
 import { centerContent } from '../css/centerContent'
 import { horizontalPadding } from '../css/horizontalPadding'
 import { toSizeUnit } from '../css/toSizeUnit'

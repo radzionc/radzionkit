@@ -2,7 +2,7 @@ import {
   CountryCode,
   countryCodes,
   countryNameRecord,
-} from '@reactkit/utils/countries'
+} from '@radzionkit/utils/countries'
 import { InputProps } from '../props'
 import CountryFlag from '../countries/flags/CountryFlag'
 import { IconWrapper } from '../icons/IconWrapper'

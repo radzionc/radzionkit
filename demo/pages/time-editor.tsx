@@ -1,4 +1,4 @@
-import { ClientOnly } from '@reactkit/ui/base/ClientOnly'
+import { ClientOnly } from '@radzionkit/ui/base/ClientOnly'
 import { DemoPage } from 'components/DemoPage'
 import { TimeEditor } from 'components/TimeEditor/TimeEditor'
 import { makeDemoPage } from 'layout/makeDemoPage'

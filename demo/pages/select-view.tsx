@@ -1,9 +1,9 @@
-import { getViewSetup } from '@reactkit/ui/view/getViewSetup'
+import { getViewSetup } from '@radzionkit/ui/view/getViewSetup'
 import styled from 'styled-components'
-import { ViewSelector } from '@reactkit/ui/inputs/Select/ViewSelector'
-import { VStack } from '@reactkit/ui/layout/Stack'
+import { ViewSelector } from '@radzionkit/ui/inputs/Select/ViewSelector'
+import { VStack } from '@radzionkit/ui/layout/Stack'
 import { DemoPage } from 'components/DemoPage'
-import { Panel } from '@reactkit/ui/panel/Panel'
+import { Panel } from '@radzionkit/ui/panel/Panel'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export const views = ['primary', 'attention'] as const

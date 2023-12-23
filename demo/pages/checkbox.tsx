@@ -1,6 +1,6 @@
 import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
-import { Checkbox } from '@reactkit/ui/inputs/Checkbox/Checkbox'
+import { Checkbox } from '@radzionkit/ui/inputs/Checkbox/Checkbox'
 import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {
@@ -12,7 +12,7 @@ export default makeDemoPage(() => {
         <Checkbox
           value={value}
           onChange={setValue}
-          label="ReactKit is Awesome"
+          label="RadzionKit is Awesome"
         />
       </div>
     </DemoPage>

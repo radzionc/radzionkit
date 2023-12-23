@@ -1,4 +1,4 @@
-import { ApiInterface } from '@reactkit/api-interface/ApiInterface'
+import { ApiInterface } from '@radzionkit/api-interface/ApiInterface'
 import { ApiResolverContext } from './ApiResolverContext'
 
 export interface ApiResolverParams<K extends keyof ApiInterface> {
