@@ -2,3 +2,4 @@
 .yarn
 .next
 out
+*.md

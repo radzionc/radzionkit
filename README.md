@@ -1,163 +1,27 @@
-# RadzionKit - A Full-Stack Monorepo Template
+# RadzionKit: Fast-Track Your Project Setup & Development - Effortless, Stress-Free Coding Awaits
 
-Welcome to RadzionKit, your go-to solution for rapid development with React. RadzionKit offers a comprehensive set of abstract building blocks, a rich library of beautiful components, a minimalistic color system, and flexible dark and light themes to empower your projects. With RadzionKit, you have complete control over your code, making it a versatile choice for your next venture. Plus, it's set up as a monorepo, allowing you to effortlessly add new apps and packages as your project evolves.
+RadzionKit is the ultimate solution for developers looking to jumpstart their projects without the stress of complex setups. Designed as a comprehensive monorepo, it provides an integrated suite of tools for full-stack development, from a robust UI library to streamlined backend services. With RadzionKit, you save valuable time both in kicking off new projects and during the development process, ensuring a smooth, efficient, and hassle-free coding experience. Embrace the power of simplicity and efficiency with RadzionKit — your partner in transforming coding challenges into coding triumphs.
 
-Check out our live showcase at [radzionkit.radzion.com](https://radzionkit.radzion.com) and explore our [YouTube channel](https://www.youtube.com/@radzion)for in-depth tutorials and insights into RadzionKit's implementation.
+## Monorepo Overview: Inside RadzionKit's Diverse Package Ecosystem
 
-## Getting Started with RadzionKit
+RadzionKit leverages Yarn Workspaces to create a seamless monorepo experience, offering a flexible and robust starting point for your projects. Customize your development workflow with ease by effortlessly adding or removing packages as needed.
 
-1. **Use RadzionKit as a Template**: Begin by clicking the "Use this template" button on GitHub. This action will create a new monorepo with Yarn workspaces, giving you a solid foundation for your project.
+| Package Name    | Description                                  | Primary Stack/Libraries |
+|-----------------|----------------------------------------------|-------------------------|
+| utils           | Comprising a diverse array of utility functions, the `utils` package streamlines common coding tasks. It features modules for array manipulation, validation, template processing, time calculations, and more, allowing developers to write cleaner code and implement complex logic with ease.   | TypeScript     |
+| ui              | The `ui` package is a comprehensive library of React components and hooks, meticulously designed to cover all facets of a modern user interface. This package includes a wide range of components such as buttons, forms, modals, and navigation bars, along with utility hooks and services for authentication, analytics, and state management. It's built to empower developers with the tools they need to create elegant, responsive, and accessible user experiences with ease.       | react, react-query, @floating-ui, styled-components     |
+| next-ui         | The `next-ui` package is designed to enhance Next.js applications, offering custom hooks for query parameter handling and metadata components for streamlined page SEO optimization.     | NextJS     |
+| infra           | The `infra` package provides Terraform configurations and scripts for a robust and automated infrastructure setup on AWS, ensuring a secure and scalable environment for your applications.     | Terraform, AWS     |
+| entities        | The `entities` package serves as a centralized repository for your application's entities, defining the core data structures that drive your business logic.               | TypeScript     |
+| entities-utils  | The `entities-utils` package provides a foundational set of utilities tailored for managing and manipulating your application's entities, designed to be expanded as your project grows.    | TypeScript     |
+| email           | The `email` package offers essential utilities to facilitate the sending of emails within your application, including pre-configured templates like login link emails for quick integration and use.                 | AWS SES, @react-email     |
+| dynamodb        | The `dynamodb` package is equipped with TypeScript utilities to streamline interactions with DynamoDB, including client setup, item operations, and query parameter generation for efficient database management.      | DynamoDB     |
+| db              | The `db` package serves as a placeholder within the template, poised to house custom functions for interacting with app-specific tables and entities in DynamoDB, streamlining the path to tailored database operations.          | DynamoDB     |
+| demo            | The `demo` project is a static site generation (SSG) showcase, built with Next.js, that demonstrates the capabilities and components of the `ui` package, providing a real-world example of the library's potential in a production-like environment.                     | NextJS     |
+| codegen         | The `codegen` package contains a set of TypeScript utilities designed to automate the generation of code files, including TypeScript interfaces and JSON files, facilitating a more efficient development workflow.      | TypeScript     |
+| api-interface   | The `api-interface` package provides a structured TypeScript interface for the app's backend API, including error handling and method definitions, to ensure type safety and consistency across frontend and backend communications.             | TypeScript     |
+| api             | The `api` package is a lightweight, TypeScript-based backend solution that faithfully implements the `api-interface` with minimal dependencies, primarily utilizing resolvers for handling requests. Optimized for use as an AWS Lambda function, it's an ideal choice for serverless architectures requiring the expressiveness of TypeScript and the efficiency of the AWS ecosystem.     | Express, AWS Lambda, TypeScript, API     |
 
-2. **Choose a Starter**:
+## Getting Started with RadzionKit: Launching Your New Project
 
-- **Use the demo Folder**: If you want to start with a fully functional Next.js app, check out the `demo` folder. It powers [radzionkit.radzion.com](https://radzionkit.radzion.com) and showcases all the available components.
-
-- **Create a New Next.js App**: Alternatively, you can create a fresh Next.js app by following the instructions in the [following section](#adding-a-nextjs-app-to-radzionkit-monorepo)
-
-3. **Customize Your Project**: Search for all instances of `radzionkit` & `RadzionKit` in your codebase and replace them with your project's name. This step ensures that your project is uniquely yours.
-
-4. **Run your app**: Run `yarn` in the root of the monorepo to install all dependencies. Then, go to the app folder and run `yarn dev` to start your app.
-
-### Adding RadzionKit UI & Utils to Your Monorepo
-
-1. Copy the `ui` folder from RadzionKit's monorepo to your project.
-2. Copy the `utils` folder from RadzionKit's monorepo to your project.
-3. Replace all instances of `radzionkit` in your codebase with your project's name.
-
-### Using RadzionKit in a Non-Monorepo Project
-
-1. Copy the code from the `ui` folder in RadzionKit's monorepo to your project.
-2. Copy the code from the `utils` folder in RadzionKit's monorepo to your project.
-3. Replace all instances of `@radzionkit/utils` with the path to your `utils` folder within your project.
-
-## Adding a Next.js App to RadzionKit Monorepo
-
-1. Create a project
-
-```sh
-npx create-next-app@latest app
-```
-
-2. Update name in package.json, e.g. `@radzionkit/app`
-
-3. Update next.config.js
-
-```sh
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  compiler: {
-    styledComponents: true,
-  },
-  output: 'export',
-  transpilePackages: ['@radzionkit/ui'],
-}
-
-// eslint-disable-next-line no-undef
-module.exports = nextConfig
-```
-
-4. Install dependencies
-
-```sh
-yarn add styled-components@^5.3.5 next-sitemap
-yarn add --dev @types/styled-components@^5.1.25
-```
-
-5. Add `baseUrl` for absolute import to `tsconfig.json``
-
-```json
-{
-  "compilerOptions": {
-    "baseUrl": "."
-  }
-}
-```
-
-6. Copy [state](https://github.com/radzionc/radzionkit/tree/main/demo/state) folder from RadzionKit's `demo` to your project.
-
-7. Copy [ui](https://github.com/radzionc/radzionkit/tree/main/demo/ui) folder from RadzionKit's `demo` to your project.
-
-8. Copy [\_document.tsx](https://github.com/radzionc/radzionkit/tree/main/demo/_document.tsx) file from RadzionKit's `demo` to your project.
-
-9. Update your App at `pages/_app.tsx` with `ThemeProvider` and `GlobalStyle`
-
-```tsx
-import type { AppProps } from 'next/demo'
-import { GlobalStyle } from '@radzionkit/ui/css/GlobalStyle'
-import { ThemeProvider } from 'themeProvider'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '800'],
-})
-
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ThemeProvider>
-      <GlobalStyle fontFamily={inter.style.fontFamily} />
-      <Component {...pageProps} />
-    </ThemeProvider>
-  )
-}
-
-export default MyApp
-```
-
-10. Update `.eslintrc.json`
-
-```json
-{
-  "extends": ["plugin:@next/next/recommended"]
-}
-```
-
-11. Update `next-sitemap.config.js` with your `siteUrl`:
-
-```js
-/** @type {import('next-sitemap').IConfig} */
-module.exports = {
-  siteUrl: '{YOUR_SITE_URL}}',
-  generateRobotsTxt: true,
-  generateIndexSitemap: false,
-  outDir: './out',
-}
-```
-
-## How to create a monorepo with Yarn workspaces
-
-1. Update Yarn
-
-```sh
-yarn set version stable
-```
-
-2. Create a new project and add `package.json` file - [source](./package.json)
-
-3. Add `tsconfig.json` file - [source](./tsconfig.json)
-
-4. Add `.prettierrc` file - [source](./.prettierrc)
-
-5. (optional) Add `.prettierignore` file - [source](./.prettierignore)
-
-6. Add `.gitignore` file - [source](./.gitignore)
-
-7. Add `.eslintrc` file - [source](./.eslintrc)
-
-8. Initialize Git:
-
-```sh
-git init
-```
-
-9. Setup Husky:
-
-```
-npx husky-init
-```
-
-10. Update `.husky/pre-commit` file - [source](./.husky/pre-commit)
-
-11. Disable Yarn P'n'p by copying `.yarnrc.yml` file - [source](./.yarnrc.yml)
+Kickstart your new project with RadzionKit by clicking the `Use this template` button on our GitHub repository, or clone it directly. Rename all instances of `radzionkit` to your project's name, prune any unnecessary packages, run `yarn` to install dependencies, and you're set! For a practical example of RadzionKit in action, explore the `demo` package to see how it fits within a NextJS app.
