@@ -5,7 +5,7 @@ import { Text } from '@reactkit/ui/text'
 import { useRouter } from 'next/router'
 import { YouTubeLink } from 'components/YouTubeLink'
 import { ComponentWithChildrenProps } from '@reactkit/ui/props'
-import { PageMetaTags } from '@reactkit/ui/metadata/PageMetaTags'
+import { PageMetaTags } from '@reactkit/next-ui/metadata/PageMetaTags'
 
 interface Props extends ComponentWithChildrenProps {
   title: string

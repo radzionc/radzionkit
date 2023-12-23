@@ -1,0 +1,8 @@
+{
+  "name": "@reactkit/next-ui",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "next": "^14.0.4"
+  }
+}

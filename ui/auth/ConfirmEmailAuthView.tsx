@@ -1,7 +1,6 @@
 import { VStack } from '../layout/Stack'
 import { Text } from '../text'
 import { useState } from 'react'
-import { useRouter } from 'next/router'
 import { AuthView } from './AuthView'
 import { useHandleQueryParams } from '../navigation/hooks/useHandleQueryParams'
 import { suggestInboxLink } from '@reactkit/utils/suggestInboxLink'
@@ -14,13 +13,15 @@ interface EmailConfirmQueryParams {
 
 interface ConfirmEmailAuthViewProps {
   sender?: string
+  onBack?: () => void
 }
 
-export const ConfirmEmailAuthView = ({ sender }: ConfirmEmailAuthViewProps) => {
+export const ConfirmEmailAuthView = ({
+  sender,
+  onBack,
+}: ConfirmEmailAuthViewProps) => {
   const [email, setEmail] = useState<string | undefined>()
   useHandleQueryParams<EmailConfirmQueryParams>(({ email }) => setEmail(email))
-
-  const { back } = useRouter()
 
   const inboxLink = email && suggestInboxLink(email, sender)
 
@@ -45,7 +46,7 @@ export const ConfirmEmailAuthView = ({ sender }: ConfirmEmailAuthViewProps) => {
                 </Button>
               </ExternalLink>
             )}
-            <Button onClick={back} size="xl" kind="ghostSecondary">
+            <Button onClick={onBack} size="xl" kind="ghostSecondary">
               Back
             </Button>
           </VStack>

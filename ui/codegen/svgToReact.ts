@@ -42,7 +42,7 @@ export const svgToReact = async ({ svg, componentName }: SvgToReactParams) => {
     .replace(/\s*width="[^"]*"/g, '')
     .replace(/\s*height="[^"]*"/g, '')
     .replace('svg', `svg width="${width}em" height="${height}em"`)
-    .replace('svg', 'svg {...props}')
+  // .replace('svg', 'svg {...props}')
 
   return [
     `import { SvgIconProps } from '@reactkit/ui/icons/SvgIconProps'`,

@@ -6,7 +6,7 @@ import Document, {
   Head,
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import { DocumentMetaTags } from '@reactkit/ui/metadata/DocumentMetaTags'
+import { DocumentMetaTags } from '@reactkit/next-ui/metadata/DocumentMetaTags'
 import { IconMetaTags } from 'icon/IconMetaTags'
 
 class MyDocument extends Document {

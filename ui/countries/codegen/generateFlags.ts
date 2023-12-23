@@ -1,10 +1,10 @@
 import { CountryCode, countryCodes } from '@reactkit/utils/countries'
-import { makeRecord } from '@reactkit/utils/makeRecord'
 import fs from 'fs'
 import path from 'path'
 import { capitalizeFirstLetter } from '@reactkit/utils/capitalizeFirstLetter'
 import { createTsFile } from '@reactkit/codegen/utils/createTsFile'
 import { svgToReact } from '../../codegen/svgToReact'
+import { makeRecord } from '@reactkit/utils/record/makeRecord'
 
 const getSvgFlagPath = (code: CountryCode) =>
   path.resolve(__dirname, './flags', `${code.toLowerCase()}.svg`)
