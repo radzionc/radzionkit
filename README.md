@@ -1,5 +1,7 @@
 # RadzionKit: Fast-Track Your Project Setup & Development - Effortless, Stress-Free Coding Awaits
 
+![RadzionKit](https://kit.radzion.com/images/banner.png)
+
 RadzionKit is the ultimate solution for developers looking to jumpstart their projects without the stress of complex setups. Designed as a comprehensive monorepo, it provides an integrated suite of tools for full-stack development, from a robust UI library to streamlined backend services. With RadzionKit, you save valuable time both in kicking off new projects and during the development process, ensuring a smooth, efficient, and hassle-free coding experience. Embrace the power of simplicity and efficiency with RadzionKit — your partner in transforming coding challenges into coding triumphs.
 
 ## Monorepo Overview: Inside RadzionKit's Diverse Package Ecosystem
