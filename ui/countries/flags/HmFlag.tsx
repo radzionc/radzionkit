@@ -3,7 +3,6 @@ import { SvgIconProps } from '@reactkit/ui/icons/SvgIconProps'
 
 const HmFlag = (props: SvgIconProps) => (
   <svg
-    {...props}
     width="1em"
     height="0.75em"
     xmlns="http://www.w3.org/2000/svg"

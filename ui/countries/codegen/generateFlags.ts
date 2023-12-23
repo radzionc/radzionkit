@@ -39,38 +39,31 @@ const generateFlags = async () => {
     }),
   )
 
-  const imports = [
-    `import dynamic from 'next/dynamic'`,
-    `import { SvgIconProps } from '../../icons/SvgIconProps'`,
-    `import { ComponentType } from 'react'`,
-    `import { CountryCode } from '@reactkit/utils/countries'`,
-    `import { CountryFlagDynamicFallback, CountryFlagFallbackPropsProvider } from '../CountryFlagDynamicFallback'`,
-  ].join('\n')
-
   const countryFlagComponentRecord = makeRecord(countryCodes, (code) => {
     const componentName = getFlagComponentName(code)
-    return `dynamic(() => import('./${componentName}'), { ssr: false, loading: () => <CountryFlagDynamicFallback /> })`
+    return `React.lazy(() => import('./${componentName}'))`
   })
 
   const content = [
-    imports,
+    `import React, { ComponentType, Suspense } from 'react';`,
+    `import { CountryCode } from '@reactkit/utils/countries';`,
+    `import { SvgIconProps } from '@reactkit/ui/icons/SvgIconProps';`,
+    `import { CountryFlagFallback } from '../CountryFlagFallback';`,
     `const countryFlagRecord: Record<CountryCode, ComponentType<SvgIconProps>> = {
       ${Object.entries(countryFlagComponentRecord)
-        .map(([key, value]) => {
-          return `${key}: ${value}`
-        })
-        .join(',')}
-    }`,
+        .map(([key, value]) => `${key}: ${value}`)
+        .join(',\n')}
+    };`,
     `interface CountryFlagProps extends SvgIconProps { code: CountryCode }`,
     `export const CountryFlag = (props: CountryFlagProps) => {
-      const Component = countryFlagRecord[props.code]
+      const Component = countryFlagRecord[props.code];
       return (
-        <CountryFlagFallbackPropsProvider value={props}>
+        <Suspense fallback={<CountryFlagFallback code={props.code} />}>
           <Component {...props} />
-        </CountryFlagFallbackPropsProvider>
-      )
-    }`,
-    `export default CountryFlag`,
+        </Suspense>
+      );
+    };`,
+    `export default CountryFlag;`,
   ].join('\n\n')
 
   await createTsFile({
