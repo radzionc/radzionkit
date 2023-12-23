@@ -25,3 +25,8 @@ RadzionKit leverages Yarn Workspaces to create a seamless monorepo experience, o
 ## Getting Started with RadzionKit: Launching Your New Project
 
 Kickstart your new project with RadzionKit by clicking the `Use this template` button on our GitHub repository, or clone it directly. Rename all instances of `radzionkit` to your project's name, prune any unnecessary packages, run `yarn` to install dependencies, and you're set! For a practical example of RadzionKit in action, explore the `demo` package to see how it fits within a NextJS app.
+
+## Importing RadzionKit Packages into an Existing Monorepo
+
+Copy your selected RadzionKit packages into your existing monorepo, ensuring to include any dependent RadzionKit packages, and rename all imports of `@radzionkit` to your project's name. Run `yarn` to install dependencies, and you're ready to go!
+
