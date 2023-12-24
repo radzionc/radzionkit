@@ -2,14 +2,14 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { toSizeUnit } from '../css/toSizeUnit'
 
-interface Props {
+interface FixedDirectionStackProps {
   gap?: React.CSSProperties['gap']
   alignItems?: React.CSSProperties['alignItems']
   justifyContent?: React.CSSProperties['justifyContent']
   wrap?: React.CSSProperties['flexWrap']
-  children: React.ReactNode
   fullWidth?: boolean
   fullHeight?: boolean
+  children?: React.ReactNode
 }
 
 const formatFlexAlignment = (
@@ -24,7 +24,7 @@ const formatFlexAlignment = (
   return value
 }
 
-const stackCSS = css<Props>`
+const stack = css<FixedDirectionStackProps>`
   display: flex;
   ${({ gap }) =>
     gap &&
@@ -58,21 +58,21 @@ const stackCSS = css<Props>`
     `}
 `
 
-export const VStack = styled.div`
-  ${stackCSS}
+export const VStack = styled.div<FixedDirectionStackProps>`
+  ${stack}
   flex-direction: column;
 `
 
-export const HStack = styled.div`
-  ${stackCSS}
+export const HStack = styled.div<FixedDirectionStackProps>`
+  ${stack}
   flex-direction: row;
 `
 
-export interface StackProps extends Props {
+export interface StackProps extends FixedDirectionStackProps {
   direction: React.CSSProperties['flexDirection']
 }
 
 export const Stack = styled.div<StackProps>`
-  ${stackCSS}
+  ${stack}
   flex-direction: ${({ direction }) => direction};
 `

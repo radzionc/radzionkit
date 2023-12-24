@@ -40,13 +40,13 @@ const Container = styled(HStack)`
 
   ${transition}
 
-  :hover {
+  &:hover {
     color: ${getColor('text')};
   }
 
   font-weight: 500;
 
-  :hover ${Box} {
+  &:hover ${Box} {
     transform: scale(1.1);
   }
 `

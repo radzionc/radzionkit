@@ -11,7 +11,7 @@ export const inputContainer = css`
   ${transition};
   color: ${getColor('textSupporting')};
 
-  :focus-within {
+  &:focus-within {
     color: ${getColor('text')};
   }
 `

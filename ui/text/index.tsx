@@ -39,6 +39,7 @@ export interface TextProps {
   centered?: boolean
   cropped?: boolean
   nowrap?: boolean
+  as?: React.ElementType
 }
 
 export const oneRemInPx = 16

@@ -1,6 +1,7 @@
 import { FormEvent } from 'react'
 import { VStack } from '../../layout/Stack'
 import { preventDefault } from '../../utils/preventDefault'
+import { Fields } from '../../inputs/Fields'
 
 interface Props {
   onSubmit: () => void
@@ -17,9 +18,7 @@ export const Form = ({ content, actions, onSubmit, gap = 28 }: Props) => {
       fullWidth
       onSubmit={preventDefault<FormEvent<HTMLFormElement>>(onSubmit)}
     >
-      <VStack fullWidth gap={20}>
-        {content}
-      </VStack>
+      <Fields>{content}</Fields>
       {actions}
     </VStack>
   )

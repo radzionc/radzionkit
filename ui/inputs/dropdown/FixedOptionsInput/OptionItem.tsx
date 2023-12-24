@@ -4,7 +4,7 @@ import { DropdownOption } from '../DropdownOption'
 export const FixedOptionsInputItem = forwardRef<
   HTMLDivElement,
   ComponentProps<typeof DropdownOption>
->(({ children, active, ...rest }, ref) => {
+>(({ children, ...rest }, ref) => {
   const id = useId()
 
   return (
@@ -12,8 +12,7 @@ export const FixedOptionsInputItem = forwardRef<
       ref={ref}
       role="option"
       id={id}
-      aria-selected={active}
-      isActive={active}
+      aria-selected={rest.isActive}
       {...rest}
     >
       {children}

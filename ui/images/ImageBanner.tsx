@@ -48,15 +48,15 @@ const Container = styled(Panel)`
 
   box-shadow: ${({ theme }) => theme.shadows.medium};
 
-  :hover ${PositionAction} {
+  &:hover ${PositionAction} {
     transform: scale(1.06);
   }
 
-  :hover ${ImagePosition} {
+  &:hover ${ImagePosition} {
     transform: scale(1.06);
   }
 
-  :hover ${Content} {
+  &:hover ${Content} {
     background: ${getColor('mistExtra')};
   }
 `
@@ -86,7 +86,7 @@ const Close = styled(UnstyledButton)`
   ${sameDimensions(40)};
   font-size: 20px;
 
-  :hover {
+  &:hover {
     background: ${getColor('contrast')};
   }
 `

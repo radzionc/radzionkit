@@ -31,7 +31,7 @@ interface TextAreaProps
 }
 
 export const TextArea = forwardRef(function TextAreaInner(
-  { onValueChange, label, error, ...props }: TextAreaProps,
+  { onValueChange, label, ...props }: TextAreaProps,
   ref: Ref<HTMLTextAreaElement> | null,
 ) {
   const [charactersCount, setCharactersCount] = useState(0)
@@ -41,7 +41,6 @@ export const TextArea = forwardRef(function TextAreaInner(
       {label && <LabelText>{label}</LabelText>}
       <TextareaContainer
         {...props}
-        isValid={!error}
         ref={ref}
         onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
           setCharactersCount(event.currentTarget.value.length)

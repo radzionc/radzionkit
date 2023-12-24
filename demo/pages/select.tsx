@@ -30,7 +30,7 @@ const SelectContainer = styled.div<{ isSmallScreen: boolean }>`
   gap: 8px;
 
   > * {
-    :last-child {
+    &:last-child {
       grid-column: ${({ isSmallScreen }) =>
         isSmallScreen ? '1 / -1' : '5 / span 2'};
     }

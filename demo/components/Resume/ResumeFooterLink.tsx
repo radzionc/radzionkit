@@ -16,7 +16,7 @@ const Container = styled(ExternalLink)`
   color: ${getColor('textSupporting')};
   ${transition};
 
-  :hover {
+  &:hover {
     color: ${getColor('text')};
   }
 `

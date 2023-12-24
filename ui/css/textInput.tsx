@@ -28,12 +28,12 @@ export const textInput = css`
   outline: 1px solid transparent;
   border: 1px solid ${getColor('mist')};
 
-  :hover {
+  &:hover {
     outline-color: ${getColor('mist')};
   }
 
-  :focus,
-  :active {
+  &:focus,
+  &:active {
     border-color: ${getColor('mist')};
   }
 `

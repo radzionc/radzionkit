@@ -55,11 +55,11 @@ const Wrapper = styled(HStack)<{ kind: SwitchKind }>`
   color: ${getColor('textSupporting')};
   ${transition};
 
-  :hover {
+  &:hover {
     color: ${getColor('text')};
   }
 
-  :hover ${Control} {
+  &:hover ${Control} {
     transform: scale(1.08);
   }
 `

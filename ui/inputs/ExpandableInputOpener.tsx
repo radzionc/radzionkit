@@ -16,7 +16,7 @@ export const ExpandableInputOpener = styled(UnstyledButton)`
 
   ${inputBackgroundCSS};
 
-  :hover {
+  &:hover {
     background: ${getColor('mistExtra')};
   }
 `

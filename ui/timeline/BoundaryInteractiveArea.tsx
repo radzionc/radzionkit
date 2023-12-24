@@ -19,7 +19,7 @@ const InteractiveArea = styled.div`
     font-size: 18px;
     ${transition};
   }
-  :hover {
+  &:hover {
     svg {
       transform: scale(1.24);
     }

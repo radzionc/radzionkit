@@ -18,7 +18,7 @@ export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void
 }
 
-interface RenderContentParams {
+export interface RenderContentParams {
   onClose: () => void
 }
 

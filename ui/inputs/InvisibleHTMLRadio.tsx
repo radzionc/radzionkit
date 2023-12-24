@@ -30,7 +30,7 @@ export const InvisibleHTMLRadio = ({
     name={groupName}
     checked={isSelected}
     value={value}
-    onChange={(event) => {
+    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
       if (event.currentTarget.value === value.toString()) {
         onSelect()
       }

@@ -17,6 +17,8 @@ import { TrashIcon } from '@radzionkit/ui/icons/TrashIcon'
 import { Button } from '@radzionkit/ui/buttons/Button'
 import { getColor } from '@radzionkit/ui/theme/getters'
 import { IconButton } from '@radzionkit/ui/buttons/IconButton'
+import { Field } from '@radzionkit/ui/inputs/Field'
+import { Fields } from '@radzionkit/ui/inputs/Fields'
 
 export interface Props {
   form: UseFormReturn<JobApplicationFormShape, any>
@@ -58,22 +60,26 @@ export const ExperienceSection = ({
                 icon={<TrashIcon />}
               />
             </VStack>
-            <VStack fullWidth gap={16}>
-              <TextInput
-                label="Position"
-                {...register(`experience.${index}.position`)}
-                error={errors.experience?.[index]?.position?.message}
-                placeholder="Senior Front End Engineer"
-              />
-              <TextArea
-                label="Responsibility"
-                {...register(`experience.${index}.responsibility`)}
+            <Fields>
+              <Field error={errors.experience?.[index]?.position?.message}>
+                <TextInput
+                  label="Position"
+                  {...register(`experience.${index}.position`)}
+                  placeholder="Senior Front End Engineer"
+                />
+              </Field>
+              <Field
                 error={errors.experience?.[index]?.responsibility?.message}
-                rows={3}
-                placeholder="I was responsible for ..."
-                maxLength={responsibilityMaxLength}
-              />
-            </VStack>
+              >
+                <TextArea
+                  label="Responsibility"
+                  {...register(`experience.${index}.responsibility`)}
+                  rows={3}
+                  placeholder="I was responsible for ..."
+                  maxLength={responsibilityMaxLength}
+                />
+              </Field>
+            </Fields>
           </HStack>
           <Line />
         </VStack>

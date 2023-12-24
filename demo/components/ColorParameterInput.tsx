@@ -40,11 +40,11 @@ const Container = styled.label`
   ${centerContent};
   position: relative;
 
-  :focus-within ${Control} {
+  &:focus-within ${Control} {
     outline: 12px solid ${getColor('mistExtra')};
   }
 
-  :hover ${Control} {
+  &:hover ${Control} {
     outline-color: ${getColor('mist')};
   }
 `

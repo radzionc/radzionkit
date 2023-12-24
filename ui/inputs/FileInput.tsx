@@ -24,7 +24,7 @@ const Container = styled(Panel)`
 
   ${transition};
 
-  :hover {
+  &:hover {
     background: ${getColor('mistExtra')};
   }
 `

@@ -6,13 +6,14 @@ import { Text } from '../text'
 
 const Container = styled(UnstyledButton)`
   ${transition};
-  :hover {
+  &:hover {
     filter: brightness(1.2);
   }
 `
 
 interface Props extends ComponentProps<typeof Container> {
   text: ReactNode
+  as?: React.ElementType
 }
 
 export const TextButton = ({ text, onClick, as }: Props) => (

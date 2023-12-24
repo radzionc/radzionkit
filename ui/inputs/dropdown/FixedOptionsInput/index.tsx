@@ -141,7 +141,7 @@ export function FixedOptionsInput<T>({
       onClick={() => {
         inputElement.current?.focus()
       }}
-      onKeyDown={(event) => {
+      onKeyDown={(event: React.KeyboardEvent<HTMLLabelElement>) => {
         if (event.key === 'Enter' && activeIndex != null) {
           event.preventDefault()
           onOptionSelect(optionsToDisplay[activeIndex])
@@ -166,7 +166,9 @@ export function FixedOptionsInput<T>({
         <DropdownInputFrame
           ref={inputElement}
           value={textInputValue}
-          onChange={(event) => onTextInputChange(event.currentTarget.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            onTextInputChange(event.currentTarget.value)
+          }
           placeholder={placeholder}
           aria-autocomplete="list"
         />
@@ -191,7 +193,7 @@ export function FixedOptionsInput<T>({
                       hideOptions()
                     },
                   })}
-                  active={index === activeIndex}
+                  isActive={index === activeIndex}
                 >
                   {renderOption(option)}
                 </FixedOptionsInputItem>

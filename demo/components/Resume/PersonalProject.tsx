@@ -20,7 +20,7 @@ const Title = styled(Text)`
   ${transition}
   line-height: 1.24;
 
-  :hover {
+  &:hover {
     color: ${getColor('primary')};
   }
 `

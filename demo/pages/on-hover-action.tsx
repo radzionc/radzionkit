@@ -66,7 +66,7 @@ const Container = styled(UnstyledButton)`
   justify-items: start;
   color: ${({ theme }) => theme.colors.textSupporting.toCssValue()};
 
-  :hover {
+  &:hover {
     background: ${getColor('mist')};
     color: ${({ theme }) => theme.colors.text.toCssValue()};
   }

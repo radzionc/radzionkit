@@ -22,11 +22,11 @@ export const Container = styled.div<{ isSelected?: boolean }>`
   border-radius: 8px;
   font-weight: 500;
   color: ${getColor('textSupporting')};
-  :hover {
+  &:hover {
     background: ${getColor('mist')};
   }
 
-  :active {
+  &:active {
     background: ${getColor('mistExtra')};
   }
 

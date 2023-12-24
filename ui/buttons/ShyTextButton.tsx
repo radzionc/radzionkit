@@ -11,13 +11,14 @@ const Container = styled(UnstyledButton)`
   color: ${getColor('textSupporting')};
   ${transition};
 
-  :hover {
+  &:hover {
     color: ${getColor('contrast')};
   }
 `
 
 interface Props extends ComponentProps<typeof Container> {
   text: ReactNode
+  as?: React.ElementType
 }
 
 const Underline = styled.span`

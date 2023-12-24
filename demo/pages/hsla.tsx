@@ -42,7 +42,7 @@ const InputContainer = styled.div`
   grid-template-columns: 100px 1fr 80px;
 
   > * {
-    :last-child {
+    &:last-child {
       justify-self: end;
     }
   }

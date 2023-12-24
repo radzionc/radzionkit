@@ -35,7 +35,7 @@ const Header = styled.div`
   ${centerContent};
   ${transition};
 
-  :hover ${ExpandIconWrapper} {
+  &:hover ${ExpandIconWrapper} {
     background: ${({ theme }) => theme.colors.mistExtra.toCssValue()};
   }
 `

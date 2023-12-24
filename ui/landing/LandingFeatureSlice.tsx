@@ -30,7 +30,7 @@ const Container = styled.div<{ isInfoFirst: boolean }>`
     reverseIf(['3fr', '2fr'], isInfoFirst).join(' ')};
 
   > * {
-    :last-child {
+    &:last-child {
       justify-self: center;
     }
   }

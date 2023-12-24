@@ -26,7 +26,7 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
 
-  :hover ${ActionPlacer} {
+  &:hover ${ActionPlacer} {
     opacity: 1;
   }
 `

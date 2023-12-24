@@ -6,6 +6,6 @@
     "generateCountries": "npx tsx countries/codegen/generateCountries"
   },
   "dependencies": {
-    "date-fns": "^2.30.0"
+    "date-fns": "^3.0.6"
   }
 }

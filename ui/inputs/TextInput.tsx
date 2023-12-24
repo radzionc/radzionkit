@@ -22,7 +22,6 @@ export interface TextInputProps
 export const TextInput = forwardRef(function TextInputInner(
   {
     onValueChange,
-    error,
     inputOverlay,
     isLoading,
     className,
@@ -40,7 +39,6 @@ export const TextInput = forwardRef(function TextInputInner(
         ) : (
           <TextInputContainer
             {...props}
-            isValid={!error}
             className={className}
             ref={ref}
             onChange={(event: ChangeEvent<HTMLInputElement>) => {

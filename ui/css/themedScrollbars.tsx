@@ -14,7 +14,7 @@ export const themedScrollbars = css`
     ${round}
     cursor: pointer;
     background-color: ${getColor('mist')};
-    :hover {
+    &:hover {
       background-color: ${getColor('mistExtra')};
     }
   }

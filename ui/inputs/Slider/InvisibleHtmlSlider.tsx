@@ -38,7 +38,7 @@ export const InvisibleHTMLSlider = ({
     step={step}
     autoFocus={autoFocus}
     value={value}
-    onChange={(event) => {
+    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
       onChange(Number(event.currentTarget.value))
     }}
   />

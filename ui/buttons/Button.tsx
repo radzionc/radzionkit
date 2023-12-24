@@ -115,7 +115,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
     !isDisabled &&
     !isLoading &&
     css`
-      :hover {
+      &:hover {
         ${match(kind, {
           primary: () => css`
             background: ${({ theme }) =>
@@ -162,13 +162,17 @@ const Container = styled(UnstyledButton)<ContainerProps>`
     `};
 `
 
-export interface ButtonProps extends React.ComponentProps<typeof Container> {
+type ButtonProps = Omit<
+  React.ComponentProps<typeof Container>,
+  'size' | 'kind' | 'isDisabled'
+> & {
   size?: ButtonSize
   isDisabled?: boolean | string
   isLoading?: boolean
   isRounded?: boolean
   kind?: ButtonKind
   onClick?: () => void
+  as?: React.ElementType
 }
 
 const Hide = styled.div`

@@ -40,11 +40,11 @@ const Container = styled.div<{ $color: HSLA }>`
   --active-outline-color: ${({ $color }) =>
     $color.getVariant({ a: (a) => a * 0.2 }).toCssValue()};
 
-  :focus-within ${Control} {
+  &:focus-within ${Control} {
     outline: 12px solid var(--active-outline-color);
   }
 
-  :hover ${Control} {
+  &:hover ${Control} {
     outline-color: var(--active-outline-color);
   }
 `

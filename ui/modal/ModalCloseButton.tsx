@@ -16,7 +16,7 @@ const IconWrapper = styled.div`
 
 const Container = styled(Hoverable)`
   color: ${getColor('text')};
-  :hover ${IconWrapper} {
+  &:hover ${IconWrapper} {
     color: ${getColor('contrast')};
   }
 `

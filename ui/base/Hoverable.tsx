@@ -21,7 +21,7 @@ const Highlight = styled.div<HighlightProps>`
 const Container = styled(UnstyledButton)`
   position: relative;
 
-  :hover ${Highlight} {
+  &:hover ${Highlight} {
     background: ${getColor('mist')};
   }
 `
@@ -30,7 +30,10 @@ const Content = styled.div`
   z-index: 1;
 `
 
-type HoverableProps = ComponentProps<typeof Container> & Partial<HighlightProps>
+type HoverableProps = ComponentProps<typeof Container> &
+  Partial<HighlightProps> & {
+    as?: React.ElementType
+  }
 
 export const Hoverable = ({
   children,

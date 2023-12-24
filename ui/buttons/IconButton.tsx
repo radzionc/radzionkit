@@ -50,7 +50,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
       alert: () => colors.alert.getVariant({ a: (a) => a * 0.12 }),
     }).toCssValue()};
 
-  :hover {
+  &:hover {
     background: ${({ kind, theme: { colors } }) =>
       match(kind, {
         regular: () => colors.mist,
@@ -66,11 +66,15 @@ const Container = styled(UnstyledButton)<ContainerProps>`
   }
 `
 
-export interface IconButtonProps extends ComponentProps<typeof Container> {
+export type IconButtonProps = Omit<
+  ComponentProps<typeof Container>,
+  'size' | 'kind'
+> & {
   icon: React.ReactNode
   size?: IconButtonSize
   kind?: IconButtonKind
   title: string
+  as?: React.ElementType
 }
 
 export const IconButton = forwardRef(function IconButton(

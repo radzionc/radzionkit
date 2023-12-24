@@ -7,6 +7,7 @@ import { Button } from '@radzionkit/ui/buttons/Button'
 import { TitledSection } from '@radzionkit/ui/layout/TitledSection'
 import { Form } from '@radzionkit/ui/form/components/Form'
 import { FormSection } from '@radzionkit/ui/form/components/FormSection'
+import { Field } from '@radzionkit/ui/inputs/Field'
 
 export const JobApplication = () => {
   const form = useJobApplicationForm()
@@ -24,21 +25,23 @@ export const JobApplication = () => {
           content={
             <>
               <FormSection name="General info">
-                <TextInput
-                  label="Full name"
-                  {...register('name')}
-                  error={errors.name?.message}
-                  autoFocus
-                  placeholder="John Johnson"
-                />
-                <TextArea
-                  rows={4}
-                  maxLength={bioMaxLength}
-                  label="Bio"
-                  {...register('bio')}
-                  error={errors.bio?.message}
-                  placeholder="I'm a software engineer..."
-                />
+                <Field error={errors.name?.message}>
+                  <TextInput
+                    label="Full name"
+                    {...register('name')}
+                    autoFocus
+                    placeholder="John Johnson"
+                  />
+                </Field>
+                <Field error={errors.bio?.message}>
+                  <TextArea
+                    rows={4}
+                    maxLength={bioMaxLength}
+                    label="Bio"
+                    {...register('bio')}
+                    placeholder="I'm a software engineer..."
+                  />
+                </Field>
               </FormSection>
               <ExperienceSection form={form} />
             </>

@@ -1,10 +1,7 @@
 import { OAuthProvider } from '@radzionkit/entities/OAuthProvider'
 import { AuthSession } from '@radzionkit/entities/AuthSession'
-import { Habit } from '@radzionkit/entities/Habit'
-import { UserPerformanceRecord } from '@radzionkit/entities/PerformanceScoreboard'
-import { Project } from '@radzionkit/entities/Project'
 import { Subscription } from '@radzionkit/entities/Subscription'
-import { Set, User } from '@radzionkit/entities/User'
+import { User } from '@radzionkit/entities/User'
 import { ApiMethod } from './ApiMethod'
 
 export interface ApiInterface {
@@ -27,25 +24,7 @@ export interface ApiInterface {
   >
 
   user: ApiMethod<{ timeZone: number }, User>
-  updateUser: ApiMethod<
-    Partial<
-      Pick<
-        User,
-        | 'name'
-        | 'country'
-        | 'primaryGoal'
-        | 'focusSounds'
-        | 'tasks'
-        | 'weekTimeAllocation'
-        | 'goalToStartWorkAt'
-        | 'goalToFinishWorkBy'
-        | 'goalToGoToBedAt'
-        | 'isAnonymous'
-        | 'sumbittedHabitsAt'
-      >
-    >,
-    undefined
-  >
+  updateUser: ApiMethod<Partial<Pick<User, 'name' | 'country'>>, undefined>
   manageSubscription: ApiMethod<
     undefined,
     {
@@ -56,56 +35,7 @@ export interface ApiInterface {
 
   subscription: ApiMethod<{ id: string }, Subscription | undefined>
 
-  scoreboard: ApiMethod<
-    { id: string },
-    {
-      id: string
-      syncedAt: number
-      myPosition?: number
-      users: Omit<UserPerformanceRecord, 'id'>[]
-    }
-  >
-
   sendAuthLinkByEmail: ApiMethod<{ email: string }, undefined>
-
-  createProject: ApiMethod<
-    Omit<Project, 'total' | 'status' | 'weeks' | 'months'>,
-    Project
-  >
-  updateProject: ApiMethod<
-    {
-      id: string
-      fields: Partial<
-        Pick<
-          Project,
-          'name' | 'color' | 'status' | 'emoji' | 'allocatedMinutesPerWeek'
-        >
-      >
-    },
-    Project
-  >
-  deleteProject: ApiMethod<{ id: string }, undefined>
-
-  redeemAppSumoCode: ApiMethod<{ code: string }, undefined>
-
-  createHabit: ApiMethod<Omit<Habit, 'successes'>, Habit>
-  updateHabit: ApiMethod<
-    {
-      id: string
-      fields: Partial<
-        Pick<
-          Habit,
-          'name' | 'color' | 'order' | 'emoji' | 'startedAt' | 'successes'
-        >
-      >
-    },
-    Habit
-  >
-  deleteHabit: ApiMethod<{ id: string }, undefined>
-  trackHabit: ApiMethod<{ id: string; date: string; value: boolean }, undefined>
-  addSet: ApiMethod<Set, undefined>
-  editLastSet: ApiMethod<Set, undefined>
-  removeLastSet: ApiMethod<undefined, undefined>
 }
 
 export type ApiMethodName = keyof ApiInterface

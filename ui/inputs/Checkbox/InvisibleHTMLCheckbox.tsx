@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react'
 import styled from 'styled-components'
 
 export interface InvisibleHTMLCheckboxProps {
@@ -23,7 +24,7 @@ export const InvisibleHTMLCheckbox = ({
   <CheckboxInput
     type="checkbox"
     checked={value}
-    onChange={(event) => {
+    onChange={(event: ChangeEvent<HTMLInputElement>) => {
       onChange(event.currentTarget.checked)
     }}
   />

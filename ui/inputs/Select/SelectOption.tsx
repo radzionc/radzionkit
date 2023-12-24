@@ -23,7 +23,7 @@ const Container = styled.label<{ isSelected: boolean }>`
   font-weight: 500;
 
   color: ${({ theme }) => theme.colors.textSupporting.toCssValue()};
-  :hover {
+  &:hover {
     background: ${({ theme }) => theme.colors.mistExtra.toCssValue()};
   }
 

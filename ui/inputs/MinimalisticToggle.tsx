@@ -22,11 +22,11 @@ const CheckContainer = styled.div`
 const Container = styled(UnstyledButton)`
   ${transition};
   ${verticalPadding(4)}
-  :hover {
+  &:hover {
     color: ${getColor('contrast')};
   }
 
-  :hover ${CheckContainer} {
+  &:hover ${CheckContainer} {
     background: ${getColor('mist')};
   }
 `

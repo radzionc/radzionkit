@@ -4,7 +4,11 @@ import styled from 'styled-components'
 import { CloseButton } from '../buttons/CloseButton'
 import { SeparatedByLine } from '../layout/SeparatedByLine'
 import { HStack, VStack } from '../layout/Stack'
-import { PopoverPanelProps, PopoverPanel } from './PopoverPanel'
+import {
+  PopoverPanelProps,
+  PopoverPanel,
+  RenderContentParams,
+} from './PopoverPanel'
 import { Text } from '../text'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
@@ -33,7 +37,7 @@ export const PopoverMenu = ({
 }: PopoverMenuProps) => {
   return (
     <Container
-      renderContent={({ onClose }) => (
+      renderContent={({ onClose }: RenderContentParams) => (
         <SeparatedByLine gap={12}>
           <Header>
             <Text weight="semibold" color="supporting" cropped>

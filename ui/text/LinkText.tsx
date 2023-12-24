@@ -5,14 +5,14 @@ import { Text } from '.'
 export const LinkText = styled(Text)`
   text-decoration: underline;
 
-  :hover {
+  &:hover {
     text-decoration: none;
     color: ${({ theme }) => theme.colors.primary.toCssValue()};
   }
 `
 
 export const ShyLinkText = styled(Text)`
-  :hover {
+  &:hover {
     text-decoration: underline;
     color: ${({ theme }) => theme.colors.primary.toCssValue()};
   }

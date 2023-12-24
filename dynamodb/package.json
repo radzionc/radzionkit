@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.465.0",
-    "@aws-sdk/lib-dynamodb": "^3.465.0",
-    "@aws-sdk/util-dynamodb": "^3.465.0"
+    "@aws-sdk/client-dynamodb": "^3.478.0",
+    "@aws-sdk/lib-dynamodb": "^3.478.0",
+    "@aws-sdk/util-dynamodb": "^3.478.0"
   }
 }
