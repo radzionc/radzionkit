@@ -4,7 +4,7 @@ import { makeDemoPage } from 'layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (
-    <DemoPage youtubeVideoId="ed_bLoV_A6M" title="Colors">
+    <DemoPage youtubeVideoId="N5nsvOmSUrU" title="Colors">
       <ColorList />
     </DemoPage>
   )

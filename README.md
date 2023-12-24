@@ -32,3 +32,38 @@ Kickstart your new project with RadzionKit by clicking the `Use this template` b
 
 Copy your selected RadzionKit packages into your existing monorepo, ensuring to include any dependent RadzionKit packages, and rename all imports of `@radzionkit` to your project's name. Run `yarn` to install dependencies, and you're ready to go!
 
+
+## RadzionKit Cookbook: Simplifying Development with Practical YouTube Tutorials
+
+To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
+
+* [Building Internationalization in a Static NextJS Application Without External Libraries](https://youtu.be/V2FgF1AekUQ)
+* [NextJS Meta Tags Guide: SEO & PWA Icons](https://youtu.be/uqI6BwnIs8I)
+* [Creating a Reusable Combobox with React and TypeScript](https://youtu.be/0Ok3SD4hT-Y)
+* [Auto-Generating TypeScript for Dynamic React Components: A Deep Dive](https://youtu.be/_z_kAB5LRgM)
+* [Building a Subscription Payments System with Next.js & Node.js](https://youtu.be/ghTNoWkkf-0)
+* [Creating a Responsive and Minimalistic Modal Component in React](https://youtu.be/Sp-KmZfUWn8)
+* [Magic Link Email Authentication for NextJS + NodeJS Applications](https://youtu.be/b_BZKpeLxO0)
+* [Maintaining React State in a URL Query String with NextJS](https://youtu.be/fLx-JvNa450)
+* [Full-Stack Implementation of OAuth 2 Authentication (Google & Facebook) with NextJS and NodeJS](https://youtu.be/ysj0XNAolEc)
+* [Creating Different Layouts for Different Pages in NextJS](https://youtu.be/hrSBxLlZsCc)
+* [Efficient React State Management with usePersistentState and Local Storage](https://youtu.be/_90rzlGy0SM)
+* [Useful CSS Utils for React Projects - A Practical Guide](https://youtu.be/wBpoknNn6II)
+* [Essential Utilities & Helper Functions for TypeScript Projects](https://youtu.be/bWLeNhFaGRg)
+* [Adding Amplitude Analytics to a NextJS App Tutorial](https://youtu.be/hAhq0uH5Kcc)
+* [How to Set Up a Monorepo with Yarn Workspaces, NextJS, Styled Components, Prettier](https://youtu.be/T6pWiEHVhBE)
+* [Deploying a NextJS Static App to AWS S3 and CloudFront](https://youtu.be/ekvQBFsCOnU)
+* [Designing a Color Palette for Dark and Light Modes with React, Styled Components and HSLA](https://youtu.be/N5nsvOmSUrU)
+* [HSLA Color Format for React: TypeScript, Styled Components, Variants, Colors Generator, Color Picker](https://youtu.be/f3_TYR-8Sd8)
+* [Advanced React Button Component Tutorial](https://youtu.be/D2AmZCuk18Q)
+* [How To Make Tooltip React Component with Arrow using Floating UI](https://youtu.be/gt-29kdEwtA)
+* [Copy Text to Clipboard on Click React Component](https://youtu.be/sUKTden0DSI)
+* [How To Make Popover Menu React Component With Floating UI](https://youtu.be/dW9nVeeVc20)
+* [How To Make Emoji Input Menu React Component with Emoji Mart](https://youtu.be/sSGxGmUx00g)
+* [How To Make Hover Effect Overflow Its Container with React](https://youtu.be/35XAA5Hgag0)
+* [How To Make Slider Component with React & Style Range Input](https://youtu.be/HqfFtOh8_50)
+* [Building Versatile React Components: Cards and Panels](https://youtu.be/cY-wADVIrRQ)
+* [Efficient CSS Layouts with Stack Components](https://youtu.be/iVYo-gqyi90)
+* [Dynamic Form with react-hook-form useFieldArray](https://youtu.be/QYVlkk6WMmc)
+* [Infinite Scroll Component with React Query](https://youtu.be/mZfDvfs2GtI)
+* [A Deep Dive into React: useElementSize Hook and Resize Observing](https://youtu.be/PQ7QKBz_zWE)
