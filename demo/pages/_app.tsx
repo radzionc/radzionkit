@@ -6,7 +6,9 @@ import { Inter } from 'next/font/google'
 import { analytics } from 'analytics'
 import { useRouter } from 'next/router'
 import { Page } from 'layout/Page'
-import { ThemeProvider } from 'ui/ThemeProvider'
+import { PersistentStateKey, usePersistentState } from 'state/persistentState'
+import { ThemePreference } from '@radzionkit/ui/theme/ThemePreference'
+import { ThemeProvider } from '@radzionkit/ui/theme/ThemeProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -30,9 +32,14 @@ function MyApp({ Component, pageProps }: MyAppProps) {
   const getLayout = Component.getLayout || ((page: ReactNode) => page)
   const component = getLayout(<Component {...pageProps} />)
 
+  const [theme, setTheme] = usePersistentState<ThemePreference>(
+    PersistentStateKey.ThemePreference,
+    'system',
+  )
+
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
+      <ThemeProvider value={theme} onChange={setTheme}>
         <GlobalStyle fontFamily={inter.style.fontFamily} />
         {component}
       </ThemeProvider>

@@ -1,19 +1,17 @@
-import { useTheme } from 'styled-components'
-import { usePrefferedTheme } from './PrefferedThemeProvider'
 import { IconButton } from '../buttons/IconButton'
 import { MoonIcon } from '../icons/MoonIcon'
 import { SunIcon } from '../icons/SunIcon'
+import { useThemePreference } from './ThemeProvider'
 
 export const ThemeToggleButton = () => {
-  const { name } = useTheme()
-  const { setPrefferedTheme } = usePrefferedTheme()
+  const { value, onChange } = useThemePreference()
 
   return (
     <IconButton
       kind="secondary"
       title="Toggle theme"
-      onClick={() => setPrefferedTheme(name === 'dark' ? 'light' : 'dark')}
-      icon={name === 'light' ? <SunIcon /> : <MoonIcon />}
+      onClick={() => onChange(value === 'dark' ? 'light' : 'dark')}
+      icon={value === 'light' ? <SunIcon /> : <MoonIcon />}
     />
   )
 }
