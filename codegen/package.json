@@ -1,8 +1,0 @@
-{
-  "name": "@radzionkit/codegen",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "prettier": "^3.1.1"
-  }
-}

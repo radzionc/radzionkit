@@ -7,7 +7,7 @@
   "version": "0.0.1",
   "private": true,
   "workspaces": [
-    "./*"
+    "./**"
   ],
   "devDependencies": {
     "@types/react": "^18.2.45",

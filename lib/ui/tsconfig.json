@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true
+  },
+  "exclude": ["node_modules"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "../subscription-ui/SubscriptionBillingCycleInput.tsx",
+    "../subscription-ui/SubscriptionBillingCycleProvider.tsx",
+    "../subscription-ui/SubscriptionPrice.tsx",
+    "../web3-ui/Asset.ts",
+    "../web3-ui/AssetIcon.tsx",
+    "../web3-ui/AssetInput.tsx"
+  ]
+}

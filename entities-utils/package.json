@@ -1,8 +1,0 @@
-{
-  "name": "@radzionkit/entities-utils",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "uuid": "^9.0.1"
-  }
-}

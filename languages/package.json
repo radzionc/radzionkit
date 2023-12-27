@@ -1,8 +1,0 @@
-{
-  "name": "@radzionkit/languages",
-  "version": "0.0.1",
-  "private": true,
-  "devDependencies": {
-    "@google-cloud/translate": "^8.0.2"
-  }
-}
