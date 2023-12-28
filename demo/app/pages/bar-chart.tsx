@@ -1,4 +1,3 @@
-import { DemoPage } from 'components/DemoPage'
 import { useMemo, useState } from 'react'
 import { Panel } from '@lib/ui/panel/Panel'
 import { HStack, VStack } from '@lib/ui/layout/Stack'
@@ -10,7 +9,8 @@ import { formatDuration } from '@lib/utils/time/formatDuration'
 import { sum } from '@lib/utils/array/sum'
 import { useTheme } from 'styled-components'
 import { BarChart } from '@lib/ui/charts/BarChart'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '../components/DemoPage'
+import { makeDemoPage } from '../layout/makeDemoPage'
 
 const statsViews = ['days', 'weeks', 'months'] as const
 type StatsView = (typeof statsViews)[number]

@@ -1,6 +1,6 @@
 import { CountryCode } from '@lib/countries'
-import { DemoPage } from 'components/DemoPage'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 import { useState } from 'react'
 import { CountryInput } from '@lib/ui/inputs/CountryInput'
 import styled from 'styled-components'

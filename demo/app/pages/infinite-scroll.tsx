@@ -5,8 +5,8 @@ import { PaginatedView } from '@lib/ui/pagination/PaginatedView'
 import { usePaginatedResultItems } from '@lib/ui/query/hooks/usePaginatedResultItems'
 import { TableLayout } from '@lib/ui/layout/TableLayout'
 import { Fragment } from 'react'
-import { DemoPage } from 'components/DemoPage'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 interface QueryItemsParams {
   startAt: number

@@ -1,7 +1,7 @@
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { useState } from 'react'
-import { EmojiInput } from 'components/EmojiInput'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { EmojiInput } from '@demo/app/components/EmojiInput'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   const [value, setValue] = useState('👍')

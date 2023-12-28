@@ -1,7 +1,7 @@
-import { DemoPage } from 'components/DemoPage'
-import { CalendarEditor } from 'components/CalendarEditor/CalendarEditor'
 import { ClientOnly } from '@lib/ui/base/ClientOnly'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { CalendarEditor } from '../components/CalendarEditor/CalendarEditor'
+import { DemoPage } from '../components/DemoPage'
+import { makeDemoPage } from '../layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (

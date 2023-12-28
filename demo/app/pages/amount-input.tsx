@@ -1,9 +1,9 @@
-import { DemoPage } from 'components/DemoPage'
 import { AmountTextInput } from '@lib/ui/inputs/AmountTextInput'
 import { DollarIcon } from '@lib/ui/icons/DollarIcon'
 import { useState } from 'react'
 import { AmountSuggestion } from '@lib/ui/inputs/AmountSuggestion'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '../components/DemoPage'
+import { makeDemoPage } from '../layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   const [value, setValue] = useState<number | undefined>(80000)

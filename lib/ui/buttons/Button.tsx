@@ -162,7 +162,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
     `};
 `
 
-type ButtonProps = Omit<
+export type ButtonProps = Omit<
   React.ComponentProps<typeof Container>,
   'size' | 'kind' | 'isDisabled'
 > & {

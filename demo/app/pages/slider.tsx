@@ -1,6 +1,6 @@
-import { DemoPage } from 'components/DemoPage'
-import { WorkBudgetForm } from 'components/WorkBudgetForm'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
+import { WorkBudgetForm } from '@demo/app/components/WorkBudgetForm'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (

@@ -1,11 +1,14 @@
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { InteractivePromotion } from '@lib/ui/marketing/InteractivePromotion'
 import styled from 'styled-components'
 
 import { ShowAfterDelay } from '@lib/ui/base/ShowAfterDelay'
 import { takeWholeSpace } from '@lib/ui/css/takeWholeSpace'
-import { PersistentStateKey, usePersistentState } from 'state/persistentState'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import {
+  PersistentStateKey,
+  usePersistentState,
+} from '@demo/app/state/persistentState'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 const Image = styled.img`
   ${takeWholeSpace};

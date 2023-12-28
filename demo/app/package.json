@@ -7,7 +7,8 @@
     "build": "next build && next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "generateIconMetaTags": "npx tsx icon/codegen/generateIconMetaTags"
+    "generateIconMetaTags": "npx tsx icon/codegen/generateIconMetaTags",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@emoji-mart/data": "^1.1.2",

@@ -90,7 +90,7 @@ export const managePersistentState =
 ```tsx
 import { GlobalStyle } from '@lib/ui/css/GlobalStyle'
 import { Inter } from 'next/font/google'
-import { PersistentStateKey, usePersistentState } from 'state/persistentState'
+import { PersistentStateKey, usePersistentState } from '@demo/app/state/persistentState'
 import { ThemePreference } from '@lib/ui/theme/ThemePreference'
 import { ThemeProvider } from '@lib/ui/theme/ThemeProvider'
 

@@ -1,11 +1,11 @@
-import { SourceCodeLink } from 'components/SourceCode/SourceCodeLink'
+import { SourceCodeLink } from '@demo/app/components/SourceCode/SourceCodeLink'
 import { RegularPage } from '@lib/ui/layout/RegularPage'
 import { HStack } from '@lib/ui/layout/Stack'
 import { Text } from '@lib/ui/text'
 import { useRouter } from 'next/router'
-import { YouTubeLink } from 'components/YouTubeLink'
+import { YouTubeLink } from '@demo/app/components/YouTubeLink'
 import { ComponentWithChildrenProps } from '@lib/ui/props'
-import { PageMetaTags } from '../../../../lib/next-ui/metadata/PageMetaTags'
+import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
 
 interface Props extends ComponentWithChildrenProps {
   title: string

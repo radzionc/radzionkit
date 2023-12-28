@@ -4,8 +4,8 @@ import { HStack } from '@lib/ui/layout/Stack'
 import { TableLayout } from '@lib/ui/layout/TableLayout'
 import { Text } from '@lib/ui/text'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
-import { DemoPage } from 'components/DemoPage'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 interface Token {
   symbolImageUrl: string

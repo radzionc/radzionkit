@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { ElementSizeAware } from '@lib/ui/base/ElementSizeAware'
 import { SelectOption } from '@lib/ui/inputs/Select/SelectOption'
 import { VStack } from '@lib/ui/layout/Stack'
-import { DemoPage } from 'components/DemoPage'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 export const focusOptions = [
   15,

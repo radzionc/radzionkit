@@ -1,6 +1,6 @@
-import { ColorList } from 'components/ColorList'
-import { DemoPage } from 'components/DemoPage'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { ColorList } from '../components/ColorList'
+import { DemoPage } from '../components/DemoPage'
+import { makeDemoPage } from '../layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (

@@ -1,4 +1,4 @@
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { range } from '@lib/utils/array/range'
 import { VStack } from '@lib/ui/layout/Stack'
 import { Text } from '@lib/ui/text'
@@ -7,7 +7,7 @@ import { ImageHolder } from '@lib/ui/images/ImageHolder'
 import { SafeImage } from '@lib/ui/images/SafeImage'
 import { CoverImage } from '@lib/ui/images/CoverImage'
 import { UniformColumnGrid } from '@lib/ui/layout/UniformColumnGrid'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (

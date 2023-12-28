@@ -1,6 +1,6 @@
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { useTheme } from 'styled-components'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 import { DistributionBar } from '@lib/ui/charts/DistributionBar'
 
 export default makeDemoPage(() => {

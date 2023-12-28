@@ -3,12 +3,15 @@ import { ReactNode, useEffect, useState } from 'react'
 import { GlobalStyle } from '@lib/ui/css/GlobalStyle'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Inter } from 'next/font/google'
-import { analytics } from 'analytics'
 import { useRouter } from 'next/router'
-import { Page } from 'layout/Page'
-import { PersistentStateKey, usePersistentState } from 'state/persistentState'
 import { ThemePreference } from '@lib/ui/theme/ThemePreference'
 import { ThemeProvider } from '@lib/ui/theme/ThemeProvider'
+import { analytics } from '../analytics'
+import { Page } from '../layout/Page'
+import {
+  usePersistentState,
+  PersistentStateKey,
+} from '../state/persistentState'
 
 const inter = Inter({
   subsets: ['latin'],

@@ -1,7 +1,7 @@
 import { Countdown } from '@lib/ui/countdown'
 import { hoursToMilliseconds } from 'date-fns'
-import { DemoPage } from 'components/DemoPage'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '../components/DemoPage'
+import { makeDemoPage } from '../layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   const endsAt = Date.now() + hoursToMilliseconds(24 * 10)

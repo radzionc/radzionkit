@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { Center } from '@lib/ui/layout/Center'
 import { Text } from '@lib/ui/text'
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { Panel } from '@lib/ui/panel/Panel'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 import { takeWholeSpace } from '@lib/ui/css/takeWholeSpace'
 import { ElementSizeAware } from '@lib/ui/base/ElementSizeAware'
 

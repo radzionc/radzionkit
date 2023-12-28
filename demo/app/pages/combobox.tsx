@@ -1,12 +1,12 @@
 import { CountryCode } from '@lib/countries'
-import { DemoPage } from 'components/DemoPage'
-import { makeDemoPage } from 'layout/makeDemoPage'
 import { useState } from 'react'
 import { CountryInput } from '@lib/ui/inputs/CountryInput'
 import styled from 'styled-components'
 import { VStack } from '@lib/ui/layout/Stack'
 import { Asset } from '../../entities/Asset'
 import { AssetInput } from '@lib/web3-ui/AssetInput'
+import { DemoPage } from '../components/DemoPage'
+import { makeDemoPage } from '../layout/makeDemoPage'
 
 const Container = styled(VStack)`
   gap: 20px;

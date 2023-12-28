@@ -67,9 +67,9 @@ const generateIconMetaTags = async () => {
   createTsFile({
     extension: 'tsx',
     directory: codeDirectory,
-    fileName: 'IconMetaTags',
+    fileName: '@demo/app/iconMetaTags',
     content,
-    generatedBy: 'icon/codegen/generateIconMetaTags.ts',
+    generatedBy: '@demo/app/icon/codegen/generateIconMetaTags.ts',
   })
 }
 

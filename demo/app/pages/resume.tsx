@@ -1,6 +1,6 @@
-import { DemoPage } from 'components/DemoPage'
-import { Resume } from 'components/Resume'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
+import { Resume } from '@demo/app/components/Resume'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (

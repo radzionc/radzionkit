@@ -1,5 +1,5 @@
 import { HStack } from '@lib/ui/layout/Stack'
-import { ProductLogo } from 'product/ProductLogo'
+import { ProductLogo } from '@demo/app/product/ProductLogo'
 import styled from 'styled-components'
 import { PrimaryActions } from './PrimaryActions'
 import { verticalPadding } from '@lib/ui/css/verticalPadding'

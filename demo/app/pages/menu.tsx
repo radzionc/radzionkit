@@ -1,11 +1,11 @@
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { OpenMenuButton } from '@lib/ui/buttons/OpenMenuButton'
 import { EditIcon } from '@lib/ui/icons/EditIcon'
 import { MoonIcon } from '@lib/ui/icons/MoonIcon'
 import { TrashBinIcon } from '@lib/ui/icons/TrashBinIcon'
 import { Menu } from '@lib/ui/menu'
 import { MenuOption, MenuOptionProps } from '@lib/ui/menu/MenuOption'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (

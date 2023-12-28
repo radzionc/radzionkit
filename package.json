@@ -1,6 +1,6 @@
 {
   "name": "radzionkit",
-  "packageManager": "yarn@3.6.1",
+  "packageManager": "yarn@4.0.2",
   "engines": {
     "yarn": "3.x"
   },
@@ -22,6 +22,7 @@
   },
   "scripts": {
     "postinstall": "husky install",
-    "format": "eslint --fix && prettier --write"
+    "format": "eslint --fix && prettier --write",
+    "typecheck": "yarn workspaces foreach --all run typecheck"
   }
 }

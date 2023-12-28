@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "generateCountries": "npx tsx countries/codegen/generateCountries"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "date-fns": "^3.0.6"

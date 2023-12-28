@@ -4,13 +4,12 @@ import { authorize } from '../utils/authorize'
 
 export const authSessionWithEmail: ApiResolver<
   'authSessionWithEmail'
-> = async ({ input: { code, timeZone }, context: { country } }) => {
+> = async ({ input: { code }, context: { country } }) => {
   const result = await authenticateWithEmail({
     code,
   })
 
   return authorize({
-    timeZone,
     country,
     ...result,
   })

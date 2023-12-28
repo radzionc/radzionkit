@@ -1,7 +1,7 @@
 import { TextInput } from '@lib/ui/inputs/TextInput'
 import { Controller, useForm } from 'react-hook-form'
 import { TextArea } from '@lib/ui/inputs/TextArea'
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { Panel } from '@lib/ui/panel/Panel'
 import { TitledSection } from '@lib/ui/layout/TitledSection'
 import { AmountTextInput } from '@lib/ui/inputs/AmountTextInput'
@@ -9,7 +9,7 @@ import { DollarIcon } from '@lib/ui/icons/DollarIcon'
 import { Button } from '@lib/ui/buttons/Button'
 import { Form } from '@lib/ui/form/components/Form'
 import { Field } from '@lib/ui/inputs/Field'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 interface FormShape {
   name: string

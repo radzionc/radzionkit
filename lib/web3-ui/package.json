@@ -10,5 +10,8 @@
   "devDependencies": {
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
   }
 }

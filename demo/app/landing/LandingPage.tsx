@@ -9,7 +9,7 @@ import {
   increaserUrl,
   productGitHubUrl,
   productYouTubeChannelUrl,
-} from 'product/resources'
+} from '@demo/app/product/resources'
 import { ShyTextButton } from '@lib/ui/buttons/ShyTextButton'
 
 const Container = styled(VStack)`

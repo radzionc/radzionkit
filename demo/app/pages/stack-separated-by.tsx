@@ -1,4 +1,4 @@
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { Text } from '@lib/ui/text'
 import { SeparatedByLine } from '@lib/ui/layout/SeparatedByLine'
 import {
@@ -7,7 +7,7 @@ import {
   slashSeparator,
 } from '@lib/ui/layout/StackSeparatedBy'
 import { LabeledValue } from '@lib/ui/text/LabeledValue'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (

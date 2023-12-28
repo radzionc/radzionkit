@@ -1,12 +1,12 @@
-import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
 import { VStack } from '@lib/ui/layout/Stack'
 import { Opener } from '@lib/ui/base/Opener'
 import { updateAtIndex } from '@lib/utils/array/updateAtIndex'
-import { makeDemoPage } from 'layout/makeDemoPage'
 import { ChecklistItem } from '@lib/ui/checklist/ChecklistItem'
 import { AddChecklistItemPrompt } from '@lib/ui/checklist/AddChecklistItemPrompt'
 import { ChecklistItemForm } from '@lib/ui/checklist/ChecklistItemForm'
+import { DemoPage } from '../components/DemoPage'
+import { makeDemoPage } from '../layout/makeDemoPage'
 
 interface Task {
   name: string

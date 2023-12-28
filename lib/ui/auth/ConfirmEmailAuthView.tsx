@@ -1,28 +1,21 @@
 import { VStack } from '../layout/Stack'
 import { Text } from '../text'
-import { useState } from 'react'
 import { AuthView } from './AuthView'
-import { useHandleQueryParams } from '../navigation/hooks/useHandleQueryParams'
 import { suggestInboxLink } from '@lib/utils/suggestInboxLink'
 import { ExternalLink } from '../navigation/Link/ExternalLink'
 import { Button } from '../buttons/Button'
 
-interface EmailConfirmQueryParams {
-  email: string
-}
-
 interface ConfirmEmailAuthViewProps {
   sender?: string
   onBack?: () => void
+  email?: string
 }
 
 export const ConfirmEmailAuthView = ({
   sender,
   onBack,
+  email,
 }: ConfirmEmailAuthViewProps) => {
-  const [email, setEmail] = useState<string | undefined>()
-  useHandleQueryParams<EmailConfirmQueryParams>(({ email }) => setEmail(email))
-
   const inboxLink = email && suggestInboxLink(email, sender)
 
   return (

@@ -1,6 +1,6 @@
-import { NavigationToInternalPage } from 'navigation/NavigationToInternalPage'
 import { VStack } from '@lib/ui/layout/Stack'
-import { Path } from 'navigation/Path'
+import { NavigationToInternalPage } from './NavigationToInternalPage'
+import { Path } from './Path'
 
 export const NavigationItems = () => (
   <VStack fullWidth>

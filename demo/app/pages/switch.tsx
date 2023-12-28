@@ -1,7 +1,7 @@
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { Switch } from '@lib/ui/inputs/Switch/Switch'
 import { useState } from 'react'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   const [value, setValue] = useState(false)

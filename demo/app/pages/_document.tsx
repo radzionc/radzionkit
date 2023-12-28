@@ -7,7 +7,7 @@ import Document, {
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 import { DocumentMetaTags } from '../../../lib/next-ui/metadata/DocumentMetaTags'
-import { IconMetaTags } from 'icon/IconMetaTags'
+import { IconMetaTags } from '../icon/IconMetaTags'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

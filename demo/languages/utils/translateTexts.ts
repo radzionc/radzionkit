@@ -5,7 +5,7 @@ import { getEnvVar } from '../getEnvVar'
 import { extractTemplateVariables } from '@lib/utils/template/extractTemplateVariables'
 import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
 import { injectVariables } from '@lib/utils/template/injectVariables'
-import { makeRecord } from '@lib/utils/makeRecord'
+import { makeRecord } from '@lib/utils/record/makeRecord'
 import { toTemplateVariable } from '@lib/utils/template/toTemplateVariable'
 
 const batchSize = 600

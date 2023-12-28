@@ -1,4 +1,4 @@
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { useState } from 'react'
 import { Panel } from '@lib/ui/panel/Panel'
 import { VStack } from '@lib/ui/layout/Stack'
@@ -14,7 +14,7 @@ import { PauseIcon } from '@lib/ui/icons/PauseIcon'
 import { PlayIcon } from '@lib/ui/icons/PlayIcon'
 import { getColor } from '@lib/ui/theme/getters'
 import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 const options = [
   'Lofi jazz study music',

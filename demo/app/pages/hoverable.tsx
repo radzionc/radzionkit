@@ -1,6 +1,6 @@
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { Text } from '@lib/ui/text'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 import { Hoverable } from '@lib/ui/base/Hoverable'
 
 export default makeDemoPage(() => {

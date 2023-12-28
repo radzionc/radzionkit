@@ -1,12 +1,12 @@
 import { HStack, VStack } from '@lib/ui/layout/Stack'
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import {
   IconButton,
   iconButtonKinds,
   iconButtonSizes,
 } from '@lib/ui/buttons/IconButton'
 import { SettingsIcon } from '@lib/ui/icons/SettingsIcon'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 import { TitledSection } from '@lib/ui/layout/TitledSection'
 
 export default makeDemoPage(() => {

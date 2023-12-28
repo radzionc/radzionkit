@@ -1,8 +1,8 @@
 import { HStack, VStack } from '@lib/ui/layout/Stack'
-import { DemoPage } from 'components/DemoPage'
 import { Button, buttonKinds, buttonSizes } from '@lib/ui/buttons/Button'
 import { TitledSection } from '@lib/ui/layout/TitledSection'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '../components/DemoPage'
+import { makeDemoPage } from '../layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (

@@ -1,4 +1,4 @@
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { HStack, VStack } from '@lib/ui/layout/Stack'
 import { ThemeProvider } from 'styled-components'
 import { HSLA } from '@lib/ui/colors/HSLA'
@@ -8,10 +8,13 @@ import { SafeImage } from '@lib/ui/images/SafeImage'
 import { YouTubeIcon } from '@lib/ui/icons/YouTubeIcon'
 import { CoverImage } from '@lib/ui/images/CoverImage'
 import { darkTheme } from '@lib/ui/theme/darkTheme'
-import { PersistentStateKey, usePersistentState } from 'state/persistentState'
+import {
+  PersistentStateKey,
+  usePersistentState,
+} from '@demo/app/state/persistentState'
 import { Button } from '@lib/ui/buttons/Button'
 import { Text } from '@lib/ui/text'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 const titleColor = new HSLA(220, 45, 30)
 

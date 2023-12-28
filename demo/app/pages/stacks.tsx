@@ -3,9 +3,9 @@ import { HSLA } from '@lib/ui/colors/HSLA'
 
 import { HStack, VStack } from '@lib/ui/layout/Stack'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { Panel } from '@lib/ui/panel/Panel'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 const Conent = styled(Panel)<{ $color: HSLA }>`
   ${sameDimensions(80)};

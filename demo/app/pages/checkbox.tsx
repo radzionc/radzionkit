@@ -1,7 +1,7 @@
-import { DemoPage } from 'components/DemoPage'
 import { useState } from 'react'
 import { Checkbox } from '@lib/ui/inputs/Checkbox/Checkbox'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '../components/DemoPage'
+import { makeDemoPage } from '../layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   const [value, setValue] = useState(false)

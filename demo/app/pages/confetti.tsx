@@ -1,9 +1,9 @@
-import { DemoPage } from 'components/DemoPage'
 import { Confetti } from '@lib/ui/animations/Confetti'
 import { Checkbox } from '@lib/ui/inputs/Checkbox/Checkbox'
 import { useState } from 'react'
 import styled from 'styled-components'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '../components/DemoPage'
+import { makeDemoPage } from '../layout/makeDemoPage'
 
 const Container = styled.div`
   position: relative;

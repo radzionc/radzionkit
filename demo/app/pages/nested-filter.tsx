@@ -1,6 +1,6 @@
-import { DemoPage } from 'components/DemoPage'
-import { CuratedHabits } from 'components/CuratedHabits'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
+import { CuratedHabits } from '@demo/app/components/CuratedHabits'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (

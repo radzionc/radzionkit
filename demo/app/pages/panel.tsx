@@ -1,10 +1,10 @@
 import { VStack } from '@lib/ui/layout/Stack'
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { ExpandablePanel } from '@lib/ui/panel/ExpandablePanel'
 import { Text } from '@lib/ui/text'
 import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
 import { Button } from '@lib/ui/buttons/Button'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (

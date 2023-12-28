@@ -1,5 +1,5 @@
-import { GetLayout, Page } from 'layout/Page'
-import { Navigation } from 'navigation'
+import { Navigation } from '../navigation'
+import { GetLayout, Page } from './Page'
 
 export const getDemoPageLayout: GetLayout = (page) => (
   <Navigation>{page}</Navigation>

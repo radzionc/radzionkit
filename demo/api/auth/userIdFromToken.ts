@@ -6,7 +6,7 @@ interface DecodedToken {
 }
 
 export const userIdFromToken = async (token: string) => {
-  const secret = await getSecret('SECRET')
+  const secret = await getSecret('JWT_SECRET')
 
   const decoded = jwt.verify(token, secret)
 

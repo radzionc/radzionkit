@@ -2,9 +2,9 @@ import { getViewSetup } from '@lib/ui/view/getViewSetup'
 import styled from 'styled-components'
 import { ViewSelector } from '@lib/ui/inputs/Select/ViewSelector'
 import { VStack } from '@lib/ui/layout/Stack'
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { Panel } from '@lib/ui/panel/Panel'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 export const views = ['primary', 'attention'] as const
 export type View = (typeof views)[number]

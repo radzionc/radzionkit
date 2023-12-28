@@ -1,6 +1,6 @@
-import { DemoPage } from 'components/DemoPage'
 import { CopyText } from '@lib/ui/text/CopyText'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { DemoPage } from '../components/DemoPage'
+import { makeDemoPage } from '../layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   return (

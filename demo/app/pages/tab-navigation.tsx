@@ -1,10 +1,10 @@
-import { DemoPage } from 'components/DemoPage'
+import { DemoPage } from '@demo/app/components/DemoPage'
 import { useState } from 'react'
 import { TabNavigation } from '@lib/ui/navigation/TabNavigation'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { VStack } from '@lib/ui/layout/Stack'
 import { Text } from '@lib/ui/text'
-import { makeDemoPage } from 'layout/makeDemoPage'
+import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 const views = [
   'Overview',

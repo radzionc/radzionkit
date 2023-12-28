@@ -5,7 +5,7 @@ import { authorize } from '../utils/authorize'
 export const authSessionWithOAuth: ApiResolver<
   'authSessionWithOAuth'
 > = async ({
-  input: { timeZone, provider, redirectUri, code },
+  input: { provider, redirectUri, code },
   context: { country },
 }) => {
   const result = await authenticateWithOAuth({
@@ -15,7 +15,6 @@ export const authSessionWithOAuth: ApiResolver<
   })
 
   return authorize({
-    timeZone,
     country,
     ...result,
   })

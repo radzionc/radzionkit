@@ -3,7 +3,7 @@ import { HStack } from '@lib/ui/layout/Stack'
 import styled from 'styled-components'
 import { getColor } from '@lib/ui/theme/getters'
 import { centerContent } from '@lib/ui/css/centerContent'
-import { Icon } from 'icon/Icon'
+import { Icon } from '@demo/app/icon/Icon'
 
 const IconWrapper = styled.div`
   color: ${getColor('contrast')};

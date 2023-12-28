@@ -1,6 +1,5 @@
 import { OAuthProvider } from '@demo/entities/OAuthProvider'
 import { AuthSession } from '@demo/entities/AuthSession'
-import { Subscription } from '@demo/entities/Subscription'
 import { User } from '@demo/entities/User'
 import { ApiMethod } from './ApiMethod'
 
@@ -25,15 +24,6 @@ export interface ApiInterface {
 
   user: ApiMethod<{ timeZone: number }, User>
   updateUser: ApiMethod<Partial<Pick<User, 'name' | 'country'>>, undefined>
-  manageSubscription: ApiMethod<
-    undefined,
-    {
-      updateUrl: string
-      cancelUrl: string
-    }
-  >
-
-  subscription: ApiMethod<{ id: string }, Subscription | undefined>
 
   sendAuthLinkByEmail: ApiMethod<{ email: string }, undefined>
 }
