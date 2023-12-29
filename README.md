@@ -36,7 +36,15 @@ Select the `@lib` packages you require from RadzionKit and copy them into your m
 
 ## Effortlessly Integrate RadzionKit's UI Package: Enhance Your Project's User Interface
 
-1. **For NextJS Projects Only:** Integrate the `_document.tsx` from RadzionKit's `demo/pages/_document.tsx` into your project's custom document file  to ensure styled-components function properly.
+1. **For NextJS Projects Only:** Update your `_document.tsx` file by extending the `StyledComponentsDocument` from the `@lib/next-ui` package, in order to integrate support for the `styled-components` library used in the `@lib/ui` package.
+
+```tsx
+import { StyledComponentsDocument } from '@lib/next-ui/StyledComponentsDocument'
+
+class MyDocument extends StyledComponentsDocument {
+  // ...
+}
+```
 
 2. **For NextJS Projects Only:** Update your `next.config.js` to set `styledComponents` to `true` in the compiler options for proper styling, and include your UI package in `transpilePackages` to ensure Next.js correctly compiles and includes the UI package from the monorepo.
 
