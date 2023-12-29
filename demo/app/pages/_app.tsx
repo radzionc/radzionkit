@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import { ThemePreference } from '@lib/ui/theme/ThemePreference'
 import { ThemeProvider } from '@lib/ui/theme/ThemeProvider'
 import { analytics } from '../analytics'
-import { Page } from '../layout/Page'
+import { Page } from '@lib/next-ui/Page'
 import {
   usePersistentState,
   PersistentStateKey,

@@ -58,7 +58,7 @@ const nextConfig = {
 }
 ```
 
-3. Create a `styled.d.ts` file at the root of your project and include the following content to integrate RadzionKit's theme with styled-components' default theme:
+3. Add a `styled.d.ts` to your project and include the following content to integrate RadzionKit's theme with `styled-components`' default theme:
 
 ```typescript
 import 'styled-components';
