@@ -16,14 +16,5 @@
     "incremental": true
   },
   "exclude": ["node_modules"],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "../subscription-ui/SubscriptionBillingCycleInput.tsx",
-    "../subscription-ui/SubscriptionBillingCycleProvider.tsx",
-    "../subscription-ui/SubscriptionPrice.tsx",
-    "../web3-ui/Asset.ts",
-    "../web3-ui/AssetIcon.tsx",
-    "../web3-ui/AssetInput.tsx"
-  ]
+  "include": ["**/*.ts", "**/*.tsx"]
 }
