@@ -1,54 +1,51 @@
-import { padWithZero } from '../padWithZero'
-import { H_IN_DAY, MIN_IN_HOUR, S_IN_HOUR, S_IN_MIN } from '.'
-import { DurationUnit, convertDuration } from './convertDuration'
+import { convertDuration } from './convertDuration'
+import { pluralize } from '../pluralize'
+import { durationUnitName, DurationUnit, durationUnits } from './DurationUnit'
+import { match } from '../match'
+
+type FormatDurationKind = 'short' | 'long'
 
 interface FormatDurationOptions {
-  maxUnit?: 'd' | 'h'
+  maxUnit?: DurationUnit
+  minUnit?: DurationUnit
+  kind?: FormatDurationKind
 }
 
 export const formatDuration = (
   duration: number,
-  unit: DurationUnit,
+  durationUnit: DurationUnit,
   options: FormatDurationOptions = {},
 ) => {
+  const kind = options.kind ?? 'short'
   const maxUnit = options.maxUnit || 'd'
-  const minutes = Math.round(convertDuration(duration, unit, 'min'))
+  const minUnit = options.minUnit || 'min'
 
-  if (minutes < MIN_IN_HOUR) return `${minutes}m`
+  const maxUnitIndex = durationUnits.indexOf(maxUnit)
+  const minUnitIndex = durationUnits.indexOf(minUnit)
+  if (maxUnitIndex < minUnitIndex) {
+    throw new Error('maxUnit must be greater than minUnit')
+  }
 
-  const hours = Math.floor(minutes / S_IN_MIN)
+  const units = durationUnits.slice(minUnitIndex, maxUnitIndex + 1).reverse()
+  const result: string[] = []
+  units.forEach((unit, index) => {
+    const convertedValue = convertDuration(duration, durationUnit, unit)
+    const isLastUnit = index === units.length - 1
 
-  if (hours < H_IN_DAY || maxUnit === 'h') {
-    const minutesPart = Math.round(minutes % S_IN_MIN)
-    if (!minutesPart) {
-      return `${hours}h`
+    const wholeValue = isLastUnit
+      ? Math.round(convertedValue)
+      : Math.floor(convertedValue)
+    duration -= convertDuration(wholeValue, unit, durationUnit)
+
+    if (wholeValue > 0 || (isLastUnit && !result.length)) {
+      const value = match(kind, {
+        short: () => `${wholeValue}${unit.slice(0, 1)}`,
+        long: () => pluralize(wholeValue, durationUnitName[unit]),
+      })
+
+      result.push(value)
     }
-    return `${hours}h ${minutesPart}m`
-  }
+  })
 
-  const days = Math.floor(hours / H_IN_DAY)
-  const hoursPart = Math.round(hours % H_IN_DAY)
-  if (!hoursPart) {
-    return `${days}d`
-  }
-
-  return `${days}d ${hoursPart}h`
-}
-
-export const formatDurationAsADigitalClock = (totalSeconds: number) => {
-  const hours = Math.floor(totalSeconds / S_IN_HOUR)
-  const minutes = Math.floor((totalSeconds - hours * S_IN_HOUR) / S_IN_MIN)
-  const seconds = Math.floor(
-    totalSeconds - hours * S_IN_HOUR - minutes * S_IN_MIN,
-  )
-
-  const parts: string[] = []
-  if (hours) {
-    parts.push(padWithZero(hours))
-  }
-
-  parts.push(padWithZero(minutes))
-  parts.push(padWithZero(seconds))
-
-  return parts.join(':')
+  return result.join(' ')
 }

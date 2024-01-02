@@ -6,8 +6,7 @@ import {
   MS_IN_WEEK,
   NS_IN_MS,
 } from '.'
-
-export type DurationUnit = 'ms' | 's' | 'min' | 'h' | 'd' | 'w' | 'ns'
+import { DurationUnit } from './DurationUnit'
 
 const msInUnit: Record<DurationUnit, number> = {
   ns: 1 / NS_IN_MS,
