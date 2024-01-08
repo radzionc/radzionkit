@@ -7,6 +7,7 @@ import { HStack } from '../../layout/Stack'
 import { Text } from '../../text'
 import { VolumeIcon } from '../../icons/VolumeIcon'
 import { NoVolumeIcon } from '../../icons/NoVolumeIcon'
+import { borderRadius } from '../../css/borderRadius'
 
 interface ShySoundToggleProps extends InputProps<boolean> {
   style?: React.CSSProperties
@@ -14,7 +15,7 @@ interface ShySoundToggleProps extends InputProps<boolean> {
 
 const Container = styled(UnstyledButton)`
   background: ${getColor('mist')};
-  border-radius: 8px;
+  ${borderRadius.s};
   padding: 4px 8px;
   ${transition};
   font-size: 14px;

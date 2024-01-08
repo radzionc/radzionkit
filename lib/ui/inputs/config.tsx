@@ -1,9 +1,6 @@
 import { css } from 'styled-components'
 import { getColor } from '../theme/getters'
-
-export const inputBorderRadiusCSS = css`
-  border-radius: 8px;
-`
+import { borderRadius } from '../css/borderRadius'
 
 export const defaultInputHeight = '52px'
 
@@ -11,7 +8,7 @@ export const defaultInputShapeCSS = css`
   height: ${defaultInputHeight};
   width: 100%;
   padding: 12px;
-  ${inputBorderRadiusCSS};
+  ${borderRadius.s}
 `
 
 export const inputBackgroundCSS = css`

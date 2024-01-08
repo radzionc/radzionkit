@@ -77,7 +77,10 @@ export const PieChart = ({ items }: Props) => {
   return (
     <svg viewBox={`0 0 ${svgViewBoxSize} ${svgViewBoxSize}`}>
       {itemsWithAngles.map(
-        ({ color, startAngle, endAngle, value, labelColor }, index) => {
+        (
+          { color, startAngle, endAngle, value, labelColor = colors.contrast },
+          index,
+        ) => {
           if (value === 0) {
             return null
           }
@@ -95,7 +98,7 @@ export const PieChart = ({ items }: Props) => {
           return (
             <React.Fragment key={index}>
               <SvgArc
-                color={color.getVariant({ a: () => 0.2 })}
+                color={color.getVariant({ a: (a) => a * 0.2 })}
                 radius={radius}
                 cutoutRadius={cutoutRadius}
                 startAngle={startAngle}
@@ -121,10 +124,10 @@ export const PieChart = ({ items }: Props) => {
                     y={labelPosition.y + labelSize / 2}
                     dominantBaseline="middle"
                     textAnchor="middle"
-                    fill={(labelColor || colors.contrast).toCssValue()}
+                    fill={labelColor.toCssValue()}
                   >
                     {percentage}
-                    <tspan fill={colors.text.toCssValue()} fontSize={7}>
+                    <tspan fill={labelColor.toCssValue()} fontSize={7}>
                       {' '}
                       %
                     </tspan>

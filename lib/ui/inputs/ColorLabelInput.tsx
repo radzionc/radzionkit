@@ -23,7 +23,8 @@ interface ColorLabelInputProps extends InputProps<number> {
 
 const CurrentColor = styled.div<StyledComponentWithColorProps>`
   background: ${({ $color }) => $color.toCssValue()};
-  border-radius: 8px;
+  ${borderRadius.s};
+
   ${sameDimensions('68%')}
 `
 

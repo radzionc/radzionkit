@@ -5,6 +5,7 @@ import { ComponentProps } from 'react'
 import { absoluteOutline } from '../css/absoluteOutline'
 import { transition } from '../css/transition'
 import { UnstyledButton } from '../buttons/UnstyledButton'
+import { borderRadius } from '../css/borderRadius'
 
 interface HighlightProps {
   horizontalOffset: number | string
@@ -14,7 +15,7 @@ interface HighlightProps {
 const Highlight = styled.div<HighlightProps>`
   position: absolute;
   ${transition};
-  border-radius: 8px;
+  ${borderRadius.s};
   ${(props) => absoluteOutline(props.horizontalOffset, props.verticalOffset)}
 `
 

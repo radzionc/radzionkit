@@ -13,6 +13,7 @@ import { interactive } from '../css/interactive'
 import { transition } from '../css/transition'
 import { UnstyledButton } from '../buttons/UnstyledButton'
 import { CloseIcon } from '../icons/CloseIcon'
+import { borderRadius } from '../css/borderRadius'
 
 interface ImageBannerProps {
   onClose: () => void
@@ -81,7 +82,8 @@ const Close = styled(UnstyledButton)`
 
   color: ${getColor('background')};
 
-  border-radius: 8px;
+  ${borderRadius.s};
+
   ${centerContent};
   ${sameDimensions(40)};
   font-size: 20px;

@@ -8,4 +8,5 @@ export const IconWrapper = styled.span`
   width: fit-content;
   height: fit-content;
   overflow: hidden;
+  flex-shrink: 0;
 `

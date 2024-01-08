@@ -3,6 +3,7 @@ import { getColor } from '../../theme/getters'
 import { transition } from '../../css/transition'
 import { HStack } from '../../layout/Stack'
 import { Text } from '../../text'
+import { borderRadius } from '../../css/borderRadius'
 
 interface Props {
   icon?: React.ReactNode
@@ -19,7 +20,7 @@ export const Container = styled.div<{ isSelected?: boolean }>`
   align-items: center;
   width: 100%;
   ${transition};
-  border-radius: 8px;
+  ${borderRadius.s};
   font-weight: 500;
   color: ${getColor('textSupporting')};
   &:hover {

@@ -1,6 +1,7 @@
 import { debounce } from '@lib/utils/debounce'
 import { pick } from '@lib/utils/record/pick'
-import { useLayoutEffect, useState } from 'react'
+import { useState } from 'react'
+import { useIsomorphicLayoutEffect } from 'react-use'
 
 export interface ElementSize {
   width: number
@@ -15,7 +16,7 @@ export const useElementSize = (element: HTMLElement | null) => {
     element ? getElementSize(element) : null,
   )
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!element) return
 
     const handleElementChange = debounce(() => {

@@ -5,6 +5,7 @@ import {
   useRole,
   useClick,
   useDismiss,
+  flip,
 } from '@floating-ui/react'
 import { autoUpdate, offset, size } from '@floating-ui/dom'
 
@@ -32,6 +33,7 @@ export const useFloatingOptions = ({
     whileElementsMounted: autoUpdate,
     middleware: [
       offset(4),
+      flip(),
       size({
         apply({ elements, availableHeight, rects }) {
           Object.assign(elements.floating.style, {

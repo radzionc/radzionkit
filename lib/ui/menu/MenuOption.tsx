@@ -8,6 +8,7 @@ import { transition } from '../css/transition'
 import { verticalPadding } from '../css/verticalPadding'
 import { HStack } from '../layout/Stack'
 import { Text } from '../text'
+import { borderRadius } from '../css/borderRadius'
 
 type MenuOptionKind = 'regular' | 'alert'
 
@@ -25,7 +26,7 @@ interface ContentProps {
 
 const Content = styled(HStack)<ContentProps>`
   ${transition};
-  border-radius: 8px;
+  ${borderRadius.s}
   width: 100%;
   ${verticalPadding(8)};
   align-items: center;

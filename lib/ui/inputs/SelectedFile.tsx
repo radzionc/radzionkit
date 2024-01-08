@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { Button } from '../buttons/Button'
-import { inputBackgroundCSS, inputBorderRadiusCSS } from './config'
+import { inputBackgroundCSS } from './config'
 import { HStack } from '../layout/Stack'
 import { Text } from '../text'
+import { borderRadius } from '../css/borderRadius'
 
 interface Props {
   name: string
@@ -11,7 +12,7 @@ interface Props {
 
 const Container = styled.div`
   ${inputBackgroundCSS};
-  ${inputBorderRadiusCSS};
+  ${borderRadius.s}
   padding: 16px;
 `
 

@@ -9,8 +9,8 @@ import { transition } from '../css/transition'
 import { CenterAbsolutely } from '../layout/CenterAbsolutely'
 import { Spinner } from '../loaders/Spinner'
 import { Tooltip } from '../tooltips/Tooltip'
-import { getHoverVariant } from '../colors/getHoverVariant'
 import { getColor } from '../theme/getters'
+import { getHoverVariant } from '../theme/getHoverVariant'
 
 export const buttonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 
@@ -118,8 +118,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
       &:hover {
         ${match(kind, {
           primary: () => css`
-            background: ${({ theme }) =>
-              getHoverVariant(theme.colors.primary).toCssValue()};
+            background: ${getHoverVariant('primary')};
           `,
           secondary: () => css`
             background: ${getColor('mistExtra')};
@@ -128,8 +127,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
             background: ${getColor('text')};
           `,
           alert: () => css`
-            background: ${({ theme }) =>
-              getHoverVariant(theme.colors.alert).toCssValue()};
+            background: ${getHoverVariant('alert')};
           `,
           outlined: () => css`
             background: ${getColor('mist')};

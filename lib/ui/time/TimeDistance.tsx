@@ -13,6 +13,7 @@ import { Minutes } from '@lib/utils/time/types'
 interface TimeDistanceProps {
   value: Minutes
   direction: Direction
+  includePointer?: boolean
 }
 
 const DashedLine = styled.div`
@@ -39,7 +40,11 @@ const Connector = styled(Stack)`
   align-items: center;
 `
 
-export const TimeDistance = ({ value, direction }: TimeDistanceProps) => {
+export const TimeDistance = ({
+  value,
+  direction,
+  includePointer,
+}: TimeDistanceProps) => {
   const content = (
     <Content color="supporting">{formatDuration(value, 'min')}</Content>
   )
@@ -47,15 +52,15 @@ export const TimeDistance = ({ value, direction }: TimeDistanceProps) => {
   return (
     <Container direction={contentDirection}>
       <Connector direction={contentDirection}>
-        {direction === 'up' && <ChevronUpIcon />}
-        {direction === 'left' && <ChevronLeftIcon />}
+        {includePointer && direction === 'up' && <ChevronUpIcon />}
+        {includePointer && direction === 'left' && <ChevronLeftIcon />}
         <DashedLine />
       </Connector>
       {content}
       <Connector direction={contentDirection}>
         <DashedLine />
-        {direction === 'down' && <ChevronDownIcon />}
-        {direction === 'right' && <ChevronRightIcon />}
+        {includePointer && direction === 'down' && <ChevronDownIcon />}
+        {includePointer && direction === 'right' && <ChevronRightIcon />}
       </Connector>
     </Container>
   )

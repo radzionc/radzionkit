@@ -1,12 +1,11 @@
 import styled from 'styled-components'
-import { ComponentWithChildrenProps } from '../props'
+import { ComponentWithChildrenProps, UIComponentProps } from '../props'
 
-interface PositionAbsolutelyCenterVerticallyProps
-  extends ComponentWithChildrenProps {
-  left: React.CSSProperties['left']
-  fullHeight?: boolean
-  className?: string
-}
+type PositionAbsolutelyCenterVerticallyProps = ComponentWithChildrenProps &
+  UIComponentProps & {
+    left: React.CSSProperties['left']
+    fullHeight?: boolean
+  }
 
 const Wrapper = styled.div`
   position: absolute;
@@ -29,11 +28,12 @@ export const PositionAbsolutelyCenterVertically = ({
   children,
   fullHeight,
   className,
+  style = {},
 }: PositionAbsolutelyCenterVerticallyProps) => {
   return (
     <Wrapper
       className={className}
-      style={{ left, height: fullHeight ? '100%' : undefined }}
+      style={{ ...style, left, height: fullHeight ? '100%' : undefined }}
     >
       <Container style={{ height: fullHeight ? '100%' : undefined }}>
         <Content style={{ height: fullHeight ? '100%' : undefined }}>

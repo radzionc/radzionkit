@@ -3,9 +3,10 @@ import styled, { css } from 'styled-components'
 import { HSLA } from '../colors/HSLA'
 import { Text } from '../text'
 import { match } from '@lib/utils/match'
+import { borderRadius } from '../css/borderRadius'
 
 export const Tag = styled(Text)<{ $color: HSLA }>`
-  border-radius: 8px;
+  ${borderRadius.s};
   padding: 4px 8px;
   font-weight: 600;
   font-size: 14px;

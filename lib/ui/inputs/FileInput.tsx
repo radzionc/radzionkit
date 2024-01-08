@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { inputBackgroundCSS, inputBorderRadiusCSS } from './config'
+import { inputBackgroundCSS } from './config'
 import { useDropzone, Accept } from 'react-dropzone'
 import { Button } from '../buttons/Button'
 import { getColor } from '../theme/getters'
@@ -8,6 +8,7 @@ import { transition } from '../css/transition'
 import { VStack } from '../layout/Stack'
 import { Panel } from '../panel/Panel'
 import { Text } from '../text'
+import { borderRadius } from '../css/borderRadius'
 
 interface Props {
   onSubmit: (file: File) => void
@@ -18,7 +19,7 @@ interface Props {
 const Container = styled(Panel)`
   flex: 1;
   padding: 32px;
-  ${inputBorderRadiusCSS};
+  ${borderRadius.s}
   ${inputBackgroundCSS};
   cursor: pointer;
 

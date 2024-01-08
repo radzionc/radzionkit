@@ -7,6 +7,7 @@ import { sameDimensions } from '../css/sameDimensions'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { transition } from '../css/transition'
 import { matchColor } from '../theme/getters'
+import { borderRadius } from '../css/borderRadius'
 
 export const iconButtonSizes = ['s', 'm', 'l'] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]
@@ -39,7 +40,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
   font-size: ${({ size }) =>
     `calc(${toSizeUnit(iconButtonSizeRecord[size] * 0.6)})`};
 
-  border-radius: 8px;
+  ${borderRadius.s};
 
   ${transition};
 

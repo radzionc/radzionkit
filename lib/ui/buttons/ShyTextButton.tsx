@@ -29,9 +29,9 @@ const Underline = styled.span`
   border-bottom: 1px dashed;
 `
 
-export const ShyTextButton = ({ onClick, text, as }: Props) => {
+export const ShyTextButton = ({ text, ...rest }: Props) => {
   return (
-    <Container as={as} onClick={onClick}>
+    <Container {...rest}>
       <Text
         nowrap
         style={{ transition: 'none', position: 'relative' }}

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { TextInput, TextInputProps } from './TextInput'
 import { centerContent } from '../css/centerContent'
 import { HStack } from '../layout/Stack'
+import { borderRadius } from '../css/borderRadius'
 
 type AmountTextInputProps = Omit<TextInputProps, 'value' | 'onValueChange'> & {
   value: number | undefined
@@ -15,7 +16,8 @@ type AmountTextInputProps = Omit<TextInputProps, 'value' | 'onValueChange'> & {
 }
 
 const UnitContainer = styled.div`
-  border-radius: 8px;
+  ${borderRadius.s};
+
   position: absolute;
   left: 12px;
   ${centerContent};

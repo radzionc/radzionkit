@@ -5,7 +5,6 @@ import { generateLabelColorGetter } from '../colors/generateLabelColorGetter'
 
 const backgroundHue = 0
 const backgroundSaturation = 0
-const backgroundLightness = 10
 
 export const darkTheme: DefaultTheme = {
   name: 'dark',
@@ -16,16 +15,8 @@ export const darkTheme: DefaultTheme = {
     alert: new HSLA(0, 79, 63),
     idle: new HSLA(32, 79, 48),
 
-    foreground: new HSLA(
-      backgroundHue,
-      backgroundSaturation,
-      backgroundLightness + 3,
-    ),
-    background: new HSLA(
-      backgroundHue,
-      backgroundSaturation,
-      backgroundLightness,
-    ),
+    foreground: new HSLA(backgroundHue, backgroundSaturation, 12),
+    background: new HSLA(backgroundHue, backgroundSaturation, 8),
     text: new HSLA(0, 0, 100, 0.81),
     textSupporting: new HSLA(0, 0, 61),
     textShy: new HSLA(0, 0, 100, 0.28),

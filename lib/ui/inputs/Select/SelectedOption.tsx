@@ -3,6 +3,7 @@ import { CloseButton } from '../../buttons/CloseButton'
 import { HStack } from '../../layout/Stack'
 import { Panel } from '../../panel/Panel'
 import { Text } from '../../text'
+import { borderRadius } from '../../css/borderRadius'
 
 interface Props {
   value: string
@@ -11,7 +12,7 @@ interface Props {
 
 const Container = styled(Panel)`
   padding: 8px;
-  border-radius: 8px;
+  ${borderRadius.s}
 `
 
 export const SelectedOption = ({ value, onRemove }: Props) => {
