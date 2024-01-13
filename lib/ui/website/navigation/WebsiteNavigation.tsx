@@ -4,7 +4,7 @@ import { takeWholeSpace } from '../../css/takeWholeSpace'
 import { HStack, VStack } from '../../layout/Stack'
 import { ReactNode, useEffect, useState } from 'react'
 import { useIsScreenWidthLessThan } from '../../hooks/useIsScreenWidthLessThan'
-import { centeredContentColumn } from '../../css/slice'
+import { centeredContentColumn } from '../../css/centeredContentColumn'
 import { websiteConfig } from '../config'
 import { getColor } from '../../theme/getters'
 import { IconButton } from '../../buttons/IconButton'
@@ -22,16 +22,12 @@ type WebsiteNavigationProps = ComponentWithChildrenProps & {
 
 const Wrapper = styled(VStack)`
   ${takeWholeSpace};
-  height: 100%;
 `
 
-const Container = styled.div`
+const Container = styled(VStack)`
   max-height: 100%;
   overflow: auto;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  ${takeWholeSpace};
 `
 
 const Header = styled.div`
@@ -42,9 +38,8 @@ const Header = styled.div`
   min-height: ${toSizeUnit(websiteConfig.headerHeight)};
 `
 
-const TobbarContent = styled.div`
+const TobbarContent = styled(HStack)`
   flex: 1;
-  display: flex;
   justify-content: space-between;
 `
 

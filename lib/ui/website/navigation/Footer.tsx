@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { centeredContentColumn } from '../../css/slice'
+import { centeredContentColumn } from '../../css/centeredContentColumn'
 import { websiteConfig } from '../config'
 import { verticalPadding } from '../../css/verticalPadding'
 import { getColor } from '../../theme/getters'

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { VStack } from '../../layout/Stack'
 import { ComponentWithChildrenProps, TitledComponentProps } from '../../props'
-import { centeredContentColumn } from '../../css/slice'
+import { centeredContentColumn } from '../../css/centeredContentColumn'
 import { Text } from '../../text'
 import { verticalPadding } from '../../css/verticalPadding'
 

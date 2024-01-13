@@ -1,6 +1,6 @@
-import { ExpandableSection } from '../layout/ExpandableSection'
-import { ComponentWithChildrenProps, TitledComponentProps } from '../props'
-import { Text } from '../text'
+import { ExpandableSection } from '../../layout/ExpandableSection'
+import { ComponentWithChildrenProps, TitledComponentProps } from '../../props'
+import { Text } from '../../text'
 
 type FaqItemProps = ComponentWithChildrenProps & TitledComponentProps
 
