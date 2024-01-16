@@ -4,7 +4,7 @@ import { getColor } from '../../theme/getters'
 import {
   InvisibleHTMLCheckboxProps,
   InvisibleHTMLCheckbox,
-} from './InvisibleHTMLCheckbox'
+} from '../InvisibleHTMLCheckbox'
 import { centerContent } from '../../css/centerContent'
 import { sameDimensions } from '../../css/sameDimensions'
 import { transition } from '../../css/transition'

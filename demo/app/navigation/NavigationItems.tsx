@@ -16,13 +16,11 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.Colors} name="Colors" />
     <NavigationToInternalPage path={Path.Images} name="Images" />
     <NavigationToInternalPage path={Path.SizeAware} name="Size Aware" />
-    <NavigationToInternalPage path={Path.Select} name="Select" />
     <NavigationToInternalPage path={Path.Slider} name="Slider" />
     <NavigationToInternalPage path={Path.Switch} name="Switch" />
     <NavigationToInternalPage path={Path.Spinner} name="Spinner" />
     <NavigationToInternalPage path={Path.Checkbox} name="Checkbox" />
     <NavigationToInternalPage path={Path.Tag} name="Tag" />
-    <NavigationToInternalPage path={Path.SelectView} name="Select View" />
     <NavigationToInternalPage path={Path.Combobox} name="Combobox" />
     <NavigationToInternalPage path={Path.CountryInput} name="Country Input" />
     <NavigationToInternalPage path={Path.BarChart} name="Bar Chart" />

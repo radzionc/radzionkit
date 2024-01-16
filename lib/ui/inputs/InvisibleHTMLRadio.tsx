@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { InvisibleInput } from './InvisibleInput'
 
 export interface InvisibleHTMLRadioProps {
   groupName: string
@@ -8,29 +8,18 @@ export interface InvisibleHTMLRadioProps {
   autoFocus?: boolean
 }
 
-const RadioInput = styled.input`
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-`
-
 export const InvisibleHTMLRadio = ({
   groupName,
   value,
   isSelected,
   onSelect,
 }: InvisibleHTMLRadioProps) => (
-  <RadioInput
+  <InvisibleInput
     type="radio"
     name={groupName}
     checked={isSelected}
     value={value}
-    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+    onChange={(event) => {
       if (event.currentTarget.value === value.toString()) {
         onSelect()
       }

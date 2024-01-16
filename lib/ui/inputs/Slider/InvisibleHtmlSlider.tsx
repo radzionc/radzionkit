@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { InvisibleInput } from '../InvisibleInput'
 
 export interface InvisibleHTMLSliderProps {
   min: number
@@ -9,15 +10,7 @@ export interface InvisibleHTMLSliderProps {
   onChange: (value: number) => void
 }
 
-const SliderInput = styled.input`
-  border: 0;
-  clip: rect(0 0 0 0);
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-
-  height: 100%;
+const SliderInput = styled(InvisibleInput)`
   white-space: nowrap;
   width: 100%;
   direction: ltr;

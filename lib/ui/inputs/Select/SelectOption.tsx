@@ -1,55 +1,78 @@
-import { ReactNode } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
-
-import { defaultInputShapeCSS } from '../config'
-import {
-  InvisibleHTMLRadio,
-  InvisibleHTMLRadioProps,
-} from '../InvisibleHTMLRadio'
-import { getColor } from '../../theme/getters'
+import { borderRadius } from '../../css/borderRadius'
+import { interactive } from '../../css/interactive'
+import { sameDimensions } from '../../css/sameDimensions'
 import { transition } from '../../css/transition'
-import { centerContent } from '../../css/centerContent'
+import { HStack } from '../../layout/Stack'
+import { matchColor, getColor } from '../../theme/getters'
+import { ComponentWithChildrenProps } from '../../props'
+import { Tooltip } from '../../tooltips/Tooltip'
 
-const Container = styled.label<{ isSelected: boolean }>`
-  position: relative;
-  cursor: pointer;
+interface SelectOptionProps extends ComponentWithChildrenProps {
+  isSelected: boolean
+  isDisabled?: string | false
+}
 
-  ${centerContent}
-  background: ${getColor('mist')};
-
-  ${defaultInputShapeCSS};
-  ${transition};
-
-  font-weight: 500;
-
-  color: ${({ theme }) => theme.colors.textSupporting.toCssValue()};
-  &:hover {
-    background: ${({ theme }) => theme.colors.mistExtra.toCssValue()};
-  }
-
-  ${({ isSelected }) =>
-    isSelected &&
-    css`
-      background: ${({ theme }) => theme.colors.mistExtra.toCssValue()};
-      color: ${({ theme }) => theme.colors.text.toCssValue()};
-    `};
+const Indicator = styled.div<{ selected: boolean }>`
+  ${sameDimensions(8)};
+  border-radius: 50%;
+  background: ${matchColor('selected', {
+    true: 'primary',
+    false: 'mistExtra',
+  })};
 `
 
-interface Props extends InvisibleHTMLRadioProps {
-  children: ReactNode
-  className?: string
-}
+const Container = styled.label<{ selected: boolean; disabled?: boolean }>`
+  padding: 12px 20px;
+  ${borderRadius.m};
+  background: ${getColor('foreground')};
+  ${transition};
+  ${({ disabled }) =>
+    disabled
+      ? css`
+          opacity: 0.6;
+        `
+      : css`
+          ${interactive};
+          :hover {
+            background: ${getColor('mist')};
+          }
+        `}
+
+  color: ${matchColor('selected', {
+    true: 'contrast',
+    false: 'textSupporting',
+  })};
+  font-weight: 500;
+`
 
 export const SelectOption = ({
   isSelected,
+  isDisabled: disabledMessage,
   children,
-  className,
-  ...rest
-}: Props) => {
-  return (
-    <Container className={className} tabIndex={-1} isSelected={isSelected}>
-      {children}
-      <InvisibleHTMLRadio isSelected={isSelected} {...rest} />
-    </Container>
+}: SelectOptionProps) => {
+  const content = (
+    <>
+      <HStack alignItems="center" gap={8}>
+        <Indicator selected={isSelected} />
+        {children}
+      </HStack>
+    </>
   )
+
+  if (disabledMessage) {
+    return (
+      <Tooltip
+        content={disabledMessage}
+        renderOpener={(props) => (
+          <Container {...props} disabled selected={isSelected}>
+            {content}
+          </Container>
+        )}
+      />
+    )
+  }
+
+  return <Container selected={isSelected}>{content}</Container>
 }
