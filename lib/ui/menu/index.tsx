@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 import { Opener } from '../base/Opener'
-import { ResponsiveView } from '../layout/ResponsiveView'
 import { BottomSlideOver } from '../modal/BottomSlideOver'
 import { PopoverMenuProps, PopoverMenu } from './PopoverMenu'
+import { BasedOnScreenWidth } from '../layout/BasedOnScreenWidth'
 
 export type MenuView = 'popover' | 'slideover'
 
@@ -17,8 +17,9 @@ interface MenuProps extends Pick<PopoverMenuProps, 'title' | 'renderOpener'> {
 
 export const Menu = ({ renderOpener, title, renderContent }: MenuProps) => {
   return (
-    <ResponsiveView
-      small={() => (
+    <BasedOnScreenWidth
+      value={600}
+      less={() => (
         <Opener
           renderOpener={({ onOpen }) =>
             renderOpener({
@@ -33,7 +34,7 @@ export const Menu = ({ renderOpener, title, renderContent }: MenuProps) => {
           )}
         />
       )}
-      normal={() => (
+      more={() => (
         <PopoverMenu
           title={title}
           renderOpener={renderOpener}
