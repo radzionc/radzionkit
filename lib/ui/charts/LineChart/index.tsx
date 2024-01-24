@@ -1,9 +1,9 @@
-import { normalize } from '@lib/utils/math/normalize'
 import { useMemo } from 'react'
 import { Point } from '../../entities/Point'
-import { useTheme } from 'styled-components'
+import styled, { useTheme } from 'styled-components'
+import { transition } from '../../css/transition'
 
-interface SplineChartProps {
+interface LineChartProps {
   data: number[]
   height: number
   width: number
@@ -66,13 +66,16 @@ const createClosedPath = (
   return path
 }
 
-export const SplineChart = ({ data, width, height }: SplineChartProps) => {
+const Path = styled.path`
+  ${transition}
+`
+
+export const LineChart = ({ data, width, height }: LineChartProps) => {
   const [path, closedPath] = useMemo(() => {
     if (data.length === 0) return ['', '']
 
-    const normalizedData = normalize(data)
-    const points = normalizedData.map((value, index) => ({
-      x: index / (normalizedData.length - 1),
+    const points = data.map((value, index) => ({
+      x: index / (data.length - 1),
       y: value,
     }))
 
@@ -92,17 +95,27 @@ export const SplineChart = ({ data, width, height }: SplineChartProps) => {
       height={height}
       viewBox={`0 0 ${width} ${height}`}
     >
-      <path
+      <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop
+            offset="0%"
+            stopColor={theme.colors.primary
+              .getVariant({ a: () => 0.4 })
+              .toCssValue()}
+          />
+          <stop
+            offset="100%"
+            stopColor={theme.colors.transparent.toCssValue()}
+          />
+        </linearGradient>
+      </defs>
+      <Path
         d={path}
         fill="none"
         stroke={theme.colors.primary.toCssValue()}
         strokeWidth="2"
       />
-      <path
-        d={closedPath}
-        fill={theme.colors.primary.getVariant({ a: () => 0.1 }).toCssValue()}
-        strokeWidth="0"
-      />
+      <Path d={closedPath} fill="url(#gradient)" strokeWidth="0" />
     </svg>
   )
 }
