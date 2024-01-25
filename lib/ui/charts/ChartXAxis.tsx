@@ -6,7 +6,7 @@ import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
 type ChartXAxisProps = {
   data: number[]
   containerWidth: number
-  minHeight: number
+  expectedLabelHeight: number
   expectedLabelWidth: number
   labelsMinDistance: number
   renderLabel: (index: number) => React.ReactNode
@@ -20,7 +20,7 @@ const Container = styled.div`
 export const ChartXAxis = ({
   data,
   containerWidth,
-  minHeight,
+  expectedLabelHeight,
   expectedLabelWidth,
   labelsMinDistance,
   renderLabel,
@@ -45,7 +45,7 @@ export const ChartXAxis = ({
   return (
     <Container
       style={{
-        minHeight,
+        minHeight: expectedLabelHeight,
       }}
     >
       {itemIndexes.map((index) => {

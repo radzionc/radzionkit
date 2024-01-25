@@ -1,5 +1,5 @@
 import { ElementSizeAware } from '@lib/ui/base/ElementSizeAware'
-import styled, { useTheme } from 'styled-components'
+import { useTheme } from 'styled-components'
 import { useState } from 'react'
 import { normalize } from '@lib/utils/math/normalize'
 import { convertDuration } from '@lib/utils/time/convertDuration'
@@ -16,20 +16,14 @@ import { makeDemoPage } from '../layout/makeDemoPage'
 import { DemoPage } from '../components/DemoPage'
 import { formatAmount } from '@lib/utils/formatAmount'
 
-const Container = styled(VStack)`
-  gap: 4px;
-  width: 100%;
-`
-
 const chartConfig = {
   chartHeight: 240,
   itemInfoExpectedHeight: 24,
   itemInfoExpectedWidth: 120,
   expectedLabelWidth: 58,
+  expectedLabelHeight: 18,
   labelsMinDistance: 20,
 }
-
-const labelMinHeight = 18
 
 const data = dataVerticalPadding(
   normalize(bitcoinPriceTimeseries.map((item) => item.price)),
@@ -50,7 +44,7 @@ export default makeDemoPage(() => {
       <ElementSizeAware
         render={({ setElement, size }) => {
           return (
-            <Container ref={setElement}>
+            <VStack fullWidth gap={4} ref={setElement}>
               {size && (
                 <>
                   <LineChartItemInfo
@@ -93,7 +87,7 @@ export default makeDemoPage(() => {
                     expectedLabelWidth={chartConfig.expectedLabelWidth}
                     labelsMinDistance={chartConfig.labelsMinDistance}
                     containerWidth={size.width}
-                    minHeight={labelMinHeight}
+                    expectedLabelHeight={chartConfig.expectedLabelHeight}
                     renderLabel={(index) => (
                       <Text size={12} color="supporting" nowrap>
                         {format(
@@ -109,7 +103,7 @@ export default makeDemoPage(() => {
                   />
                 </>
               )}
-            </Container>
+            </VStack>
           )
         }}
       />
