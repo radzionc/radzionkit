@@ -10,7 +10,7 @@ import { Text } from '@lib/ui/text'
 import { format } from 'date-fns'
 import { LineChart } from '@lib/ui/charts/LineChart'
 import { LineChartPositionTracker } from '@lib/ui/charts/LineChart/LineChartPositionTracker'
-import { LineChartXAxes } from '@lib/ui/charts/LineChart/LineChartXAxes'
+import { ChartXAxis } from '@lib/ui/charts/ChartXAxis'
 import { bitcoinPriceTimeseries } from '../data/bitcoinPriceTimeseries'
 import { makeDemoPage } from '../layout/makeDemoPage'
 import { DemoPage } from '../components/DemoPage'
@@ -18,12 +18,17 @@ import { formatAmount } from '@lib/utils/formatAmount'
 
 const Container = styled(VStack)`
   gap: 4px;
-  position: relative;
   width: 100%;
 `
 
-const chartHeight = 120
-const itemInfoMinHeight = 24
+const chartConfig = {
+  chartHeight: 240,
+  itemInfoExpectedHeight: 24,
+  itemInfoExpectedWidth: 120,
+  expectedLabelWidth: 58,
+  labelsMinDistance: 20,
+}
+
 const labelMinHeight = 18
 
 const data = dataVerticalPadding(
@@ -49,7 +54,8 @@ export default makeDemoPage(() => {
               {size && (
                 <>
                   <LineChartItemInfo
-                    minHeight={itemInfoMinHeight}
+                    itemExpectedHeight={chartConfig.itemInfoExpectedHeight}
+                    itemExpectedWidth={chartConfig.itemInfoExpectedWidth}
                     containerWidth={size.width}
                     data={data}
                     itemIndex={selectedPoint}
@@ -73,7 +79,7 @@ export default makeDemoPage(() => {
                   <VStack style={{ position: 'relative' }}>
                     <LineChart
                       width={size.width}
-                      height={chartHeight}
+                      height={chartConfig.chartHeight}
                       data={data}
                     />
                     <LineChartPositionTracker
@@ -82,10 +88,10 @@ export default makeDemoPage(() => {
                       onChange={setSelectedPoint}
                     />
                   </VStack>
-                  <LineChartXAxes
+                  <ChartXAxis
                     data={data}
-                    expectedLabelWidth={54}
-                    labelsMinDistance={20}
+                    expectedLabelWidth={chartConfig.expectedLabelWidth}
+                    labelsMinDistance={chartConfig.labelsMinDistance}
                     containerWidth={size.width}
                     minHeight={labelMinHeight}
                     renderLabel={(index) => (

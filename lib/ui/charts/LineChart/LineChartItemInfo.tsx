@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { ElementSizeAware } from '../../base/ElementSizeAware'
-import { defaultTransition } from '../../css/transition'
+import { useMemo } from 'react'
 
 type LineChartItemInfoProps = {
   containerWidth: number
-  minHeight: number
+  itemExpectedHeight: number
+  itemExpectedWidth: number
   data: number[]
   itemIndex: number | null
   render: (itemIndex: number) => React.ReactNode
@@ -19,7 +19,8 @@ const Content = styled.div`
   position: absolute;
   bottom: 0;
   white-space: nowrap;
-  transition: ${defaultTransition} opacity;
+  display: flex;
+  justify-content: center;
 `
 
 export const LineChartItemInfo = ({
@@ -27,40 +28,37 @@ export const LineChartItemInfo = ({
   itemIndex,
   render,
   containerWidth,
-  minHeight,
+  itemExpectedHeight,
+  itemExpectedWidth,
 }: LineChartItemInfoProps) => {
+  const position: React.CSSProperties = useMemo(() => {
+    if (itemIndex === null) {
+      return {}
+    }
+
+    const center = itemIndex * (containerWidth / (data.length - 1))
+    const contentHalfWidth = itemExpectedWidth / 2
+    if (center < contentHalfWidth) {
+      return { left: 0 }
+    }
+
+    if (containerWidth - center < contentHalfWidth) {
+      return { right: 0 }
+    }
+
+    return { left: center - contentHalfWidth }
+  }, [containerWidth, data.length, itemExpectedWidth, itemIndex])
+
   return (
-    <Container style={{ minHeight }}>
-      <ElementSizeAware
-        render={({ setElement, size }) => {
-          const getLeft = () => {
-            if (size === null || itemIndex === null) return
-
-            const center = itemIndex * (containerWidth / (data.length - 1))
-            const contentHalfWidth = size.width / 2
-            if (center < contentHalfWidth) return 0
-
-            if (containerWidth - center < contentHalfWidth) {
-              return containerWidth - size.width
-            }
-
-            return center - contentHalfWidth
-          }
-
-          const left = getLeft()
-
-          const hasPosition = left !== undefined
-
-          return (
-            <Content
-              style={{ left, opacity: hasPosition ? 1 : 0 }}
-              ref={setElement}
-            >
-              {itemIndex !== null && hasPosition && render(itemIndex)}
-            </Content>
-          )
+    <Container style={{ minHeight: itemExpectedHeight }}>
+      <Content
+        style={{
+          ...position,
+          minWidth: itemExpectedWidth,
         }}
-      />
+      >
+        {itemIndex !== null && render(itemIndex)}
+      </Content>
     </Container>
   )
 }

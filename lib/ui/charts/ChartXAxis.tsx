@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { PositionAbsolutelyCenterVertically } from '../../layout/PositionAbsolutelyCenterVertically'
+import { PositionAbsolutelyCenterVertically } from '../layout/PositionAbsolutelyCenterVertically'
 import { useMemo } from 'react'
 import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
 
-type LineChartXAxesProps = {
+type ChartXAxisProps = {
   data: number[]
   containerWidth: number
   minHeight: number
@@ -17,14 +17,14 @@ const Container = styled.div`
   position: relative;
 `
 
-export const LineChartXAxes = ({
+export const ChartXAxis = ({
   data,
   containerWidth,
   minHeight,
   expectedLabelWidth,
   labelsMinDistance,
   renderLabel,
-}: LineChartXAxesProps) => {
+}: ChartXAxisProps) => {
   const stepInPx = containerWidth / (data.length - 1)
   const itemIndexes = useMemo(() => {
     let lastItemEnd = 0

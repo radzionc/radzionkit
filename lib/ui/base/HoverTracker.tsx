@@ -3,12 +3,12 @@ import {
   MouseEventHandler,
   ReactNode,
   useCallback,
-  useEffect,
   useState,
 } from 'react'
 import { Point } from '../entities/Point'
 import { useBoundingBox } from '../hooks/useBoundingBox'
 import { enforceRange } from '@lib/utils/enforceRange'
+import { useIsomorphicLayoutEffect } from 'react-use'
 
 interface ContainerProps {
   onMouseEnter?: MouseEventHandler<HTMLElement>
@@ -57,7 +57,7 @@ export const HoverTracker = ({ render, onChange }: HoverTrackerProps) => {
     [handleMove],
   )
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (onChange) {
       onChange({ position })
     }
