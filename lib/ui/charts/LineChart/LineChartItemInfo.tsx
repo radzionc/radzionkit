@@ -31,7 +31,7 @@ export const LineChartItemInfo = ({
   itemExpectedHeight,
   itemExpectedWidth,
 }: LineChartItemInfoProps) => {
-  const position: React.CSSProperties = useMemo(() => {
+  const style: React.CSSProperties = useMemo(() => {
     if (itemIndex === null) {
       return {}
     }
@@ -46,19 +46,12 @@ export const LineChartItemInfo = ({
       return { right: 0 }
     }
 
-    return { left: center - contentHalfWidth }
+    return { left: center - contentHalfWidth, minWidth: itemExpectedWidth }
   }, [containerWidth, data.length, itemExpectedWidth, itemIndex])
 
   return (
     <Container style={{ minHeight: itemExpectedHeight }}>
-      <Content
-        style={{
-          ...position,
-          minWidth: itemExpectedWidth,
-        }}
-      >
-        {itemIndex !== null && render(itemIndex)}
-      </Content>
+      <Content style={style}>{itemIndex !== null && render(itemIndex)}</Content>
     </Container>
   )
 }

@@ -49,7 +49,7 @@ const Container = styled.label<{
           border-color: ${theme.colors.mist.toCssValue()};
         `
       : css`
-          :hover {
+          &:hover {
             color: ${theme.colors.contrast.toCssValue()};
           }
         `};

@@ -43,7 +43,7 @@ const ColorOption = styled.label<StyledComponentWithColorProps>`
 
   ${transition};
 
-  :hover {
+  &:hover {
     background: ${({ $color }) =>
       $color.getVariant({ l: (l) => l * 0.8 }).toCssValue()};
   }

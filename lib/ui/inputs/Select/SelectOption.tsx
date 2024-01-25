@@ -35,7 +35,7 @@ const Container = styled.label<{ selected: boolean; disabled?: boolean }>`
         `
       : css`
           ${interactive};
-          :hover {
+          &:hover {
             background: ${getColor('mist')};
           }
         `}
