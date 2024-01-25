@@ -70,7 +70,7 @@ export default makeDemoPage(() => {
                       )
                     }}
                   />
-                  <div style={{ position: 'relative' }}>
+                  <VStack style={{ position: 'relative' }}>
                     <LineChart
                       width={size.width}
                       height={chartHeight}
@@ -81,7 +81,7 @@ export default makeDemoPage(() => {
                       color={color}
                       onChange={setSelectedPoint}
                     />
-                  </div>
+                  </VStack>
                   <LineChartXAxes
                     data={data}
                     expectedLabelWidth={54}
