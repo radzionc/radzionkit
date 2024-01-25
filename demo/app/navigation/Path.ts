@@ -49,4 +49,5 @@ export enum Path {
   NestedFilter = '/nested-filter',
   CountryFlag = '/flag',
   CountryInput = '/country-input',
+  LineChart = '/linechart',
 }

@@ -25,6 +25,7 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.CountryInput} name="Country Input" />
     <NavigationToInternalPage path={Path.BarChart} name="Bar Chart" />
     <NavigationToInternalPage path={Path.PieChart} name="Pie Chart" />
+    <NavigationToInternalPage path={Path.LineChart} name="Line Chart" />
     <NavigationToInternalPage path={Path.Countdown} name="Countdown" />
     <NavigationToInternalPage path={Path.Hoverable} name="Hoverable" />
     <NavigationToInternalPage path={Path.CountryFlag} name="Country flag" />
