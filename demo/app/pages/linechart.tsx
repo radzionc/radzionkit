@@ -18,8 +18,6 @@ import { formatAmount } from '@lib/utils/formatAmount'
 
 const chartConfig = {
   chartHeight: 240,
-  itemInfoExpectedHeight: 24,
-  itemInfoExpectedWidth: 120,
   expectedLabelWidth: 58,
   expectedLabelHeight: 18,
   labelsMinDistance: 20,
@@ -34,10 +32,14 @@ const data = dataVerticalPadding(
 )
 
 export default makeDemoPage(() => {
-  const [selectedPoint, setSelectedPoint] = useState<number | null>(null)
+  const [selectedPoint, setSelectedPoint] = useState<number>(data.length - 1)
+  const [isSelectedPointVisible, setIsSelectedPointVisible] =
+    useState<boolean>(false)
 
   const { colors } = useTheme()
   const color = colors.primary
+
+  const { timestamp, price } = bitcoinPriceTimeseries[selectedPoint]
 
   return (
     <DemoPage title="Line Chart">
@@ -48,38 +50,41 @@ export default makeDemoPage(() => {
               {size && (
                 <>
                   <LineChartItemInfo
-                    itemExpectedHeight={chartConfig.itemInfoExpectedHeight}
-                    itemExpectedWidth={chartConfig.itemInfoExpectedWidth}
+                    itemIndex={selectedPoint}
+                    isVisible={isSelectedPointVisible}
                     containerWidth={size.width}
                     data={data}
-                    itemIndex={selectedPoint}
-                    render={(index) => {
-                      const { timestamp, price } = bitcoinPriceTimeseries[index]
-                      return (
-                        <VStack>
-                          <Text color="contrast" weight="semibold">
-                            ${formatAmount(price)}
-                          </Text>
-                          <Text color="supporting" size={14} weight="semibold">
-                            {format(
-                              convertDuration(timestamp, 's', 'ms'),
-                              'EEE d, MMM yyyy',
-                            )}
-                          </Text>
-                        </VStack>
-                      )
-                    }}
-                  />
+                  >
+                    <VStack>
+                      <Text color="contrast" weight="semibold">
+                        ${formatAmount(price)}
+                      </Text>
+                      <Text color="supporting" size={14} weight="semibold">
+                        {format(
+                          convertDuration(timestamp, 's', 'ms'),
+                          'EEE d, MMM yyyy',
+                        )}
+                      </Text>
+                    </VStack>
+                  </LineChartItemInfo>
                   <VStack style={{ position: 'relative' }}>
                     <LineChart
                       width={size.width}
                       height={chartConfig.chartHeight}
                       data={data}
+                      color={color}
                     />
                     <LineChartPositionTracker
                       data={data}
                       color={color}
-                      onChange={setSelectedPoint}
+                      onChange={(index) => {
+                        if (index === null) {
+                          setIsSelectedPointVisible(false)
+                        } else {
+                          setIsSelectedPointVisible(true)
+                          setSelectedPoint(index)
+                        }
+                      }}
                     />
                   </VStack>
                   <ChartXAxis

@@ -2,11 +2,13 @@ import { useMemo } from 'react'
 import { Point } from '../../entities/Point'
 import styled, { useTheme } from 'styled-components'
 import { transition } from '../../css/transition'
+import { HSLA } from '../../colors/HSLA'
 
 interface LineChartProps {
   data: number[]
   height: number
   width: number
+  color: HSLA
 }
 
 const calculateControlPoints = (dataPoints: Point[]) => {
@@ -70,7 +72,7 @@ const Path = styled.path`
   ${transition}
 `
 
-export const LineChart = ({ data, width, height }: LineChartProps) => {
+export const LineChart = ({ data, width, height, color }: LineChartProps) => {
   const [path, closedPath] = useMemo(() => {
     if (data.length === 0) return ['', '']
 
@@ -99,9 +101,7 @@ export const LineChart = ({ data, width, height }: LineChartProps) => {
         <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop
             offset="0%"
-            stopColor={theme.colors.primary
-              .getVariant({ a: () => 0.4 })
-              .toCssValue()}
+            stopColor={color.getVariant({ a: () => 0.4 }).toCssValue()}
           />
           <stop
             offset="100%"
@@ -109,12 +109,7 @@ export const LineChart = ({ data, width, height }: LineChartProps) => {
           />
         </linearGradient>
       </defs>
-      <Path
-        d={path}
-        fill="none"
-        stroke={theme.colors.primary.toCssValue()}
-        strokeWidth="2"
-      />
+      <Path d={path} fill="none" stroke={color.toCssValue()} strokeWidth="2" />
       <Path d={closedPath} fill="url(#gradient)" strokeWidth="0" />
     </svg>
   )

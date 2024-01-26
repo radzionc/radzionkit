@@ -1,57 +1,71 @@
 import styled from 'styled-components'
-import { useMemo } from 'react'
+import { ElementSizeAware } from '../../base/ElementSizeAware'
+import { defaultTransition } from '../../css/transition'
+import { ComponentWithChildrenProps } from '../../props'
 
-type LineChartItemInfoProps = {
+type LineChartItemInfoProps = ComponentWithChildrenProps & {
   containerWidth: number
-  itemExpectedHeight: number
-  itemExpectedWidth: number
   data: number[]
-  itemIndex: number | null
-  render: (itemIndex: number) => React.ReactNode
+  isVisible: boolean
+  itemIndex: number
 }
 
 const Container = styled.div`
   width: 100%;
-  position: relative;
 `
 
 const Content = styled.div`
-  position: absolute;
-  bottom: 0;
+  width: fit-content;
   white-space: nowrap;
-  display: flex;
-  justify-content: center;
+  transition: ${defaultTransition} opacity;
 `
 
 export const LineChartItemInfo = ({
   data,
   itemIndex,
-  render,
+  children,
   containerWidth,
-  itemExpectedHeight,
-  itemExpectedWidth,
+  isVisible,
 }: LineChartItemInfoProps) => {
-  const style: React.CSSProperties = useMemo(() => {
-    if (itemIndex === null) {
-      return {}
-    }
-
-    const center = itemIndex * (containerWidth / (data.length - 1))
-    const contentHalfWidth = itemExpectedWidth / 2
-    if (center < contentHalfWidth) {
-      return { left: 0 }
-    }
-
-    if (containerWidth - center < contentHalfWidth) {
-      return { right: 0 }
-    }
-
-    return { left: center - contentHalfWidth, minWidth: itemExpectedWidth }
-  }, [containerWidth, data.length, itemExpectedWidth, itemIndex])
-
   return (
-    <Container style={{ minHeight: itemExpectedHeight }}>
-      <Content style={style}>{itemIndex !== null && render(itemIndex)}</Content>
+    <Container>
+      <ElementSizeAware
+        render={({ setElement, size }) => {
+          const getStyle = (): React.CSSProperties => {
+            if (!size) {
+              return {
+                visibility: 'hidden',
+              }
+            }
+
+            const center = itemIndex * (containerWidth / (data.length - 1))
+            const contentHalfWidth = size.width / 2
+            if (center < contentHalfWidth) {
+              return { marginLeft: 0 }
+            }
+
+            if (containerWidth - center < contentHalfWidth) {
+              return { marginLeft: 'auto' }
+            }
+
+            return {
+              marginLeft: center - contentHalfWidth,
+            }
+          }
+
+          return (
+            <Content
+              ref={setElement}
+              style={{
+                ...getStyle(),
+                opacity: isVisible ? 1 : 0,
+              }}
+            >
+              {children}
+            </Content>
+          )
+        }}
+      />
     </Container>
   )
 }
