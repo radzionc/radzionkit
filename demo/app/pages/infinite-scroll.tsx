@@ -1,5 +1,5 @@
 import { Text } from '@lib/ui/text'
-import { useInfiniteQuery } from 'react-query'
+import { useInfiniteQuery } from '@tanstack/react-query'
 import { range } from '@lib/utils/array/range'
 import { PaginatedView } from '@lib/ui/pagination/PaginatedView'
 import { usePaginatedResultItems } from '@lib/ui/query/hooks/usePaginatedResultItems'
@@ -34,28 +34,20 @@ const queryItems = async ({ startAt = 0 }: QueryItemsParams) => {
 }
 
 export default makeDemoPage(() => {
-  const {
-    data,
-    isLoading,
-    isFetchingNextPage,
-    fetchNextPage,
-    isFetched,
-    isIdle,
-  } = useInfiniteQuery(
-    'items',
-    async ({ pageParam }) => {
-      if (pageParam === null) return
+  const { data, isLoading, isFetchingNextPage, fetchNextPage, isFetched } =
+    useInfiniteQuery({
+      queryKey: ['items'],
+      initialPageParam: 0,
+      queryFn: async ({ pageParam }) => {
+        if (pageParam === null) return
 
-      const result = await queryItems({ startAt: pageParam })
+        const result = await queryItems({ startAt: pageParam })
 
-      return result
-    },
-    {
+        return result
+      },
       refetchOnMount: true,
-      keepPreviousData: false,
       getNextPageParam: (lastPage) => lastPage?.nextItem || null,
-    },
-  )
+    })
 
   const items = usePaginatedResultItems(data, (response) => response.items)
   const noItems = isFetched && items.length < 1
@@ -70,7 +62,7 @@ export default makeDemoPage(() => {
           onRequestToLoadMore={fetchNextPage}
           isLoading={isLoading || isFetchingNextPage}
         >
-          {noItems && isIdle ? (
+          {noItems && !isLoading ? (
             <Text>No items 😴</Text>
           ) : (
             items.map(({ name, price }) => (

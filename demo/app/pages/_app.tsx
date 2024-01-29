@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import { ReactNode, useEffect, useState } from 'react'
 import { GlobalStyle } from '@lib/ui/css/GlobalStyle'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Inter } from 'next/font/google'
 import { useRouter } from 'next/router'
 import { ThemePreference } from '@lib/ui/theme/ThemePreference'

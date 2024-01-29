@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { UseQueryResult } from 'react-query'
+import { UseQueryResult } from '@tanstack/react-query'
 
 export const useTransformQueryData = <T, V>(
   queryResult: UseQueryResult<T>,

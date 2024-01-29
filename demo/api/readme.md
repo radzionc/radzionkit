@@ -130,7 +130,7 @@ app/api/hooks/useApiQuery.ts
 
 ```ts
 import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 import { useApi } from './useApi'
 import {
   ApiInterface,
@@ -148,7 +148,10 @@ export const useApiQuery = <M extends ApiMethodName>(
 ) => {
   const { call } = useApi()
 
-  return useQuery(getApiQueryKey(method, input), () => call(method, input))
+  return useQuery({
+    queryKey: getApiQueryKey(method, input),
+    queryFn: () => call(method, input),
+  })
 }
 ```
 
@@ -159,7 +162,7 @@ import {
   ApiInterface,
   ApiMethodName,
 } from '@demo/api-interface/ApiInterface'
-import { useMutation } from 'react-query'
+import { useMutation } from '@tanstack/react-query'
 import { useApi } from './useApi'
 
 interface ApiMutationOptions<M extends ApiMethodName> {
@@ -173,9 +176,9 @@ export const useApiMutation = <M extends ApiMethodName>(
 ) => {
   const api = useApi()
 
-  return useMutation(
-    (input: ApiInterface[M]['input']) => api.call(method, input),
-    options,
-  )
+  return useMutation({
+    mutationFn: (input: ApiInterface[M]['input']) => api.call(method, input),
+    ...options,
+  })
 }
 ```

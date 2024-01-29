@@ -13,6 +13,7 @@
   "dependencies": {
     "@emoji-mart/data": "^1.1.2",
     "@emoji-mart/react": "^1.1.1",
+    "@tanstack/react-query": "^5.17.19",
     "date-fns": "^3.0.6",
     "emoji-mart": "^5.5.2",
     "next": "^14.0.4",
@@ -20,7 +21,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.2",
-    "react-query": "^3.39.3",
     "react-to-print": "^2.14.15",
     "react-use": "^17.4.2",
     "styled-components": "^6.1.3"

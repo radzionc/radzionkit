@@ -1,4 +1,4 @@
-import { UseQueryResult } from 'react-query'
+import { UseQueryResult } from '@tanstack/react-query'
 import { useEffect } from 'react'
 
 type PollParams<T> = {
