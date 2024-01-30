@@ -1,10 +1,13 @@
 import { useMemo } from 'react'
-import { UseQueryResult } from '@tanstack/react-query'
 
-export const useTransformQueryData = <T, V>(
-  queryResult: UseQueryResult<T>,
+type Query<T> = {
+  data: T | undefined
+}
+
+export const useTransformQueryData = <T, V, B>(
+  queryResult: B & Query<T>,
   transform: (data: T) => V,
-): UseQueryResult<V> => {
+): B & Query<V> => {
   return useMemo(
     () =>
       ({
@@ -13,7 +16,7 @@ export const useTransformQueryData = <T, V>(
           queryResult.data !== undefined
             ? transform(queryResult.data)
             : undefined,
-      }) as UseQueryResult<V>,
+      }) as B & Query<V>,
     [queryResult, transform],
   )
 }
