@@ -1,15 +1,17 @@
-import { QueryKey, useQueryClient } from '@tanstack/react-query'
 import { useCallback } from 'react'
+import { QueryKey, useQueryClient } from '@tanstack/react-query'
 
 export const useInvalidateQueries = () => {
   const queryClient = useQueryClient()
 
   return useCallback(
     (...queryKeys: QueryKey[]) => {
-      queryKeys.forEach((queryKey) => {
-        console.log('Invalidating query with key: ', queryKey)
-        queryClient.invalidateQueries({ queryKey })
-      })
+      return Promise.all(
+        queryKeys.map((queryKey) => {
+          console.log(`Invalidating a query: `, queryKey)
+          return queryClient.invalidateQueries({ queryKey })
+        }),
+      )
     },
     [queryClient],
   )
