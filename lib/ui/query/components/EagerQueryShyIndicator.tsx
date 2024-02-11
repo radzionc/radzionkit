@@ -1,4 +1,4 @@
-import { EagerQuery } from '../EagerQuery'
+import { EagerQuery } from '../Query'
 import { Spinner } from '../../loaders/Spinner'
 import { Tooltip } from '../../tooltips/Tooltip'
 import styled from 'styled-components'

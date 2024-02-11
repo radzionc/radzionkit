@@ -1,5 +1,5 @@
 import { UseQueryResult } from '@tanstack/react-query'
-import { EagerQuery } from '../EagerQuery'
+import { EagerQuery } from '../Query'
 import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
 import { isEmpty } from '@lib/utils/array/isEmpty'
 

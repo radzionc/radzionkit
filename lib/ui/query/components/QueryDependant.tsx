@@ -1,33 +1,36 @@
+import { Query } from '../Query'
 import { ReactNode } from 'react'
 
-type QueryStatus = 'idle' | 'error' | 'loading' | 'success'
-
-export interface QueryDependantProps<T> {
-  status: QueryStatus
-  data: T | undefined
-  error: () => ReactNode
-  loading: () => ReactNode
+export type QueryDependantProps<T, E = unknown> = {
+  query: Query<T, E>
+  error: (error: E) => ReactNode
+  pending: () => ReactNode
   success: (data: T) => ReactNode
 }
 
-export function QueryDependant<T>({
-  status,
-  data,
+export function QueryDependant<T, E = unknown>({
+  query,
   error,
-  loading,
+  pending,
   success,
-}: QueryDependantProps<T>) {
-  if (status === 'error') {
-    return <>{error()}</>
+}: QueryDependantProps<T, E>) {
+  if (query.data !== undefined) {
+    return <>{success(query.data)}</>
   }
 
-  if (status === 'loading') {
-    return <>{loading()}</>
+  if (query.isPending) {
+    return <>{pending()}</>
   }
 
-  if (data) {
-    return <>{success(data)}</>
+  if (query.error) {
+    return <>{error(query.error)}</>
   }
 
   return null
 }
+
+export type QueryDependantWrapperProps<T> = Pick<
+  QueryDependantProps<T>,
+  'success'
+> &
+  Partial<Pick<QueryDependantProps<T>, 'error' | 'pending'>>

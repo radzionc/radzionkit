@@ -4,11 +4,11 @@ import { QueryDependantProps } from '../components/QueryDependant'
 
 export const getQueryDependantDefaultProps = (
   entityName: string,
-): Pick<QueryDependantProps<unknown>, 'error' | 'loading'> => ({
+): Pick<QueryDependantProps<unknown>, 'error' | 'pending'> => ({
   error: () => (
     <Text size={14} color="supporting">
       Failed to load {entityName}
     </Text>
   ),
-  loading: () => <Spinner />,
+  pending: () => <Spinner />,
 })

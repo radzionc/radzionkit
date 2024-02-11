@@ -1,19 +1,19 @@
 import { ReactNode } from 'react'
-import { EagerQuery } from '../EagerQuery'
+import { EagerQuery } from '../Query'
 
-export interface EagerQueryDependantProps<T, E = unknown> {
+export type EagerQueryDependantProps<T, E = unknown> = {
   query: EagerQuery<T, E>
   pending: () => ReactNode
-  error: () => ReactNode
+  error: (errors: E[]) => ReactNode
   success: (data: T) => ReactNode
 }
 
-export function EagerQueryDependant<T>({
+export function EagerQueryDependant<T, E = unknown>({
   query,
   error,
   pending,
   success,
-}: EagerQueryDependantProps<T>) {
+}: EagerQueryDependantProps<T, E>) {
   if (query.data !== undefined) {
     return <>{success(query.data)}</>
   }
@@ -23,13 +23,13 @@ export function EagerQueryDependant<T>({
   }
 
   if (query.errors.length > 0) {
-    return <>{error()}</>
+    return <>{error(query.errors)}</>
   }
 
   return null
 }
 
-export type QueryDependantWrapperProps<T> = Pick<
+export type EagerQueryDependantWrapperProps<T> = Pick<
   EagerQueryDependantProps<T>,
   'success'
 > &
