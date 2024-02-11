@@ -8,18 +8,21 @@ import { useFloatingOptions } from '../floating/useFloatingOptions'
 import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 import { IconWrapper } from '../icons/IconWrapper'
 import { HStack } from '../layout/Stack'
-import { InputProps, UIComponentProps } from '../props'
+import { UIComponentProps } from '../props'
 import { getColor } from '../theme/getters'
 import { getHoverVariant } from '../theme/getHoverVariant'
 import { cropText } from '../css/cropText'
 
-export type ExpandableSelectorProp<T> = UIComponentProps &
-  InputProps<T> & {
-    isDisabled?: boolean
-    options: T[]
-    getOptionKey: (option: T) => string
-    renderOption: (option: T) => React.ReactNode
-  }
+export type ExpandableSelectorProp<T> = UIComponentProps & {
+  value: T | null
+  onChange: (value: T) => void
+  isDisabled?: boolean
+  options: readonly T[]
+  getOptionKey: (option: T) => string
+  renderOption: (option: T) => React.ReactNode
+  openerContent?: React.ReactNode
+  floatingOptionsWidthSameAsOpener?: boolean
+}
 
 const ToggleIconContainer = styled(IconWrapper)<{ isOpen: boolean }>`
   font-size: 16px;
@@ -105,6 +108,8 @@ export function ExpandableSelector<T>({
   isDisabled,
   renderOption,
   getOptionKey,
+  openerContent,
+  floatingOptionsWidthSameAsOpener,
   ...rest
 }: ExpandableSelectorProp<T>) {
   const {
@@ -115,7 +120,8 @@ export function ExpandableSelector<T>({
     setIsOpen,
     activeIndex,
   } = useFloatingOptions({
-    selectedIndex: options.indexOf(value),
+    floatingOptionsWidthSameAsOpener,
+    selectedIndex: value === null ? null : options.indexOf(value),
   })
 
   const referenceProps = isDisabled ? {} : getReferenceProps()
@@ -128,7 +134,9 @@ export function ExpandableSelector<T>({
         {...referenceProps}
         {...rest}
       >
-        <OptionContent>{renderOption(value)}</OptionContent>
+        <OptionContent>
+          {openerContent ?? renderOption(value as T)}
+        </OptionContent>
         <ToggleIconContainer isOpen={isOpen}>
           <ChevronDownIcon />
         </ToggleIconContainer>

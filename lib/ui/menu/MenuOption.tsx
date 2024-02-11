@@ -9,12 +9,16 @@ import { verticalPadding } from '../css/verticalPadding'
 import { HStack } from '../layout/Stack'
 import { Text } from '../text'
 import { borderRadius } from '../css/borderRadius'
+import { absoluteOutline } from '../css/absoluteOutline'
+import { getColor } from '../theme/getters'
+import { round } from '../css/round'
 
 type MenuOptionKind = 'regular' | 'alert'
 
 export interface MenuOptionProps {
   icon?: ReactNode
   text: string
+  isSelected?: boolean
   onSelect: () => void
   kind?: MenuOptionKind
   view?: MenuView
@@ -43,10 +47,17 @@ const Content = styled(HStack)<ContentProps>`
     })[kind]};
 `
 
+const Outline = styled.div`
+  ${absoluteOutline(0, 0)};
+  border: 2px solid ${getColor('primary')};
+  ${round};
+`
+
 export const MenuOption = ({
   text,
   icon,
   onSelect,
+  isSelected,
   kind = 'regular',
   view = 'popover',
 }: MenuOptionProps) => {
@@ -73,6 +84,7 @@ export const MenuOption = ({
       <HStack alignItems="center" gap={8}>
         {icon} <Text>{text}</Text>
       </HStack>
+      {isSelected && <Outline />}
     </Button>
   )
 }

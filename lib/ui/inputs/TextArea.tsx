@@ -24,11 +24,10 @@ const CharacterCounterWrapper = styled.div`
   user-select: none;
 `
 
-interface TextAreaProps
-  extends ComponentProps<typeof TextareaContainer>,
-    SharedTextInputProps {
-  value?: string
-}
+type TextAreaProps = ComponentProps<typeof TextareaContainer> &
+  SharedTextInputProps & {
+    value?: string
+  }
 
 export const TextArea = forwardRef(function TextAreaInner(
   { onValueChange, label, ...props }: TextAreaProps,

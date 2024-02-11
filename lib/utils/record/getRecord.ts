@@ -1,11 +1,11 @@
-export function getRecord<T>(
-  items: T[],
-  getId: (item: T) => string,
-): Record<string, T> {
-  const record: Record<string, T> = {}
+export function getRecord<T, K extends string | number>(
+  items: readonly T[],
+  getKey: (item: T) => K,
+): Record<K, T> {
+  const record = {} as Record<K, T>
 
   items.forEach((item) => {
-    record[getId(item)] = item
+    record[getKey(item)] = item
   })
 
   return record

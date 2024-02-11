@@ -144,13 +144,15 @@ export default makeDemoPage(() => {
                     >
                       {option}
                     </Text>
-                    <VStack
-                      style={actionSize}
-                      alignItems="center"
-                      justifyContent="center"
-                    >
-                      {isFavourite && star}
-                    </VStack>
+                    {actionSize && (
+                      <VStack
+                        style={actionSize}
+                        alignItems="center"
+                        justifyContent="center"
+                      >
+                        {isFavourite && star}
+                      </VStack>
+                    )}
                   </Container>
                 )}
               />

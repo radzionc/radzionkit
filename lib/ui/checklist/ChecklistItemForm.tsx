@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form'
 import { useKey } from 'react-use'
 import styled from 'styled-components'
-import { Box } from './ChecklistItem'
 import { ChecklistItemFrame } from './ChecklistItemFrame'
 import { getColor } from '../theme/getters'
+import { CheckStatus } from './CheckStatus'
 
 interface ChecklistItemFormShape {
   name: string
@@ -49,7 +49,7 @@ export const ChecklistItemForm = ({
       onBlur={handleSubmit(onSubmit, onCancel)}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Box isChecked={false} />
+      <CheckStatus value={false} />
       <Input
         placeholder={namePlaceholder}
         autoFocus

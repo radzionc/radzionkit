@@ -1,4 +1,4 @@
-export type Order = 'asc' | 'desc'
+import { Order } from '../order/Order'
 
 export const order = <T>(
   array: T[],

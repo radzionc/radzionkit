@@ -18,6 +18,8 @@ export const textInput = css`
   ${textInputFrame};
   ${transition};
 
+  outline: none;
+
   background: ${getColor('foreground')};
   color: ${getColor('text')};
 

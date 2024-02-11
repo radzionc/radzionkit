@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { verticalPadding } from '../css/verticalPadding'
 
 export const ChecklistItemFrame = styled.div`
   display: grid;
@@ -8,4 +9,5 @@ export const ChecklistItemFrame = styled.div`
   justify-items: start;
   gap: 12px;
   font-weight: 500;
+  ${verticalPadding(8)};
 `

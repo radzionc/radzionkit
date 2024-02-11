@@ -11,3 +11,4 @@ node_modules
 
 set_env_vars.sh
 credentials.json
+.tsbuildinfo

@@ -6,7 +6,7 @@ export const inputContainer = css`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 8px;
+  gap: 4px;
 
   ${transition};
   color: ${getColor('textSupporting')};

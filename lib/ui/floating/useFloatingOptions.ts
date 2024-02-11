@@ -13,7 +13,8 @@ import { useRef, useState } from 'react'
 import { toSizeUnit } from '../css/toSizeUnit'
 
 interface FloatingOptionsParams {
-  selectedIndex: number
+  selectedIndex: number | null
+  floatingOptionsWidthSameAsOpener?: boolean
 }
 
 interface GetOptionsPropsParams {
@@ -23,6 +24,7 @@ interface GetOptionsPropsParams {
 
 export const useFloatingOptions = ({
   selectedIndex,
+  floatingOptionsWidthSameAsOpener = true,
 }: FloatingOptionsParams) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -38,7 +40,9 @@ export const useFloatingOptions = ({
         apply({ elements, availableHeight, rects }) {
           Object.assign(elements.floating.style, {
             maxHeight: `${toSizeUnit(Math.min(availableHeight, 320))}`,
-            width: toSizeUnit(rects.reference.width),
+            width: floatingOptionsWidthSameAsOpener
+              ? toSizeUnit(rects.reference.width)
+              : undefined,
           })
         },
       }),

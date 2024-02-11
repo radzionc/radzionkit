@@ -1,9 +1,5 @@
 import { ReactNode } from 'react'
-import {
-  ClosableComponentProps,
-  ComponentWithChildrenProps,
-  TitledComponentProps,
-} from '../props'
+import { ComponentWithChildrenProps, TitledComponentProps } from '../props'
 import { BodyPortal } from '../dom/BodyPortal'
 import { CompleteMist } from './CompleteMist'
 import { useIsScreenWidthLessThan } from '../hooks/useIsScreenWidthLessThan'
@@ -18,8 +14,8 @@ import { stopPropagation } from '../utils/stopPropagation'
 import { ModalSubTitleText } from './ModalSubTitleText'
 
 export type ModalProps = TitledComponentProps &
-  ComponentWithChildrenProps &
-  ClosableComponentProps & {
+  ComponentWithChildrenProps & {
+    onClose?: () => void
     subTitle?: ReactNode
     placement?: ModalPlacement
     footer?: ReactNode
@@ -59,7 +55,7 @@ export const Modal = ({
                 gap={16}
               >
                 <ModalTitleText>{title}</ModalTitleText>
-                <ModalCloseButton onClick={onClose} />
+                {onClose && <ModalCloseButton onClick={onClose} />}
               </HStack>
               {subTitle && <ModalSubTitleText>{subTitle}</ModalSubTitleText>}
             </VStack>

@@ -8,10 +8,11 @@ import { InputContainer } from './InputContainer'
 import { LabelText } from './LabelText'
 import { textInput } from '../css/textInput'
 
-export type SharedTextInputProps = Partial<LabeledComponentProps> & {
-  onValueChange?: (value: string) => void
-  isLoading?: boolean
-}
+export type SharedTextInputProps = Partial<LabeledComponentProps> &
+  ComponentProps<typeof TextInputContainer> & {
+    onValueChange?: (value: string) => void
+    isLoading?: boolean
+  }
 
 export interface TextInputProps
   extends ComponentProps<typeof TextInputContainer>,

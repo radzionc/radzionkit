@@ -48,7 +48,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
     match(kind, {
       regular: () => colors.mist,
       secondary: () => colors.transparent,
-      alert: () => colors.alert.getVariant({ a: (a) => a * 0.12 }),
+      alert: () => colors.transparent,
     }).toCssValue()};
 
   &:hover {

@@ -8,6 +8,7 @@ const getTextColorRecord = ({ colors }: DefaultTheme) =>
     shy: colors.textShy,
 
     primary: colors.primary,
+    idle: colors.idle,
     alert: colors.alert,
     success: colors.success,
     reversed: colors.background,

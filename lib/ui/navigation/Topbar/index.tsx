@@ -1,9 +1,9 @@
 import { useToggle } from 'react-use'
 import styled from 'styled-components'
 
-import { SidebarOpener } from './SidebarOpener'
 import { CompleteMist } from '../../modal/CompleteMist'
 import { Spacer } from '../../layout/Spacer'
+import { Burger } from './Burger'
 
 const Container = styled.div`
   width: 100%;
@@ -31,7 +31,7 @@ export const Topbar = ({ renderSidebar }: Props) => {
         <Cover onClick={toggleSidebar}>{renderSidebar()}</Cover>
       )}
       <Container>
-        <SidebarOpener onOpenSidebarRequest={toggleSidebar} />
+        <Burger onClick={toggleSidebar} />
       </Container>
       <Spacer height={20} />
     </>
