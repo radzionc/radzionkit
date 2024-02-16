@@ -49,6 +49,7 @@ const generateFlags = async () => {
     `import { CountryCode } from '@lib/countries';`,
     `import { SvgIconProps } from '@lib/ui/icons/SvgIconProps';`,
     `import { CountryFlagFallback } from '../CountryFlagFallback';`,
+    `import { ClientOnly } from '@lib/ui/base/ClientOnly';`,
     `const countryFlagRecord: Record<CountryCode, ComponentType<SvgIconProps>> = {
       ${Object.entries(countryFlagComponentRecord)
         .map(([key, value]) => `${key}: ${value}`)
@@ -56,13 +57,18 @@ const generateFlags = async () => {
     };`,
     `interface CountryFlagProps extends SvgIconProps { code: CountryCode }`,
     `export const CountryFlag = (props: CountryFlagProps) => {
-      const Component = countryFlagRecord[props.code];
+      const Component = countryFlagRecord[props.code]
+    
+      const fallback = <CountryFlagFallback code={props.code} />
+    
       return (
-        <Suspense fallback={<CountryFlagFallback code={props.code} />}>
-          <Component {...props} />
-        </Suspense>
-      );
-    };`,
+        <ClientOnly placeholder={fallback}>
+          <Suspense fallback={fallback}>
+            <Component {...props} />
+          </Suspense>
+        </ClientOnly>
+      )
+    }`,
     `export default CountryFlag;`,
   ].join('\n\n')
 

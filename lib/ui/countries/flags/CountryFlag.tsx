@@ -6,6 +6,7 @@ import { CountryCode } from '@lib/countries'
 import { SvgIconProps } from '@lib/ui/icons/SvgIconProps'
 
 import { CountryFlagFallback } from '../CountryFlagFallback'
+import { ClientOnly } from '../../base/ClientOnly'
 
 const countryFlagRecord: Record<CountryCode, ComponentType<SvgIconProps>> = {
   AF: React.lazy(() => import('./AfFlag')),
@@ -258,10 +259,15 @@ interface CountryFlagProps extends SvgIconProps {
 
 export const CountryFlag = (props: CountryFlagProps) => {
   const Component = countryFlagRecord[props.code]
+
+  const fallback = <CountryFlagFallback code={props.code} />
+
   return (
-    <Suspense fallback={<CountryFlagFallback code={props.code} />}>
-      <Component {...props} />
-    </Suspense>
+    <ClientOnly placeholder={fallback}>
+      <Suspense fallback={fallback}>
+        <Component {...props} />
+      </Suspense>
+    </ClientOnly>
   )
 }
 

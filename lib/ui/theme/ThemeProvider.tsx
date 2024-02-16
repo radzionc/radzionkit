@@ -25,7 +25,10 @@ type ThemePreferenceState = {
   onChange: (value: ThemePreference) => void
 }
 
-type ThemeProviderProps = ComponentWithChildrenProps & ThemePreferenceState
+type ThemeProviderProps = ComponentWithChildrenProps & {
+  value: ThemePreference
+  onChange?: (value: ThemePreference) => void
+}
 
 const { useValue: useThemePreference, provider: ThemePreferenceProvider } =
   getValueProviderSetup<ThemePreferenceState>('ThemePreference')
@@ -33,7 +36,7 @@ const { useValue: useThemePreference, provider: ThemePreferenceProvider } =
 export const ThemeProvider = ({
   children,
   value,
-  onChange,
+  onChange = () => {},
 }: ThemeProviderProps) => {
   const isSystemThemeDark = useMedia('(prefers-color-scheme: dark)', false)
   const [theme, setTheme] = useState<DefaultTheme>(darkTheme)

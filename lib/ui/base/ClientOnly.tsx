@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react'
 import { ComponentWithChildrenProps } from '../props'
 
-export const ClientOnly = ({ children }: ComponentWithChildrenProps) => {
+type ClientOnlyProps = ComponentWithChildrenProps & {
+  placeholder?: React.ReactNode
+}
+
+export const ClientOnly = ({
+  children,
+  placeholder = null,
+}: ClientOnlyProps) => {
   const [hasMounted, setHasMounted] = useState(false)
 
   useEffect(() => {
@@ -9,7 +16,7 @@ export const ClientOnly = ({ children }: ComponentWithChildrenProps) => {
   }, [])
 
   if (!hasMounted) {
-    return null
+    return <>{placeholder}</>
   }
 
   return <>{children}</>

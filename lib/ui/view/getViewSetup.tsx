@@ -2,10 +2,15 @@ import { ReactNode, createContext, useState } from 'react'
 import { ComponentWithChildrenProps } from '../props'
 import { createContextHook } from '../state/createContextHook'
 
-export function getViewSetup<T extends string | number | symbol>(
-  defaultView: T,
-  name: string,
-) {
+type GetViewSetupInput<T extends string | number | symbol> = {
+  defaultView: T
+  name: string
+}
+
+export function getViewSetup<T extends string | number | symbol>({
+  defaultView,
+  name,
+}: GetViewSetupInput<T>) {
   interface ViewState {
     view: T
     setView: (view: T) => void
