@@ -15,12 +15,14 @@ export function InputDebounce<T>({
   const [currentValue, setCurrentValue] = useState<T>(value)
 
   useEffect(() => {
+    if (currentValue === value) return
+
     const timeout = setTimeout(() => {
       onChange(currentValue)
     }, interval)
 
     return () => clearTimeout(timeout)
-  }, [currentValue, onChange, interval])
+  }, [currentValue, interval, onChange, value])
 
   return (
     <>
