@@ -12,6 +12,13 @@ export function useQueriesToEagerQuery<T, R, E = unknown>({
   queries,
   joinData,
 }: ToEagerQueryInput<T, R, E>): EagerQuery<R, E> {
+  if (isEmpty(queries)) {
+    return {
+      isPending: false,
+      errors: [],
+      data: joinData([]),
+    }
+  }
   const resolvedQueries = withoutUndefined(queries.map((query) => query.data))
   return {
     isPending: queries.some((query) => query.isPending),
