@@ -33,7 +33,7 @@ export const Resume = () => {
           <HStack alignItems="center" gap={8}>
             <Text color="supporting">Primary skills:</Text>
             <Text>
-              React, TypeScript, UX/UI, Product, Teamwork{' '}
+              React, TypeScript, UX/UI, Product{' '}
               <Text as="span" size={14} color="supporting">
                 + AWS, NodeJS, DynamoDB
               </Text>
@@ -59,7 +59,7 @@ export const Resume = () => {
             responsibilities={[
               'Building new features for the Anchor protocol',
               'Responsible for the front end of two protocols for decentralized story creation with Twitter and NFTs',
-              'Building front-end for no-code DAO management platform',
+              'Building everything except the smart contracts for Enterprise (DAO management protocol)',
             ]}
             startedAt={new Date(2022, 3)}
           />
@@ -130,29 +130,36 @@ export const Resume = () => {
             </Text>{' '}
             Tools & Content
           </Text>
+
           <PersonalProject
-            description="Productivity toolkit for remote workers"
-            name="Increaser"
-            url="https://increaser.org"
-            achievement="12k+ signups"
-            responsibilities={[
-              'Bring to life a B2C SAAS product',
-              'Full-stack development of a web app',
-            ]}
+            description="Toolkit for faster front-end development"
+            name="RadzionKit"
+            achievement="90+ stars"
+            url="https://github.com/radzionc/radzionkit"
+          />
+          <PersonalProject
+            description="Useful videos for web developers"
+            name="YouTube"
+            url="https://www.youtube.com/c/radzion"
+            achievement="1.1k+ subscribers"
           />
           <PersonalProject
             description="Blog on programming and more"
-            name="radzion.com"
+            name="Blog"
             url="https://radzion.com"
             achievement="4k+ visits / mo"
           />
         </VStack>
         <VStack gap={20}>
           <PersonalProject
-            description="Useful videos for web developers"
-            name="YouTube"
-            url="https://radzion.com"
-            achievement="450+ subscribers"
+            description="Productivity toolkit for remote workers"
+            name="Increaser"
+            url="https://increaser.org"
+            achievement="13k+ signups"
+            responsibilities={[
+              'Bring to life a B2C SAAS product',
+              'Full-stack development of a web app',
+            ]}
           />
           <PersonalProject
             description="Highligts from nonfiction books"
@@ -161,10 +168,9 @@ export const Resume = () => {
             achievement="4k+ visits / mo"
           />
           <PersonalProject
-            description="Toolkit for faster front-end development"
-            name="React Kit"
-            achievement="12 stars"
-            url="https://radzionkit.radzion.com"
+            description="Exam preparation tool"
+            name="Georgian Citizen"
+            url="https://georgiancitizen.com"
           />
         </VStack>
       </ExperienceList>

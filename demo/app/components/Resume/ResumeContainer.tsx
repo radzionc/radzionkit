@@ -6,6 +6,8 @@ export const ResumeContainer = styled.div`
   width: 880px;
   aspect-ratio: 1 / 1.414;
 
+  line-height: 1.5;
+
   display: flex;
   flex-direction: column;
   gap: 2px;
