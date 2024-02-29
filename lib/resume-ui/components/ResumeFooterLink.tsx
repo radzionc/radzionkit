@@ -5,6 +5,7 @@ import { Text } from '@lib/ui/text'
 import { getColor } from '@lib/ui/theme/getters'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
+import { IconWrapper } from '@lib/ui/navigation/Sidebar/NavigationItem'
 
 interface Props {
   name: string
@@ -24,8 +25,8 @@ const Container = styled(ExternalLink)`
 export const ResumeFooterLink = ({ name, icon, url }: Props) => {
   return (
     <Container to={url}>
-      <HStack alignItems="center" gap={8}>
-        <Text color="regular">{icon}</Text>
+      <HStack alignItems="center" gap={4}>
+        <IconWrapper>{icon}</IconWrapper>
         <Text size={14}>{name}</Text>
       </HStack>
     </Container>

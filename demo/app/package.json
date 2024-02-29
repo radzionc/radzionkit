@@ -21,7 +21,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.2",
-    "react-to-print": "^2.14.15",
     "react-use": "^17.4.2",
     "styled-components": "^6.1.3"
   },
