@@ -15,11 +15,11 @@ export const TflIcon = () => (
       gradientTransform="translate(0 -543)"
       gradientUnits="userSpaceOnUse"
     >
-      <stop offset="0" stop-color="#4366c2" />
-      <stop offset=".15" stop-color="#3458b8" />
-      <stop offset=".4" stop-color="#2348ac" />
-      <stop offset=".67" stop-color="#193fa5" />
-      <stop offset="1" stop-color="#163ca3" />
+      <stop offset="0" stopColor="#4366c2" />
+      <stop offset=".15" stopColor="#3458b8" />
+      <stop offset=".4" stopColor="#2348ac" />
+      <stop offset=".67" stopColor="#193fa5" />
+      <stop offset="1" stopColor="#163ca3" />
     </linearGradient>
     <path
       fill="url(#a)"
@@ -34,11 +34,11 @@ export const TflIcon = () => (
       gradientTransform="translate(0 -543)"
       gradientUnits="userSpaceOnUse"
     >
-      <stop offset="0" stop-color="#4366c2" />
-      <stop offset=".15" stop-color="#3458b8" />
-      <stop offset=".4" stop-color="#2348ac" />
-      <stop offset=".67" stop-color="#193fa5" />
-      <stop offset="1" stop-color="#163ca3" />
+      <stop offset="0" stopColor="#4366c2" />
+      <stop offset=".15" stopColor="#3458b8" />
+      <stop offset=".4" stopColor="#2348ac" />
+      <stop offset=".67" stopColor="#193fa5" />
+      <stop offset="1" stopColor="#163ca3" />
     </linearGradient>
     <path
       fill="url(#b)"
@@ -53,8 +53,8 @@ export const TflIcon = () => (
       gradientTransform="translate(0 -543)"
       gradientUnits="userSpaceOnUse"
     >
-      <stop offset="0" stop-color="#58c66b" />
-      <stop offset="1" stop-color="#5491f6" />
+      <stop offset="0" stopColor="#58c66b" />
+      <stop offset="1" stopColor="#5491f6" />
     </linearGradient>
     <path
       fill="url(#c)"
@@ -69,8 +69,8 @@ export const TflIcon = () => (
       gradientTransform="translate(0 -543)"
       gradientUnits="userSpaceOnUse"
     >
-      <stop offset="0" stop-color="#58c66b" />
-      <stop offset="1" stop-color="#5491f6" />
+      <stop offset="0" stopColor="#58c66b" />
+      <stop offset="1" stopColor="#5491f6" />
     </linearGradient>
     <path
       fill="url(#d)"
@@ -85,8 +85,8 @@ export const TflIcon = () => (
       gradientTransform="translate(0 -543)"
       gradientUnits="userSpaceOnUse"
     >
-      <stop offset="0" stop-color="#58c66b" />
-      <stop offset="1" stop-color="#5491f6" />
+      <stop offset="0" stopColor="#58c66b" />
+      <stop offset="1" stopColor="#5491f6" />
     </linearGradient>
     <path
       fill="url(#e)"
@@ -101,8 +101,8 @@ export const TflIcon = () => (
       gradientTransform="translate(0 -543)"
       gradientUnits="userSpaceOnUse"
     >
-      <stop offset="0" stop-color="#58c66b" />
-      <stop offset="1" stop-color="#5491f6" />
+      <stop offset="0" stopColor="#58c66b" />
+      <stop offset="1" stopColor="#5491f6" />
     </linearGradient>
     <path
       fill="url(#f)"
