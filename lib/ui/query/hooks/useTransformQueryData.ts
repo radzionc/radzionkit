@@ -1,13 +1,13 @@
 import { useMemo } from 'react'
 
-type Query<T> = {
+type EntityWithData<T> = {
   data: T | undefined
 }
 
 export const useTransformQueryData = <T, V, B>(
-  queryResult: B & Query<T>,
+  queryResult: B & EntityWithData<T>,
   transform: (data: T) => V,
-): B & Query<V> => {
+): B & EntityWithData<V> => {
   return useMemo(
     () =>
       ({
@@ -16,7 +16,7 @@ export const useTransformQueryData = <T, V, B>(
           queryResult.data !== undefined
             ? transform(queryResult.data)
             : undefined,
-      }) as B & Query<V>,
+      }) as B & EntityWithData<V>,
     [queryResult, transform],
   )
 }
