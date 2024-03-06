@@ -134,7 +134,6 @@ export default makeDemoPage(() => {
               getViewName={capitalizeFirstLetter}
               activeView={view}
               onSelect={setView}
-              groupName="stats"
             />
             <LabeledValue name="Previous avg">
               <Text weight="semibold" as="div">

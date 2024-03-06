@@ -1,25 +1,16 @@
-import { ComponentProps, ReactNode } from 'react'
 import styled from 'styled-components'
 import { UnstyledButton } from './UnstyledButton'
+import { getColor } from '../theme/getters'
 import { transition } from '../css/transition'
-import { Text } from '../text'
+import { getHoverVariant } from '../theme/getHoverVariant'
 
-const Container = styled(UnstyledButton)`
+export const TextButton = styled(UnstyledButton)`
+  color: ${getColor('primary')};
+  font-weight: 500;
+
   ${transition};
+
   &:hover {
-    filter: brightness(1.2);
+    color: ${getHoverVariant('primary')};
   }
 `
-
-interface Props extends ComponentProps<typeof Container> {
-  text: ReactNode
-  as?: React.ElementType
-}
-
-export const TextButton = ({ text, onClick, as }: Props) => (
-  <Container onClick={onClick} as={as}>
-    <Text as="span" color="primary" weight="bold">
-      {text}
-    </Text>
-  </Container>
-)

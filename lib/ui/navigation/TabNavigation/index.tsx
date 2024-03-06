@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { TabNavigationItem } from './TabNavigationItem'
 import { hideScrollbars } from '../../css/hideScrollbars'
 import { HStack } from '../../layout/Stack'
+import { useId } from 'react'
 
 type TabNavigationSize = 's' | 'm'
 
@@ -11,7 +12,6 @@ interface TabNavigationProps<T extends string | number | symbol> {
   getViewName: (view: T) => string
   activeView: T
   onSelect: (option: T) => void
-  groupName: string
   size?: TabNavigationSize
   className?: string
   style?: React.CSSProperties
@@ -29,11 +29,11 @@ export function TabNavigation<T extends string | number | symbol>({
   getViewName,
   activeView,
   onSelect,
-  groupName,
   size = 'm',
   className,
   style,
 }: TabNavigationProps<T>) {
+  const groupName = useId()
   return (
     <Container style={style} className={className}>
       {views.map((view) => {

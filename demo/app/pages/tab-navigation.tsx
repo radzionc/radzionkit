@@ -29,7 +29,6 @@ export default makeDemoPage(() => {
           getViewName={capitalizeFirstLetter}
           activeView={activeView}
           onSelect={setActiveView}
-          groupName="tab-navigation"
         />
 
         <Text size={20} weight="bold">

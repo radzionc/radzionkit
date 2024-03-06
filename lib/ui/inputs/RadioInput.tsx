@@ -9,6 +9,7 @@ import { InputProps } from '../props'
 import { borderRadius } from '../css/borderRadius'
 import { useId } from 'react'
 import { Tooltip } from '../tooltips/Tooltip'
+import { centerContent } from '../css/centerContent'
 
 interface RadioInputProps<T extends string> extends InputProps<T> {
   options: readonly T[]
@@ -27,7 +28,9 @@ const Indicator = styled.div<{ selected: boolean }>`
 
 const Container = styled.label<{ selected: boolean; disabled?: boolean }>`
   padding: 12px 20px;
+  min-height: 48px;
   ${borderRadius.m};
+  ${centerContent};
   background: ${getColor('foreground')};
   ${transition};
   ${({ disabled }) =>

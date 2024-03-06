@@ -63,3 +63,7 @@ export type PromptProps = {
   onSuccess: () => void
   onCancel: () => void
 }
+
+export interface ComponentWithValueProps<T> {
+  value: T
+}

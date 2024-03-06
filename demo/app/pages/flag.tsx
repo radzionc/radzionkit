@@ -26,7 +26,6 @@ export default makeDemoPage(() => {
           getViewName={capitalizeFirstLetter}
           activeView={activeView}
           onSelect={setActiveView}
-          groupName="flags"
         />
         <UniformColumnGrid childrenWidth={240} gap={20}>
           {countryCodes.map((code) => (
