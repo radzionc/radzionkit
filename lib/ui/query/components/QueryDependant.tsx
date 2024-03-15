@@ -34,8 +34,8 @@ export function QueryDependant<T, E = unknown>({
   return null
 }
 
-export type QueryDependantWrapperProps<T> = Pick<
+export type QueryDependantWrapperProps<T, E = unknown> = Pick<
   QueryDependantProps<T>,
-  'success' | 'onFirstSuccess'
+  'success'
 > &
-  Partial<Pick<QueryDependantProps<T>, 'error' | 'pending'>>
+  Partial<Pick<QueryDependantProps<T, E>, 'error' | 'pending'>>
