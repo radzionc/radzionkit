@@ -2,7 +2,7 @@ import { CSSProperties } from 'react'
 import styled from 'styled-components'
 import { ComponentWithChildrenProps } from '../props'
 import { Text } from '../text'
-import { Line } from './Line'
+import { LineSeparator } from './LineSeparator'
 
 interface Props extends ComponentWithChildrenProps {
   columnNames: string[]
@@ -13,10 +13,6 @@ const Container = styled.div`
   display: grid;
   gap: 16px 48px;
   align-items: center;
-`
-
-const Separator = styled(Line)`
-  grid-column: 1/-1;
 `
 
 export const TableLayout = ({
@@ -31,7 +27,7 @@ export const TableLayout = ({
           {name}
         </Text>
       ))}
-      <Separator />
+      <LineSeparator layout="column" />
       {children}
     </Container>
   )

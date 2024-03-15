@@ -1,9 +1,9 @@
 import { range } from '@lib/utils/array/range'
 import { UniformColumnGrid } from '@lib/ui/layout/UniformColumnGrid'
-import { Line } from '@lib/ui/layout/Line'
 import { useTheme } from 'styled-components'
 import { ColorItem } from './ColorItem'
 import { labelColorsCount } from '@lib/ui/colors/generateLabelColorGetter'
+import { LineSeparator } from '@lib/ui/layout/LineSeparator'
 
 export const ColorList = () => {
   const {
@@ -15,7 +15,7 @@ export const ColorList = () => {
       {Object.entries(hslaColors).map(([name, color]) => (
         <ColorItem color={color} name={name} key={name} />
       ))}
-      <Line />
+      <LineSeparator layout="column" />
       {range(labelColorsCount)
         .map(getLabelColor)
         .map((color, index) => (

@@ -1,4 +1,4 @@
-import { Line } from '../../layout/Line'
+import { LineSeparator } from '../../layout/LineSeparator'
 import { VStack } from '../../layout/Stack'
 import { ComponentWithChildrenProps } from '../../props'
 import { Text } from '../../text'
@@ -11,7 +11,7 @@ export const FormSection = ({ name, children }: Props) => (
   <VStack fullWidth gap={20}>
     <VStack fullWidth gap={8}>
       <Text color="shy">{name}</Text>
-      <Line />
+      <LineSeparator layout="column" />
     </VStack>
     {children}
   </VStack>
