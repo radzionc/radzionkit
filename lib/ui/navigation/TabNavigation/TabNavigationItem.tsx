@@ -9,12 +9,14 @@ import {
 } from '../../inputs/InvisibleHTMLRadio'
 import { round } from '../../css/round'
 import { centerContent } from '../../css/centerContent'
+import { interactive } from '../../css/interactive'
 
 const Container = styled.label<{
   isSelected: boolean
   size: TabNavigationItemSize
 }>`
-  cursor: pointer;
+  ${interactive};
+  position: relative;
   ${round}
   text-decoration: none;
   ${centerContent};

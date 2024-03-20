@@ -24,6 +24,7 @@ const Indicator = styled.div<{ selected: boolean }>`
 `
 
 const Container = styled.label<{ selected: boolean; disabled?: boolean }>`
+  position: relative;
   padding: 12px 20px;
   ${borderRadius.m};
   background: ${getColor('foreground')};

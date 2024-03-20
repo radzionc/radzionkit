@@ -11,6 +11,7 @@ import { transition } from '../../css/transition'
 import { CheckIcon } from '../../icons/CheckIcon'
 import { HStack } from '../../layout/Stack'
 import { Text } from '../../text'
+import { interactive } from '../../css/interactive'
 
 interface CheckboxProps extends InvisibleHTMLCheckboxProps {
   label?: ReactNode
@@ -36,7 +37,8 @@ const Box = styled.div<{ isChecked: boolean }>`
 const Container = styled(HStack)`
   color: ${getColor('textSupporting')};
 
-  cursor: pointer;
+  ${interactive}
+  position: relative;
 
   ${transition}
 
