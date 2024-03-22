@@ -1,19 +1,24 @@
 import { OnValueChangeListener } from './PersistentStorage'
 import { useCallback, useEffect, useState } from 'react'
 import { PersistentStorage } from './PersistentStorage'
+import { shouldBeDefined } from '@lib/utils/assert/shouldBeDefined'
 
 export function createPersistentStateHook<T extends string>(
   storage: PersistentStorage<T>,
 ) {
-  function usePersistentState<V>(key: T, initialValue: V) {
+  function usePersistentState<V>(key: T, initialValue: Exclude<V, undefined>) {
     const [value, setValue] = useState<V>(() => {
-      const valueFromStorage = storage.getItem<V>(key)
+      if (storage.getItem<V>(key) === undefined) {
+        storage.setItem(key, initialValue)
+      }
 
-      return valueFromStorage === undefined ? initialValue : valueFromStorage
+      return shouldBeDefined(storage.getItem<V>(key))
     })
 
     useEffect(() => {
-      const onValueChange: OnValueChangeListener<V> = (newValue) => {
+      const onValueChange: OnValueChangeListener<Exclude<V, undefined>> = (
+        newValue,
+      ) => {
         setValue(newValue)
       }
 
@@ -23,8 +28,20 @@ export function createPersistentStateHook<T extends string>(
     }, [key])
 
     const setPersistentStorageValue = useCallback(
-      (newValue: V) => {
-        storage.setItem(key, newValue)
+      (
+        newValue:
+          | Exclude<V, undefined>
+          | ((prevState: Exclude<V, undefined>) => Exclude<V, undefined>),
+      ) => {
+        const resolvedValue =
+          typeof newValue === 'function'
+            ? (
+                newValue as (
+                  prevState: Exclude<V, undefined>,
+                ) => Exclude<V, undefined>
+              )(shouldBeDefined(storage.getItem<Exclude<V, undefined>>(key)))
+            : newValue
+        storage.setItem(key, resolvedValue)
       },
       [key],
     )

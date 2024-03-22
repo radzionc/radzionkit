@@ -3,6 +3,7 @@ import { transition } from './transition'
 import { getColor } from '../theme/getters'
 
 export const inputContainer = css`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
