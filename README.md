@@ -127,6 +127,8 @@ export const App = () => {
 
 To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
 
+* [How to Create an Effective Onboarding Flow in React: A Step-by-Step Guide](https://youtu.be/G8U0qAc2MZE)
+* [Creating a Drag-and-Drop Todo List in React: A Complete Tutorial](https://youtu.be/GicEFePmO4U)
 * [Creating a React Line Chart Component from Scratch](https://youtu.be/8gJ5g0OW6qY)
 * [Building a website landing page in TypeScript monorepo: A Developer's guide](https://youtu.be/_v63kPS9-s4)
 * [Simplifying TypeScript Backend Development: A Comprehensive Guide](https://youtu.be/BDGR2ji5DWg)
