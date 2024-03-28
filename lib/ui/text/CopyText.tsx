@@ -1,21 +1,28 @@
+import { CopyIcon } from '../icons/CopyIcon'
 import styled from 'styled-components'
-import { getColor } from '../theme/getters'
+import { getColor, matchColor } from '../theme/getters'
 import copy from 'copy-to-clipboard'
 import { useState } from 'react'
-import { Match } from '../base/Match'
-import { Text } from '.'
-import { transition } from '../css/transition'
 import { CheckIcon } from '../icons/CheckIcon'
-import { CopyIcon } from '../icons/CopyIcon'
+import { Text } from '../text'
+import { Match } from '../base/Match'
+import { transition } from '../css/transition'
 
 interface CopyTextProps extends React.ComponentProps<typeof Text> {
   content: string
+  isIconAlwaysVisible?: boolean
 }
 
-const IconWr = styled(Text)`
+const IconWr = styled(Text)<{ isIconAlwaysVisible: boolean }>`
   margin-left: 4px;
   ${transition};
-  color: ${getColor('textShy')};
+  color: ${matchColor('isIconAlwaysVisible', {
+    false: 'transparent',
+    true: 'textShy',
+  })};
+  svg {
+    vertical-align: middle;
+  }
 `
 
 const Container = styled(Text)`
@@ -28,22 +35,27 @@ const Container = styled(Text)`
 
 type IconToShow = 'copy' | 'copied'
 
-export const CopyText = ({ content, children, ...rest }: CopyTextProps) => {
+export const CopyText = ({
+  content,
+  children,
+  isIconAlwaysVisible = true,
+  ...rest
+}: CopyTextProps) => {
   const [iconToShow, setIconToShow] = useState<IconToShow>('copy')
 
   return (
     <Container
+      as="span"
       onMouseLeave={() => setIconToShow('copy')}
       onTouchEnd={() => setIconToShow('copy')}
       onClick={() => {
         copy(content)
         setIconToShow('copied')
       }}
-      as="span"
       {...rest}
     >
       {children}
-      <IconWr as="span">
+      <IconWr isIconAlwaysVisible={isIconAlwaysVisible} as="span">
         <Match
           value={iconToShow}
           copy={() => <CopyIcon />}

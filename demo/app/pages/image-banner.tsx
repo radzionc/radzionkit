@@ -22,8 +22,8 @@ const HABITS_EDUCATION_URL = `https://youtu.be/39gE4G1j-yk`
 
 export default makeDemoPage(() => {
   const [interactionDate, setInteractionDate] = usePersistentState<
-    number | undefined
-  >(PersistentStateKey.HabitsEducationWasAt, undefined)
+    number | null
+  >(PersistentStateKey.HabitsEducationWasAt, null)
 
   const handleInteraction = () => {
     setInteractionDate(Date.now())

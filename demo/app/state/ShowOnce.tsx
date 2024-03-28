@@ -7,9 +7,9 @@ interface ShowOnceProps extends ComponentWithChildrenProps {
 }
 
 export const ShowOnce = ({ children, storageKey }: ShowOnceProps) => {
-  const [wasShownAt, setShowTime] = usePersistentState<number | undefined>(
+  const [wasShownAt, setShowTime] = usePersistentState<number | null>(
     storageKey,
-    undefined,
+    null,
   )
 
   useEffect(() => {
