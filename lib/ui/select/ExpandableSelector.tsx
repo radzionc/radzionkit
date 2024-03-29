@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 import { absoluteOutline } from '../css/absoluteOutline'
-import { borderRadius } from '../css/borderRadius'
 import { interactive } from '../css/interactive'
 import { transition } from '../css/transition'
 import { FloatingOptionsContainer } from '../floating/FloatingOptionsContainer'
@@ -12,6 +11,7 @@ import { UIComponentProps } from '../props'
 import { getColor } from '../theme/getters'
 import { getHoverVariant } from '../theme/getHoverVariant'
 import { cropText } from '../css/cropText'
+import { SelectContainer } from './SelectContainer'
 
 export type ExpandableSelectorProp<T> = UIComponentProps & {
   value: T | null
@@ -49,18 +49,10 @@ const OptionContent = styled(HStack)`
   }
 `
 
-const Container = styled(HStack)<{ isActive: boolean; isDisabled?: boolean }>`
-  ${borderRadius.s};
-  outline: none;
-  border: 1px solid ${getColor('mist')};
-  padding: 8px 12px;
-  background: ${getColor('foreground')};
-  ${transition};
-
-  align-items: center;
-  gap: 4px;
-  justify-content: space-between;
-
+const Container = styled(SelectContainer)<{
+  isActive: boolean
+  isDisabled?: boolean
+}>`
   ${({ isDisabled }) =>
     isDisabled
       ? css`

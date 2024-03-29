@@ -5,6 +5,7 @@ import { getColor } from '../theme/getters'
 export const themedScrollbars = css`
   &::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
   }
   &::-webkit-scrollbar-track {
     background-color: transparent;

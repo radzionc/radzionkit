@@ -23,7 +23,7 @@ export const useElementSize = (element: HTMLElement | null) => {
       setSize(getElementSize(element))
     }, 100)
 
-    handleElementChange()
+    setSize(getElementSize(element))
 
     if (!window?.ResizeObserver) return
 

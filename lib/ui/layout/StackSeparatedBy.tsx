@@ -1,12 +1,12 @@
-import React, { Fragment, ReactNode } from 'react'
+import React, { ComponentProps, Fragment, ReactNode } from 'react'
 
-import { Stack, StackProps } from './Stack'
+import { Stack } from './Stack'
 import { isLast } from '@lib/utils/array/isLast'
 
 export const dotSeparator = '•'
 export const slashSeparator = '/'
 
-export interface StackSeparatedByProps extends StackProps {
+export type StackSeparatedByProps = ComponentProps<typeof Stack> & {
   separator: ReactNode
 }
 
@@ -36,12 +36,19 @@ export const StackSeparatedBy = ({
   )
 }
 
-export interface HStackSeparatedByProps
-  extends Omit<StackSeparatedByProps, 'direction'> {}
+export type HStackSeparatedByProps = Omit<StackSeparatedByProps, 'direction'>
 
 export const HStackSeparatedBy = ({
   alignItems = 'center',
+  separator,
   ...props
 }: HStackSeparatedByProps) => {
-  return <StackSeparatedBy direction="row" alignItems={alignItems} {...props} />
+  return (
+    <StackSeparatedBy
+      separator={separator}
+      direction="row"
+      alignItems={alignItems}
+      {...props}
+    />
+  )
 }
