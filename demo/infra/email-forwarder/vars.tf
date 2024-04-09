@@ -6,6 +6,11 @@ variable "forward_to" {}
 
 variable "zone_id" {}
 
-variable "domain_name" {}
+variable "domains" {
+  type = map(object({
+    domain_name : string
+    zone_id     : string
+  }))
+}
 
 variable "sentry_key" {}

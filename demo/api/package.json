@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@as-integrations/aws-lambda": "^3.1.0",
-    "@sentry/serverless": "^7.91.0",
+    "@sentry/serverless": "^7.109.0",
     "@vendia/serverless-express": "^4.12.6",
     "cors": "^2.8.5",
     "express": "^4.18.2",
