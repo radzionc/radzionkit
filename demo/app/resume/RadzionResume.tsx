@@ -25,7 +25,7 @@ import { StarIcon } from '@lib/ui/icons/StarIcon'
 
 const firstJobStartedAt = new Date(2017, 5)
 
-const email = 'radzionc@gmail.com'
+const email = 'radzion@radzion.com'
 const twitterHandle = 'radzionc'
 const githubHandle = 'radzionc'
 const telegramHandle = 'radzionc'

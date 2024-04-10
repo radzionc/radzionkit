@@ -34,13 +34,13 @@ locals {
 }
 
 resource "aws_ses_domain_identity" "domain_identity" {
-  for_each = var.domains
+  for_each = { for idx, domain in var.domains : idx => domain }
 
   domain = each.value.domain_name
 }
 
 resource "aws_route53_record" "amazonses_verification_record" {
-  for_each = var.domains
+  for_each = { for idx, domain in var.domains : idx => domain }
 
   zone_id = each.value.zone_id
   name    = "_amazonses.${each.value.domain_name}"
@@ -50,7 +50,7 @@ resource "aws_route53_record" "amazonses_verification_record" {
 }
 
 resource "aws_route53_record" "amazonses_receiving_record" {
-  for_each = var.domains
+  for_each = { for idx, domain in var.domains : idx => domain }
 
   zone_id = each.value.zone_id
   name    = each.value.domain_name

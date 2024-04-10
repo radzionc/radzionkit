@@ -4,10 +4,8 @@ variable "name" {
 
 variable "forward_to" {}
 
-variable "zone_id" {}
-
 variable "domains" {
-  type = map(object({
+  type = list(object({
     domain_name : string
     zone_id     : string
   }))
