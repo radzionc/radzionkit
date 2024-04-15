@@ -1,10 +1,9 @@
 import { getEmailFromStorage } from '../getEmailFromStorage'
 
-const getEmail = async () => {
-  const email = await getEmailFromStorage(
-    '79jhkdfsm4d60fvb2cq77tdr1blli5r2h5csnt81',
-  )
+const getEmail = async (id: string) => {
+  const email = await getEmailFromStorage(id)
   console.log(email)
 }
 
-getEmail()
+const id = process.argv[2]
+getEmail(id)

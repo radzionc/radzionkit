@@ -6,33 +6,6 @@ terraform {
   }
 }
 
-data "archive_file" "local_zipped_lambda" {
-  type        = "zip"
-  source_dir  = "${path.module}/lambda"
-  output_path = "${path.module}/lambda.zip"
-}
-
-resource "aws_s3_object" "zipped_lambda" {
-  bucket = aws_s3_bucket.lambda_storage.id
-  key    = "lambda.zip"
-  source = data.archive_file.local_zipped_lambda.output_path
-}
-
-resource "aws_s3_bucket" "lambda_storage" {
-  bucket = "tf-${var.name}-storage"
-}
-
-resource "aws_s3_bucket" "emails_storage" {
-  bucket = "tf-${var.name}-emails-storage"
-}
-
-data "aws_caller_identity" "current" {}
-data "aws_region" "current" {}
-
-locals {
-  domain_names = [for domain in var.domains : domain.domain_name]
-}
-
 resource "aws_ses_domain_identity" "domain_identity" {
   for_each = { for idx, domain in var.domains : idx => domain }
 
@@ -59,6 +32,28 @@ resource "aws_route53_record" "amazonses_receiving_record" {
   records = ["10 inbound-smtp.${data.aws_region.current.name}.amazonaws.com"]
 }
 
+resource "aws_s3_bucket" "emails_storage" {
+  bucket = "tf-${var.name}-emails-storage"
+}
+
+data "aws_caller_identity" "current" {}
+data "aws_region" "current" {}
+
+data "archive_file" "local_zipped_lambda" {
+  type        = "zip"
+  source_dir  = "${path.module}/lambda"
+  output_path = "${path.module}/lambda.zip"
+}
+
+resource "aws_s3_object" "zipped_lambda" {
+  bucket = aws_s3_bucket.lambda_storage.id
+  key    = "lambda.zip"
+  source = data.archive_file.local_zipped_lambda.output_path
+}
+
+resource "aws_s3_bucket" "lambda_storage" {
+  bucket = "tf-${var.name}-storage"
+}
 
 resource "aws_lambda_function" "ses_forwarder" {
   function_name = "tf-${var.name}"
@@ -177,6 +172,10 @@ resource "aws_ses_receipt_rule_set" "rule_set" {
 
 resource "aws_ses_active_receipt_rule_set" "rule_set" {
   rule_set_name = aws_ses_receipt_rule_set.rule_set.rule_set_name
+}
+
+locals {
+  domain_names = [for domain in var.domains : domain.domain_name]
 }
 
 resource "aws_ses_receipt_rule" "receipt_rule" {

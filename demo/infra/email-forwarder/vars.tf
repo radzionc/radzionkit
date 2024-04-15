@@ -1,6 +1,4 @@
-variable "name" {
-  default = "radzion-email"
-}
+variable "name" {}
 
 variable "forward_to" {}
 
