@@ -16,23 +16,29 @@ import { IogIcon } from './IogIcon'
 import { ZerionIcon } from './ZerionIcon'
 import { GitHubIcon } from '@lib/ui/icons/GitHubIcon'
 import { MailIcon } from '@lib/ui/icons/MailIcon'
-import { TelegramIcon } from '@lib/ui/icons/TelegramIcon'
-import { TwitterIcon } from '@lib/ui/icons/TwitterIcon'
+import { TelegramColorfulIcon } from '@lib/ui/icons/TelegramColorfulIcon'
+import { XIcon } from '@lib/ui/icons/XIcon'
 import { ResumeFooterLink } from '@lib/resume-ui/components/ResumeFooterLink'
 import { PersonalProject } from '@lib/resume-ui/components/PersonalProject'
 import { IconWrapper } from '@lib/ui/icons/IconWrapper'
 import { StarIcon } from '@lib/ui/icons/StarIcon'
+import { useRhythmicRerender } from '@lib/ui/hooks/useRhythmicRerender'
+import { convertDuration } from '@lib/utils/time/convertDuration'
+import { LinkedinColorfulIcon } from '@lib/ui/icons/LinkedinColorfulIcon'
 
-const firstJobStartedAt = new Date(2017, 5)
+const firstJobStartedAt = new Date(2017, 3)
 
 const email = 'radzion@radzion.com'
-const twitterHandle = 'radzionc'
+const xHandle = 'radzionc'
 const githubHandle = 'radzionc'
 const telegramHandle = 'radzionc'
+const linkedInHandle = 'radzion'
 
 export const RadzionResume = () => {
   const { colors } = useTheme()
   const containerElement = useRef<HTMLDivElement>(null)
+
+  const now = useRhythmicRerender(convertDuration(10, 'min', 'ms'))
 
   return (
     <ResumeContainer ref={containerElement}>
@@ -43,7 +49,7 @@ export const RadzionResume = () => {
               Radzion
             </Text>
             <Tag $color={colors.getLabelColor(5)}>
-              {formatDistance(Date.now(), firstJobStartedAt)} of experience
+              {formatDistance(now, firstJobStartedAt)} of experience
             </Tag>
             <Tag $color={colors.getLabelColor(10)}>CS Degree</Tag>
           </HStack>
@@ -73,7 +79,7 @@ export const RadzionResume = () => {
           <JobExperience
             position="Front-end Engineer"
             company="Terraform Labs"
-            startedAt={new Date(2022, 3)}
+            startedAt={new Date(2022, 2)}
             companyIcon={<TflIcon />}
             responsibilities={[
               <>
@@ -92,8 +98,8 @@ export const RadzionResume = () => {
             <JobExperience
               position="Front-end Engineer"
               company="IOG"
-              finishedAt={new Date(2022, 2)}
-              startedAt={new Date(2021, 9)}
+              finishedAt={new Date(2022, 1)}
+              startedAt={new Date(2021, 8)}
               companyIcon={<IogIcon />}
               responsibilities={[
                 <>
@@ -107,8 +113,8 @@ export const RadzionResume = () => {
             <JobExperience
               position="Front-end Engineer"
               company="Zerion"
-              finishedAt={new Date(2021, 8)}
-              startedAt={new Date(2020, 10)}
+              finishedAt={new Date(2021, 7)}
+              startedAt={new Date(2020, 9)}
               companyIcon={<ZerionIcon />}
               responsibilities={[
                 'Implementing interfaces for wallets management',
@@ -129,8 +135,8 @@ export const RadzionResume = () => {
           <JobExperience
             position="Senior Software Developer"
             company="Kontist"
-            startedAt={new Date(2019, 7)}
-            finishedAt={new Date(2020, 9)}
+            startedAt={new Date(2019, 6)}
+            finishedAt={new Date(2020, 8)}
             responsibilities={[
               'Technical planning and code reviews',
               'Adding features to the native app',
@@ -142,8 +148,8 @@ export const RadzionResume = () => {
           <JobExperience
             position="Software Developer"
             company="KREO"
-            startedAt={new Date(2017, 4)}
-            finishedAt={new Date(2019, 6)}
+            startedAt={firstJobStartedAt}
+            finishedAt={new Date(2019, 5)}
             responsibilities={[
               'Implementing complex interfaces',
               'Frontend architecture',
@@ -203,9 +209,14 @@ export const RadzionResume = () => {
           url={`mailto:${email}`}
         />
         <ResumeFooterLink
-          icon={<TwitterIcon />}
-          name={twitterHandle}
-          url={`https://twitter.com/${twitterHandle}`}
+          icon={<XIcon />}
+          name={xHandle}
+          url={`https://twitter.com/${xHandle}`}
+        />
+        <ResumeFooterLink
+          icon={<LinkedinColorfulIcon />}
+          name={linkedInHandle}
+          url={`https://www.linkedin.com/in/${linkedInHandle}`}
         />
         <ResumeFooterLink
           icon={<GitHubIcon />}
@@ -213,7 +224,7 @@ export const RadzionResume = () => {
           url={`https://github.com/${githubHandle}`}
         />
         <ResumeFooterLink
-          icon={<TelegramIcon />}
+          icon={<TelegramColorfulIcon />}
           name={telegramHandle}
           url={`https://t.me/${telegramHandle}`}
         />

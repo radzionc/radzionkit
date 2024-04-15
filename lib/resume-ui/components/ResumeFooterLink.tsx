@@ -17,6 +17,10 @@ const Container = styled(ExternalLink)`
   color: ${getColor('textSupporting')};
   ${transition};
 
+  svg {
+    color: ${getColor('contrast')};
+  }
+
   &:hover {
     color: ${getColor('text')};
   }
