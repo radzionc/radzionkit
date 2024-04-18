@@ -15,6 +15,8 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 | `@lib/subscription-ui` and `@lib/web3-ui`              | The `@lib/subscription-ui` package showcases domain-specific UI elements for managing subscription services, while the `@lib/web3-ui` package provides a set of components tailored for Web3 interfaces, both serving as exemplary models for structuring UI code within a domain-focused package.       | `react` |
 | `@lib/next-ui`         | The `@lib/next-ui`  package is designed to enhance Next.js applications, offering custom hooks for query parameter handling and metadata components for streamlined page SEO optimization.     | `next`     |
 | `@lib/codegen`         | The `@lib/codegen` package contains a set of TypeScript utilities designed to automate the generation of code files, including TypeScript interfaces and JSON files, facilitating a more efficient development workflow.      | TypeScript     |
+| `@lib/auth`         | The `@lib/auth` package contains authentication-related types for both front-end and server-side logic.
+      | TypeScript     |
 | `@lib/dynamodb`        | The `@lib/dynamodb` package is equipped with TypeScript utilities to streamline interactions with DynamoDB, including client setup, item operations, and query parameter generation for efficient database management.      | DynamoDB     |
 | `@lib/countries`           | The `@lib/countries` package delivers a curated, typed list of country codes with corresponding names and includes utilities to generate this data from a JSON file, simplifying country-related data management in your projects.   | TypeScript     |
 | `@lib/resume-ui`           | React components for creating a one-page resume.   | React     |
@@ -26,6 +28,7 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 | `@demo/app`            | The `@demo/app`  project is a static site generation (SSG) showcase, built with Next.js, that demonstrates the capabilities and components of the `ui` package, providing a real-world example of the library's potential in a production-like environment.                     | NextJS     |
 | `@demo/api-interface`   | The `api-interface` package provides a structured TypeScript interface for the app's backend API, including error handling and method definitions, to ensure type safety and consistency across frontend and backend communications.             | TypeScript     |
 | `@demo/api`             | The `api` package is a lightweight, TypeScript-based backend solution that faithfully implements the `api-interface` with minimal dependencies, primarily utilizing resolvers for handling requests. Optimized for use as an AWS Lambda function, it's an ideal choice for serverless architectures requiring the expressiveness of TypeScript and the efficiency of the AWS ecosystem.     | `express`, AWS Lambda, TypeScript     |
+| `@demo/email-forwarder`             |  The SES forwarder Lambda function receives emails sent to AWS domains, stores them in an S3 bucket, and forwards them to a specified personal email address. This process is automated and scalable through Terraform, enabling efficient email management across multiple domains.     |  AWS Lambda, AWS SES, TypeScript    |
 
 ## Getting Started with RadzionKit: Launching Your New Project
 
@@ -127,6 +130,7 @@ export const App = () => {
 
 To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
 
+* [Creating an Interactive Time-Tracking Report with React and TypeScript](https://youtu.be/gMZPIyhdQLI)
 * [How to Create an Effective Onboarding Flow in React: A Step-by-Step Guide](https://youtu.be/G8U0qAc2MZE)
 * [Creating a Drag-and-Drop Todo List in React: A Complete Tutorial](https://youtu.be/GicEFePmO4U)
 * [Creating a React Line Chart Component from Scratch](https://youtu.be/8gJ5g0OW6qY)

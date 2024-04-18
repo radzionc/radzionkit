@@ -12,7 +12,6 @@ import { FixedOptionsInputButtons } from './Buttons'
 import { LabelText } from '../../LabelText'
 import { DropdownContainer } from '../DropdownContainer'
 import { DropdownInputFrame } from '../DropdownInputFrame'
-import { DisplayMoreOptions } from './DisplayMoreOptions'
 
 export interface FixedOptionsInputProps<T> extends InputProps<T | null> {
   placeholder?: string
@@ -31,8 +30,6 @@ export interface FixedOptionsInputProps<T> extends InputProps<T | null> {
   onTextInputValueChange?: (value: string) => void
 }
 
-const optionsBatchSize = 50
-
 export type FixedOptionsInputWrapperProps<T> = Pick<
   FixedOptionsInputProps<T>,
   | 'value'
@@ -43,7 +40,8 @@ export type FixedOptionsInputWrapperProps<T> = Pick<
   | 'noOptionsMessage'
   | 'onTextInputValueChange'
   | 'clearTextInputOnOptionSelect'
->
+> &
+  Partial<Pick<FixedOptionsInputProps<T>, 'renderOption'>>
 
 export function FixedOptionsInput<T>({
   value,
@@ -62,9 +60,6 @@ export function FixedOptionsInput<T>({
   clearTextInputOnOptionSelect,
 }: FixedOptionsInputProps<T>) {
   const inputElement = useRef<HTMLInputElement>(null)
-
-  const [maxOptionsToDisplay, setMaxOptionsToDisplay] =
-    useState(optionsBatchSize)
 
   const [textInputValue, setTextInputValue] = useState(() =>
     value ? getOptionName(value) : '',
@@ -114,6 +109,7 @@ export function FixedOptionsInput<T>({
   const onOptionSelect = useCallback(
     (option: T) => {
       onChange(option)
+      inputElement.current?.blur()
       if (clearTextInputOnOptionSelect) {
         setTextInputValue('')
       }
@@ -144,10 +140,18 @@ export function FixedOptionsInput<T>({
 
   return (
     <InputContainer
-      onClick={() => {
-        inputElement.current?.focus()
+      onClick={(event) => {
+        const isClickComesFromInput = inputElement.current?.contains(
+          event.target as Node,
+        )
+        if (isClickComesFromInput) {
+          showOptions()
+        } else {
+          event.stopPropagation()
+          event.preventDefault()
+        }
       }}
-      onKeyDown={(event) => {
+      onKeyDown={(event: React.KeyboardEvent<HTMLLabelElement>) => {
         if (event.key === 'Enter' && activeIndex != null) {
           event.preventDefault()
           onOptionSelect(optionsToDisplay[activeIndex])
@@ -172,7 +176,9 @@ export function FixedOptionsInput<T>({
         <DropdownInputFrame
           ref={inputElement}
           value={textInputValue}
-          onChange={(event) => onTextInputChange(event.currentTarget.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            onTextInputChange(event.currentTarget.value)
+          }
           placeholder={placeholder}
           aria-autocomplete="list"
         />
@@ -184,38 +190,28 @@ export function FixedOptionsInput<T>({
             })}
           >
             {optionsToDisplay.length > 0 ? (
-              optionsToDisplay
-                .slice(0, maxOptionsToDisplay)
-                .map((option, index) => (
-                  <FixedOptionsInputItem
-                    {...getItemProps({
-                      ref: (element) => {
-                        optionsRef.current[index] = element
-                      },
-                      key: getOptionKey(option),
-                      onClick: () => {
-                        onOptionSelect(option)
-                        inputElement.current?.focus()
-                        hideOptions()
-                      },
-                    })}
-                    isActive={index === activeIndex}
-                  >
-                    {renderOption(option)}
-                  </FixedOptionsInputItem>
-                ))
+              optionsToDisplay.map((option, index) => (
+                <FixedOptionsInputItem
+                  {...getItemProps({
+                    ref: (element) => {
+                      optionsRef.current[index] = element
+                    },
+                    key: getOptionKey(option),
+                    onClick: () => {
+                      onOptionSelect(option)
+                      inputElement.current?.focus()
+                      hideOptions()
+                    },
+                  })}
+                  isActive={index === activeIndex}
+                >
+                  {renderOption(option)}
+                </FixedOptionsInputItem>
+              ))
             ) : (
               <FixedOptionInputMessage>
                 {noOptionsMessage ?? 'No options'}
               </FixedOptionInputMessage>
-            )}
-            {optionsToDisplay.length > maxOptionsToDisplay && (
-              <DisplayMoreOptions
-                key={maxOptionsToDisplay}
-                onMoreOptionsRequest={() => {
-                  setMaxOptionsToDisplay((prev) => prev + optionsBatchSize)
-                }}
-              />
             )}
           </DropdownContainer>
         )}

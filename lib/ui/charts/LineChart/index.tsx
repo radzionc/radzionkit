@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useId, useMemo } from 'react'
 import styled, { useTheme } from 'styled-components'
 import { transition } from '../../css/transition'
 import { HSLA } from '../../colors/HSLA'
@@ -61,6 +61,8 @@ export const LineChart = ({
 
   const theme = useTheme()
 
+  const id = useId()
+
   return (
     <svg
       style={{ minWidth: width, overflow: 'visible' }}
@@ -74,7 +76,7 @@ export const LineChart = ({
         gradient={() => (
           <>
             <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <linearGradient id={id} x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop
                   offset="0%"
                   stopColor={color.getVariant({ a: () => 0.4 }).toCssValue()}
@@ -100,7 +102,7 @@ export const LineChart = ({
       <Path
         d={closedPath}
         fill={match(fillKind, {
-          gradient: () => 'url(#gradient)',
+          gradient: () => `url(#${id})`,
           solid: () => color.getVariant({ a: () => 0.4 }).toCssValue(),
         })}
         strokeWidth="0"

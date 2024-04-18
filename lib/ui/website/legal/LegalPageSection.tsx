@@ -12,6 +12,8 @@ export const LegalPageSection = ({
     <Text color="contrast" weight="bold" as="h2">
       {title}
     </Text>
-    <Text height="large">{children}</Text>
+    <Text as="div" height="large">
+      {children}
+    </Text>
   </VStack>
 )

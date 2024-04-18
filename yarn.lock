@@ -315,54 +315,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-sesv2@npm:^3.478.0":
-  version: 3.478.0
-  resolution: "@aws-sdk/client-sesv2@npm:3.478.0"
-  dependencies:
-    "@aws-crypto/sha256-browser": "npm:3.0.0"
-    "@aws-crypto/sha256-js": "npm:3.0.0"
-    "@aws-sdk/client-sts": "npm:3.478.0"
-    "@aws-sdk/core": "npm:3.477.0"
-    "@aws-sdk/credential-provider-node": "npm:3.478.0"
-    "@aws-sdk/middleware-host-header": "npm:3.468.0"
-    "@aws-sdk/middleware-logger": "npm:3.468.0"
-    "@aws-sdk/middleware-recursion-detection": "npm:3.468.0"
-    "@aws-sdk/middleware-signing": "npm:3.468.0"
-    "@aws-sdk/middleware-user-agent": "npm:3.478.0"
-    "@aws-sdk/region-config-resolver": "npm:3.470.0"
-    "@aws-sdk/types": "npm:3.468.0"
-    "@aws-sdk/util-endpoints": "npm:3.478.0"
-    "@aws-sdk/util-user-agent-browser": "npm:3.468.0"
-    "@aws-sdk/util-user-agent-node": "npm:3.470.0"
-    "@smithy/config-resolver": "npm:^2.0.21"
-    "@smithy/core": "npm:^1.2.0"
-    "@smithy/fetch-http-handler": "npm:^2.3.1"
-    "@smithy/hash-node": "npm:^2.0.17"
-    "@smithy/invalid-dependency": "npm:^2.0.15"
-    "@smithy/middleware-content-length": "npm:^2.0.17"
-    "@smithy/middleware-endpoint": "npm:^2.2.3"
-    "@smithy/middleware-retry": "npm:^2.0.24"
-    "@smithy/middleware-serde": "npm:^2.0.15"
-    "@smithy/middleware-stack": "npm:^2.0.9"
-    "@smithy/node-config-provider": "npm:^2.1.8"
-    "@smithy/node-http-handler": "npm:^2.2.1"
-    "@smithy/protocol-http": "npm:^3.0.11"
-    "@smithy/smithy-client": "npm:^2.1.18"
-    "@smithy/types": "npm:^2.7.0"
-    "@smithy/url-parser": "npm:^2.0.15"
-    "@smithy/util-base64": "npm:^2.0.1"
-    "@smithy/util-body-length-browser": "npm:^2.0.1"
-    "@smithy/util-body-length-node": "npm:^2.1.0"
-    "@smithy/util-defaults-mode-browser": "npm:^2.0.22"
-    "@smithy/util-defaults-mode-node": "npm:^2.0.29"
-    "@smithy/util-endpoints": "npm:^1.0.7"
-    "@smithy/util-retry": "npm:^2.0.8"
-    "@smithy/util-utf8": "npm:^2.0.2"
-    tslib: "npm:^2.5.0"
-  checksum: f5a65c7f648b9524772b169bf5b47e4aa597ddda09b679ab646e6aa64b41e4f07e0f75daa45416a92f7e09fe115f4a22b156de2613eb4f2c654f2ba54321a854
-  languageName: node
-  linkType: hard
-
 "@aws-sdk/client-sesv2@npm:^3.549.0":
   version: 3.549.0
   resolution: "@aws-sdk/client-sesv2@npm:3.549.0"
@@ -1053,21 +1005,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/middleware-signing@npm:3.468.0":
-  version: 3.468.0
-  resolution: "@aws-sdk/middleware-signing@npm:3.468.0"
-  dependencies:
-    "@aws-sdk/types": "npm:3.468.0"
-    "@smithy/property-provider": "npm:^2.0.0"
-    "@smithy/protocol-http": "npm:^3.0.11"
-    "@smithy/signature-v4": "npm:^2.0.0"
-    "@smithy/types": "npm:^2.7.0"
-    "@smithy/util-middleware": "npm:^2.0.8"
-    tslib: "npm:^2.5.0"
-  checksum: e14d0ace15d8e67700955dda58de3017b8d012ff363737266063224d481df0d1efe86f6b292b847ab2b13ffc2115e9d95f622291512266a82eebc9959ad7b4c5
-  languageName: node
-  linkType: hard
-
 "@aws-sdk/middleware-signing@npm:3.535.0":
   version: 3.535.0
   resolution: "@aws-sdk/middleware-signing@npm:3.535.0"
@@ -1707,7 +1644,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@demo/email@workspace:demo/email"
   dependencies:
-    "@aws-sdk/client-sesv2": "npm:^3.478.0"
+    "@aws-sdk/client-sesv2": "npm:^3.549.0"
     "@react-email/button": "npm:^0.0.13"
     "@react-email/components": "npm:^0.0.12"
     "@react-email/html": "npm:^0.0.7"
@@ -2354,6 +2291,12 @@ __metadata:
   checksum: 683117e4e6707ef50c725d6d0ec4234687ff751f36fa46c2b3068931eb6a86b49af374d3030200777666579a992b7470d1bd1c591e9bf64d764dda5295f33093
   languageName: node
   linkType: hard
+
+"@lib/auth@workspace:lib/auth":
+  version: 0.0.0-use.local
+  resolution: "@lib/auth@workspace:lib/auth"
+  languageName: unknown
+  linkType: soft
 
 "@lib/codegen@workspace:lib/codegen":
   version: 0.0.0-use.local

@@ -43,7 +43,15 @@ export const Panel = styled.div<PanelProps>`
       ? css`
           display: flex;
           flex-direction: ${direction};
-          gap: 1px;
+
+          ${kind === 'secondary'
+            ? css`
+                background: ${getColor('mist')};
+                gap: 2px;
+              `
+            : css`
+                gap: 1px;
+              `}
 
           > * {
             ${contentCSS}

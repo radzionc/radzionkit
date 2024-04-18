@@ -3,6 +3,7 @@ import { ComponentWithChildrenProps } from '../props'
 import { HStack } from '../layout/Stack'
 import { Tooltip } from './Tooltip'
 import { HelpCircleIcon } from '../icons/HelpCircleIcon'
+import { IconWrapper } from '../icons/IconWrapper'
 
 interface WithHintProps extends ComponentWithChildrenProps {
   hint?: ReactNode
@@ -17,9 +18,9 @@ export const WithHint = ({ children, hint }: WithHintProps) => {
           placement="top"
           content={hint}
           renderOpener={(props) => (
-            <div {...props}>
+            <IconWrapper {...props}>
               <HelpCircleIcon />
-            </div>
+            </IconWrapper>
           )}
         />
       )}
