@@ -15,8 +15,7 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 | `@lib/subscription-ui` and `@lib/web3-ui`              | The `@lib/subscription-ui` package showcases domain-specific UI elements for managing subscription services, while the `@lib/web3-ui` package provides a set of components tailored for Web3 interfaces, both serving as exemplary models for structuring UI code within a domain-focused package.       | `react` |
 | `@lib/next-ui`         | The `@lib/next-ui`  package is designed to enhance Next.js applications, offering custom hooks for query parameter handling and metadata components for streamlined page SEO optimization.     | `next`     |
 | `@lib/codegen`         | The `@lib/codegen` package contains a set of TypeScript utilities designed to automate the generation of code files, including TypeScript interfaces and JSON files, facilitating a more efficient development workflow.      | TypeScript     |
-| `@lib/auth`         | The `@lib/auth` package contains authentication-related types for both front-end and server-side logic.
-      | TypeScript     |
+| `@lib/auth`         | The `@lib/auth` package contains authentication-related types for both front-end and server-side logic. | TypeScript     |
 | `@lib/dynamodb`        | The `@lib/dynamodb` package is equipped with TypeScript utilities to streamline interactions with DynamoDB, including client setup, item operations, and query parameter generation for efficient database management.      | DynamoDB     |
 | `@lib/countries`           | The `@lib/countries` package delivers a curated, typed list of country codes with corresponding names and includes utilities to generate this data from a JSON file, simplifying country-related data management in your projects.   | TypeScript     |
 | `@lib/resume-ui`           | React components for creating a one-page resume.   | React     |
