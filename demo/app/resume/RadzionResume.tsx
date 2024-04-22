@@ -118,7 +118,7 @@ export const RadzionResume = () => {
               companyIcon={<ZerionIcon />}
               responsibilities={[
                 'Implementing interfaces for wallets management',
-                <>Improving UX of the trading experience at</>,
+                <>Improving UX of the trading experience</>,
                 <>
                   Adding internalization to the{' '}
                   <ExternalLink to="https://app.zerion.io">
