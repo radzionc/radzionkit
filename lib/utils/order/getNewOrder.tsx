@@ -24,12 +24,6 @@ export const getNewOrder = ({
   const previousIndex = movedUp ? destinationIndex : destinationIndex - 1
   const previous = orders[previousIndex]
 
-  console.log({
-    previous,
-    movedUp,
-    previousIndex,
-  })
-
   const shouldBeLast =
     (destinationIndex === orders.length - 1 && sourceIndex !== null) ||
     destinationIndex > orders.length - 1

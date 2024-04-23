@@ -67,3 +67,8 @@ export type PromptProps = {
 export interface ComponentWithValueProps<T> {
   value: T
 }
+
+export type ActionGuardProps<T = () => void | Promise<void>> = {
+  action: T
+  render: (params: { action: T }) => ReactNode
+}

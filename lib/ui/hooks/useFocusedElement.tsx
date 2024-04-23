@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 
 export const useFocusedElement = (): Element | null => {
   const [focusedElement, setFocusedElement] = useState<Element | null>(null)
-  console.log(focusedElement)
 
   useEffect(() => {
     const updateFocusedElement = () => setFocusedElement(document.activeElement)
