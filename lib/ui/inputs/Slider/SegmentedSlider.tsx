@@ -11,38 +11,37 @@ import { PositionAbsolutelyCenterVertically } from '../../layout/PositionAbsolut
 import { toPercents } from '@lib/utils/toPercents'
 import { Center } from '../../layout/Center'
 import { range } from '@lib/utils/array/range'
-import { Text } from '../../text'
-import { borderRadius } from '../../css/borderRadius'
 import { HSLA } from '../../colors/HSLA'
+import { UniformColumnGrid } from '../../layout/UniformColumnGrid'
 
-type HoursInputProps = InputProps<number> & {
+type SegmentedSliderProps = InputProps<number> & {
   max: number
   color: HSLA
 }
 
-const hoursInputConfig = {
+const sliderConfig = {
   railHeight: 20,
   controlSize: 24,
 }
 
 const Control = styled.div`
   transition: outline ${defaultTransition};
-  outline: 6px solid transparent;
+  outline: 4px solid transparent;
   width: 8px;
-  height: ${toSizeUnit(hoursInputConfig.railHeight + 4)};
+  height: ${toSizeUnit(sliderConfig.controlSize)};
   background: ${getColor('contrast')};
-  ${borderRadius.s}
+  border-radius: 2px;
 `
 
 const Container = styled.label`
   width: 100%;
-  height: 40px;
+  height: ${toSizeUnit(sliderConfig.controlSize + 4)};
   ${interactive};
   ${centerContent};
   position: relative;
 
   &:focus-within ${Control} {
-    outline: 12px solid ${getColor('mistExtra')};
+    outline: 8px solid ${getColor('mistExtra')};
   }
 
   &:hover ${Control} {
@@ -50,23 +49,27 @@ const Container = styled.label`
   }
 `
 
-const Line = styled.div`
+const Line = styled(UniformColumnGrid)`
   width: 100%;
-  height: ${toSizeUnit(hoursInputConfig.railHeight)};
+  height: ${toSizeUnit(sliderConfig.railHeight)};
 
   border-radius: 4px;
   position: relative;
+  overflow: hidden;
 `
 
-export const HoursInput = ({
+const Section = styled.div``
+
+export const SegmentedSlider = ({
   value,
   onChange,
   max,
   color,
-}: HoursInputProps) => {
+}: SegmentedSliderProps) => {
   const { colors } = useTheme()
 
   const xPosition = toPercents(value / max)
+
   return (
     <PressTracker
       onChange={({ position }) => {
@@ -84,25 +87,17 @@ export const HoursInput = ({
             min={0}
             max={max}
           />
-          <Line
-            style={{
-              background: `linear-gradient(to right, ${color.toCssValue()}, ${color.toCssValue()} ${xPosition}, ${colors.mistExtra.toCssValue()} ${xPosition})`,
-            }}
-          >
-            {range(max + 1).map((hour) => (
-              <PositionAbsolutelyCenterVertically
-                style={{ top: hoursInputConfig.railHeight + 4 }}
-                left={toPercents(hour / max)}
-              >
-                <Center>
-                  <Text
-                    color={hour === value ? 'contrast' : 'supporting'}
-                    size={12}
-                  >
-                    {hour}
-                  </Text>
-                </Center>
-              </PositionAbsolutelyCenterVertically>
+          <Line gap={1}>
+            {range(max).map((index) => (
+              <Section
+                style={{
+                  background: (index < value
+                    ? color
+                    : colors.mist
+                  ).toCssValue(),
+                }}
+                key={index}
+              />
             ))}
           </Line>
           <PositionAbsolutelyCenterVertically left={xPosition} fullHeight>

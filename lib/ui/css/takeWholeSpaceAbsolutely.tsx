@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { takeWholeSpace } from './takeWholeSpace'
 
 export const takeWholeSpaceAbsolutely = css`
@@ -6,4 +6,8 @@ export const takeWholeSpaceAbsolutely = css`
   left: 0;
   top: 0;
   ${takeWholeSpace};
+`
+
+export const TakeWholeSpaceAbsolutely = styled.div`
+  ${takeWholeSpaceAbsolutely};
 `

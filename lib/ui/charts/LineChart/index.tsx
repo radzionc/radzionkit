@@ -10,7 +10,7 @@ import { createSmoothClosedPath } from './utils/createSmoothClosedPath'
 import { createSharpPath } from './utils/createSharpPath'
 import { createSharpClosedPath } from './utils/createSharpClosedPath'
 
-type LineChartFillKind = 'gradient' | 'solid'
+type LineChartFillKind = 'gradient' | 'solid' | 'none'
 type DataPointsConnectionKind = 'sharp' | 'smooth'
 
 interface LineChartProps {
@@ -89,6 +89,7 @@ export const LineChart = ({
             </defs>
           </>
         )}
+        none={() => null}
         solid={() => (
           <>
             <Path
@@ -99,14 +100,16 @@ export const LineChart = ({
           </>
         )}
       />
-      <Path
-        d={closedPath}
-        fill={match(fillKind, {
-          gradient: () => `url(#${id})`,
-          solid: () => color.getVariant({ a: () => 0.4 }).toCssValue(),
-        })}
-        strokeWidth="0"
-      />
+      {fillKind !== 'none' && (
+        <Path
+          d={closedPath}
+          fill={match(fillKind, {
+            gradient: () => `url(#${id})`,
+            solid: () => color.getVariant({ a: () => 0.4 }).toCssValue(),
+          })}
+          strokeWidth="0"
+        />
+      )}
     </svg>
   )
 }

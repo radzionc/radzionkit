@@ -72,3 +72,7 @@ export type ActionGuardProps<T = () => void | Promise<void>> = {
   action: T
   render: (params: { action: T }) => ReactNode
 }
+
+export type ComponentWithWidthProps = {
+  width: number
+}

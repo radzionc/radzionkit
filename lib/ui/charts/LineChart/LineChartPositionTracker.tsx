@@ -1,22 +1,14 @@
-import styled from 'styled-components'
-import { takeWholeSpace } from '../../css/takeWholeSpace'
 import { HoverTracker } from '../../base/HoverTracker'
 import { HSLA } from '../../colors/HSLA'
 import { LineChartPosition } from './LineChartPosition'
 import { getClosestItemIndex } from '@lib/utils/math/getClosestItemIndex'
+import { TakeWholeSpaceAbsolutely } from '../../css/takeWholeSpaceAbsolutely'
 
 type LineChartPositionTrackerProps = {
   data: number[]
   color: HSLA
   onChange?: (index: number | null) => void
 }
-
-const Container = styled.div`
-  position: absolute;
-  ${takeWholeSpace};
-  top: 0;
-  left: 0;
-`
 
 export const LineChartPositionTracker = ({
   onChange,
@@ -26,12 +18,14 @@ export const LineChartPositionTracker = ({
   return (
     <HoverTracker
       onChange={({ position }) => {
-        onChange?.(position ? getClosestItemIndex(data, position.x) : null)
+        onChange?.(
+          position ? getClosestItemIndex(data.length, position.x) : null,
+        )
       }}
       render={({ props, position }) => {
         return (
           <>
-            <Container {...props} />
+            <TakeWholeSpaceAbsolutely {...props} />
             {position && (
               <LineChartPosition data={data} color={color} value={position} />
             )}

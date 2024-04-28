@@ -53,7 +53,7 @@ export default makeDemoPage(() => {
                     itemIndex={selectedPoint}
                     isVisible={isSelectedPointVisible}
                     containerWidth={size.width}
-                    data={data}
+                    dataPointsNumber={data.length}
                   >
                     <VStack>
                       <Text color="contrast" weight="semibold">

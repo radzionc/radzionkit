@@ -5,9 +5,9 @@ import { ComponentWithChildrenProps } from '../../props'
 
 type LineChartItemInfoProps = ComponentWithChildrenProps & {
   containerWidth: number
-  data: number[]
   isVisible: boolean
   itemIndex: number
+  dataPointsNumber: number
 }
 
 const Container = styled.div`
@@ -21,7 +21,7 @@ const Content = styled.div`
 `
 
 export const LineChartItemInfo = ({
-  data,
+  dataPointsNumber,
   itemIndex,
   children,
   containerWidth,
@@ -38,7 +38,7 @@ export const LineChartItemInfo = ({
               }
             }
 
-            const center = itemIndex * (containerWidth / (data.length - 1))
+            const center = itemIndex * (containerWidth / (dataPointsNumber - 1))
             const contentHalfWidth = size.width / 2
             if (center < contentHalfWidth) {
               return { marginLeft: 0 }

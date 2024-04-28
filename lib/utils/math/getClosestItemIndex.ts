@@ -1,2 +1,2 @@
-export const getClosestItemIndex = (data: number[], value: number) =>
-  Math.round(value * (data.length - 1))
+export const getClosestItemIndex = (dataPointsNumber: number, value: number) =>
+  Math.round(value * (dataPointsNumber - 1))
