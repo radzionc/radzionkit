@@ -129,6 +129,7 @@ export const App = () => {
 
 To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
 
+* [Effortless Email Setup on AWS: Save Time and Money with Lambda and Terraform](https://www.youtube.com/watch?v=jgFdZ2kBu0w)
 * [Creating an Interactive Time-Tracking Report with React and TypeScript](https://youtu.be/gMZPIyhdQLI)
 * [How to Create an Effective Onboarding Flow in React: A Step-by-Step Guide](https://youtu.be/G8U0qAc2MZE)
 * [Creating a Drag-and-Drop Todo List in React: A Complete Tutorial](https://youtu.be/GicEFePmO4U)
