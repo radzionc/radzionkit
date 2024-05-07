@@ -8,15 +8,15 @@ export const themedScrollbars = css`
     height: 8px;
   }
   &::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: ${getColor('mist')};
   }
 
   &::-webkit-scrollbar-thumb {
     ${round}
     cursor: pointer;
-    background-color: ${getColor('mist')};
+    background-color: ${getColor('textShy')};
     &:hover {
-      background-color: ${getColor('mistExtra')};
+      background-color: ${getColor('textSupporting')};
     }
   }
 `

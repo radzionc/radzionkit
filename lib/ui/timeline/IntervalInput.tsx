@@ -1,26 +1,21 @@
-import {
-  MouseEventHandler,
-  ReactNode,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
+import { ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import { useEvent } from 'react-use'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { HSLA } from '../colors/HSLA'
 
-import { IntervalRect } from './IntervalRect'
 import { enforceRange } from '@lib/utils/enforceRange'
 import { getIntervalDuration } from '@lib/utils/interval/getIntervalDuration'
 import { MS_IN_HOUR, MS_IN_MIN } from '@lib/utils/time'
 import { MoveIcon } from '../icons/MoveIcon'
 import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
 import { TimeSpace } from './TimeSpace'
-import { centerContent } from '../css/centerContent'
-import { Text } from '../text'
 import { Interval } from '@lib/utils/interval/Interval'
-import { formatDuration } from '@lib/utils/time/formatDuration'
+import { IntervalEditorControl } from './IntervalEditorControl'
+import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
+import { FloatingIntervalDuration } from './FloatingIntervalDuration'
+import { InteractiveDragArea } from './InteractiveDragArea'
+import { CurrentIntervalRect } from './CurrentIntervalRect'
+import { TakeWholeSpace } from '../css/takeWholeSpace'
 
 interface RenderContentParams {
   msToPx: (ms: number) => number
@@ -34,56 +29,13 @@ export interface IntervalInputProps {
   timelineEndsAt: number
   minDuration?: number
   renderContent?: (params: RenderContentParams) => ReactNode
+  pxInHour?: number
 }
 
-const pxInHour = 60
-const pxInMs = pxInHour / MS_IN_HOUR
-const msToPx = (ms: number) => ms * pxInMs
-const pxToMs = (px: number) => px / pxInMs
 const defaultMinDurationInMin = 10
-
-const Wrapper = styled.div`
-  margin-bottom: 20px;
-`
-
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-`
-
-type IntervalEditorControl = 'start' | 'end' | 'position'
 
 const MoveIconWr = styled.div`
   font-size: 16px;
-`
-
-const CurrentIntervalRect = styled(IntervalRect)`
-  ${centerContent}
-
-  ${({ $color }) => css`
-    background: ${$color.getVariant({ a: () => 0.12 }).toCssValue()};
-    border: 2px solid ${$color.toCssValue()};
-    color: ${$color.toCssValue()};
-  `}
-`
-
-export const InteractiveBoundaryArea = styled.div`
-  width: 100%;
-  cursor: row-resize;
-  height: 10px;
-`
-
-const InteractiveDragArea = styled.div`
-  position: absolute;
-  width: 100%;
-  cursor: grab;
-`
-
-const DurationText = styled(Text)`
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  transition: none;
 `
 
 export const IntervalInput = ({
@@ -93,22 +45,31 @@ export const IntervalInput = ({
   timelineStartsAt,
   timelineEndsAt,
   renderContent,
+  pxInHour = 60,
   minDuration = defaultMinDurationInMin * MS_IN_MIN,
 }: IntervalInputProps) => {
+  const pxInMs = pxInHour / MS_IN_HOUR
+  const msToPx = (ms: number) => ms * pxInMs
+  const pxToMs = (px: number) => px / pxInMs
+
   const [activeControl, setActiveControl] =
     useState<IntervalEditorControl | null>(null)
 
-  useEvent('mouseup', () => setActiveControl(null))
+  useEvent('pointerup', () => setActiveControl(null))
+  useEvent('pointercancel', () => setActiveControl(null))
 
   const containerElement = useRef<HTMLDivElement | null>(null)
   const intervalElement = useRef<HTMLDivElement | null>(null)
   useEffect(() => {
-    intervalElement.current?.scrollIntoView()
-  }, [intervalElement])
+    intervalElement.current?.scrollIntoView({
+      block: 'nearest',
+      inline: 'start',
+    })
+  }, [value])
 
   const valueDuration = getIntervalDuration(value)
 
-  const handleMouseMove: MouseEventHandler<HTMLDivElement> = ({ clientY }) => {
+  useEvent('pointermove', ({ clientY }) => {
     if (!activeControl) return
 
     const containerRect = containerElement?.current?.getBoundingClientRect()
@@ -156,7 +117,7 @@ export const IntervalInput = ({
     }
 
     onChange(getNewInterval())
-  }
+  })
 
   const cursor = useMemo(() => {
     if (!activeControl) return undefined
@@ -171,71 +132,63 @@ export const IntervalInput = ({
   const intervalDurationInPx = msToPx(valueDuration)
 
   return (
-    <Wrapper>
-      <TimeSpace
-        msToPx={msToPx}
-        startsAt={timelineStartsAt}
-        endsAt={timelineEndsAt}
-      >
-        <Container
-          ref={containerElement}
-          style={{ cursor }}
-          onMouseMove={handleMouseMove}
+    <TimeSpace
+      msToPx={msToPx}
+      startsAt={timelineStartsAt}
+      endsAt={timelineEndsAt}
+    >
+      <TakeWholeSpace ref={containerElement} style={{ cursor }}>
+        {renderContent && renderContent({ msToPx })}
+        <CurrentIntervalRect
+          $color={color}
+          ref={intervalElement}
+          style={{
+            top: intervalStartInPx,
+            height: intervalDurationInPx,
+          }}
         >
-          {renderContent && renderContent({ msToPx })}
-          <CurrentIntervalRect
-            $color={color}
-            ref={intervalElement}
-            style={{
-              top: intervalStartInPx,
-              height: intervalDurationInPx,
-            }}
-          >
-            <MoveIconWr style={{ opacity: activeControl ? 0 : 1 }}>
-              <MoveIcon />
-            </MoveIconWr>
-          </CurrentIntervalRect>
+          <MoveIconWr style={{ opacity: activeControl ? 0 : 1 }}>
+            <MoveIcon />
+          </MoveIconWr>
+        </CurrentIntervalRect>
 
-          <DurationText
-            style={{
-              top: intervalEndInPx + 2,
-            }}
-            weight="bold"
-          >
-            {formatDuration(valueDuration, 'ms')}
-          </DurationText>
+        <FloatingIntervalDuration
+          style={{
+            top: intervalEndInPx + 2,
+          }}
+          value={value}
+        />
 
-          {!activeControl && (
-            <>
-              <InteractiveDragArea
-                style={{
-                  top: intervalStartInPx,
-                  height: intervalDurationInPx,
-                }}
-                onMouseDown={() => setActiveControl('position')}
+        {!activeControl && (
+          <>
+            <InteractiveDragArea
+              style={{
+                top: intervalStartInPx,
+                height: intervalDurationInPx,
+              }}
+              onPointerDown={() => setActiveControl('position')}
+            />
+
+            <PositionAbsolutelyCenterHorizontally
+              fullWidth
+              top={intervalStartInPx}
+            >
+              <InteractiveBoundaryArea
+                onPointerDown={() => setActiveControl('start')}
               />
+            </PositionAbsolutelyCenterHorizontally>
 
-              <PositionAbsolutelyCenterHorizontally
-                fullWidth
-                top={intervalStartInPx}
-              >
-                <InteractiveBoundaryArea
-                  onMouseDown={() => setActiveControl('start')}
-                />
-              </PositionAbsolutelyCenterHorizontally>
-
-              <PositionAbsolutelyCenterHorizontally
-                fullWidth
-                top={intervalEndInPx}
-              >
-                <InteractiveBoundaryArea
-                  onMouseDown={() => setActiveControl('end')}
-                />
-              </PositionAbsolutelyCenterHorizontally>
-            </>
-          )}
-        </Container>
-      </TimeSpace>
-    </Wrapper>
+            <PositionAbsolutelyCenterHorizontally
+              fullWidth
+              top={intervalEndInPx}
+            >
+              <InteractiveBoundaryArea
+                onPointerDown={() => setActiveControl('end')}
+              />
+            </PositionAbsolutelyCenterHorizontally>
+          </>
+        )}
+      </TakeWholeSpace>
+    </TimeSpace>
   )
 }

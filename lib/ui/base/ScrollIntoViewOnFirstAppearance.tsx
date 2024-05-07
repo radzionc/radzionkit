@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect } from 'react'
 
 type ScrollIntoViewOnFirstAppearanceProps<T extends HTMLElement> = {
   render: (props: { ref: React.RefObject<T> }) => React.ReactNode
@@ -7,15 +7,15 @@ type ScrollIntoViewOnFirstAppearanceProps<T extends HTMLElement> = {
 export const ScrollIntoViewOnFirstAppearance = <T extends HTMLElement>({
   render,
 }: ScrollIntoViewOnFirstAppearanceProps<T>) => {
-  const ref = useRef<T>(null)
-  const [hasScrolled, setHasScrolled] = useState(false)
+  const element = useRef<T>(null)
+  const hasScrolled = useRef(false)
 
   useEffect(() => {
-    if (ref.current && !hasScrolled) {
-      ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      setHasScrolled(true)
+    if (element.current && !hasScrolled.current) {
+      element.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      hasScrolled.current = true
     }
-  }, [hasScrolled])
+  }, [])
 
-  return <>{render({ ref })}</>
+  return <>{render({ ref: element })}</>
 }

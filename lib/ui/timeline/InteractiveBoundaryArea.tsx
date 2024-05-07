@@ -1,14 +1,7 @@
 import styled from 'styled-components'
-import { centerContent } from '../css/centerContent'
 
-export const InteractiveBoundaryArea = styled.div<{ y: number }>`
-  position: absolute;
+export const InteractiveBoundaryArea = styled.div`
   width: 100%;
   cursor: row-resize;
-
-  --height: 6px;
-  height: var(--height);
-  top: calc(${({ y }) => y}px - var(--height) / 2);
-
-  ${centerContent};
+  height: 10px;
 `

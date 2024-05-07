@@ -1,4 +1,4 @@
-export interface Interval {
+export type Interval = {
   start: number
   end: number
 }
