@@ -1,12 +1,21 @@
 import { OnValueChangeListener } from './PersistentStorage'
-import { useCallback, useEffect, useState } from 'react'
+import {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 import { PersistentStorage } from './PersistentStorage'
 import { shouldBeDefined } from '@lib/utils/assert/shouldBeDefined'
 
 export function createPersistentStateHook<T extends string>(
   storage: PersistentStorage<T>,
 ) {
-  function usePersistentState<V>(key: T, initialValue: Exclude<V, undefined>) {
+  function usePersistentState<V>(
+    key: T,
+    initialValue: Exclude<V, undefined>,
+  ): [V, Dispatch<SetStateAction<Exclude<V, undefined>>>] {
     const [value, setValue] = useState<V>(() => {
       if (storage.getItem<V>(key) === undefined) {
         storage.setItem(key, initialValue)
@@ -46,7 +55,7 @@ export function createPersistentStateHook<T extends string>(
       [key],
     )
 
-    return [value, setPersistentStorageValue] as const
+    return [value, setPersistentStorageValue]
   }
 
   return usePersistentState
