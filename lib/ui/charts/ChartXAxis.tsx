@@ -50,7 +50,10 @@ export const ChartXAxis = ({
     >
       {itemIndexes.map((index) => {
         return (
-          <PositionAbsolutelyCenterVertically left={index * stepInPx}>
+          <PositionAbsolutelyCenterVertically
+            key={index}
+            left={index * stepInPx}
+          >
             {renderLabel(index)}
           </PositionAbsolutelyCenterVertically>
         )
