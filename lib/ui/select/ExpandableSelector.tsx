@@ -4,14 +4,15 @@ import { interactive } from '../css/interactive'
 import { transition } from '../css/transition'
 import { FloatingOptionsContainer } from '../floating/FloatingOptionsContainer'
 import { useFloatingOptions } from '../floating/useFloatingOptions'
-import { ChevronDownIcon } from '../icons/ChevronDownIcon'
-import { IconWrapper } from '../icons/IconWrapper'
 import { HStack } from '../layout/Stack'
 import { UIComponentProps } from '../props'
 import { getColor } from '../theme/getters'
 import { getHoverVariant } from '../theme/getHoverVariant'
 import { cropText } from '../css/cropText'
 import { SelectContainer } from './SelectContainer'
+import { borderRadius } from '../css/borderRadius'
+import { OptionItem } from './OptionItem'
+import { CollapsableStateIndicator } from '../layout/CollapsableStateIndicator'
 
 export type ExpandableSelectorProp<T> = UIComponentProps & {
   value: T | null
@@ -24,10 +25,9 @@ export type ExpandableSelectorProp<T> = UIComponentProps & {
   floatingOptionsWidthSameAsOpener?: boolean
 }
 
-const ToggleIconContainer = styled(IconWrapper)<{ isOpen: boolean }>`
+const ToggleIconContainer = styled(CollapsableStateIndicator)`
   font-size: 16px;
   ${transition};
-  transform: rotateZ(${({ isOpen }) => (isOpen ? '-180deg' : '0deg')});
   color: ${getColor('textSupporting')};
 `
 
@@ -70,26 +70,10 @@ const Container = styled(SelectContainer)<{
   ${({ isActive }) => isActive && activeContainer}
 `
 
-const OptionItem = styled.div<{ isActive: boolean }>`
-  outline: none;
-  ${interactive};
-  color: ${getColor('textSupporting')};
-  position: relative;
-  padding: 8px 8px;
-  border-radius: 8px;
-
-  ${({ isActive }) =>
-    isActive &&
-    css`
-      background: ${getColor('mist')};
-      color: ${getColor('contrast')};
-    `}
-`
-
 const Outline = styled.div`
   ${absoluteOutline(0, 0)};
   background: transparent;
-  border-radius: 8px;
+  ${borderRadius.s};
   border: 2px solid ${getColor('primary')};
 `
 
@@ -129,9 +113,7 @@ export function ExpandableSelector<T>({
         <OptionContent>
           {openerContent ?? renderOption(value as T)}
         </OptionContent>
-        <ToggleIconContainer isOpen={isOpen}>
-          <ChevronDownIcon />
-        </ToggleIconContainer>
+        <ToggleIconContainer isOpen={isOpen} />
       </Container>
       {isOpen && !isDisabled && (
         <FloatingOptionsContainer {...getFloatingProps()}>

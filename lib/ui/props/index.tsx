@@ -76,3 +76,7 @@ export type ActionGuardProps<T = () => void | Promise<void>> = {
 export type ComponentWithWidthProps = {
   width: number
 }
+
+export type ComponentWithActiveState = {
+  isActive: boolean
+}
