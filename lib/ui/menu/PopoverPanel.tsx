@@ -8,8 +8,8 @@ import {
   flip,
   offset,
   shift,
+  FloatingFocusManager,
 } from '@floating-ui/react'
-import FocusTrap from 'focus-trap-react'
 import { ReactNode, useState } from 'react'
 import styled from 'styled-components'
 import { Panel } from '../panel/Panel'
@@ -70,11 +70,11 @@ export const PopoverPanel = ({
           style={{ ...floatingStyles, zIndex: 1 }}
           {...getFloatingProps()}
         >
-          <FocusTrap>
+          <FloatingFocusManager modal context={context}>
             <Container padding={12} className={className}>
               {renderContent({ onClose: () => setIsOpen(false) })}
             </Container>
-          </FocusTrap>
+          </FloatingFocusManager>
         </div>
       )}
     </>

@@ -14,7 +14,7 @@ export const makeGetItem = <I, R extends Record<string, any>>({
   const getItem = async <T extends (keyof R)[]>(
     id: I,
     attributes?: T,
-  ): Promise<R> => {
+  ): Promise<Pick<R, T[number]>> => {
     const command = new GetCommand({
       TableName: tableName,
       Key: getKey(id),

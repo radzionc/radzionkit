@@ -112,5 +112,7 @@ export const useFloatingOptions = ({
     getOptionProps: getOptionPropsEnhanced,
     activeIndex,
     floatingStyles,
+    refs,
+    context,
   } as const
 }

@@ -9,7 +9,6 @@ export const selectContainerMinHeight = 40
 
 export const SelectContainer = styled(HStack)`
   ${borderRadius.s};
-  outline: none;
   border: 1px solid ${getColor('mist')};
   padding: 8px 12px;
   background: ${getColor('foreground')};
@@ -21,4 +20,10 @@ export const SelectContainer = styled(HStack)`
   min-height: ${toSizeUnit(selectContainerMinHeight)};
 
   font-size: 14px;
+
+  outline: 1px solid transparent;
+  &:focus,
+  &:active {
+    outline: 1px solid ${getColor('contrast')};
+  }
 `
