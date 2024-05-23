@@ -1,5 +1,5 @@
 import { DemoPage } from '@demo/app/components/DemoPage'
-import { Switch } from '@lib/ui/inputs/Switch/Switch'
+import { Switch } from '@lib/ui/inputs/Switch'
 import { useState } from 'react'
 import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 

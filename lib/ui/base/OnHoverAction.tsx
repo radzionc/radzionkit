@@ -4,13 +4,14 @@ import styled from 'styled-components'
 import { ElementSizeAware } from './ElementSizeAware'
 import { ElementSize } from '../hooks/useElementSize'
 import { transition } from '../css/transition'
+import { UIComponentProps } from '../props'
 
 interface OnHoverActionRenderParams<T extends React.CSSProperties> {
   actionSize: ElementSize | null
   actionPlacerStyles: T
 }
 
-interface OnHoverActionProps<T extends React.CSSProperties> {
+type OnHoverActionProps<T extends React.CSSProperties> = UIComponentProps & {
   render: (params: OnHoverActionRenderParams<T>) => ReactNode
   action: ReactNode
   actionPlacerStyles: T
@@ -37,9 +38,10 @@ export function OnHoverAction<T extends React.CSSProperties>({
   render,
   action,
   actionPlacerStyles,
+  ...rest
 }: OnHoverActionProps<T>) {
   return (
-    <Container>
+    <Container {...rest}>
       <ElementSizeAware
         render={({ setElement, size }) => (
           <>

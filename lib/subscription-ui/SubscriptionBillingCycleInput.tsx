@@ -2,7 +2,7 @@ import { useTheme } from 'styled-components'
 import { InputProps } from '@lib/ui/props'
 import { toPercents } from '@lib/utils/toPercents'
 import { HStack } from '@lib/ui/layout/Stack'
-import { Switch } from '@lib/ui/inputs/Switch/Switch'
+import { Switch } from '@lib/ui/inputs/Switch'
 import { Tag } from '@lib/ui/tags/Tag'
 import { SubscriptionBillingCycle } from '@lib/subscription/Subscription'
 
@@ -20,7 +20,6 @@ export const SubscriptionBillingCycleInput = ({
   return (
     <HStack alignItems="center" gap={8}>
       <Switch
-        kind="primary"
         value={value === 'year'}
         onChange={(value) => onChange(value ? 'year' : 'month')}
         label="Annual billing"

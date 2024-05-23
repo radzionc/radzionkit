@@ -1,19 +1,17 @@
 import styled, { css } from 'styled-components'
-import { absoluteOutline } from '../css/absoluteOutline'
 import { interactive } from '../css/interactive'
 import { transition } from '../css/transition'
 import { FloatingOptionsContainer } from '../floating/FloatingOptionsContainer'
 import { useFloatingOptions } from '../floating/useFloatingOptions'
-import { HStack } from '../layout/Stack'
 import { UIComponentProps } from '../props'
 import { getColor } from '../theme/getters'
 import { getHoverVariant } from '../theme/getHoverVariant'
-import { cropText } from '../css/cropText'
 import { SelectContainer } from './SelectContainer'
-import { borderRadius } from '../css/borderRadius'
 import { OptionItem } from './OptionItem'
 import { CollapsableStateIndicator } from '../layout/CollapsableStateIndicator'
 import { FloatingFocusManager } from '@floating-ui/react'
+import { OptionContent } from './OptionContent'
+import { OptionOutline } from './OptionOutline'
 
 export type ExpandableSelectorProp<T> = UIComponentProps & {
   value: T | null
@@ -38,17 +36,6 @@ const activeContainer = css`
   background: ${getHoverVariant('foreground')};
   ${ToggleIconContainer} {
     color: ${getColor('contrast')};
-  }
-`
-
-const OptionContent = styled(HStack)`
-  overflow: hidden;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  > * {
-    ${cropText};
   }
 `
 
@@ -80,13 +67,6 @@ const Container = styled(SelectContainer)<{
   &:focus {
     outline: 1px solid ${getColor('primary')};
   }
-`
-
-const Outline = styled.div`
-  ${absoluteOutline(0, 0)};
-  background: transparent;
-  ${borderRadius.s};
-  border: 2px solid ${getColor('primary')};
 `
 
 export function ExpandableSelector<T>({
@@ -147,7 +127,7 @@ export function ExpandableSelector<T>({
                 <OptionContent key={getOptionKey(option)}>
                   {renderOption(option)}
                 </OptionContent>
-                {option === value && <Outline />}
+                {option === value && <OptionOutline />}
               </OptionItem>
             ))}
           </FloatingOptionsContainer>
