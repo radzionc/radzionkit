@@ -5,14 +5,11 @@ import { hideScrollbars } from '../../css/hideScrollbars'
 import { HStack } from '../../layout/Stack'
 import { useId } from 'react'
 
-type TabNavigationSize = 's' | 'm'
-
 interface TabNavigationProps<T extends string | number | symbol> {
   views: readonly T[]
   getViewName: (view: T) => string
   activeView: T
   onSelect: (option: T) => void
-  size?: TabNavigationSize
   className?: string
   style?: React.CSSProperties
 }
@@ -29,7 +26,6 @@ export function TabNavigation<T extends string | number | symbol>({
   getViewName,
   activeView,
   onSelect,
-  size = 'm',
   className,
   style,
 }: TabNavigationProps<T>) {
@@ -45,7 +41,6 @@ export function TabNavigation<T extends string | number | symbol>({
             value={name}
             onSelect={() => onSelect(view)}
             key={name}
-            size={size}
           >
             {name}
           </TabNavigationItem>

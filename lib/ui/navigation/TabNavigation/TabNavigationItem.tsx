@@ -1,54 +1,41 @@
-import { ReactNode, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import styled, { css } from 'styled-components'
 
 import { transition } from '../../css/transition'
-import { match } from '@lib/utils/match'
 import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
 } from '../../inputs/InvisibleHTMLRadio'
-import { round } from '../../css/round'
 import { centerContent } from '../../css/centerContent'
+import {
+  ComponentWithActiveState,
+  ComponentWithChildrenProps,
+  UIComponentProps,
+} from '../../props'
 import { interactive } from '../../css/interactive'
+import { getColor } from '../../theme/getters'
+import { round } from '../../css/round'
 
-const Container = styled.label<{
-  isSelected: boolean
-  size: TabNavigationItemSize
-}>`
+const Container = styled.label<ComponentWithActiveState>`
   ${interactive};
-  position: relative;
-  ${round}
+  ${round};
   text-decoration: none;
   ${centerContent};
   font-weight: 500;
+  font-size: 14px;
 
-  user-select: none;
-
-  ${({ size }) =>
-    match(size, {
-      m: () => css`
-        padding: 0 20px;
-        height: 48px;
-      `,
-      s: () => css`
-        padding: 0 16px;
-        height: 32px;
-        font-size: 14px;
-      `,
-    })}
-
-  font-size: 16px;
+  padding: 0 20px;
+  height: 40px;
 
   ${transition}
 
-  border: 1px solid transparent;
+  border: 1px solid ${getColor('mist')};
 
-  ${({ isSelected, theme }) =>
-    isSelected
+  ${({ isActive, theme }) =>
+    isActive
       ? css`
-          background: ${theme.colors.mist.toCssValue()};
-          color: ${theme.colors.contrast.toCssValue()};
-          border-color: ${theme.colors.mist.toCssValue()};
+          background: ${getColor('mist')};
+          color: ${getColor('contrast')};
         `
       : css`
           &:hover {
@@ -57,21 +44,17 @@ const Container = styled.label<{
         `};
 `
 
-type TabNavigationItemSize = 's' | 'm'
-
-interface Props extends InvisibleHTMLRadioProps {
-  children: ReactNode
-  className?: string
-  size?: TabNavigationItemSize
-}
+type TabNavigationItemProps = InvisibleHTMLRadioProps &
+  ComponentWithChildrenProps &
+  UIComponentProps
 
 export const TabNavigationItem = ({
   isSelected,
   children,
   className,
-  size = 'm',
+  style,
   ...rest
-}: Props) => {
+}: TabNavigationItemProps) => {
   const ref = useRef<HTMLLabelElement>(null)
   useEffect(() => {
     if (isSelected) {
@@ -87,9 +70,9 @@ export const TabNavigationItem = ({
     <Container
       ref={ref}
       className={className}
+      style={style}
       tabIndex={-1}
-      isSelected={isSelected}
-      size={size}
+      isActive={isSelected}
     >
       {children}
       <InvisibleHTMLRadio isSelected={isSelected} {...rest} />
