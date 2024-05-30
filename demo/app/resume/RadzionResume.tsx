@@ -183,10 +183,10 @@ export const RadzionResume = () => {
             <PersonalProject
               name="Radzion Kit"
               url="https://github.com/radzionc/radzionkit"
-              description="Speedy Setup for Robust Full-Stack Monorepo Projects"
+              description="Speedy setup for robust full-stack monorepo projects"
               achievement={
                 <HStack alignItems="center" gap={8}>
-                  <Text>100+</Text>
+                  <Text>140+</Text>
                   <IconWrapper>
                     <StarIcon />
                   </IconWrapper>
@@ -197,7 +197,7 @@ export const RadzionResume = () => {
               name="Radzion Dev"
               url="https://www.youtube.com/c/radzion"
               description="A YouTube channel about web development"
-              achievement="1k+ subscribers"
+              achievement="1.3k+ subscribers"
             />
           </VStack>
         </UniformColumnGrid>

@@ -15,9 +15,9 @@ export const TelegramColorfulIcon = () => (
     <g
       id="Artboard"
       stroke="none"
-      stroke-width="1"
+      strokeWidth="1"
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     >
       <circle
         id="Oval"
