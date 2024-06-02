@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import styled from 'styled-components'
 import { ClosableComponentProps, ComponentWithChildrenProps } from '../../props'
 import { takeWholeSpace } from '../../css/takeWholeSpace'
@@ -58,13 +59,10 @@ const Content = styled.div`
   flex: 1;
 `
 
-export const WebsiteNavigation = ({
-  children,
-  logo,
-  renderOverlayItems,
-  renderTopbarItems,
-  footer,
-}: WebsiteNavigationProps) => {
+export const WebsiteNavigation = forwardRef<
+  HTMLDivElement,
+  WebsiteNavigationProps
+>(({ children, logo, renderOverlayItems, renderTopbarItems, footer }, ref) => {
   const isSmallScreen = useIsScreenWidthLessThan(800)
   const [isOverlayOpen, setIsOverlayOpen] = useState(false)
 
@@ -99,7 +97,7 @@ export const WebsiteNavigation = ({
             </TobbarContent>
           </HStack>
         </Header>
-        <Container>
+        <Container ref={ref}>
           <Content>{children}</Content>
           {footer}
         </Container>
@@ -113,4 +111,4 @@ export const WebsiteNavigation = ({
       )}
     </>
   )
-}
+})

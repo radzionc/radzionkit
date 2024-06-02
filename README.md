@@ -7,7 +7,6 @@ RadzionKit is the ultimate solution for developers looking to jumpstart their pr
 ## Monorepo Overview: Inside RadzionKit's Diverse Package Ecosystem
 
 RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, organizing code into two primary directories: `lib` and `demo`. The `lib` folder houses generic code packages like `@lib/utils` or `@lib/ui`, designed to be project-agnostic and easily portable to any project without carrying over project-specific logic. On the other hand, the `demo` directory houses example implementations, such as `@demo/api` or `@demo/app`, that serve as blueprints demonstrating how to integrate and adapt the `@lib` packages to the unique needs of your project—simply replace `demo` with your project's name to customize. This thoughtful architecture not only streamlines the development process but also enhances the reusability of code, making it effortless to scale and modify your project as it grows.
-
 | Package Name    | Description                                  | Stack |
 |-----------------|----------------------------------------------|-------------------------|
 | `@lib/utils`           | Comprising a diverse array of utility functions, the `@lib/utils` package streamlines common coding tasks. It features modules for array manipulation, validation, template processing, time calculations, and more, allowing you to write cleaner code and implement complex logic with ease.   | TypeScript     |
@@ -20,6 +19,7 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 | `@lib/countries`           | The `@lib/countries` package delivers a curated, typed list of country codes with corresponding names and includes utilities to generate this data from a JSON file, simplifying country-related data management in your projects.   | TypeScript     |
 | `@lib/resume-ui`           | React components for creating a one-page resume.   | React     |
 | `infra`           | The `infra` package provides Terraform configurations and scripts for a robust and automated infrastructure setup on AWS, ensuring a secure and scalable environment for your applications.     | Terraform, AWS     |
+| `@lib/dnd`              | The `@lib/dnd` package includes the `DnDGroups` and `DnDList` components that abstract away the `react-beautiful-dnd` library, making it easier to replace and implement common drag-and-drop scenarios.       | `react`, `react-beautiful-dnd`     |
 | `@demo/entities`        | The `@demo/entities`  package serves as a centralized repository for your application's entities, defining the core data structures that drive your business logic.               | TypeScript     |
 | `@demo/entities-utils`  | The `demo/entities-utils` package provides a foundational set of utilities tailored for managing and manipulating your application's entities, designed to be expanded as your project grows.    | TypeScript     |
 | `@demo/email`           | The `@demo/email` package offers essential utilities to facilitate the sending of emails within your application, including pre-configured templates like login link emails for quick integration and use.                 | AWS SES, `@react-email`     |
@@ -28,6 +28,7 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 | `@demo/api-interface`   | The `api-interface` package provides a structured TypeScript interface for the app's backend API, including error handling and method definitions, to ensure type safety and consistency across frontend and backend communications.             | TypeScript     |
 | `@demo/api`             | The `api` package is a lightweight, TypeScript-based backend solution that faithfully implements the `api-interface` with minimal dependencies, primarily utilizing resolvers for handling requests. Optimized for use as an AWS Lambda function, it's an ideal choice for serverless architectures requiring the expressiveness of TypeScript and the efficiency of the AWS ecosystem.     | `express`, AWS Lambda, TypeScript     |
 | `@demo/email-forwarder`             |  The SES forwarder Lambda function receives emails sent to AWS domains, stores them in an S3 bucket, and forwards them to a specified personal email address. This process is automated and scalable through Terraform, enabling efficient email management across multiple domains.     |  AWS Lambda, AWS SES, TypeScript    |
+
 
 ## Getting Started with RadzionKit: Launching Your New Project
 
