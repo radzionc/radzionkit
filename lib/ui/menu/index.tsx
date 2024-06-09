@@ -21,10 +21,13 @@ export const Menu = ({ renderOpener, title, renderContent }: MenuProps) => {
       value={600}
       less={() => (
         <Opener
-          renderOpener={({ onOpen }) =>
+          renderOpener={({ onOpen, isOpen }) =>
             renderOpener({
-              onClick: onOpen,
-              ref: () => {},
+              isOpen,
+              props: {
+                onClick: onOpen,
+                ref: () => {},
+              },
             })
           }
           renderContent={({ onClose }) => (

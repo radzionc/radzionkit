@@ -22,9 +22,14 @@ export interface RenderContentParams {
   onClose: () => void
 }
 
+type RenderOpenerParams = {
+  props: RenderOpenerProps
+  isOpen: boolean
+}
+
 export interface PopoverPanelProps {
   renderContent: (params: RenderContentParams) => ReactNode
-  renderOpener: (props: RenderOpenerProps) => ReactNode
+  renderOpener: (params: RenderOpenerParams) => ReactNode
   className?: string
 }
 
@@ -63,7 +68,10 @@ export const PopoverPanel = ({
 
   return (
     <>
-      {renderOpener({ ref: setReference, ...getReferenceProps() })}
+      {renderOpener({
+        isOpen,
+        props: { ref: setReference, ...getReferenceProps() },
+      })}
       {isOpen && (
         <div
           ref={setFloating}
