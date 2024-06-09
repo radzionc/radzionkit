@@ -1617,7 +1617,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-hook-form: "npm:^7.49.2"
     react-use: "npm:^17.4.2"
-    styled-components: "npm:^6.1.3"
+    styled-components: "npm:^6.1.6"
   languageName: unknown
   linkType: soft
 
@@ -1680,7 +1680,7 @@ __metadata:
   dependencies:
     next: "npm:^14.0.4"
     react: "npm:^18.2.0"
-    styled-components: "npm:^6.1.3"
+    styled-components: "npm:^6.1.6"
   languageName: unknown
   linkType: soft
 
@@ -1719,15 +1719,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:1.2.1":
-  version: 1.2.1
-  resolution: "@emotion/is-prop-valid@npm:1.2.1"
-  dependencies:
-    "@emotion/memoize": "npm:^0.8.1"
-  checksum: fe231c472d38b3bbe519bcc9a5585cd41c45604147f3a065e333caf0f695d668aa21bc4229e657c1b6ea7398e096899e6ad54662548c73f11f6ba594aebd76a1
-  languageName: node
-  linkType: hard
-
 "@emotion/is-prop-valid@npm:1.2.2":
   version: 1.2.2
   resolution: "@emotion/is-prop-valid@npm:1.2.2"
@@ -1741,13 +1732,6 @@ __metadata:
   version: 0.8.1
   resolution: "@emotion/memoize@npm:0.8.1"
   checksum: a19cc01a29fcc97514948eaab4dc34d8272e934466ed87c07f157887406bc318000c69ae6f813a9001c6a225364df04249842a50e692ef7a9873335fbcc141b0
-  languageName: node
-  linkType: hard
-
-"@emotion/unitless@npm:0.8.0":
-  version: 0.8.0
-  resolution: "@emotion/unitless@npm:0.8.0"
-  checksum: 176141117ed23c0eb6e53a054a69c63e17ae532ec4210907a20b2208f91771821835f1c63dd2ec63e30e22fcc984026d7f933773ee6526dd038e0850919fae7a
   languageName: node
   linkType: hard
 
@@ -2317,6 +2301,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lib/analytics-ui@workspace:lib/analytics-ui":
+  version: 0.0.0-use.local
+  resolution: "@lib/analytics-ui@workspace:lib/analytics-ui"
+  dependencies:
+    "@amplitude/analytics-browser": "npm:^2.3.8"
+    "@types/react": "npm:^18.2.45"
+    "@types/react-dom": "npm:^18.2.18"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+  languageName: unknown
+  linkType: soft
+
 "@lib/auth@workspace:lib/auth":
   version: 0.0.0-use.local
   resolution: "@lib/auth@workspace:lib/auth"
@@ -2387,7 +2383,7 @@ __metadata:
     next: "npm:^14.0.4"
     react: "npm:^18.2.0"
     react-to-print: "npm:^2.14.15"
-    styled-components: "npm:^6.1.3"
+    styled-components: "npm:^6.1.6"
   languageName: unknown
   linkType: soft
 
@@ -2399,7 +2395,7 @@ __metadata:
     "@types/react-dom": "npm:^18.2.18"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
-    styled-components: "npm:^6.1.3"
+    styled-components: "npm:^6.1.6"
   languageName: unknown
   linkType: soft
 
@@ -2413,7 +2409,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lib/ui@workspace:lib/ui"
   dependencies:
-    "@amplitude/analytics-browser": "npm:^2.3.8"
     "@floating-ui/dom": "npm:^1.5.3"
     "@floating-ui/react": "npm:^0.26.4"
     "@react-spring/web": "npm:^9.7.3"
@@ -2434,7 +2429,7 @@ __metadata:
     react-hook-form: "npm:^7.49.2"
     react-spring: "npm:^9.7.3"
     react-use: "npm:^17.4.2"
-    styled-components: "npm:^6.1.3"
+    styled-components: "npm:^6.1.6"
   languageName: unknown
   linkType: soft
 
@@ -2454,7 +2449,7 @@ __metadata:
     "@types/react-dom": "npm:^18.2.18"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
-    styled-components: "npm:^6.1.3"
+    styled-components: "npm:^6.1.6"
   languageName: unknown
   linkType: soft
 
@@ -4757,13 +4752,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/stylis@npm:4.2.0":
-  version: 4.2.0
-  resolution: "@types/stylis@npm:4.2.0"
-  checksum: 02a47584acd2fcb664f7d8270a69686c83752bdfb855f804015d33116a2b09c0b2ac535213a4a7b6d3a78b2915b22b4024cce067ae979beee0e4f8f5fdbc26a9
-  languageName: node
-  linkType: hard
-
 "@types/stylis@npm:4.2.5":
   version: 4.2.5
   resolution: "@types/stylis@npm:4.2.5"
@@ -6092,13 +6080,6 @@ __metadata:
   version: 6.1.0
   resolution: "css-what@npm:6.1.0"
   checksum: c67a3a2d0d81843af87f8bf0a4d0845b0f952377714abbb2884e48942409d57a2110eabee003609d02ee487b054614bdfcfc59ee265728ff105bd5aa221c1d0e
-  languageName: node
-  linkType: hard
-
-"csstype@npm:3.1.2":
-  version: 3.1.2
-  resolution: "csstype@npm:3.1.2"
-  checksum: 1f39c541e9acd9562996d88bc9fb62d1cb234786ef11ed275567d4b2bd82e1ceacde25debc8de3d3b4871ae02c2933fa02614004c97190711caebad6347debc2
   languageName: node
   linkType: hard
 
@@ -11672,26 +11653,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-components@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "styled-components@npm:6.1.3"
-  dependencies:
-    "@emotion/is-prop-valid": "npm:1.2.1"
-    "@emotion/unitless": "npm:0.8.0"
-    "@types/stylis": "npm:4.2.0"
-    css-to-react-native: "npm:3.2.0"
-    csstype: "npm:3.1.2"
-    postcss: "npm:8.4.31"
-    shallowequal: "npm:1.1.0"
-    stylis: "npm:4.3.0"
-    tslib: "npm:2.5.0"
-  peerDependencies:
-    react: ">= 16.8.0"
-    react-dom: ">= 16.8.0"
-  checksum: 3ac7b86e305eab51fc91925437bc1ad751c99c4a25cb5013b24cd38d86eb917bc97e87460eb6cc46497ecdbf0527cce214b1f50ef74484229e547fdb8dfe8b14
-  languageName: node
-  linkType: hard
-
 "styled-components@npm:^6.1.6":
   version: 6.1.11
   resolution: "styled-components@npm:6.1.11"
@@ -11728,17 +11689,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylis@npm:4.3.0, stylis@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "stylis@npm:4.3.0"
-  checksum: 54eb1a13a9ec394a01a2e1a5ca8f856b96ecd8b85b8c04a24c0ff0aa8416798a6a1e9555f6a4345b6f088d03424f5a4376ea093d0ec73e419698415a3c8b59d0
-  languageName: node
-  linkType: hard
-
 "stylis@npm:4.3.2":
   version: 4.3.2
   resolution: "stylis@npm:4.3.2"
   checksum: 4d3e3cb5cbfc7abdf14e424c8631a15fd15cbf0357ffc641c319587e00c2d1036b1a71cb88b42411bc3ce10d7730ad3fb9789b034d11365e8a19d23f56486c77
+  languageName: node
+  linkType: hard
+
+"stylis@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "stylis@npm:4.3.0"
+  checksum: 54eb1a13a9ec394a01a2e1a5ca8f856b96ecd8b85b8c04a24c0ff0aa8416798a6a1e9555f6a4345b6f088d03424f5a4376ea093d0ec73e419698415a3c8b59d0
   languageName: node
   linkType: hard
 
@@ -12010,13 +11971,6 @@ __metadata:
     minimist: "npm:^1.2.6"
     strip-bom: "npm:^3.0.0"
   checksum: 2041beaedc6c271fc3bedd12e0da0cc553e65d030d4ff26044b771fac5752d0460944c0b5e680f670c2868c95c664a256cec960ae528888db6ded83524e33a14
-  languageName: node
-  linkType: hard
-
-"tslib@npm:2.5.0":
-  version: 2.5.0
-  resolution: "tslib@npm:2.5.0"
-  checksum: ea556fbdf396fe15dbd45e242754e86e7c36e0dce8644404a7c8a81ae1e940744dc639569aeca1ae370a7f804d82872f3fd8564eb23be9adb7618201d0314dac
   languageName: node
   linkType: hard
 

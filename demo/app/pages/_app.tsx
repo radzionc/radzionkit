@@ -1,17 +1,17 @@
 import type { AppProps } from 'next/app'
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useState } from 'react'
 import { GlobalStyle } from '@lib/ui/css/GlobalStyle'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Inter } from 'next/font/google'
-import { useRouter } from 'next/router'
 import { ThemePreference } from '@lib/ui/theme/ThemePreference'
 import { ThemeProvider } from '@lib/ui/theme/ThemeProvider'
-import { analytics } from '../analytics'
 import { Page } from '@lib/next-ui/Page'
 import {
   usePersistentState,
   PersistentStateKey,
 } from '../state/persistentState'
+import { AnalyticsProvider } from '../analytics/AnalyticsProvider'
+import { PageVisitTracker } from '@lib/next-ui/PageVisitTracker'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -25,13 +25,6 @@ interface MyAppProps extends AppProps {
 function MyApp({ Component, pageProps }: MyAppProps) {
   const [queryClient] = useState(() => new QueryClient())
 
-  const router = useRouter()
-
-  const { pathname } = router
-  useEffect(() => {
-    analytics.trackEvent('Visit page', { pathname })
-  }, [pathname])
-
   const getLayout = Component.getLayout || ((page: ReactNode) => page)
   const component = getLayout(<Component {...pageProps} />)
 
@@ -41,12 +34,15 @@ function MyApp({ Component, pageProps }: MyAppProps) {
   )
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider value={theme} onChange={setTheme}>
-        <GlobalStyle fontFamily={inter.style.fontFamily} />
-        {component}
-      </ThemeProvider>
-    </QueryClientProvider>
+    <AnalyticsProvider>
+      <PageVisitTracker />
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider value={theme} onChange={setTheme}>
+          <GlobalStyle fontFamily={inter.style.fontFamily} />
+          {component}
+        </ThemeProvider>
+      </QueryClientProvider>
+    </AnalyticsProvider>
   )
 }
 
