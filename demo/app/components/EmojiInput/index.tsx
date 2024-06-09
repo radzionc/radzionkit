@@ -32,8 +32,8 @@ export const EmojiInput = ({ value, onChange }: EmojiInputProps) => {
   return (
     <Menu
       title="Select an emoji"
-      renderOpener={(props) => (
-        <ExpandableInputOpener type="button" {...props}>
+      renderOpener={({ props, isOpen }) => (
+        <ExpandableInputOpener isActive={isOpen} type="button" {...props}>
           <Text color="contrast" size={32}>
             {value}
           </Text>

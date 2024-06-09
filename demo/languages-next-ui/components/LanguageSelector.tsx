@@ -24,7 +24,7 @@ export const LanguageSelector = () => {
   return (
     <Menu
       title="Select language"
-      renderOpener={({ ref, ...props }) => (
+      renderOpener={({ props: { ref, ...props } }) => (
         <div ref={ref} {...props}>
           <Button size="s" kind="ghost">
             <HStack alignItems="center" gap={8}>

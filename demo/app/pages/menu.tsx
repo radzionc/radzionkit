@@ -13,7 +13,7 @@ export default makeDemoPage(() => {
       <div style={{ maxWidth: 320, width: '100%' }}>
         <Menu
           title="Manage project"
-          renderOpener={({ ref, ...props }) => (
+          renderOpener={({ props: { ref, ...props } }) => (
             <OpenMenuButton ref={ref} {...props} />
           )}
           renderContent={({ view, onClose }) => {
