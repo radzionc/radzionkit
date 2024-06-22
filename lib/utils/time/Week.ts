@@ -1,7 +1,8 @@
 import { haveEqualFields } from '../record/haveEqualFields'
-import { getYear, setWeek, setYear } from 'date-fns'
+import { format, getYear, setWeek, setYear } from 'date-fns'
 import { getWeekIndex } from './getWeekIndex'
 import { getWeekStartedAt } from './getWeekStartedAt'
+import { convertDuration } from './convertDuration'
 
 export type Week = {
   year: number
@@ -27,4 +28,21 @@ export const fromWeek = ({ year, week }: Week): number => {
   date = setYear(date, year)
 
   return getWeekStartedAt(date.getTime())
+}
+
+export const weekToString = ({ year, week }: Week): string =>
+  [week, year].join('-')
+
+export const stringToWeek = (str: string): Week => {
+  const [week, year] = str.split('-').map(Number)
+
+  return { week, year }
+}
+
+export const formatWeek = (timestamp: number): string => {
+  const startedAt = getWeekStartedAt(timestamp)
+  return `${format(startedAt, 'd MMM')} - ${format(
+    startedAt + convertDuration(6, 'd', 'ms'),
+    'd MMM',
+  )}`
 }

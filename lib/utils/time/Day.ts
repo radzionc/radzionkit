@@ -1,6 +1,6 @@
 import { haveEqualFields } from '../record/haveEqualFields'
 import { convertDuration } from './convertDuration'
-import { startOfYear } from 'date-fns'
+import { format, startOfYear } from 'date-fns'
 import { inTimeZone } from './inTimeZone'
 
 export type Day = {
@@ -38,3 +38,5 @@ export const fromDay = ({ year, dayIndex }: Day): number => {
 
 export const areSameDay = <T extends Day>(a: T, b: T): boolean =>
   haveEqualFields(['year', 'dayIndex'], a, b)
+
+export const formatDay = (timestamp: number) => format(timestamp, 'EEEE, d MMM')
