@@ -33,7 +33,21 @@ export function createPersistentStateHook<T extends string>(
 
       storage.addValueChangeListener(key, onValueChange)
 
-      return () => storage.removeValueChangeListener(key, onValueChange)
+      const handleStorageChange = (event: StorageEvent) => {
+        if (event.key !== key) return
+
+        const newValue = storage.getItem<V>(key)
+        if (newValue !== undefined) {
+          setValue(newValue)
+        }
+      }
+
+      window.addEventListener('storage', handleStorageChange)
+
+      return () => {
+        storage.removeValueChangeListener(key, onValueChange)
+        window.removeEventListener('storage', handleStorageChange)
+      }
     }, [key])
 
     const setPersistentStorageValue = useCallback(
