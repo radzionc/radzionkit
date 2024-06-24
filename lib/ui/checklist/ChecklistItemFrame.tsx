@@ -4,6 +4,7 @@ import { toSizeUnit } from '../css/toSizeUnit'
 
 export const checklistItemContentMinHeight = 24
 export const checklistItemVerticalPadding = 8
+export const checklistItemGap = 12
 
 export const ChecklistItemFrame = styled.div`
   display: grid;
@@ -11,7 +12,8 @@ export const ChecklistItemFrame = styled.div`
   grid-template-columns: ${toSizeUnit(checklistItemContentMinHeight)} 1fr;
   align-items: center;
   justify-items: start;
-  gap: 12px;
+  gap: ${toSizeUnit(checklistItemGap)};
   font-weight: 500;
+  font-size: 14px;
   ${verticalPadding(checklistItemVerticalPadding)};
 `

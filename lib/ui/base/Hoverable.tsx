@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { getColor } from '../theme/getters'
 import { ComponentProps } from 'react'
 import { absoluteOutline } from '../css/absoluteOutline'
-import { transition } from '../css/transition'
 import { UnstyledButton } from '../buttons/UnstyledButton'
 import { borderRadius } from '../css/borderRadius'
 
@@ -14,7 +13,6 @@ interface HighlightProps {
 
 const Highlight = styled.div<HighlightProps>`
   position: absolute;
-  ${transition};
   ${borderRadius.s};
   ${(props) => absoluteOutline(props.horizontalOffset, props.verticalOffset)}
 `
@@ -43,7 +41,7 @@ export const Hoverable = ({
   ...rest
 }: HoverableProps) => {
   return (
-    <Container {...rest}>
+    <Container type="button" {...rest}>
       <Highlight
         verticalOffset={verticalOffset}
         horizontalOffset={horizontalOffset}
