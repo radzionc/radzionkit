@@ -4,11 +4,11 @@ import { useEffect } from 'react'
 
 export const PageVisitTracker = () => {
   const { pathname } = useRouter()
-  const analytics = useAnalytics()
+  const { trackEvent } = useAnalytics()
 
   useEffect(() => {
-    analytics.trackEvent('Visit page', { pathname })
-  }, [pathname])
+    trackEvent('Visit page', { pathname })
+  }, [trackEvent, pathname])
 
   return null
 }
