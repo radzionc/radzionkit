@@ -186,7 +186,7 @@ export const RadzionResume = () => {
               description="Speedy setup for robust full-stack monorepo projects"
               achievement={
                 <HStack alignItems="center" gap={8}>
-                  <Text>140+</Text>
+                  <Text>150+</Text>
                   <IconWrapper>
                     <StarIcon />
                   </IconWrapper>
@@ -197,7 +197,7 @@ export const RadzionResume = () => {
               name="Radzion Dev"
               url="https://www.youtube.com/c/radzion"
               description="A YouTube channel about web development"
-              achievement="1.3k+ subscribers"
+              achievement="1.4k+ subscribers"
             />
           </VStack>
         </UniformColumnGrid>

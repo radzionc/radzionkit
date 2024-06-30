@@ -17,7 +17,7 @@ export const ExpandableSectionListTitle = ({
     <HStack alignItems="center" gap={8}>
       {identifier}
       <Text>{title}</Text>
-      {count && count > 0 && <Text color="supporting">({count})</Text>}
+      {count !== undefined && <Text color="supporting">({count})</Text>}
     </HStack>
   )
 }

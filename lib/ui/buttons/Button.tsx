@@ -63,7 +63,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
       m: () => css`
         ${horizontalPadding(20)}
         height: 40px;
-        font-size: 16px;
+        font-size: 14px;
       `,
       l: () => css`
         ${horizontalPadding(20)}
@@ -81,7 +81,10 @@ const Container = styled(UnstyledButton)<ContainerProps>`
     match(kind, {
       primary: () => css`
         background: ${getColor('primary')};
-        color: ${getColor('white')};
+        color: ${({ theme: { colors } }) =>
+          colors.primary
+            .getHighestContrast(colors.background, colors.contrast)
+            .toCssValue()};
       `,
       secondary: () => css`
         background: ${getColor('mist')};

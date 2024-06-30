@@ -3,8 +3,6 @@ import { UnstyledButton } from './UnstyledButton'
 import { borderRadius } from '../css/borderRadius'
 import { interactive } from '../css/interactive'
 import { getColor, matchColor } from '../theme/getters'
-import { transition } from '../css/transition'
-import { getHoverVariant } from '../theme/getHoverVariant'
 import { VStack } from '../layout/Stack'
 import { IconWrapper } from '../icons/IconWrapper'
 import { Text } from '../text'
@@ -23,15 +21,20 @@ const Cotainer = styled(UnstyledButton)<{ value: boolean }>`
   border: 1px solid;
   ${interactive};
 
-  color: ${matchColor('value', {
+  color: ${getColor('text')};
+  border-color: ${matchColor('value', {
     true: 'primary',
     false: 'text',
   })};
-  ${transition};
+  svg {
+    color: ${matchColor('value', {
+      true: 'primary',
+      false: 'text',
+    })};
+  }
+
   &:hover {
-    background: ${getColor('mist')};
-    color: ${(value) =>
-      value ? getHoverVariant('primary') : getColor('contrast')};
+    border-color: ${getColor('primary')};
   }
 `
 

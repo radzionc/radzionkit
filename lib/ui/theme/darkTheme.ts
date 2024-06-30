@@ -11,6 +11,8 @@ export const darkTheme: DefaultTheme = {
   colors: {
     ...sharedColors,
 
+    primary: new HSLA(234, 56, 59),
+
     success: new HSLA(130, 56, 52),
     alert: new HSLA(0, 79, 63),
     idle: new HSLA(32, 79, 48),
