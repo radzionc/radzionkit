@@ -3,7 +3,7 @@ interface Event {
 }
 
 export const stopPropagation =
-  <E extends Event>(handler?: (event?: E) => void) =>
+  <E extends Event>(handler?: (event: E) => void) =>
   (event: E) => {
     event.stopPropagation()
 

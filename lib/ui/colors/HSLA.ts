@@ -150,7 +150,7 @@ export class HSLA {
     options.forEach((option) => {
       const elementLuminance = option.getLuminance()
       const contrast = this.contrastRatio(bgLuminance, elementLuminance)
-      console.log(contrast)
+
       if (contrast > maxContrast) {
         maxContrast = contrast
         bestOption = option

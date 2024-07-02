@@ -19,7 +19,6 @@ export const showNotification = (text: string) => {
     window.navigator.serviceWorker.getRegistration().then((registration) => {
       if (registration) {
         registration.showNotification(text, {
-          vibrate: [200, 100, 200, 100, 200, 100, 200],
           requireInteraction: true,
         })
       }

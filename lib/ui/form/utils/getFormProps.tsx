@@ -1,5 +1,6 @@
 import { preventDefault } from '../../utils/preventDefault'
-import { KeyboardEvent } from 'react'
+import { FormEvent, KeyboardEvent } from 'react'
+import { stopPropagation } from '../../utils/stopPropagation'
 
 type GetFormPropsInput = {
   onClose?: () => void
@@ -20,10 +21,12 @@ export const getFormProps = ({
           }
         }
       : undefined,
-    onSubmit: preventDefault(() => {
-      if (isDisabled) return
+    onSubmit: stopPropagation<FormEvent>(
+      preventDefault(() => {
+        if (isDisabled) return
 
-      onSubmit()
-    }),
+        onSubmit()
+      }),
+    ),
   }
 }
