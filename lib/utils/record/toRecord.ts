@@ -1,4 +1,4 @@
-export function getRecord<T, K extends string | number>(
+export function toRecord<T, K extends string | number>(
   items: readonly T[],
   getKey: (item: T) => K,
 ): Record<K, T> {
