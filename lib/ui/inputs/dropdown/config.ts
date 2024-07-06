@@ -1,8 +1,11 @@
 import { IconButtonSize } from '../../buttons/IconButton'
-import { textInputHeight, textInputPadding } from '../../css/textInput'
+import {
+  textInputHeight,
+  textInputHorizontalPadding,
+} from '../../css/textInput'
 
 export const dropdownInputConfig = {
-  identifierSize: textInputHeight - textInputPadding * 2,
+  identifierSize: textInputHeight - textInputHorizontalPadding * 2,
   buttonsSpacing: 4,
   iconButtonSize: 'm' as IconButtonSize,
 }

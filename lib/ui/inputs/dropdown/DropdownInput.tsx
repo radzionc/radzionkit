@@ -9,11 +9,11 @@ import { FixedOptionsInputIdentifierWrapper } from './FixedOptionsInput/Identifi
 import styled from 'styled-components'
 import { interactive } from '../../css/interactive'
 import { toSizeUnit } from '../../css/toSizeUnit'
-import { textInputPadding } from '../../css/textInput'
 import { dropdownInputConfig } from './config'
 import { DropdownContainer } from './DropdownContainer'
 import { DropdownOption } from './DropdownOption'
 import { DropdownInputFrame } from './DropdownInputFrame'
+import { textInputHorizontalPadding } from '../../css/textInput'
 
 export interface SelectOptionInputProps<T> extends InputProps<T> {
   label?: ReactNode
@@ -38,7 +38,7 @@ const Container = styled(DropdownInputFrame)`
 
 const CollapsePosition = styled.div`
   position: absolute;
-  right: ${toSizeUnit(textInputPadding)};
+  right: ${toSizeUnit(textInputHorizontalPadding)};
 `
 
 export function SelectOptionInput<T>({

@@ -13,7 +13,12 @@ import { getHoverVariant } from '@lib/ui/theme/getHoverVariant'
 export const iconButtonSizes = ['s', 'm', 'l'] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]
 
-export const iconButtonKinds = ['regular', 'secondary', 'alert'] as const
+export const iconButtonKinds = [
+  'regular',
+  'secondary',
+  'alert',
+  'alertSecondary',
+] as const
 export type IconButtonKind = (typeof iconButtonKinds)[number]
 
 export const iconButtonSizeRecord: Record<IconButtonSize, number> = {
@@ -42,6 +47,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
     regular: 'text',
     secondary: 'text',
     alert: 'alert',
+    alertSecondary: 'alert',
   })};
 
   font-size: ${({ size }) => toSizeUnit(iconButtonIconSizeRecord[size])};
@@ -52,6 +58,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
 
   ${({ kind }) =>
     kind !== 'secondary' &&
+    kind !== 'alertSecondary' &&
     css`
       border: 1px solid ${getColor('mist')};
     `}
@@ -61,6 +68,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
       regular: () => colors.foreground,
       secondary: () => colors.transparent,
       alert: () => colors.alert.getVariant({ a: (a) => a * 0.12 }),
+      alertSecondary: () => colors.transparent,
     }).toCssValue()};
 
   &:hover {
@@ -70,12 +78,15 @@ const Container = styled(UnstyledButton)<ContainerProps>`
         secondary: () => theme.colors.mist.toCssValue(),
         alert: () =>
           theme.colors.alert.getVariant({ a: (a) => a * 0.24 }).toCssValue(),
+        alertSecondary: () =>
+          theme.colors.alert.getVariant({ a: (a) => a * 0.12 }).toCssValue(),
       })};
 
     color: ${matchColor('kind', {
       regular: 'contrast',
       secondary: 'contrast',
       alert: 'alert',
+      alertSecondary: 'alert',
     })};
   }
 `

@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 import { toSizeUnit } from '../../../css/toSizeUnit'
-import { textInputPadding } from '../../../css/textInput'
 import { dropdownInputConfig } from '../config'
+import { centerContent } from '../../../css/centerContent'
+import { textInputHorizontalPadding } from '../../../css/textInput'
 
 export const FixedOptionsInputIdentifierWrapper = styled.div`
   position: absolute;
   font-size: ${toSizeUnit(dropdownInputConfig.identifierSize)};
-  left: ${toSizeUnit(textInputPadding)};
+  left: ${toSizeUnit(textInputHorizontalPadding)};
   pointer-events: none;
   display: flex;
+  ${centerContent};
 `

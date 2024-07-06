@@ -63,6 +63,7 @@ export const useFixedOptionsInputFloatingOptions = () => {
 
   return {
     referenceRef: refs.domReference,
+    floatingRef: refs.floating,
     setReferenceRef: refs.setReference,
     setFloatingRef: refs.setFloating,
     floatingStyles,

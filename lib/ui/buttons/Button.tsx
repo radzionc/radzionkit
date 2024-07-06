@@ -45,6 +45,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
 
   white-space: nowrap;
   font-weight: 500;
+  flex-shrink: 0;
 
   border-radius: ${({ isRounded }) => toSizeUnit(isRounded ? 100 : 8)};
 
@@ -53,7 +54,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
       xs: () => css`
         ${horizontalPadding(8)}
         height: 28px;
-        font-size: 14px;
+        font-size: 12px;
       `,
       s: () => css`
         ${horizontalPadding(16)}
