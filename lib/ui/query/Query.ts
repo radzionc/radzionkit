@@ -1,7 +1,7 @@
 export type Query<T, E = unknown> = {
   data: T | undefined
   isPending: boolean
-  error: E
+  error: E | null
 }
 
 export type EagerQuery<T, E = unknown> = {
