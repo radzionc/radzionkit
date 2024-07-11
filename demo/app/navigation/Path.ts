@@ -50,4 +50,5 @@ export enum Path {
   CountryFlag = '/flag',
   CountryInput = '/country-input',
   LineChart = '/linechart',
+  DayInput = '/day-input',
 }

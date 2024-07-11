@@ -45,10 +45,8 @@ export const NavigationItems = () => (
     />
     <NavigationToInternalPage path={Path.Tooltip} name="Tooltip" />
     <NavigationToInternalPage path={Path.CopyText} name="Copy Text" />
-    <NavigationToInternalPage
-      path={Path.ConfirmationModal}
-      name="Confirmation Modal"
-    />
+    <NavigationToInternalPage path={Path.DayInput} name="Confirmation Modal" />
+    <NavigationToInternalPage path={Path.ConfirmationModal} name="Day Input" />
     <NavigationToInternalPage
       path={Path.OnHoverAction}
       name="On Hover Action"
