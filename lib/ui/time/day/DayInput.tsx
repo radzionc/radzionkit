@@ -35,6 +35,7 @@ export const DayInput = ({ value, onChange, min, max }: DayInputProps) => {
 
         return (
           <ExpandableSelector
+            key={part}
             value={parts[part]}
             onChange={(value) => {
               const newParts = { ...parts, [part]: value }

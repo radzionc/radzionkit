@@ -5,7 +5,6 @@ export type DayInputParts = Record<DayInputPart, number>
 
 export const toDayInputParts = (timestamp: number): DayInputParts => {
   const date = new Date(timestamp)
-  console.log('toDayInputParts:', date)
   return {
     day: date.getDate(),
     month: date.getMonth() + 1,
