@@ -29,33 +29,33 @@ export type FinishableComponentProps = {
   onFinish: () => void
 }
 
-export interface InputProps<T> {
+export type InputProps<T> = {
   value: T
   onChange: (value: T) => void
 }
 
-export interface ComponentWithErrorProps {
+export type ComponentWithErrorProps = {
   error?: string
 }
 
-export interface TitledComponentProps {
+export type TitledComponentProps = {
   title: ReactNode
 }
 
-export interface StyledComponentWithColorProps {
+export type StyledComponentWithColorProps = {
   $color: HSLA
 }
 
-export interface SelectableComponentProps<T> {
+export type SelectableComponentProps<T> = {
   onSelect: (value: T) => void
 }
 
-export interface UIComponentProps {
+export type UIComponentProps = {
   style?: React.CSSProperties
   className?: string
 }
 
-export interface LabeledComponentProps {
+export type LabeledComponentProps = {
   label: ReactNode
 }
 
@@ -64,7 +64,7 @@ export type PromptProps = {
   onCancel: () => void
 }
 
-export interface ComponentWithValueProps<T> {
+export type ComponentWithValueProps<T> = {
   value: T
 }
 
@@ -79,4 +79,8 @@ export type ComponentWithWidthProps = {
 
 export type ComponentWithActiveState = {
   isActive: boolean
+}
+
+export type ComponentWithDisabledState = {
+  isDisabled?: boolean | string
 }

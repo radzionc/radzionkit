@@ -1,17 +1,12 @@
-import styled, { css } from 'styled-components'
-import { interactive } from '../css/interactive'
-import { transition } from '../css/transition'
 import { FloatingOptionsContainer } from '../floating/FloatingOptionsContainer'
 import { useFloatingOptions } from '../floating/useFloatingOptions'
 import { UIComponentProps } from '../props'
-import { getColor } from '../theme/getters'
-import { getHoverVariant } from '../theme/getHoverVariant'
-import { SelectContainer } from './SelectContainer'
 import { OptionItem } from './OptionItem'
-import { CollapsableStateIndicator } from '../layout/CollapsableStateIndicator'
+import { ExpandableSelectorToggle } from './ExpandableSelectorToggle'
 import { FloatingFocusManager } from '@floating-ui/react'
 import { OptionContent } from './OptionContent'
 import { OptionOutline } from './OptionOutline'
+import { ExpandableSelectorContainer } from './ExpandableSelectorContainer'
 
 export type ExpandableSelectorProp<T> = UIComponentProps & {
   value: T | null
@@ -25,49 +20,6 @@ export type ExpandableSelectorProp<T> = UIComponentProps & {
   showToggle?: boolean
   returnFocus?: boolean
 }
-
-const ToggleIconContainer = styled(CollapsableStateIndicator)`
-  font-size: 16px;
-  ${transition};
-  color: ${getColor('textSupporting')};
-`
-
-const activeContainer = css`
-  background: ${getHoverVariant('foreground')};
-  ${ToggleIconContainer} {
-    color: ${getColor('contrast')};
-  }
-`
-
-const Container = styled(SelectContainer)<{
-  isActive: boolean
-  isDisabled?: boolean
-}>`
-  ${({ isDisabled }) =>
-    isDisabled
-      ? css`
-          pointer-events: none;
-          opacity: 0.4;
-        `
-      : css`
-          ${interactive};
-
-          &:hover {
-            ${activeContainer}
-          }
-        `}
-
-  ${({ isActive }) => isActive && activeContainer}
-
-  outline: 1px solid transparent;
-  &:active {
-    outline: 1px solid ${getColor('primary')};
-  }
-
-  &:focus {
-    outline: 1px solid ${getColor('primary')};
-  }
-`
 
 export function ExpandableSelector<T>({
   value,
@@ -99,7 +51,7 @@ export function ExpandableSelector<T>({
 
   return (
     <>
-      <Container
+      <ExpandableSelectorContainer
         isDisabled={isDisabled}
         isActive={isOpen}
         {...referenceProps}
@@ -108,13 +60,14 @@ export function ExpandableSelector<T>({
         <OptionContent>
           {openerContent ?? renderOption(value as T)}
         </OptionContent>
-        {showToggle && <ToggleIconContainer isOpen={isOpen} />}
-      </Container>
+        {showToggle && <ExpandableSelectorToggle isOpen={isOpen} />}
+      </ExpandableSelectorContainer>
       {isOpen && !isDisabled && (
         <FloatingFocusManager context={context} modal returnFocus={returnFocus}>
           <FloatingOptionsContainer {...getFloatingProps()}>
             {options.map((option, index) => (
               <OptionItem
+                key={getOptionKey(option)}
                 isActive={activeIndex === index}
                 {...getOptionProps({
                   index,
@@ -124,9 +77,7 @@ export function ExpandableSelector<T>({
                   },
                 })}
               >
-                <OptionContent key={getOptionKey(option)}>
-                  {renderOption(option)}
-                </OptionContent>
+                <OptionContent>{renderOption(option)}</OptionContent>
                 {option === value && <OptionOutline />}
               </OptionItem>
             ))}
