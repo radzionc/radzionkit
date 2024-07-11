@@ -1,6 +1,6 @@
 import { haveEqualFields } from '../record/haveEqualFields'
 import { convertDuration } from './convertDuration'
-import { format, startOfYear } from 'date-fns'
+import { addDays, format, startOfYear } from 'date-fns'
 import { inTimeZone } from './inTimeZone'
 
 export type Day = {
@@ -13,10 +13,11 @@ export const toDay = (timestamp: number): Day => {
   const dateOffset = date.getTimezoneOffset()
   const yearStartedAt = inTimeZone(startOfYear(timestamp).getTime(), dateOffset)
   const diff = timestamp - yearStartedAt
+  const diffInDays = diff / convertDuration(1, 'd', 'ms')
 
   const day = {
     year: new Date(timestamp).getFullYear(),
-    dayIndex: Math.floor(diff / convertDuration(1, 'd', 'ms')),
+    dayIndex: Math.floor(diffInDays),
   }
 
   return day
@@ -32,8 +33,9 @@ export const stringToDay = (str: string): Day => {
 }
 
 export const fromDay = ({ year, dayIndex }: Day): number => {
-  const yearStartedAt = startOfYear(new Date(year, 0, 1)).getTime()
-  return yearStartedAt + dayIndex * convertDuration(1, 'd', 'ms')
+  const startOfYearDate = startOfYear(new Date(year, 0, 1))
+
+  return addDays(startOfYearDate, dayIndex).getTime()
 }
 
 export const areSameDay = <T extends Day>(a: T, b: T): boolean =>

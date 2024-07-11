@@ -1,7 +1,7 @@
 import { VStack } from '@lib/ui/layout/Stack'
 import { ComponentWithChildrenProps, TitledComponentProps } from '@lib/ui/props'
 import styled from 'styled-components'
-import { FieldArrayTitle } from './FieldArrayTitle'
+import { FormSectionShyTitle } from './FormSectionShyTitle'
 
 const Container = styled(VStack)`
   gap: 8px;
@@ -13,7 +13,7 @@ export const FieldArrayContainer = ({
   children,
 }: ComponentWithChildrenProps & TitledComponentProps) => (
   <Container>
-    <FieldArrayTitle>{title}</FieldArrayTitle>
+    <FormSectionShyTitle>{title}</FormSectionShyTitle>
     {children}
   </Container>
 )
