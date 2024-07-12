@@ -9,7 +9,7 @@ import {
   toDayInputParts,
 } from './DayInputParts'
 import styled from 'styled-components'
-import { getDayInputPartRange } from './getDayInputPartInterval'
+import { getDayInputPartInterval } from './getDayInputPartInterval'
 import { match } from '@lib/utils/match'
 import { enforceRange } from '@lib/utils/enforceRange'
 import { intervalRange } from '@lib/utils/interval/intervalRange'
@@ -31,7 +31,12 @@ export const DayInput = ({ value, onChange, min, max }: DayInputProps) => {
   return (
     <Container>
       {dayInputParts.map((part) => {
-        const interval = getDayInputPartRange({ min, max, part, value: parts })
+        const interval = getDayInputPartInterval({
+          min,
+          max,
+          part,
+          value: parts,
+        })
 
         return (
           <ExpandableSelector
@@ -45,7 +50,7 @@ export const DayInput = ({ value, onChange, min, max }: DayInputProps) => {
                 dayInputParts.indexOf(part),
               )
               lowerParts.toReversed().forEach((part) => {
-                const { start, end } = getDayInputPartRange({
+                const { start, end } = getDayInputPartInterval({
                   min,
                   max,
                   part,

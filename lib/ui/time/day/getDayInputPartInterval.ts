@@ -16,7 +16,7 @@ type Input = {
   value: DayInputParts
 }
 
-export const getDayInputPartRange = ({
+export const getDayInputPartInterval = ({
   min,
   max,
   part,
