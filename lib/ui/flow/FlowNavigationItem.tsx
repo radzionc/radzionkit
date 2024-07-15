@@ -4,15 +4,15 @@ import styled, { css } from 'styled-components'
 import { round } from '@lib/ui/css/round'
 import { getColor, matchColor } from '@lib/ui/theme/getters'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
-import { transition } from '@lib/ui/css/transition'
 import { interactive } from '@lib/ui/css/interactive'
 import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { IconWrapper } from '@lib/ui/icons/IconWrapper'
 import { CheckIcon } from '@lib/ui/icons/CheckIcon'
 import { centerContent } from '@lib/ui/css/centerContent'
+import { ComponentWithActiveState, UIComponentProps } from '../props'
 
-const Container = styled(HStack)<{ isCurrent: boolean; isEnabled: boolean }>`
-  color: ${matchColor('isCurrent', {
+const Container = styled(HStack)<{ isActive: boolean; isEnabled: boolean }>`
+  color: ${matchColor('isActive', {
     true: 'contrast',
     false: 'textSupporting',
   })};
@@ -20,12 +20,11 @@ const Container = styled(HStack)<{ isCurrent: boolean; isEnabled: boolean }>`
   align-items: center;
   gap: 8px;
   ${verticalPadding(8)}
-  ${transition};
 
   ${({ isEnabled }) => isEnabled && interactive};
-  ${({ isCurrent, isEnabled }) =>
+  ${({ isActive, isEnabled }) =>
     isEnabled &&
-    !isCurrent &&
+    !isActive &&
     css`
       &:hover {
         color: ${getColor('text')};
@@ -33,7 +32,7 @@ const Container = styled(HStack)<{ isCurrent: boolean; isEnabled: boolean }>`
     `}
 `
 
-const CheckContainer = styled.div<{ isCompleted: boolean }>`
+const CheckContainer = styled.div<{ isCompleted: boolean; isActive: boolean }>`
   ${round};
   ${centerContent};
   background: ${getColor('mistExtra')};
@@ -44,31 +43,38 @@ const CheckContainer = styled.div<{ isCompleted: boolean }>`
     true: 'success',
     false: 'transparent',
   })};
+  border: 1px solid;
+  border-color: ${matchColor('isActive', {
+    true: 'textShy',
+    false: 'transparent',
+  })};
   font-size: 14px;
 `
 
-type FlowNavigationItemProps = {
-  isCurrent: boolean
-  isCompleted: boolean
-  isEnabled: boolean
-  onClick: () => void
-  name: string
-}
+type FlowNavigationItemProps = ComponentWithActiveState &
+  UIComponentProps & {
+    isCompleted: boolean
+    isEnabled: boolean
+    onClick: () => void
+    name: string
+  }
 
 export const FlowNavigationItem = ({
-  isCurrent,
+  isActive,
   isCompleted,
   isEnabled,
   onClick,
   name,
+  ...rest
 }: FlowNavigationItemProps) => {
   return (
     <Container
-      isCurrent={isCurrent}
+      isActive={isActive}
       onClick={isEnabled ? () => onClick() : undefined}
       isEnabled={isEnabled}
+      {...rest}
     >
-      <CheckContainer isCompleted={isCompleted}>
+      <CheckContainer isCompleted={isCompleted} isActive={isActive}>
         <IconWrapper>
           <CheckIcon />
         </IconWrapper>
