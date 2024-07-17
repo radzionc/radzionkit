@@ -2,9 +2,10 @@ import styled from 'styled-components'
 import { PositionAbsolutelyCenterVertically } from '../layout/PositionAbsolutelyCenterVertically'
 import { useMemo } from 'react'
 import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
+import { range } from '@lib/utils/array/range'
 
 type ChartXAxisProps = {
-  data: number[]
+  dataSize: number
   containerWidth: number
   expectedLabelHeight: number
   expectedLabelWidth: number
@@ -18,18 +19,18 @@ const Container = styled.div`
 `
 
 export const ChartXAxis = ({
-  data,
+  dataSize,
   containerWidth,
   expectedLabelHeight,
   expectedLabelWidth,
   labelsMinDistance,
   renderLabel,
 }: ChartXAxisProps) => {
-  const stepInPx = containerWidth / (data.length - 1)
+  const stepInPx = containerWidth / (dataSize - 1)
   const itemIndexes = useMemo(() => {
     let lastItemEnd = 0
     return withoutUndefined(
-      data.map((_, index) => {
+      range(dataSize).map((index) => {
         const startsAt = index * stepInPx - expectedLabelWidth / 2
         const endsAt = startsAt + expectedLabelWidth
         if (startsAt < lastItemEnd + labelsMinDistance) return
@@ -40,7 +41,13 @@ export const ChartXAxis = ({
         return index
       }),
     )
-  }, [containerWidth, data, expectedLabelWidth, labelsMinDistance, stepInPx])
+  }, [
+    containerWidth,
+    dataSize,
+    expectedLabelWidth,
+    labelsMinDistance,
+    stepInPx,
+  ])
 
   return (
     <Container

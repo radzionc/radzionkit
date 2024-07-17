@@ -88,7 +88,7 @@ export default makeDemoPage(() => {
                     />
                   </VStack>
                   <ChartXAxis
-                    data={data}
+                    dataSize={data.length}
                     expectedLabelWidth={chartConfig.expectedLabelWidth}
                     labelsMinDistance={chartConfig.labelsMinDistance}
                     containerWidth={size.width}
