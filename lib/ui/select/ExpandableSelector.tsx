@@ -14,7 +14,8 @@ export type ExpandableSelectorProp<T> = UIComponentProps & {
   isDisabled?: boolean
   options: readonly T[]
   getOptionKey: (option: T) => string
-  renderOption: (option: T) => React.ReactNode
+  getOptionName?: (option: T) => string
+  renderOption?: (option: T) => React.ReactNode
   openerContent?: React.ReactNode
   floatingOptionsWidthSameAsOpener?: boolean
   showToggle?: boolean
@@ -28,6 +29,7 @@ export function ExpandableSelector<T>({
   isDisabled,
   renderOption,
   getOptionKey,
+  getOptionName,
   openerContent,
   floatingOptionsWidthSameAsOpener,
   showToggle = true,
@@ -45,6 +47,7 @@ export function ExpandableSelector<T>({
   } = useFloatingOptions({
     floatingOptionsWidthSameAsOpener,
     selectedIndex: value === null ? null : options.indexOf(value),
+    options: options.map(getOptionKey ?? getOptionName),
   })
 
   const referenceProps = isDisabled ? {} : getReferenceProps()
@@ -58,7 +61,8 @@ export function ExpandableSelector<T>({
         {...rest}
       >
         <OptionContent>
-          {openerContent ?? renderOption(value as T)}
+          {openerContent ??
+            (renderOption ?? getOptionName ?? getOptionKey)(value as T)}
         </OptionContent>
         {showToggle && <ExpandableSelectorToggle isOpen={isOpen} />}
       </ExpandableSelectorContainer>
@@ -77,7 +81,9 @@ export function ExpandableSelector<T>({
                   },
                 })}
               >
-                <OptionContent>{renderOption(option)}</OptionContent>
+                <OptionContent>
+                  {(renderOption ?? getOptionName ?? getOptionKey)(option)}
+                </OptionContent>
                 {option === value && <OptionOutline />}
               </OptionItem>
             ))}

@@ -20,13 +20,18 @@ export const ExpandableInputOpener = styled(
   border: 1px solid ${getColor('mist')};
 
   background: ${getColor('foreground')};
+  outline: none;
 
   ${({ isActive }) =>
     isActive &&
     css`
       background: ${getHoverVariant('foreground')};
-      border-color: ${getColor('mistExtra')};
+      border-color: ${getColor('contrast')};
     `}
+
+  &:focus {
+    border-color: ${getColor('text')};
+  }
 
   &:hover {
     background: ${getHoverVariant('foreground')};

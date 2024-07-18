@@ -5,16 +5,21 @@ import {
   useRole,
   useClick,
   useDismiss,
+  useTypeahead,
   flip,
 } from '@floating-ui/react'
-import { autoUpdate, offset, size } from '@floating-ui/dom'
-
+import { autoUpdate, offset, Placement, size, Strategy } from '@floating-ui/dom'
 import { useRef, useState } from 'react'
 import { toSizeUnit } from '../css/toSizeUnit'
+import { useValueRef } from '../hooks/useValueRef'
 
-interface FloatingOptionsParams {
+type FloatingOptionsParams = {
   selectedIndex: number | null
   floatingOptionsWidthSameAsOpener?: boolean
+  strategy?: Strategy
+  placement?: Placement
+  optionsContainerMaxHeight?: number
+  options?: string[]
 }
 
 interface GetOptionsPropsParams {
@@ -25,13 +30,18 @@ interface GetOptionsPropsParams {
 export const useFloatingOptions = ({
   selectedIndex,
   floatingOptionsWidthSameAsOpener = true,
+  strategy,
+  placement = 'bottom-end',
+  optionsContainerMaxHeight = 320,
+  options,
 }: FloatingOptionsParams) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const { refs, context, floatingStyles } = useFloating({
-    placement: 'bottom-end',
+    placement,
     open: isOpen,
     onOpenChange: setIsOpen,
+    strategy,
     whileElementsMounted: autoUpdate,
     middleware: [
       offset(4),
@@ -39,7 +49,11 @@ export const useFloatingOptions = ({
       size({
         apply({ elements, availableHeight, rects }) {
           Object.assign(elements.floating.style, {
-            maxHeight: `${toSizeUnit(Math.min(availableHeight, 320))}`,
+            maxHeight: toSizeUnit(
+              optionsContainerMaxHeight
+                ? Math.min(availableHeight, optionsContainerMaxHeight)
+                : availableHeight,
+            ),
             width: floatingOptionsWidthSameAsOpener
               ? toSizeUnit(rects.reference.width)
               : undefined,
@@ -52,6 +66,8 @@ export const useFloatingOptions = ({
   const optionsRef = useRef<Array<HTMLElement | null>>([])
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
+  const optionStringsRef = useValueRef(options || [])
+
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions(
     [
       useClick(context, { event: 'mousedown' }),
@@ -63,6 +79,12 @@ export const useFloatingOptions = ({
         selectedIndex,
         onNavigate: setActiveIndex,
         loop: true,
+      }),
+      useTypeahead(context, {
+        listRef: optionStringsRef,
+        activeIndex,
+        enabled: !!options,
+        onMatch: setActiveIndex,
       }),
     ],
   )

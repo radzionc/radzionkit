@@ -1,8 +1,9 @@
 import { InputProps } from '@lib/ui/props'
 import { getColor } from '@lib/ui/theme/getters'
-import { ComponentProps, useLayoutEffect, useRef } from 'react'
+import { ComponentProps, useLayoutEffect, useRef, forwardRef } from 'react'
 import styled from 'styled-components'
 import { toSizeUnit } from '../css/toSizeUnit'
+import mergeRefs from '../utils/mergeRefs'
 
 const Container = styled.textarea`
   border: none;
@@ -18,15 +19,14 @@ const Container = styled.textarea`
   }
 `
 
-type TaskNameInputProps = InputProps<string> &
+type MultilineTextInputProps = InputProps<string> &
   Omit<ComponentProps<typeof Container>, 'value' | 'onChange'>
 
-export const MultilineTextInput = ({
-  value,
-  onChange,
-  ...rest
-}: TaskNameInputProps) => {
-  const textareaRef = useRef<HTMLTextAreaElement>(null)
+export const MultilineTextInput = forwardRef<
+  HTMLTextAreaElement,
+  MultilineTextInputProps
+>(({ value, onChange, ...rest }, ref) => {
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
   useLayoutEffect(() => {
     const element = textareaRef.current
@@ -39,11 +39,11 @@ export const MultilineTextInput = ({
   return (
     <Container
       autoComplete="off"
-      ref={textareaRef}
+      ref={mergeRefs(ref, textareaRef)}
       value={value}
       onChange={(event) => onChange(event.target.value)}
       rows={1}
       {...rest}
     />
   )
-}
+})

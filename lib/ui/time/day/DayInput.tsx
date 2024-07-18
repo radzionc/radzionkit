@@ -72,6 +72,7 @@ export const DayInput = ({ value, onChange, min, max }: DayInputProps) => {
               })
             }
             getOptionKey={(option) => option.toString()}
+            getOptionName={(option) => option.toString()}
           />
         )
       })}
