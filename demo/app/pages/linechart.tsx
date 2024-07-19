@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { normalize } from '@lib/utils/math/normalize'
 import { convertDuration } from '@lib/utils/time/convertDuration'
 import { dataVerticalPadding } from '@lib/ui/charts/utils/dataVerticalPadding'
-import { LineChartItemInfo } from '@lib/ui/charts/LineChart/LineChartItemInfo'
+import { ChartItemInfo } from '@lib/ui/charts/ChartItemInfo'
 import { VStack } from '@lib/ui/layout/Stack'
 import { Text } from '@lib/ui/text'
 import { format } from 'date-fns'
@@ -49,7 +49,7 @@ export default makeDemoPage(() => {
             <VStack fullWidth gap={4} ref={setElement}>
               {size && (
                 <>
-                  <LineChartItemInfo
+                  <ChartItemInfo
                     itemIndex={selectedPoint}
                     isVisible={isSelectedPointVisible}
                     containerWidth={size.width}
@@ -66,7 +66,7 @@ export default makeDemoPage(() => {
                         )}
                       </Text>
                     </VStack>
-                  </LineChartItemInfo>
+                  </ChartItemInfo>
                   <VStack style={{ position: 'relative' }}>
                     <LineChart
                       width={size.width}
