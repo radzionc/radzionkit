@@ -131,6 +131,7 @@ export const App = () => {
 
 To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
 
+* [Next.js & Amplitude: A Guide to Effective Analytics Integration](https://youtu.be/_XBk-OZR0qg)
 * [How to Build a Community-Driven Feature Proposal System with React & NodeJS](https://youtu.be/PXad8WzI0L0)
 * [Effortless Email Setup on AWS: Save Time and Money with Lambda and Terraform](https://youtu.be/jgFdZ2kBu0w)
 * [Creating an Interactive Time-Tracking Report with React and TypeScript](https://youtu.be/gMZPIyhdQLI)
@@ -152,7 +153,6 @@ To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookb
 * [Efficient React State Management with usePersistentState and Local Storage](https://youtu.be/_90rzlGy0SM)
 * [Useful CSS Utils for React Projects - A Practical Guide](https://youtu.be/wBpoknNn6II)
 * [Essential Utilities & Helper Functions for TypeScript Projects](https://youtu.be/bWLeNhFaGRg)
-* [Adding Amplitude Analytics to a NextJS App Tutorial](https://youtu.be/hAhq0uH5Kcc)
 * [How to Set Up a Monorepo with Yarn Workspaces, NextJS, Styled Components, Prettier](https://youtu.be/T6pWiEHVhBE)
 * [Deploying a NextJS Static App to AWS S3 and CloudFront](https://youtu.be/ekvQBFsCOnU)
 * [Designing a Color Palette for Dark and Light Modes with React, Styled Components and HSLA](https://youtu.be/N5nsvOmSUrU)
