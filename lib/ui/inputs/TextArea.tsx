@@ -6,12 +6,13 @@ import { toSizeUnit } from '../css/toSizeUnit'
 import { Text } from '../text'
 import { InputContainer } from './InputContainer'
 import { LabelText } from './LabelText'
-import { textInput } from '../css/textInput'
+import { textInput, textInputHorizontalPadding } from '../css/textInput'
 
 const TextareaContainer = styled.textarea`
   ${textInput};
   resize: none;
   height: initial;
+  padding-top: ${toSizeUnit(textInputHorizontalPadding)};
 `
 
 const characterCounterHeight = 10
