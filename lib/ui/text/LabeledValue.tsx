@@ -1,16 +1,25 @@
 import { ReactNode } from 'react'
 
 import { HStack } from '../layout/Stack'
-import { Text } from '.'
+import { Text, TextColor } from '.'
+import { UIComponentProps } from '../props'
 
-interface Props {
-  name: string
+type Props = UIComponentProps & {
+  name: ReactNode
   children: ReactNode
+  labelColor?: TextColor
 }
 
-export const LabeledValue = ({ name, children }: Props) => (
-  <HStack gap={8} alignItems="center">
-    <Text color="shy">{name}:</Text>
+export const LabeledValue = ({
+  name,
+  children,
+  labelColor = 'shy',
+  ...rest
+}: Props) => (
+  <HStack gap={8} alignItems="center" {...rest}>
+    <Text as="div" color={labelColor}>
+      {name}:
+    </Text>
     {children}
   </HStack>
 )
