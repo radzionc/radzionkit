@@ -81,6 +81,10 @@ export type ComponentWithActiveState = {
   isActive: boolean
 }
 
+export type ComponentWithSelectedState = {
+  isSelected: boolean
+}
+
 export type ComponentWithDisabledState = {
   isDisabled?: boolean | string
 }

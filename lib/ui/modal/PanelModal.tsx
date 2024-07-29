@@ -14,7 +14,7 @@ import { getColor } from '@lib/ui/theme/getters'
 
 const Container = styled(ModalContainer)`
   overflow: hidden;
-  border: 2px solid ${getColor('mist')};
+  border: 2px solid ${getColor('textShy')};
 
   > * {
     &:first-child {

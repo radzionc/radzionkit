@@ -17,6 +17,7 @@ export const lightTheme: DefaultTheme = {
     idle: new HSLA(32, 79, 63),
 
     foreground: new HSLA(60, 11, 98),
+    foregroundExtra: new HSLA(60, 11, 96),
     background: new HSLA(0, 0, 100),
 
     text: new HSLA(60, 6, 20),

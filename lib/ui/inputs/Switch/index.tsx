@@ -15,13 +15,15 @@ import {
   ComponentWithActiveState,
 } from '../../props'
 import { match } from '@lib/utils/match'
+import { ReactNode } from 'react'
+import { InvisibleHTMLCheckbox } from '../InvisibleHTMLCheckbox'
 
 type SwitchSize = 'm' | 's'
 
 type SwitchProps = UIComponentProps &
   InputProps<boolean> & {
     size?: SwitchSize
-    label?: string
+    label?: ReactNode
   }
 const switchHeight: Record<SwitchSize, number> = { m: 24, s: 20 }
 const spacing = 2
@@ -73,6 +75,8 @@ const Container = styled.div<{ isActive: boolean; size: SwitchSize }>`
   display: flex;
   align-items: center;
 
+  position: relative;
+
   ${round};
 
   ${transition};
@@ -86,14 +90,7 @@ export const Switch = ({
   ...rest
 }: SwitchProps) => {
   return (
-    <Wrapper
-      onClick={() => onChange(!value)}
-      as="label"
-      alignItems="center"
-      gap={8}
-      id={label}
-      {...rest}
-    >
+    <Wrapper as="label" alignItems="center" gap={8} {...rest}>
       <Container size={size} isActive={value}>
         <Control
           isActive={value}
@@ -104,11 +101,13 @@ export const Switch = ({
               : spacing,
           }}
         />
+        <InvisibleHTMLCheckbox value={value} onChange={onChange} />
       </Container>
       {label && (
         <Text
           size={match(size, { m: () => 16, s: () => 14 })}
           weight="semibold"
+          as="div"
         >
           {label}
         </Text>

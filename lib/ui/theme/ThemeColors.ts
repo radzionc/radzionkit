@@ -8,6 +8,7 @@ export type ThemeColors = {
   success: HSLA
 
   foreground: HSLA
+  foregroundExtra: HSLA
   background: HSLA
 
   text: HSLA
