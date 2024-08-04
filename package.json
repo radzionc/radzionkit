@@ -1,6 +1,6 @@
 {
   "name": "radzionkit",
-  "packageManager": "yarn@4.0.2",
+  "packageManager": "yarn@4.4.0",
   "version": "0.0.1",
   "private": true,
   "workspaces": [

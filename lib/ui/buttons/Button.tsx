@@ -1,3 +1,4 @@
+import React, { forwardRef } from 'react'
 import styled, { css } from 'styled-components'
 
 import { UnstyledButton } from './UnstyledButton'
@@ -11,6 +12,7 @@ import { Spinner } from '../loaders/Spinner'
 import { Tooltip } from '../tooltips/Tooltip'
 import { getColor } from '../theme/getters'
 import { getHoverVariant } from '../theme/getHoverVariant'
+import mergeRefs from '../utils/mergeRefs'
 
 export const buttonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 
@@ -72,9 +74,9 @@ const Container = styled(UnstyledButton)<ContainerProps>`
         font-size: 16px;
       `,
       xl: () => css`
-        ${horizontalPadding(40)}
+        ${horizontalPadding(28)}
         height: 56px;
-        font-size: 18px;
+        font-size: 16px;
       `,
     })}
 
@@ -181,47 +183,60 @@ const Hide = styled.div`
   opacity: 0;
 `
 
-export const Button = ({
-  children,
-  size = 'm',
-  isDisabled = false,
-  isLoading = false,
-  onClick,
-  kind = 'primary',
-  ...rest
-}: ButtonProps) => {
-  const content = isLoading ? (
-    <>
-      <Hide>{children}</Hide>
-      <CenterAbsolutely>
-        <Spinner />
-      </CenterAbsolutely>
-    </>
-  ) : (
-    children
-  )
-
-  const containerProps = {
-    kind,
-    size,
-    isDisabled: !!isDisabled,
-    isLoading,
-    onClick: isDisabled || isLoading ? undefined : onClick,
-    ...rest,
-  }
-
-  if (typeof isDisabled === 'string') {
-    return (
-      <Tooltip
-        content={isDisabled}
-        renderOpener={(props) => (
-          <Container {...props} {...containerProps}>
-            {content}
-          </Container>
-        )}
-      />
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      children,
+      size = 'm',
+      isDisabled = false,
+      isLoading = false,
+      onClick,
+      kind = 'primary',
+      ...rest
+    },
+    ref,
+  ) => {
+    const content = isLoading ? (
+      <>
+        <Hide>{children}</Hide>
+        <CenterAbsolutely>
+          <Spinner />
+        </CenterAbsolutely>
+      </>
+    ) : (
+      children
     )
-  }
 
-  return <Container {...containerProps}>{content}</Container>
-}
+    const containerProps = {
+      kind,
+      size,
+      isDisabled: !!isDisabled,
+      isLoading,
+      onClick: isDisabled || isLoading ? undefined : onClick,
+      ...rest,
+    }
+
+    if (typeof isDisabled === 'string') {
+      return (
+        <Tooltip
+          content={isDisabled}
+          renderOpener={({ ref: tooltipRef, ...rest }) => (
+            <Container
+              ref={mergeRefs(ref, tooltipRef)}
+              {...rest}
+              {...containerProps}
+            >
+              {content}
+            </Container>
+          )}
+        />
+      )
+    }
+
+    return (
+      <Container ref={ref} {...containerProps}>
+        {content}
+      </Container>
+    )
+  },
+)

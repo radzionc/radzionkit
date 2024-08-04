@@ -28,14 +28,14 @@ export function getStateProviderSetup<T>(name: string) {
 
   return {
     provider: Provider,
-    useState: () => {
+    useState: (): [T, Dispatch<SetStateAction<T>>] => {
       const context = useContext(Context)
 
       if (!context) {
         throw new Error(`${capitalizeFirstLetter(name)} is not provided`)
       }
 
-      return [context.value, context.setValue] as const
+      return [context.value, context.setValue]
     },
   }
 }

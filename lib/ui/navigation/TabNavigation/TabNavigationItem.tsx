@@ -29,9 +29,9 @@ const Container = styled.label<ComponentWithActiveState>`
 
   ${transition}
 
-  border: 1px solid ${getColor('mist')};
+  border: 1px solid ${getColor('mistExtra')};
 
-  ${({ isActive, theme }) =>
+  ${({ isActive }) =>
     isActive
       ? css`
           background: ${getColor('mist')};
@@ -39,7 +39,7 @@ const Container = styled.label<ComponentWithActiveState>`
         `
       : css`
           &:hover {
-            color: ${theme.colors.contrast.toCssValue()};
+            color: ${getColor('contrast')};
           }
         `};
 `
