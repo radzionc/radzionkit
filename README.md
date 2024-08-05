@@ -131,6 +131,7 @@ export const App = () => {
 
 To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
 
+* [Implementing a Custom Dropdown Component in React with TypeScript and Floating-UI](https://youtu.be/qhdqL_2JB7g)
 * [Next.js & Amplitude: A Guide to Effective Analytics Integration](https://youtu.be/_XBk-OZR0qg)
 * [How to Build a Community-Driven Feature Proposal System with React & NodeJS](https://youtu.be/PXad8WzI0L0)
 * [Effortless Email Setup on AWS: Save Time and Money with Lambda and Terraform](https://youtu.be/jgFdZ2kBu0w)
