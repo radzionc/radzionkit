@@ -1,9 +1,9 @@
 import { isEmpty } from '@lib/utils/array/isEmpty'
 import { withoutNullOrUndefined } from '@lib/utils/array/withoutNullOrUndefined'
 
-export default function mergeRefs<T>(
+export const mergeRefs = <T>(
   ...refs: (React.Ref<T> | undefined | null)[]
-): React.Ref<T> | React.RefCallback<T> {
+): React.Ref<T> | React.RefCallback<T> => {
   const definedRefs = withoutNullOrUndefined(refs)
   if (isEmpty(definedRefs)) {
     return null

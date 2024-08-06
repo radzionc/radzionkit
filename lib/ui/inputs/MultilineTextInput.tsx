@@ -3,7 +3,7 @@ import { getColor } from '@lib/ui/theme/getters'
 import { ComponentProps, useLayoutEffect, useRef, forwardRef } from 'react'
 import styled from 'styled-components'
 import { toSizeUnit } from '../css/toSizeUnit'
-import mergeRefs from '../utils/mergeRefs'
+import { MergeRefs } from '../base/MergeRefs'
 
 const Container = styled.textarea`
   border: none;
@@ -37,13 +37,18 @@ export const MultilineTextInput = forwardRef<
   }, [value])
 
   return (
-    <Container
-      autoComplete="off"
-      ref={mergeRefs(ref, textareaRef)}
-      value={value}
-      onChange={(event) => onChange(event.target.value)}
-      rows={1}
-      {...rest}
+    <MergeRefs
+      refs={[ref, textareaRef]}
+      render={(ref) => (
+        <Container
+          autoComplete="off"
+          ref={ref}
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          rows={1}
+          {...rest}
+        />
+      )}
     />
   )
 })

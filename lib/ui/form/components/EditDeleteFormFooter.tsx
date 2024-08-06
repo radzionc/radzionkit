@@ -2,8 +2,8 @@ import { Button } from '../../buttons/Button'
 import { HStack } from '../../layout/Stack'
 
 type EditDeleteFormFooterProps = {
-  onDelete: () => void
-  onCancel: () => void
+  onDelete?: () => void
+  onCancel?: () => void
   isDisabled?: string | boolean
 }
 
@@ -20,19 +20,20 @@ export const EditDeleteFormFooter = ({
       alignItems="center"
       gap={20}
     >
-      <Button kind="alert" type="button" onClick={onDelete}>
-        Delete
-      </Button>
-      <HStack alignItems="center" gap={8}>
-        <Button
-          type="button"
-          isDisabled={isDisabled}
-          onClick={onCancel}
-          kind="secondary"
-        >
-          Cancel
+      {onDelete ? (
+        <Button kind="alert" type="button" onClick={onDelete}>
+          Delete
         </Button>
-        <Button>Save</Button>
+      ) : (
+        <div />
+      )}
+      <HStack alignItems="center" gap={8}>
+        {onCancel && (
+          <Button type="button" onClick={onCancel} kind="secondary">
+            Cancel
+          </Button>
+        )}
+        <Button isDisabled={isDisabled}>Save</Button>
       </HStack>
     </HStack>
   )

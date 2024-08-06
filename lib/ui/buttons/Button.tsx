@@ -12,7 +12,7 @@ import { Spinner } from '../loaders/Spinner'
 import { Tooltip } from '../tooltips/Tooltip'
 import { getColor } from '../theme/getters'
 import { getHoverVariant } from '../theme/getHoverVariant'
-import mergeRefs from '../utils/mergeRefs'
+import { MergeRefs } from '../base/MergeRefs'
 
 export const buttonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 
@@ -220,15 +220,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       return (
         <Tooltip
           content={isDisabled}
-          renderOpener={({ ref: tooltipRef, ...rest }) => (
-            <Container
-              ref={mergeRefs(ref, tooltipRef)}
-              {...rest}
-              {...containerProps}
-            >
-              {content}
-            </Container>
-          )}
+          renderOpener={({ ref: tooltipRef, ...rest }) => {
+            console.log('button')
+            return (
+              <MergeRefs
+                refs={[ref, tooltipRef]}
+                render={(ref) => (
+                  <Container ref={ref} {...rest} {...containerProps}>
+                    {content}
+                  </Container>
+                )}
+              />
+            )
+          }}
         />
       )
     }

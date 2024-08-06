@@ -5,6 +5,7 @@ import { ComponentProps, forwardRef } from 'react'
 import { TitledComponentProps } from '@lib/ui/props'
 import { horizontalPadding } from '../css/horizontalPadding'
 import { Text } from '../text'
+import { VStack } from '../layout/Stack'
 
 const Container = styled(FloatingOptionsContainer)`
   background: ${getColor('foregroundExtra')};
@@ -25,7 +26,14 @@ const Header = styled(Text)`
   color: ${getColor('textSupporting')};
 `
 
-type TitledFloatingOptionsContainerProps = ComponentProps<typeof Container> &
+const Content = styled(VStack)`
+  overflow-y: auto;
+`
+
+type TitledFloatingOptionsContainerProps = Omit<
+  ComponentProps<typeof Container>,
+  'title'
+> &
   TitledComponentProps
 
 export const TitledFloatingOptionsContainer = forwardRef<
@@ -33,7 +41,7 @@ export const TitledFloatingOptionsContainer = forwardRef<
   TitledFloatingOptionsContainerProps
 >(({ title, children, ...rest }, ref) => (
   <Container ref={ref} {...rest}>
-    <Header>{title}</Header>
-    {children}
+    <Header as="div">{title}</Header>
+    <Content>{children}</Content>
   </Container>
 ))
