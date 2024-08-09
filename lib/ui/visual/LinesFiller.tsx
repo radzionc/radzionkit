@@ -8,6 +8,7 @@ import { ElementSize } from '../hooks/useElementSize'
 import { calculateRightAngleTriangleSide } from '@lib/utils/math/calculateRightAngleTriangleSide'
 import { calculateHypotenuse } from '@lib/utils/math/calculateHypotenuse'
 import { degreesToRadians } from '@lib/utils/degreesToRadians'
+import { UIComponentProps } from '../props'
 
 const Wrapper = styled(TakeWholeSpaceAbsolutely)`
   overflow: hidden;
@@ -19,7 +20,7 @@ const Container = styled(HStack)`
   align-items: center;
 `
 
-type LinesFillerProps = {
+type LinesFillerProps = UIComponentProps & {
   rotation?: number
   density?: number
   lineWidth?: number
@@ -29,6 +30,7 @@ export const LinesFiller = ({
   rotation = 45,
   lineWidth = 2,
   density = 0.32,
+  ...rest
 }: LinesFillerProps) => {
   return (
     <ElementSizeAware
@@ -65,7 +67,11 @@ export const LinesFiller = ({
             </Container>
           )
         }
-        return <Wrapper ref={setElement}>{size && fill(size)}</Wrapper>
+        return (
+          <Wrapper {...rest} ref={setElement}>
+            {size && fill(size)}
+          </Wrapper>
+        )
       }}
     />
   )

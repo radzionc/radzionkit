@@ -3,6 +3,7 @@ import {
   MouseEventHandler,
   ReactNode,
   useCallback,
+  useMemo,
   useState,
 } from 'react'
 import { Point } from '../entities/Point'
@@ -19,6 +20,7 @@ interface ContainerProps {
 
 interface ChangeParams {
   position: Point | null
+  clientPosition: Point | null
 }
 
 interface RenderParams extends ChangeParams {
@@ -34,34 +36,31 @@ export const HoverTracker = ({ render, onChange }: HoverTrackerProps) => {
   const [container, setContainer] = useState<HTMLElement | null>(null)
   const box = useBoundingBox(container)
 
-  const [position, setPosition] = useState<Point | null>(null)
+  const [clientPosition, setClientPosition] = useState<Point | null>(null)
 
-  const handleMove = useCallback(
-    ({ x, y }: Point) => {
-      if (!box) return
+  const position = useMemo(() => {
+    if (!clientPosition) return null
 
-      const { left, top, width, height } = box
+    if (!box) return null
 
-      setPosition({
-        x: enforceRange((x - left) / width, 0, 1),
-        y: enforceRange((y - top) / height, 0, 1),
-      })
-    },
-    [box],
-  )
+    const { left, top, width, height } = box
+    const { x, y } = clientPosition
 
-  const handleMouse = useCallback(
-    (event: MouseEvent) => {
-      handleMove({ x: event.clientX, y: event.clientY })
-    },
-    [handleMove],
-  )
+    return {
+      x: enforceRange((x - left) / width, 0, 1),
+      y: enforceRange((y - top) / height, 0, 1),
+    }
+  }, [box, clientPosition])
+
+  const handleMouse = useCallback((event: MouseEvent) => {
+    setClientPosition({ x: event.clientX, y: event.clientY })
+  }, [])
 
   useIsomorphicLayoutEffect(() => {
     if (onChange) {
-      onChange({ position })
+      onChange({ position, clientPosition })
     }
-  }, [onChange, position])
+  }, [onChange, position, clientPosition])
 
   return (
     <>
@@ -71,12 +70,13 @@ export const HoverTracker = ({ render, onChange }: HoverTrackerProps) => {
           onMouseEnter: handleMouse,
           onMouseLeave: position
             ? () => {
-                setPosition(null)
+                setClientPosition(null)
               }
             : undefined,
           onMouseMove: position ? handleMouse : undefined,
         },
         position: position,
+        clientPosition,
       })}
     </>
   )

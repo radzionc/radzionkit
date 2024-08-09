@@ -9,7 +9,7 @@ import { JobExperience } from '@lib/resume-ui/components/JobExperience'
 import { DownloadResume } from '@lib/resume-ui/components/DownloadResume'
 import { ResumeSection } from '@lib/resume-ui/components/ResumeSection'
 import { TflIcon } from './TflIcon'
-import { formatDistance } from 'date-fns'
+import { differenceInYears } from 'date-fns'
 import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
 import { ShyTextButton } from '@lib/ui/buttons/ShyTextButton'
 import { IogIcon } from './IogIcon'
@@ -49,7 +49,7 @@ export const RadzionResume = () => {
               Radzion
             </Text>
             <Tag $color={colors.getLabelColor(5)}>
-              {formatDistance(now, firstJobStartedAt)} of experience
+              {differenceInYears(now, firstJobStartedAt)} years of experience
             </Tag>
             <Tag $color={colors.getLabelColor(10)}>CS Degree</Tag>
           </HStack>
@@ -173,7 +173,7 @@ export const RadzionResume = () => {
             name="Increaser"
             url="https://increaser.org"
             description="A productivity toolkit for remote workers"
-            achievement="$3K total revenue"
+            achievement="$67 MRR"
             responsibilities={[
               'Full-stack development within a TypeScript monorepo',
               'Designing a B2C SaaS product',
@@ -186,7 +186,7 @@ export const RadzionResume = () => {
               description="Speedy setup for robust full-stack monorepo projects"
               achievement={
                 <HStack alignItems="center" gap={8}>
-                  <Text>150+</Text>
+                  <Text>166</Text>
                   <IconWrapper>
                     <StarIcon />
                   </IconWrapper>
@@ -197,7 +197,7 @@ export const RadzionResume = () => {
               name="Radzion Dev"
               url="https://www.youtube.com/c/radzion"
               description="A YouTube channel about web development"
-              achievement="1.4k+ subscribers"
+              achievement="1.5k subscribers"
             />
           </VStack>
         </UniformColumnGrid>

@@ -24,7 +24,7 @@ export const toWeek = (timestamp: number): Week => {
 
 export const fromWeek = ({ year, week }: Week): number => {
   let date = new Date(year, 0, 1)
-  date = setWeek(date, week)
+  date = setWeek(date, week + 1)
   date = setYear(date, year)
 
   return getWeekStartedAt(date.getTime())

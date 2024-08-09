@@ -23,6 +23,7 @@ const Container = styled.label<ComponentWithActiveState>`
   ${centerContent};
   font-weight: 500;
   font-size: 14px;
+  position: relative;
 
   padding: 0 20px;
   height: 40px;

@@ -4,6 +4,7 @@ import { durationUnitName, DurationUnit, durationUnits } from './DurationUnit'
 import { match } from '../match'
 import { padWithZero } from '../padWithZero'
 import { isEmpty } from '../array/isEmpty'
+import { getLastItem } from '../array/getLastItem'
 
 type FormatDurationKind = 'short' | 'long' | 'digitalClock'
 
@@ -36,12 +37,25 @@ export const formatDuration = (
   const result: string[] = []
   units.forEach((unit, index) => {
     const convertedValue = convertDuration(duration, durationUnit, unit)
+
     const isLastUnit = index === units.length - 1
 
-    const wholeValue = isLastUnit
+    let wholeValue = isLastUnit
       ? Math.round(convertedValue)
       : Math.floor(convertedValue)
+
     duration -= convertDuration(wholeValue, unit, durationUnit)
+
+    const isBeforeLastUnit = index === units.length - 2
+    if (
+      isBeforeLastUnit &&
+      Math.round(
+        convertDuration(duration, durationUnit, getLastItem(units)),
+      ) === convertDuration(1, unit, getLastItem(units))
+    ) {
+      wholeValue += 1
+      duration = 0
+    }
 
     if (wholeValue === 0) {
       if (kind === 'digitalClock') {
