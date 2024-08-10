@@ -1,7 +1,6 @@
-type FilterFnInput<T> = {
-  key: keyof T
-  value: T
-}
+import { Entry } from '../entities/Entry'
+
+type FilterFnInput<T> = Entry<keyof T, T>
 
 export const recordFilter = <T>(
   record: Record<string, T>,

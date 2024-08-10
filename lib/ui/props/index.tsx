@@ -88,3 +88,7 @@ export type ComponentWithSelectedState = {
 export type ComponentWithDisabledState = {
   isDisabled?: boolean | string
 }
+
+export type ComponentWithIndexProps = {
+  index: number
+}
