@@ -7,7 +7,7 @@ export default makeDemoPage(() => {
   return (
     <DemoPage youtubeVideoId="35XAA5Hgag0" title="Hoverable">
       <Hoverable>
-        <Text weight="bold" color="primary">
+        <Text weight="600" color="primary">
           Hover me!
         </Text>
       </Hoverable>

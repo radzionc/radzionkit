@@ -15,7 +15,7 @@ export default makeDemoPage(() => {
       <UniformColumnGrid fullWidth minChildrenWidth={300} gap={40}>
         {range(50).map((index) => (
           <VStack alignItems="center" key={index} gap={8}>
-            <Text color="supporting" weight="bold" size={20}>
+            <Text color="supporting" weight="600" size={20}>
               Image #{index + 1}
             </Text>
             <IntersectionAware<HTMLDivElement>

@@ -68,7 +68,7 @@ export function TreeFilter<T>({
             size={8}
             background={isSelected ? colors.primary : colors.transparent}
           />
-          <Text weight="bold">{renderName(node.value)}</Text>
+          <Text weight="600">{renderName(node.value)}</Text>
         </Item>
         <NonEmptyOnly
           array={node.children}

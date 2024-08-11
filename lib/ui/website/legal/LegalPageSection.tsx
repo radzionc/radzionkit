@@ -9,11 +9,9 @@ export const LegalPageSection = ({
   children,
 }: LegalPageSectionProps) => (
   <VStack gap={12}>
-    <Text color="contrast" weight="bold" as="h2">
+    <Text color="contrast" weight="600" as="h2">
       {title}
     </Text>
-    <Text as="div" height="large">
-      {children}
-    </Text>
+    <Text height="large">{children}</Text>
   </VStack>
 )

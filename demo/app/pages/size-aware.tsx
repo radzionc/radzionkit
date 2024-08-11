@@ -19,7 +19,7 @@ export default makeDemoPage(() => {
           <Container ref={setElement}>
             <Center>
               {size && (
-                <Text weight="bold" size={24}>
+                <Text weight="600" size={24}>
                   {Math.round(size.width)} x {Math.round(size.height)}
                 </Text>
               )}

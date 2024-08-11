@@ -32,7 +32,7 @@ export const OnboardingSection = ({
   footer,
 }: OnboardingSectionProps) => (
   <Container gap={28}>
-    <Text as="div" size={20} color="contrast" weight="bold">
+    <Text as="div" size={20} color="contrast" weight="600">
       {title}
     </Text>
     <Content>{children}</Content>

@@ -104,7 +104,7 @@ export const ImageBanner = ({
     <Container>
       <ImagePosition>{image}</ImagePosition>
       <Content>
-        <Title weight="extraBold" as="h2">
+        <Title weight="800" as="h2">
           {title}
         </Title>
       </Content>

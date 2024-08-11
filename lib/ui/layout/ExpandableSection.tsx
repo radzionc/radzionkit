@@ -9,9 +9,11 @@ import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 import { verticalPadding } from '../css/verticalPadding'
 import { IconWrapper } from '../icons/IconWrapper'
 import { Text } from '../text'
-import { ElementSizeAware } from '../base/ElementSizeAware'
 
-type ExpandableSectionProps = TitledComponentProps & ComponentWithChildrenProps
+type ExpandableSectionProps = TitledComponentProps &
+  ComponentWithChildrenProps & {
+    defaultIsOpen?: boolean
+  }
 
 const Container = styled(VStack)`
   gap: 4px;
@@ -38,48 +40,33 @@ const Header = styled(HStack)`
 `
 
 const Content = styled.div<{ isOpen: boolean }>`
-  ${transition};
   ${({ isOpen }) =>
-    isOpen
-      ? css`
-          opacity: 1;
-        `
-      : css`
-          opacity: 0;
-          overflow: hidden;
-          transform: translateY(-8px);
-          visibility: hidden;
-        `}
+    !isOpen &&
+    css`
+      opacity: 0;
+      overflow: hidden;
+      visibility: hidden;
+      height: 0;
+    `}
 `
 
 export const ExpandableSection = ({
   title,
   children,
+  defaultIsOpen = false,
 }: ExpandableSectionProps) => {
-  const [isExpanded, { toggle }] = useBoolean(false)
+  const [isExpanded, { toggle }] = useBoolean(defaultIsOpen)
   return (
     <Container>
       <Header onClick={toggle}>
-        <Text weight="semibold" color="contrast">
+        <Text as="div" weight="500" color="contrast">
           {title}
         </Text>
         <Icon isOpen={isExpanded}>
           <ChevronDownIcon />
         </Icon>
       </Header>
-      <ElementSizeAware
-        render={({ setElement, size }) => {
-          return (
-            <Content
-              style={{ height: isExpanded ? size?.height : 0 }}
-              isOpen={isExpanded}
-              aria-hidden={!isExpanded}
-            >
-              <div ref={setElement}>{children}</div>
-            </Content>
-          )
-        }}
-      />
+      <Content isOpen={isExpanded}>{children}</Content>
     </Container>
   )
 }

@@ -33,7 +33,7 @@ export const ListAddButton = ({ onClick, text }: ListAddButton) => {
           </IconContainer>
         }
       >
-        <Text size={14} weight="regular">
+        <Text size={14} weight="400">
           {text}
         </Text>
       </PrefixedItemFrame>

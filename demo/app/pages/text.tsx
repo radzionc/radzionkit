@@ -15,7 +15,7 @@ export default makeDemoPage(() => {
           front-end development work and should save time for you too.
         </Text>
 
-        <Text weight="bold">Bold text</Text>
+        <Text weight="600">Bold text</Text>
 
         <Text color="contrast">Contrast</Text>
         <Text color="contrast">Text</Text>

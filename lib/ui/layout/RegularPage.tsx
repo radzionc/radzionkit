@@ -33,7 +33,7 @@ export const RegularPage = ({ children, title, width = 'm' }: Props) => {
       <Container maxWidth={maxWidth[width]} alignItems="start">
         {title && (
           <>
-            <Text weight="bold" size={24} color="regular" as="div">
+            <Text weight="600" size={24} color="regular" as="div">
               {title}
             </Text>
             <Spacer height={32} />

@@ -44,6 +44,8 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   body {
     background: ${getColor('background')};
     color: ${getColor('text')};
+    font-size: 14px;
+    font-weight: 500;
     font-family: ${({ fontFamily }) => fontFamily}, sans-serif;
   }
 

@@ -52,7 +52,7 @@ export const BottomSlideOver = ({
       <Cover onClick={onClose}>
         <Container onClick={stopPropagation()}>
           <HStack gap={8} alignItems="center" justifyContent="space-between">
-            <Text cropped as="div" weight="bold" size={24}>
+            <Text cropped as="div" weight="600" size={24}>
               {title}
             </Text>
             <Button kind="secondary" size="l" onClick={onClose} isRounded>

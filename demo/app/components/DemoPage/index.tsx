@@ -26,7 +26,7 @@ export const DemoPage = ({
     <RegularPage
       title={
         <HStack alignItems="center" gap={4}>
-          <Text as="h1" weight="bold" size={24} color="regular">
+          <Text as="h1" weight="600" size={24} color="regular">
             {title}
           </Text>
           <SourceCodeLink

@@ -35,7 +35,7 @@ export const ShyTextButton = ({ text, ...rest }: Props) => {
       <Text
         nowrap
         style={{ transition: 'none', position: 'relative' }}
-        weight="semibold"
+        weight="500"
       >
         {text}
         <Underline />

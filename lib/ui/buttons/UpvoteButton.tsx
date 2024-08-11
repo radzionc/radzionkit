@@ -48,7 +48,7 @@ export const UpvoteButton = ({
       <IconWrapper style={{ fontSize: 20 }}>
         <CaretUpIcon />
       </IconWrapper>
-      <Text size={14} weight="bold">
+      <Text size={14} weight="600">
         {upvotes}
       </Text>
     </VStack>

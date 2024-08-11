@@ -45,7 +45,7 @@ export const RadzionResume = () => {
       <HStack alignItems="start" justifyContent="space-between">
         <VStack gap={8}>
           <HStack alignItems="center" gap={8}>
-            <Text size={20} color="contrast" weight="bold">
+            <Text size={20} color="contrast" weight="600">
               Radzion
             </Text>
             <Tag $color={colors.getLabelColor(5)}>
@@ -54,7 +54,7 @@ export const RadzionResume = () => {
             <Tag $color={colors.getLabelColor(10)}>CS Degree</Tag>
           </HStack>
           <HStack>
-            <Text color="contrast" weight="semibold">
+            <Text color="contrast" weight="500">
               💪 React, TypeScript, UX/UI, Web3{' '}
               <Text as="span" color="supporting">
                 + AWS, NodeJS, DynamoDB

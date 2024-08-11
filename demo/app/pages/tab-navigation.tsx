@@ -31,7 +31,7 @@ export default makeDemoPage(() => {
           onSelect={setActiveView}
         />
 
-        <Text size={20} weight="bold">
+        <Text size={20} weight="600">
           {activeView} view
         </Text>
       </VStack>

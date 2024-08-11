@@ -24,7 +24,7 @@ export const ConfirmEmailAuthView = ({
         <>
           <Text height="large" centered size={18}>
             We emailed a magic link to <br />
-            <Text as="span" weight="bold">
+            <Text as="span" weight="600">
               {email}
             </Text>
             <br />

@@ -18,7 +18,7 @@ export const SidebarSection = ({ name, children }: Props) => {
         color="supporting"
         style={{ paddingLeft: 20 }}
         size={14}
-        weight="bold"
+        weight="600"
       >
         {name}
       </Text>

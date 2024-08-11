@@ -38,7 +38,7 @@ export const ShyWarningBlock = ({
           <TriangleAlertIcon />
         </IconContainer>
         <VStack gap={8}>
-          <Text as="div" color="contrast" size={14} weight="bold">
+          <Text as="div" color="contrast" size={14} weight="600">
             {title}
           </Text>
           <Text as="div" size={14} height="large" color="supporting">

@@ -136,7 +136,7 @@ export default makeDemoPage(() => {
               onSelect={setView}
             />
             <LabeledValue name="Previous avg">
-              <Text weight="semibold" as="div">
+              <Text weight="500" as="div">
                 {previousAvg}
               </Text>
             </LabeledValue>

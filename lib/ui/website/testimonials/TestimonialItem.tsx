@@ -33,7 +33,7 @@ export const TestimonialItem = ({ testimonial }: TestimonialItemProps) => {
             render={(props) => <Avatar alt={name} {...props} />}
           />
           <VStack gap={4}>
-            <Text color="contrast" weight="semibold">
+            <Text color="contrast" weight="500">
               {name}
             </Text>
             <Text as="div" color="supporting" size={14}>

@@ -12,7 +12,7 @@ export const Statistic = ({ title, value }: StatisticProps) => (
     <Text as="div" size={14}>
       {title}
     </Text>
-    <Text as="div" size={20} weight="bold">
+    <Text as="div" size={20} weight="600">
       {value ?? '-'}
     </Text>
   </VStack>

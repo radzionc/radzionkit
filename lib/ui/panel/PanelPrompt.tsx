@@ -17,7 +17,7 @@ export const PanelPrompt = ({
   return (
     <CallOutPanel onClick={onClick} kind="secondary">
       <VStack gap={8} alignItems="center">
-        <Text size={16} weight="bold">
+        <Text size={16} weight="600">
           {title}
         </Text>
         <Text height="large" size={14} centered>

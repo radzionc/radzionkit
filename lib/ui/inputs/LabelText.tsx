@@ -6,10 +6,11 @@ interface LabelTextProps extends ComponentProps<typeof Text> {}
 export const LabelText = ({
   as = 'div',
   children,
-  size = 14,
+  size = 13,
+  color = 'supporting',
   ...props
 }: LabelTextProps) => (
-  <Text size={size} {...props} as={as}>
+  <Text color={color} size={size} {...props} as={as}>
     {children}
   </Text>
 )

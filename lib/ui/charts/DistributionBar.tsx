@@ -67,7 +67,7 @@ export const DistributionBar = ({
                 >
                   {!size ||
                     (size.width > 20 && (
-                      <Text weight="bold" size={14}>
+                      <Text weight="600" size={14}>
                         {Math.round((value / total) * 100)}
                         <Text as="span" size={12}>
                           %

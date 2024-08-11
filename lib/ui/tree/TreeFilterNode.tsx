@@ -36,7 +36,7 @@ export const TreeFilterNode = ({
   const content = (
     <Container isSelected={isSelected} onClick={stopPropagation(onSelect)}>
       <VStack alignItems="center" gap={16}>
-        <Text weight="semibold">{name}</Text>
+        <Text weight="500">{name}</Text>
         {children}
       </VStack>
     </Container>

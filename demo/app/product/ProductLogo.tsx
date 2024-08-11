@@ -17,7 +17,7 @@ export const ProductLogo = () => {
       <IconWrapper>
         <Icon />
       </IconWrapper>
-      <Text size={16} color="contrast" weight="semibold">
+      <Text size={16} color="contrast" weight="500">
         Radzion
         <Text as="span" color="contrast">
           Kit

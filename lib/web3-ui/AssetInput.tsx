@@ -46,7 +46,7 @@ export const AssetInput = ({
           identifier={<AssetIcon name={name} src={icon} />}
           name={
             <VStack>
-              <Text size={14} weight="semibold">
+              <Text size={14} weight="500">
                 {name}
               </Text>
               <Text size={14} color="shy">

@@ -1,26 +1,23 @@
 import {
-  MouseEvent,
-  MouseEventHandler,
+  PointerEventHandler,
   ReactNode,
-  TouchEvent,
-  TouchEventHandler,
   useCallback,
-  useEffect,
+  useMemo,
   useState,
 } from 'react'
-import { useEvent } from 'react-use'
+import { useEvent, useIsomorphicLayoutEffect } from 'react-use'
 import { Point } from '../entities/Point'
 import { useBoundingBox } from '../hooks/useBoundingBox'
 import { enforceRange } from '@lib/utils/enforceRange'
 
 interface ContainerProps {
-  onMouseDown: MouseEventHandler<HTMLElement>
-  onTouchStart: TouchEventHandler<HTMLElement>
+  onPointerDown: PointerEventHandler<HTMLElement>
   ref: (node: HTMLElement | null) => void
 }
 
 interface ChangeParams {
   position: Point | null
+  clientPosition: Point | null
 }
 
 interface RenderParams extends ChangeParams {
@@ -36,62 +33,48 @@ export const PressTracker = ({ render, onChange }: PressTrackerProps) => {
   const [container, setContainer] = useState<HTMLElement | null>(null)
   const box = useBoundingBox(container)
 
-  const [position, setPosition] = useState<Point | null>(null)
+  const [clientPosition, setClientPosition] = useState<Point | null>(null)
 
-  const handleMove = useCallback(
-    ({ x, y }: Point) => {
-      if (!box) return
+  const position = useMemo(() => {
+    if (!clientPosition) return null
 
-      const { left, top, width, height } = box
+    if (!box) return null
 
-      setPosition({
-        x: enforceRange((x - left) / width, 0, 1),
-        y: enforceRange((y - top) / height, 0, 1),
-      })
-    },
-    [box],
-  )
+    const { left, top, width, height } = box
+    const { x, y } = clientPosition
 
-  const handleMouse = useCallback(
-    (event: MouseEvent) => {
-      handleMove({ x: event.clientX, y: event.clientY })
-    },
-    [handleMove],
-  )
-
-  const handleTouch = useCallback(
-    (event: TouchEvent) => {
-      const touch = event.touches[0]
-      if (touch) {
-        handleMove({ x: touch.clientX, y: touch.clientY })
-      }
-    },
-    [handleMove],
-  )
-
-  useEffect(() => {
-    if (onChange) {
-      onChange({ position })
+    return {
+      x: enforceRange((x - left) / width, 0, 1),
+      y: enforceRange((y - top) / height, 0, 1),
     }
-  }, [onChange, position])
+  }, [box, clientPosition])
+
+  const handleMove: PointerEventHandler<HTMLElement> = useCallback((event) => {
+    setClientPosition({ x: event.clientX, y: event.clientY })
+  }, [])
+
+  useIsomorphicLayoutEffect(() => {
+    if (onChange) {
+      onChange({ position, clientPosition })
+    }
+  }, [onChange, position, clientPosition])
 
   const clearPosition = useCallback(() => {
-    setPosition(null)
+    setClientPosition(null)
   }, [])
-  useEvent('mouseup', position ? clearPosition : undefined)
-  useEvent('touchend', position ? clearPosition : undefined)
-  useEvent('mousemove', position ? handleMouse : undefined)
-  useEvent('touchmove', position ? handleTouch : undefined)
+
+  useEvent('pointerup', position ? clearPosition : undefined)
+  useEvent('pointermove', position ? handleMove : undefined)
 
   return (
     <>
       {render({
         props: {
           ref: setContainer,
-          onMouseDown: handleMouse,
-          onTouchStart: handleTouch,
+          onPointerDown: handleMove,
         },
-        position: position,
+        position,
+        clientPosition,
       })}
     </>
   )

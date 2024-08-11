@@ -79,7 +79,7 @@ export const FlowNavigationItem = ({
           <CheckIcon />
         </IconWrapper>
       </CheckContainer>
-      <Text weight="semibold">{name}</Text>
+      <Text weight="500">{name}</Text>
     </Container>
   )
 }

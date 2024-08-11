@@ -8,7 +8,7 @@ export default makeDemoPage(() => {
     <DemoPage youtubeVideoId="gt-29kdEwtA" title="Tooltip">
       <Tooltip
         renderOpener={(props) => (
-          <Text {...props} weight="semibold" color="supporting">
+          <Text {...props} weight="500" color="supporting">
             Learn more about Increaser
           </Text>
         )}

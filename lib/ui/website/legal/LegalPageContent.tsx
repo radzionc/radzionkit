@@ -21,7 +21,7 @@ export const LegalPageContent = ({
   return (
     <Container>
       <VStack alignItems="center" gap={80}>
-        <Text weight="bold" color="contrast" as="h1">
+        <Text weight="600" color="contrast" as="h1">
           {title}
         </Text>
         <VStack alignItems="start" gap={40}>

@@ -96,7 +96,7 @@ export const ColumnFlowSection = ({
       <Header onClick={toggle}>
         <Title>
           <Index isActive={isCompleted}>{index}</Index>
-          <Text color="contrast" size={14} weight="semibold" as="div">
+          <Text color="contrast" size={14} weight="500" as="div">
             {title}
           </Text>
         </Title>

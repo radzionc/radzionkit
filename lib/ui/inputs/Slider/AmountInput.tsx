@@ -48,7 +48,7 @@ export const AmountInput = ({
             value={value}
             color={color}
           />
-          <Text style={{ textAlign: alignValue }} weight="bold">
+          <Text style={{ textAlign: alignValue }} weight="600">
             {formatValue(value)}
           </Text>
         </Content>

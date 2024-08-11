@@ -1,5 +1,6 @@
 import styled, { DefaultTheme, css } from 'styled-components'
 import { cropText } from '../css/cropText'
+import { toSizeUnit } from '../css/toSizeUnit'
 
 const getTextColorRecord = ({ colors }: DefaultTheme) =>
   ({
@@ -15,14 +16,6 @@ const getTextColorRecord = ({ colors }: DefaultTheme) =>
     contrast: colors.contrast,
   }) as const
 
-type TextWeight = 'regular' | 'semibold' | 'bold' | 'extraBold'
-const fontWeight: Record<TextWeight, number> = {
-  regular: 400,
-  semibold: 500,
-  bold: 600,
-  extraBold: 800,
-}
-
 type TextHeight = 'small' | 'regular' | 'large'
 const lineHeight: Record<TextHeight, number> = {
   small: 1,
@@ -34,21 +27,14 @@ export type TextColor = keyof ReturnType<typeof getTextColorRecord>
 
 export interface TextProps {
   color?: TextColor
-  weight?: TextWeight
+  // weight?: React.CSSProperties['fontWeight']
+  weight?: '400' | '500' | '600' | '800'
   size?: number
   height?: TextHeight
   centered?: boolean
   cropped?: boolean
   nowrap?: boolean
   as?: React.ElementType
-}
-
-export const oneRemInPx = 16
-
-const getFontSize = (sizeInPx: number) => {
-  const sizeInRem = sizeInPx / oneRemInPx
-
-  return `${sizeInRem}rem`
 }
 
 export const Text = styled.p<TextProps>`
@@ -64,7 +50,7 @@ export const Text = styled.p<TextProps>`
   ${({ weight }) =>
     weight &&
     css`
-      font-weight: ${fontWeight[weight]};
+      font-weight: ${weight};
     `}
   ${({ height }) =>
     height &&
@@ -74,7 +60,7 @@ export const Text = styled.p<TextProps>`
   ${({ size }) =>
     size &&
     css`
-      font-size: ${getFontSize(size)};
+      font-size: ${toSizeUnit(size)};
     `}
   ${({ centered }) =>
     centered &&

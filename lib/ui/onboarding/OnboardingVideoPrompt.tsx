@@ -49,7 +49,7 @@ export const OnboardingVideoPrompt = ({
           <IconWrapper style={{ fontSize: 24 }}>
             <YouTubeIcon />
           </IconWrapper>
-          <Text weight="bold">Watch a video to learn more</Text>
+          <Text weight="600">Watch a video to learn more</Text>
         </HStack>
         {isOpen && (
           <CloseButton kind="secondary" onClick={() => setIsOpen(false)} />

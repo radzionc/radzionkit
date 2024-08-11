@@ -13,7 +13,7 @@ export default makeDemoPage(() => {
         width={400}
         header={
           <VStack alignItems="start" gap={4}>
-            <Text size={18} weight="bold">
+            <Text size={18} weight="600">
               Increaser
             </Text>
             <Text>Stop overworking</Text>

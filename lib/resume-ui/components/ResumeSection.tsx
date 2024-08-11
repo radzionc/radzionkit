@@ -14,7 +14,7 @@ export const ResumeSection = ({
   ...rest
 }: ResumeSectionProps) => (
   <VStack gap={20} {...rest}>
-    <Text as="div" color="primary" weight="bold">
+    <Text as="div" color="primary" weight="600">
       {title}
     </Text>
     {children}

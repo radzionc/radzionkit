@@ -56,10 +56,10 @@ export default makeDemoPage(() => {
                     dataPointsNumber={data.length}
                   >
                     <VStack>
-                      <Text color="contrast" weight="semibold">
+                      <Text color="contrast" weight="500">
                         ${formatAmount(price)}
                       </Text>
-                      <Text color="supporting" size={14} weight="semibold">
+                      <Text color="supporting" size={14} weight="500">
                         {format(
                           convertDuration(timestamp, 's', 'ms'),
                           'EEE d, MMM yyyy',

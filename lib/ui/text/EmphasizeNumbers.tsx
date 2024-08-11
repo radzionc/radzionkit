@@ -35,7 +35,7 @@ export const EmphasizeNumbers = ({
         }
 
         return (
-          <Text weight="regular" style={style} as="span" key={index}>
+          <Text style={style} as="span" key={index}>
             {part}
           </Text>
         )

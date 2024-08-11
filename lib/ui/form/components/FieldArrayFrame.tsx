@@ -42,7 +42,7 @@ export function FieldArrayFrame<T>({
 }: FieldArrayFrameProps<T>) {
   return (
     <VStack gap={16}>
-      <Text weight="semibold" color="contrast">
+      <Text weight="500" color="contrast">
         {title}
       </Text>
       <SeparatedByLine gap={16}>

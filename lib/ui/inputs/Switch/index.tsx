@@ -106,7 +106,7 @@ export const Switch = ({
       {label && (
         <Text
           size={match(size, { m: () => 16, s: () => 14 })}
-          weight="semibold"
+          weight="500"
           as="div"
         >
           {label}

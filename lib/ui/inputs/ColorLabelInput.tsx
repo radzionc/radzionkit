@@ -12,10 +12,10 @@ import { centerContent } from '../css/centerContent'
 import { sameDimensions } from '../css/sameDimensions'
 import { transition } from '../css/transition'
 import { CheckIcon } from '../icons/CheckIcon'
-import { ShySection } from '../layout/ShySection'
 import { VStack } from '../layout/Stack'
 import { Menu } from '../menu'
 import { InputProps, StyledComponentWithColorProps } from '../props'
+import { LabelText } from './LabelText'
 
 interface ColorLabelInputProps extends InputProps<number> {
   usedValues?: Set<number>
@@ -112,8 +112,14 @@ export const ColorLabelInput = ({
 
         return (
           <VStack gap={20}>
-            <ShySection title="Free colors">{renderColors(free)}</ShySection>
-            <ShySection title="Used colors">{renderColors(used)}</ShySection>
+            <VStack gap={8}>
+              <LabelText>Free colors</LabelText>
+              {renderColors(free)}
+            </VStack>
+            <VStack gap={8}>
+              <LabelText>Used colors</LabelText>
+              {renderColors(used)}
+            </VStack>
           </VStack>
         )
       }}

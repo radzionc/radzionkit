@@ -101,7 +101,7 @@ export const InteractivePromotion = ({
                 </svg>
               </Connector>
               <VStack alignItems="start" gap={16}>
-                <Text weight="bold" color="regular">
+                <Text weight="600" color="regular">
                   {text}
                 </Text>
                 <HStack gap={8} justifyContent="start">

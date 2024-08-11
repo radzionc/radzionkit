@@ -33,7 +33,7 @@ export const HabitItem = ({
     <Container gap={8}>
       <HStack alignItems="start" gap={8} justifyContent="space-between">
         <VStack gap={4}>
-          <Text weight="bold">
+          <Text weight="600">
             <Text color="contrast" style={{ marginRight: 8 }} as="span">
               {emoji}
             </Text>

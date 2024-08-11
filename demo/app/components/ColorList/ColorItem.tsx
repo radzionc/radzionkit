@@ -19,7 +19,7 @@ export const ColorItem = ({ color, name }: Props) => {
   return (
     <HStack alignItems="center" gap={8}>
       <Color style={{ background: color.toCssValue() }} />
-      <Text color="supporting" weight="bold">
+      <Text color="supporting" weight="600">
         {name}
       </Text>
     </HStack>

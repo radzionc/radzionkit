@@ -74,7 +74,7 @@ export default makeDemoPage(() => {
                   max={hslaParamMaxValue[key]}
                   step={colorParameterStep[key]}
                 />
-                <Text weight="bold">
+                <Text weight="600">
                   {formatColorParameter[key](value[key])}
                 </Text>
               </InputContainer>
@@ -83,7 +83,7 @@ export default makeDemoPage(() => {
 
           <CopyText
             style={{ textAlign: 'end' }}
-            weight="bold"
+            weight="600"
             content={value.toCssValue()}
           >
             {value.toCssValue()}

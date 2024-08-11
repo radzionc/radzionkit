@@ -43,13 +43,13 @@ export const PersonalProject = ({
     <VStack alignItems="start" gap={4}>
       <HStack alignItems="center" gap={16}>
         <ExternalLink to={url}>
-          <Title color="contrast" weight="bold">
+          <Title color="contrast" weight="600">
             {name}
           </Title>{' '}
         </ExternalLink>
         {achievement && (
           <Badge>
-            <Text as="div" color="supporting" weight="semibold" size={14}>
+            <Text as="div" color="supporting" weight="500" size={14}>
               {achievement}
             </Text>
           </Badge>

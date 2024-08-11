@@ -31,7 +31,7 @@ export const LanguageSelector = () => {
               <FlagWrapper>
                 <CountryFlag code={languagePrimaryCountry[language]} />
               </FlagWrapper>
-              <Text size={12} weight="semibold" height="small">
+              <Text size={12} weight="500" height="small">
                 {language.toUpperCase()}
               </Text>
             </HStack>

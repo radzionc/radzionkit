@@ -26,14 +26,14 @@ export const SubscriptionPrice = ({
   return (
     <VStack alignItems="center" gap={4}>
       <HStack gap={4} alignItems="center">
-        <Text size={18} as="span" color="regular">
+        <Text size={18} as="span" color="contrast">
           {currency}
         </Text>
         <HStackSeparatedBy
           gap={4}
           separator={<Text color="shy">{slashSeparator}</Text>}
         >
-          <Text color="regular" size={32} weight="bold" as="span">
+          <Text color="contrast" size={32} weight="600" as="span">
             {(price[billingCycle] / monthsInPeriod[billingCycle]).toFixed(2)}
           </Text>
           <Text size={18} as="span" color="supporting">

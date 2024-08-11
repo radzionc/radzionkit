@@ -83,7 +83,7 @@ export const CuratedHabits = () => {
         />
       </FilterWrapper>
       <Content>
-        <Text weight="bold" size={24}>
+        <Text weight="600" size={24}>
           {capitalizeFirstLetter(node.value.id)} habits{' '}
           <Text as="span" color="supporting">
             ({habits.length})

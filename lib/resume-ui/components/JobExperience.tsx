@@ -33,7 +33,7 @@ export const JobExperience = ({
   return (
     <VStack gap={8}>
       <HStack alignItems="center" gap={8}>
-        <Text color="contrast" weight="semibold" size={16}>
+        <Text color="contrast" weight="500" size={16}>
           {position}{' '}
           <Text as="span" color="shy">
             at
@@ -44,7 +44,7 @@ export const JobExperience = ({
       </HStack>
 
       <HStack alignItems="center" gap={8}>
-        <Text weight="semibold" size={14}>
+        <Text weight="500" size={14}>
           {capitalizeFirstLetter(
             formatDistance(finishedAt ?? new Date(), startedAt),
           )}

@@ -40,7 +40,7 @@ export const PopoverMenu = ({
       renderContent={({ onClose }: RenderContentParams) => (
         <SeparatedByLine gap={12}>
           <Header>
-            <Text size={14} weight="semibold" color="supporting" cropped>
+            <Text size={14} weight="500" color="supporting" cropped>
               {title}
             </Text>
             <CloseButton onClick={onClose} />
