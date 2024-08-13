@@ -1,12 +1,16 @@
 import { ReactNode } from 'react'
 import { TitledComponentProps } from '../props'
 import { VStack } from '../layout/Stack'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Text } from '../text'
+import { match } from '@lib/utils/match'
 
-type WebsiteSectionHeaderProps = TitledComponentProps & {
+type SectionHeaderAlign = 'center' | 'start'
+
+export type WebsiteSectionHeaderProps = TitledComponentProps & {
   subtitle?: ReactNode
   titleAs?: React.ElementType
+  align?: SectionHeaderAlign
 }
 
 const Title = styled(Text)`
@@ -16,10 +20,18 @@ const Title = styled(Text)`
   }
 `
 
-const Container = styled(VStack)`
+const Container = styled(VStack)<{ align: SectionHeaderAlign }>`
   gap: 8px;
-  align-items: center;
-  text-align: center;
+  ${({ align }) =>
+    match(align, {
+      center: () => css`
+        align-items: center;
+        text-align: center;
+      `,
+      start: () => css`
+        align-items: start;
+      `,
+    })}
   line-height: 1.5;
   max-width: 600px;
 `
@@ -28,8 +40,9 @@ export const WebsiteSectionHeader = ({
   title,
   subtitle,
   titleAs = 'h2',
+  align = 'center',
 }: WebsiteSectionHeaderProps) => (
-  <Container>
+  <Container align={align}>
     <Title color="contrast" as={titleAs}>
       {title}
     </Title>
