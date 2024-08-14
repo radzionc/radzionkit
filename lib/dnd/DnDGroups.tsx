@@ -18,6 +18,7 @@ type RenderGroupParams<K> = {
   groupId: K
   content: ReactNode
   containerProps?: Record<string, any>
+  isDraggingOver: boolean
 }
 
 type RenderItemParams<I> = {
@@ -90,11 +91,13 @@ export function DnDGroups<K extends string, I>({
 
         return (
           <Droppable key={groupId} droppableId={groupId}>
-            {(provided) => {
+            {(provided, snapshot) => {
+              const { isDraggingOver } = snapshot
               return (
                 <>
                   {renderGroup({
                     groupId,
+                    isDraggingOver,
                     containerProps: {
                       ...provided.droppableProps,
                       ref: provided.innerRef,
