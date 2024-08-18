@@ -1,13 +1,11 @@
 import { Query } from '../Query'
 import { ReactNode } from 'react'
-import { useOnQueryFirstSuccess } from '../hooks/useOnQueryFirstSuccess'
 
 export type QueryDependantProps<T, E = unknown> = {
   query: Query<T, E>
   error: (error: E) => ReactNode
   pending: () => ReactNode
   success: (data: T) => ReactNode
-  onFirstSuccess?: (data: T) => void
 }
 
 export function QueryDependant<T, E = unknown>({
@@ -15,10 +13,7 @@ export function QueryDependant<T, E = unknown>({
   error,
   pending,
   success,
-  onFirstSuccess,
 }: QueryDependantProps<T, E>) {
-  useOnQueryFirstSuccess(query, onFirstSuccess)
-
   if (query.data !== undefined) {
     return <>{success(query.data)}</>
   }

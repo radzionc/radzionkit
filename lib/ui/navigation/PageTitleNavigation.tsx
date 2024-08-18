@@ -7,7 +7,7 @@ import { InputProps } from '../props'
 
 const ViewOption = styled(UnstyledButton)<{ isSelected: boolean }>`
   color: ${({ isSelected, theme }) =>
-    (isSelected ? theme.colors.text : theme.colors.textShy).toCssValue()};
+    (isSelected ? theme.colors.contrast : theme.colors.textShy).toCssValue()};
 
   ${transition}
 

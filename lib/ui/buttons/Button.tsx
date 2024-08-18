@@ -221,7 +221,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         <Tooltip
           content={isDisabled}
           renderOpener={({ ref: tooltipRef, ...rest }) => {
-            console.log('button')
             return (
               <MergeRefs
                 refs={[ref, tooltipRef]}

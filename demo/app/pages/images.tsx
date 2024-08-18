@@ -6,8 +6,8 @@ import { IntersectionAware } from '@lib/ui/base/IntersectionAware'
 import { ImageHolder } from '@lib/ui/images/ImageHolder'
 import { SafeImage } from '@lib/ui/images/SafeImage'
 import { CoverImage } from '@lib/ui/images/CoverImage'
-import { UniformColumnGrid } from '@lib/ui/layout/UniformColumnGrid'
 import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
+import { UniformColumnGrid } from '@lib/ui/css/uniformColumnGrid'
 
 export default makeDemoPage(() => {
   return (

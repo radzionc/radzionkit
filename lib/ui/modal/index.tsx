@@ -12,6 +12,7 @@ import { ModalContent } from './ModalContent'
 import { ModalCloseButton } from './ModalCloseButton'
 import { stopPropagation } from '../utils/stopPropagation'
 import { ModalSubTitleText } from './ModalSubTitleText'
+import { modalConfig } from './config'
 
 export type ModalProps = TitledComponentProps &
   ComponentWithChildrenProps & {
@@ -21,8 +22,6 @@ export type ModalProps = TitledComponentProps &
     footer?: ReactNode
     width?: number
   }
-
-const minHorizontalFreeSpaceForMist = 120
 
 export const Modal = ({
   title,
@@ -34,7 +33,7 @@ export const Modal = ({
   subTitle,
 }: ModalProps) => {
   const isFullScreen = useIsScreenWidthLessThan(
-    width + minHorizontalFreeSpaceForMist,
+    width + modalConfig.minHorizontalFreeSpaceForMist,
   )
 
   useKey('Escape', onClose)

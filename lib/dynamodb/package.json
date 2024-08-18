@@ -12,6 +12,6 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/uuid": "^9"
+    "@types/uuid": "^9.0.2"
   }
 }

@@ -26,6 +26,7 @@ const Container = styled(HStack)`
 
 const Button = styled(UnstyledButton)`
   height: 100%;
+  min-width: 32px;
   aspect-ratio: 1/1;
   ${borderRadius.s}
   ${transition};

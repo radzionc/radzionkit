@@ -4,7 +4,7 @@ import { GlobalStyle } from '@lib/ui/css/GlobalStyle'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Inter } from 'next/font/google'
 import { ThemePreference } from '@lib/ui/theme/ThemePreference'
-import { ThemeProvider } from '@lib/ui/theme/ThemeProvider'
+import { DarkLightThemeProvider } from '@lib/ui/theme/DarkLightThemeProvider'
 import { Page } from '@lib/next-ui/Page'
 import {
   usePersistentState,
@@ -37,10 +37,10 @@ function MyApp({ Component, pageProps }: MyAppProps) {
     <AnalyticsProvider>
       <PageVisitTracker />
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider value={theme} onChange={setTheme}>
+        <DarkLightThemeProvider value={theme} onChange={setTheme}>
           <GlobalStyle fontFamily={inter.style.fontFamily} />
           {component}
-        </ThemeProvider>
+        </DarkLightThemeProvider>
       </QueryClientProvider>
     </AnalyticsProvider>
   )

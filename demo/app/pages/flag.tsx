@@ -9,8 +9,8 @@ import { Text } from '@lib/ui/text'
 import { CountryFlag } from '@lib/ui/countries/flags/CountryFlag'
 import { CountryFlagEmoji } from '@lib/ui/countries/CountryFlagEmoji'
 import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
-import { UniformColumnGrid } from '@lib/ui/layout/UniformColumnGrid'
 import { IconWrapper } from '@lib/ui/icons/IconWrapper'
+import { UniformColumnGrid } from '@lib/ui/css/uniformColumnGrid'
 
 const views = ['svg', 'emoji'] as const
 type View = (typeof views)[number]

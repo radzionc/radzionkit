@@ -1,13 +1,7 @@
-export const toPercents = (value: number, decimals?: number) => {
-  const percents = value * 100
+type Format = 'round'
 
-  if (decimals === undefined) {
-    return `${percents}%`
-  }
+export const toPercents = (value: number, format?: Format) => {
+  const number = value * 100
 
-  if (decimals === 0) {
-    return `${Math.round(percents)}%`
-  }
-
-  return `${percents.toFixed(decimals)}%`
+  return `${format === 'round' ? Math.round(number) : number}%`
 }

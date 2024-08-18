@@ -8,8 +8,8 @@ import { Text } from '@lib/ui/text'
 import { Panel } from '@lib/ui/panel/Panel'
 import { SeparatedByLine } from '@lib/ui/layout/SeparatedByLine'
 import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
-import { UniformColumnGrid } from '@lib/ui/layout/UniformColumnGrid'
 import { CopyText } from '@lib/ui/text/CopyText'
+import { UniformColumnGrid } from '@lib/ui/css/uniformColumnGrid'
 
 const colorParameterName: Record<HSLAParameter, string> = {
   h: 'Hue',

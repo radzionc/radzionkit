@@ -5,7 +5,7 @@ export const order = <T>(
   getValue: (item: T) => number,
   order: Order,
 ) => {
-  return array.sort((a, b) => {
+  return [...array].sort((a, b) => {
     if (order === 'asc') {
       return getValue(a) - getValue(b)
     } else {

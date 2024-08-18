@@ -3,14 +3,14 @@ import { Text } from '../../text'
 import { Button } from '../../buttons/Button'
 import { IconButton } from '../../buttons/IconButton'
 import { TrashIcon } from '../../icons/TrashIcon'
-import { VStack } from '../../layout/Stack'
 import { InputContainer } from '../../inputs/InputContainer'
 import { LabelText } from '../../inputs/LabelText'
 import { textInputHeight } from '../../css/textInput'
 import { SeparatedByLine } from '../../layout/SeparatedByLine'
+import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+import { toSizeUnit } from '../../css/toSizeUnit'
 
 interface FieldArrayFrameProps<T> {
-  title: string
   error?: string
   onAppend: () => void
   onRemove: (index: number) => void
@@ -27,12 +27,11 @@ const Content = styled.div`
 `
 
 const DeleteButton = styled(IconButton)`
-  height: ${textInputHeight};
+  height: ${toSizeUnit(textInputHeight)};
   width: 100%;
 `
 
 export function FieldArrayFrame<T>({
-  title,
   onAppend,
   onRemove,
   error,
@@ -41,31 +40,26 @@ export function FieldArrayFrame<T>({
   entityName,
 }: FieldArrayFrameProps<T>) {
   return (
-    <VStack gap={16}>
-      <Text weight="500" color="contrast">
-        {title}
-      </Text>
-      <SeparatedByLine gap={16}>
-        {fields.map((field, index) => {
-          return (
-            <Content key={index}>
-              <InputContainer as="div">
-                <LabelText>
-                  {entityName} #{index + 1}
-                </LabelText>
-                <DeleteButton
-                  title="Delete"
-                  kind="alert"
-                  type="button"
-                  onClick={() => onRemove(index)}
-                  icon={<TrashIcon />}
-                />
-              </InputContainer>
-              {renderField(field, index)}
-            </Content>
-          )
-        })}
-      </SeparatedByLine>
+    <SeparatedByLine gap={16}>
+      {fields.map((field, index) => {
+        return (
+          <Content key={index}>
+            <InputContainer as="div">
+              <LabelText>
+                {capitalizeFirstLetter(entityName)} #{index + 1}
+              </LabelText>
+              <DeleteButton
+                title="Delete"
+                kind="alert"
+                type="button"
+                onClick={() => onRemove(index)}
+                icon={<TrashIcon />}
+              />
+            </InputContainer>
+            {renderField(field, index)}
+          </Content>
+        )
+      })}
       <Content>
         <Button
           style={{ alignSelf: 'start' }}
@@ -73,7 +67,7 @@ export function FieldArrayFrame<T>({
           type="button"
           onClick={onAppend}
         >
-          Add
+          Add {entityName}
         </Button>
         {error && (
           <Text style={{ alignSelf: 'center' }} size={14} color="alert">
@@ -81,6 +75,6 @@ export function FieldArrayFrame<T>({
           </Text>
         )}
       </Content>
-    </VStack>
+    </SeparatedByLine>
   )
 }

@@ -1,4 +1,4 @@
-import { HStack, VStack } from '@lib/ui/layout/Stack'
+import { VStack } from '@lib/ui/layout/Stack'
 import { ComponentWithChildrenProps } from '../props'
 import { ReactNode } from 'react'
 import { ElementSizeAware } from '../base/ElementSizeAware'
@@ -11,21 +11,14 @@ type ActionPromptProps = ComponentWithChildrenProps & {
 export const ActionPrompt = ({ children, action }: ActionPromptProps) => (
   <ShyInfoBlock>
     <ElementSizeAware
-      render={({ setElement, size }) => (
+      render={({ setElement }) => (
         <VStack fullWidth ref={setElement}>
-          {size && size.width < 400 ? (
-            <VStack fullWidth gap={8}>
-              {children}
-              <VStack fullWidth alignItems="center">
-                {action}
-              </VStack>
-            </VStack>
-          ) : (
-            <HStack fullWidth justifyContent="space-between" gap={20}>
-              {children}
+          <VStack fullWidth gap={20}>
+            {children}
+            <VStack fullWidth alignItems="end">
               {action}
-            </HStack>
-          )}
+            </VStack>
+          </VStack>
         </VStack>
       )}
     />

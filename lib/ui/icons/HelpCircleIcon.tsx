@@ -11,7 +11,6 @@ export const HelpCircleIcon = (props: SVGProps<SVGSVGElement>) => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="feather feather-help-circle"
     {...props}
   >
     <circle cx="12" cy="12" r="10"></circle>

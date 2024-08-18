@@ -15,6 +15,7 @@ const IconWrapper = styled.div`
   position: absolute;
   left: 0;
   display: flex;
+  font-size: 18px;
 `
 
 interface Props extends Omit<ButtonProps, 'children'> {

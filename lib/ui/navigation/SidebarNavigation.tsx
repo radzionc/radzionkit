@@ -2,7 +2,6 @@ import { Topbar } from './Topbar'
 import styled, { css } from 'styled-components'
 import { Sidebar } from './Sidebar'
 import { ReactNode } from 'react'
-import { ThemeToggleButton } from '../theme/ThemeToggleButton'
 import { useIsScreenWidthLessThan } from '../hooks/useIsScreenWidthLessThan'
 import { HStack, VStack } from '../layout/Stack'
 
@@ -52,7 +51,6 @@ export const SidebarNavigation = ({
         <VStack fullWidth gap={20}>
           <Header alignItems="center" justifyContent="space-between">
             {logo}
-            <ThemeToggleButton />
           </Header>
           {renderNavigation()}
         </VStack>

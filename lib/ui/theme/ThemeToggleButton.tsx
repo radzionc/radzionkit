@@ -1,7 +1,7 @@
 import { IconButton } from '../buttons/IconButton'
 import { MoonIcon } from '../icons/MoonIcon'
 import { SunIcon } from '../icons/SunIcon'
-import { useThemePreference } from './ThemeProvider'
+import { useThemePreference } from './DarkLightThemeProvider'
 
 export const ThemeToggleButton = () => {
   const { value, onChange } = useThemePreference()

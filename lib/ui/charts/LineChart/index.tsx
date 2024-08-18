@@ -12,6 +12,7 @@ import { createSharpClosedPath } from './utils/createSharpClosedPath'
 
 type LineChartFillKind = 'gradient' | 'solid' | 'none'
 type DataPointsConnectionKind = 'sharp' | 'smooth'
+type StrokeKind = 'solid' | 'none'
 
 interface LineChartProps {
   data: number[]
@@ -19,6 +20,7 @@ interface LineChartProps {
   width: number
   color: HSLA
   fillKind?: LineChartFillKind
+  strokeKind?: StrokeKind
   dataPointsConnectionKind?: DataPointsConnectionKind
 }
 
@@ -32,6 +34,7 @@ export const LineChart = ({
   height,
   color,
   fillKind = 'gradient',
+  strokeKind = 'solid',
   dataPointsConnectionKind = 'smooth',
 }: LineChartProps) => {
   const [path, closedPath] = useMemo(() => {
@@ -70,7 +73,14 @@ export const LineChart = ({
       height={height}
       viewBox={`0 0 ${width} ${height}`}
     >
-      <Path d={path} fill="none" stroke={color.toCssValue()} strokeWidth="2" />
+      {strokeKind === 'solid' && (
+        <Path
+          d={path}
+          fill="none"
+          stroke={color.toCssValue()}
+          strokeWidth="2"
+        />
+      )}
       <Match
         value={fillKind}
         gradient={() => (

@@ -94,7 +94,9 @@ export const Slider = ({
         if (position) {
           const steps = Math.round((position.x * max) / step)
           const newValue = Math.max(min, steps * step)
-          onChange(newValue)
+          if (newValue !== value) {
+            onChange(newValue)
+          }
         }
       }}
       render={({ props }) => (

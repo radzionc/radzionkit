@@ -1,7 +1,7 @@
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { toSizeUnit } from '../css/toSizeUnit'
 
-export interface UniformColumnGridParams {
+export type UniformColumnGridParams = {
   gap: number
   minChildrenWidth?: number
   maxChildrenWidth?: number
@@ -53,4 +53,8 @@ export const uniformColumnGrid = (params: UniformColumnGridParams) => css`
   css`
     width: 100%;
   `}
+`
+
+export const UniformColumnGrid = styled.div<UniformColumnGridParams>`
+  ${uniformColumnGrid}
 `

@@ -105,7 +105,7 @@ import { GlobalStyle } from '@lib/ui/css/GlobalStyle'
 import { Inter } from 'next/font/google'
 import { PersistentStateKey, usePersistentState } from '@demo/app/state/persistentState'
 import { ThemePreference } from '@lib/ui/theme/ThemePreference'
-import { ThemeProvider } from '@lib/ui/theme/ThemeProvider'
+import { DarkLightThemeProvider } from '@lib/ui/theme/DarkLightThemeProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -119,10 +119,10 @@ export const App = () => {
   )
 
   return (
-    <ThemeProvider value={theme} onChange={setTheme}>
+    <DarkLightThemeProvider value={theme} onChange={setTheme}>
       <GlobalStyle fontFamily={inter.style.fontFamily} />
       // ...
-    </ThemeProvider>
+    </DarkLightThemeProvider>
   )
 }
 ```

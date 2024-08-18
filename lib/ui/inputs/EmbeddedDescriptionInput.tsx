@@ -6,8 +6,9 @@ import { ComponentProps, ReactNode, useRef } from 'react'
 import styled from 'styled-components'
 import { MultilineTextInput } from './MultilineTextInput'
 import { tightListItemConfig } from '../list/tightListItemConfig'
+import { panelDefaultPadding } from '../panel/Panel'
 
-const padding = 20
+const padding = panelDefaultPadding
 
 const Wrapper = styled(VStack)`
   padding: 0;

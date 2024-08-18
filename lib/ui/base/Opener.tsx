@@ -8,8 +8,8 @@ interface RenderOpenerParams {
   onClose: () => void
 }
 
-interface Props {
-  defaultIsOpen?: boolean
+type OpenerProps = {
+  initialIsOpen?: boolean
   renderOpener: (params: RenderOpenerParams) => ReactNode
   renderContent: (params: ClosableComponentProps) => ReactNode
 }
@@ -17,9 +17,9 @@ interface Props {
 export const Opener = ({
   renderOpener,
   renderContent,
-  defaultIsOpen = false,
-}: Props) => {
-  const [isOpen, { set: onOpen, unset: onClose }] = useBoolean(defaultIsOpen)
+  initialIsOpen = false,
+}: OpenerProps) => {
+  const [isOpen, { set: onOpen, unset: onClose }] = useBoolean(initialIsOpen)
 
   return (
     <>

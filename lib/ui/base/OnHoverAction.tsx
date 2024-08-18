@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 import { ElementSizeAware } from './ElementSizeAware'
 import { ElementSize } from '../hooks/useElementSize'
-import { transition } from '../css/transition'
 import { UIComponentProps } from '../props'
 
 interface OnHoverActionRenderParams<T extends React.CSSProperties> {
@@ -20,7 +19,6 @@ type OnHoverActionProps<T extends React.CSSProperties> = UIComponentProps & {
 const ActionPlacer = styled.div`
   position: absolute;
   opacity: 0;
-  ${transition};
 `
 
 const Container = styled.div`

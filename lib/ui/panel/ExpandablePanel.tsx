@@ -18,14 +18,14 @@ interface ExpandableProps extends PanelProps {
 
 const ExpandIconWrapper = styled.div<{ isExpanded: boolean }>`
   ${round};
-  ${sameDimensions(40)};
+  ${sameDimensions(28)};
   ${centerContent};
 
   background: ${getColor('mist')};
 
   ${transition};
 
-  font-size: 20px;
+  font-size: 16px;
 
   transform: rotateZ(${({ isExpanded }) => (isExpanded ? '-180deg' : '0deg')});
 `

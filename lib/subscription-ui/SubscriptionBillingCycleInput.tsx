@@ -24,7 +24,7 @@ export const SubscriptionBillingCycleInput = ({
         onChange={(value) => onChange(value ? 'year' : 'month')}
         label="Annual billing"
       />
-      <Tag $color={colors.success}>save {toPercents(saving, 0)}</Tag>
+      <Tag $color={colors.success}>save {toPercents(saving, 'round')}</Tag>
     </HStack>
   )
 }

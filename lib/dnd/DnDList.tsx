@@ -1,119 +1,131 @@
-import { getNewOrder } from '@lib/utils/order/getNewOrder'
 import { ReactNode, useCallback, useId, useState } from 'react'
 import {
-  DragDropContext,
-  Draggable,
-  Droppable,
-  OnDragEndResponder,
-} from 'react-beautiful-dnd'
+  DndContext,
+  closestCenter,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  UniqueIdentifier,
+  DragEndEvent,
+  DragOverlay,
+} from '@dnd-kit/core'
+import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { shouldBePresent } from '@lib/utils/assert/shouldBePresent'
+import { DnDItem } from './DnDItem'
+import { DnDItemStatus } from './DnDItemStatus'
+import { ComponentWithChildrenProps } from '@lib/ui/props'
 
 export type ItemChangeParams = {
-  order: number
+  index: number
 }
+
+type RednerListProps = Record<string, any> & ComponentWithChildrenProps
 
 type RenderListParams = {
-  content: ReactNode
-  containerProps?: Record<string, any>
+  props: RednerListProps
 }
 
-type RenderItemParams<I> = {
-  item: I
+type RenderItemParams<Item> = {
+  item: Item
   draggableProps?: Record<string, any>
-  dragHandleProps?: Record<string, any> | null
-  isDragging?: boolean
-  isDraggingEnabled: boolean
+  dragHandleProps?: Record<string, any>
+  status: DnDItemStatus
 }
 
-export type DnDListProps<I> = {
-  items: I[]
-  getItemOrder: (item: I) => number
-  getItemId: (item: I) => string
-  onChange: (itemId: string, params: ItemChangeParams) => void
+export type DnDListProps<ItemId extends UniqueIdentifier, Item> = {
+  items: Item[]
+  getItemId: (item: Item) => ItemId
+  onChange: (itemId: ItemId, params: ItemChangeParams) => void
   renderList: (params: RenderListParams) => ReactNode
-  renderItem: (params: RenderItemParams<I>) => ReactNode
+  renderItem: (params: RenderItemParams<Item>) => ReactNode
 }
 
-export function DnDList<I>({
+export function DnDList<ItemId extends UniqueIdentifier, Item>({
   items,
-  getItemOrder,
   getItemId,
   onChange,
   renderItem,
   renderList,
-}: DnDListProps<I>) {
+}: DnDListProps<ItemId, Item>) {
   const droppableId = useId()
-  const [currentItemId, setCurrentItemId] = useState<string | null>(null)
+  const [activeItemId, setActiveItemId] = useState<ItemId | null>(null)
 
-  const handleDragEnd: OnDragEndResponder = useCallback(
-    ({ destination, source, draggableId }) => {
-      setCurrentItemId(null)
-      if (!destination) {
-        return
-      }
-
-      if (destination.index === source.index) {
-        return
-      }
-
-      onChange(draggableId, {
-        order: getNewOrder({
-          orders: items.map(getItemOrder),
-          sourceIndex: source.index,
-          destinationIndex: destination.index,
-        }),
-      })
+  const pointerSensor = useSensor(PointerSensor, {
+    activationConstraint: {
+      distance: 0.01,
     },
-    [getItemOrder, items, onChange],
+  })
+
+  const sensors = useSensors(pointerSensor)
+
+  const handleDragEnd = useCallback(
+    ({ active, over }: DragEndEvent) => {
+      const itemId = shouldBePresent(activeItemId)
+
+      setActiveItemId(null)
+
+      if (!over || active.id === over.id) {
+        return
+      }
+
+      const index = items.findIndex((item) => getItemId(item) === over.id)
+
+      onChange(itemId, { index })
+    },
+    [activeItemId, getItemId, items, onChange],
   )
 
   return (
-    <DragDropContext
-      onDragStart={({ draggableId }) => setCurrentItemId(draggableId)}
+    <DndContext
+      sensors={sensors}
+      collisionDetection={closestCenter}
+      onDragStart={({ active }) => setActiveItemId(active.id as ItemId)}
       onDragEnd={handleDragEnd}
+      onDragCancel={() => {
+        setActiveItemId(null)
+      }}
     >
-      <Droppable droppableId={droppableId}>
-        {(provided) => {
-          return (
-            <>
-              {renderList({
-                containerProps: {
-                  ...provided.droppableProps,
-                  ref: provided.innerRef,
-                },
-                content: (
-                  <>
-                    {items.map((item, index) => {
-                      const key = getItemId(item)
-                      return (
-                        <Draggable key={key} index={index} draggableId={key}>
-                          {(
-                            { dragHandleProps, draggableProps, innerRef },
-                            { isDragging },
-                          ) => (
-                            <>
-                              {renderItem({
-                                item,
-                                draggableProps: {
-                                  ...draggableProps,
-                                  ref: innerRef,
-                                },
-                                dragHandleProps,
-                                isDraggingEnabled: isDragging || !currentItemId,
-                                isDragging,
-                              })}
-                            </>
-                          )}
-                        </Draggable>
-                      )
-                    })}
-                    {provided.placeholder}
-                  </>
+      <SortableContext
+        items={items.map(getItemId)}
+        strategy={verticalListSortingStrategy}
+      >
+        {renderList({
+          props: {
+            'data-droppable-id': droppableId,
+            children: (
+              <>
+                {items.map((item) => {
+                  const key = getItemId(item)
+                  return (
+                    <DnDItem
+                      key={key}
+                      id={key}
+                      render={(params) =>
+                        renderItem({
+                          item,
+                          ...params,
+
+                          status: activeItemId === key ? 'placeholder' : 'idle',
+                        })
+                      }
+                    />
+                  )
+                })}
+              </>
+            ),
+          },
+        })}
+        <DragOverlay>
+          {activeItemId
+            ? renderItem({
+                item: shouldBePresent(
+                  items.find((item) => getItemId(item) === activeItemId),
                 ),
-              })}
-            </>
-          )
-        }}
-      </Droppable>
-    </DragDropContext>
+                status: 'overlay',
+              })
+            : null}
+        </DragOverlay>
+      </SortableContext>
+    </DndContext>
   )
 }

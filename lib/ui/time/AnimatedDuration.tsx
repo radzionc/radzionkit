@@ -5,6 +5,7 @@ import styled, { css, keyframes } from 'styled-components'
 import { Milliseconds } from '@lib/utils/time/types'
 import { formatDuration } from '@lib/utils/time/formatDuration'
 import { convertDuration } from '@lib/utils/time/convertDuration'
+import { useRef } from 'react'
 
 interface AnimatedDurationProps {
   getDuration: (currentTime: number) => Milliseconds
@@ -41,8 +42,11 @@ export const AnimatedDuration = ({ getDuration }: AnimatedDurationProps) => {
     kind: 'digitalClock',
     minUnit: 's',
   })
+  const initialTimeString = useRef(timeString)
   const previousTimeString = formatDuration(
-    Math.max(0, duration - convertDuration(1, 's', 'ms')),
+    timeString === initialTimeString.current
+      ? duration
+      : Math.max(0, duration - convertDuration(1, 's', 'ms')),
     'ms',
     {
       kind: 'digitalClock',

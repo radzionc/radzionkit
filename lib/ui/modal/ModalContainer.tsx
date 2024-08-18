@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import { getColor } from '../theme/getters'
 import { takeWholeSpace } from '../css/takeWholeSpace'
 import { toSizeUnit } from '../css/toSizeUnit'
+import { borderRadius } from '../css/borderRadius'
 
 export type ModalPlacement = 'top' | 'center'
 
@@ -21,7 +22,7 @@ export const ModalContainer = styled.div<ModalContainerProps>`
     width
       ? css`
           width: ${toSizeUnit(width)};
-          border-radius: 16px;
+          ${borderRadius.m};
           max-height: 92%;
           ${placement === 'top' &&
           css`

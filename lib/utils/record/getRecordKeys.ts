@@ -1,5 +1,5 @@
-export const getRecordKeys = <K extends string | number>(
-  record: Record<K, unknown>,
+export const getRecordKeys = <K extends string | number, I>(
+  record: Record<K, I[]>,
 ): K[] => {
   return Object.keys(record) as K[]
 }

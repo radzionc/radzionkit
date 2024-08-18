@@ -3,7 +3,6 @@ import { Text } from '@lib/ui/text'
 import { Tag } from '@lib/ui/tags/Tag'
 import { useTheme } from 'styled-components'
 import { useRef } from 'react'
-import { UniformColumnGrid } from '@lib/ui/layout/UniformColumnGrid'
 import { ResumeContainer } from '@lib/resume-ui/components/ResumeContainer'
 import { JobExperience } from '@lib/resume-ui/components/JobExperience'
 import { DownloadResume } from '@lib/resume-ui/components/DownloadResume'
@@ -16,7 +15,6 @@ import { IogIcon } from './IogIcon'
 import { ZerionIcon } from './ZerionIcon'
 import { GitHubIcon } from '@lib/ui/icons/GitHubIcon'
 import { MailIcon } from '@lib/ui/icons/MailIcon'
-import { TelegramColorfulIcon } from '@lib/ui/icons/TelegramColorfulIcon'
 import { XIcon } from '@lib/ui/icons/XIcon'
 import { ResumeFooterLink } from '@lib/resume-ui/components/ResumeFooterLink'
 import { PersonalProject } from '@lib/resume-ui/components/PersonalProject'
@@ -24,7 +22,9 @@ import { IconWrapper } from '@lib/ui/icons/IconWrapper'
 import { StarIcon } from '@lib/ui/icons/StarIcon'
 import { useRhythmicRerender } from '@lib/ui/hooks/useRhythmicRerender'
 import { convertDuration } from '@lib/utils/time/convertDuration'
-import { LinkedinColorfulIcon } from '@lib/ui/icons/LinkedinColorfulIcon'
+import { UniformColumnGrid } from '@lib/ui/css/uniformColumnGrid'
+import { TelegramIcon } from '@lib/ui/icons/TelegramIcon'
+import { LinkedinIcon } from '@lib/ui/icons/LinkedinIcon'
 
 const firstJobStartedAt = new Date(2017, 3)
 
@@ -214,7 +214,7 @@ export const RadzionResume = () => {
           url={`https://twitter.com/${xHandle}`}
         />
         <ResumeFooterLink
-          icon={<LinkedinColorfulIcon />}
+          icon={<LinkedinIcon />}
           name={linkedInHandle}
           url={`https://www.linkedin.com/in/${linkedInHandle}`}
         />
@@ -224,7 +224,7 @@ export const RadzionResume = () => {
           url={`https://github.com/${githubHandle}`}
         />
         <ResumeFooterLink
-          icon={<TelegramColorfulIcon />}
+          icon={<TelegramIcon />}
           name={telegramHandle}
           url={`https://t.me/${telegramHandle}`}
         />

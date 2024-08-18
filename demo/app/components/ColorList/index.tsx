@@ -1,9 +1,9 @@
 import { range } from '@lib/utils/array/range'
-import { UniformColumnGrid } from '@lib/ui/layout/UniformColumnGrid'
 import { useTheme } from 'styled-components'
 import { ColorItem } from './ColorItem'
 import { labelColorsCount } from '@lib/ui/colors/generateLabelColorGetter'
 import { LineSeparator } from '@lib/ui/layout/LineSeparator'
+import { UniformColumnGrid } from '@lib/ui/css/uniformColumnGrid'
 
 export const ColorList = () => {
   const {

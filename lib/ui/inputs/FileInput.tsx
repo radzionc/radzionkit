@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { inputBackgroundCSS } from './config'
 import { useDropzone, Accept } from 'react-dropzone'
 import { Button } from '../buttons/Button'
 import { getColor } from '../theme/getters'
@@ -19,7 +20,7 @@ const Container = styled(Panel)`
   flex: 1;
   padding: 32px;
   ${borderRadius.s}
-  background: ${getColor('foreground')};
+  ${inputBackgroundCSS};
   cursor: pointer;
 
   ${transition};

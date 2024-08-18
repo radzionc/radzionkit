@@ -1,6 +1,6 @@
 import { Modal, ModalProps } from '.'
 import { ButtonKind, Button } from '../buttons/Button'
-import { UniformColumnGrid } from '../layout/UniformColumnGrid'
+import { UniformColumnGrid } from '../css/uniformColumnGrid'
 
 interface ConfirmationModalProps
   extends Omit<ModalProps, 'footer' | 'onClose'> {

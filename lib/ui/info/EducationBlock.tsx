@@ -16,6 +16,7 @@ const Container = styled.div`
   line-height: 1.5;
   font-size: 14px;
   font-weight: 500;
+  flex: 1;
 `
 
 const IconContainer = styled(IconWrapper)`

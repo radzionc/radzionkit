@@ -309,7 +309,7 @@ const SmFlag = (props: SvgIconProps) => (
       </g>
       <path d="M317 329.3c-3.2-.6-4.4-.4-6.6-.6l-5.1 15.8c8 .7 15.3.7 15.3.7-4.8-1-3.7-15.8-3.6-15.9z" />
     </g>
-    <g fontFamily="Trebuchet MS" fontSize={9} fontWeight="600">
+    <g fontFamily="Trebuchet MS" fontSize={9} fontWeight="bold">
       <path d="M283.4 340.2v-10.7h1.8v9h5v1.7z" aria-label="L" />
       <path d="M291.7 340.7V330h1.9v10.7z" aria-label="I" />
       <path

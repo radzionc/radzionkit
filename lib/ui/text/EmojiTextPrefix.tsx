@@ -1,7 +1,8 @@
 import { Text } from '@lib/ui/text'
+import { ReactNode } from 'react'
 
 interface Props {
-  emoji: string
+  emoji: ReactNode
   marginRight?: number
   size?: number
 }

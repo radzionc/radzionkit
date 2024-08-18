@@ -9,7 +9,7 @@ import { borderRadius } from '../css/borderRadius'
 type AmountTextInputProps = Omit<TextInputProps, 'value' | 'onValueChange'> & {
   value: number | undefined
   onValueChange?: (value: number | undefined) => void
-  unit: ReactNode
+  unit?: ReactNode
   shouldBePositive?: boolean
   shouldBeInteger?: boolean
   suggestion?: ReactNode
@@ -21,10 +21,6 @@ const UnitContainer = styled.div`
   position: absolute;
   left: 12px;
   ${centerContent};
-`
-
-const Input = styled(TextInput)`
-  padding-left: 36px;
 `
 
 export const AmountTextInput = forwardRef(function AmountInputInner(
@@ -46,8 +42,9 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
   const [inputValue, setInputValue] = useState<string>(valueAsString)
 
   return (
-    <Input
+    <TextInput
       {...props}
+      style={unit ? { paddingLeft: 36 } : undefined}
       type={type}
       label={
         <HStack

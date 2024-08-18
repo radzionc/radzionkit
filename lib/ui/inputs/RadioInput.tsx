@@ -18,6 +18,7 @@ interface RadioInputProps<T extends string>
   options: readonly T[]
   renderOption: (option: T) => React.ReactNode
   isOptionDisabled?: (option: T) => string | false
+  minOptionHeight?: number
 }
 
 const Indicator = styled.div<{ selected: boolean }>`
@@ -32,7 +33,6 @@ const Indicator = styled.div<{ selected: boolean }>`
 const Container = styled.label<{ selected: boolean; disabled?: boolean }>`
   position: relative;
   padding: 12px 20px;
-  min-height: ${toSizeUnit(textInputHeight)};
   font-size: 14px;
   ${borderRadius.s};
   display: flex;
@@ -64,9 +64,14 @@ export const RadioInput = <T extends string>({
   options,
   renderOption,
   isOptionDisabled = () => false,
+  minOptionHeight = textInputHeight,
   ...rest
 }: RadioInputProps<T>) => {
   const groupName = useId()
+
+  const style = {
+    minHeight: toSizeUnit(minOptionHeight),
+  }
 
   return (
     <HStack gap={8} {...rest}>
@@ -95,10 +100,15 @@ export const RadioInput = <T extends string>({
         if (disabledMessage) {
           return (
             <Tooltip
-              key={option}
               content={disabledMessage}
               renderOpener={(props) => (
-                <Container {...props} disabled selected={isSelected}>
+                <Container
+                  {...props}
+                  disabled
+                  selected={isSelected}
+                  key={option}
+                  style={style}
+                >
                   {content}
                 </Container>
               )}
@@ -107,7 +117,7 @@ export const RadioInput = <T extends string>({
         }
 
         return (
-          <Container selected={isSelected} key={option}>
+          <Container style={style} selected={isSelected} key={option}>
             {content}
           </Container>
         )

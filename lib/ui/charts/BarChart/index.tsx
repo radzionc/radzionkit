@@ -1,8 +1,7 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
-import { UniformColumnGrid } from '../../layout/UniformColumnGrid'
 import { Spacer } from '../../layout/Spacer'
-import { VStack } from '../../layout/Stack'
+import { HStack, VStack } from '../../layout/Stack'
 import { HSLA } from '../../colors/HSLA'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { Text } from '../../text'
@@ -23,6 +22,7 @@ interface BarChartProps {
   height: React.CSSProperties['height']
   expectedValueHeight?: React.CSSProperties['height']
   expectedLabelHeight?: React.CSSProperties['height']
+  minBarWidth?: number
 }
 
 const barValueGap = '4px'
@@ -57,13 +57,14 @@ const Label = styled(Value)`
   top: ${barLabelGap};
 `
 
-const Content = styled(UniformColumnGrid)`
+const Content = styled(HStack)`
   flex: 1;
 `
 
 const Column = styled(VStack)`
   height: 100%;
   justify-content: end;
+  flex: 1;
 `
 
 export const BarChart = ({
@@ -71,6 +72,7 @@ export const BarChart = ({
   height,
   expectedValueHeight = defaultLabelSize,
   expectedLabelHeight = defaultLabelSize,
+  minBarWidth,
 }: BarChartProps) => {
   const maxValue = Math.max(...items.map((item) => item.value))
 
@@ -84,7 +86,10 @@ export const BarChart = ({
       <Content gap={4}>
         {items.map(({ value, color, renderValue, label }, index) => {
           return (
-            <Column key={index}>
+            <Column
+              style={minBarWidth ? { minWidth: minBarWidth } : undefined}
+              key={index}
+            >
               {renderValue && (
                 <RelativeWrapper>
                   <Value style={{ fontSize: defaultLabelSize }} as="div">
