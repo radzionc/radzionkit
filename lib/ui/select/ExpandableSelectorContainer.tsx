@@ -31,6 +31,8 @@ export const ExpandableSelectorContainer = styled(
 
   outline: 1px solid transparent;
 
+  flex-shrink: 0;
+
   ${({ isActive }) =>
     isActive &&
     css`

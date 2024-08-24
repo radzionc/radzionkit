@@ -9,6 +9,7 @@ interface FixedDirectionStackProps {
   wrap?: React.CSSProperties['flexWrap']
   fullWidth?: boolean
   fullHeight?: boolean
+  fill?: boolean
   children?: React.ReactNode
 }
 
@@ -55,6 +56,11 @@ const stack = css<FixedDirectionStackProps>`
     fullHeight &&
     css`
       height: 100%;
+    `}
+    ${({ fill }) =>
+    fill &&
+    css`
+      flex: 1;
     `}
 `
 

@@ -1,9 +1,15 @@
-import { Text } from '@lib/ui/text'
-import { getColor } from '@lib/ui/theme/getters'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const PageTitle = styled(Text)`
-  font-size: 32px;
+import { centerContent } from '@lib/ui/css/centerContent'
+import { getColor } from '@lib/ui/theme/getters'
+
+export const pageTitle = css`
+  font-size: 18px;
   font-weight: 600;
+  ${centerContent};
   color: ${getColor('contrast')};
+`
+
+export const PageTitle = styled.h1`
+  ${pageTitle}
 `

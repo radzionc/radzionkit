@@ -1,23 +1,54 @@
+import { useEffect, useRef } from 'react'
 import styled, { css } from 'styled-components'
-import { transition } from '@lib/ui/css/transition'
 import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
-import { HStackSeparatedBy } from '@lib/ui/layout/StackSeparatedBy'
-import { Text } from '@lib/ui/text'
-import { InputProps } from '../props'
+import { ComponentWithActiveState, InputProps } from '../props'
+import { horizontalPadding } from '../css/horizontalPadding'
+import { getColor } from '../theme/getters'
+import { absoluteOutline } from '../css/absoluteOutline'
+import { HStack } from '../layout/Stack'
+import { centerContent } from '../css/centerContent'
+import { hideScrollbars } from '../css/hideScrollbars'
 
-const ViewOption = styled(UnstyledButton)<{ isSelected: boolean }>`
-  color: ${({ isSelected, theme }) =>
-    (isSelected ? theme.colors.contrast : theme.colors.textShy).toCssValue()};
+const Underline = styled.div`
+  ${absoluteOutline(0, 0)};
+  border-bottom: 2px solid ${getColor('mist')};
+`
 
-  ${transition}
+const ItemUnderline = styled.div`
+  ${absoluteOutline(0, 0)};
+  border-bottom: 2px solid transparent;
+`
 
-  ${({ isSelected, theme }) =>
-    !isSelected &&
-    css`
-      &:hover {
-        color: ${theme.colors.textSupporting.toCssValue()};
-      }
-    `}
+const Container = styled(HStack)`
+  height: 100%;
+  overflow-x: auto;
+  max-width: 100%;
+  ${hideScrollbars};
+`
+
+const Option = styled(UnstyledButton)<ComponentWithActiveState>`
+  flex-shrink: 0;
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;
+  height: 100%;
+  ${centerContent};
+  ${horizontalPadding(12)};
+  min-width: 80px;
+  ${({ isActive }) =>
+    isActive
+      ? css`
+          ${ItemUnderline} {
+            border-color: ${getColor('contrast')};
+          }
+          color: ${getColor('contrast')};
+        `
+      : css`
+          color: ${getColor('textSupporting')};
+          &:hover {
+            color: ${getColor('contrast')};
+          }
+        `};
 `
 
 type PageTitleNavigationProps<T extends string> = InputProps<T> & {
@@ -31,17 +62,35 @@ export function PageTitleNavigation<T extends string>({
   options,
   onChange,
 }: PageTitleNavigationProps<T>) {
+  const optionRefs = useRef<Map<T, HTMLButtonElement | null>>(new Map())
+
+  useEffect(() => {
+    const activeElement = optionRefs.current.get(value)
+    if (activeElement) {
+      activeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      })
+    }
+  }, [value])
+
   return (
-    <HStackSeparatedBy separator={<Text color="shy">|</Text>}>
-      {options.map((v) => (
-        <ViewOption
-          onClick={() => onChange(v)}
-          isSelected={v === value}
-          key={value}
-        >
-          {getOptionName(v)}
-        </ViewOption>
-      ))}
-    </HStackSeparatedBy>
+    <>
+      <Container>
+        {options.map((v) => (
+          <Option
+            onClick={() => onChange(v)}
+            isActive={v === value}
+            key={v}
+            ref={(el) => optionRefs.current.set(v, el)}
+          >
+            {getOptionName(v)}
+            <ItemUnderline />
+          </Option>
+        ))}
+      </Container>
+      <Underline />
+    </>
   )
 }
