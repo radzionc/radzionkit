@@ -30,7 +30,7 @@ export const DemoPage = ({
             {title}
           </Text>
           <SourceCodeLink
-            to={`https://github.com/radzionc/radzionkit/blob/main/demo/pages${pathname}.tsx`}
+            to={`https://github.com/radzionc/radzionkit/blob/main/demo/app/pages${pathname}.tsx`}
           />
           {youtubeVideoId && <YouTubeLink videoId={youtubeVideoId} />}
         </HStack>
