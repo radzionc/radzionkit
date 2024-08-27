@@ -9,6 +9,8 @@ import { transition } from '../css/transition'
 import { getColor, matchColor } from '../theme/getters'
 import { borderRadius } from '../css/borderRadius'
 import { getHoverVariant } from '@lib/ui/theme/getHoverVariant'
+import { Tooltip } from '../tooltips/Tooltip'
+import { MergeRefs } from '../base/MergeRefs'
 
 export const iconButtonSizes = ['s', 'm', 'l'] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]
@@ -36,6 +38,7 @@ export const iconButtonIconSizeRecord: Record<IconButtonSize, number> = {
 interface ContainerProps {
   size: IconButtonSize
   kind: IconButtonKind
+  isDisabled?: boolean
 }
 
 const Container = styled(UnstyledButton)<ContainerProps>`
@@ -71,35 +74,42 @@ const Container = styled(UnstyledButton)<ContainerProps>`
       alertSecondary: () => colors.transparent,
     }).toCssValue()};
 
-  &:hover {
-    background: ${({ kind, theme }) =>
-      match(kind, {
-        regular: () => getHoverVariant('foreground')({ theme }),
-        secondary: () => theme.colors.mist.toCssValue(),
-        alert: () =>
-          theme.colors.alert.getVariant({ a: (a) => a * 0.24 }).toCssValue(),
-        alertSecondary: () =>
-          theme.colors.alert.getVariant({ a: (a) => a * 0.12 }).toCssValue(),
-      })};
+  ${({ isDisabled, kind, theme }) =>
+    !isDisabled &&
+    css`
+      &:hover {
+        background: ${match(kind, {
+          regular: () => getHoverVariant('foreground')({ theme }),
+          secondary: () => theme.colors.mist.toCssValue(),
+          alert: () =>
+            theme.colors.alert.getVariant({ a: (a) => a * 0.24 }).toCssValue(),
+          alertSecondary: () =>
+            theme.colors.alert.getVariant({ a: (a) => a * 0.12 }).toCssValue(),
+        })};
 
-    color: ${matchColor('kind', {
-      regular: 'contrast',
-      secondary: 'contrast',
-      alert: 'alert',
-      alertSecondary: 'alert',
-    })};
-  }
+        color: ${match(kind, {
+          regular: () => getColor('contrast'),
+          secondary: () => getColor('contrast'),
+          alert: () => getColor('alert'),
+          alertSecondary: () => getColor('alert'),
+        })};
+      }
+    `}
+
+  cursor: ${({ isDisabled }) => (isDisabled ? 'initial' : 'pointer')};
+  opacity: ${({ isDisabled }) => (isDisabled ? 0.8 : 1)};
 `
 
 export type IconButtonProps = Omit<
   ComponentProps<typeof Container>,
-  'size' | 'kind'
+  'size' | 'kind' | 'isDisabled'
 > & {
   icon: React.ReactNode
   size?: IconButtonSize
   kind?: IconButtonKind
   title: string
   as?: React.ElementType
+  isDisabled?: boolean | string
 }
 
 export const IconButton = forwardRef(function IconButton(
@@ -108,13 +118,45 @@ export const IconButton = forwardRef(function IconButton(
     kind = 'regular',
     icon,
     type = 'button',
+    isDisabled = false,
+    onClick,
+
     ...rest
   }: IconButtonProps,
   ref: Ref<HTMLButtonElement> | null,
 ) {
-  return (
-    <Container type={type} kind={kind} ref={ref} size={size} {...rest}>
+  const containerProps = {
+    type,
+    kind,
+    size,
+    isDisabled: !!isDisabled,
+    onClick: isDisabled ? undefined : onClick,
+    ...rest,
+  }
+
+  const buttonContent = (
+    <Container ref={ref} {...containerProps}>
       {icon}
     </Container>
   )
+
+  if (typeof isDisabled === 'string') {
+    return (
+      <Tooltip
+        content={isDisabled}
+        renderOpener={({ ref: tooltipRef, ...tooltipRest }) => (
+          <MergeRefs
+            refs={[ref, tooltipRef]}
+            render={(mergedRef) => (
+              <Container ref={mergedRef} {...containerProps} {...tooltipRest}>
+                {icon}
+              </Container>
+            )}
+          />
+        )}
+      />
+    )
+  }
+
+  return buttonContent
 })

@@ -92,3 +92,7 @@ export type ComponentWithDisabledState = {
 export type ComponentWithIndexProps = {
   index: number
 }
+
+export type RemovableComponentProps = {
+  onRemove: () => void
+}

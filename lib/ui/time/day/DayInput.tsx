@@ -21,7 +21,7 @@ type DayInputProps = InputProps<Day> & {
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 68px 120px 80px;
+  grid-template-columns: 80px 128px 88px;
   gap: 8px;
 `
 

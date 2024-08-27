@@ -11,6 +11,7 @@ import { useId } from 'react'
 import { Tooltip } from '../tooltips/Tooltip'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { textInputHeight } from '../css/textInput'
+import { horizontalPadding } from '../css/horizontalPadding'
 
 interface RadioInputProps<T extends string>
   extends InputProps<T>,
@@ -32,7 +33,7 @@ const Indicator = styled.div<{ selected: boolean }>`
 
 const Container = styled.label<{ selected: boolean; disabled?: boolean }>`
   position: relative;
-  padding: 12px 20px;
+  ${horizontalPadding(12)};
   font-size: 14px;
   ${borderRadius.s};
   display: flex;
