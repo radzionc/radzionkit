@@ -10,7 +10,11 @@ import { centerContent } from '../css/centerContent'
 import { hideScrollbars } from '../css/hideScrollbars'
 
 const Underline = styled.div`
-  ${absoluteOutline(0, 0)};
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
   border-bottom: 2px solid ${getColor('mist')};
 `
 
@@ -20,7 +24,6 @@ const ItemUnderline = styled.div`
 `
 
 const Container = styled(HStack)`
-  height: 100%;
   overflow-x: auto;
   max-width: 100%;
   ${hideScrollbars};

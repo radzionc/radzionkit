@@ -1,8 +1,10 @@
+import { Interval } from '../interval/Interval'
 import { haveEqualFields } from '../record/haveEqualFields'
-import { getMonth, getYear, startOfMonth } from 'date-fns'
+import { getMonth, getYear, startOfMonth, endOfMonth } from 'date-fns'
 
 export type Month = {
   year: number
+  // index of month starting from 1
   month: number
 }
 
@@ -62,3 +64,33 @@ export const monthNames = [
   'November',
   'December',
 ]
+
+export const getMonthInterval = (month: Month): Interval => {
+  const timestamp = fromMonth(month)
+  return {
+    start: startOfMonth(timestamp).getTime(),
+    end: endOfMonth(timestamp).getTime(),
+  }
+}
+
+export const addMonths = (
+  { year, month }: Month,
+  monthsToAdd: number,
+): Month => {
+  const totalMonths = month + monthsToAdd - 1 // Adjust to zero-based index
+  const newYear = year + Math.floor(totalMonths / 12)
+  const newMonth = (totalMonths % 12) + 1 // Adjust back to one-based index
+
+  return { year: newYear, month: newMonth }
+}
+
+export const subtractMonths = (
+  { year, month }: Month,
+  monthsToSubtract: number,
+): Month => {
+  const totalMonths = month - monthsToSubtract - 1 // Adjust to zero-based index
+  const newYear = year + Math.floor(totalMonths / 12)
+  const newMonth = (((totalMonths % 12) + 12) % 12) + 1 // Adjust back to one-based index
+
+  return { year: newYear, month: newMonth === 0 ? 12 : newMonth }
+}
