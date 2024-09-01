@@ -14,14 +14,23 @@ export function createPersistentStateHook<T extends string>(
 ) {
   function usePersistentState<V>(
     key: T,
-    initialValue: Exclude<V, undefined>,
+    initialValue: V | (() => V),
   ): [V, Dispatch<SetStateAction<Exclude<V, undefined>>>] {
     const [value, setValue] = useState<V>(() => {
-      if (storage.getItem<V>(key) === undefined) {
-        storage.setItem(key, initialValue)
+      const storedValue = storage.getItem<V>(key)
+
+      if (storedValue === undefined) {
+        // If initialValue is a function, invoke it to get the value
+        const resolvedInitialValue =
+          typeof initialValue === 'function'
+            ? (initialValue as () => V)()
+            : initialValue
+        storage.setItem(key, resolvedInitialValue)
+
+        return resolvedInitialValue
       }
 
-      return shouldBeDefined(storage.getItem<V>(key))
+      return storedValue
     })
 
     useEffect(() => {

@@ -6,12 +6,14 @@ import { generateLabelColorGetter } from '../colors/generateLabelColorGetter'
 const backgroundHue = 0
 const backgroundSaturation = 0
 
+const primary = new HSLA(234, 56, 59)
+
 export const darkTheme: DefaultTheme = {
   name: 'dark',
   colors: {
     ...sharedColors,
 
-    primary: new HSLA(234, 56, 59),
+    primary,
 
     success: new HSLA(130, 56, 52),
     alert: new HSLA(0, 79, 63),
@@ -20,9 +22,11 @@ export const darkTheme: DefaultTheme = {
     foreground: new HSLA(backgroundHue, backgroundSaturation, 12),
     foregroundExtra: new HSLA(backgroundHue, backgroundSaturation, 20),
     background: new HSLA(backgroundHue, backgroundSaturation, 8),
+
     text: new HSLA(0, 0, 100, 0.81),
     textSupporting: new HSLA(0, 0, 61),
     textShy: new HSLA(0, 0, 100, 0.28),
+    textPrimary: primary.getVariant({ l: () => 76, s: () => 100 }),
 
     mist: new HSLA(0, 0, 100, 0.06),
     mistExtra: new HSLA(0, 0, 100, 0.13),

@@ -1,16 +1,17 @@
 import { Context as ReactContext, useContext } from 'react'
 
-export function createContextHook<T>(
+export function createContextHook<T, R = T>(
   Context: ReactContext<T | undefined>,
   contextName: string,
-) {
-  return () => {
+  transform?: (context: T) => R,
+): () => R {
+  return (): R => {
     const context = useContext(Context)
 
     if (!context) {
       throw new Error(`${contextName} is not provided`)
     }
 
-    return context
+    return transform ? transform(context) : (context as unknown as R)
   }
 }

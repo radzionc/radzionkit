@@ -13,7 +13,7 @@ const IconContainer = styled(IconWrapper)`
 `
 
 const Container = styled(Hoverable)`
-  color: ${getColor('textShy')};
+  color: ${getColor('textSupporting')};
   &:hover {
     color: ${getColor('primary')};
   }

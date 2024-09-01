@@ -4,13 +4,14 @@ import { HSLA } from '../colors/HSLA'
 import { generateLabelColorGetter } from '../colors/generateLabelColorGetter'
 
 export const regularTextAlpha = 0.9
+const primary = new HSLA(235, 55, 63)
 
 export const lightTheme: DefaultTheme = {
   name: 'light',
   colors: {
     ...sharedColors,
 
-    primary: new HSLA(235, 55, 63),
+    primary,
 
     success: new HSLA(137, 66, 36),
     alert: new HSLA(0, 66, 52),
@@ -23,6 +24,7 @@ export const lightTheme: DefaultTheme = {
     text: new HSLA(60, 6, 20),
     textSupporting: new HSLA(45, 19, 8, 0.6),
     textShy: new HSLA(45, 8, 20, 0.65),
+    textPrimary: primary,
 
     mist: new HSLA(45, 8, 20, 0.06),
     mistExtra: new HSLA(45, 8, 20, 0.16),

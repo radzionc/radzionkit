@@ -5,7 +5,6 @@ import { match } from '@lib/utils/match'
 import { centerContent } from '../css/centerContent'
 import { sameDimensions } from '../css/sameDimensions'
 import { toSizeUnit } from '../css/toSizeUnit'
-import { transition } from '../css/transition'
 import { getColor, matchColor } from '../theme/getters'
 import { borderRadius } from '../css/borderRadius'
 import { getHoverVariant } from '@lib/ui/theme/getHoverVariant'
@@ -56,8 +55,6 @@ const Container = styled(UnstyledButton)<ContainerProps>`
   font-size: ${({ size }) => toSizeUnit(iconButtonIconSizeRecord[size])};
 
   ${borderRadius.s};
-
-  ${transition};
 
   ${({ kind }) =>
     kind !== 'secondary' &&

@@ -1,10 +1,8 @@
 import { isInInterval } from '../interval/isInInterval'
-import { startOfISOWeek, endOfISOWeek } from 'date-fns'
+import { getWeekInterval } from './Week'
 
 export const isThisWeek = (timestamp: number) => {
-  const now = Date.now()
-  const start = startOfISOWeek(now).getTime()
-  const end = endOfISOWeek(now).getTime()
+  const interval = getWeekInterval(Date.now())
 
-  return isInInterval({ start, end }, timestamp)
+  return isInInterval(interval, timestamp)
 }

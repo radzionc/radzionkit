@@ -1,18 +1,12 @@
-import {
-  Dispatch,
-  SetStateAction,
-  createContext,
-  useContext,
-  useState,
-} from 'react'
+import { Dispatch, SetStateAction, createContext, useState } from 'react'
 
 import { ComponentWithChildrenProps } from '../props'
+import { ContextState } from './ContextState'
+import { createContextHook } from './createContextHook'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 
 export function getStateProviderSetup<T>(name: string) {
-  type ContextState = { value: T; setValue: Dispatch<SetStateAction<T>> }
-
-  const Context = createContext<ContextState | undefined>(undefined)
+  const Context = createContext<ContextState<T> | undefined>(undefined)
 
   type Props = ComponentWithChildrenProps & { initialValue: T }
 
@@ -28,14 +22,13 @@ export function getStateProviderSetup<T>(name: string) {
 
   return {
     provider: Provider,
-    useState: (): [T, Dispatch<SetStateAction<T>>] => {
-      const context = useContext(Context)
-
-      if (!context) {
-        throw new Error(`${capitalizeFirstLetter(name)} is not provided`)
-      }
-
-      return [context.value, context.setValue]
-    },
+    useState: createContextHook(
+      Context,
+      capitalizeFirstLetter(name),
+      (result): [T, Dispatch<SetStateAction<T>>] => [
+        result.value,
+        result.setValue,
+      ],
+    ),
   }
 }

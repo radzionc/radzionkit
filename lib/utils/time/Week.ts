@@ -1,7 +1,15 @@
 import { haveEqualFields } from '../record/haveEqualFields'
-import { format, getYear, setWeek, setYear, startOfISOWeek } from 'date-fns'
+import {
+  endOfISOWeek,
+  format,
+  getYear,
+  setWeek,
+  setYear,
+  startOfISOWeek,
+} from 'date-fns'
 import { getWeekIndex } from './getWeekIndex'
 import { convertDuration } from './convertDuration'
+import { Interval } from '../interval/Interval'
 
 export type Week = {
   year: number
@@ -44,4 +52,11 @@ export const formatWeek = (timestamp: number): string => {
     startedAt + convertDuration(6, 'd', 'ms'),
     'd MMM',
   )}`
+}
+
+export const getWeekInterval = (timestamp: number): Interval => {
+  return {
+    start: startOfISOWeek(timestamp).getTime(),
+    end: endOfISOWeek(timestamp).getTime(),
+  }
 }

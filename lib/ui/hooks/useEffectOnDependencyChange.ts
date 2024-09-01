@@ -1,3 +1,4 @@
+import { haveSameContent } from '@lib/utils/array/haveSameContent'
 import { DependencyList, useEffect, useRef } from 'react'
 
 export const useEffectOnDependencyChange = (
@@ -5,11 +6,11 @@ export const useEffectOnDependencyChange = (
   deps: DependencyList,
 ) => {
   const prevDeps = useRef(deps)
+
   useEffect(() => {
-    const hasDepsChanged = !prevDeps.current.every((dep, i) => dep === deps[i])
-    if (hasDepsChanged) {
-      effect()
-      prevDeps.current = deps
-    }
+    if (haveSameContent(prevDeps.current, deps)) return
+
+    effect()
+    prevDeps.current = deps
   }, [deps, effect])
 }
