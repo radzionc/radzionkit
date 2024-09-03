@@ -1,6 +1,6 @@
 import { transition } from '@lib/ui/css/transition'
 import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { getColor } from '@lib/ui/theme/getters'
 import { ReactNode } from 'react'

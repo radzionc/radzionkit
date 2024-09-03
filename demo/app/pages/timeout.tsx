@@ -1,7 +1,7 @@
 import { DemoPage } from '@demo/app/components/DemoPage'
 import { Checkbox } from '@lib/ui/inputs/Checkbox/Checkbox'
 import { useState } from 'react'
-import { VStack } from '@lib/ui/layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { InfoIcon } from '@lib/ui/icons/InfoIcon'
 import { makeDemoPage } from '@demo/app/layout/makeDemoPage'

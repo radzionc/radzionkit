@@ -1,6 +1,6 @@
 import { ConfirmationModal } from '@lib/ui/modal/ConfirmationModal'
 import { Opener } from '@lib/ui/base/Opener'
-import { VStack } from '@lib/ui/layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { ShyTextButton } from '@lib/ui/buttons/ShyTextButton'
 import { IconButton } from '@lib/ui/buttons/IconButton'

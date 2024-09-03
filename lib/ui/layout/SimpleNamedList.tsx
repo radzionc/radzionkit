@@ -1,4 +1,4 @@
-import { VStack } from './Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
 
 interface Props {

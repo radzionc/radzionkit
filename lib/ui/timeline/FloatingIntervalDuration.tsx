@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { VStack } from '../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { getColor } from '../theme/getters'
 import { ComponentWithValueProps, UIComponentProps } from '../props'
 import { HStackSeparatedBy, dotSeparator } from '../layout/StackSeparatedBy'

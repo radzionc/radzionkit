@@ -5,7 +5,7 @@ import { ComponentProps, forwardRef } from 'react'
 import { TitledComponentProps } from '@lib/ui/props'
 import { horizontalPadding } from '../css/horizontalPadding'
 import { Text } from '../text'
-import { VStack } from '../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 
 const Container = styled(FloatingOptionsContainer)`
   background: ${getColor('foregroundExtra')};

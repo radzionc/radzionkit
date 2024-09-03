@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Panel } from '@lib/ui/css/panel'
-import { HStack, VStack } from '@lib/ui/layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { TabNavigation } from '@lib/ui/navigation/TabNavigation'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { LabeledValue } from '@lib/ui/text/LabeledValue'

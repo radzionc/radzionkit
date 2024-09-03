@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { HStack } from '../../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { IconWrapper } from '../../icons/IconWrapper'
 import { Text } from '../../text'
 import { dropdownInputConfig } from './config'

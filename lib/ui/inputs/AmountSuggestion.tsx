@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { ShyTextButton } from '../buttons/ShyTextButton'
-import { HStack } from '../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
 
 interface AmountSuggestionProps {

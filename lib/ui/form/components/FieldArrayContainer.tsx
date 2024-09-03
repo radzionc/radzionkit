@@ -1,4 +1,4 @@
-import { VStack } from '@lib/ui/layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { ComponentWithChildrenProps, TitledComponentProps } from '@lib/ui/props'
 import styled from 'styled-components'
 import { FormSectionShyTitle } from './FormSectionShyTitle'

@@ -1,5 +1,5 @@
 import { DemoPage } from '@demo/app/components/DemoPage'
-import { VStack } from '@lib/ui/layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 

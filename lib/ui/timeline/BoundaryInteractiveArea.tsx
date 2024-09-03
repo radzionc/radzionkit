@@ -6,7 +6,7 @@ import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 import { ChevronUpIcon } from '../icons/ChevronUpIcon'
 import { CenterAbsolutely } from '../layout/CenterAbsolutely'
 import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
-import { VStack } from '../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { getColor } from '../theme/getters'
 
 const InteractiveArea = styled.div`

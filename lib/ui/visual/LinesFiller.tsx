@@ -1,5 +1,5 @@
 import { TakeWholeSpaceAbsolutely } from '@lib/ui/css/takeWholeSpaceAbsolutely'
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { range } from '@lib/utils/array/range'
 import styled from 'styled-components'
 import { ElementSizeAware } from '../base/ElementSizeAware'

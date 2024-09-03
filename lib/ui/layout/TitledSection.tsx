@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { VStack } from './Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
 import { ComponentWithChildrenProps } from '../props'
 

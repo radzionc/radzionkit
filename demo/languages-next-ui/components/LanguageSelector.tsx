@@ -2,7 +2,7 @@ import { Menu } from '@lib/ui/Menu'
 import { useLanguage } from './LanguageProvider'
 import styled from 'styled-components'
 import { IconWrapper } from '@lib/ui/icons/IconWrapper'
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { MenuOptionProps, MenuOption } from '@lib/ui/menu/MenuOption'
 import {
   languageNativeName,

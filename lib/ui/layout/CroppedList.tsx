@@ -1,6 +1,6 @@
 import { Fragment, ReactNode } from 'react'
 import { useBoolean } from '../hooks/useBoolean'
-import { VStack } from './Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Button } from '../buttons/Button'
 
 type CroppedListProps<T> = {

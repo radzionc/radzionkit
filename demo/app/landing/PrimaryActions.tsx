@@ -1,5 +1,5 @@
 import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Button } from '@lib/ui/buttons/Button'
 import { GitHubIcon } from '@lib/ui/icons/GitHubIcon'
 import Link from 'next/link'

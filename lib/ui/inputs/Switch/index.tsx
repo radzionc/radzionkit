@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { HStack } from '../../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Text } from '../../text'
 import { sameDimensions } from '../../css/sameDimensions'
 import { round } from '../../css/round'

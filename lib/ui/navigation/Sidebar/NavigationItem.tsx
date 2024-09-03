@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { getColor } from '../../theme/getters'
 import { transition } from '../../css/transition'
-import { HStack } from '../../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Text } from '../../text'
 import { borderRadius } from '../../css/borderRadius'
 

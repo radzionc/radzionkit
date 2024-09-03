@@ -5,7 +5,7 @@ import { ComponentWithActiveState, InputProps } from '../props'
 import { horizontalPadding } from '../css/horizontalPadding'
 import { getColor } from '../theme/getters'
 import { absoluteOutline } from '../css/absoluteOutline'
-import { HStack } from '../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { centerContent } from '../css/centerContent'
 import { hideScrollbars } from '../css/hideScrollbars'
 

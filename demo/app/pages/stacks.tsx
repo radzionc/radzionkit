@@ -1,7 +1,7 @@
 import styled, { useTheme } from 'styled-components'
 import { HSLA } from '@lib/ui/colors/HSLA'
 
-import { HStack, VStack } from '@lib/ui/layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { DemoPage } from '@demo/app/components/DemoPage'
 import { Panel } from '@lib/ui/css/panel'

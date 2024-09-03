@@ -1,4 +1,4 @@
-import { VStack } from '@lib/ui/layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import styled from 'styled-components'
 import { LandingPageHeader } from './LandingPageHeader'
 import { Center } from '@lib/ui/layout/Center'

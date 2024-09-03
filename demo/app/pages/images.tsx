@@ -1,6 +1,6 @@
 import { DemoPage } from '@demo/app/components/DemoPage'
 import { range } from '@lib/utils/array/range'
-import { VStack } from '@lib/ui/layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { IntersectionAware } from '@lib/ui/base/IntersectionAware'
 import { ImageHolder } from '@lib/ui/images/ImageHolder'

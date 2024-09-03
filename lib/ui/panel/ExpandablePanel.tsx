@@ -1,7 +1,7 @@
 import { ComponentProps, ReactNode } from 'react'
 import styled from 'styled-components'
 import { transition } from '../css/transition'
-import { HStack } from '../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Panel } from '@lib/ui/css/panel'
 import { getColor } from '../theme/getters'
 import { useBoolean } from '../hooks/useBoolean'

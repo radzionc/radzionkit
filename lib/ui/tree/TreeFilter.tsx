@@ -6,7 +6,7 @@ import { verticalPadding } from '../css/verticalPadding'
 import { InputProps } from '../props'
 import { Circle } from '../layout/Circle'
 import { NonEmptyOnly } from '../base/NonEmptyOnly'
-import { VStack, HStack } from '../layout/Stack'
+import { VStack, HStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
 import { stopPropagation } from '../utils/stopPropagation'
 

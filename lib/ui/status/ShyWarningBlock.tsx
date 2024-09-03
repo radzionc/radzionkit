@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { borderRadius } from '../css/borderRadius'
 import { IconWrapper } from '../icons/IconWrapper'
-import { HStack, VStack } from '../layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import {
   ComponentWithChildrenProps,
   TitledComponentProps,

@@ -1,4 +1,4 @@
-import { VStack, HStack } from '@lib/ui/layout/Stack'
+import { VStack, HStack } from '@lib/ui/css/stack'
 import styled, { useTheme } from 'styled-components'
 import { HabitInfo } from './data/habits'
 import { Text } from '@lib/ui/text'

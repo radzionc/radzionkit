@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import ReactToPrint from 'react-to-print'
 import { DownloadIcon } from '@lib/ui/icons/DonwloadIcon'
 import { Button } from '@lib/ui/buttons/Button'
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { IconWrapper } from '@lib/ui/icons/IconWrapper'
 import { Text } from '@lib/ui/text'
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { VStack } from '../../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { ComponentWithChildrenProps, TitledComponentProps } from '../../props'
 import { centeredContentColumn } from '../../css/centeredContentColumn'
 import { Text } from '../../text'

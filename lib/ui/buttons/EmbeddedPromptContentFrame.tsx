@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { HStack } from '../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { tightListItemConfig } from '../list/tightListItemConfig'
 import { toSizeUnit } from '../css/toSizeUnit'
 

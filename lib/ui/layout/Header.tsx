@@ -1,4 +1,4 @@
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import styled from 'styled-components'
 
 export const Header = styled(HStack)`

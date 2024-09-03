@@ -7,7 +7,7 @@ import { getColor } from '@lib/ui/theme/getters'
 import { formatDuration } from '@lib/utils/time/formatDuration'
 import styled from 'styled-components'
 import { Direction } from '@lib/utils/Direction'
-import { Stack } from '@lib/ui/layout/Stack'
+import { Stack } from '@lib/ui/css/stack'
 import { Minutes } from '@lib/utils/time/types'
 
 interface TimeDistanceProps {

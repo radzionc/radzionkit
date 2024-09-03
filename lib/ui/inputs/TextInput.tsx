@@ -1,7 +1,7 @@
 import { ChangeEvent, ComponentProps, Ref, forwardRef } from 'react'
 import styled from 'styled-components'
 
-import { VStack } from '../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Spinner } from '../loaders/Spinner'
 import { ComponentWithClassNameProps, LabeledComponentProps } from '../props'
 import { InputContainer } from './InputContainer'

@@ -1,4 +1,4 @@
-import { VStack } from '../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
 import { AuthView } from './AuthView'
 import { suggestInboxLink } from '@lib/utils/suggestInboxLink'

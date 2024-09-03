@@ -9,7 +9,7 @@ import {
   addMonths,
 } from '@lib/utils/time/Month'
 import { InputProps } from '../../../props'
-import { VStack } from '../../../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Header } from '../../../layout/Header'
 import { IconButton } from '../../../buttons/IconButton'
 import { ChevronLeftIcon } from '../../../icons/ChevronLeftIcon'

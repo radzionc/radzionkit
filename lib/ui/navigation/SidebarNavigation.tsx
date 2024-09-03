@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Sidebar } from './Sidebar'
 import { ReactNode } from 'react'
 import { useIsScreenWidthLessThan } from '../hooks/useIsScreenWidthLessThan'
-import { HStack, VStack } from '../layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 
 interface Props {
   children: ReactNode

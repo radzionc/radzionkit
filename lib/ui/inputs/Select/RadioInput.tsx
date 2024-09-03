@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { HStack } from '../../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { InputProps, UIComponentProps } from '../../props'
 import { useId } from 'react'
 import { InputContainer } from '../InputContainer'

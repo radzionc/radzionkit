@@ -1,5 +1,5 @@
 import { ComponentWithChildrenProps, TitledComponentProps } from '../props'
-import { HStack, VStack } from './Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import styled, { css } from 'styled-components'
 import { interactive } from '../css/interactive'
 import { getColor } from '../theme/getters'

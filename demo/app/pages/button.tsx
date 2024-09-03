@@ -1,4 +1,4 @@
-import { HStack, VStack } from '@lib/ui/layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { Button, buttonKinds, buttonSizes } from '@lib/ui/buttons/Button'
 import { TitledSection } from '@lib/ui/layout/TitledSection'
 import { DemoPage } from '../components/DemoPage'

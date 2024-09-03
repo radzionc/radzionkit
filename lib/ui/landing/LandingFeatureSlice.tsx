@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { LandingSlice } from './LandingSlice'
 import { reverseIf } from '@lib/utils/array/reverseIf'
 import { IntersectionAware } from '../base/IntersectionAware'
-import { VStack } from '../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
 
 type StartsWith = 'preview' | 'info'

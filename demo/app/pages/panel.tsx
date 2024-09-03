@@ -1,4 +1,4 @@
-import { VStack } from '@lib/ui/layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { DemoPage } from '@demo/app/components/DemoPage'
 import { ExpandablePanel } from '@lib/ui/panel/ExpandablePanel'
 import { Text } from '@lib/ui/text'

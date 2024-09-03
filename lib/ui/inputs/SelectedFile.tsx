@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Button } from '../buttons/Button'
 import { inputBackgroundCSS } from './config'
-import { HStack } from '../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
 import { borderRadius } from '../css/borderRadius'
 

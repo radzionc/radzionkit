@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { TabNavigationItem } from './TabNavigationItem'
 import { hideScrollbars } from '../../css/hideScrollbars'
-import { HStack } from '../../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { useId } from 'react'
 
 interface TabNavigationProps<T extends string | number | symbol> {

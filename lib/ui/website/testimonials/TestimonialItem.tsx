@@ -1,4 +1,4 @@
-import { HStack, VStack } from '../../layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { Testimonial, profileTypeName } from './Testimonial'
 import { Panel } from '@lib/ui/css/panel'
 import styled from 'styled-components'

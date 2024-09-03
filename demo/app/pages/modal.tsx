@@ -1,7 +1,7 @@
 import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
 import { Modal } from '@lib/ui/modal'
 import { Opener } from '@lib/ui/base/Opener'
-import { HStack, VStack } from '@lib/ui/layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { DemoPage } from '@demo/app/components/DemoPage'
 import { Button } from '@lib/ui/buttons/Button'

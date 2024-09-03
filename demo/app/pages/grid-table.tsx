@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import styled from 'styled-components'
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { TableLayout } from '@lib/ui/layout/TableLayout'
 import { Text } from '@lib/ui/text'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'

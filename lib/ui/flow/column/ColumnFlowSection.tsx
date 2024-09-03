@@ -6,7 +6,7 @@ import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import { transition } from '@lib/ui/css/transition'
 import { useBoolean } from '@lib/ui/hooks/useBoolean'
 import { CollapsableStateIndicator } from '@lib/ui/layout/CollapsableStateIndicator'
-import { HStack, VStack } from '@lib/ui/layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import {
   ComponentWithActiveState,
   ComponentWithChildrenProps,

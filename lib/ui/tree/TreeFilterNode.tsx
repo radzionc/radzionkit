@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { ComponentWithChildrenProps } from '../props'
-import { VStack } from '../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { ReversedTheme } from '../theme/ReversedTheme'
 import { getColor } from '../theme/getters'
 import { borderRadius } from '../css/borderRadius'

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { padWithZero } from '@lib/utils/padWithZero'
 import { Panel } from '@lib/ui/css/panel'
 import { Center } from '../layout/Center'
-import { HStack } from '../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
 
 interface Props {

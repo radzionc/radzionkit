@@ -1,6 +1,6 @@
 import { SourceCodeLink } from '@demo/app/components/SourceCode/SourceCodeLink'
 import { RegularPage } from '@lib/ui/layout/RegularPage'
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { useRouter } from 'next/router'
 import { YouTubeLink } from '@demo/app/components/YouTubeLink'

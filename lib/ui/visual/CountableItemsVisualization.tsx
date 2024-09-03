@@ -1,4 +1,4 @@
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { transition } from '@lib/ui/css/transition'
 import { HSLA } from '@lib/ui/colors/HSLA'
 import styled from 'styled-components'

@@ -1,7 +1,7 @@
 import { Button } from '../../buttons/Button'
 import { IconWrapper } from '../../icons/IconWrapper'
 import { PlusIcon } from '../../icons/PlusIcon'
-import { HStack } from '../../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import {
   ClickableComponentProps,
   ComponentWithChildrenProps,

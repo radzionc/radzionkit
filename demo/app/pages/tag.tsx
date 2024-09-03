@@ -1,5 +1,5 @@
 import { DemoPage } from '@demo/app/components/DemoPage'
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Tag } from '@lib/ui/tags/Tag'
 import { useTheme } from 'styled-components'
 import { makeDemoPage } from '@demo/app/layout/makeDemoPage'

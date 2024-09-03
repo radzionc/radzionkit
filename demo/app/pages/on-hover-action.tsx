@@ -1,7 +1,7 @@
 import { DemoPage } from '@demo/app/components/DemoPage'
 import { useState } from 'react'
 import { Panel } from '@lib/ui/css/panel'
-import { VStack } from '@lib/ui/layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import styled, { useTheme } from 'styled-components'
 import { HSLA } from '@lib/ui/colors/HSLA'
 import { StarIcon } from '@lib/ui/icons/StarIcon'

@@ -1,7 +1,7 @@
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { getTreeNode, getTreeValues } from '@lib/utils/tree'
 import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
-import { HStack, VStack } from '@lib/ui/layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { TreeFilter } from '@lib/ui/tree/TreeFilter'
 import { useState, useMemo } from 'react'
 import styled from 'styled-components'

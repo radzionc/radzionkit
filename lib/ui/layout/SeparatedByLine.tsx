@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { VStack } from './Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { getColor } from '../theme/getters'
 

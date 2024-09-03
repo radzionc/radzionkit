@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { TitledComponentProps } from '../props'
-import { VStack } from '../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import styled, { css } from 'styled-components'
 import { Text } from '../text'
 import { match } from '@lib/utils/match'

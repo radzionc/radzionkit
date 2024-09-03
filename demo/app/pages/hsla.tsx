@@ -1,5 +1,5 @@
 import { DemoPage } from '@demo/app/components/DemoPage'
-import { VStack } from '@lib/ui/layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { HSLAParameter, hslaKeys, hslaParamMaxValue } from '@lib/ui/colors/HSLA'
 import { ColorParameterInput } from '@demo/app/components/ColorParameterInput'
 import styled, { useTheme } from 'styled-components'

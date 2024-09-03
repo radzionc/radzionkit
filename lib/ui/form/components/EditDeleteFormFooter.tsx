@@ -1,5 +1,5 @@
 import { Button } from '../../buttons/Button'
-import { HStack } from '../../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 
 type EditDeleteFormFooterProps = {
   onDelete?: () => void

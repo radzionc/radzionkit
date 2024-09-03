@@ -1,7 +1,7 @@
 import { useTheme } from 'styled-components'
 import { InputProps } from '@lib/ui/props'
 import { toPercents } from '@lib/utils/toPercents'
-import { HStack } from '@lib/ui/layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Switch } from '@lib/ui/inputs/Switch'
 import { Tag } from '@lib/ui/tags/Tag'
 import { SubscriptionBillingCycle } from '@lib/subscription/Subscription'

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
 import { getColor, matchColor } from '../theme/getters'
 import { interactive } from '../css/interactive'
-import { HStack } from '../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import {
   ComponentWithActiveState,
   InputProps,

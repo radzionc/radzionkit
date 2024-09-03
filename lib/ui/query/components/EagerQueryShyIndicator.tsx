@@ -6,7 +6,7 @@ import { IconWrapper } from '../../icons/IconWrapper'
 import { getColor } from '../../theme/getters'
 import { Text } from '../../text'
 import { AlertTriangleIcon } from '../../icons/AlertTriangeIcon'
-import { VStack } from '../../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { getErrorMessage } from '@lib/utils/getErrorMessage'
 
 export interface EagerQueryShyIndicatorProps<T> {

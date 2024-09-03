@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { borderRadius } from '@lib/ui/css/borderRadius'
 import { getColor } from '@lib/ui/theme/getters'
 import { toSizeUnit } from '../css/toSizeUnit'
-import { HStack } from '../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 
 export const selectContainerMinHeight = 40
 

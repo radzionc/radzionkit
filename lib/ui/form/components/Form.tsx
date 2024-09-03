@@ -1,5 +1,5 @@
 import { FormEvent } from 'react'
-import { VStack } from '../../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { preventDefault } from '../../utils/preventDefault'
 import { Fields } from '../../inputs/Fields'
 

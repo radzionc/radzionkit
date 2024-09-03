@@ -1,6 +1,6 @@
 import { SubscriptionBillingCycle } from '@lib/subscription/Subscription'
 import { MONTHS_IN_YEAR } from '@lib/utils/time'
-import { VStack, HStack } from '@lib/ui/layout/Stack'
+import { VStack, HStack } from '@lib/ui/css/stack'
 import {
   HStackSeparatedBy,
   slashSeparator,

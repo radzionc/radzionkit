@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import { HStack } from '../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Text, TextColor } from '.'
 import { UIComponentProps } from '../props'
 

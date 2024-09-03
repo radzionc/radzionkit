@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { cropText } from '../css/cropText'
-import { HStack } from '../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 
 export const OptionContent = styled(HStack)`
   overflow: hidden;

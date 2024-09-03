@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react'
 import { useSpring, animated, config } from 'react-spring'
 import styled from 'styled-components'
-import { HStack, VStack } from '../../layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { Text } from '../../text'
 import { ExternalLink } from '../../navigation/Link/ExternalLink'
 import { Button } from '../../buttons/Button'

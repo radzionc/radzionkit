@@ -1,5 +1,5 @@
 import { IconWrapper } from '@lib/ui/icons/IconWrapper'
-import { HStack, VStack } from '@lib/ui/layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { dotSeparator } from '@lib/ui/layout/StackSeparatedBy'
 import { Text } from '@lib/ui/text'
 import { ReactNode } from 'react'

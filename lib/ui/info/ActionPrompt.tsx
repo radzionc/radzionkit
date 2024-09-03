@@ -1,4 +1,4 @@
-import { VStack } from '@lib/ui/layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { ComponentWithChildrenProps } from '../props'
 import { ReactNode } from 'react'
 import { ElementSizeAware } from '../base/ElementSizeAware'

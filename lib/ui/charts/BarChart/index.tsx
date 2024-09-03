@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Spacer } from '../../layout/Spacer'
-import { HStack, VStack } from '../../layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { HSLA } from '../../colors/HSLA'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { Text } from '../../text'

@@ -9,7 +9,7 @@ import { centerContent } from '../../css/centerContent'
 import { sameDimensions } from '../../css/sameDimensions'
 import { transition } from '../../css/transition'
 import { CheckIcon } from '../../icons/CheckIcon'
-import { HStack } from '../../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { Text } from '../../text'
 import { interactive } from '../../css/interactive'
 

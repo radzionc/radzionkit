@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { VStack } from '@lib/ui/layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Opener } from '@lib/ui/base/Opener'
 import { updateAtIndex } from '@lib/utils/array/updateAtIndex'
 import { ChecklistItem } from '@lib/ui/checklist/ChecklistItem'

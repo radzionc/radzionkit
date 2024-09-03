@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { TextInput, TextInputProps } from './TextInput'
 import { centerContent } from '../css/centerContent'
-import { HStack } from '../layout/Stack'
+import { HStack } from '@lib/ui/css/stack'
 import { borderRadius } from '../css/borderRadius'
 
 type AmountTextInputProps = Omit<TextInputProps, 'value' | 'onValueChange'> & {

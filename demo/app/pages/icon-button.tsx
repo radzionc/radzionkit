@@ -1,4 +1,4 @@
-import { HStack, VStack } from '@lib/ui/layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { DemoPage } from '@demo/app/components/DemoPage'
 import {
   IconButton,

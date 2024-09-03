@@ -1,5 +1,5 @@
 import { DemoPage } from '@demo/app/components/DemoPage'
-import { HStack, VStack } from '@lib/ui/layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { ThemeProvider } from 'styled-components'
 import { HSLA } from '@lib/ui/colors/HSLA'
 import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'

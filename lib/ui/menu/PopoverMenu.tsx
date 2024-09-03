@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { CloseButton } from '../buttons/CloseButton'
 import { SeparatedByLine } from '../layout/SeparatedByLine'
-import { HStack, VStack } from '../layout/Stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import {
   PopoverPanelProps,
   PopoverPanel,

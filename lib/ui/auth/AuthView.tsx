@@ -1,5 +1,5 @@
 import { ComponentWithChildrenProps, TitledComponentProps } from '../props'
-import { VStack } from '../layout/Stack'
+import { VStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
 
 interface AuthViewProps
