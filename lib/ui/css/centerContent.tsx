@@ -1,7 +1,13 @@
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
+import { vStack } from './stack'
 
 export const centerContent = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${vStack({
+    alignItems: 'center',
+    justifyContent: 'center',
+  })}
+`
+
+export const CenterContent = styled.div`
+  ${centerContent}
 `
