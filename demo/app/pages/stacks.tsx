@@ -4,7 +4,7 @@ import { HSLA } from '@lib/ui/colors/HSLA'
 import { HStack, VStack } from '@lib/ui/layout/Stack'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { DemoPage } from '@demo/app/components/DemoPage'
-import { Panel } from '@lib/ui/panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { makeDemoPage } from '@demo/app/layout/makeDemoPage'
 
 const Conent = styled(Panel)<{ $color: HSLA }>`

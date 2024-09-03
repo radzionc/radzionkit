@@ -10,7 +10,7 @@ export default makeDemoPage(() => {
   return (
     <DemoPage youtubeVideoId="cY-wADVIrRQ" title="Panel">
       <ExpandablePanel
-        width={400}
+        style={{ width: 400 }}
         header={
           <VStack alignItems="start" gap={4}>
             <Text size={18} weight="600">

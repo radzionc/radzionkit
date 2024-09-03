@@ -1,7 +1,7 @@
 import { formatDuration } from '@lib/utils/time/formatDuration'
 import { DistributionBar } from '@lib/ui/charts/DistributionBar'
 import { AmountInput } from '@lib/ui/inputs/Slider/AmountInput'
-import { Panel } from '@lib/ui/panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { VStack } from '@lib/ui/layout/Stack'
 import { Controller, useWatch } from 'react-hook-form'
 import { useTheme } from 'styled-components'
@@ -33,7 +33,7 @@ export const WorkBudgetForm = () => {
   const weekendColor = theme.colors.idle
 
   return (
-    <Panel width={400}>
+    <Panel style={{ width: 400 }}>
       <TitledSection title="Work Budget">
         <VStack fullWidth gap={16}>
           <VStack fullWidth gap={8}>

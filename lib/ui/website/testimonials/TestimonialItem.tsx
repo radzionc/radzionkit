@@ -1,6 +1,6 @@
 import { HStack, VStack } from '../../layout/Stack'
 import { Testimonial, profileTypeName } from './Testimonial'
-import { Panel } from '../../panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import styled from 'styled-components'
 import { CoverImage } from '../../images/CoverImage'
 import { sameDimensions } from '../../css/sameDimensions'

@@ -12,7 +12,7 @@ import {
 } from '@floating-ui/react'
 import { ReactNode, useState } from 'react'
 import styled from 'styled-components'
-import { Panel } from '../panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void

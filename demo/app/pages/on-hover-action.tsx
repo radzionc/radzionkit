@@ -1,6 +1,6 @@
 import { DemoPage } from '@demo/app/components/DemoPage'
 import { useState } from 'react'
-import { Panel } from '@lib/ui/panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { VStack } from '@lib/ui/layout/Stack'
 import styled, { useTheme } from 'styled-components'
 import { HSLA } from '@lib/ui/colors/HSLA'

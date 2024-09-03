@@ -1,6 +1,6 @@
 import { Interval } from '@lib/utils/interval/Interval'
 import { useStartOfDay } from '@lib/ui/hooks/useStartOfDay'
-import { Panel } from '@lib/ui/panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { IntervalInput } from '@lib/ui/timeline/IntervalInput'
 import { useState } from 'react'
 import { useTheme } from 'styled-components'
@@ -18,7 +18,7 @@ export const CalendarEditor = () => {
   }))
 
   return (
-    <Panel width={400}>
+    <Panel style={{ width: 400 }}>
       <TitledSection title="Add Work Session">
         <IntervalInput
           timelineStartsAt={startOfDay + convertDuration(10, 'h', 'ms')}

@@ -2,7 +2,7 @@ import { TextInput } from '@lib/ui/inputs/TextInput'
 import { TextArea } from '@lib/ui/inputs/TextArea'
 import { bioMaxLength, useJobApplicationForm } from './jobApplicationForm'
 import { ExperienceSection } from './ExperienceSection'
-import { Panel } from '@lib/ui/panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { Button } from '@lib/ui/buttons/Button'
 import { TitledSection } from '@lib/ui/layout/TitledSection'
 import { Form } from '@lib/ui/form/components/Form'
@@ -18,7 +18,7 @@ export const JobApplication = () => {
   } = form
 
   return (
-    <Panel width={480}>
+    <Panel style={{ width: 480 }}>
       <TitledSection title="Job Application">
         <Form
           gap={48}

@@ -6,7 +6,7 @@ import { getColor } from '../theme/getters'
 import { UploadIcon } from '../icons/UploadIcon'
 import { transition } from '../css/transition'
 import { VStack } from '../layout/Stack'
-import { Panel } from '../panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { Text } from '../text'
 import { borderRadius } from '../css/borderRadius'
 

@@ -2,7 +2,7 @@ import { TextInput } from '@lib/ui/inputs/TextInput'
 import { Controller, useForm } from 'react-hook-form'
 import { TextArea } from '@lib/ui/inputs/TextArea'
 import { DemoPage } from '@demo/app/components/DemoPage'
-import { Panel } from '@lib/ui/panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { TitledSection } from '@lib/ui/layout/TitledSection'
 import { AmountTextInput } from '@lib/ui/inputs/AmountTextInput'
 import { DollarIcon } from '@lib/ui/icons/DollarIcon'
@@ -32,7 +32,7 @@ export default makeDemoPage(() => {
 
   return (
     <DemoPage youtubeVideoId="V3scoHuQ19s" title="Text Input">
-      <Panel width={400}>
+      <Panel style={{ width: 400 }}>
         <TitledSection title="Who are You?">
           <Form
             content={

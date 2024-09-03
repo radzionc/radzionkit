@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 
 import { ActionInsideInteractiveElement } from '../base/ActionInsideInteractiveElement'
-import { Panel } from '../panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { Text } from '../text'
 import { getColor } from '../theme/getters'
 import { ComponentWithChildrenProps } from '../props'

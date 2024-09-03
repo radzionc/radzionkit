@@ -20,6 +20,8 @@ const Highlight = styled.div<HighlightProps>`
 const Container = styled(UnstyledButton)`
   position: relative;
 
+  outline: none;
+
   &:hover ${Highlight} {
     background: ${getColor('mist')};
   }

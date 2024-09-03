@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import { ComponentProps, ReactNode } from 'react'
 import styled from 'styled-components'
 import { transition } from '../css/transition'
 import { HStack } from '../layout/Stack'
-import { Panel, PanelProps } from './Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { getColor } from '../theme/getters'
 import { useBoolean } from '../hooks/useBoolean'
 import { centerContent } from '../css/centerContent'
@@ -11,7 +11,7 @@ import { interactive } from '../css/interactive'
 import { round } from '../css/round'
 import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 
-interface ExpandableProps extends PanelProps {
+type ExpandablePanelProps = ComponentProps<typeof Panel> & {
   header: ReactNode
   renderContent: () => ReactNode
 }
@@ -44,7 +44,7 @@ export const ExpandablePanel = ({
   header,
   renderContent,
   ...panelProps
-}: ExpandableProps) => {
+}: ExpandablePanelProps) => {
   const [isExpanded, { toggle }] = useBoolean(false)
 
   return (

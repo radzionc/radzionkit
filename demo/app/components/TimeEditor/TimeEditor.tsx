@@ -1,5 +1,5 @@
 import { useStartOfDay } from '@lib/ui/hooks/useStartOfDay'
-import { Panel } from '@lib/ui/panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { TimeInput } from '@lib/ui/timeline/TimeInput'
 import { useState } from 'react'
 import { useTheme } from 'styled-components'
@@ -16,7 +16,7 @@ export const TimeEditor = () => {
   const [value, setValue] = useState<number>(initialValue)
 
   return (
-    <Panel width={400}>
+    <Panel style={{ width: 400 }}>
       <TitledSection title="Change Session Start Time">
         <TimeInput
           intialValue={initialValue}

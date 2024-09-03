@@ -1,6 +1,6 @@
 import { DemoPage } from '@demo/app/components/DemoPage'
 import styled from 'styled-components'
-import { Panel } from '@lib/ui/panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { PressTracker } from '@lib/ui/base/PressTracker'
 import { getColor } from '@lib/ui/theme/getters'

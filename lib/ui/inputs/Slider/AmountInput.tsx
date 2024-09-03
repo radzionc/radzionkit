@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Slider, SliderProps } from '.'
 
-import { Panel } from '../../panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { Text } from '../../text'
 import { InputContainer } from '../InputContainer'
 import { LabelText } from '../LabelText'

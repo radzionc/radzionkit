@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { HSLA } from '../colors/HSLA'
 import { ElementSizeAware } from '../base/ElementSizeAware'
-import { Panel } from '../panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { VStack } from '../layout/Stack'
 import { Text } from '../text'
 import { getColor } from '../theme/getters'

@@ -1,5 +1,5 @@
 import { interactive } from '@lib/ui/css/interactive'
-import { Panel } from '@lib/ui/panel/Panel'
+import { Panel } from '@lib/ui/css/panel'
 import { getColor } from '@lib/ui/theme/getters'
 import { ReactNode, useState } from 'react'
 import styled, { css } from 'styled-components'

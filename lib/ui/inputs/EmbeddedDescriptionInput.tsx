@@ -6,7 +6,7 @@ import { ComponentProps, ReactNode, useRef } from 'react'
 import styled from 'styled-components'
 import { MultilineTextInput } from './MultilineTextInput'
 import { tightListItemConfig } from '../list/tightListItemConfig'
-import { panelDefaultPadding } from '../panel/Panel'
+import { panelDefaultPadding } from '@lib/ui/css/panel'
 
 const padding = panelDefaultPadding
 
