@@ -9,3 +9,15 @@ export type EagerQuery<T, E = unknown> = {
   isPending: boolean
   errors: E[]
 }
+
+export const pendingQuery = {
+  data: undefined,
+  error: null,
+  isPending: true,
+}
+
+export const getResolvedQuery = <T>(data: T): Query<T> => ({
+  data,
+  error: null,
+  isPending: false,
+})
