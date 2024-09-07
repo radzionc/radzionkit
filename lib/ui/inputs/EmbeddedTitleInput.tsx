@@ -8,7 +8,6 @@ import { tightListItemConfig } from '@lib/ui/list/tightListItemConfig'
 
 const Container = styled(MultilineTextInput)`
   line-height: ${toSizeUnit(tightListItemConfig.lineHeight)};
-  background: transparent;
   width: 100%;
   font-size: 16px;
   font-weight: 500;

@@ -24,12 +24,12 @@ export const BlockingQuery = ({ error, supportEmail }: BlockingQueryProps) => {
           <Text
             color="regular"
             style={{ wordBreak: 'break-word' }}
-            centered
+            centerHorizontally
             height="large"
           >
             {error.message}
           </Text>
-          <Text centered color="supporting" size={14}>
+          <Text centerHorizontally color="supporting" size={14}>
             Nothing helps? Email us at <br />
             <CopyText color="regular" as="span" content={supportEmail}>
               {supportEmail}

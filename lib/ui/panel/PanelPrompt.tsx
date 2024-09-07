@@ -20,7 +20,7 @@ export const PanelPrompt = ({
         <Text size={16} weight="600">
           {title}
         </Text>
-        <Text height="large" size={14} centered>
+        <Text height="large" size={14} centerHorizontally>
           {children}
         </Text>
       </VStack>

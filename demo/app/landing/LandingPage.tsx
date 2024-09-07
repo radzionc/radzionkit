@@ -27,7 +27,7 @@ export const LandingPage = () => {
       <LandingPageHeader />
       <Content>
         <VStack style={{ maxWidth: 480 }} alignItems="center" gap={24}>
-          <Text color="contrast" as="h1" centered size={32}>
+          <Text color="contrast" as="h1" centerHorizontally size={32}>
             Build React Apps Faster with RadzionKit's Components System &
             Monorepo
           </Text>

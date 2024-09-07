@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ElementType, ReactNode } from 'react'
 import { HSLA } from '../colors/HSLA'
 
 export type ClosableComponentProps = {
@@ -95,4 +95,8 @@ export type ComponentWithIndexProps = {
 
 export type RemovableComponentProps = {
   onRemove: () => void
+}
+
+export type AsElementComponent<T extends ElementType = ElementType> = {
+  as?: T
 }

@@ -30,7 +30,7 @@ export default makeDemoPage(() => {
           render={() => (
             <Text color="supporting" size={14} height="large">
               <Text
-                centered
+                centerHorizontally
                 as="span"
                 style={{ marginRight: 8, verticalAlign: 'middle' }}
               >
