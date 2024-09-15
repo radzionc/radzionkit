@@ -10,7 +10,7 @@ const Container = styled(MultilineTextInput)`
   line-height: ${toSizeUnit(tightListItemConfig.lineHeight)};
   width: 100%;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
 `
 
 type EmbeddedTitleInputProps = InputProps<string> &

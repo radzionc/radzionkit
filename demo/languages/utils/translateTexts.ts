@@ -6,7 +6,10 @@ import { extractTemplateVariables } from '@lib/utils/template/extractTemplateVar
 import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
 import { injectVariables } from '@lib/utils/template/injectVariables'
 import { makeRecord } from '@lib/utils/record/makeRecord'
-import { toTemplateVariable } from '@lib/utils/template/toTemplateVariable'
+import {
+  mustacheVariablePattern,
+  toMustacheTemplateVariable,
+} from '@lib/utils/template/mustacheTemplate'
 
 const batchSize = 600
 
@@ -36,12 +39,13 @@ export const translateTexts = async ({
   const result = []
   for (const batch of batches) {
     const contents = batch.map((text) =>
-      injectVariables(
-        text,
-        makeRecord(extractTemplateVariables(text), (text) =>
-          toTemplateVariable(`var_${variables.indexOf(text)}`),
+      injectVariables({
+        template: text,
+        variablePattern: mustacheVariablePattern,
+        variables: makeRecord(extractTemplateVariables(text), (text) =>
+          toMustacheTemplateVariable(`var_${variables.indexOf(text)}`),
         ),
-      ),
+      }),
     )
 
     const request = {
@@ -66,12 +70,17 @@ export const translateTexts = async ({
           throw new Error('No translatedText')
         }
 
-        return injectVariables(
-          translatedText,
-          makeRecord(extractTemplateVariables(translatedText), (variable) =>
-            toTemplateVariable(variables[Number(variable.split('_')[1])]),
+        return injectVariables({
+          template: translatedText,
+          variablePattern: mustacheVariablePattern,
+          variables: makeRecord(
+            extractTemplateVariables(translatedText),
+            (variable) =>
+              toMustacheTemplateVariable(
+                variables[Number(variable.split('_')[1])],
+              ),
           ),
-        )
+        })
       }),
     )
   }

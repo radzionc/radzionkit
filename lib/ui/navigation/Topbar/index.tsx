@@ -1,9 +1,9 @@
 import { useToggle } from 'react-use'
 import styled from 'styled-components'
 
-import { CompleteMist } from '../../modal/CompleteMist'
 import { Spacer } from '../../layout/Spacer'
 import { Burger } from './Burger'
+import { Backdrop } from '../../modal/Backdrop'
 
 const Container = styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ const Container = styled.div`
   justify-items: center;
 `
 
-const Cover = styled(CompleteMist)`
+const Cover = styled(Backdrop)`
   justify-content: flex-start;
 `
 
@@ -28,7 +28,7 @@ export const Topbar = ({ renderSidebar }: Props) => {
   return (
     <>
       {isSidebarOpen && (
-        <Cover onClick={toggleSidebar}>{renderSidebar()}</Cover>
+        <Cover onClose={toggleSidebar}>{renderSidebar()}</Cover>
       )}
       <Container>
         <Burger onClick={toggleSidebar} />

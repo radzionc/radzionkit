@@ -25,8 +25,16 @@ export type ClickableComponentProps = {
   onClick: () => void
 }
 
-export type FinishableComponentProps = {
+export type NoValueFinishProps = {
   onFinish: () => void
+}
+
+export type OptionalValueFinishProps<T> = {
+  onFinish: (value?: T) => void
+}
+
+export type ValueFinishProps<T> = {
+  onFinish: (value: T) => void
 }
 
 export type InputProps<T> = {
@@ -78,7 +86,7 @@ export type ComponentWithWidthProps = {
 }
 
 export type ComponentWithActiveState = {
-  isActive: boolean
+  isActive?: boolean
 }
 
 export type ComponentWithSelectedState = {
@@ -99,4 +107,13 @@ export type RemovableComponentProps = {
 
 export type AsElementComponent<T extends ElementType = ElementType> = {
   as?: T
+}
+
+export type DraggingAwareComponentProps = {
+  isDragging?: boolean
+}
+
+export type ProgressComponentProps = {
+  target: number
+  current: number
 }

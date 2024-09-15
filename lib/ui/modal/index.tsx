@@ -1,52 +1,57 @@
-import { ReactNode } from 'react'
-import { ComponentWithChildrenProps, TitledComponentProps } from '../props'
+import { ComponentProps, ReactNode } from 'react'
+import { AsElementComponent, TitledComponentProps } from '../props'
 import { BodyPortal } from '../dom/BodyPortal'
-import { CompleteMist } from './CompleteMist'
-import { useIsScreenWidthLessThan } from '../hooks/useIsScreenWidthLessThan'
-import { useKey } from 'react-use'
 import { FocusTrap } from './FocusTrap'
 import { ModalContainer, ModalPlacement } from './ModalContainer'
 import { HStack, VStack } from '@lib/ui/css/stack'
 import { ModalTitleText } from './ModalTitleText'
 import { ModalContent } from './ModalContent'
 import { ModalCloseButton } from './ModalCloseButton'
-import { stopPropagation } from '../utils/stopPropagation'
 import { ModalSubTitleText } from './ModalSubTitleText'
-import { modalConfig } from './config'
+import styled from 'styled-components'
+import { toSizeUnit } from '../css/toSizeUnit'
+import { Backdrop } from './Backdrop'
 
-export type ModalProps = TitledComponentProps &
-  ComponentWithChildrenProps & {
+export type ModalProps = AsElementComponent &
+  Omit<ComponentProps<typeof Container>, 'title'> &
+  TitledComponentProps & {
     onClose?: () => void
     subTitle?: ReactNode
     placement?: ModalPlacement
     footer?: ReactNode
-    width?: number
+    targetWidth?: number
   }
+
+const contentVerticalPadding = 8
+
+const Container = styled(ModalContainer)`
+  > * {
+    padding: 24px;
+  }
+
+  > *:nth-child(2) {
+    padding-top: ${toSizeUnit(contentVerticalPadding)};
+  }
+
+  > *:not(:first-child):not(:last-child) {
+    padding-bottom: ${toSizeUnit(contentVerticalPadding)};
+  }
+`
 
 export const Modal = ({
   title,
   children,
   onClose,
-  placement = 'center',
   footer,
-  width = 400,
   subTitle,
+  as,
+  ...rest
 }: ModalProps) => {
-  const isFullScreen = useIsScreenWidthLessThan(
-    width + modalConfig.minHorizontalFreeSpaceForMist,
-  )
-
-  useKey('Escape', onClose)
-
   return (
     <BodyPortal>
-      <CompleteMist onClick={onClose}>
+      <Backdrop onClose={onClose}>
         <FocusTrap>
-          <ModalContainer
-            onClick={stopPropagation()}
-            placement={placement}
-            width={isFullScreen ? undefined : width}
-          >
+          <Container forwardedAs={as} {...rest}>
             <VStack gap={8}>
               <HStack
                 alignItems="start"
@@ -60,9 +65,9 @@ export const Modal = ({
             </VStack>
             <ModalContent>{children}</ModalContent>
             {footer && <VStack>{footer}</VStack>}
-          </ModalContainer>
+          </Container>
         </FocusTrap>
-      </CompleteMist>
+      </Backdrop>
     </BodyPortal>
   )
 }

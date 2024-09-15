@@ -1,6 +1,9 @@
 import React, { forwardRef } from 'react'
 import styled from 'styled-components'
-import { ComponentWithChildrenProps } from '../props'
+import {
+  ComponentWithChildrenProps,
+  DraggingAwareComponentProps,
+} from '../props'
 import { borderRadius } from '../css/borderRadius'
 import { absoluteOutline } from '../css/absoluteOutline'
 import { tightListItemConfig } from './tightListItemConfig'
@@ -26,9 +29,8 @@ const Content = styled.div`
 `
 
 type DraggableTightListItemContainerProps = ComponentWithChildrenProps &
-  ComponentProps<typeof Container> & {
-    isDragging?: boolean
-  }
+  ComponentProps<typeof Container> &
+  DraggingAwareComponentProps
 
 export const DraggableTightListItemContainer = forwardRef<
   HTMLDivElement,

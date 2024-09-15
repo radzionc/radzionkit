@@ -1,16 +1,17 @@
 import { ReactNode, useState } from 'react'
 
-import { ElementSize, useElementSize } from '../hooks/useElementSize'
+import { useElementSize } from '../hooks/useElementSize'
 import { useIsomorphicLayoutEffect } from 'react-use'
+import { Dimensions } from '@lib/utils/entities/Dimensions'
 
 interface ElementSizeAwareRenderParams {
-  size: ElementSize | null
+  size: Dimensions | null
   setElement: (element: HTMLElement | null) => void
 }
 
 interface Props {
   render: (params: ElementSizeAwareRenderParams) => ReactNode
-  onChange?: (size: ElementSize | null) => void
+  onChange?: (size: Dimensions | null) => void
 }
 
 export const ElementSizeAware = ({ render, onChange }: Props) => {

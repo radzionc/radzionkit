@@ -1,18 +1,14 @@
 import { debounce } from '@lib/utils/debounce'
+import { Dimensions } from '@lib/utils/entities/Dimensions'
 import { pick } from '@lib/utils/record/pick'
 import { useState } from 'react'
 import { useIsomorphicLayoutEffect } from 'react-use'
 
-export interface ElementSize {
-  width: number
-  height: number
-}
-
-const getElementSize = (element: HTMLElement): ElementSize =>
+const getElementSize = (element: HTMLElement): Dimensions =>
   pick(element.getBoundingClientRect(), ['height', 'width'])
 
 export const useElementSize = (element: HTMLElement | null) => {
-  const [size, setSize] = useState<ElementSize | null>(() =>
+  const [size, setSize] = useState<Dimensions | null>(() =>
     element ? getElementSize(element) : null,
   )
 

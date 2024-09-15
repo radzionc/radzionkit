@@ -1,13 +1,13 @@
 import { ReactNode } from 'react'
+import { ComponentWithValueProps } from '../props'
 
-interface NonEmptyOnlyProps<T> {
-  array?: T[]
+type NonEmptyOnlyProps<T> = Partial<ComponentWithValueProps<T[]>> & {
   render: (array: T[]) => ReactNode
 }
 
-export function NonEmptyOnly<T>({ array, render }: NonEmptyOnlyProps<T>) {
-  if (array && array.length > 0) {
-    return <>{render(array)}</>
+export function NonEmptyOnly<T>({ value, render }: NonEmptyOnlyProps<T>) {
+  if (value && value.length > 0) {
+    return <>{render(value)}</>
   }
 
   return null

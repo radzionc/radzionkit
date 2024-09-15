@@ -69,12 +69,12 @@ export const FlowNavigationItem = ({
 }: FlowNavigationItemProps) => {
   return (
     <Container
-      isActive={isActive}
+      isActive={!!isActive}
       onClick={isEnabled ? () => onClick() : undefined}
       isEnabled={isEnabled}
       {...rest}
     >
-      <CheckContainer isCompleted={isCompleted} isActive={isActive}>
+      <CheckContainer isCompleted={isCompleted} isActive={!!isActive}>
         <IconWrapper>
           <CheckIcon />
         </IconWrapper>

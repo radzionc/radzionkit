@@ -4,11 +4,11 @@ import { range } from '@lib/utils/array/range'
 import styled from 'styled-components'
 import { ElementSizeAware } from '../base/ElementSizeAware'
 import { toSizeUnit } from '../css/toSizeUnit'
-import { ElementSize } from '../hooks/useElementSize'
 import { calculateRightAngleTriangleSide } from '@lib/utils/math/calculateRightAngleTriangleSide'
 import { calculateHypotenuse } from '@lib/utils/math/calculateHypotenuse'
 import { degreesToRadians } from '@lib/utils/degreesToRadians'
 import { UIComponentProps } from '../props'
+import { Dimensions } from '@lib/utils/entities/Dimensions'
 
 const Wrapper = styled(TakeWholeSpaceAbsolutely)`
   overflow: hidden;
@@ -35,7 +35,7 @@ export const LinesFiller = ({
   return (
     <ElementSizeAware
       render={({ setElement, size }) => {
-        const fill = ({ width, height }: ElementSize) => {
+        const fill = ({ width, height }: Dimensions) => {
           const offset = calculateRightAngleTriangleSide({
             givenSideLength: height,
             angleInRadians: degreesToRadians(Math.abs(rotation)),

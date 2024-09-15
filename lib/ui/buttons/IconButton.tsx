@@ -5,11 +5,12 @@ import { match } from '@lib/utils/match'
 import { centerContent } from '../css/centerContent'
 import { sameDimensions } from '../css/sameDimensions'
 import { toSizeUnit } from '../css/toSizeUnit'
-import { getColor, matchColor } from '../theme/getters'
+import { getColor } from '../theme/getters'
 import { borderRadius } from '../css/borderRadius'
 import { getHoverVariant } from '@lib/ui/theme/getHoverVariant'
 import { Tooltip } from '../tooltips/Tooltip'
 import { MergeRefs } from '../base/MergeRefs'
+import { interactive } from '../css/interactive'
 
 export const iconButtonSizes = ['s', 'm', 'l'] as const
 export type IconButtonSize = (typeof iconButtonSizes)[number]
@@ -34,36 +35,41 @@ export const iconButtonIconSizeRecord: Record<IconButtonSize, number> = {
   l: 16,
 }
 
-interface ContainerProps {
-  size: IconButtonSize
-  kind: IconButtonKind
+type IconButtonContainerParams = {
+  size?: IconButtonSize
+  kind?: IconButtonKind
   isDisabled?: boolean
 }
 
-const Container = styled(UnstyledButton)<ContainerProps>`
+export const iconButtonContainer = ({
+  size = 'm',
+  kind = 'regular',
+  isDisabled = false,
+}: IconButtonContainerParams) => css`
+  ${interactive};
   position: relative;
   ${centerContent};
-  ${({ size }) => sameDimensions(iconButtonSizeRecord[size])};
+  ${sameDimensions(iconButtonSizeRecord[size])};
 
-  color: ${matchColor('kind', {
-    regular: 'text',
-    secondary: 'text',
-    alert: 'alert',
-    alertSecondary: 'alert',
-  })};
+  color: ${({ theme: { colors } }) =>
+    match(kind, {
+      regular: () => colors.text,
+      secondary: () => colors.text,
+      alert: () => colors.alert,
+      alertSecondary: () => colors.alert,
+    }).toCssValue()};
 
-  font-size: ${({ size }) => toSizeUnit(iconButtonIconSizeRecord[size])};
+  font-size: ${toSizeUnit(iconButtonIconSizeRecord[size])};
 
   ${borderRadius.s};
 
-  ${({ kind }) =>
-    kind !== 'secondary' &&
-    kind !== 'alertSecondary' &&
-    css`
-      border: 1px solid ${getColor('mist')};
-    `}
+  ${kind !== 'secondary' &&
+  kind !== 'alertSecondary' &&
+  css`
+    border: 1px solid ${getColor('mist')};
+  `}
 
-  background: ${({ kind, theme: { colors } }) =>
+  background: ${({ theme: { colors } }) =>
     match(kind, {
       regular: () => colors.foreground,
       secondary: () => colors.transparent,
@@ -71,7 +77,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
       alertSecondary: () => colors.transparent,
     }).toCssValue()};
 
-  ${({ isDisabled, kind, theme }) =>
+  ${({ theme }) =>
     !isDisabled &&
     css`
       &:hover {
@@ -93,13 +99,17 @@ const Container = styled(UnstyledButton)<ContainerProps>`
       }
     `}
 
-  cursor: ${({ isDisabled }) => (isDisabled ? 'initial' : 'pointer')};
-  opacity: ${({ isDisabled }) => (isDisabled ? 0.8 : 1)};
+  cursor: ${isDisabled ? 'initial' : 'pointer'};
+  opacity: ${isDisabled ? 0.8 : 1};
+`
+
+const Container = styled(UnstyledButton)<IconButtonContainerParams>`
+  ${iconButtonContainer};
 `
 
 export type IconButtonProps = Omit<
   ComponentProps<typeof Container>,
-  'size' | 'kind' | 'isDisabled'
+  'isDisabled'
 > & {
   icon: React.ReactNode
   size?: IconButtonSize
@@ -111,8 +121,6 @@ export type IconButtonProps = Omit<
 
 export const IconButton = forwardRef(function IconButton(
   {
-    size = 'm',
-    kind = 'regular',
     icon,
     type = 'button',
     isDisabled = false,
@@ -124,8 +132,6 @@ export const IconButton = forwardRef(function IconButton(
 ) {
   const containerProps = {
     type,
-    kind,
-    size,
     isDisabled: !!isDisabled,
     onClick: isDisabled ? undefined : onClick,
     ...rest,

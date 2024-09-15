@@ -71,7 +71,7 @@ export function TreeFilter<T>({
           <Text weight="600">{renderName(node.value)}</Text>
         </Item>
         <NonEmptyOnly
-          array={node.children}
+          value={node.children}
           render={(items) => (
             <Content>
               {items.map((child, index) => (

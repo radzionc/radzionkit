@@ -17,9 +17,9 @@ export const ExpandableInputOpener = styled(
   ${transition}
 
   ${sameDimensions(textInputHeight)};
-  border: 1px solid ${getColor('mist')};
+  border: 1px solid transparent;
 
-  background: ${getColor('foreground')};
+  background: transparent;
   outline: none;
 
   ${({ isActive }) =>

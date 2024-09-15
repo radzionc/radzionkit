@@ -2,11 +2,11 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 
 import { ElementSizeAware } from './ElementSizeAware'
-import { ElementSize } from '../hooks/useElementSize'
 import { UIComponentProps } from '../props'
+import { Dimensions } from '@lib/utils/entities/Dimensions'
 
 interface OnHoverActionRenderParams<T extends React.CSSProperties> {
-  actionSize: ElementSize | null
+  actionSize: Dimensions | null
   actionPlacerStyles: T
 }
 

@@ -1,4 +1,4 @@
-export interface Dimensions {
+export type Dimensions = {
   width: number
   height: number
 }

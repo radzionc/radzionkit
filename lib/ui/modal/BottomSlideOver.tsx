@@ -9,15 +9,15 @@ import { Text } from '../text'
 import { horizontalPadding } from '../css/horizontalPadding'
 import { verticalPadding } from '../css/verticalPadding'
 import { Button } from '../buttons/Button'
-import { CompleteMist } from './CompleteMist'
 import { stopPropagation } from '../utils/stopPropagation'
+import { Backdrop } from './Backdrop'
 
 export type BottomSlideOverProps = ComponentWithChildrenProps &
   ClosableComponentProps & {
     title: ReactNode
   }
 
-const Cover = styled(CompleteMist)`
+const Cover = styled(Backdrop)`
   align-items: flex-end;
   justify-content: flex-end;
 `
@@ -49,7 +49,7 @@ export const BottomSlideOver = ({
 }: BottomSlideOverProps) => {
   return (
     <BodyPortal>
-      <Cover onClick={onClose}>
+      <Cover onClose={onClose}>
         <Container onClick={stopPropagation()}>
           <HStack gap={8} alignItems="center" justifyContent="space-between">
             <Text cropped as="div" weight="600" size={24}>

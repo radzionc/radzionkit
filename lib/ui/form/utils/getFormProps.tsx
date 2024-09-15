@@ -17,6 +17,7 @@ export const getFormProps = ({
     onKeyDown: onClose
       ? (event: KeyboardEvent<HTMLFormElement>) => {
           if (event.key === 'Escape') {
+            event.stopPropagation()
             onClose()
           }
         }

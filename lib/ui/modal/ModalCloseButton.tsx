@@ -8,14 +8,14 @@ import { transition } from '../css/transition'
 import { sameDimensions } from '../css/sameDimensions'
 
 const IconWrapper = styled.div`
-  font-size: 24px;
+  font-size: 20px;
   ${sameDimensions(24)};
   ${centerContent};
   ${transition};
 `
 
 const Container = styled(Hoverable)`
-  color: ${getColor('text')};
+  color: ${getColor('contrast')};
   &:hover ${IconWrapper} {
     color: ${getColor('contrast')};
   }

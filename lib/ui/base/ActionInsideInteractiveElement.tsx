@@ -8,12 +8,12 @@ import {
 import styled from 'styled-components'
 
 import { ElementSizeAware } from './ElementSizeAware'
-import { ElementSize } from '../hooks/useElementSize'
+import { Dimensions } from '@lib/utils/entities/Dimensions'
 
 interface ActionInsideInteractiveElementRenderParams<
   T extends CSSProperties = CSSProperties,
 > {
-  actionSize: ElementSize
+  actionSize: Dimensions
   actionPlacerStyles: T
 }
 

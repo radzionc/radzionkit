@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { Button } from '../../buttons/Button'
-import { UniformColumnGrid } from '../../css/uniformColumnGrid'
+import { HStack } from '../../css/stack'
 
 type FormActionsProps = {
   isDisabled?: boolean | string
@@ -15,12 +15,12 @@ export const FormActions = ({
   onSubmit,
   submitText = 'Submit',
 }: FormActionsProps) => (
-  <UniformColumnGrid gap={20}>
-    <Button type="button" kind="secondary" size="l" onClick={onCancel}>
+  <HStack fullWidth alignItems="center" justifyContent="end" gap={12}>
+    <Button type="button" kind="secondary" onClick={onCancel}>
       Cancel
     </Button>
-    <Button onClick={onSubmit} isDisabled={isDisabled} size="l">
+    <Button onClick={onSubmit} isDisabled={isDisabled}>
       {submitText}
     </Button>
-  </UniformColumnGrid>
+  </HStack>
 )

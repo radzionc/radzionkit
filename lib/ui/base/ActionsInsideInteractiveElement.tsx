@@ -9,7 +9,6 @@ import {
 import styled from 'styled-components'
 
 import { ElementSizeAware } from './ElementSizeAware'
-import { ElementSize } from '../hooks/useElementSize'
 
 import { toEntries } from '@lib/utils/record/toEntries'
 import { makeRecord } from '@lib/utils/record/makeRecord'
@@ -17,9 +16,10 @@ import { getRecordKeys } from '@lib/utils/record/getRecordKeys'
 import { useStateCorrector } from '../state/useStateCorrector'
 import { getRecordSize } from '@lib/utils/record/getRecordSize'
 import { pick } from '@lib/utils/record/pick'
+import { Dimensions } from '@lib/utils/entities/Dimensions'
 
 type RenderParams<K extends string> = {
-  actions: Record<K, { size: ElementSize; placerStyles: CSSProperties }>
+  actions: Record<K, { size: Dimensions; placerStyles: CSSProperties }>
 }
 
 const Container = styled.div`
@@ -49,7 +49,7 @@ export const ActionsInsideInteractiveElement = forwardRef(
     ref: Ref<HTMLDivElement>,
   ) {
     const [sizes, setSizes] = useStateCorrector(
-      useState<Record<K, ElementSize>>(() =>
+      useState<Record<K, Dimensions>>(() =>
         makeRecord(getRecordKeys(actions), () => ({ width: 0, height: 0 })),
       ),
       (sizes) => {
