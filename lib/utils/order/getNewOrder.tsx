@@ -1,5 +1,6 @@
 import { getLastItem } from '../array/getLastItem'
 import { isEmpty } from '../array/isEmpty'
+import { defaultOrder, orderIncrementStep } from './config'
 
 type GetNewOrderInput = {
   orders: number[]
@@ -13,26 +14,31 @@ export const getNewOrder = ({
   destinationIndex,
 }: GetNewOrderInput): number => {
   if (isEmpty(orders)) {
-    return 0
+    return defaultOrder
   }
 
   if (destinationIndex === 0) {
-    return orders[0] - 1
+    return orders[0] - orderIncrementStep
   }
 
   const movedUp = sourceIndex !== null && sourceIndex < destinationIndex
-  const previousIndex = movedUp ? destinationIndex : destinationIndex - 1
+  const previousIndex = movedUp
+    ? destinationIndex
+    : destinationIndex - orderIncrementStep
   const previous = orders[previousIndex]
 
   const shouldBeLast =
-    (destinationIndex === orders.length - 1 && sourceIndex !== null) ||
-    destinationIndex > orders.length - 1
+    (destinationIndex === orders.length - orderIncrementStep &&
+      sourceIndex !== null) ||
+    destinationIndex > orders.length - orderIncrementStep
 
   if (shouldBeLast) {
-    return getLastItem(orders) + 1
+    return getLastItem(orders) + orderIncrementStep
   }
 
-  const nextIndex = movedUp ? destinationIndex + 1 : destinationIndex
+  const nextIndex = movedUp
+    ? destinationIndex + orderIncrementStep
+    : destinationIndex
   const next = orders[nextIndex]
 
   return previous + (next - previous) / 2

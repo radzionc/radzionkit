@@ -34,50 +34,56 @@ export interface TextProps {
   centerVertically?: boolean
   cropped?: boolean
   nowrap?: boolean
-  as?: React.ElementType
 }
 
-export const Text = styled.p<TextProps>`
+export const text = ({
+  color,
+  weight,
+  size,
+  height,
+  centerHorizontally,
+  centerVertically,
+  cropped,
+  nowrap,
+}: TextProps) => css`
   margin: 0;
   padding: 0;
   overflow-wrap: break-word;
 
-  ${({ color, theme }) =>
+  ${({ theme }) =>
     color &&
     css`
       color: ${getTextColorRecord(theme)[color].toCssValue()};
     `}
-  ${({ weight }) =>
-    weight &&
-    css`
-      font-weight: ${weight};
-    `}
-  ${({ height }) =>
-    height &&
-    css`
-      line-height: ${lineHeight[height]};
-    `}
-  ${({ size }) =>
-    size &&
-    css`
-      font-size: ${toSizeUnit(size)};
-    `}
-  ${({ centerHorizontally }) =>
-    centerHorizontally &&
-    css`
-      text-align: center;
-    `}
-  ${({ nowrap }) =>
-    nowrap &&
-    css`
-      white-space: nowrap;
-    `}
-  ${({ cropped }) => cropped && cropText}
+  ${weight &&
+  css`
+    font-weight: ${weight};
+  `}
+  ${height &&
+  css`
+    line-height: ${lineHeight[height]};
+  `}
+  ${size &&
+  css`
+    font-size: ${toSizeUnit(size)};
+  `}
+  ${centerHorizontally &&
+  css`
+    text-align: center;
+  `}
+  ${nowrap &&
+  css`
+    white-space: nowrap;
+  `}
+  ${cropped && cropText}
 
-  ${({ centerVertically }) =>
-    centerVertically &&
-    css`
-      display: inline-flex;
-      align-items: center;
-    `}
+  ${centerVertically &&
+  css`
+    display: inline-flex;
+    align-items: center;
+  `}
+`
+
+export const Text = styled.p<TextProps>`
+  ${text}
 `

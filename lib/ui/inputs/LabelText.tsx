@@ -1,7 +1,8 @@
 import { ComponentProps } from 'react'
 import { Text } from '../text'
+import { AsElementComponent } from '../props'
 
-interface LabelTextProps extends ComponentProps<typeof Text> {}
+type LabelTextProps = ComponentProps<typeof Text> & AsElementComponent
 
 export const LabelText = ({
   as = 'div',
@@ -10,7 +11,7 @@ export const LabelText = ({
   color = 'supporting',
   ...props
 }: LabelTextProps) => (
-  <Text color={color} size={size} {...props} as={as}>
+  <Text color={color} size={size} {...props} forwardedAs={as}>
     {children}
   </Text>
 )

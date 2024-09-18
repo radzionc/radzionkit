@@ -4,14 +4,17 @@ import { getColor, matchColor } from '../theme/getters'
 import copy from 'copy-to-clipboard'
 import { useState } from 'react'
 import { CheckIcon } from '../icons/CheckIcon'
-import { Text } from '../text'
+import { Text, TextProps } from '../text'
 import { Match } from '../base/Match'
 import { transition } from '../css/transition'
+import { ComponentWithChildrenProps, UIComponentProps } from '../props'
 
-interface CopyTextProps extends React.ComponentProps<typeof Text> {
+type CopyTextProps = {
   content: string
   isIconAlwaysVisible?: boolean
-}
+} & ComponentWithChildrenProps &
+  TextProps &
+  UIComponentProps
 
 const IconWr = styled(Text)<{ isIconAlwaysVisible: boolean }>`
   margin-left: 4px;

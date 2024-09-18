@@ -1,7 +1,8 @@
 import { isEmpty } from '../array/isEmpty'
-
-export const defaultOrder = 0
+import { defaultOrder, orderIncrementStep } from './config'
 
 export const getLastItemOrder = (orders: number[]): number => {
-  return isEmpty(orders) ? defaultOrder : Math.max(...orders) + 1
+  return isEmpty(orders)
+    ? defaultOrder
+    : Math.max(...orders) + orderIncrementStep
 }

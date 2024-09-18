@@ -31,7 +31,7 @@ export const BlockingQuery = ({ error, supportEmail }: BlockingQueryProps) => {
           </Text>
           <Text centerHorizontally color="supporting" size={14}>
             Nothing helps? Email us at <br />
-            <CopyText color="regular" as="span" content={supportEmail}>
+            <CopyText color="regular" content={supportEmail}>
               {supportEmail}
             </CopyText>
           </Text>
