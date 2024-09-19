@@ -74,7 +74,7 @@ export const ColorLabelInput = ({
     <Menu
       title="Select color"
       renderOpener={({ props, isOpen }) => (
-        <ExpandableInputOpener isActive={isOpen} type="button" {...props}>
+        <ExpandableInputOpener isActive={isOpen} {...props}>
           <CurrentColor $color={getLabelColor(value)} />
         </ExpandableInputOpener>
       )}

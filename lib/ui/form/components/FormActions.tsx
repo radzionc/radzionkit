@@ -16,10 +16,10 @@ export const FormActions = ({
   submitText = 'Submit',
 }: FormActionsProps) => (
   <HStack fullWidth alignItems="center" justifyContent="end" gap={12}>
-    <Button type="button" kind="secondary" onClick={onCancel}>
+    <Button kind="secondary" onClick={onCancel}>
       Cancel
     </Button>
-    <Button onClick={onSubmit} isDisabled={isDisabled}>
+    <Button type="submit" onClick={onSubmit} isDisabled={isDisabled}>
       {submitText}
     </Button>
   </HStack>

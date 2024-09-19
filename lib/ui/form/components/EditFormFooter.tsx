@@ -20,16 +20,13 @@ export const EditFormFooter = ({
     >
       <HStack alignItems="center" gap={8}>
         {onCancel && (
-          <Button
-            type="button"
-            isDisabled={isDisabled}
-            onClick={onCancel}
-            kind="secondary"
-          >
+          <Button isDisabled={isDisabled} onClick={onCancel} kind="secondary">
             Cancel
           </Button>
         )}
-        <Button isDisabled={isDisabled}>Save</Button>
+        <Button type="submit" isDisabled={isDisabled}>
+          Save
+        </Button>
       </HStack>
     </HStack>
   )

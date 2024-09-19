@@ -13,7 +13,7 @@ export const EmbeddedPrompt = ({
   icon,
   onClick,
 }: EmbeddedPromptProps) => (
-  <EmbeddedPromptContainer type="button" onClick={onClick}>
+  <EmbeddedPromptContainer onClick={onClick}>
     <EmbeddedPromptContentFrame>
       {icon}
       {children}

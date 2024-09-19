@@ -1,13 +1,13 @@
+import React, { ComponentPropsWithoutRef, ElementType, forwardRef } from 'react'
 import styled, { css } from 'styled-components'
 import { getColor } from '../theme/getters'
 import { takeWholeSpace } from '../css/takeWholeSpace'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { borderRadius } from '../css/borderRadius'
 import { vStack } from '../css/stack'
-import { ComponentPropsWithoutRef, ElementType } from 'react'
 import { useIsScreenWidthLessThan } from '../hooks/useIsScreenWidthLessThan'
 import { modalConfig } from './config'
-import { AsElementComponent } from '../props'
+import FocusLock from 'react-focus-lock'
 
 export type ModalPlacement = 'top' | 'center'
 
@@ -18,7 +18,7 @@ type ContainerProps = {
 
 const offset = 40
 
-const Container = styled.div<ContainerProps>`
+const Container = styled(FocusLock)<ContainerProps>`
   ${vStack()};
 
   max-height: 100%;
@@ -42,29 +42,41 @@ const Container = styled.div<ContainerProps>`
   overflow: hidden;
 `
 
-type ModalContainerProps<T extends ElementType = 'div'> = Omit<
+type ModalContainerProps<T extends ElementType = 'div'> = {
+  targetWidth?: number
+  placement?: ModalPlacement
+  as?: T
+} & Omit<
   ComponentPropsWithoutRef<T>,
-  'width' | 'placement'
-> &
-  AsElementComponent<T> & {
-    targetWidth?: number
-    placement?: ModalPlacement
-  }
+  keyof ContainerProps | 'as' | 'width' | 'placement'
+>
 
-export const ModalContainer = <T extends ElementType = 'div'>({
-  targetWidth = 400,
-  placement = 'center',
-  ...props
-}: ModalContainerProps<T>) => {
-  const isFullScreen = useIsScreenWidthLessThan(
-    targetWidth + modalConfig.minHorizontalFreeSpaceForMist,
-  )
+type PolymorphicRef<C extends React.ElementType> =
+  React.ComponentPropsWithRef<C>['ref']
 
-  return (
-    <Container
-      width={isFullScreen ? undefined : targetWidth}
-      placement={placement}
-      {...props}
-    />
-  )
-}
+export const ModalContainer = forwardRef(
+  <T extends ElementType = 'div'>(
+    {
+      targetWidth = 400,
+      placement = 'center',
+      as,
+      ...props
+    }: ModalContainerProps<T>,
+    ref: PolymorphicRef<T>,
+  ) => {
+    const isFullScreen = useIsScreenWidthLessThan(
+      targetWidth + modalConfig.minHorizontalFreeSpaceForMist,
+    )
+
+    return (
+      <Container
+        returnFocus
+        as={as}
+        ref={ref}
+        width={isFullScreen ? undefined : targetWidth}
+        placement={placement}
+        {...props}
+      />
+    )
+  },
+)

@@ -7,7 +7,7 @@ interface Props
 
 export const SubmitFormButton = ({ text = 'Submit', ...props }: Props) => {
   return (
-    <Button kind="reversed" size="l" {...props}>
+    <Button type="submit" kind="reversed" size="l" {...props}>
       {text}
     </Button>
   )

@@ -51,7 +51,6 @@ export function FieldArrayFrame<T>({
               <DeleteButton
                 title="Delete"
                 kind="alert"
-                type="button"
                 onClick={() => onRemove(index)}
                 icon={<TrashIcon />}
               />
@@ -64,7 +63,6 @@ export function FieldArrayFrame<T>({
         <Button
           style={{ alignSelf: 'start' }}
           kind="secondary"
-          type="button"
           onClick={onAppend}
         >
           Add {entityName}

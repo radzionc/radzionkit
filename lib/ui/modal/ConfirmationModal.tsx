@@ -24,7 +24,7 @@ export const ConfirmationModal = ({
       onClose={onClose}
       footer={
         <UniformColumnGrid gap={20}>
-          <Button type="button" size="l" onClick={onClose} kind="secondary">
+          <Button size="l" onClick={onClose} kind="secondary">
             Cancel
           </Button>
           <Button

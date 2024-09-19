@@ -1,7 +1,6 @@
 import { ComponentProps, ReactNode } from 'react'
 import { AsElementComponent, TitledComponentProps } from '../props'
 import { BodyPortal } from '../dom/BodyPortal'
-import { FocusTrap } from './FocusTrap'
 import { ModalContainer, ModalPlacement } from './ModalContainer'
 import { HStack, VStack } from '@lib/ui/css/stack'
 import { ModalTitleText } from './ModalTitleText'
@@ -50,23 +49,17 @@ export const Modal = ({
   return (
     <BodyPortal>
       <Backdrop onClose={onClose}>
-        <FocusTrap>
-          <Container forwardedAs={as} {...rest}>
-            <VStack gap={8}>
-              <HStack
-                alignItems="start"
-                justifyContent="space-between"
-                gap={16}
-              >
-                <ModalTitleText>{title}</ModalTitleText>
-                {onClose && <ModalCloseButton onClick={onClose} />}
-              </HStack>
-              {subTitle && <ModalSubTitleText>{subTitle}</ModalSubTitleText>}
-            </VStack>
-            <ModalContent>{children}</ModalContent>
-            {footer && <VStack>{footer}</VStack>}
-          </Container>
-        </FocusTrap>
+        <Container forwardedAs={as} {...rest}>
+          <VStack gap={8}>
+            <HStack alignItems="start" justifyContent="space-between" gap={16}>
+              <ModalTitleText>{title}</ModalTitleText>
+              {onClose && <ModalCloseButton onClick={onClose} />}
+            </HStack>
+            {subTitle && <ModalSubTitleText>{subTitle}</ModalSubTitleText>}
+          </VStack>
+          <ModalContent>{children}</ModalContent>
+          {footer && <VStack>{footer}</VStack>}
+        </Container>
       </Backdrop>
     </BodyPortal>
   )

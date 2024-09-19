@@ -11,12 +11,7 @@ export const FieldArrayAddButton = ({
   onClick,
   children,
 }: ComponentWithChildrenProps & ClickableComponentProps) => (
-  <Button
-    onClick={onClick}
-    style={{ alignSelf: 'start' }}
-    kind="secondary"
-    type="button"
-  >
+  <Button onClick={onClick} style={{ alignSelf: 'start' }} kind="secondary">
     <HStack alignItems="center" gap={8}>
       <IconWrapper>
         <PlusIcon />

@@ -21,7 +21,7 @@ export const EditDeleteFormFooter = ({
       gap={20}
     >
       {onDelete ? (
-        <Button kind="alert" type="button" onClick={onDelete}>
+        <Button kind="alert" onClick={onDelete}>
           Delete
         </Button>
       ) : (
@@ -29,11 +29,13 @@ export const EditDeleteFormFooter = ({
       )}
       <HStack alignItems="center" gap={8}>
         {onCancel && (
-          <Button type="button" onClick={onCancel} kind="secondary">
+          <Button onClick={onCancel} kind="secondary">
             Cancel
           </Button>
         )}
-        <Button isDisabled={isDisabled}>Save</Button>
+        <Button type="submit" isDisabled={isDisabled}>
+          Save
+        </Button>
       </HStack>
     </HStack>
   )

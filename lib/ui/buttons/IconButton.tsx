@@ -122,7 +122,6 @@ export type IconButtonProps = Omit<
 export const IconButton = forwardRef(function IconButton(
   {
     icon,
-    type = 'button',
     isDisabled = false,
     onClick,
 
@@ -131,7 +130,6 @@ export const IconButton = forwardRef(function IconButton(
   ref: Ref<HTMLButtonElement> | null,
 ) {
   const containerProps = {
-    type,
     isDisabled: !!isDisabled,
     onClick: isDisabled ? undefined : onClick,
     ...rest,

@@ -15,11 +15,11 @@ export const CreateFormFooter = ({
   return (
     <HStack justifyContent="end" gap={8}>
       {onCancel && (
-        <Button type="button" onClick={onCancel} kind="secondary">
+        <Button onClick={onCancel} kind="secondary">
           Cancel
         </Button>
       )}
-      <Button isLoading={isPending} isDisabled={isDisabled}>
+      <Button type="submit" isLoading={isPending} isDisabled={isDisabled}>
         Submit
       </Button>
     </HStack>
