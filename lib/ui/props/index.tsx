@@ -1,5 +1,6 @@
 import { ElementType, ReactNode } from 'react'
 import { HSLA } from '../colors/HSLA'
+import { Point } from '../entities/Point'
 
 export type ClosableComponentProps = {
   onClose: () => void
@@ -116,4 +117,8 @@ export type DraggingAwareComponentProps = {
 export type ProgressComponentProps = {
   target: number
   current: number
+}
+
+export type PositionedComponentProps = {
+  position: Point
 }

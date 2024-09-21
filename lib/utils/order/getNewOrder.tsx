@@ -22,23 +22,18 @@ export const getNewOrder = ({
   }
 
   const movedUp = sourceIndex !== null && sourceIndex < destinationIndex
-  const previousIndex = movedUp
-    ? destinationIndex
-    : destinationIndex - orderIncrementStep
+  const previousIndex = movedUp ? destinationIndex : destinationIndex - 1
   const previous = orders[previousIndex]
 
   const shouldBeLast =
-    (destinationIndex === orders.length - orderIncrementStep &&
-      sourceIndex !== null) ||
-    destinationIndex > orders.length - orderIncrementStep
+    (destinationIndex === orders.length - 1 && sourceIndex !== null) ||
+    destinationIndex > orders.length - 1
 
   if (shouldBeLast) {
     return getLastItem(orders) + orderIncrementStep
   }
 
-  const nextIndex = movedUp
-    ? destinationIndex + orderIncrementStep
-    : destinationIndex
+  const nextIndex = movedUp ? destinationIndex + 1 : destinationIndex
   const next = orders[nextIndex]
 
   return previous + (next - previous) / 2
