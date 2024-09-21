@@ -80,6 +80,7 @@ export const RadzionResume = () => {
             position="Front-end Engineer"
             company="Terraform Labs"
             startedAt={new Date(2022, 2)}
+            finishedAt={new Date(2024, 7)}
             companyIcon={<TflIcon />}
             responsibilities={[
               <>
@@ -172,21 +173,22 @@ export const RadzionResume = () => {
           <PersonalProject
             name="Increaser"
             url="https://increaser.org"
-            description="A productivity toolkit for remote workers"
-            achievement="$67 MRR"
+            description="A productivity toolkit for remote knowledge workers"
+            achievement="$71 MRR"
             responsibilities={[
-              'Full-stack development within a TypeScript monorepo',
-              'Designing a B2C SaaS product',
+              'Full-stack development with TypeScript monorepo',
+              'Designed and built core tools for productivity enhancement',
+              'Managed all aspects of product design and deployment',
             ]}
           />
           <VStack gap={20}>
             <PersonalProject
               name="Radzion Kit"
               url="https://github.com/radzionc/radzionkit"
-              description="Speedy setup for robust full-stack monorepo projects"
+              description="Speedy setup for robust full-stack TypeScript monorepo projects"
               achievement={
                 <HStack alignItems="center" gap={8}>
-                  <Text>166</Text>
+                  <Text>192</Text>
                   <IconWrapper>
                     <StarIcon />
                   </IconWrapper>
@@ -197,12 +199,17 @@ export const RadzionResume = () => {
               name="Radzion Dev"
               url="https://www.youtube.com/c/radzion"
               description="A YouTube channel about web development"
-              achievement="1.5k subscribers"
+              achievement="1.63k subs"
             />
           </VStack>
         </UniformColumnGrid>
       </ResumeSection>
-      <HStack alignItems="center" gap={40}>
+      <HStack
+        fullWidth
+        justifyContent="space-between"
+        alignItems="center"
+        gap={40}
+      >
         <ResumeFooterLink
           icon={<MailIcon />}
           name={email}

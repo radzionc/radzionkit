@@ -3,8 +3,7 @@ import { HStack, VStack } from '@lib/ui/css/stack'
 import { dotSeparator } from '@lib/ui/layout/StackSeparatedBy'
 import { Text } from '@lib/ui/text'
 import { ReactNode } from 'react'
-import { formatDistance } from 'date-fns'
-import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+import { intervalToDuration } from 'date-fns'
 
 type JobExperienceProps = {
   position: string
@@ -20,6 +19,29 @@ const { format: formatDate } = new Intl.DateTimeFormat('en-US', {
   month: 'short',
   year: 'numeric',
 })
+
+function formatExperienceDuration(startedAt: Date, finishedAt?: Date): string {
+  const endDate = finishedAt ?? new Date()
+  const { years = 0, months = 0 } = intervalToDuration({
+    start: startedAt,
+    end: endDate,
+  })
+  const parts = []
+
+  if (years) {
+    parts.push(`${years} ${years === 1 ? 'year' : 'years'}`)
+  }
+
+  if (months) {
+    parts.push(`${months} ${months === 1 ? 'month' : 'months'}`)
+  }
+
+  if (parts.length === 0) {
+    parts.push('Less than a month')
+  }
+
+  return parts.join(' ')
+}
 
 export const JobExperience = ({
   position,
@@ -45,9 +67,7 @@ export const JobExperience = ({
 
       <HStack alignItems="center" gap={8}>
         <Text weight="500" size={14}>
-          {capitalizeFirstLetter(
-            formatDistance(finishedAt ?? new Date(), startedAt),
-          )}
+          {formatExperienceDuration(startedAt, finishedAt)}
         </Text>
         <Text size={14} color="supporting">
           ({formatDate(startedAt)} -{' '}
