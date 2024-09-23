@@ -1,6 +1,6 @@
 import { DependencyList, ReactNode } from 'react'
-import { useEffectOnDependencyChange } from '../hooks/useEffectOnDependencyChange'
 import { useTimeoutState } from '../hooks/useTimeoutState'
+import { useRunOnChange } from '../hooks/useRunOnChange'
 
 interface TimeoutMessageProps {
   render: () => ReactNode
@@ -18,7 +18,7 @@ export const TimeoutMessage = ({
     timeout,
   )
 
-  useEffectOnDependencyChange(() => {
+  useRunOnChange(() => {
     setShouldShowMessage(true)
   }, deps)
 

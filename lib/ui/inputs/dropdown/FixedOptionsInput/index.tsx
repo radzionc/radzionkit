@@ -1,6 +1,5 @@
 import { ReactNode, useCallback, useMemo, useRef, useState } from 'react'
 import { InputProps } from '../../../props'
-import { useEffectOnDependencyChange } from '../../../hooks/useEffectOnDependencyChange'
 import { getSuggestions } from './getSuggestions'
 import { FixedOptionInputMessage } from './FixedOptionInputMessage'
 import { FixedOptionsInputItem } from './OptionItem'
@@ -12,6 +11,7 @@ import { FixedOptionsInputButtons } from './Buttons'
 import { LabelText } from '../../LabelText'
 import { DropdownContainer } from '../DropdownContainer'
 import { DropdownInputFrame } from '../DropdownInputFrame'
+import { useRunOnChange } from '../../../hooks/useRunOnChange'
 
 export interface FixedOptionsInputProps<T> extends InputProps<T | null> {
   placeholder?: string
@@ -93,7 +93,7 @@ export function FixedOptionsInput<T>({
     toggleOptionsVisibility,
   } = useFixedOptionsInputFloatingOptions()
 
-  useEffectOnDependencyChange(() => {
+  useRunOnChange(() => {
     if (!value) {
       if (textInputValue) {
         setTextInputValue('')
@@ -132,7 +132,7 @@ export function FixedOptionsInput<T>({
     [onChange, onTextInputValueChange, showOptions],
   )
 
-  useEffectOnDependencyChange(() => {
+  useRunOnChange(() => {
     if (!areOptionsVisible || optionsToDisplay.length === 0) return
 
     setActiveIndex(0)

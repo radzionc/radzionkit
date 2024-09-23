@@ -9,7 +9,7 @@ import { toSizeUnit } from '../../../css/toSizeUnit'
 import { useRef, useState } from 'react'
 import { useBoolean } from '../../../hooks/useBoolean'
 import { useHasFocusWithin } from '../../../hooks/useHasFocusWithin'
-import { useEffectOnDependencyChange } from '../../../hooks/useEffectOnDependencyChange'
+import { useRunOnChange } from '../../../hooks/useRunOnChange'
 
 export const useFixedOptionsInputFloatingOptions = () => {
   const [
@@ -36,7 +36,7 @@ export const useFixedOptionsInputFloatingOptions = () => {
   })
 
   const labelHasFocusWithin = useHasFocusWithin(refs.domReference)
-  useEffectOnDependencyChange(() => {
+  useRunOnChange(() => {
     if (labelHasFocusWithin) {
       showOptions()
     } else {

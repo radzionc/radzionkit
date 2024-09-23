@@ -8,7 +8,6 @@ import {
   toMonth,
   addMonths,
 } from '@lib/utils/time/Month'
-import { InputProps } from '../../../props'
 import { VStack } from '@lib/ui/css/stack'
 import { Header } from '../../../layout/Header'
 import { IconButton } from '../../../buttons/IconButton'
@@ -25,7 +24,9 @@ import { convertDuration } from '@lib/utils/time/convertDuration'
 import { range } from '@lib/utils/array/range'
 import { DayOption } from './DayOption'
 
-type CalendarDayInputProps = InputProps<Day | null> & {
+type CalendarDayInputProps = {
+  value: Day | null
+  onChange: (value: Day) => void
   min: Day
   max: Day
 }
