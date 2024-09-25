@@ -27,7 +27,7 @@ export const FloatingIntervalDuration = ({
   ...rest
 }: FloatingIntervalDurationProps) => (
   <Container as="div" {...rest}>
-    <HStackSeparatedBy wrap="nowrap" separator={dotSeparator}>
+    <HStackSeparatedBy wrap="nowrap" separator={dotSeparator} gap={8}>
       <Text nowrap>
         {formatTime(value.start)} - {formatTime(value.end)}
       </Text>

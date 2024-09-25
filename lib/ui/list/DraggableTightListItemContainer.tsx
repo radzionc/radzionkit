@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import styled from 'styled-components'
 import {
   ComponentWithChildrenProps,
@@ -13,6 +13,8 @@ import { Wrap } from '../base/Wrap'
 
 const Container = styled.div`
   position: relative;
+
+  outline: none;
 `
 
 const Highlight = styled.div`

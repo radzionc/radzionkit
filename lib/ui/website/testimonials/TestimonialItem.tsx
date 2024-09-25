@@ -37,7 +37,7 @@ export const TestimonialItem = ({ testimonial }: TestimonialItemProps) => {
               {name}
             </Text>
             <Text as="div" color="supporting" size={14}>
-              <HStackSeparatedBy separator={dotSeparator}>
+              <HStackSeparatedBy separator={dotSeparator} gap={8} wrap="wrap">
                 <Text>{position}</Text>
                 <ExternalLink to={profileUrl}>
                   <InteractiveText>

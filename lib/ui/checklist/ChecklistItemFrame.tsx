@@ -13,4 +13,5 @@ export const ChecklistItemFrame = styled.div`
   font-weight: 500;
   font-size: 14px;
   ${verticalPadding(tightListItemConfig.verticalPadding)};
+  outline: none;
 `

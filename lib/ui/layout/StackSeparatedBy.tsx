@@ -13,13 +13,11 @@ export type StackSeparatedByProps = ComponentProps<typeof Stack> & {
 export const StackSeparatedBy = ({
   children,
   separator,
-  gap = 8,
-  wrap = 'wrap',
   ...rest
 }: StackSeparatedByProps) => {
   const items = React.Children.toArray(children)
   return (
-    <Stack wrap={wrap} gap={gap} {...rest}>
+    <Stack {...rest}>
       {items.map((child, index) => {
         if (isLast(items, index)) {
           return child

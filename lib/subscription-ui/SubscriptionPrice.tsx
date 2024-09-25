@@ -32,6 +32,7 @@ export const SubscriptionPrice = ({
         <HStackSeparatedBy
           gap={4}
           separator={<Text color="shy">{slashSeparator}</Text>}
+          wrap="wrap"
         >
           <Text color="contrast" size={32} weight="600" as="span">
             {(price[billingCycle] / monthsInPeriod[billingCycle]).toFixed(2)}
