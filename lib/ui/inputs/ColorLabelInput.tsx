@@ -15,7 +15,7 @@ import { CheckIcon } from '../icons/CheckIcon'
 import { VStack } from '@lib/ui/css/stack'
 import { Menu } from '../menu'
 import { InputProps, StyledComponentWithColorProps } from '../props'
-import { LabelText } from './LabelText'
+import { InputLabel } from './InputLabel'
 
 interface ColorLabelInputProps extends InputProps<number> {
   usedValues?: Set<number>
@@ -113,11 +113,11 @@ export const ColorLabelInput = ({
         return (
           <VStack gap={20}>
             <VStack gap={8}>
-              <LabelText>Free colors</LabelText>
+              <InputLabel>Free colors</InputLabel>
               {renderColors(free)}
             </VStack>
             <VStack gap={8}>
-              <LabelText>Used colors</LabelText>
+              <InputLabel>Used colors</InputLabel>
               {renderColors(used)}
             </VStack>
           </VStack>

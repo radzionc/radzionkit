@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import { VStack } from '@lib/ui/css/stack'
 import { Spinner } from '../loaders/Spinner'
 import { ComponentWithClassNameProps, LabeledComponentProps } from '../props'
-import { InputContainer } from './InputContainer'
-import { LabelText } from './LabelText'
 import { textInput } from '../css/textInput'
+import { InputContainer } from './InputContainer'
+import { InputLabel } from './InputLabel'
 
 export type SharedTextInputProps = Partial<LabeledComponentProps> &
   ComponentProps<typeof TextInputContainer> & {
@@ -33,7 +33,7 @@ export const TextInput = forwardRef(function TextInputInner(
 ) {
   return (
     <InputContainer>
-      {label && <LabelText>{label}</LabelText>}
+      {label && <InputLabel>{label}</InputLabel>}
       <InputWr>
         {isLoading ? (
           <TextInputLoader className={className} />

@@ -10,6 +10,7 @@ import { ModalSubTitleText } from './ModalSubTitleText'
 import styled from 'styled-components'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { Backdrop } from './Backdrop'
+import { modalConfig } from './config'
 
 export type ModalProps = AsElementComponent &
   Omit<ComponentProps<typeof Container>, 'title'> &
@@ -25,7 +26,7 @@ const contentVerticalPadding = 8
 
 const Container = styled(ModalContainer)`
   > * {
-    padding: 24px;
+    padding: ${toSizeUnit(modalConfig.padding)};
   }
 
   > *:nth-child(2) {

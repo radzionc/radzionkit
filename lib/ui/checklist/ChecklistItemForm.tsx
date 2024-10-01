@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form'
-import { useKey } from 'react-use'
 import styled from 'styled-components'
 import { ChecklistItemFrame } from './ChecklistItemFrame'
 import { getColor } from '../theme/getters'
 import { CheckStatus } from './CheckStatus'
+import { useKeyDown } from '../hooks/useKeyDown'
 
 interface ChecklistItemFormShape {
   name: string
@@ -40,7 +40,7 @@ export const ChecklistItemForm = ({
     },
   })
 
-  useKey('Escape', onCancel)
+  useKeyDown('Escape', onCancel)
 
   return (
     <ChecklistItemFrame

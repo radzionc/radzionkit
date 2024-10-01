@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useIsomorphicLayoutEffect } from 'react-use'
+import { useIsomorphicLayoutEffect } from '@lib/ui/hooks/useIsomorphicLayoutEffect'
 
 export function useBody() {
   const [body, setBody] = useState<HTMLBodyElement | null>(null)

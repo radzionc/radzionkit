@@ -3,9 +3,9 @@ import { useMemo, useState } from 'react'
 import { Day, toDay } from '@lib/utils/time/Day'
 import { subYears } from 'date-fns'
 import { InputContainer } from '@lib/ui/inputs/InputContainer'
-import { LabelText } from '@lib/ui/inputs/LabelText'
 import { DayInput } from '@lib/ui/time/day/DayInput'
 import { DemoPage } from '../components/DemoPage'
+import { InputLabel } from '@lib/ui/inputs/InputLabel'
 
 export const getDefaultDob = () => toDay(subYears(Date.now(), 20).getTime())
 
@@ -24,7 +24,7 @@ export default makeDemoPage(() => {
   return (
     <DemoPage title="Day Input">
       <InputContainer as="div" style={{ gap: 8 }}>
-        <LabelText>Your date of birth</LabelText>
+        <InputLabel>Your date of birth</InputLabel>
         <DayInput min={min} max={max} value={value} onChange={setValue} />
       </InputContainer>
     </DemoPage>

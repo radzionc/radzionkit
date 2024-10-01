@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useIsomorphicLayoutEffect } from 'react-use'
+import { useIsomorphicLayoutEffect } from '@lib/ui/hooks/useIsomorphicLayoutEffect'
 import { areEqualRecords } from '@lib/utils/record/areEqualRecords'
 import { pick } from '@lib/utils/record/pick'
 

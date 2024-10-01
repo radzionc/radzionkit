@@ -1,9 +1,9 @@
-import { useToggle } from 'react-use'
 import styled from 'styled-components'
 
 import { Spacer } from '../../layout/Spacer'
 import { Burger } from './Burger'
 import { Backdrop } from '../../modal/Backdrop'
+import { useBoolean } from '../../hooks/useBoolean'
 
 const Container = styled.div`
   width: 100%;
@@ -23,15 +23,13 @@ interface Props {
 }
 
 export const Topbar = ({ renderSidebar }: Props) => {
-  const [isSidebarOpen, toggleSidebar] = useToggle(false)
+  const [isSidebarOpen, { toggle }] = useBoolean(false)
 
   return (
     <>
-      {isSidebarOpen && (
-        <Cover onClose={toggleSidebar}>{renderSidebar()}</Cover>
-      )}
+      {isSidebarOpen && <Cover onClose={toggle}>{renderSidebar()}</Cover>}
       <Container>
-        <Burger onClick={toggleSidebar} />
+        <Burger onClick={toggle} />
       </Container>
       <Spacer height={20} />
     </>

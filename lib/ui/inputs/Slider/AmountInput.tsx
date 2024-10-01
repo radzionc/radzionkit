@@ -5,7 +5,7 @@ import { Slider, SliderProps } from '.'
 import { Panel } from '@lib/ui/css/panel'
 import { Text } from '../../text'
 import { InputContainer } from '../InputContainer'
-import { LabelText } from '../LabelText'
+import { InputLabel } from '../InputLabel'
 
 interface Props extends SliderProps {
   label: ReactNode
@@ -36,7 +36,7 @@ export const AmountInput = ({
 }: Props) => {
   return (
     <InputContainer>
-      {label && <LabelText>{label}</LabelText>}
+      {label && <InputLabel>{label}</InputLabel>}
       <Panel>
         <Content>
           <Slider

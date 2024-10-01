@@ -46,8 +46,6 @@ export const text = ({
   cropped,
   nowrap,
 }: TextProps) => css`
-  margin: 0;
-  padding: 0;
   overflow-wrap: break-word;
 
   ${({ theme }) =>

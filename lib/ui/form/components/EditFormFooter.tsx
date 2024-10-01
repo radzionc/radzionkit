@@ -4,11 +4,13 @@ import { HStack } from '@lib/ui/css/stack'
 type EditFormFooterProps = {
   onCancel?: () => void
   isDisabled?: string | boolean
+  submitText?: string
 }
 
 export const EditFormFooter = ({
   onCancel,
   isDisabled,
+  submitText = 'Save',
 }: EditFormFooterProps) => {
   return (
     <HStack
@@ -25,7 +27,7 @@ export const EditFormFooter = ({
           </Button>
         )}
         <Button type="submit" isDisabled={isDisabled}>
-          Save
+          {submitText}
         </Button>
       </HStack>
     </HStack>

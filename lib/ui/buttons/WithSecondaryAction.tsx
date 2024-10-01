@@ -1,5 +1,5 @@
-import { HStack } from '@lib/ui/css/stack'
-import styled from 'styled-components'
+import { hStack } from '@lib/ui/css/stack'
+import styled, { css } from 'styled-components'
 import { horizontalPadding } from '@lib/ui/css/horizontalPadding'
 import { getColor } from '@lib/ui/theme/getters'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
@@ -7,14 +7,20 @@ import { centerContent } from '@lib/ui/css/centerContent'
 import { interactive } from '@lib/ui/css/interactive'
 import { borderRadius } from '@lib/ui/css/borderRadius'
 
-const height = 44
+type WithSecondaryActionParams = {
+  height?: number
+}
 
-export const WithSecondaryAction = styled(HStack)`
+export const withSecondaryAction = ({
+  height = 44,
+}: WithSecondaryActionParams) => css`
   ${interactive};
+  ${hStack({
+    gap: 2,
+  })}
   height: ${toSizeUnit(height)};
   border: 2px solid ${getColor('transparent')};
   background: ${getColor('mistExtra')};
-  gap: 2px;
   ${borderRadius.m};
   overflow: hidden;
 
@@ -39,4 +45,8 @@ export const WithSecondaryAction = styled(HStack)`
       color: ${getColor('contrast')};
     }
   }
+`
+
+export const WithSecondaryAction = styled.div<WithSecondaryActionParams>`
+  ${withSecondaryAction};
 `

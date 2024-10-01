@@ -8,7 +8,7 @@ import { RelativeRow } from '../../../layout/RelativeRow'
 import { InputContainer } from '../../InputContainer'
 import { useFixedOptionsInputFloatingOptions } from './useFixedOptionsInputFloatingOptions'
 import { FixedOptionsInputButtons } from './Buttons'
-import { LabelText } from '../../LabelText'
+import { InputLabel } from '../../InputLabel'
 import { DropdownContainer } from '../DropdownContainer'
 import { DropdownInputFrame } from '../DropdownInputFrame'
 import { useRunOnChange } from '../../../hooks/useRunOnChange'
@@ -164,7 +164,7 @@ export function FixedOptionsInput<T>({
         }
       }}
     >
-      {label && <LabelText>{label}</LabelText>}
+      {label && <InputLabel>{label}</InputLabel>}
       <RelativeRow
         {...getReferenceProps({
           ref: setReferenceRef,

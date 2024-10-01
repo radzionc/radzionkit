@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import { SharedTextInputProps } from './TextInput'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { Text } from '../text'
-import { InputContainer } from './InputContainer'
-import { LabelText } from './LabelText'
 import { textInput, textInputHorizontalPadding } from '../css/textInput'
+import { InputContainer } from './InputContainer'
+import { InputLabel } from './InputLabel'
 
 const TextareaContainer = styled.textarea`
   ${textInput};
@@ -38,7 +38,7 @@ export const TextArea = forwardRef(function TextAreaInner(
 
   return (
     <InputContainer>
-      {label && <LabelText>{label}</LabelText>}
+      {label && <InputLabel>{label}</InputLabel>}
       <TextareaContainer
         {...props}
         ref={ref}

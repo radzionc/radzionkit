@@ -14,6 +14,7 @@ interface TimeSpaceProps extends ComponentWithChildrenProps {
   startsAt: number
   endsAt: number
   msToPx: (ms: number) => number
+  verticalPadding?: number
 }
 
 const labelSize = 12
@@ -24,8 +25,8 @@ const Label = styled(Text)`
   color: ${getColor('textSupporting')};
 `
 
-const Wrapper = styled.div`
-  ${verticalPadding(labelSize / 2)};
+const Wrapper = styled.div<{ verticalPadding: number }>`
+  ${(props) => verticalPadding(props.verticalPadding)};
   user-select: none;
 `
 
@@ -47,13 +48,14 @@ export const TimeSpace = ({
   endsAt,
   msToPx,
   children,
+  verticalPadding = labelSize / 2,
 }: TimeSpaceProps) => {
   const height = msToPx(endsAt - startsAt)
 
   const marks = getHoursInRange(startsAt, endsAt)
 
   return (
-    <Wrapper>
+    <Wrapper verticalPadding={verticalPadding}>
       <Container style={{ height }}>
         <HStack fullHeight gap={8}>
           <VStack style={{ position: 'relative' }} fullHeight>

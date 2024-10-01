@@ -55,6 +55,7 @@ export const Tooltip = ({ content, renderOpener, placement }: TooltipProps) => {
   } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
+    strategy: 'fixed',
     placement,
     middleware: [
       offset(12),

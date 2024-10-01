@@ -3,13 +3,12 @@ import {
   MouseEventHandler,
   ReactNode,
   useCallback,
-  useMemo,
   useState,
 } from 'react'
 import { Point } from '../entities/Point'
 import { useBoundingBox } from '../hooks/useBoundingBox'
-import { enforceRange } from '@lib/utils/enforceRange'
-import { useIsomorphicLayoutEffect } from 'react-use'
+import { useIsomorphicLayoutEffect } from '@lib/ui/hooks/useIsomorphicLayoutEffect'
+import { useRelativePosition } from '../hooks/useRelativePosition'
 
 interface ContainerProps {
   onMouseEnter?: MouseEventHandler<HTMLElement>
@@ -38,19 +37,7 @@ export const HoverTracker = ({ render, onChange }: HoverTrackerProps) => {
 
   const [clientPosition, setClientPosition] = useState<Point | null>(null)
 
-  const position = useMemo(() => {
-    if (!clientPosition) return null
-
-    if (!box) return null
-
-    const { left, top, width, height } = box
-    const { x, y } = clientPosition
-
-    return {
-      x: enforceRange((x - left) / width, 0, 1),
-      y: enforceRange((y - top) / height, 0, 1),
-    }
-  }, [box, clientPosition])
+  const position = useRelativePosition({ box, clientPosition })
 
   const handleMouse = useCallback((event: MouseEvent) => {
     setClientPosition({ x: event.clientX, y: event.clientY })

@@ -4,7 +4,7 @@ import { Button } from '../../buttons/Button'
 import { IconButton } from '../../buttons/IconButton'
 import { TrashIcon } from '../../icons/TrashIcon'
 import { InputContainer } from '../../inputs/InputContainer'
-import { LabelText } from '../../inputs/LabelText'
+import { InputLabel } from '../../inputs/InputLabel'
 import { textInputHeight } from '../../css/textInput'
 import { SeparatedByLine } from '../../layout/SeparatedByLine'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
@@ -45,9 +45,9 @@ export function FieldArrayFrame<T>({
         return (
           <Content key={index}>
             <InputContainer as="div">
-              <LabelText>
+              <InputLabel>
                 {capitalizeFirstLetter(entityName)} #{index + 1}
-              </LabelText>
+              </InputLabel>
               <DeleteButton
                 title="Delete"
                 kind="alert"

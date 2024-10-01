@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { InputProps } from '../../props'
 import { RelativeRow } from '../../layout/RelativeRow'
 import { InputContainer } from '../InputContainer'
-import { LabelText } from '../LabelText'
+import { InputLabel } from '../InputLabel'
 import { useFloatingOptions } from '../../floating/useFloatingOptions'
 import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
 import { FixedOptionsInputIdentifierWrapper } from './FixedOptionsInput/IdentifierWrapper'
@@ -64,7 +64,7 @@ export function SelectOptionInput<T>({
 
   return (
     <InputContainer as="div">
-      {label && <LabelText>{label}</LabelText>}
+      {label && <InputLabel>{label}</InputLabel>}
       <RelativeRow {...getReferenceProps()}>
         <FixedOptionsInputIdentifierWrapper>
           {valueIdentifier}

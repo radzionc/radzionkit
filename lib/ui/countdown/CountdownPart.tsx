@@ -1,4 +1,4 @@
-import { usePrevious } from 'react-use'
+import { usePrevious } from '../hooks/usePrevious'
 import { SlidingCharacter } from './SlidingCharacter'
 import styled from 'styled-components'
 import { padWithZero } from '@lib/utils/padWithZero'

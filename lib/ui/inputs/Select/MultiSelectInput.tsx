@@ -4,7 +4,7 @@ import { HStack } from '@lib/ui/css/stack'
 import { InputProps, UIComponentProps } from '../../props'
 import { useId } from 'react'
 import { InputContainer } from '../InputContainer'
-import { LabelText } from '../LabelText'
+import { InputLabel } from '../InputLabel'
 import { SelectOption } from './SelectOption'
 
 interface MultiSelectInputProps<T extends string>
@@ -29,7 +29,7 @@ export const MultiSelectInput = <T extends string>({
 
   return (
     <InputContainer>
-      {label && <LabelText as="div">{label}</LabelText>}
+      {label && <InputLabel as="div">{label}</InputLabel>}
       <HStack {...rest} wrap="wrap" gap={4}>
         {options.map((option) => {
           const isSelected = value.includes(option)

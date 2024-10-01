@@ -18,6 +18,10 @@ export type ComponentWithBackActionProps = {
   onBack: () => void
 }
 
+export type ComponentWithForwardActionProps = {
+  onForward: () => void
+}
+
 export type ComponentWithClassNameProps = {
   className?: string
 }
@@ -121,4 +125,8 @@ export type ProgressComponentProps = {
 
 export type PositionedComponentProps = {
   position: Point
+}
+
+export type ColoredComponentProps = {
+  color: HSLA
 }
