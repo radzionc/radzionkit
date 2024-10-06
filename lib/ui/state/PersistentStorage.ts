@@ -1,4 +1,6 @@
-export type OnValueChangeListener<T> = (newValue: T, oldValue: T) => void
+import { ValueTransition } from '@lib/utils/entities/ValueTransition'
+
+export type OnValueChangeListener<T> = (params: ValueTransition<T>) => void
 
 export interface PersistentStorage<T extends string> {
   getItem<V>(T: string): V | undefined

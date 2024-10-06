@@ -1,12 +1,9 @@
 import { VStack } from '@lib/ui/css/stack'
-import { ComponentWithChildrenProps } from '../props'
-import { ReactNode } from 'react'
+import { ComponentWithActionProps, ComponentWithChildrenProps } from '../props'
 import { ElementSizeAware } from '../base/ElementSizeAware'
 import { ShyInfoBlock } from './ShyInfoBlock'
 
-type ActionPromptProps = ComponentWithChildrenProps & {
-  action: ReactNode
-}
+type ActionPromptProps = ComponentWithChildrenProps & ComponentWithActionProps
 
 export const ActionPrompt = ({ children, action }: ActionPromptProps) => (
   <ShyInfoBlock>

@@ -5,12 +5,14 @@ type CreateFormFooterProps = {
   onCancel?: () => void
   isDisabled?: string | boolean
   isPending?: boolean
+  submitText?: string
 }
 
 export const CreateFormFooter = ({
   onCancel,
   isDisabled,
   isPending,
+  submitText = 'Submit',
 }: CreateFormFooterProps) => {
   return (
     <HStack justifyContent="end" gap={8}>
@@ -20,7 +22,7 @@ export const CreateFormFooter = ({
         </Button>
       )}
       <Button type="submit" isLoading={isPending} isDisabled={isDisabled}>
-        Submit
+        {submitText}
       </Button>
     </HStack>
   )

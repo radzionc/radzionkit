@@ -9,6 +9,7 @@ import styled from 'styled-components'
 
 import { ElementSizeAware } from './ElementSizeAware'
 import { Dimensions } from '@lib/utils/entities/Dimensions'
+import { ComponentWithActionProps } from '../props'
 
 interface ActionInsideInteractiveElementRenderParams<
   T extends CSSProperties = CSSProperties,
@@ -23,11 +24,11 @@ const Container = styled.div`
 
 type ActionInsideInteractiveElementProps<
   T extends CSSProperties = CSSProperties,
-> = ComponentProps<typeof Container> & {
-  render: (params: ActionInsideInteractiveElementRenderParams<T>) => ReactNode
-  action: ReactNode
-  actionPlacerStyles: T
-}
+> = ComponentProps<typeof Container> &
+  ComponentWithActionProps & {
+    render: (params: ActionInsideInteractiveElementRenderParams<T>) => ReactNode
+    actionPlacerStyles: T
+  }
 
 const ActionPlacer = styled.div`
   position: absolute;

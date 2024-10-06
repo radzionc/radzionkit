@@ -76,7 +76,7 @@ export const WebsiteNavigation = forwardRef<
     <>
       <Wrapper>
         <Header>
-          <HStack fullWidth alignItems="center" gap={20}>
+          <HStack fullWidth alignItems="center" gap={40}>
             {logo}
             <TobbarContent>
               {isSmallScreen ? (

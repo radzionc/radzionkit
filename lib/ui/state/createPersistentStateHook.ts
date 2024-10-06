@@ -20,7 +20,6 @@ export function createPersistentStateHook<T extends string>(
       const storedValue = storage.getItem<V>(key)
 
       if (storedValue === undefined) {
-        // If initialValue is a function, invoke it to get the value
         const resolvedInitialValue =
           typeof initialValue === 'function'
             ? (initialValue as () => V)()
@@ -34,28 +33,16 @@ export function createPersistentStateHook<T extends string>(
     })
 
     useEffect(() => {
-      const onValueChange: OnValueChangeListener<Exclude<V, undefined>> = (
+      const onValueChange: OnValueChangeListener<Exclude<V, undefined>> = ({
         newValue,
-      ) => {
+      }) => {
         setValue(newValue)
       }
 
       storage.addValueChangeListener(key, onValueChange)
 
-      const handleStorageChange = (event: StorageEvent) => {
-        if (event.key !== key) return
-
-        const newValue = storage.getItem<V>(key)
-        if (newValue !== undefined) {
-          setValue(newValue)
-        }
-      }
-
-      window.addEventListener('storage', handleStorageChange)
-
       return () => {
         storage.removeValueChangeListener(key, onValueChange)
-        window.removeEventListener('storage', handleStorageChange)
       }
     }, [key])
 

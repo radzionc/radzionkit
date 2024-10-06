@@ -9,20 +9,24 @@ export class TemporaryStorage<T extends string>
   getItem<V>(key: T) {
     return this.storage[key] as V
   }
-  setItem<V>(key: T, value: V) {
-    const oldValue = this.getItem(key)
-    if (oldValue === value) return
 
-    if (value === undefined) {
+  setItem<V>(key: T, newValue: V) {
+    const oldValue = this.getItem(key)
+    if (oldValue === newValue) return
+
+    if (newValue === undefined) {
       delete this.storage[key]
     } else {
-      this.storage[key] = value
+      this.storage[key] = newValue
     }
 
     const listeners = this.listeners[key] || []
 
     listeners.forEach((listener) => {
-      listener(value, oldValue)
+      listener({
+        newValue,
+        oldValue,
+      })
     })
   }
   addValueChangeListener<V>(

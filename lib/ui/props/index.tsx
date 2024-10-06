@@ -130,3 +130,7 @@ export type PositionedComponentProps = {
 export type ColoredComponentProps = {
   color: HSLA
 }
+
+export type ComponentWithActionProps = {
+  action: ReactNode
+}

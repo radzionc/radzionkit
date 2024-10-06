@@ -1,7 +1,7 @@
 import { Order } from '../order/Order'
 
 export const order = <T>(
-  array: T[],
+  array: readonly T[],
   getValue: (item: T) => number,
   order: Order,
 ) => {
