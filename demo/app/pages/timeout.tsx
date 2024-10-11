@@ -28,7 +28,7 @@ export default makeDemoPage(() => {
           deps={[one, another]}
           timeout={5000}
           render={() => (
-            <Text color="supporting" size={14} height="large">
+            <Text color="supporting" size={14} height="l">
               <Text
                 centerHorizontally
                 as="span"

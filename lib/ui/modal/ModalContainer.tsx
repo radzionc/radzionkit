@@ -54,29 +54,29 @@ type ModalContainerProps<T extends ElementType = 'div'> = {
 type PolymorphicRef<C extends React.ElementType> =
   React.ComponentPropsWithRef<C>['ref']
 
-export const ModalContainer = forwardRef(
-  <T extends ElementType = 'div'>(
-    {
-      targetWidth = 400,
-      placement = 'center',
-      as,
-      ...props
-    }: ModalContainerProps<T>,
-    ref: PolymorphicRef<T>,
-  ) => {
-    const isFullScreen = useIsScreenWidthLessThan(
-      targetWidth + modalConfig.minHorizontalFreeSpaceForMist,
-    )
+export const ModalContainer = forwardRef(function ModalContainerInner<
+  T extends ElementType = 'div',
+>(
+  {
+    targetWidth = 400,
+    placement = 'center',
+    as,
+    ...props
+  }: ModalContainerProps<T>,
+  ref: PolymorphicRef<T>,
+) {
+  const isFullScreen = useIsScreenWidthLessThan(
+    targetWidth + modalConfig.minHorizontalFreeSpaceForMist,
+  )
 
-    return (
-      <Container
-        returnFocus
-        as={as}
-        ref={ref}
-        width={isFullScreen ? undefined : targetWidth}
-        placement={placement}
-        {...props}
-      />
-    )
-  },
-)
+  return (
+    <Container
+      returnFocus
+      as={as}
+      ref={ref}
+      width={isFullScreen ? undefined : targetWidth}
+      placement={placement}
+      {...props}
+    />
+  )
+})

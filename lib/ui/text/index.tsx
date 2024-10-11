@@ -16,11 +16,12 @@ const getTextColorRecord = ({ colors }: DefaultTheme) =>
     contrast: colors.contrast,
   }) as const
 
-type TextHeight = 'small' | 'regular' | 'large'
+type TextHeight = 's' | 'm' | 'l' | 'xl'
 const lineHeight: Record<TextHeight, number> = {
-  small: 1,
-  regular: 1.2,
-  large: 1.5,
+  s: 1,
+  m: 1.2,
+  l: 1.5,
+  xl: 1.75,
 }
 
 export type TextColor = keyof ReturnType<typeof getTextColorRecord>

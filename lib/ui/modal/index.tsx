@@ -4,7 +4,6 @@ import { BodyPortal } from '../dom/BodyPortal'
 import { ModalContainer, ModalPlacement } from './ModalContainer'
 import { HStack, VStack } from '@lib/ui/css/stack'
 import { ModalTitleText } from './ModalTitleText'
-import { ModalContent } from './ModalContent'
 import { ModalCloseButton } from './ModalCloseButton'
 import { ModalSubTitleText } from './ModalSubTitleText'
 import styled from 'styled-components'
@@ -58,7 +57,7 @@ export const Modal = ({
             </HStack>
             {subTitle && <ModalSubTitleText>{subTitle}</ModalSubTitleText>}
           </VStack>
-          <ModalContent>{children}</ModalContent>
+          {children}
           {footer && <VStack>{footer}</VStack>}
         </Container>
       </Backdrop>

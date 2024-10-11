@@ -30,7 +30,7 @@ export default makeDemoPage(() => {
         <UniformColumnGrid childrenWidth={240} gap={20}>
           {countryCodes.map((code) => (
             <HStack key={code} alignItems="center" gap={12}>
-              <Text height="small" size={24} color="contrast">
+              <Text height="s" size={24} color="contrast">
                 <Match
                   value={activeView}
                   emoji={() => <CountryFlagEmoji code={code} />}

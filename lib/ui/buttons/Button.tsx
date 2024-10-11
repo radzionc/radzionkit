@@ -27,6 +27,7 @@ export const buttonKinds = [
   'outlinedAlert',
   'ghost',
   'ghostSecondary',
+  'ghostPrimary',
 ] as const
 
 export type ButtonKind = (typeof buttonKinds)[number]
@@ -115,6 +116,9 @@ const Container = styled(UnstyledButton)<ContainerProps>`
       ghostSecondary: () => css`
         color: ${getColor('textSupporting')};
       `,
+      ghostPrimary: () => css`
+        color: ${getColor('textPrimary')};
+      `,
     })}
   
   ${({ isDisabled, isLoading, kind }) =>
@@ -151,6 +155,9 @@ const Container = styled(UnstyledButton)<ContainerProps>`
           ghostSecondary: () => css`
             background: ${getColor('mist')};
             color: ${getColor('text')};
+          `,
+          ghostPrimary: () => css`
+            background: ${getColor('mist')};
           `,
         })}
       }

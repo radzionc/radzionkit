@@ -23,7 +23,7 @@ export const darkTheme: DefaultTheme = {
     foregroundExtra: new HSLA(backgroundHue, backgroundSaturation, 20),
     background: new HSLA(backgroundHue, backgroundSaturation, 8),
 
-    text: new HSLA(0, 0, 100, 0.81),
+    text: new HSLA(204, 10, 90),
     textSupporting: new HSLA(0, 0, 61),
     textShy: new HSLA(0, 0, 100, 0.28),
     textPrimary: primary.getVariant({ l: () => 76, s: () => 100 }),

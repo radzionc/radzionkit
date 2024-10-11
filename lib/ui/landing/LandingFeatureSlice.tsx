@@ -50,7 +50,7 @@ export const LandingFeatureSlice = ({
 }: Props) => {
   const info = (
     <VStack key="info" alignItems="start" gap={40}>
-      <Text height="large" weight="600" size={32} as="h2">
+      <Text height="l" weight="600" size={32} as="h2">
         {title}
       </Text>
       <VStack gap={8}>{description}</VStack>

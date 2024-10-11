@@ -6,6 +6,6 @@ type FaqItemProps = ComponentWithChildrenProps & TitledComponentProps
 
 export const FaqItem = ({ children, title }: FaqItemProps) => (
   <ExpandableSection title={title}>
-    <Text height="large">{children}</Text>
+    <Text height="l">{children}</Text>
   </ExpandableSection>
 )

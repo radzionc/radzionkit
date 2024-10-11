@@ -22,7 +22,7 @@ export const ConfirmEmailAuthView = ({
     <AuthView title="Confirm your email">
       {email && (
         <>
-          <Text height="large" centerHorizontally size={18}>
+          <Text height="l" centerHorizontally size={18}>
             We emailed a magic link to <br />
             <Text as="span" weight="600">
               {email}

@@ -25,7 +25,7 @@ export const BlockingQuery = ({ error, supportEmail }: BlockingQueryProps) => {
             color="regular"
             style={{ wordBreak: 'break-word' }}
             centerHorizontally
-            height="large"
+            height="l"
           >
             {error.message}
           </Text>

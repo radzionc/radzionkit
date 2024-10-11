@@ -41,7 +41,7 @@ export const ShyWarningBlock = ({
           <Text as="div" color="contrast" size={14} weight="600">
             {title}
           </Text>
-          <Text as="div" size={14} height="large" color="supporting">
+          <Text as="div" size={14} height="l" color="supporting">
             {children}
           </Text>
         </VStack>

@@ -48,7 +48,7 @@ export const TestimonialItem = ({ testimonial }: TestimonialItemProps) => {
             </Text>
           </VStack>
         </HStack>
-        <Text color="contrast" height="large">
+        <Text color="contrast" height="l">
           {content}
         </Text>
       </VStack>
