@@ -131,6 +131,7 @@ export const App = () => {
 
 To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
 
+* [Master Drag-and-Drop with dnd-kit: Kanban Board Tutorial](https://youtu.be/GEaRjSpgycg)
 * [Efficiently Delete Inactive User Data Using TypeScript and AWS Lambda](https://youtu.be/hDpjM87x6kE)
 * [Creating a DayInput Component with React and TypeScript for Date Selection](https://youtu.be/wXEBxu94t58)
 * [Implementing a Custom Dropdown Component in React with TypeScript and Floating-UI](https://youtu.be/qhdqL_2JB7g)
