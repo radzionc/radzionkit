@@ -4,7 +4,7 @@ const billion = 1000000000
 const defaultFractionDigits = 2
 
 const getFractionDigits = (amount: number): number => {
-  const amountStr = amount.toString()
+  const amountStr = amount.toFixed(20)
   if (amountStr.startsWith('0') && amount > 0) {
     const fractionPartDigits = amountStr.split('.')[1].split('')
 
@@ -18,7 +18,7 @@ const getFractionDigits = (amount: number): number => {
 
     const isFollowingZero = fractionPartDigits[nonZeroDigitIndex + 1] === '0'
 
-    return nonZeroDigitIndex + (isFollowingZero ? 0 : 1)
+    return nonZeroDigitIndex + (isFollowingZero ? 1 : 2)
   }
 
   return defaultFractionDigits

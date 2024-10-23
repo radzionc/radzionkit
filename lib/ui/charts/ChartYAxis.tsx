@@ -24,7 +24,6 @@ export const ChartYAxis = ({
         return (
           <PositionAbsolutelyCenterHorizontally
             top={toPercents(1 - value)}
-            fullWidth
             key={index}
           >
             {renderLabel(index)}

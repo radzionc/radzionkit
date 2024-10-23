@@ -48,7 +48,7 @@ export const Switch = ({
         <InvisibleHTMLCheckbox value={value} onChange={onChange} />
       </SwitchContainer>
       {label && (
-        <Text size={match(size, { m: () => 16, s: () => 14 })} as="div">
+        <Text nowrap size={match(size, { m: () => 16, s: () => 14 })} as="div">
           {label}
         </Text>
       )}

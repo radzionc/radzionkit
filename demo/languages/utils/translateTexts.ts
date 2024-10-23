@@ -5,11 +5,11 @@ import { getEnvVar } from '../getEnvVar'
 import { extractTemplateVariables } from '@lib/utils/template/extractTemplateVariables'
 import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
 import { injectVariables } from '@lib/utils/template/injectVariables'
-import { makeRecord } from '@lib/utils/record/makeRecord'
 import {
   mustacheVariablePattern,
   toMustacheTemplateVariable,
 } from '@lib/utils/template/mustacheTemplate'
+import { recordFromKeys } from '@lib/utils/record/recordFromKeys'
 
 const batchSize = 600
 
@@ -42,7 +42,7 @@ export const translateTexts = async ({
       injectVariables({
         template: text,
         variablePattern: mustacheVariablePattern,
-        variables: makeRecord(extractTemplateVariables(text), (text) =>
+        variables: recordFromKeys(extractTemplateVariables(text), (text) =>
           toMustacheTemplateVariable(`var_${variables.indexOf(text)}`),
         ),
       }),
@@ -73,7 +73,7 @@ export const translateTexts = async ({
         return injectVariables({
           template: translatedText,
           variablePattern: mustacheVariablePattern,
-          variables: makeRecord(
+          variables: recordFromKeys(
             extractTemplateVariables(translatedText),
             (variable) =>
               toMustacheTemplateVariable(

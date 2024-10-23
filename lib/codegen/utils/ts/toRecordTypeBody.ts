@@ -1,4 +1,4 @@
-export const toRecordTypeBody = (record: Record<string, string>) =>
+export const recordFromItemsTypeBody = (record: Record<string, string>) =>
   `{
     ${Object.entries(record)
       .map(([key, value]) => `${key}: ${value},`)

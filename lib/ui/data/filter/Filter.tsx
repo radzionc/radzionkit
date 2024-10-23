@@ -39,7 +39,7 @@ const Content = styled(UnstyledButton)<ComponentWithActiveState>`
 `
 
 type FilterProps<T> = InputProps<T | null> & {
-  items: T[]
+  items: readonly T[]
   getItemKey: (item: T) => string
   renderItem: (item: T) => React.ReactNode
   title: string

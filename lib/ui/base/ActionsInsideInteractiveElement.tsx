@@ -11,7 +11,7 @@ import styled from 'styled-components'
 import { ElementSizeAware } from './ElementSizeAware'
 
 import { toEntries } from '@lib/utils/record/toEntries'
-import { makeRecord } from '@lib/utils/record/makeRecord'
+import { recordFromKeys } from '@lib/utils/record/recordFromKeys'
 import { getRecordKeys } from '@lib/utils/record/getRecordKeys'
 import { useStateCorrector } from '../state/useStateCorrector'
 import { getRecordSize } from '@lib/utils/record/getRecordSize'
@@ -50,7 +50,7 @@ export const ActionsInsideInteractiveElement = forwardRef(
   ) {
     const [sizes, setSizes] = useStateCorrector(
       useState<Record<K, Dimensions>>(() =>
-        makeRecord(getRecordKeys(actions), () => ({ width: 0, height: 0 })),
+        recordFromKeys(getRecordKeys(actions), () => ({ width: 0, height: 0 })),
       ),
       (sizes) => {
         let result = sizes
@@ -77,7 +77,7 @@ export const ActionsInsideInteractiveElement = forwardRef(
     return (
       <Container ref={ref} {...rest}>
         {render({
-          actions: makeRecord(getRecordKeys(actions), (key) => ({
+          actions: recordFromKeys(getRecordKeys(actions), (key) => ({
             size: sizes[key],
             placerStyles: actions[key].placerStyles,
           })),

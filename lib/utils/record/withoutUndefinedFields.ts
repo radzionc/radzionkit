@@ -1,15 +1,19 @@
 import { getRecordKeys } from './getRecordKeys'
 
-export function withoutUndefinedFields<
-  K extends string,
-  T extends Record<K, any>,
->(record: T): Partial<T> {
-  const result = {} as Partial<T>
+type WithoutUndefinedFields<T extends Record<string, any>> = {
+  [K in keyof T]-?: Exclude<T[K], undefined>
+}
+
+export function withoutUndefinedFields<T extends Record<string, any>>(
+  record: T,
+): WithoutUndefinedFields<T> {
+  const result = {} as WithoutUndefinedFields<T>
 
   getRecordKeys(record).forEach((key) => {
-    const value = record[key]
+    const typedKey = key as keyof T
+    const value = record[typedKey]
     if (value !== undefined) {
-      result[key] = value
+      result[typedKey] = value as Exclude<T[typeof typedKey], undefined>
     }
   })
 

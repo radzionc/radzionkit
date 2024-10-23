@@ -4,6 +4,7 @@ import { getColor } from '@lib/ui/theme/getters'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { hStack } from '@lib/ui/css/stack'
 import { UnstyledButton } from '../buttons/UnstyledButton'
+import { horizontalPadding } from '../css/horizontalPadding'
 
 export const selectContainerMinHeight = 40
 
@@ -16,7 +17,7 @@ export const SelectContainer = styled(UnstyledButton)`
 
   ${borderRadius.s};
   border: 1px solid ${getColor('mist')};
-  padding: 8px 12px;
+  ${horizontalPadding(12)};
   background: ${getColor('foreground')};
 
   min-height: ${toSizeUnit(selectContainerMinHeight)};

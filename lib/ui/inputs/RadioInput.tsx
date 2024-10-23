@@ -101,6 +101,7 @@ export const RadioInput = <T extends string>({
         if (disabledMessage) {
           return (
             <Tooltip
+              key={option}
               content={disabledMessage}
               renderOpener={(props) => (
                 <Container

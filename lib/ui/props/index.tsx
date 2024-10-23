@@ -81,6 +81,14 @@ export type ComponentWithValueProps<T> = {
   value: T
 }
 
+export type ComponentWithInitialValueProps<T> = {
+  initialValue: T
+}
+
+export type ComponentWithOptionsProps<T> = {
+  options: T[]
+}
+
 export type ActionGuardProps<T = () => void | Promise<void>> = {
   action: T
   render: (params: { action: T }) => ReactNode
@@ -133,4 +141,12 @@ export type ColoredComponentProps = {
 
 export type ComponentWithActionProps = {
   action: ReactNode
+}
+
+export type SubmittableComponentProps = {
+  onSubmit: () => void
+}
+
+export type ComponentWithItemsProps<T> = {
+  items: T[]
 }

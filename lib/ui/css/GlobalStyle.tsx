@@ -14,6 +14,10 @@ export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   * {
     margin: 0;
     padding: 0;
+
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
   }
 
   html, body, #root, #__next {

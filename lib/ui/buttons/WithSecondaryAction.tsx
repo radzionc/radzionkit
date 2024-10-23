@@ -29,6 +29,11 @@ export const withSecondaryAction = ({
     height: 100%;
     color: ${getColor('text')};
 
+    &:hover {
+      background: ${getColor('foreground')};
+      color: ${getColor('contrast')};
+    }
+
     &:first-child {
       ${horizontalPadding(12)};
     }
@@ -38,11 +43,6 @@ export const withSecondaryAction = ({
       ${centerContent};
       outline: none;
       font-size: 16px;
-    }
-
-    &:hover {
-      background: ${getColor('foreground')};
-      color: ${getColor('contrast')};
     }
   }
 `

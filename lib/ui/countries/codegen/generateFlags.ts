@@ -4,7 +4,7 @@ import path from 'path'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { createTsFile } from '@lib/codegen/utils/createTsFile'
 import { svgToReact } from '../../codegen/svgToReact'
-import { makeRecord } from '@lib/utils/record/makeRecord'
+import { recordFromKeys } from '@lib/utils/record/recordFromKeys'
 
 const getSvgFlagPath = (code: CountryCode) =>
   path.resolve(__dirname, './flags', `${code.toLowerCase()}.svg`)
@@ -15,7 +15,7 @@ const getFlagComponentName = (code: CountryCode) =>
   `${capitalizeFirstLetter(code.toLowerCase())}Flag`
 
 const generateFlags = async () => {
-  const svgRecord = makeRecord(countryCodes, (code) =>
+  const svgRecord = recordFromKeys(countryCodes, (code) =>
     fs.readFileSync(getSvgFlagPath(code), 'utf8'),
   )
 
@@ -39,7 +39,7 @@ const generateFlags = async () => {
     }),
   )
 
-  const countryFlagComponentRecord = makeRecord(countryCodes, (code) => {
+  const countryFlagComponentRecord = recordFromKeys(countryCodes, (code) => {
     const componentName = getFlagComponentName(code)
     return `React.lazy(() => import('./${componentName}'))`
   })

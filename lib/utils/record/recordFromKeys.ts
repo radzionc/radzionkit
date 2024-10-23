@@ -1,4 +1,4 @@
-export const makeRecord = <T extends string | number, V>(
+export const recordFromKeys = <T extends string | number, V>(
   keys: readonly T[],
   getValue: (key: T, index: number) => V,
 ) => {
