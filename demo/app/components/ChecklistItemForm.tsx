@@ -1,9 +1,9 @@
+import { ChecklistItemFrame } from '@lib/ui/checklist/ChecklistItemFrame'
+import { CheckStatus } from '@lib/ui/checklist/CheckStatus'
+import { useKeyDown } from '@lib/ui/hooks/useKeyDown'
+import { getColor } from '@lib/ui/theme/getters'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
-import { ChecklistItemFrame } from './ChecklistItemFrame'
-import { getColor } from '../theme/getters'
-import { CheckStatus } from './CheckStatus'
-import { useKeyDown } from '../hooks/useKeyDown'
 
 interface ChecklistItemFormShape {
   name: string

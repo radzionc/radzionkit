@@ -4,9 +4,9 @@ import { Opener } from '@lib/ui/base/Opener'
 import { updateAtIndex } from '@lib/utils/array/updateAtIndex'
 import { ChecklistItem } from '@lib/ui/checklist/ChecklistItem'
 import { AddChecklistItemPrompt } from '@lib/ui/checklist/AddChecklistItemPrompt'
-import { ChecklistItemForm } from '@lib/ui/checklist/ChecklistItemForm'
 import { DemoPage } from '../components/DemoPage'
 import { makeDemoPage } from '../layout/makeDemoPage'
+import { ChecklistItemForm } from '../components/ChecklistItemForm'
 
 interface Task {
   name: string
