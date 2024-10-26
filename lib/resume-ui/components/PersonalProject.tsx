@@ -14,16 +14,13 @@ interface Props {
   description: string
   achievement?: ReactNode
   responsibilities?: string[]
+  icon?: ReactNode
 }
 
 const Title = styled(Text)`
   border-bottom: 1px dashed;
   ${transition}
   line-height: 1.24;
-
-  &:hover {
-    color: ${getColor('primary')};
-  }
 `
 
 const Badge = styled.div`
@@ -32,21 +29,31 @@ const Badge = styled.div`
   ${round};
 `
 
+const Link = styled(ExternalLink)`
+  &:hover ${Title} {
+    color: ${getColor('textPrimary')};
+  }
+`
+
 export const PersonalProject = ({
   name,
   url,
   description,
   achievement,
   responsibilities,
+  icon,
 }: Props) => {
   return (
     <VStack alignItems="start" gap={4}>
       <HStack alignItems="center" gap={16}>
-        <ExternalLink to={url}>
-          <Title color="contrast" weight="600">
-            {name}
-          </Title>{' '}
-        </ExternalLink>
+        <Link to={url}>
+          <HStack alignItems="center" gap={8}>
+            {icon}
+            <Title centerVertically color="contrast" weight="600">
+              {name}
+            </Title>
+          </HStack>
+        </Link>
         {achievement && (
           <Badge>
             <Text as="div" color="supporting" weight="500" size={14}>

@@ -25,10 +25,12 @@ import { convertDuration } from '@lib/utils/time/convertDuration'
 import { UniformColumnGrid } from '@lib/ui/css/uniformColumnGrid'
 import { TelegramIcon } from '@lib/ui/icons/TelegramIcon'
 import { LinkedinIcon } from '@lib/ui/icons/LinkedinIcon'
+import { YouTubeColoredIcon } from '@lib/ui/icons/YouTubeColoredIcon'
+import { IncreaserIcon } from './IncreaserIcon'
 
 const firstJobStartedAt = new Date(2017, 3)
 
-const email = 'radzion@radzion.com'
+const email = 'radzionc@gmail.com'
 const xHandle = 'radzionc'
 const githubHandle = 'radzionc'
 const telegramHandle = 'radzionc'
@@ -168,13 +170,14 @@ export const RadzionResume = () => {
           />
         </UniformColumnGrid>
       </ResumeSection>
-      <ResumeSection style={{ flex: 1 }} title={'Making Content & Tools'}>
+      <ResumeSection style={{ flex: 1 }} title={'My Projects'}>
         <UniformColumnGrid maxColumns={2} gap={40}>
           <PersonalProject
+            icon={<IncreaserIcon />}
             name="Increaser"
             url="https://increaser.org"
             description="A productivity toolkit for remote knowledge workers"
-            achievement="$71 MRR"
+            achievement="$74 MRR"
             responsibilities={[
               'Full-stack development with TypeScript monorepo',
               'Designed and built core tools for productivity enhancement',
@@ -183,12 +186,13 @@ export const RadzionResume = () => {
           />
           <VStack gap={20}>
             <PersonalProject
+              icon={<GitHubIcon />}
               name="Radzion Kit"
               url="https://github.com/radzionc/radzionkit"
               description="Speedy setup for robust full-stack TypeScript monorepo projects"
               achievement={
                 <HStack alignItems="center" gap={8}>
-                  <Text>192</Text>
+                  <Text>203</Text>
                   <IconWrapper>
                     <StarIcon />
                   </IconWrapper>
@@ -196,10 +200,11 @@ export const RadzionResume = () => {
               }
             />
             <PersonalProject
+              icon={<YouTubeColoredIcon />}
               name="Radzion Dev"
               url="https://www.youtube.com/c/radzion"
               description="A YouTube channel about web development"
-              achievement="1.63k subs"
+              achievement="1.7k subs"
             />
           </VStack>
         </UniformColumnGrid>
