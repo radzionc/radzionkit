@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { BeforeInstallPromptEvent } from '../pwa/BeforeInstallPromptEvent'
+import { hasWindow } from '../utils/window'
 
 type ExtendedWindowsEventMap = WindowEventMap & {
   beforeinstallprompt: BeforeInstallPromptEvent
@@ -42,4 +43,12 @@ export function useEvent(
       target.removeEventListener(event, handler, options)
     }
   }, [target, event, handler, options])
+}
+
+export function useWindowEvent<K extends keyof ExtendedWindowsEventMap>(
+  event: K,
+  handler: (ev: ExtendedWindowsEventMap[K]) => any,
+  options?: boolean | AddEventListenerOptions,
+): void {
+  useEvent(hasWindow ? window : null, event, handler, options)
 }

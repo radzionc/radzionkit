@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
+import { hasWindow } from '../utils/window'
 
 export const useMedia = (query: string, defaultState: boolean): boolean => {
   const [state, setState] = useState<boolean>(defaultState)
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) {
+    if (!hasWindow || !window.matchMedia) {
       return
     }
 

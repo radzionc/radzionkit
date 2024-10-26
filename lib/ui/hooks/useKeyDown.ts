@@ -1,4 +1,5 @@
 import { useCallback, useEffect } from 'react'
+import { hasWindow } from '../utils/window'
 
 type Key = string
 
@@ -18,7 +19,7 @@ export const useKeyDown = (
     isEnabled = true,
     shouldStopPropagation = false,
     shouldPreventDefault = false,
-    target = typeof window !== 'undefined' ? window : undefined,
+    target = hasWindow ? window : undefined,
   } = options
 
   const handleKeyDown = useCallback(

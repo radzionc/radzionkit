@@ -1,4 +1,4 @@
-import { useEvent } from '../hooks/useEvent'
+import { useWindowEvent } from '../hooks/useEvent'
 
 type WindowPointerMoveListenerProps = {
   onMove: (event: PointerEvent) => void
@@ -8,9 +8,9 @@ export const WindowPointerMoveListener = ({
   onMove,
   onStop,
 }: WindowPointerMoveListenerProps) => {
-  useEvent(window, 'pointerup', onStop)
-  useEvent(window, 'pointercancel', onStop)
-  useEvent(window, 'pointermove', onMove)
+  useWindowEvent('pointerup', onStop)
+  useWindowEvent('pointercancel', onStop)
+  useWindowEvent('pointermove', onMove)
 
   return null
 }
