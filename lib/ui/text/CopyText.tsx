@@ -1,13 +1,13 @@
 import { CopyIcon } from '../icons/CopyIcon'
 import styled from 'styled-components'
 import { getColor, matchColor } from '../theme/getters'
-import copy from 'copy-to-clipboard'
 import { useState } from 'react'
 import { CheckIcon } from '../icons/CheckIcon'
 import { Text, TextProps } from '../text'
 import { Match } from '../base/Match'
 import { transition } from '../css/transition'
 import { ComponentWithChildrenProps, UIComponentProps } from '../props'
+import { copyTextToClipboard } from '../utils/copyTextToClipboard'
 
 type CopyTextProps = {
   content: string
@@ -52,7 +52,7 @@ export const CopyText = ({
       onMouseLeave={() => setIconToShow('copy')}
       onTouchEnd={() => setIconToShow('copy')}
       onClick={() => {
-        copy(content)
+        copyTextToClipboard(content)
         setIconToShow('copied')
       }}
       {...rest}
