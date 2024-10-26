@@ -1,10 +1,10 @@
 import { ReactNode, useEffect, useRef } from 'react'
-import { useIntersection } from 'react-use'
 import styled from 'styled-components'
 import { Spinner } from '../loaders/Spinner'
 import { HStack, VStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
 import { getColor } from '../theme/getters'
+import { useIntersection } from '../hooks/useIntersection'
 
 interface Props {
   children: ReactNode

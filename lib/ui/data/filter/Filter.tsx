@@ -64,7 +64,6 @@ export function Filter<T>({
     activeIndex,
     context,
   } = useFloatingOptions({
-    floatingOptionsWidthSameAsOpener: false,
     selectedIndex: null,
     strategy: 'fixed',
     placement: 'bottom-end',

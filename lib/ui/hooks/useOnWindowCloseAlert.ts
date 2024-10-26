@@ -1,16 +1,18 @@
-import { useEffect } from 'react'
+import { useCallback } from 'react'
+import { useEvent } from './useEvent'
 
 export const useOnWindowCloseAlert = (message: string, isEnabled = true) => {
-  useEffect(() => {
-    if (!isEnabled) return
+  useEvent(
+    window,
+    'beforeunload',
+    useCallback(
+      (event: BeforeUnloadEvent) => {
+        if (!isEnabled) return
 
-    const onUnload = (event: any) => {
-      event.returnValue = message
-      return message
-    }
-
-    window.addEventListener('beforeunload', onUnload)
-
-    return () => window.removeEventListener('beforeunload', onUnload)
-  }, [isEnabled, message])
+        event.returnValue = message
+        return message
+      },
+      [isEnabled, message],
+    ),
+  )
 }

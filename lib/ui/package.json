@@ -18,7 +18,6 @@
     "react-dropzone": "^14.2.3",
     "react-focus-lock": "^2.13.2",
     "react-spring": "^9.7.3",
-    "react-use": "^17.4.2",
     "styled-components": "^6.1.6"
   },
   "devDependencies": {

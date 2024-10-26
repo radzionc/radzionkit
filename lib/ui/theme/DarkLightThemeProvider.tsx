@@ -1,7 +1,6 @@
 import { StyleSheetManager } from 'styled-components'
 import isPropValid from '@emotion/is-prop-valid'
 import { useEffect, useState } from 'react'
-import { useMedia } from 'react-use'
 import {
   DefaultTheme,
   ThemeProvider as StyledComponentsThemeProvider,
@@ -12,6 +11,7 @@ import { darkTheme } from './darkTheme'
 import { ComponentWithChildrenProps } from '../props'
 import { lightTheme } from './lightTheme'
 import { getValueProviderSetup } from '../state/getValueProviderSetup'
+import { useMedia } from '../hooks/useMedia'
 
 const shouldForwardProp = (propName: string, target: any) => {
   if (typeof target === 'string') {

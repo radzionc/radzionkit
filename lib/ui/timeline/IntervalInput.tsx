@@ -1,5 +1,11 @@
-import { ReactNode, useEffect, useMemo, useRef, useState } from 'react'
-import { useEvent } from 'react-use'
+import {
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import styled from 'styled-components'
 import { HSLA } from '../colors/HSLA'
 
@@ -16,6 +22,7 @@ import { FloatingIntervalDuration } from './FloatingIntervalDuration'
 import { InteractiveDragArea } from './InteractiveDragArea'
 import { CurrentIntervalRect } from './CurrentIntervalRect'
 import { TakeWholeSpace } from '../css/takeWholeSpace'
+import { WindowPointerMoveListener } from '../base/WindowPointerMoveListener'
 
 interface RenderContentParams {
   msToPx: (ms: number) => number
@@ -49,14 +56,13 @@ export const IntervalInput = ({
   minDuration = defaultMinDurationInMin * MS_IN_MIN,
 }: IntervalInputProps) => {
   const pxInMs = pxInHour / MS_IN_HOUR
-  const msToPx = (ms: number) => ms * pxInMs
-  const pxToMs = (px: number) => px / pxInMs
+  const msToPx = useCallback((ms: number) => ms * pxInMs, [pxInMs])
+  const pxToMs = useCallback((px: number) => px / pxInMs, [pxInMs])
 
   const [activeControl, setActiveControl] =
     useState<IntervalEditorControl | null>(null)
 
-  useEvent('pointerup', () => setActiveControl(null))
-  useEvent('pointercancel', () => setActiveControl(null))
+  const deactivate = useCallback(() => setActiveControl(null), [])
 
   const containerElement = useRef<HTMLDivElement | null>(null)
   const intervalElement = useRef<HTMLDivElement | null>(null)
@@ -69,55 +75,68 @@ export const IntervalInput = ({
 
   const valueDuration = getIntervalDuration(value)
 
-  useEvent('pointermove', ({ clientY }) => {
-    if (!activeControl) return
+  const onMove = useCallback(
+    ({ clientY }: PointerEvent) => {
+      if (!activeControl) return
 
-    const containerRect = containerElement?.current?.getBoundingClientRect()
-    if (!containerRect) return
+      const containerRect = containerElement?.current?.getBoundingClientRect()
+      if (!containerRect) return
 
-    const timestamp = timelineStartsAt + pxToMs(clientY - containerRect.top)
+      const timestamp = timelineStartsAt + pxToMs(clientY - containerRect.top)
 
-    const getNewInterval = () => {
-      if (activeControl === 'position') {
-        const halfDuration = valueDuration / 2
-        const oldCenter = value.start + halfDuration
+      const getNewInterval = () => {
+        if (activeControl === 'position') {
+          const halfDuration = valueDuration / 2
+          const oldCenter = value.start + halfDuration
 
-        const newCenter = enforceRange(
-          timestamp,
-          timelineStartsAt + halfDuration,
-          timelineEndsAt - halfDuration,
-        )
+          const newCenter = enforceRange(
+            timestamp,
+            timelineStartsAt + halfDuration,
+            timelineEndsAt - halfDuration,
+          )
 
-        const offset = newCenter - oldCenter
+          const offset = newCenter - oldCenter
 
-        return {
-          start: value.start + offset,
-          end: value.end + offset,
-        }
-      } else {
-        return {
-          start:
-            activeControl === 'start'
-              ? enforceRange(
-                  timestamp,
-                  timelineStartsAt,
-                  value.end - minDuration,
-                )
-              : value.start,
-          end:
-            activeControl === 'end'
-              ? enforceRange(
-                  timestamp,
-                  value.start + minDuration,
-                  timelineEndsAt,
-                )
-              : value.end,
+          return {
+            start: value.start + offset,
+            end: value.end + offset,
+          }
+        } else {
+          return {
+            start:
+              activeControl === 'start'
+                ? enforceRange(
+                    timestamp,
+                    timelineStartsAt,
+                    value.end - minDuration,
+                  )
+                : value.start,
+            end:
+              activeControl === 'end'
+                ? enforceRange(
+                    timestamp,
+                    value.start + minDuration,
+                    timelineEndsAt,
+                  )
+                : value.end,
+          }
         }
       }
-    }
 
-    onChange(getNewInterval())
-  })
+      onChange(getNewInterval())
+    },
+    [
+      activeControl,
+      minDuration,
+      onChange,
+      pxToMs,
+      timelineEndsAt,
+      timelineStartsAt,
+      value.end,
+      value.start,
+      valueDuration,
+    ],
+  )
 
   const cursor = useMemo(() => {
     if (!activeControl) return undefined
@@ -137,6 +156,7 @@ export const IntervalInput = ({
       startsAt={timelineStartsAt}
       endsAt={timelineEndsAt}
     >
+      <WindowPointerMoveListener onMove={onMove} onStop={deactivate} />
       <TakeWholeSpace ref={containerElement} style={{ cursor }}>
         {renderContent && renderContent({ msToPx })}
         <CurrentIntervalRect

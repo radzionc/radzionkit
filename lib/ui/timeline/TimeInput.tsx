@@ -1,5 +1,4 @@
-import { MouseEventHandler, useEffect, useRef, useState } from 'react'
-import { useEvent } from 'react-use'
+import { MouseEventHandler, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
 import { HSLA } from '../colors/HSLA'
@@ -11,6 +10,8 @@ import { Text } from '../text'
 import { formatDuration } from '@lib/utils/time/formatDuration'
 import { EditorActiveSession } from './EditorActiveSession'
 import { BoundaryInteractiveArea } from './BoundaryInteractiveArea'
+import { useEvent } from '../hooks/useEvent'
+import { useBoolean } from '../hooks/useBoolean'
 
 export interface TimeInputProps {
   color: HSLA
@@ -50,9 +51,9 @@ export const TimeInput = ({
 
   const height = msToPx(timelineDuration)
 
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, { set: activate, unset: deactivate }] = useBoolean(false)
 
-  useEvent('mouseup', () => setIsActive(false))
+  useEvent(window, 'mouseup', deactivate)
 
   const containerElement = useRef<HTMLDivElement | null>(null)
   const timeElement = useRef<HTMLDivElement | null>(null)
@@ -120,10 +121,7 @@ export const TimeInput = ({
             )}
           </HStack>
         </TimeValue>
-        <BoundaryInteractiveArea
-          top={valueInPx}
-          onMouseDown={() => setIsActive(true)}
-        />
+        <BoundaryInteractiveArea top={valueInPx} onMouseDown={activate} />
       </Container>
     </TimeSpace>
   )

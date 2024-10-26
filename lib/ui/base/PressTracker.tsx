@@ -1,12 +1,14 @@
-import { PointerEventHandler, ReactNode, useCallback, useState } from 'react'
-import { useEvent } from 'react-use'
+import { ReactNode, useCallback, useState } from 'react'
 import { Point } from '../entities/Point'
 import { useBoundingBox } from '../hooks/useBoundingBox'
 import { useRelativePosition } from '../hooks/useRelativePosition'
 import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
+import { WindowPointerMoveListener } from './WindowPointerMoveListener'
+
+type PointerHandler = (event: Pick<PointerEvent, 'clientX' | 'clientY'>) => void
 
 interface ContainerProps {
-  onPointerDown: PointerEventHandler<HTMLElement>
+  onPointerDown: PointerHandler
   ref: (node: HTMLElement | null) => void
 }
 
@@ -32,7 +34,7 @@ export const PressTracker = ({ render, onChange }: PressTrackerProps) => {
 
   const position = useRelativePosition({ box, clientPosition })
 
-  const handleMove: PointerEventHandler<HTMLElement> = useCallback((event) => {
+  const handleMove: PointerHandler = useCallback((event) => {
     setClientPosition({ x: event.clientX, y: event.clientY })
   }, [])
 
@@ -46,10 +48,6 @@ export const PressTracker = ({ render, onChange }: PressTrackerProps) => {
     setClientPosition(null)
   }, [])
 
-  useEvent('pointerup', position ? clearPosition : undefined)
-  useEvent('pointercancel', position ? clearPosition : undefined)
-  useEvent('pointermove', position ? handleMove : undefined)
-
   return (
     <>
       {render({
@@ -60,6 +58,9 @@ export const PressTracker = ({ render, onChange }: PressTrackerProps) => {
         position,
         clientPosition,
       })}
+      {position && (
+        <WindowPointerMoveListener onStop={clearPosition} onMove={handleMove} />
+      )}
     </>
   )
 }

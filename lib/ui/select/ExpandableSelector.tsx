@@ -17,7 +17,6 @@ export type ExpandableSelectorProp<T> = UIComponentProps & {
   getOptionName?: (option: T) => string
   renderOption?: (option: T) => React.ReactNode
   openerContent?: React.ReactNode
-  floatingOptionsWidthSameAsOpener?: boolean
   showToggle?: boolean
   returnFocus?: boolean
 }
@@ -31,9 +30,8 @@ export function ExpandableSelector<T>({
   getOptionKey,
   getOptionName,
   openerContent,
-  floatingOptionsWidthSameAsOpener,
   showToggle = true,
-  returnFocus = false,
+  returnFocus = true,
   ...rest
 }: ExpandableSelectorProp<T>) {
   const {
@@ -46,7 +44,6 @@ export function ExpandableSelector<T>({
     context,
   } = useFloatingOptions({
     strategy: 'fixed',
-    floatingOptionsWidthSameAsOpener,
     selectedIndex: value === null ? null : options.indexOf(value),
     placement: 'bottom-start',
     options: options.map(getOptionKey ?? getOptionName),

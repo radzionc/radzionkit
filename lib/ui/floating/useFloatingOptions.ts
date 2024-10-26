@@ -15,7 +15,6 @@ import { useValueRef } from '../hooks/useValueRef'
 
 type FloatingOptionsParams = {
   selectedIndex: number | null
-  floatingOptionsWidthSameAsOpener?: boolean
   strategy?: Strategy
   placement?: Placement
   optionsContainerMaxHeight?: number
@@ -29,7 +28,6 @@ interface GetOptionsPropsParams {
 
 export const useFloatingOptions = ({
   selectedIndex,
-  floatingOptionsWidthSameAsOpener = true,
   strategy,
   placement = 'bottom-end',
   optionsContainerMaxHeight = 320,
@@ -54,9 +52,7 @@ export const useFloatingOptions = ({
                 ? Math.min(availableHeight, optionsContainerMaxHeight)
                 : availableHeight,
             ),
-            width: floatingOptionsWidthSameAsOpener
-              ? toSizeUnit(rects.reference.width)
-              : undefined,
+            minWidth: toSizeUnit(rects.reference.width),
           })
         },
       }),

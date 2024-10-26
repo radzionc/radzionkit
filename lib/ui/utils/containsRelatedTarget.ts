@@ -1,7 +1,7 @@
 export const containsRelatedTarget = ({
   currentTarget,
   relatedTarget,
-}: FocusEvent) => {
+}: Pick<FocusEvent, 'currentTarget' | 'relatedTarget'>) => {
   if (
     currentTarget instanceof HTMLElement &&
     relatedTarget instanceof HTMLElement

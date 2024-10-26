@@ -1,21 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useCallback } from 'react'
+import { useEvent } from './useEvent'
 
 export const useFocusedElement = (): Element | null => {
   const [focusedElement, setFocusedElement] = useState<Element | null>(null)
 
-  useEffect(() => {
-    const updateFocusedElement = () => setFocusedElement(document.activeElement)
-
-    window.addEventListener('focus', updateFocusedElement, true)
-    window.addEventListener('blur', updateFocusedElement, true)
-
-    updateFocusedElement()
-
-    return () => {
-      window.removeEventListener('focus', updateFocusedElement, true)
-      window.addEventListener('blur', updateFocusedElement, true)
-    }
+  const setCurrentFocusedElement = useCallback(() => {
+    setFocusedElement(document.activeElement)
   }, [])
+
+  useEvent(window, 'focus', setCurrentFocusedElement, true)
+  useEvent(window, 'blur', setCurrentFocusedElement, true)
 
   return focusedElement
 }
