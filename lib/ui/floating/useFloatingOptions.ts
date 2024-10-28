@@ -28,7 +28,7 @@ interface GetOptionsPropsParams {
 
 export const useFloatingOptions = ({
   selectedIndex,
-  strategy,
+  strategy = 'fixed',
   placement = 'bottom-end',
   optionsContainerMaxHeight = 320,
   options,

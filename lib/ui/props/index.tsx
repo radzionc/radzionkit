@@ -150,3 +150,7 @@ export type SubmittableComponentProps = {
 export type ComponentWithItemsProps<T> = {
   items: T[]
 }
+
+export type SizedComponentProps<T = number> = {
+  size: T
+}

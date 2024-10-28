@@ -121,7 +121,11 @@ export const TimeInput = ({
             )}
           </HStack>
         </TimeValue>
-        <BoundaryInteractiveArea top={valueInPx} onMouseDown={activate} />
+        <BoundaryInteractiveArea
+          isActive={isActive}
+          top={valueInPx}
+          onMouseDown={activate}
+        />
       </Container>
     </TimeSpace>
   )

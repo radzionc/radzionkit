@@ -12,12 +12,12 @@ import {
   useDismiss,
   useRole,
   arrow,
-  FloatingArrow,
   useTransitionStyles,
   Placement,
 } from '@floating-ui/react'
 import styled from 'styled-components'
 import { getColor } from '../theme/getters'
+import { borderRadius } from '../css/borderRadius'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void
@@ -30,17 +30,13 @@ interface TooltipProps {
 }
 
 const Container = styled.div`
-  border-radius: 8px;
-  background: ${getColor('contrast')};
-  color: ${getColor('background')};
-  padding: 12px;
-  font-size: 14px;
-  font-weight: 500;
+  ${borderRadius.s};
+  background: ${getColor('foregroundExtra')};
+  border: 1px solid ${getColor('mist')};
+  padding: 8px 12px;
   max-width: 320px;
-`
-
-const Arrow = styled(FloatingArrow)`
-  fill: ${getColor('contrast')};
+  white-space: initial;
+  line-height: 1.5;
 `
 
 export const Tooltip = ({ content, renderOpener, placement }: TooltipProps) => {
@@ -58,7 +54,7 @@ export const Tooltip = ({ content, renderOpener, placement }: TooltipProps) => {
     strategy: 'fixed',
     placement,
     middleware: [
-      offset(12),
+      offset(4),
       flip(),
       shift(),
       arrow({
@@ -96,10 +92,7 @@ export const Tooltip = ({ content, renderOpener, placement }: TooltipProps) => {
           style={{ ...floatingStyles, zIndex: 1 }}
           {...getFloatingProps()}
         >
-          <Container style={transitionStyles}>
-            <Arrow tipRadius={2} height={8} ref={arrowRef} context={context} />
-            {content}
-          </Container>
+          <Container style={transitionStyles}>{content}</Container>
         </div>
       )}
     </>
