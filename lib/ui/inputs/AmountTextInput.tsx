@@ -7,8 +7,8 @@ import { HStack } from '@lib/ui/css/stack'
 import { borderRadius } from '../css/borderRadius'
 
 type AmountTextInputProps = Omit<TextInputProps, 'value' | 'onValueChange'> & {
-  value: number | undefined
-  onValueChange?: (value: number | undefined) => void
+  value: number | null
+  onValueChange?: (value: number | null) => void
   unit?: ReactNode
   shouldBePositive?: boolean
   shouldBeInteger?: boolean
@@ -47,17 +47,20 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
       style={unit ? { paddingLeft: 36 } : undefined}
       type={type}
       label={
-        <HStack
-          alignItems="center"
-          justifyContent="space-between"
-          gap={16}
-          fullWidth
-        >
-          {label}
-          {suggestion}
-        </HStack>
+        label || suggestion ? (
+          <HStack
+            alignItems="center"
+            justifyContent="space-between"
+            gap={16}
+            fullWidth
+          >
+            {label}
+            {suggestion}
+          </HStack>
+        ) : undefined
       }
       placeholder={placeholder ?? 'Enter amount'}
+      onWheel={(event) => event.currentTarget.blur()}
       value={
         Number(valueAsString) === Number(inputValue)
           ? inputValue
@@ -72,7 +75,7 @@ export const AmountTextInput = forwardRef(function AmountInputInner(
 
         if (value === '') {
           setInputValue('')
-          onValueChange?.(undefined)
+          onValueChange?.(null)
           return
         }
 

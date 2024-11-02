@@ -35,7 +35,11 @@ export const RadioInput = <T extends string>({
           const isSelected = value.includes(option)
           const isDisabled = isOptionDisabled(option)
           return (
-            <SelectOption isSelected={isSelected} isDisabled={isDisabled}>
+            <SelectOption
+              key={option}
+              isSelected={isSelected}
+              isDisabled={isDisabled}
+            >
               {renderOption(option)}
               {!isDisabled && (
                 <InvisibleHTMLRadio

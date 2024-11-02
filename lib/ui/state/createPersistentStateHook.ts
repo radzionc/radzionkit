@@ -1,11 +1,4 @@
-import { OnValueChangeListener } from './PersistentStorage'
-import {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react'
+import { useSyncExternalStore, useCallback } from 'react'
 import { PersistentStorage } from './PersistentStorage'
 import { shouldBeDefined } from '@lib/utils/assert/shouldBeDefined'
 
@@ -15,50 +8,41 @@ export function createPersistentStateHook<T extends string>(
   function usePersistentState<V>(
     key: T,
     initialValue: V | (() => V),
-  ): [V, Dispatch<SetStateAction<Exclude<V, undefined>>>] {
-    const [value, setValue] = useState<V>(() => {
-      const storedValue = storage.getItem<V>(key)
+  ): [V, (value: V | ((prevState: V) => V)) => void] {
+    const subscribe = useCallback(
+      (onStoreChange: () => void) => {
+        const listener = () => {
+          onStoreChange()
+        }
+        storage.addValueChangeListener(key, listener)
+        return () => {
+          storage.removeValueChangeListener(key, listener)
+        }
+      },
+      [key],
+    )
 
-      if (storedValue === undefined) {
+    const getSnapshot = useCallback(() => {
+      const value = storage.getItem<V>(key)
+      if (value === undefined) {
         const resolvedInitialValue =
           typeof initialValue === 'function'
             ? (initialValue as () => V)()
             : initialValue
         storage.setItem(key, resolvedInitialValue)
-
         return resolvedInitialValue
       }
+      return value
+    }, [key, initialValue])
 
-      return storedValue
-    })
-
-    useEffect(() => {
-      const onValueChange: OnValueChangeListener<Exclude<V, undefined>> = ({
-        newValue,
-      }) => {
-        setValue(newValue)
-      }
-
-      storage.addValueChangeListener(key, onValueChange)
-
-      return () => {
-        storage.removeValueChangeListener(key, onValueChange)
-      }
-    }, [key])
+    const value = useSyncExternalStore(subscribe, getSnapshot, getSnapshot)
 
     const setPersistentStorageValue = useCallback(
-      (
-        newValue:
-          | Exclude<V, undefined>
-          | ((prevState: Exclude<V, undefined>) => Exclude<V, undefined>),
-      ) => {
+      (newValue: V | ((prevState: V) => V)) => {
+        const currentValue = shouldBeDefined(storage.getItem<V>(key))
         const resolvedValue =
           typeof newValue === 'function'
-            ? (
-                newValue as (
-                  prevState: Exclude<V, undefined>,
-                ) => Exclude<V, undefined>
-              )(shouldBeDefined(storage.getItem<Exclude<V, undefined>>(key)))
+            ? (newValue as (prevState: V) => V)(currentValue)
             : newValue
         storage.setItem(key, resolvedValue)
       },

@@ -6,7 +6,7 @@ import { DemoPage } from '../components/DemoPage'
 import { makeDemoPage } from '../layout/makeDemoPage'
 
 export default makeDemoPage(() => {
-  const [value, setValue] = useState<number | undefined>(80000)
+  const [value, setValue] = useState<number | null>(80000)
 
   return (
     <DemoPage youtubeVideoId="RH0Z8AdPXHY" title="Amount Input">
