@@ -158,3 +158,11 @@ export type SizedComponentProps<T = number> = {
 export type ComponentWithStatusProps<T> = {
   status: T
 }
+
+export type NamedComponentProps = {
+  name: string
+}
+
+export type ComponentWithKindProps<T> = {
+  kind: T
+}

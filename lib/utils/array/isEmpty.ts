@@ -1,1 +1,2 @@
-export const isEmpty = <T>(items: readonly T[]): boolean => items.length === 0
+export const isEmpty = <T>(items?: readonly T[]): boolean =>
+  !items || items.length === 0

@@ -1,6 +1,5 @@
 import { css } from 'styled-components'
 import { getColor } from '../theme/getters'
-import { transition } from '../css/transition'
 import { toSizeUnit } from './toSizeUnit'
 import { borderRadius } from './borderRadius'
 import { horizontalPadding } from './horizontalPadding'
@@ -18,7 +17,6 @@ export const textInputFrame = css`
 
 export const textInput = css`
   ${textInputFrame};
-  ${transition};
   font-size: 14px;
 
   background: ${getColor('foreground')};
@@ -41,3 +39,30 @@ export const textInput = css`
     border-color: ${getColor('mistExtra')};
   }
 `
+
+type TextInputAutoWidthParams = {
+  value?: string | number | null
+  placeholder?: string
+  offset?: number
+}
+
+export const textInputAutoWidth = ({
+  value,
+  placeholder,
+  offset = textInputHorizontalPadding * 2 + 4,
+}: TextInputAutoWidthParams) => {
+  let characters = 1
+  if (value) {
+    characters = value.toString().length
+  } else if (placeholder) {
+    characters = placeholder.length
+  }
+
+  const contentWidth = `${characters}ch`
+
+  const width = `calc(${contentWidth} + ${toSizeUnit(offset)})`
+
+  return css`
+    width: ${width};
+  `
+}

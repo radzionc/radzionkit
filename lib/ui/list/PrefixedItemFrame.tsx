@@ -38,9 +38,9 @@ type PrefixedItemFrameProps = Partial<ContainerProps> &
   }
 
 export const PrefixedItemFrame = ({
-  prefixWidth = tightListItemConfig.lineHeight,
+  prefixWidth = 18,
   lineHeight = tightListItemConfig.lineHeight,
-  gap = tightListItemConfig.gap,
+  gap = 10,
   verticalPadding = tightListItemConfig.verticalPadding,
   children,
   prefix,

@@ -4,7 +4,7 @@ import { websiteConfig } from '@lib/ui/website/config'
 import styled from 'styled-components'
 import { getColor } from '@lib/ui/theme/getters'
 
-export const ClosingArgumentBackground = styled.div<{ imageUrl: string }>`
+export const FadeOutImageSlice = styled.div<{ imageUrl: string }>`
   width: 100%;
   min-height: calc(100vh - ${toSizeUnit(websiteConfig.headerHeight)});
   ${centerContent}

@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { HStack } from '@lib/ui/css/stack'
 import { Text } from '../../text'
-import { transition } from '../../css/transition'
 import { interactive } from '../../css/interactive'
 import { getColor } from '../../theme/getters'
 import { UIComponentProps, InputProps } from '../../props'
@@ -23,7 +22,6 @@ const Wrapper = styled(HStack)`
   ${interactive};
 
   color: ${getColor('text')};
-  ${transition};
 
   &:hover {
     color: ${getColor('contrast')};

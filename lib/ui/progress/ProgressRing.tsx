@@ -24,10 +24,11 @@ export const ProgressRing: React.FC<ProgressRingProps> = ({
   color,
   ...rest
 }) => {
+  const clampedValue = Math.min(value, 1)
   const center = size / 2
   const radius = (size - thickness) / 2
   const circumference = 2 * Math.PI * radius
-  const progressOffset = circumference - value * circumference
+  const progressOffset = circumference - clampedValue * circumference
 
   return (
     <svg width={size} height={size} {...rest}>

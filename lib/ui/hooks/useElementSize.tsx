@@ -4,10 +4,10 @@ import { pick } from '@lib/utils/record/pick'
 import { useState } from 'react'
 import { useIsomorphicLayoutEffect } from '@lib/ui/hooks/useIsomorphicLayoutEffect'
 
-const getElementSize = (element: HTMLElement): Dimensions =>
+const getElementSize = (element: Element): Dimensions =>
   pick(element.getBoundingClientRect(), ['height', 'width'])
 
-export const useElementSize = (element: HTMLElement | null) => {
+export const useElementSize = <E extends Element>(element: E | null) => {
   const [size, setSize] = useState<Dimensions | null>(() =>
     element ? getElementSize(element) : null,
   )
@@ -21,7 +21,7 @@ export const useElementSize = (element: HTMLElement | null) => {
 
     setSize(getElementSize(element))
 
-    if (!window?.ResizeObserver) return
+    if (!window.ResizeObserver) return
 
     const resizeObserver = new ResizeObserver(handleElementChange)
 

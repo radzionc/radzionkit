@@ -1,5 +1,9 @@
 import { VStack } from '@lib/ui/css/stack'
-import { ComponentWithChildrenProps, TitledComponentProps } from '@lib/ui/props'
+import {
+  ComponentWithChildrenProps,
+  TitledComponentProps,
+  UIComponentProps,
+} from '@lib/ui/props'
 import styled from 'styled-components'
 import { FormSectionShyTitle } from './FormSectionShyTitle'
 
@@ -11,8 +15,9 @@ const Container = styled(VStack)`
 export const FieldArrayContainer = ({
   title,
   children,
-}: ComponentWithChildrenProps & TitledComponentProps) => (
-  <Container>
+  ...rest
+}: ComponentWithChildrenProps & TitledComponentProps & UIComponentProps) => (
+  <Container {...rest}>
     <FormSectionShyTitle>{title}</FormSectionShyTitle>
     {children}
   </Container>

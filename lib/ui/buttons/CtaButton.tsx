@@ -63,6 +63,7 @@ const Front = styled.span`
   will-change: transform;
   transform: translateY(-4px);
   transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  font-weight: 600;
 
   ${centerContent};
 

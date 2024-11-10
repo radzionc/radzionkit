@@ -1,6 +1,7 @@
 import styled, { DefaultTheme, css } from 'styled-components'
 import { cropText } from '../css/cropText'
 import { toSizeUnit } from '../css/toSizeUnit'
+import { takeWholeSpaceAbsolutely } from '../css/takeWholeSpaceAbsolutely'
 
 const getTextColorRecord = ({ colors }: DefaultTheme) =>
   ({
@@ -35,6 +36,7 @@ export interface TextProps {
   centerVertically?: boolean
   cropped?: boolean
   nowrap?: boolean
+  blurBackground?: boolean
 }
 
 export const text = ({
@@ -46,6 +48,7 @@ export const text = ({
   centerVertically,
   cropped,
   nowrap,
+  blurBackground,
 }: TextProps) => css`
   overflow-wrap: break-word;
 
@@ -80,6 +83,18 @@ export const text = ({
   css`
     display: inline-flex;
     align-items: center;
+  `}
+  ${blurBackground &&
+  css`
+    position: relative;
+
+    &:before {
+      content: '';
+      z-index: -1;
+      ${takeWholeSpaceAbsolutely};
+      pointer-events: none;
+      backdrop-filter: blur(100px);
+    }
   `}
 `
 
