@@ -41,29 +41,25 @@ const Container = styled(FocusLock)<ContainerProps>`
   border: 2px solid ${getColor('textShy')};
   overflow: hidden;
 `
-
-type ModalContainerProps<T extends ElementType = 'div'> = {
+type ModalContainerProps = {
   targetWidth?: number
   placement?: ModalPlacement
-  as?: T
+  as?: ElementType
 } & Omit<
-  ComponentPropsWithoutRef<T>,
+  ComponentPropsWithoutRef<ElementType>,
   keyof ContainerProps | 'as' | 'width' | 'placement'
 >
 
-type PolymorphicRef<C extends React.ElementType> =
-  React.ComponentPropsWithRef<C>['ref']
+type PolymorphicRef = React.Ref<unknown>
 
-export const ModalContainer = forwardRef(function ModalContainerInner<
-  T extends ElementType = 'div',
->(
+export const ModalContainer = forwardRef(function ModalContainerInner(
   {
     targetWidth = 400,
     placement = 'center',
     as,
     ...props
-  }: ModalContainerProps<T>,
-  ref: PolymorphicRef<T>,
+  }: ModalContainerProps,
+  ref: PolymorphicRef,
 ) {
   const isFullScreen = useIsScreenWidthLessThan(
     targetWidth + modalConfig.minHorizontalFreeSpaceForMist,

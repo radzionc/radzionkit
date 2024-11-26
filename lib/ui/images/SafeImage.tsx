@@ -9,7 +9,7 @@ interface RenderParams {
 interface Props {
   src?: string
   fallback?: ReactNode
-  render: (params: RenderParams) => void
+  render: (params: RenderParams) => ReactNode
 }
 
 export const SafeImage = ({ fallback = null, src, render }: Props) => {
