@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "next": "^14.0.4",
+    "next": "^15.0.3",
     "react": "^18.2.0",
     "react-to-print": "^2.14.15",
     "styled-components": "^6.1.6"
