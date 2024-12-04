@@ -33,7 +33,11 @@ export interface TextProps {
   size?: number
   height?: TextHeight
   centerHorizontally?: boolean
-  centerVertically?: boolean
+  centerVertically?:
+    | boolean
+    | {
+        gap: number
+      }
   cropped?: boolean
   nowrap?: boolean
   blurBackground?: boolean
@@ -83,6 +87,12 @@ export const text = ({
   css`
     display: inline-flex;
     align-items: center;
+    flex-wrap: wrap;
+
+    ${typeof centerVertically === 'object' &&
+    css`
+      gap: ${toSizeUnit(centerVertically.gap)};
+    `}
   `}
   ${blurBackground &&
   css`

@@ -15,17 +15,7 @@ export const textInputFrame = css`
   ${textInputBorderRadius};
 `
 
-export const textInput = css`
-  ${textInputFrame};
-  font-size: 14px;
-
-  background: ${getColor('foreground')};
-  color: ${getColor('text')};
-
-  &::placeholder {
-    color: ${getColor('textShy')};
-  }
-
+export const interactiveTextInput = css`
   outline: 1px solid transparent;
   border: 1px solid ${getColor('mist')};
 
@@ -38,6 +28,20 @@ export const textInput = css`
     border-color: ${getColor('mistExtra')};
     border-color: ${getColor('mistExtra')};
   }
+`
+
+export const textInput = css`
+  ${textInputFrame};
+  font-size: 14px;
+
+  background: ${getColor('foreground')};
+  color: ${getColor('text')};
+
+  &::placeholder {
+    color: ${getColor('textShy')};
+  }
+
+  ${interactiveTextInput};
 `
 
 type TextInputAutoWidthParams = {
