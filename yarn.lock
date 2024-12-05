@@ -2228,17 +2228,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lib/resume-ui@workspace:lib/resume-ui":
-  version: 0.0.0-use.local
-  resolution: "@lib/resume-ui@workspace:lib/resume-ui"
-  dependencies:
-    next: "npm:^15.0.3"
-    react: "npm:^18.2.0"
-    react-to-print: "npm:^2.14.15"
-    styled-components: "npm:^6.1.6"
-  languageName: unknown
-  linkType: soft
-
 "@lib/subscription-ui@workspace:lib/subscription-ui":
   version: 0.0.0-use.local
   resolution: "@lib/subscription-ui@workspace:lib/subscription-ui"
@@ -10272,16 +10261,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-to-print@npm:^2.14.15":
-  version: 2.15.1
-  resolution: "react-to-print@npm:2.15.1"
-  peerDependencies:
-    react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: 10/0786fd5dd055b5b50f9a0dba99f0ccb30b9407b8e77748f5fc2557446ed0d0c65759e927cc2cdaa9e34f286838bbb230d3b0ba03d20b9754d0469fc4dac7c529
-  languageName: node
-  linkType: hard
-
 "react@npm:18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
@@ -11665,7 +11644,7 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>":
   version: 5.7.2
-  resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=74658d"
+  resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver

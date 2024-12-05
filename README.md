@@ -18,7 +18,6 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 | `@lib/auth`         | The `@lib/auth` package contains authentication-related types for both front-end and server-side logic. | TypeScript     |
 | `@lib/dynamodb`        | The `@lib/dynamodb` package is equipped with TypeScript utilities to streamline interactions with DynamoDB, including client setup, item operations, and query parameter generation for efficient database management.      | DynamoDB     |
 | `@lib/countries`           | The `@lib/countries` package delivers a curated, typed list of country codes with corresponding names and includes utilities to generate this data from a JSON file, simplifying country-related data management in your projects.   | TypeScript     |
-| `@lib/resume-ui`           | React components for creating a one-page resume.   | React     |
 | `@lib/dnd`              | The `@lib/dnd` package includes the `DnDGroups` and `DnDList` components that abstract away the `react-beautiful-dnd` library, making it easier to replace and implement common drag-and-drop scenarios.       | `react`, `react-beautiful-dnd`     |
 | `@lib/analytics-ui`     | The `@lib/analytics-ui` package abstracts away Amplitude analytics with a React provider. | React, Amplitude |
 | `@demo/entities`        | The `@demo/entities`  package serves as a centralized repository for your application's entities, defining the core data structures that drive your business logic.               | TypeScript     |
@@ -126,6 +125,13 @@ export const App = () => {
   )
 }
 ```
+
+## Examples Using RadzionKit
+
+- **[Increaser](https://increaser.org):** A productivity toolkit designed for remote workers.
+- **[Radzion's Resume](https://resume.radzion.com):** A Web3 Front-end developer resume. [Source code available on GitHub](https://github.com/radzionc/resume).
+- **GeorgianCitizen:** An exam prep app. [Source code available on GitHub](https://github.com/radzionc/georgian).
+
 
 ## RadzionKit Cookbook: Simplifying Development with Practical YouTube Tutorials
 

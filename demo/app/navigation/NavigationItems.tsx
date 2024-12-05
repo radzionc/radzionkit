@@ -65,7 +65,6 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.ShowOnce} name="Show Once" />
     <NavigationToInternalPage path={Path.Menu} name="Menu" />
     <NavigationToInternalPage path={Path.DynamicForm} name="Dynamic Form" />
-    <NavigationToInternalPage path={Path.Resume} name="Resume" />
     <NavigationToInternalPage path={Path.TimeEditor} name="Time Editor" />
     <NavigationToInternalPage
       path={Path.CalendarEditor}

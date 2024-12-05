@@ -26,7 +26,6 @@ export enum Path {
   ColorInput = '/color-input',
   CalendarEditor = '/calendar-editor',
   TimeEditor = '/time-editor',
-  Resume = '/resume',
   Menu = '/menu',
   TabNavigation = '/tab-navigation',
   OnHoverAction = '/on-hover-action',
