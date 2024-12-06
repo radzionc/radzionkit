@@ -128,8 +128,9 @@ export const App = () => {
 
 ## Examples Using RadzionKit
 
-- **[Increaser](https://increaser.org):** A productivity toolkit designed for remote workers.
 - **[Radzion's Resume](https://resume.radzion.com):** A Web3 Front-end developer resume. [Source code available on GitHub](https://github.com/radzionc/resume).
+- **[Increaser](https://increaser.org):** A productivity toolkit designed for remote workers.
+- **[Pentafret](https://pentafret.com):** A website with guitar music theory tools.
 - **GeorgianCitizen:** An exam prep app. [Source code available on GitHub](https://github.com/radzionc/georgian).
 
 
