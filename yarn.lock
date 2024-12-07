@@ -1169,125 +1169,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@demo/api-interface@workspace:demo/api-interface":
-  version: 0.0.0-use.local
-  resolution: "@demo/api-interface@workspace:demo/api-interface"
-  languageName: unknown
-  linkType: soft
-
-"@demo/api@workspace:demo/api":
-  version: 0.0.0-use.local
-  resolution: "@demo/api@workspace:demo/api"
-  dependencies:
-    "@as-integrations/aws-lambda": "npm:^3.1.0"
-    "@sentry/serverless": "npm:^7.109.0"
-    "@types/cors": "npm:^2.8.17"
-    "@types/jsonwebtoken": "npm:^9.0.5"
-    "@types/node": "npm:^20.14.9"
-    "@vendia/serverless-express": "npm:^4.12.6"
-    cors: "npm:^2.8.5"
-    esbuild: "npm:^0.19.10"
-    express: "npm:^4.18.2"
-    jsonwebtoken: "npm:^9.0.2"
-  languageName: unknown
-  linkType: soft
-
-"@demo/app@workspace:demo/app":
-  version: 0.0.0-use.local
-  resolution: "@demo/app@workspace:demo/app"
-  dependencies:
-    "@emoji-mart/data": "npm:^1.1.2"
-    "@emoji-mart/react": "npm:^1.1.1"
-    "@next/eslint-plugin-next": "npm:^14.0.4"
-    "@tanstack/react-query": "npm:^5.17.19"
-    "@types/node": "npm:^20.14.9"
-    "@types/react": "npm:^18.2.45"
-    "@types/react-dom": "npm:^18.2.18"
-    date-fns: "npm:^3.0.6"
-    emoji-mart: "npm:^5.5.2"
-    eslint: "npm:^8.56.0"
-    eslint-config-next: "npm:^14.0.4"
-    next: "npm:^15.0.3"
-    next-sitemap: "npm:^4.2.3"
-    pwa-asset-generator: "npm:^6.3.1"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    react-hook-form: "npm:^7.49.2"
-    styled-components: "npm:^6.1.6"
-  languageName: unknown
-  linkType: soft
-
-"@demo/config@workspace:demo/config":
-  version: 0.0.0-use.local
-  resolution: "@demo/config@workspace:demo/config"
-  languageName: unknown
-  linkType: soft
-
-"@demo/db@workspace:demo/db":
-  version: 0.0.0-use.local
-  resolution: "@demo/db@workspace:demo/db"
-  dependencies:
-    "@aws-sdk/client-dynamodb": "npm:^3.478.0"
-    "@aws-sdk/lib-dynamodb": "npm:^3.478.0"
-    "@aws-sdk/util-dynamodb": "npm:^3.478.0"
-  languageName: unknown
-  linkType: soft
-
-"@demo/email-forwarder@workspace:demo/email-forwarder":
-  version: 0.0.0-use.local
-  resolution: "@demo/email-forwarder@workspace:demo/email-forwarder"
-  dependencies:
-    "@aws-sdk/client-s3": "npm:^3.550.0"
-    "@aws-sdk/client-sesv2": "npm:^3.549.0"
-    "@sentry/serverless": "npm:^7.109.0"
-    aws-lambda: "npm:^1.0.7"
-    esbuild: "npm:^0.19.10"
-  languageName: unknown
-  linkType: soft
-
-"@demo/email@workspace:demo/email":
-  version: 0.0.0-use.local
-  resolution: "@demo/email@workspace:demo/email"
-  dependencies:
-    "@aws-sdk/client-sesv2": "npm:^3.549.0"
-    "@react-email/button": "npm:^0.0.13"
-    "@react-email/components": "npm:^0.0.12"
-    "@react-email/html": "npm:^0.0.7"
-    "@react-email/render": "npm:^0.0.10"
-    react-email: "npm:^1.10.0"
-  languageName: unknown
-  linkType: soft
-
-"@demo/entities-utils@workspace:demo/entities-utils":
-  version: 0.0.0-use.local
-  resolution: "@demo/entities-utils@workspace:demo/entities-utils"
-  languageName: unknown
-  linkType: soft
-
-"@demo/entities@workspace:demo/entities":
-  version: 0.0.0-use.local
-  resolution: "@demo/entities@workspace:demo/entities"
-  languageName: unknown
-  linkType: soft
-
-"@demo/languages-next-ui@workspace:demo/languages-next-ui":
-  version: 0.0.0-use.local
-  resolution: "@demo/languages-next-ui@workspace:demo/languages-next-ui"
-  dependencies:
-    next: "npm:^15.0.3"
-    react: "npm:^18.2.0"
-    styled-components: "npm:^6.1.6"
-  languageName: unknown
-  linkType: soft
-
-"@demo/languages@workspace:demo/languages":
-  version: 0.0.0-use.local
-  resolution: "@demo/languages@workspace:demo/languages"
-  dependencies:
-    "@google-cloud/translate": "npm:^8.0.2"
-  languageName: unknown
-  linkType: soft
-
 "@dnd-kit/accessibility@npm:^3.1.1":
   version: 3.1.1
   resolution: "@dnd-kit/accessibility@npm:3.1.1"
@@ -2605,6 +2486,135 @@ __metadata:
   checksum: 10/115e8ceeec6bc69dff2048b35c0ab4f8bbee12d8bb6c1f4af758604586d802b6e669dcb02dda61d078de42c2b4ddce41b3d9e726d7daa6b4b850f4adbf7333ff
   languageName: node
   linkType: hard
+
+"@product/api-interface@workspace:product/api-interface":
+  version: 0.0.0-use.local
+  resolution: "@product/api-interface@workspace:product/api-interface"
+  languageName: unknown
+  linkType: soft
+
+"@product/api-ui@workspace:product/api-ui":
+  version: 0.0.0-use.local
+  resolution: "@product/api-ui@workspace:product/api-ui"
+  dependencies:
+    "@tanstack/react-query": "npm:^5.17.19"
+    "@types/react": "npm:^18.2.45"
+    react: "npm:^18.2.0"
+  languageName: unknown
+  linkType: soft
+
+"@product/api@workspace:product/api":
+  version: 0.0.0-use.local
+  resolution: "@product/api@workspace:product/api"
+  dependencies:
+    "@as-integrations/aws-lambda": "npm:^3.1.0"
+    "@sentry/serverless": "npm:^7.109.0"
+    "@types/cors": "npm:^2.8.17"
+    "@types/jsonwebtoken": "npm:^9.0.5"
+    "@types/node": "npm:^20.14.9"
+    "@vendia/serverless-express": "npm:^4.12.6"
+    cors: "npm:^2.8.5"
+    esbuild: "npm:^0.19.10"
+    express: "npm:^4.18.2"
+    jsonwebtoken: "npm:^9.0.2"
+  languageName: unknown
+  linkType: soft
+
+"@product/app@workspace:product/app":
+  version: 0.0.0-use.local
+  resolution: "@product/app@workspace:product/app"
+  dependencies:
+    "@emoji-mart/data": "npm:^1.1.2"
+    "@emoji-mart/react": "npm:^1.1.1"
+    "@next/eslint-plugin-next": "npm:^14.0.4"
+    "@tanstack/react-query": "npm:^5.17.19"
+    "@types/node": "npm:^20.14.9"
+    "@types/react": "npm:^18.2.45"
+    "@types/react-dom": "npm:^18.2.18"
+    date-fns: "npm:^3.0.6"
+    emoji-mart: "npm:^5.5.2"
+    eslint: "npm:^8.56.0"
+    eslint-config-next: "npm:^14.0.4"
+    next: "npm:^15.0.3"
+    next-sitemap: "npm:^4.2.3"
+    pwa-asset-generator: "npm:^6.3.1"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    react-hook-form: "npm:^7.49.2"
+    styled-components: "npm:^6.1.6"
+  languageName: unknown
+  linkType: soft
+
+"@product/config@workspace:product/config":
+  version: 0.0.0-use.local
+  resolution: "@product/config@workspace:product/config"
+  languageName: unknown
+  linkType: soft
+
+"@product/db@workspace:product/db":
+  version: 0.0.0-use.local
+  resolution: "@product/db@workspace:product/db"
+  dependencies:
+    "@aws-sdk/client-dynamodb": "npm:^3.478.0"
+    "@aws-sdk/lib-dynamodb": "npm:^3.478.0"
+    "@aws-sdk/util-dynamodb": "npm:^3.478.0"
+  languageName: unknown
+  linkType: soft
+
+"@product/email-forwarder@workspace:product/email-forwarder":
+  version: 0.0.0-use.local
+  resolution: "@product/email-forwarder@workspace:product/email-forwarder"
+  dependencies:
+    "@aws-sdk/client-s3": "npm:^3.550.0"
+    "@aws-sdk/client-sesv2": "npm:^3.549.0"
+    "@sentry/serverless": "npm:^7.109.0"
+    aws-lambda: "npm:^1.0.7"
+    esbuild: "npm:^0.19.10"
+  languageName: unknown
+  linkType: soft
+
+"@product/email@workspace:product/email":
+  version: 0.0.0-use.local
+  resolution: "@product/email@workspace:product/email"
+  dependencies:
+    "@aws-sdk/client-sesv2": "npm:^3.549.0"
+    "@react-email/button": "npm:^0.0.13"
+    "@react-email/components": "npm:^0.0.12"
+    "@react-email/html": "npm:^0.0.7"
+    "@react-email/render": "npm:^0.0.10"
+    react-email: "npm:^1.10.0"
+  languageName: unknown
+  linkType: soft
+
+"@product/entities-utils@workspace:product/entities-utils":
+  version: 0.0.0-use.local
+  resolution: "@product/entities-utils@workspace:product/entities-utils"
+  languageName: unknown
+  linkType: soft
+
+"@product/entities@workspace:product/entities":
+  version: 0.0.0-use.local
+  resolution: "@product/entities@workspace:product/entities"
+  languageName: unknown
+  linkType: soft
+
+"@product/languages-next-ui@workspace:product/languages-next-ui":
+  version: 0.0.0-use.local
+  resolution: "@product/languages-next-ui@workspace:product/languages-next-ui"
+  dependencies:
+    next: "npm:^15.0.3"
+    react: "npm:^18.2.0"
+    styled-components: "npm:^6.1.6"
+  languageName: unknown
+  linkType: soft
+
+"@product/languages@workspace:product/languages":
+  version: 0.0.0-use.local
+  resolution: "@product/languages@workspace:product/languages"
+  dependencies:
+    "@google-cloud/translate": "npm:^8.0.2"
+  languageName: unknown
+  linkType: soft
 
 "@protobufjs/aspromise@npm:^1.1.1, @protobufjs/aspromise@npm:^1.1.2":
   version: 1.1.2

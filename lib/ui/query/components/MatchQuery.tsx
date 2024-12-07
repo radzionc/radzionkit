@@ -5,15 +5,15 @@ import { ReactNode } from 'react'
 export type MatchQueryProps<T, E = unknown> = ComponentWithValueProps<
   Query<T, E>
 > & {
-  error: (error: E) => ReactNode
-  pending: () => ReactNode
+  error?: (error: E) => ReactNode
+  pending?: () => ReactNode
   success: (data: T) => ReactNode
 }
 
 export function MatchQuery<T, E = unknown>({
   value,
-  error,
-  pending,
+  error = () => null,
+  pending = () => null,
   success,
 }: MatchQueryProps<T, E>) {
   if (value.data !== undefined) {

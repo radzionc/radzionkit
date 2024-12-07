@@ -5,15 +5,15 @@ import { ComponentWithValueProps } from '../../props'
 export type MatchEagerQueryProps<T, E = unknown> = ComponentWithValueProps<
   EagerQuery<T, E>
 > & {
-  pending: () => ReactNode
-  error: (errors: E[]) => ReactNode
+  pending?: () => ReactNode
+  error?: (errors: E[]) => ReactNode
   success: (data: T) => ReactNode
 }
 
 export function MatchEagerQuery<T, E = unknown>({
   value: { data, isPending, errors },
-  error,
-  pending,
+  error = () => null,
+  pending = () => null,
   success,
 }: MatchEagerQueryProps<T, E>) {
   if (data !== undefined) {

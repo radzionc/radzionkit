@@ -1,0 +1,35 @@
+{
+  "name": "@product/app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next-sitemap",
+    "start": "next start",
+    "lint": "next lint",
+    "generateIconMetaTags": "npx tsx icon/codegen/generateIconMetaTags",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@emoji-mart/data": "^1.1.2",
+    "@emoji-mart/react": "^1.1.1",
+    "@tanstack/react-query": "^5.17.19",
+    "date-fns": "^3.0.6",
+    "emoji-mart": "^5.5.2",
+    "next": "^15.0.3",
+    "next-sitemap": "^4.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.49.2",
+    "styled-components": "^6.1.6"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^14.0.4",
+    "@types/node": "^20.14.9",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "pwa-asset-generator": "^6.3.1"
+  }
+}
