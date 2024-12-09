@@ -2,11 +2,11 @@ import { ConfirmationModal } from '@lib/ui/modal/ConfirmationModal'
 import { Opener } from '@lib/ui/base/Opener'
 import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
-import { ShyTextButton } from '@lib/ui/buttons/ShyTextButton'
 import { IconButton } from '@lib/ui/buttons/IconButton'
 import { TrashBinIcon } from '@lib/ui/icons/TrashBinIcon'
 import { DemoPage } from '../components/DemoPage'
 import { makeDemoPage } from '../layout/makeDemoPage'
+import { ShyTextButton } from '@lib/ui/buttons/ShyTextButton'
 
 export default makeDemoPage(() => {
   return (
@@ -46,8 +46,9 @@ export default makeDemoPage(() => {
                     console.log('Make project inactive')
                     onClose()
                   }}
-                  text="make it inactive."
-                />
+                >
+                  make it inactive.
+                </ShyTextButton>
               </Text>
             </VStack>
           </ConfirmationModal>

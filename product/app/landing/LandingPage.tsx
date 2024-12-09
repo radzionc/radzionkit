@@ -39,11 +39,11 @@ export const LandingPage = () => {
           <Text>
             Created by{' '}
             <ExternalLink to={productYouTubeChannelUrl}>
-              <ShyTextButton text="Radzion" />
+              <ShyTextButton>Radzion</ShyTextButton>
             </ExternalLink>{' '}
             and used at{' '}
             <ExternalLink to={increaserUrl}>
-              <ShyTextButton text="Increaser" />
+              <ShyTextButton>Increaser</ShyTextButton>
             </ExternalLink>
           </Text>
         </VStack>

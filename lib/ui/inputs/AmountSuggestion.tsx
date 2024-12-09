@@ -19,11 +19,9 @@ export const AmountSuggestion = ({
   return (
     <HStack alignItems="center" gap={4}>
       <Text size={14}>{name}:</Text>
-      <ShyTextButton
-        as="div"
-        onClick={() => onSelect(value)}
-        text={renderValue(value)}
-      />
+      <ShyTextButton as="div" onClick={() => onSelect(value)}>
+        {renderValue(value)}
+      </ShyTextButton>
     </HStack>
   )
 }
