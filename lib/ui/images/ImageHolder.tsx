@@ -1,10 +1,10 @@
-import React, { forwardRef, ReactNode } from 'react'
+import React, { ReactNode, forwardRef } from 'react'
 import styled from 'styled-components'
 import { getColor } from '../theme/getters'
 import { Center } from '../layout/Center'
 import { ImageIcon } from '../icons/ImageIcon'
 
-interface Props {
+interface Props extends React.RefAttributes<HTMLDivElement> {
   width?: React.CSSProperties['width']
   height?: React.CSSProperties['height']
   className?: string
@@ -28,16 +28,15 @@ const ImageIconWr = styled(Center)`
   background: ${getColor('mist')};
 `
 
-export const ImageHolder = forwardRef(function ImageHolderInner(
-  { width, height, children }: Props,
-  ref: React.Ref<HTMLDivElement> | null,
-) {
-  return (
-    <Container style={{ width, height }} ref={ref}>
-      <ImageIconWr>
-        <ImageIcon />
-      </ImageIconWr>
-      {children}
-    </Container>
-  )
-})
+export const ImageHolder = forwardRef<HTMLDivElement, Props>(
+  ({ width, height, children, ...rest }, ref) => {
+    return (
+      <Container ref={ref} style={{ width, height }} {...rest}>
+        <ImageIconWr>
+          <ImageIcon />
+        </ImageIconWr>
+        {children}
+      </Container>
+    )
+  },
+)

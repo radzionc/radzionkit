@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef } from 'react'
+import { ComponentProps } from 'react'
 import { IconWrapper } from '../icons/IconWrapper'
 import { CheckIcon } from '../icons/CheckIcon'
 import styled from 'styled-components'
@@ -15,12 +15,15 @@ type WithSelectionMarkProps = ComponentProps<typeof Container> & {
   isSelected: boolean
 }
 
-export const WithSelectionMark = forwardRef<
-  HTMLDivElement,
-  WithSelectionMarkProps
->(({ isSelected, children, ...rest }, ref) => (
-  <Container ref={ref} {...rest}>
-    {children}
-    <IconWrapper>{isSelected && <CheckIcon />}</IconWrapper>
-  </Container>
-))
+export function WithSelectionMark({
+  isSelected,
+  children,
+  ...rest
+}: WithSelectionMarkProps) {
+  return (
+    <Container {...rest}>
+      {children}
+      <IconWrapper>{isSelected && <CheckIcon />}</IconWrapper>
+    </Container>
+  )
+}

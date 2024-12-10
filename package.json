@@ -1,6 +1,6 @@
 {
   "name": "radzionkit",
-  "packageManager": "yarn@4.4.0",
+  "packageManager": "yarn@4.5.3",
   "version": "0.0.1",
   "private": true,
   "workspaces": [
@@ -10,18 +10,18 @@
     "@eslint/compat": "^1.2.4",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.16.0",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
-    "@typescript-eslint/eslint-plugin": "^6.15.0",
-    "@typescript-eslint/parser": "^6.15.0",
-    "eslint": "^8.56.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "eslint": "^9.16.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "globals": "^15.13.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
-    "prettier": "^3.1.1",
-    "syncpack": "^12.0.1",
-    "typescript": "^5.3.3"
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.2",
+    "syncpack": "^13.0.0",
+    "typescript": "^5.7.2"
   },
   "scripts": {
     "postinstall": "husky install",

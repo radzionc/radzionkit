@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentProps, Ref, forwardRef } from 'react'
+import { ChangeEvent, ComponentProps } from 'react'
 import styled from 'styled-components'
 
 import { VStack } from '@lib/ui/css/stack'
@@ -20,17 +20,14 @@ export interface TextInputProps
   inputOverlay?: React.ReactNode
 }
 
-export const TextInput = forwardRef(function TextInputInner(
-  {
-    onValueChange,
-    inputOverlay,
-    isLoading,
-    className,
-    label,
-    ...props
-  }: TextInputProps,
-  ref: Ref<HTMLInputElement> | null,
-) {
+export function TextInput({
+  onValueChange,
+  inputOverlay,
+  isLoading,
+  className,
+  label,
+  ...props
+}: TextInputProps) {
   return (
     <InputContainer>
       {label && <InputLabel>{label}</InputLabel>}
@@ -41,7 +38,6 @@ export const TextInput = forwardRef(function TextInputInner(
           <TextInputContainer
             {...props}
             className={className}
-            ref={ref}
             onChange={(event: ChangeEvent<HTMLInputElement>) => {
               props.onChange?.(event)
               onValueChange?.(event.currentTarget.value)
@@ -52,7 +48,7 @@ export const TextInput = forwardRef(function TextInputInner(
       </InputWr>
     </InputContainer>
   )
-})
+}
 
 const InputWr = styled.div`
   width: 100%;

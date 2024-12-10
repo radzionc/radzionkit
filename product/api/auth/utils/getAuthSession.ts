@@ -1,7 +1,7 @@
 import { convertDuration } from '@lib/utils/time/convertDuration'
 import jwt from 'jsonwebtoken'
 import { getSecret } from '../../utils/getSecret'
-import { AuthSession } from '@product/entities/AuthSession'
+import { AuthSession } from '../../../../lib/auth/AuthSession'
 
 const tokenLifespanInDays = 300
 

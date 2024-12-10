@@ -1,11 +1,4 @@
-import {
-  CSSProperties,
-  ComponentProps,
-  ReactNode,
-  Ref,
-  forwardRef,
-  useState,
-} from 'react'
+import { CSSProperties, ComponentProps, ReactNode, Ref, useState } from 'react'
 import styled from 'styled-components'
 
 import { ElementSizeAware } from './ElementSizeAware'
@@ -26,9 +19,10 @@ const Container = styled.div`
   position: relative;
 `
 
-type ActionInsideInteractiveElementProps<K extends string> = ComponentProps<
+type ActionsInsideInteractiveElementProps<K extends string> = ComponentProps<
   typeof Container
 > & {
+  ref?: Ref<HTMLDivElement>
   render: (params: RenderParams<K>) => ReactNode
   actions: Record<
     K,
@@ -43,72 +37,70 @@ const ActionPlacer = styled.div`
   position: absolute;
 `
 
-export const ActionsInsideInteractiveElement = forwardRef(
-  function ActionInsideInteractiveElement<K extends string>(
-    { render, actions, ...rest }: ActionInsideInteractiveElementProps<K>,
-    ref: Ref<HTMLDivElement>,
-  ) {
-    const [sizes, setSizes] = useStateCorrector(
-      useState<Record<K, Dimensions>>(() =>
-        recordFromKeys(getRecordKeys(actions), () => ({ width: 0, height: 0 })),
-      ),
-      (sizes) => {
-        let result = sizes
+export function ActionsInsideInteractiveElement<K extends string>({
+  render,
+  actions,
+  ref,
+  ...rest
+}: ActionsInsideInteractiveElementProps<K>) {
+  const [sizes, setSizes] = useStateCorrector(
+    useState<Record<K, Dimensions>>(() =>
+      recordFromKeys(getRecordKeys(actions), () => ({ width: 0, height: 0 })),
+    ),
+    (sizes) => {
+      let result = sizes
 
-        const keys = getRecordKeys(actions)
+      const keys = getRecordKeys(actions)
 
-        keys.forEach((key) => {
-          if (!sizes[key]) {
-            result = {
-              ...result,
-              [key]: { width: 0, height: 0 },
-            }
+      keys.forEach((key) => {
+        if (!sizes[key]) {
+          result = {
+            ...result,
+            [key]: { width: 0, height: 0 },
           }
-        })
-
-        if (getRecordSize(result) !== keys.length) {
-          return pick(result, keys)
         }
+      })
 
-        return result
-      },
-    )
+      if (getRecordSize(result) !== keys.length) {
+        return pick(result, keys)
+      }
 
-    return (
-      <Container ref={ref} {...rest}>
-        {render({
-          actions: recordFromKeys(getRecordKeys(actions), (key) => ({
-            size: sizes[key],
-            placerStyles: actions[key].placerStyles,
-          })),
-        })}
-        {toEntries(actions).map(({ key, value }) => {
-          const { node, placerStyles } = value
-          return (
-            <ElementSizeAware
-              key={key}
-              onChange={(size) => {
-                if (size) {
-                  setSizes((sizes) => ({
-                    ...sizes,
-                    [key]: size,
-                  }))
-                }
-              }}
-              render={({ setElement, size }) => {
-                return (
-                  <ActionPlacer
-                    ref={setElement}
-                    style={{ opacity: size ? 1 : 0, ...placerStyles }}
-                  >
-                    {node}
-                  </ActionPlacer>
-                )
-              }}
-            />
-          )
-        })}
-      </Container>
-    )
-  },
-)
+      return result
+    },
+  )
+
+  return (
+    <Container ref={ref} {...rest}>
+      {render({
+        actions: recordFromKeys(getRecordKeys(actions), (key) => ({
+          size: sizes[key],
+          placerStyles: actions[key].placerStyles,
+        })),
+      })}
+      {toEntries(actions).map(({ key, value }) => {
+        const { node, placerStyles } = value
+        return (
+          <ElementSizeAware
+            key={key}
+            onChange={(size) => {
+              if (size) {
+                setSizes((sizes) => ({
+                  ...sizes,
+                  [key]: size,
+                }))
+              }
+            }}
+            render={({ setElement, size }) => (
+              <ActionPlacer
+                ref={setElement}
+                style={{ opacity: size ? 1 : 0, ...placerStyles }}
+              >
+                {node}
+              </ActionPlacer>
+            )}
+          />
+        )
+      })}
+    </Container>
+  )
+}

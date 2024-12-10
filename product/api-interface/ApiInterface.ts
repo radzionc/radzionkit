@@ -1,7 +1,7 @@
 import { OAuthProvider } from '@product/entities/OAuthProvider'
-import { AuthSession } from '@product/entities/AuthSession'
 import { User } from '@product/entities/User'
 import { ApiMethod } from './ApiMethod'
+import { AuthSession } from '../../lib/auth/AuthSession'
 
 export interface ApiInterface {
   authSessionWithEmail: ApiMethod<

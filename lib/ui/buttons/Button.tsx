@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { Ref } from 'react'
 import styled, { css } from 'styled-components'
 
 import { UnstyledButton } from './UnstyledButton'
@@ -184,69 +184,64 @@ export type ButtonProps = Omit<
   kind?: ButtonKind
   onClick?: () => void
   as?: React.ElementType
+  ref?: Ref<HTMLButtonElement>
 }
 
 const Hide = styled.div`
   opacity: 0;
 `
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      children,
-      size = 'm',
-      isDisabled = false,
-      isLoading = false,
-      onClick,
-      kind = 'primary',
-      ...rest
-    },
-    ref,
-  ) => {
-    const content = isLoading ? (
-      <>
-        <Hide>{children}</Hide>
-        <CenterAbsolutely>
-          <Spinner />
-        </CenterAbsolutely>
-      </>
-    ) : (
-      children
-    )
+export function Button({
+  children,
+  size = 'm',
+  isDisabled = false,
+  isLoading = false,
+  onClick,
+  kind = 'primary',
+  ref,
+  ...rest
+}: ButtonProps) {
+  const content = isLoading ? (
+    <>
+      <Hide>{children}</Hide>
+      <CenterAbsolutely>
+        <Spinner />
+      </CenterAbsolutely>
+    </>
+  ) : (
+    children
+  )
 
-    const containerProps = {
-      kind,
-      size,
-      isDisabled: !!isDisabled,
-      isLoading,
-      onClick: isDisabled || isLoading ? undefined : onClick,
-      ...rest,
-    }
+  const containerProps = {
+    kind,
+    size,
+    isDisabled: !!isDisabled,
+    isLoading,
+    onClick: isDisabled || isLoading ? undefined : onClick,
+    ...rest,
+  }
 
-    if (typeof isDisabled === 'string') {
-      return (
-        <Tooltip
-          content={isDisabled}
-          renderOpener={({ ref: tooltipRef, ...rest }) => {
-            return (
-              <MergeRefs
-                refs={[ref, tooltipRef]}
-                render={(ref) => (
-                  <Container ref={ref} {...rest} {...containerProps}>
-                    {content}
-                  </Container>
-                )}
-              />
-            )
-          }}
-        />
-      )
-    }
-
+  if (typeof isDisabled === 'string') {
     return (
-      <Container ref={ref} {...containerProps}>
-        {content}
-      </Container>
+      <Tooltip
+        content={isDisabled}
+        renderOpener={({ ref: tooltipRef, ...tooltipRest }) => (
+          <MergeRefs
+            refs={[ref, tooltipRef]}
+            render={(ref) => (
+              <Container ref={ref} {...containerProps} {...tooltipRest}>
+                {content}
+              </Container>
+            )}
+          />
+        )}
+      />
     )
-  },
-)
+  }
+
+  return (
+    <Container ref={ref} {...containerProps}>
+      {content}
+    </Container>
+  )
+}

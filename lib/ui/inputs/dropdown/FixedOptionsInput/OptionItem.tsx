@@ -1,15 +1,14 @@
-import { ComponentProps, forwardRef, useId } from 'react'
+import { ComponentProps, useId } from 'react'
 import { DropdownOption } from '../DropdownOption'
 
-export const FixedOptionsInputItem = forwardRef<
-  HTMLDivElement,
-  ComponentProps<typeof DropdownOption>
->(({ children, ...rest }, ref) => {
+export function FixedOptionsInputItem({
+  children,
+  ...rest
+}: ComponentProps<typeof DropdownOption>) {
   const id = useId()
 
   return (
     <DropdownOption
-      ref={ref}
       role="option"
       id={id}
       aria-selected={rest.isActive}
@@ -18,4 +17,4 @@ export const FixedOptionsInputItem = forwardRef<
       {children}
     </DropdownOption>
   )
-})
+}

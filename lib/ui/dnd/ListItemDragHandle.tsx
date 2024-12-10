@@ -1,7 +1,7 @@
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import { DragHandle } from '@lib/ui/dnd/DragHandle'
 import { GripVerticalIcon } from '@lib/ui/icons/GripVerticalIcon'
-import { ComponentProps, forwardRef } from 'react'
+import { ComponentProps } from 'react'
 import styled, { css } from 'styled-components'
 
 export type ListItemDragHandleProps = ComponentProps<typeof DragHandle> & {
@@ -27,13 +27,13 @@ const Container = styled(DragHandle)<{ isEnabled: boolean }>`
   }
 `
 
-export const ListItemDragHandle = forwardRef<
-  HTMLDivElement,
-  ListItemDragHandleProps
->((props, ref) => {
+export function ListItemDragHandle({
+  isEnabled,
+  ...props
+}: ListItemDragHandleProps) {
   return (
-    <Container {...props} ref={ref}>
+    <Container isEnabled={isEnabled} {...props}>
       <GripVerticalIcon />
     </Container>
   )
-})
+}

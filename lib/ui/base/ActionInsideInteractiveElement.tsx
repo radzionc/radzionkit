@@ -1,10 +1,4 @@
-import {
-  CSSProperties,
-  ComponentProps,
-  ReactNode,
-  Ref,
-  forwardRef,
-} from 'react'
+import { CSSProperties, ComponentProps, ReactNode, Ref } from 'react'
 import styled from 'styled-components'
 
 import { ElementSizeAware } from './ElementSizeAware'
@@ -28,43 +22,40 @@ type ActionInsideInteractiveElementProps<
   ComponentWithActionProps & {
     render: (params: ActionInsideInteractiveElementRenderParams<T>) => ReactNode
     actionPlacerStyles: T
+    ref?: Ref<HTMLDivElement>
   }
 
 const ActionPlacer = styled.div`
   position: absolute;
 `
 
-export const ActionInsideInteractiveElement = forwardRef(
-  function ActionInsideInteractiveElement<
-    T extends CSSProperties = CSSProperties,
-  >(
-    {
-      render,
-      action,
-      actionPlacerStyles,
-      ...rest
-    }: ActionInsideInteractiveElementProps<T>,
-    ref: Ref<HTMLDivElement>,
-  ) {
-    return (
-      <Container ref={ref} {...rest}>
-        <ElementSizeAware
-          render={({ setElement, size }) => (
-            <>
-              {render({
-                actionPlacerStyles,
-                actionSize: size ?? { width: 0, height: 0 },
-              })}
-              <ActionPlacer
-                ref={setElement}
-                style={{ opacity: size ? 1 : 0, ...actionPlacerStyles }}
-              >
-                {action}
-              </ActionPlacer>
-            </>
-          )}
-        />
-      </Container>
-    )
-  },
-)
+export function ActionInsideInteractiveElement<
+  T extends CSSProperties = CSSProperties,
+>({
+  render,
+  action,
+  actionPlacerStyles,
+  ref,
+  ...rest
+}: ActionInsideInteractiveElementProps<T>) {
+  return (
+    <Container ref={ref} {...rest}>
+      <ElementSizeAware
+        render={({ setElement, size }) => (
+          <>
+            {render({
+              actionPlacerStyles,
+              actionSize: size ?? { width: 0, height: 0 },
+            })}
+            <ActionPlacer
+              ref={setElement}
+              style={{ opacity: size ? 1 : 0, ...actionPlacerStyles }}
+            >
+              {action}
+            </ActionPlacer>
+          </>
+        )}
+      />
+    </Container>
+  )
+}

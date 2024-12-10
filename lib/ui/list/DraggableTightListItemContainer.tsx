@@ -1,4 +1,3 @@
-import { forwardRef } from 'react'
 import styled from 'styled-components'
 import {
   ComponentWithChildrenProps,
@@ -13,7 +12,6 @@ import { Wrap } from '../base/Wrap'
 
 const Container = styled.div`
   position: relative;
-
   outline: none;
 `
 
@@ -21,7 +19,6 @@ const Highlight = styled.div`
   position: absolute;
   ${borderRadius.s};
   ${absoluteOutline(tightListItemConfig.horizontalOffset, 0)}
-
   background: ${getColor('mist')};
   z-index: -1;
 `
@@ -34,20 +31,23 @@ type DraggableTightListItemContainerProps = ComponentWithChildrenProps &
   ComponentProps<typeof Container> &
   DraggingAwareComponentProps
 
-export const DraggableTightListItemContainer = forwardRef<
-  HTMLDivElement,
-  DraggableTightListItemContainerProps
->(({ children, isDragging, ...rest }, ref) => {
+export function DraggableTightListItemContainer({
+  children,
+  isDragging,
+  ...rest
+}: DraggableTightListItemContainerProps) {
   return (
-    <Container ref={ref} {...rest}>
+    <Container {...rest}>
       {isDragging && <Highlight />}
       <Wrap
         wrap={
-          isDragging ? (children) => <Content>{children}</Content> : undefined
+          isDragging
+            ? (wrappedChildren) => <Content>{wrappedChildren}</Content>
+            : undefined
         }
       >
         {children}
       </Wrap>
     </Container>
   )
-})
+}

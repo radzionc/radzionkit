@@ -1,4 +1,4 @@
-import { ComponentProps, Ref, forwardRef } from 'react'
+import { ComponentProps } from 'react'
 import styled, { css } from 'styled-components'
 import { UnstyledButton } from './UnstyledButton'
 import { match } from '@lib/utils/match'
@@ -119,27 +119,19 @@ export type IconButtonProps = Omit<
   isDisabled?: boolean | string
 }
 
-export const IconButton = forwardRef(function IconButton(
-  {
-    icon,
-    isDisabled = false,
-    onClick,
-
-    ...rest
-  }: IconButtonProps,
-  ref: Ref<HTMLButtonElement> | null,
-) {
+export function IconButton({
+  icon,
+  isDisabled = false,
+  onClick,
+  ...rest
+}: IconButtonProps) {
   const containerProps = {
     isDisabled: !!isDisabled,
     onClick: isDisabled ? undefined : onClick,
     ...rest,
   }
 
-  const buttonContent = (
-    <Container ref={ref} {...containerProps}>
-      {icon}
-    </Container>
-  )
+  const buttonContent = <Container {...containerProps}>{icon}</Container>
 
   if (typeof isDisabled === 'string') {
     return (
@@ -147,7 +139,7 @@ export const IconButton = forwardRef(function IconButton(
         content={isDisabled}
         renderOpener={({ ref: tooltipRef, ...tooltipRest }) => (
           <MergeRefs
-            refs={[ref, tooltipRef]}
+            refs={[rest.ref, tooltipRef]}
             render={(mergedRef) => (
               <Container ref={mergedRef} {...containerProps} {...tooltipRest}>
                 {icon}
@@ -160,4 +152,4 @@ export const IconButton = forwardRef(function IconButton(
   }
 
   return buttonContent
-})
+}

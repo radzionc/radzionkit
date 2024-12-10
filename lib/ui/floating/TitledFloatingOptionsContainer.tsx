@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { getColor } from '../theme/getters'
 import { FloatingOptionsContainer } from './FloatingOptionsContainer'
-import { ComponentProps, forwardRef } from 'react'
+import { ComponentProps } from 'react'
 import { TitledComponentProps } from '@lib/ui/props'
 import { horizontalPadding } from '../css/horizontalPadding'
 import { Text } from '../text'
@@ -36,12 +36,15 @@ type TitledFloatingOptionsContainerProps = Omit<
 > &
   TitledComponentProps
 
-export const TitledFloatingOptionsContainer = forwardRef<
-  HTMLDivElement,
-  TitledFloatingOptionsContainerProps
->(({ title, children, ...rest }, ref) => (
-  <Container ref={ref} {...rest}>
-    <Header as="div">{title}</Header>
-    <Content>{children}</Content>
-  </Container>
-))
+export function TitledFloatingOptionsContainer({
+  title,
+  children,
+  ...rest
+}: TitledFloatingOptionsContainerProps) {
+  return (
+    <Container {...rest}>
+      <Header as="div">{title}</Header>
+      <Content>{children}</Content>
+    </Container>
+  )
+}

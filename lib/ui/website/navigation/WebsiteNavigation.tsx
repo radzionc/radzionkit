@@ -1,9 +1,8 @@
-import { forwardRef } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { ClosableComponentProps, ComponentWithChildrenProps } from '../../props'
 import { takeWholeSpace } from '../../css/takeWholeSpace'
 import { HStack, VStack } from '@lib/ui/css/stack'
-import { ReactNode, useEffect, useState } from 'react'
 import { useIsScreenWidthLessThan } from '../../hooks/useIsScreenWidthLessThan'
 import { centeredContentColumn } from '../../css/centeredContentColumn'
 import { websiteConfig } from '../config'
@@ -59,10 +58,13 @@ const Content = styled.div`
   flex: 1;
 `
 
-export const WebsiteNavigation = forwardRef<
-  HTMLDivElement,
-  WebsiteNavigationProps
->(({ children, logo, renderOverlayItems, renderTopbarItems, footer }, ref) => {
+export function WebsiteNavigation({
+  children,
+  logo,
+  renderOverlayItems,
+  renderTopbarItems,
+  footer,
+}: WebsiteNavigationProps) {
   const isSmallScreen = useIsScreenWidthLessThan(800)
   const [isOverlayOpen, setIsOverlayOpen] = useState(false)
 
@@ -97,7 +99,7 @@ export const WebsiteNavigation = forwardRef<
             </TobbarContent>
           </HStack>
         </Header>
-        <Container ref={ref}>
+        <Container>
           <Content>{children}</Content>
           {footer}
         </Container>
@@ -111,4 +113,4 @@ export const WebsiteNavigation = forwardRef<
       )}
     </>
   )
-})
+}

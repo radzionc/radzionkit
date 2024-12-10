@@ -1,21 +1,11 @@
-import { forwardRef } from 'react'
-
 import { IconButton } from './IconButton'
-
 import { MoreHorizontalIcon } from '../icons/MoreHorizontalIcon'
-
 import { ComponentProps } from 'react'
 
-export const OpenMenuButton = forwardRef<
-  HTMLButtonElement,
-  Omit<ComponentProps<typeof IconButton>, 'icon' | 'title'>
->(function OpenMenuButton(props, ref) {
+export function OpenMenuButton(
+  props: Omit<ComponentProps<typeof IconButton>, 'icon' | 'title'>,
+) {
   return (
-    <IconButton
-      ref={ref}
-      title="Open menu"
-      {...props}
-      icon={<MoreHorizontalIcon />}
-    />
+    <IconButton title="Open menu" {...props} icon={<MoreHorizontalIcon />} />
   )
-})
+}
