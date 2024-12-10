@@ -6,7 +6,7 @@ RadzionKit is the ultimate solution for developers looking to jumpstart their pr
 
 ## Monorepo Overview: Inside RadzionKit's Diverse Package Ecosystem
 
-RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, organizing code into two primary directories: `lib` and `demo`. The `lib` folder houses generic code packages like `@lib/utils` or `@lib/ui`, designed to be project-agnostic and easily portable to any project without carrying over project-specific logic. On the other hand, the `demo` directory houses example implementations, such as `@product/api` or `@product/app`, that serve as blueprints demonstrating how to integrate and adapt the `@lib` packages to the unique needs of your project—simply replace `demo` with your project's name to customize. This thoughtful architecture not only streamlines the development process but also enhances the reusability of code, making it effortless to scale and modify your project as it grows.
+RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, organizing code into two primary directories: `lib` and `demo`. The `lib` folder houses generic code packages like `@lib/utils` or `@lib/ui`, designed to be project-agnostic and easily portable to any project without carrying over project-specific logic. On the other hand, the `demo` directory houses example implementations, such as `@product/api` or `@product/ui-demo`, that serve as blueprints demonstrating how to integrate and adapt the `@lib` packages to the unique needs of your project—simply replace `demo` with your project's name to customize. This thoughtful architecture not only streamlines the development process but also enhances the reusability of code, making it effortless to scale and modify your project as it grows.
 
 | Package Name    | Description                                  | Stack |
 |-----------------|----------------------------------------------|-------------------------|
@@ -24,7 +24,7 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 | `@product/entities-utils`  | The `demo/entities-utils` package provides a foundational set of utilities tailored for managing and manipulating your application's entities, designed to be expanded as your project grows.    | TypeScript     |
 | `@product/email`           | The `@product/email` package offers essential utilities to facilitate the sending of emails within your application, including pre-configured templates like login link emails for quick integration and use.                 | AWS SES, `@react-email`     |
 | `@product/db`              | The `@product/db` package serves as a placeholder within the template, poised to house custom functions for interacting with app-specific tables and entities in DynamoDB, streamlining the path to tailored database operations.          | DynamoDB     |
-| `@product/app`            | The `@product/app`  project is a static site generation (SSG) showcase, built with Next.js, that demonstrates the capabilities and components of the `ui` package, providing a real-world example of the library's potential in a production-like environment.                     | NextJS     |
+| `@product/ui-demo`            | The `@product/ui-demo`  project is a static site generation (SSG) showcase, built with Next.js, that demonstrates the capabilities and components of the `ui` package, providing a real-world example of the library's potential in a production-like environment.                     | NextJS     |
 | `@product/api-interface`   | The `api-interface` package provides a structured TypeScript interface for the app's backend API, including error handling and method definitions, to ensure type safety and consistency across frontend and backend communications.             | TypeScript     |
 | `@product/api`             | The `api` package is a lightweight, TypeScript-based backend solution that faithfully implements the `api-interface` with minimal dependencies, primarily utilizing resolvers for handling requests. Optimized for use as an AWS Lambda function, it's an ideal choice for serverless architectures requiring the expressiveness of TypeScript and the efficiency of the AWS ecosystem.     | `express`, AWS Lambda, TypeScript     |
 | `@product/email-forwarder`             |  The SES forwarder Lambda function receives emails sent to AWS domains, stores them in an S3 bucket, and forwards them to a specified personal email address. This process is automated and scalable through Terraform, enabling efficient email management across multiple domains.     |  AWS Lambda, AWS SES, TypeScript    |
@@ -102,7 +102,7 @@ export const managePersistentState =
 ```tsx
 import { GlobalStyle } from '@lib/ui/css/GlobalStyle'
 import { Inter } from 'next/font/google'
-import { PersistentStateKey, usePersistentState } from '@product/app/state/persistentState'
+import { PersistentStateKey, usePersistentState } from '@product/ui-demo/state/persistentState'
 import { ThemePreference } from '@lib/ui/theme/ThemePreference'
 import { DarkLightThemeProvider } from '@lib/ui/theme/DarkLightThemeProvider'
 
@@ -124,6 +124,20 @@ export const App = () => {
     </DarkLightThemeProvider>
   )
 }
+```
+
+## Managing Dependencies & Versions
+
+To upgrade to the latest version of Yarn, run the following command:
+
+```bash
+yarn set version stable
+```
+
+To upgrade every dependency to the latest version, run the following command:
+
+```bash
+yarn workspaces foreach --all exec yarn up "*"
 ```
 
 ## Examples Using RadzionKit

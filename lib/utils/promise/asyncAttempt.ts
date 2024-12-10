@@ -5,7 +5,7 @@ export const asyncAttempt = async <T>(
   try {
     const result = await func()
     return result
-  } catch (error) {
+  } catch {
     return fallback
   }
 }

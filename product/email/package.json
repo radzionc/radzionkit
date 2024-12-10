@@ -7,11 +7,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@aws-sdk/client-sesv2": "^3.549.0",
-    "@react-email/button": "^0.0.13",
-    "@react-email/components": "^0.0.12",
-    "@react-email/html": "^0.0.7",
-    "@react-email/render": "^0.0.10",
-    "react-email": "^1.10.0"
+    "@aws-sdk/client-sesv2": "^3.708.0",
+    "@react-email/button": "^0.0.19",
+    "@react-email/components": "^0.0.30",
+    "@react-email/html": "^0.0.11",
+    "@react-email/render": "^1.0.3",
+    "react-email": "^3.0.4"
   }
 }

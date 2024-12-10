@@ -5,7 +5,7 @@ import { useIntersection } from '../hooks/useIntersection'
 interface RenderParams<T extends HTMLElement> {
   wasIntersected: boolean
   isIntersecting: boolean
-  ref: RefObject<T>
+  ref: RefObject<T | null>
 }
 
 interface Props<T extends HTMLElement> {

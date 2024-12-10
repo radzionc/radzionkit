@@ -7,24 +7,24 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@floating-ui/dom": "^1.5.3",
-    "@floating-ui/react": "^0.26.4",
-    "@react-spring/web": "^9.7.3",
-    "@tanstack/react-query": "^5.17.19",
-    "date-fns": "^3.0.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-dropzone": "^14.2.3",
+    "@floating-ui/dom": "^1.6.12",
+    "@floating-ui/react": "^0.27.0",
+    "@react-spring/web": "^9.7.5",
+    "@tanstack/react-query": "^5.62.3",
+    "date-fns": "^4.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-dropzone": "^14.3.5",
     "react-focus-lock": "^2.13.2",
-    "react-spring": "^9.7.3",
-    "styled-components": "^6.1.6"
+    "react-spring": "^9.7.4",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
-    "@types/node": "^20.14.9",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
-    "pwa-asset-generator": "^6.3.1"
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "pwa-asset-generator": "^6.4.0"
   }
 }

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "@google-cloud/translate": "^8.0.2"
+    "@google-cloud/translate": "^8.5.0"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

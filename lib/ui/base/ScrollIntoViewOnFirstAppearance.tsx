@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, RefObject } from 'react'
 
 type ScrollIntoViewOnFirstAppearanceProps<T extends HTMLElement> = {
-  render: (props: { ref: React.RefObject<T> }) => React.ReactNode
+  render: (props: { ref: RefObject<T | null> }) => React.ReactNode
   options?: ScrollIntoViewOptions
 }
 

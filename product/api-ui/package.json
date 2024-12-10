@@ -6,10 +6,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.17.19",
-    "react": "^18.2.0"
+    "@tanstack/react-query": "^5.62.3",
+    "react": "^19.0.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.45"
+    "@types/react": "^19.0.1"
   }
 }

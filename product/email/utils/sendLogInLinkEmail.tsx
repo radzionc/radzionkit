@@ -8,9 +8,12 @@ export const sendLoginLinkEmail = async ({
   loginUrl,
   email,
 }: LoginLinkEmailProps) => {
-  const body = render(<LoginLinkEmail loginUrl={loginUrl} email={email} />, {
-    pretty: true,
-  })
+  const body = await render(
+    <LoginLinkEmail loginUrl={loginUrl} email={email} />,
+    {
+      pretty: true,
+    },
+  )
 
   return sendEmail({
     email,

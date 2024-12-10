@@ -15,7 +15,7 @@ export const showNotification = (text: string) => {
       window.focus()
       notification.close()
     }
-  } catch (_) {
+  } catch {
     window.navigator.serviceWorker.getRegistration().then((registration) => {
       if (registration) {
         registration.showNotification(text, {

@@ -6,6 +6,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "date-fns": "^3.0.6"
+    "date-fns": "^4.1.0"
   }
 }

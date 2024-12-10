@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@sentry/serverless": "^7.109.0"
+    "@sentry/serverless": "7.114.0"
   }
 }

@@ -6,7 +6,7 @@ type UseIntersectionParams = Pick<
 >
 
 export const useIntersection = (
-  ref: RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement | null>,
   { root, rootMargin, threshold }: UseIntersectionParams,
 ): IntersectionObserverEntry | null => {
   const [intersectionObserverEntry, setIntersectionObserverEntry] =
