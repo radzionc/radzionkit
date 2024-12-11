@@ -38,7 +38,7 @@ const Container = styled(FocusLock)<ContainerProps>`
         `
       : takeWholeSpace};
 
-  border: 2px solid ${getColor('textShy')};
+  border: 2px solid ${getColor('mistExtra')};
   overflow: hidden;
 `
 

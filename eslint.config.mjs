@@ -50,6 +50,6 @@ export default [
     },
   },
   {
-    ignores: ['**/next-sitemap.config.js'],
+    ignores: ['**/next-sitemap.config.js', '**/.next/**', '**/out/**'],
   },
 ]
