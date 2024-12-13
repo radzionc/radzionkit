@@ -1,0 +1,3 @@
+# @product/languages-next-ui
+
+This package is designed specifically for Next.js applications to provide seamless localization support. It includes utilities and components that simplify the process of translating your application into multiple languages, ensuring a smooth and efficient internationalization workflow. By integrating this package, developers can easily manage language resources, switch between languages, and deliver a localized user experience without extensive configuration.

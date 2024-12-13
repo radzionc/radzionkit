@@ -1,0 +1,3 @@
+# @product/db
+
+This package provides custom functions for interacting with app-specific tables and entities in DynamoDB. It includes utilities for common database operations such as creating, reading, updating, and deleting items, as well as more advanced functionalities like scanning and querying tables. This package is designed to streamline database interactions and ensure efficient data management within your application.
