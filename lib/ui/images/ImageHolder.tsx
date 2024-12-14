@@ -1,15 +1,8 @@
-import React, { ReactNode } from 'react'
+import React, { ComponentProps } from 'react'
 import styled from 'styled-components'
 import { getColor } from '../theme/getters'
 import { Center } from '../layout/Center'
 import { ImageIcon } from '../icons/ImageIcon'
-
-interface Props {
-  width?: React.CSSProperties['width']
-  height?: React.CSSProperties['height']
-  className?: string
-  children?: ReactNode
-}
 
 export const Container = styled.div`
   position: relative;
@@ -19,6 +12,11 @@ export const Container = styled.div`
   background: ${getColor('mist')};
   box-shadow: ${({ theme }) => theme.shadows.small};
 `
+
+type ImpageHolderProps = ComponentProps<typeof Container> & {
+  width?: React.CSSProperties['width']
+  height?: React.CSSProperties['height']
+}
 
 const ImageIconWr = styled(Center)`
   z-index: -1;
@@ -33,7 +31,7 @@ export const ImageHolder = ({
   height,
   children,
   ...rest
-}: Props & React.HTMLAttributes<HTMLDivElement>) => {
+}: ImpageHolderProps) => {
   return (
     <Container style={{ width, height }} {...rest}>
       <ImageIconWr>
