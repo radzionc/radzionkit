@@ -50,6 +50,15 @@ export default [
     },
   },
   {
-    ignores: ['**/next-sitemap.config.js', '**/.next/**', '**/out/**'],
+    ignores: [
+      '**/next-sitemap.config.js',
+      '**/next.config.js',
+      '**/.next/**',
+      '**/out/**',
+      '**/dist/**',
+      '**/public/sw.js',
+      '**/public/workbox-*.js',
+      '**/.react-email/**',
+    ],
   },
 ]
