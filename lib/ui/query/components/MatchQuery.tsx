@@ -8,6 +8,7 @@ export type MatchQueryProps<T, E = unknown> = ComponentWithValueProps<
   error?: (error: E) => ReactNode
   pending?: () => ReactNode
   success: (data: T) => ReactNode
+  inactive?: () => ReactNode
 }
 
 export function MatchQuery<T, E = unknown>({
@@ -15,17 +16,18 @@ export function MatchQuery<T, E = unknown>({
   error = () => null,
   pending = () => null,
   success,
+  inactive = () => null,
 }: MatchQueryProps<T, E>) {
   if (value.data !== undefined) {
     return <>{success(value.data)}</>
   }
 
-  if (value.isPending) {
-    return <>{pending()}</>
-  }
-
   if (value.error) {
     return <>{error(value.error)}</>
+  }
+
+  if (value.isPending) {
+    return <>{(value.isLoading === false ? inactive : pending)()}</>
   }
 
   return null
@@ -35,4 +37,4 @@ export type MatchQueryWrapperProps<T, E = unknown> = Pick<
   MatchQueryProps<T>,
   'success'
 > &
-  Partial<Pick<MatchQueryProps<T, E>, 'error' | 'pending'>>
+  Partial<Pick<MatchQueryProps<T, E>, 'error' | 'pending' | 'inactive'>>

@@ -4,6 +4,8 @@ export const mergeQueries = <T extends Record<string, Query<any, any>>>(
   queries: T,
 ): Query<{ [K in keyof T]: T[K]['data'] }, T[keyof T]['error']> => {
   const isPending = Object.values(queries).some((q) => q.isPending)
+  const isLoading = Object.values(queries).some((q) => q.isLoading)
+
   const error =
     Object.values(queries).find((q) => q.error !== null)?.error || null
 
@@ -17,6 +19,7 @@ export const mergeQueries = <T extends Record<string, Query<any, any>>>(
   return {
     data,
     isPending,
+    isLoading,
     error,
   }
 }

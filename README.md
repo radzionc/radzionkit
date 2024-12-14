@@ -6,29 +6,39 @@ RadzionKit is the ultimate solution for developers looking to jumpstart their pr
 
 ## Monorepo Overview: Inside RadzionKit's Diverse Package Ecosystem
 
-RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, organizing code into two primary directories: `lib` and `demo`. The `lib` folder houses generic code packages like `@lib/utils` or `@lib/ui`, designed to be project-agnostic and easily portable to any project without carrying over project-specific logic. On the other hand, the `demo` directory houses example implementations, such as `@product/api` or `@product/ui-demo`, that serve as blueprints demonstrating how to integrate and adapt the `@lib` packages to the unique needs of your project—simply replace `demo` with your project's name to customize. This thoughtful architecture not only streamlines the development process but also enhances the reusability of code, making it effortless to scale and modify your project as it grows.
+RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, organizing code into two primary directories: `lib` and `product`. The `lib` folder houses generic code packages like `@lib/utils` or `@lib/ui`, designed to be project-agnostic and easily portable to any project without carrying over project-specific logic. On the other hand, the `product` directory houses example implementations, such as `@product/api` or `@product/ui-demo`, that serve as blueprints demonstrating how to integrate and adapt the `@lib` packages to the unique needs of your project. This thoughtful architecture not only streamlines the development process but also enhances the reusability of code, making it effortless to scale and modify your project as it grows.
 
-| Package Name    | Description                                  | Stack |
-|-----------------|----------------------------------------------|-------------------------|
-| `@lib/utils`           | Comprising a diverse array of utility functions, the `@lib/utils` package streamlines common coding tasks. It features modules for array manipulation, validation, template processing, time calculations, and more, allowing you to write cleaner code and implement complex logic with ease.   | TypeScript     |
-| `@lib/ui`              | The `@lib/ui` package is a comprehensive library of React components and hooks, meticulously designed to cover all facets of a modern user interface. This package includes a wide range of components such as buttons, forms, modals, and navigation bars, along with utility hooks and services for authentication, analytics, and state management. It's built to empower developers with the tools they need to create elegant, responsive, and accessible user experiences with ease.       | `react`, `react-query`, `@floating-ui`, `styled-components`     |
-| `@lib/subscription-ui` and `@lib/web3-ui`              | The `@lib/subscription-ui` package showcases domain-specific UI elements for managing subscription services, while the `@lib/web3-ui` package provides a set of components tailored for Web3 interfaces, both serving as exemplary models for structuring UI code within a domain-focused package.       | `react` |
-| `@lib/next-ui`         | The `@lib/next-ui`  package is designed to enhance Next.js applications, offering custom hooks for query parameter handling and metadata components for streamlined page SEO optimization.     | `next`     |
-| `@lib/codegen`         | The `@lib/codegen` package contains a set of TypeScript utilities designed to automate the generation of code files, including TypeScript interfaces and JSON files, facilitating a more efficient development workflow.      | TypeScript     |
-| `@lib/auth`         | The `@lib/auth` package contains authentication-related types for both front-end and server-side logic. | TypeScript     |
-| `@lib/dynamodb`        | The `@lib/dynamodb` package is equipped with TypeScript utilities to streamline interactions with DynamoDB, including client setup, item operations, and query parameter generation for efficient database management.      | DynamoDB     |
-| `@lib/countries`           | The `@lib/countries` package delivers a curated, typed list of country codes with corresponding names and includes utilities to generate this data from a JSON file, simplifying country-related data management in your projects.   | TypeScript     |
-| `@lib/dnd`              | The `@lib/dnd` package includes the `DnDGroups` and `DnDList` components that abstract away the `react-beautiful-dnd` library, making it easier to replace and implement common drag-and-drop scenarios.       | `react`, `react-beautiful-dnd`     |
-| `@lib/analytics-ui`     | The `@lib/analytics-ui` package abstracts away Amplitude analytics with a React provider. | React, Amplitude |
-| `@product/entities`        | The `@product/entities`  package serves as a centralized repository for your application's entities, defining the core data structures that drive your business logic.               | TypeScript     |
-| `@product/entities-utils`  | The `demo/entities-utils` package provides a foundational set of utilities tailored for managing and manipulating your application's entities, designed to be expanded as your project grows.    | TypeScript     |
-| `@product/email`           | The `@product/email` package offers essential utilities to facilitate the sending of emails within your application, including pre-configured templates like login link emails for quick integration and use.                 | AWS SES, `@react-email`     |
-| `@product/db`              | The `@product/db` package serves as a placeholder within the template, poised to house custom functions for interacting with app-specific tables and entities in DynamoDB, streamlining the path to tailored database operations.          | DynamoDB     |
-| `@product/ui-demo`            | The `@product/ui-demo`  project is a static site generation (SSG) showcase, built with Next.js, that demonstrates the capabilities and components of the `ui` package, providing a real-world example of the library's potential in a production-like environment.                     | NextJS     |
-| `@product/api-interface`   | The `api-interface` package provides a structured TypeScript interface for the app's backend API, including error handling and method definitions, to ensure type safety and consistency across frontend and backend communications.             | TypeScript     |
-| `@product/api`             | The `api` package is a lightweight, TypeScript-based backend solution that faithfully implements the `api-interface` with minimal dependencies, primarily utilizing resolvers for handling requests. Optimized for use as an AWS Lambda function, it's an ideal choice for serverless architectures requiring the expressiveness of TypeScript and the efficiency of the AWS ecosystem.     | `express`, AWS Lambda, TypeScript     |
-| `@product/email-forwarder`             |  The SES forwarder Lambda function receives emails sent to AWS domains, stores them in an S3 bucket, and forwards them to a specified personal email address. This process is automated and scalable through Terraform, enabling efficient email management across multiple domains.     |  AWS Lambda, AWS SES, TypeScript    |
-| `infra`           | The `infra` package provides Terraform configurations and scripts for a robust and automated infrastructure setup on AWS, ensuring a secure and scalable environment for your applications.     | Terraform, AWS     |
+### Lib Packages
+
+* [**@lib/utils**](lib/utils/README.md) - A collection of utility functions for common tasks.
+* [**@lib/ui**](lib/ui/README.md) - A versatile UI library with components, hooks, and utils.
+* [**@lib/dynamodb**](lib/dynamodb/README.md) - Utilities for working with AWS DynamoDB.
+* [**@lib/dnd**](lib/dnd/README.md) - Components and utilities for drag-and-drop functionality.
+* [**@lib/codegen**](lib/codegen/README.md) - Code generation utilities for TypeScript and JSON files.
+* [**@lib/countries**](lib/countries/README.md) - Types and utilities for handling country-related data.
+* [**@lib/lambda**](lib/lambda/README.md) - Utilities for working with AWS Lambda functions.
+* [**@lib/analytics-ui**](lib/analytics-ui/README.md) - Components to integrate Amplitude analytics into your React application.
+* [**@lib/auth**](lib/auth/README.md) - Types for authentication sessions and OAuth providers.
+* [**@lib/next-ui**](lib/next-ui/README.md) - Components and utilities for Next.js applications.
+* [**@lib/subscription-ui**](lib/subscription-ui/README.md) - Components for subscription payments.
+* [**@lib/subscriptions**](lib/subscriptions/README.md) - Types for subscription payments.
+* [**@lib/web3-ui**](lib/web3-ui/README.md) - Components for Web3 applications.
+
+### Product Packages
+
+* [**@product/api**](product/api/README.md) - A boilerplate API with user authentication.
+* [**@product/api-interface**](product/api-interface/README.md) - Interfaces and types for interacting with the API.
+* [**@product/api-ui**](product/api-ui/README.md) - React hooks and components for API interaction.
+* [**@product/config**](product/config/README.md) - A shared configuration package for the product.
+* [**@product/db**](product/db/README.md) - Database management and utilities.
+* [**@product/email**](product/email/README.md) - Email-related services and utilities.
+* [**@product/email-forwarder**](product/email-forwarder/README.md) - A Lambda function for forwarding emails.
+* [**@product/entities**](product/entities/README.md) - Core entities and models for the product.
+* [**@product/entities-utils**](product/entities-utils/README.md) - Utility functions for working with entities.
+* [**@product/languages**](product/languages/README.md) - Language support and localization utilities.
+* [**@product/languages-next-ui**](product/languages-next-ui/README.md) - Next.js UI components for language handling.
+* [**@product/ui-demo**](product/ui-demo/README.md) - Demo UI showcasing product components.
+* [**infra**](product/infra/README.md) - Terraform infrastructure for the product.
 
 ## Getting Started with RadzionKit: Launching Your New Project
 
