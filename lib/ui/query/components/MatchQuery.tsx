@@ -1,6 +1,7 @@
+import { ReactNode } from 'react'
+
 import { ComponentWithValueProps } from '../../props'
 import { Query } from '../Query'
-import { ReactNode } from 'react'
 
 export type MatchQueryProps<T, E = unknown> = ComponentWithValueProps<
   Query<T, E>
@@ -26,8 +27,12 @@ export function MatchQuery<T, E = unknown>({
     return <>{error(value.error)}</>
   }
 
+  if (value.isLoading === false) {
+    return <>{inactive()}</>
+  }
+
   if (value.isPending) {
-    return <>{(value.isLoading === false ? inactive : pending)()}</>
+    return <>{pending()}</>
   }
 
   return null

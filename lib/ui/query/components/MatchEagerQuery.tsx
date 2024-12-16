@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
-import { EagerQuery } from '../Query'
+
 import { ComponentWithValueProps } from '../../props'
+import { EagerQuery } from '../Query'
 
 export type MatchEagerQueryProps<T, E = unknown> = ComponentWithValueProps<
   EagerQuery<T, E>
@@ -26,8 +27,12 @@ export function MatchEagerQuery<T, E = unknown>({
     return <>{error(errors)}</>
   }
 
+  if (isLoading === false) {
+    return <>{inactive()}</>
+  }
+
   if (isPending) {
-    return <>{(isLoading === false ? inactive : pending)()}</>
+    return <>{pending()}</>
   }
 
   return null
