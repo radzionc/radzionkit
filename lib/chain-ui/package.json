@@ -1,5 +1,5 @@
 {
-  "name": "@lib/web3-ui",
+  "name": "@lib/chain-ui",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

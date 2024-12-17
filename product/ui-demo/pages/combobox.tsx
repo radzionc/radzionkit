@@ -4,7 +4,7 @@ import { CountryInput } from '@lib/ui/inputs/CountryInput'
 import styled from 'styled-components'
 import { VStack } from '@lib/ui/css/stack'
 import { Asset } from '../../entities/Asset'
-import { AssetInput } from '@lib/web3-ui/AssetInput'
+import { AssetInput } from '../../../lib/chain-ui/AssetInput'
 import { DemoPage } from '../components/DemoPage'
 import { makeDemoPage } from '../layout/makeDemoPage'
 

@@ -22,7 +22,8 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 * [**@lib/next-ui**](lib/next-ui/README.md) - Components and utilities for Next.js applications.
 * [**@lib/subscription-ui**](lib/subscription-ui/README.md) - Components for subscription payments.
 * [**@lib/subscriptions**](lib/subscriptions/README.md) - Types for subscription payments.
-* [**@lib/web3-ui**](lib/web3-ui/README.md) - Components for Web3 applications.
+* [**@lib/chain**](lib/chain/README.md) - Utilities for working with Web3 and blockchain.
+* [**@lib/chain-ui**](lib/chain-ui/README.md) - Components for Web3 applications.
 
 ### Product Packages
 

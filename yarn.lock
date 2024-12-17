@@ -2149,6 +2149,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lib/chain-ui@workspace:lib/chain-ui":
+  version: 0.0.0-use.local
+  resolution: "@lib/chain-ui@workspace:lib/chain-ui"
+  dependencies:
+    "@types/react": "npm:^19.0.1"
+    "@types/react-dom": "npm:^19.0.2"
+    react: "npm:^19.0.0"
+    react-dom: "npm:^19.0.0"
+    styled-components: "npm:^6.1.13"
+  languageName: unknown
+  linkType: soft
+
+"@lib/chain@workspace:lib/chain":
+  version: 0.0.0-use.local
+  resolution: "@lib/chain@workspace:lib/chain"
+  languageName: unknown
+  linkType: soft
+
 "@lib/codegen@workspace:lib/codegen":
   version: 0.0.0-use.local
   resolution: "@lib/codegen@workspace:lib/codegen"
@@ -2255,18 +2273,6 @@ __metadata:
   resolution: "@lib/utils@workspace:lib/utils"
   dependencies:
     date-fns: "npm:^4.1.0"
-  languageName: unknown
-  linkType: soft
-
-"@lib/web3-ui@workspace:lib/web3-ui":
-  version: 0.0.0-use.local
-  resolution: "@lib/web3-ui@workspace:lib/web3-ui"
-  dependencies:
-    "@types/react": "npm:^19.0.1"
-    "@types/react-dom": "npm:^19.0.2"
-    react: "npm:^19.0.0"
-    react-dom: "npm:^19.0.0"
-    styled-components: "npm:^6.1.13"
   languageName: unknown
   linkType: soft
 

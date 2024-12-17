@@ -1,4 +1,4 @@
-# @lib/web3-ui
+# @lib/chain-ui
 
 This package provides a set of reusable React components and utilities for building web3 applications.
 
