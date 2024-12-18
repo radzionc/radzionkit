@@ -15,6 +15,7 @@ export function useMergeEagerQueries<T, R, E = unknown>({
 
   return {
     isPending: queries.some((query) => query.isPending),
+    isLoading: queries.some((query) => query.isLoading),
     errors: queries.flatMap((query) => query.errors),
     data: isEmpty(resolvedQueries) ? undefined : joinData(resolvedQueries),
   }
