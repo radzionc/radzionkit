@@ -155,7 +155,7 @@ yarn workspaces foreach --all exec yarn up "*"
 
 - **[Radzion's Resume](https://resume.radzion.com):** A Web3 Front-end developer resume. [Source code available on GitHub](https://github.com/radzionc/resume).
 - **[Pentafret](https://pentafret.com):** A website with guitar music theory tools. [Source code available on GitHub](https://github.com/radzionc/guitar).
-- **[Crypto]:** Receive alerts for cryptocurrency price changes. [Source code available on GitHub](https://github.com/radzionc/crypto)
+- **Crypto:** Receive alerts for cryptocurrency price changes. [Source code available on GitHub](https://github.com/radzionc/crypto)
 - **[Increaser](https://increaser.org):** A productivity toolkit designed for remote workers.
 - **GeorgianCitizen:** An exam prep app. [Source code available on GitHub](https://github.com/radzionc/georgian).
 
