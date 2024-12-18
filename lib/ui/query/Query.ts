@@ -1,14 +1,14 @@
 export type Query<T, E = unknown> = {
   data: T | undefined
   isPending: boolean
-  isLoading: boolean
+  isLoading?: boolean
   error: E | null
 }
 
 export type EagerQuery<T, E = unknown> = {
   data: T | undefined
   isPending: boolean
-  isLoading: boolean
+  isLoading?: boolean
   errors: E[]
 }
 
