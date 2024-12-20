@@ -6,7 +6,7 @@ import { darkTheme } from '../../theme/darkTheme'
 import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
 import { createTsFile } from '@lib/codegen/utils/createTsFile'
 
-interface GenerateIconMetaTagsParams {
+interface generateIconsParams {
   lightModeIconPath: string
   darkModeIconPath?: string
   manifestPath: string
@@ -15,14 +15,14 @@ interface GenerateIconMetaTagsParams {
   codeDirectory: string
 }
 
-export const generateIconMetaTags = async ({
+export const generateIcons = async ({
   lightModeIconPath,
   darkModeIconPath,
   manifestPath,
   publicDirectory,
   iconImagesLocation = 'images/icon',
   codeDirectory,
-}: GenerateIconMetaTagsParams) => {
+}: generateIconsParams) => {
   const imagesOutputDirectory = path.resolve(
     publicDirectory,
     iconImagesLocation,
@@ -81,6 +81,6 @@ export const generateIconMetaTags = async ({
     directory: codeDirectory,
     fileName: 'IconMetaTags',
     content,
-    generatedBy: '@lib/ui/metadata/codegen/generateIconMetaTags.ts',
+    generatedBy: '@lib/ui/metadata/codegen/generateIcons.ts',
   })
 }

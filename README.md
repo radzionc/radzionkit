@@ -27,6 +27,7 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 
 ### Product Packages
 
+* [**@product/app**](product/app/README.md) - A Next.js application template.
 * [**@product/api**](product/api/README.md) - A boilerplate API with user authentication.
 * [**@product/api-interface**](product/api-interface/README.md) - Interfaces and types for interacting with the API.
 * [**@product/api-ui**](product/api-ui/README.md) - React hooks and components for API interaction.
@@ -43,99 +44,7 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 
 ## Getting Started with RadzionKit: Launching Your New Project
 
-Initiate your project using RadzionKit from our GitHub template. The `demo` folder serves as a practical example, showcasing package integration — rename it to reflect your project's name or remove it if you prefer to start fresh. Update any `@product` references to `@{project_name}`, install dependencies with `yarn`, and your setup is complete.
-
-## Integrating RadzionKit's `lib` Packages into Your Monorepo
-
-Select the `@lib` packages you require from RadzionKit and copy them into your monorepo. Be sure to include all associated dependencies; for example, if you choose `@lib/ui`, check if it necessitates `@lib/utils` and copy it as well. There's no need for renaming—these packages are designed to work out of the box. For practical examples of how these packages can be used within an application, refer to the implementations in the `demo` folder. After incorporating the desired packages, run `yarn` to install the dependencies, and your monorepo will be equipped with the versatile features of RadzionKit.
-
-## Effortlessly Integrate RadzionKit's UI Package: Enhance Your Project's User Interface
-
-1. **For NextJS Projects Only:** Update your `_document.tsx` file by extending the `StyledComponentsDocument` from the `@lib/next-ui` package, in order to integrate support for the `styled-components` library used in the `@lib/ui` package.
-
-```tsx
-import { StyledComponentsDocument } from '@lib/next-ui/StyledComponentsDocument'
-
-class MyDocument extends StyledComponentsDocument {
-  // ...
-}
-```
-
-2. **For NextJS Projects Only:** Update your `next.config.js` to set `styledComponents` to `true` in the compiler options for proper styling, and include your UI package in `transpilePackages` to ensure Next.js correctly compiles and includes the UI package from the monorepo.
-
-```javascript
-const nextConfig = {
-  // ...
-  compiler: {
-    styledComponents: true,
-  },
-  transpilePackages: ['@lib/ui'],
-}
-```
-
-3. Add a `styled.d.ts` to your project and include the following content to integrate RadzionKit's theme with `styled-components`' default theme:
-
-```typescript
-import 'styled-components';
-import { Theme } from '@lib/ui/theme/Theme';
-
-declare module 'styled-components' {
-  export interface DefaultTheme extends Theme {}
-}
-```
-
-4. **Add `persistentState` File for Local Storage Interaction:** Place a `persistentState` file in the `state` folder of your app package to enhance local storage interaction. For detailed guidance, refer to this YouTube video: [Understanding Persistent State in React](https://youtu.be/_90rzlGy0SM).
-
-```tsx
-import { TemporaryStorage } from '@lib/ui/state/TemporaryStorage'
-import { LocalStorage } from '@lib/ui/state/LocalStorage'
-import { createPersistentStateHook } from '@lib/ui/state/createPersistentStateHook'
-import { createPersistentStateManager } from '@lib/ui/state/createPersistentStateManager'
-
-export enum PersistentStateKey {
-  ThemePreference = 'themePreference',
-}
-
-const persistentStorage =
-  typeof window !== 'undefined'
-    ? new LocalStorage<PersistentStateKey>()
-    : new TemporaryStorage<PersistentStateKey>()
-
-export const usePersistentState =
-  createPersistentStateHook<PersistentStateKey>(persistentStorage)
-
-export const managePersistentState =
-  createPersistentStateManager<PersistentStateKey>(persistentStorage)
-```
-
-5. **Implement `ThemeProvider` and `GlobalStyle` in Your App:** In your application, use the `ThemeProvider` from RadzionKit to manage theme changes and store user preferences with the `usePersistentState` hook. Include the `GlobalStyle` component to apply global CSS styles, such as font family and custom scrollbars, ensuring a consistent look and feel across your app.
-
-```tsx
-import { GlobalStyle } from '@lib/ui/css/GlobalStyle'
-import { Inter } from 'next/font/google'
-import { PersistentStateKey, usePersistentState } from '@product/ui-demo/state/persistentState'
-import { ThemePreference } from '@lib/ui/theme/ThemePreference'
-import { DarkLightThemeProvider } from '@lib/ui/theme/DarkLightThemeProvider'
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '800'],
-})
-
-export const App = () => {
-  const [theme, setTheme] = usePersistentState<ThemePreference>(
-    PersistentStateKey.ThemePreference,
-    'system',
-  )
-
-  return (
-    <DarkLightThemeProvider value={theme} onChange={setTheme}>
-      <GlobalStyle fontFamily={inter.style.fontFamily} />
-      // ...
-    </DarkLightThemeProvider>
-  )
-}
-```
+Kickstart your project using the RadzionKit GitHub template. You can remove any packages you don't need and use the ones under `@product` as a starting point for your app. There's no need to rename packages, as the naming convention separates reusable packages (`@lib`) from project-specific code (`@product`). Once you've cloned the template, install dependencies using `yarn`, and your setup is ready to go.
 
 ## Managing Dependencies & Versions
 

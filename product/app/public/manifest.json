@@ -1,0 +1,35 @@
+{
+  "short_name": "App",
+  "name": "App",
+  "start_url": ".",
+  "display": "fullscreen",
+  "theme_color": "#1a1a1a",
+  "background_color": "#1a1a1a",
+  "description": "Your app description",
+  "icons": [
+    {
+      "src": "images/icon/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/icon/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "images/icon/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/icon/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

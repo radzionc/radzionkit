@@ -2436,6 +2436,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@product/app@workspace:product/app":
+  version: 0.0.0-use.local
+  resolution: "@product/app@workspace:product/app"
+  dependencies:
+    "@next/eslint-plugin-next": "npm:^15.0.4"
+    "@tanstack/react-query": "npm:^5.62.3"
+    "@types/node": "npm:^22.10.1"
+    "@types/react": "npm:^19.0.1"
+    "@types/react-dom": "npm:^19.0.2"
+    eslint: "npm:^9.16.0"
+    eslint-config-next: "npm:^15.0.4"
+    next: "npm:^15.0.4"
+    next-sitemap: "npm:^4.2.3"
+    pwa-asset-generator: "npm:^6.4.0"
+    react: "npm:^19.0.0"
+    react-dom: "npm:^19.0.0"
+    styled-components: "npm:^6.1.13"
+  languageName: unknown
+  linkType: soft
+
 "@product/config@workspace:product/config":
   version: 0.0.0-use.local
   resolution: "@product/config@workspace:product/config"

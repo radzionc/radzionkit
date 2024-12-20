@@ -1,10 +1,10 @@
 import path from 'path'
 
-import { generateIconMetaTags } from '@lib/ui/metadata/codegen/generateIconMetaTags'
+import { generateIcons } from '@lib/ui/metadata/codegen/generateIcons'
 
 const publicDirectory = path.resolve(__dirname, '../../public')
 
-generateIconMetaTags({
+generateIcons({
   lightModeIconPath: path.resolve(__dirname, '../light-mode-icon.svg'),
   darkModeIconPath: path.resolve(__dirname, '../dark-mode-icon.svg'),
   publicDirectory,
