@@ -8,7 +8,7 @@ export type MatchQueryProps<T, E = unknown> = ComponentWithValueProps<
 > & {
   error?: (error: E) => ReactNode
   pending?: () => ReactNode
-  success: (data: T) => ReactNode
+  success?: (data: T) => ReactNode
   inactive?: () => ReactNode
 }
 
@@ -16,7 +16,7 @@ export function MatchQuery<T, E = unknown>({
   value,
   error = () => null,
   pending = () => null,
-  success,
+  success = () => null,
   inactive = () => null,
 }: MatchQueryProps<T, E>) {
   if (value.data !== undefined) {
