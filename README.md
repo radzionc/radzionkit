@@ -63,8 +63,8 @@ yarn workspaces foreach --all exec yarn up "*"
 
 - **[Radzion's Resume](https://resume.radzion.com):** A Web3 Front-end developer resume. [Source code available on GitHub](https://github.com/radzionc/resume).
 - **[Pentafret](https://pentafret.com):** A website with guitar music theory tools. [Source code available on GitHub](https://github.com/radzionc/guitar).
+- **[Storage](https://storage.radzion.com):** Save files on a distributed storage network. [Source code available on GitHub](https://github.com/radzionc/auto-drive)
 - **Crypto:** Receive alerts for cryptocurrency price changes. [Source code available on GitHub](https://github.com/radzionc/crypto)
-- **Storage:** Save files on a distributed storage network. [Source code available on GitHub](https://github.com/radzionc/auto-drive)
 - **GeorgianCitizen:** An exam prep app. [Source code available on GitHub](https://github.com/radzionc/georgian).
 - **[Increaser](https://increaser.org):** A productivity toolkit designed for remote workers.
 
