@@ -34,20 +34,26 @@ const queryItems = async ({ startAt = 0 }: QueryItemsParams) => {
 }
 
 export default makeDemoPage(() => {
-  const { data, isLoading, isFetchingNextPage, fetchNextPage, isFetched } =
-    useInfiniteQuery({
-      queryKey: ['items'],
-      initialPageParam: 0,
-      queryFn: async ({ pageParam }) => {
-        if (pageParam === null) return
+  const {
+    data,
+    isLoading,
+    isFetchingNextPage,
+    fetchNextPage,
+    isFetched,
+    hasNextPage,
+  } = useInfiniteQuery({
+    queryKey: ['items'],
+    initialPageParam: 0,
+    queryFn: async ({ pageParam }) => {
+      if (pageParam === null) return
 
-        const result = await queryItems({ startAt: pageParam })
+      const result = await queryItems({ startAt: pageParam })
 
-        return result
-      },
-      refetchOnMount: true,
-      getNextPageParam: (lastPage) => lastPage?.nextItem || null,
-    })
+      return result
+    },
+    refetchOnMount: true,
+    getNextPageParam: (lastPage) => lastPage?.nextItem || null,
+  })
 
   const items = usePaginatedResultItems(data, (response) => response.items)
   const noItems = isFetched && items.length < 1
@@ -61,6 +67,7 @@ export default makeDemoPage(() => {
         <PaginatedView
           onRequestToLoadMore={fetchNextPage}
           isLoading={isLoading || isFetchingNextPage}
+          hasNextPage={hasNextPage}
         >
           {noItems && !isLoading ? (
             <Text>No items 😴</Text>

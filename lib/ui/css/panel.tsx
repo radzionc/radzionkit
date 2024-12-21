@@ -23,7 +23,7 @@ export const panel = ({
   direction = 'column',
   kind = 'regular',
   withSections = false,
-}: PanelProps) => {
+}: PanelProps = {}) => {
   return css`
     ${borderRadius.m};
 

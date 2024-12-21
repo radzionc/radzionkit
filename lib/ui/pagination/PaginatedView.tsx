@@ -9,6 +9,7 @@ import { useIntersection } from '../hooks/useIntersection'
 interface Props {
   children: ReactNode
   isLoading?: boolean
+  hasNextPage: boolean
   onRequestToLoadMore: () => void
 }
 
@@ -23,6 +24,7 @@ const Footer = styled(VStack)`
 export const PaginatedView = ({
   children,
   isLoading,
+  hasNextPage,
   onRequestToLoadMore,
 }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
@@ -34,10 +36,15 @@ export const PaginatedView = ({
   })
 
   useEffect(() => {
-    if (intersection?.isIntersecting && !isLoading) {
+    if (intersection?.isIntersecting && !isLoading && hasNextPage) {
       onRequestToLoadMore()
     }
-  }, [intersection?.isIntersecting, onRequestToLoadMore, isLoading])
+  }, [
+    hasNextPage,
+    intersection?.isIntersecting,
+    isLoading,
+    onRequestToLoadMore,
+  ])
 
   return (
     <>
