@@ -1,5 +1,12 @@
 {
   "name": "@lib/chain",
-  "version": "1.0.0",
-  "private": true
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@0x/swap-ts-sdk": "^2.1.1",
+    "viem": "^2.21.56"
+  }
 }
