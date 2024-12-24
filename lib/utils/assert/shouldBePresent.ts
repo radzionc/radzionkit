@@ -1,7 +1,7 @@
 export function shouldBePresent<T>(
-  value: T | undefined | null,
+  value: T,
   valueName: string = 'value',
-): T {
+): NonNullable<T> {
   if (value === undefined || value === null) {
     throw new Error(`${valueName} is required`)
   }

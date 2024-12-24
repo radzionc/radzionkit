@@ -1,4 +1,5 @@
-import { Address, Chain, createPublicClient, http, parseAbi } from 'viem'
+import { Address, Chain, erc20Abi } from 'viem'
+import { getPublicClient } from '../utils/getPublicClient'
 
 type Input = {
   chain: Chain
@@ -11,14 +12,7 @@ export const getErc20Balance = async ({
   address,
   accountAddress,
 }: Input) => {
-  const erc20Abi = parseAbi([
-    'function balanceOf(address owner) view returns (uint256)',
-  ])
-
-  const publicClient = createPublicClient({
-    chain,
-    transport: http(),
-  })
+  const publicClient = getPublicClient(chain)
 
   return publicClient.readContract({
     address,
