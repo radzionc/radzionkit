@@ -1,12 +1,15 @@
 import { FiatCurrency } from '../FiatCurrency'
 import { getAssetPrices } from './getAssetPrices'
 
-type Input = {
+export type GetAssetPriceInput = {
   id: string
   fiatCurrency?: FiatCurrency
 }
 
-export const getAssetPrice = async ({ id, fiatCurrency }: Input) => {
+export const getAssetPrice = async ({
+  id,
+  fiatCurrency,
+}: GetAssetPriceInput) => {
   const prices = await getAssetPrices({ ids: [id], fiatCurrency })
 
   return prices[id]
