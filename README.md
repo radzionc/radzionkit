@@ -65,6 +65,7 @@ yarn workspaces foreach --all exec yarn up "*"
 - **[Pentafret](https://pentafret.com):** A website with guitar music theory tools. [Source code available on GitHub](https://github.com/radzionc/guitar).
 - **[Storage](https://storage.radzion.com):** Save files on a distributed storage network. [Source code available on GitHub](https://github.com/radzionc/auto-drive)
 - **Crypto:** Receive alerts for cryptocurrency price changes. [Source code available on GitHub](https://github.com/radzionc/crypto)
+- **AI:** Fix the grammar of selected text with a shortcut. [Source code available on GitHub](https://github.com/radzionc/ai)
 - **GeorgianCitizen:** An exam prep app. [Source code available on GitHub](https://github.com/radzionc/georgian).
 - **[Increaser](https://increaser.org):** A productivity toolkit designed for remote workers.
 
@@ -73,6 +74,7 @@ yarn workspaces foreach --all exec yarn up "*"
 
 To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
 
+* [Build a Crypto Price Alert System with TypeScript, AWS Lambda, and Telegram](https://youtu.be/qtmcExYyW48)
 * [Creating a Decentralized File Manager Using Auto-Drive and Next.js](https://youtu.be/OinVy0VxhGg)
 * [Build a Single-Page Resume with React & TypeScript (Exportable as PDF!)](https://youtu.be/Ujb6Nix1l2g)
 * [How to Create an Effective "What's New" Feature for Your Product](https://youtu.be/r2toBBz8t_w)
