@@ -10,13 +10,3 @@ export const LinkText = styled(Text)`
     color: ${({ theme }) => theme.colors.primary.toCssValue()};
   }
 `
-
-export const ShyLinkText = styled(Text)`
-  &:hover {
-    text-decoration: underline;
-    color: ${({ theme }) => theme.colors.primary.toCssValue()};
-  }
-`
-ShyLinkText.defaultProps = {
-  color: 'supporting',
-}
