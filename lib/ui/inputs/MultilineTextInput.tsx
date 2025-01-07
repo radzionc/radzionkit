@@ -26,6 +26,7 @@ type MultilineTextInputProps = InputProps<string> &
 export function MultilineTextInput({
   value,
   onChange,
+  ref,
   ...rest
 }: MultilineTextInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
@@ -40,7 +41,7 @@ export function MultilineTextInput({
 
   return (
     <MergeRefs
-      refs={[textareaRef]}
+      refs={[textareaRef, ref]}
       render={(ref) => (
         <Container
           autoComplete="off"
