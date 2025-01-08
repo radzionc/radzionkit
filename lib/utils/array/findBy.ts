@@ -1,5 +1,5 @@
 export const findBy = <T>(
-  items: T[],
+  items: readonly T[],
   key: keyof T,
   value: T[keyof T],
 ): T | undefined => {
