@@ -2,16 +2,17 @@ export function matchDiscriminatedUnion<
   D extends string,
   V extends string,
   U extends { [P in D]: string } & { [Q in V]: unknown },
-  R,
+  K extends U[D] = U[D],
+  R = never,
 >(
   unionValue: U,
   discriminantKey: D,
   valueKey: V,
   handlers: {
-    [K in U[D]]: (val: Extract<U, { [P in D]: K }>[V]) => R
+    [P in K]: (val: Extract<U, { [Q in D]: P }>[V]) => R
   },
 ): R {
-  const discriminantValue = unionValue[discriminantKey] as U[D]
+  const discriminantValue = unionValue[discriminantKey] as K
   const handler = handlers[discriminantValue]
   const value = (
     unionValue as Extract<U, { [P in D]: typeof discriminantValue }>
