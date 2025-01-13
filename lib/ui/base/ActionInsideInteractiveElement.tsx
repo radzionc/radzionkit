@@ -35,11 +35,10 @@ export function ActionInsideInteractiveElement<
   render,
   action,
   actionPlacerStyles,
-  ref,
   ...rest
 }: ActionInsideInteractiveElementProps<T>) {
   return (
-    <Container ref={ref} {...rest}>
+    <Container {...rest}>
       <ElementSizeAware
         render={({ setElement, size }) => (
           <>

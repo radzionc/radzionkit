@@ -54,10 +54,10 @@ export const EmbeddedDescriptionInput = ({
       </PositionLabel>
       <Container
         autoComplete="off"
-        ref={textareaRef}
         value={value}
         onChange={onChange}
         {...rest}
+        ref={textareaRef}
       />
     </Wrapper>
   )

@@ -40,7 +40,6 @@ const ActionPlacer = styled.div`
 export function ActionsInsideInteractiveElement<K extends string>({
   render,
   actions,
-  ref,
   ...rest
 }: ActionsInsideInteractiveElementProps<K>) {
   const [sizes, setSizes] = useStateCorrector(
@@ -70,7 +69,7 @@ export function ActionsInsideInteractiveElement<K extends string>({
   )
 
   return (
-    <Container ref={ref} {...rest}>
+    <Container {...rest}>
       {render({
         actions: recordFromKeys(getRecordKeys(actions), (key) => ({
           size: sizes[key],
