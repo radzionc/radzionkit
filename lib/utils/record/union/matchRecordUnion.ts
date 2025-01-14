@@ -1,4 +1,4 @@
-import { getRecordKeys } from './record/getRecordKeys'
+import { getRecordKeys } from '../getRecordKeys'
 
 export function matchRecordUnion<
   U extends object,

@@ -2244,6 +2244,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lib/chain-ui@workspace:lib/chain-ui"
   dependencies:
+    "@tanstack/react-query": "npm:^5.62.11"
     "@types/react": "npm:^19.0.1"
     "@types/react-dom": "npm:^19.0.2"
     react: "npm:^19.0.0"
@@ -2257,7 +2258,7 @@ __metadata:
   resolution: "@lib/chain@workspace:lib/chain"
   dependencies:
     "@0x/swap-ts-sdk": "npm:^2.1.1"
-    viem: "npm:^2.21.56"
+    viem: "npm:^2.21.57"
   languageName: unknown
   linkType: soft
 
@@ -2347,7 +2348,7 @@ __metadata:
     "@react-spring/web": "npm:^9.7.5"
     "@svgr/core": "npm:^8.1.0"
     "@svgr/plugin-jsx": "npm:^8.1.0"
-    "@tanstack/react-query": "npm:^5.62.3"
+    "@tanstack/react-query": "npm:^5.62.11"
     "@types/node": "npm:^22.10.1"
     "@types/react": "npm:^19.0.1"
     "@types/react-dom": "npm:^19.0.2"
@@ -2552,7 +2553,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@product/api-ui@workspace:product/api-ui"
   dependencies:
-    "@tanstack/react-query": "npm:^5.62.3"
+    "@tanstack/react-query": "npm:^5.62.11"
     "@types/react": "npm:^19.0.1"
     react: "npm:^19.0.0"
   languageName: unknown
@@ -2580,7 +2581,7 @@ __metadata:
   resolution: "@product/app@workspace:product/app"
   dependencies:
     "@next/eslint-plugin-next": "npm:^15.0.4"
-    "@tanstack/react-query": "npm:^5.62.3"
+    "@tanstack/react-query": "npm:^5.62.11"
     "@types/node": "npm:^22.10.1"
     "@types/react": "npm:^19.0.1"
     "@types/react-dom": "npm:^19.0.2"
@@ -2673,7 +2674,7 @@ __metadata:
     "@emoji-mart/data": "npm:^1.2.1"
     "@emoji-mart/react": "npm:^1.1.1"
     "@next/eslint-plugin-next": "npm:^15.0.4"
-    "@tanstack/react-query": "npm:^5.62.3"
+    "@tanstack/react-query": "npm:^5.62.11"
     "@types/emoji-mart": "npm:^3.0.14"
     "@types/node": "npm:^22.10.1"
     "@types/react": "npm:^19.0.1"
@@ -3995,21 +3996,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.62.3":
-  version: 5.62.3
-  resolution: "@tanstack/query-core@npm:5.62.3"
-  checksum: 10/de7a561a69754fabfa3f40713d1b52913c5b476c519a7ff92dec2a28a8417b18cf31977bb8bf9df5adacd9370607a4561db7ad39d5ebaaeea2962a4b339d7691
+"@tanstack/query-core@npm:5.64.1":
+  version: 5.64.1
+  resolution: "@tanstack/query-core@npm:5.64.1"
+  checksum: 10/7191e6a1c7f8775baf41376f1bb5effe37e6ad31fe686a3ca2d18c92e6309f9efe8b5f2f0de98dbef7f4741f6f1892e9cf41fb6c3f6c6f7d012b81ebf0d003a0
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^5.62.3":
-  version: 5.62.3
-  resolution: "@tanstack/react-query@npm:5.62.3"
+"@tanstack/react-query@npm:^5.62.11":
+  version: 5.64.1
+  resolution: "@tanstack/react-query@npm:5.64.1"
   dependencies:
-    "@tanstack/query-core": "npm:5.62.3"
+    "@tanstack/query-core": "npm:5.64.1"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10/ae43dbf707b9f9f1574093b13e237af06117d002f4228da22a8f8a6a59b1c4598b63d71c1d286f11d66a33c425cec4f5af072f2ac1c265518ff7fb5541eefc69
+  checksum: 10/eaf24079f1ea5f37342232e03c82a799d048ba4d36b66cb9d0de81b2e9d44184c69f65a574c84bba82a77b5566e55ded116913d839e49217c910eb6952e9c5af
   languageName: node
   linkType: hard
 
@@ -10006,9 +10007,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ox@npm:0.1.2":
-  version: 0.1.2
-  resolution: "ox@npm:0.1.2"
+"ox@npm:0.6.0":
+  version: 0.6.0
+  resolution: "ox@npm:0.6.0"
   dependencies:
     "@adraffy/ens-normalize": "npm:^1.10.1"
     "@noble/curves": "npm:^1.6.0"
@@ -10022,7 +10023,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/cba00f13289599ff03cee3dbc19167c1d0f01829379d119f962b4e951ee2bf0d14491c7a45974e6a2a745117b13b22e9e4131d285e1f5247ea4e1cbc43c5c3d8
+  checksum: 10/b089b2d09035def8d3f6d17ab1dd792fd7f1a4d8e008aa96bc50a8cef24ddb8e608ec828f4d83cf959b080a7c854921449e4d061f45f6dee944f48bd0971e60f
   languageName: node
   linkType: hard
 
@@ -12437,9 +12438,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"viem@npm:^2.21.56":
-  version: 2.21.57
-  resolution: "viem@npm:2.21.57"
+"viem@npm:^2.21.57":
+  version: 2.22.8
+  resolution: "viem@npm:2.22.8"
   dependencies:
     "@noble/curves": "npm:1.7.0"
     "@noble/hashes": "npm:1.6.1"
@@ -12447,7 +12448,7 @@ __metadata:
     "@scure/bip39": "npm:1.5.0"
     abitype: "npm:1.0.7"
     isows: "npm:1.0.6"
-    ox: "npm:0.1.2"
+    ox: "npm:0.6.0"
     webauthn-p256: "npm:0.0.10"
     ws: "npm:8.18.0"
   peerDependencies:
@@ -12455,7 +12456,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/07363310d4b1d13293b175531ff28cd63e93f9b0f29508914bd65db29a56aa850fa832ea17604724292af18d1bcbc7b386000cbd32bdd1aeff91c3e5cde455f6
+  checksum: 10/04e3c8d1acdad0fc9a1fa5c50ff5b37081502fda5a00fedb457fb70b887dd16bbfea06984ecf1a360de446ec1bef2996bcc0c9415c1f76cc0fd0c333677e2369
   languageName: node
   linkType: hard
 
