@@ -63,9 +63,9 @@ yarn workspaces foreach --all exec yarn up "*"
 
 - **[Radzion's Resume](https://resume.radzion.com):** A Web3 Front-end developer resume. [Source code available on GitHub](https://github.com/radzionc/resume).
 - **[Pentafret](https://pentafret.com):** A website with guitar music theory tools. [Source code available on GitHub](https://github.com/radzionc/guitar).
-- **[Storage](https://storage.radzion.com):** Save files on a distributed storage network. [Source code available on GitHub](https://github.com/radzionc/auto-drive)
 - **Crypto:** Web3 tools. [Source code available on GitHub](https://github.com/radzionc/crypto)
 - **AI:** Fix the grammar of selected text with a shortcut. [Source code available on GitHub](https://github.com/radzionc/ai)
+- **[Storage](https://storage.radzion.com):** Save files on a distributed storage network. [Source code available on GitHub](https://github.com/radzionc/auto-drive)
 - **GeorgianCitizen:** An exam prep app. [Source code available on GitHub](https://github.com/radzionc/georgian).
 - **[Increaser](https://increaser.org):** A productivity toolkit designed for remote workers.
 
@@ -74,6 +74,7 @@ yarn workspaces foreach --all exec yarn up "*"
 
 To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
 
+* [Step-by-Step Guide to Creating a TypeScript Crypto Trader](https://youtu.be/-yhW9d0qxG4)
 * [0x Swap API + AWS Lambda: Automating Limit Orders in TypeScript](https://youtu.be/Pl_YqcKeUPc)
 * [Build a Grammar Correction Tool on Mac with TypeScript and OpenAI](https://youtu.be/iKfjkjg4c7E)
 * [Build a Crypto Price Alert System with TypeScript, AWS Lambda, and Telegram](https://youtu.be/qtmcExYyW48)
