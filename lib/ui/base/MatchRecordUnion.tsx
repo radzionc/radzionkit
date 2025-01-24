@@ -5,7 +5,7 @@ import { getRecordKeys } from '../../utils/record/getRecordKeys'
 type MatchRecordUnionProps<
   U extends object,
   Keys extends string = Extract<keyof U, string>,
-  R = ReactNode,
+  R extends ReactNode = ReactNode,
 > = {
   value: U
   handlers: {
@@ -16,7 +16,7 @@ type MatchRecordUnionProps<
 export function MatchRecordUnion<
   U extends object,
   Keys extends string = Extract<keyof U, string>,
-  R = ReactNode,
+  R extends ReactNode = ReactNode,
 >(props: MatchRecordUnionProps<U, Keys, R>) {
   const { value, handlers } = props
   const [key] = getRecordKeys(value) as Keys[]
