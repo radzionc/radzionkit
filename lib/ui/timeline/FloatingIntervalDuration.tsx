@@ -32,7 +32,7 @@ export const FloatingIntervalDuration = ({
         {formatTime(value.start)} - {formatTime(value.end)}
       </Text>
       <Text nowrap>
-        {formatDuration(getIntervalDuration(value), 'ms', { kind: 'long' })}
+        {formatDuration(getIntervalDuration(value), 'ms', { kind: 'l' })}
       </Text>
     </HStackSeparatedBy>
   </Container>

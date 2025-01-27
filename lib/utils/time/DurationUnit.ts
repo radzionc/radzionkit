@@ -10,3 +10,13 @@ export const durationUnitName = {
   w: 'week',
   ns: 'nanosecond',
 }
+
+export const shortDurationUnitName = {
+  ms: 'ms',
+  s: 'sec',
+  min: 'min',
+  h: 'hr',
+  d: 'd',
+  w: 'w',
+  ns: 'ns',
+}

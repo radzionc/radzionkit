@@ -1,3 +1,2 @@
-export const speak = (text: string) => {
+export const speak = (text: string) =>
   window.speechSynthesis.speak(new window.SpeechSynthesisUtterance(text))
-}
