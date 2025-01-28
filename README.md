@@ -74,6 +74,7 @@ yarn workspaces foreach --all exec yarn up "*"
 
 To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
 
+* [Swap EVM Tokens to Bitcoin with THORChain in React](https://youtu.be/m91CLBMchTE)
 * [Step-by-Step Guide to Creating a TypeScript Crypto Trader](https://youtu.be/-yhW9d0qxG4)
 * [0x Swap API + AWS Lambda: Automating Limit Orders in TypeScript](https://youtu.be/Pl_YqcKeUPc)
 * [Build a Grammar Correction Tool on Mac with TypeScript and OpenAI](https://youtu.be/iKfjkjg4c7E)
