@@ -14,21 +14,21 @@ import { transition } from '../css/transition'
 import { CheckIcon } from '../icons/CheckIcon'
 import { VStack } from '@lib/ui/css/stack'
 import { Menu } from '../menu'
-import { InputProps, StyledComponentWithColorProps } from '../props'
+import { InputProps, StyledColorProp } from '../props'
 import { InputLabel } from './InputLabel'
 
 interface ColorLabelInputProps extends InputProps<number> {
   usedValues?: Set<number>
 }
 
-const CurrentColor = styled.div<StyledComponentWithColorProps>`
+const CurrentColor = styled.div<StyledColorProp>`
   background: ${({ $color }) => $color.toCssValue()};
   ${borderRadius.s};
 
   ${sameDimensions('68%')}
 `
 
-const ColorOption = styled.label<StyledComponentWithColorProps>`
+const ColorOption = styled.label<StyledColorProp>`
   position: relative;
   cursor: pointer;
   ${centerContent};

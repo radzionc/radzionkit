@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { SvgArc } from './SvgArc'
-import { ComponentWithValueProps } from '../../props'
+import { ValueProp } from '../../props'
 import { PieChartItem } from './PieChartItem'
 import { getPieChartSegmentsAngles } from './utils/getPieChartSegmentsAngles'
 
@@ -8,9 +8,7 @@ const spaceBetweenInDegrees = 0.8
 
 const svgViewBoxSize = 100
 
-export const MinimalisticPieChart = ({
-  value,
-}: ComponentWithValueProps<PieChartItem[]>) => {
+export const MinimalisticPieChart = ({ value }: ValueProp<PieChartItem[]>) => {
   const angles = useMemo(
     () => getPieChartSegmentsAngles(value.map((item) => item.value)),
     [value],

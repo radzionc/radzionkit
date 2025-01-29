@@ -8,7 +8,7 @@ import {
 
 import { ThemePreference } from './ThemePreference'
 import { darkTheme } from './darkTheme'
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 import { lightTheme } from './lightTheme'
 import { getValueProviderSetup } from '../state/getValueProviderSetup'
 import { useMedia } from '../hooks/useMedia'
@@ -25,7 +25,7 @@ type ThemePreferenceState = {
   onChange: (value: ThemePreference) => void
 }
 
-type DarkLightThemeProviderProps = ComponentWithChildrenProps & {
+type DarkLightThemeProviderProps = ChildrenProp & {
   value: ThemePreference
   onChange?: (value: ThemePreference) => void
 }

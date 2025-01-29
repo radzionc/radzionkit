@@ -1,5 +1,5 @@
 import { ComponentProps, ReactNode } from 'react'
-import { AsElementComponent, TitledComponentProps } from '../props'
+import { AsProp, TitleProp } from '../props'
 import { BodyPortal } from '../dom/BodyPortal'
 import { ModalContainer, ModalPlacement } from './ModalContainer'
 import { HStack, VStack } from '@lib/ui/css/stack'
@@ -11,9 +11,9 @@ import { toSizeUnit } from '../css/toSizeUnit'
 import { Backdrop } from './Backdrop'
 import { modalConfig } from './config'
 
-export type ModalProps = AsElementComponent &
+export type ModalProps = AsProp &
   Omit<ComponentProps<typeof Container>, 'title'> &
-  TitledComponentProps & {
+  TitleProp & {
     onClose?: () => void
     subTitle?: ReactNode
     placement?: ModalPlacement

@@ -5,7 +5,7 @@ import { interactive } from '../css/interactive'
 import { sameDimensions } from '../css/sameDimensions'
 import { transition } from '../css/transition'
 import { HStack } from '@lib/ui/css/stack'
-import { InputProps, UIComponentProps } from '../props'
+import { InputProps, UiProps } from '../props'
 import { borderRadius } from '../css/borderRadius'
 import { useId } from 'react'
 import { Tooltip } from '../tooltips/Tooltip'
@@ -13,9 +13,7 @@ import { toSizeUnit } from '../css/toSizeUnit'
 import { textInputHeight } from '../css/textInput'
 import { horizontalPadding } from '../css/horizontalPadding'
 
-interface RadioInputProps<T extends string>
-  extends InputProps<T>,
-    UIComponentProps {
+interface RadioInputProps<T extends string> extends InputProps<T>, UiProps {
   options: readonly T[]
   renderOption: (option: T) => React.ReactNode
   isOptionDisabled?: (option: T) => string | false

@@ -1,10 +1,10 @@
 import { Modal, ModalProps } from '.'
 import { ButtonKind, Button } from '../buttons/Button'
 import { UniformColumnGrid } from '../css/uniformColumnGrid'
-import { TitledComponentProps } from '../props'
+import { TitleProp } from '../props'
 
 type ConfirmationModalProps = Omit<ModalProps, 'footer' | 'onClose'> &
-  TitledComponentProps & {
+  TitleProp & {
     onClose: () => void
     onConfirm: () => void
     confirmActionText: string

@@ -7,9 +7,9 @@ import { VStack } from '@lib/ui/css/stack'
 import { IconWrapper } from '../icons/IconWrapper'
 import { Text } from '../text'
 import { CaretUpIcon } from '../icons/CaretUpIcon'
-import { ClickableComponentProps } from '../props'
+import { OnClickProp } from '../props'
 
-type UpvoteButtonProps = ClickableComponentProps & {
+type UpvoteButtonProps = OnClickProp & {
   value: boolean
   upvotes: number
 }

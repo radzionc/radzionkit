@@ -3,7 +3,7 @@ import { borderRadius } from '../css/borderRadius'
 import { IconWrapper } from '../icons/IconWrapper'
 import { InfoIcon } from '../icons/InfoIcon'
 import { HStack } from '@lib/ui/css/stack'
-import { ComponentWithChildrenProps, UIComponentProps } from '../props'
+import { ChildrenProp, UiProps } from '../props'
 import { getColor } from '../theme/getters'
 import { verticalPadding } from '../css/verticalPadding'
 
@@ -21,10 +21,7 @@ const IconContainer = styled(IconWrapper)`
   ${verticalPadding(2)};
 `
 
-export const ShyInfoBlock = ({
-  children,
-  ...rest
-}: ComponentWithChildrenProps & UIComponentProps) => {
+export const ShyInfoBlock = ({ children, ...rest }: ChildrenProp & UiProps) => {
   return (
     <Container {...rest}>
       <HStack fullWidth gap={16}>

@@ -9,7 +9,7 @@ import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { IconWrapper } from '@lib/ui/icons/IconWrapper'
 import { CheckIcon } from '@lib/ui/icons/CheckIcon'
 import { centerContent } from '@lib/ui/css/centerContent'
-import { ComponentWithActiveState, UIComponentProps } from '../props'
+import { IsActiveProp, UiProps } from '../props'
 
 const Container = styled(HStack)<{ isActive: boolean; isEnabled: boolean }>`
   color: ${matchColor('isActive', {
@@ -51,8 +51,8 @@ const CheckContainer = styled.div<{ isCompleted: boolean; isActive: boolean }>`
   font-size: 14px;
 `
 
-type FlowNavigationItemProps = ComponentWithActiveState &
-  UIComponentProps & {
+type FlowNavigationItemProps = IsActiveProp &
+  UiProps & {
     isCompleted: boolean
     isEnabled: boolean
     onClick: () => void

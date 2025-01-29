@@ -1,9 +1,9 @@
-import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { ChildrenProp } from '@lib/ui/props'
 import { Page } from '../Page'
 
 type WithLayoutInput = {
   page: Page
-  layout: React.FC<ComponentWithChildrenProps>
+  layout: React.FC<ChildrenProp>
 }
 
 export const withLayout = ({ page, layout: Layout }: WithLayoutInput) => {

@@ -6,12 +6,7 @@ import { getColor } from '@lib/ui/theme/getters'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { centerContent } from '@lib/ui/css/centerContent'
 import { transition } from '@lib/ui/css/transition'
-import {
-  ComponentWithActiveState,
-  InputProps,
-  LabeledComponentProps,
-  UIComponentProps,
-} from '../props'
+import { IsActiveProp, InputProps, LabelProp, UiProps } from '../props'
 import { verticalPadding } from '../css/verticalPadding'
 import { InvisibleHTMLCheckbox } from './InvisibleHTMLCheckbox'
 import { interactive } from '../css/interactive'
@@ -25,7 +20,7 @@ const CheckContainer = styled.div`
   ${transition};
 `
 
-const Container = styled.label<ComponentWithActiveState>`
+const Container = styled.label<IsActiveProp>`
   ${transition};
   ${verticalPadding(4)}
   ${interactive};
@@ -49,9 +44,7 @@ const Check = styled.div`
   ${centerContent}
 `
 
-type MinimalisticToggleProps = InputProps<boolean> &
-  LabeledComponentProps &
-  UIComponentProps
+type MinimalisticToggleProps = InputProps<boolean> & LabelProp & UiProps
 
 export const MinimalisticToggle = ({
   value,

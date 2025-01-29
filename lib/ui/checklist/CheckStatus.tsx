@@ -2,16 +2,16 @@ import styled, { css } from 'styled-components'
 import { centerContent } from '../css/centerContent'
 import { getColor } from '../theme/getters'
 import { CheckIcon } from '../icons/CheckIcon'
-import { ComponentWithChildrenProps, UIComponentProps } from '../props'
+import { ChildrenProp, UiProps } from '../props'
 import React from 'react'
 import { interactive } from '../css/interactive'
 import { IconWrapper } from '../icons/IconWrapper'
 
-type CheckStatusProps = UIComponentProps & {
+type CheckStatusProps = UiProps & {
   value: boolean
   as?: React.ElementType
   isInteractive?: boolean
-} & Partial<ComponentWithChildrenProps>
+} & Partial<ChildrenProp>
 
 const IconContainer = styled(IconWrapper)``
 

@@ -18,11 +18,11 @@ Create an `AnalyticsProvider` component to manage the analytics providers.
 
 ```tsx
 import { shouldBeDefined } from '@lib/utils/assert/shouldBeDefined'
-import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { ChildrenProp } from '@lib/ui/props'
 import { AmplitudeAnalyticsProvider } from '@lib/analytics-ui/AmplitudeAnalyticsProvider'
 import { LocalAnalyticsProvider } from '@lib/analytics-ui/LocalAnalyticsProvider'
 
-export const AnalyticsProvider = ({ children }: ComponentWithChildrenProps) => {
+export const AnalyticsProvider = ({ children }: ChildrenProp) => {
   if (process.env.NODE_ENV === 'production') {
     return (
       <AmplitudeAnalyticsProvider

@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 import { getColor } from '../theme/getters'
 import styled from 'styled-components'
-import { ComponentWithChildrenProps, ClosableComponentProps } from '../props'
+import { ChildrenProp, OnCloseProp } from '../props'
 import { BodyPortal } from '../dom/BodyPortal'
 import { VStack, HStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
@@ -12,8 +12,8 @@ import { Button } from '../buttons/Button'
 import { stopPropagation } from '../utils/stopPropagation'
 import { Backdrop } from './Backdrop'
 
-export type BottomSlideOverProps = ComponentWithChildrenProps &
-  ClosableComponentProps & {
+export type BottomSlideOverProps = ChildrenProp &
+  OnCloseProp & {
     title: ReactNode
   }
 

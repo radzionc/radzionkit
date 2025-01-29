@@ -6,10 +6,10 @@ import { sameDimensions } from '../../css/sameDimensions'
 import { transition } from '../../css/transition'
 import { HStack } from '@lib/ui/css/stack'
 import { matchColor, getColor } from '../../theme/getters'
-import { ComponentWithChildrenProps } from '../../props'
+import { ChildrenProp } from '../../props'
 import { Tooltip } from '../../tooltips/Tooltip'
 
-interface SelectOptionProps extends ComponentWithChildrenProps {
+interface SelectOptionProps extends ChildrenProp {
   isSelected: boolean
   isDisabled?: string | false
 }

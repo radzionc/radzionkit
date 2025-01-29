@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { VStack } from '@lib/ui/css/stack'
-import { ComponentWithChildrenProps, TitledComponentProps } from '../../props'
+import { ChildrenProp, TitleProp } from '../../props'
 import { centeredContentColumn } from '../../css/centeredContentColumn'
 import { Text } from '../../text'
 import { verticalPadding } from '../../css/verticalPadding'
 
-type LegalPageContentProps = ComponentWithChildrenProps & TitledComponentProps
+type LegalPageContentProps = ChildrenProp & TitleProp
 
 const Container = styled.div`
   ${centeredContentColumn({

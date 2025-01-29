@@ -3,17 +3,13 @@ import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
 import { getColor, matchColor } from '../theme/getters'
 import { interactive } from '../css/interactive'
 import { HStack } from '@lib/ui/css/stack'
-import {
-  ComponentWithActiveState,
-  InputProps,
-  UIComponentProps,
-} from '../props'
+import { IsActiveProp, InputProps, UiProps } from '../props'
 import { borderRadius } from '../css/borderRadius'
 import { useId } from 'react'
 import { horizontalPadding } from '../css/horizontalPadding'
 
 type RadioInputProps<T extends string> = InputProps<T> &
-  UIComponentProps & {
+  UiProps & {
     options: readonly T[]
     renderOption: (option: T) => React.ReactNode
   }
@@ -26,7 +22,7 @@ const Wrapper = styled(HStack)`
   border: 2px solid ${getColor('mistExtra')};
 `
 
-const Container = styled.label<ComponentWithActiveState>`
+const Container = styled.label<IsActiveProp>`
   position: relative;
   ${horizontalPadding(12)};
   ${borderRadius.s};

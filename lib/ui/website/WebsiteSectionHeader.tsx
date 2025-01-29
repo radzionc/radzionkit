@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { TitledComponentProps } from '../props'
+import { TitleProp } from '../props'
 import { VStack } from '@lib/ui/css/stack'
 import styled, { css } from 'styled-components'
 import { Text } from '../text'
@@ -7,7 +7,7 @@ import { match } from '@lib/utils/match'
 
 type SectionHeaderAlign = 'center' | 'start'
 
-export type WebsiteSectionHeaderProps = TitledComponentProps & {
+export type WebsiteSectionHeaderProps = TitleProp & {
   subtitle?: ReactNode
   titleAs?: React.ElementType
   align?: SectionHeaderAlign

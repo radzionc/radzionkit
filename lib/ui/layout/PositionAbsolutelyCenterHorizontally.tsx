@@ -1,8 +1,7 @@
 import styled from 'styled-components'
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 
-interface PositionAbsolutelyCenterHorizontallyProps
-  extends ComponentWithChildrenProps {
+interface PositionAbsolutelyCenterHorizontallyProps extends ChildrenProp {
   top: React.CSSProperties['top']
   fullWidth?: boolean
 }

@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import * as amplitude from '@amplitude/analytics-browser'
 import { AnalyticsContext, AnalyticsContextState } from './AnalyticsContext'
-import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { ChildrenProp } from '@lib/ui/props'
 
-type AmplitudeAnalyticsProviderProps = ComponentWithChildrenProps & {
+type AmplitudeAnalyticsProviderProps = ChildrenProp & {
   apiKey: string
 }
 

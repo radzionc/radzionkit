@@ -1,8 +1,8 @@
-import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { ChildrenProp } from '@lib/ui/props'
 import { useEffect } from 'react'
 import { PersistentStateKey, usePersistentState } from './persistentState'
 
-interface ShowOnceProps extends ComponentWithChildrenProps {
+interface ShowOnceProps extends ChildrenProp {
   storageKey: PersistentStateKey
 }
 

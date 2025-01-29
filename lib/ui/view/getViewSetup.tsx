@@ -5,7 +5,7 @@ import {
   createContext,
   useState,
 } from 'react'
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 import { createContextHook } from '../state/createContextHook'
 
 type GetViewSetupInput<T extends string | number | symbol> = {
@@ -26,7 +26,7 @@ export function getViewSetup<T extends string | number | symbol>({
 
   const ViewContext = createContext<ViewState | undefined>(undefined)
 
-  const ViewProvider = ({ children }: ComponentWithChildrenProps) => {
+  const ViewProvider = ({ children }: ChildrenProp) => {
     const [view, setView] = useViewState(defaultView)
 
     return (

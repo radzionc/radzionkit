@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ClickableComponentProps } from '../props'
+import { OnClickProp } from '../props'
 import { Hoverable } from '../base/Hoverable'
 import { CloseIcon } from '../icons/CloseIcon'
 import { centerContent } from '../css/centerContent'
@@ -21,7 +21,7 @@ const Container = styled(Hoverable)`
   }
 `
 
-export const ModalCloseButton = ({ onClick }: ClickableComponentProps) => {
+export const ModalCloseButton = ({ onClick }: OnClickProp) => {
   return (
     <Container onClick={onClick}>
       <IconWrapper>

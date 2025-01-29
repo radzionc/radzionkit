@@ -5,7 +5,7 @@ import { TitledFloatingOptionsContainer } from '@lib/ui/floating/TitledFloatingO
 import { OptionItem } from '@lib/ui/select/OptionItem'
 import { OptionContent } from '@lib/ui/select/OptionContent'
 import { Button } from '@lib/ui/buttons/Button'
-import { ComponentWithActiveState, InputProps } from '@lib/ui/props'
+import { IsActiveProp, InputProps } from '@lib/ui/props'
 import { getColor } from '@lib/ui/theme/getters'
 import styled, { css } from 'styled-components'
 import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
@@ -14,7 +14,7 @@ import { CloseIcon } from '@lib/ui/icons/CloseIcon'
 import { IconWrapper } from '../../icons/IconWrapper'
 import { ListFilterIcon } from '../../icons/ListFilterIcon'
 
-const Opener = styled(Button)<ComponentWithActiveState>`
+const Opener = styled(Button)<IsActiveProp>`
   border: 1px solid transparent;
   outline: none;
   ${({ isActive }) =>
@@ -24,7 +24,7 @@ const Opener = styled(Button)<ComponentWithActiveState>`
     `}
 `
 
-const Content = styled(UnstyledButton)<ComponentWithActiveState>`
+const Content = styled(UnstyledButton)<IsActiveProp>`
   ${vStack({
     justifyContent: 'center',
   })}

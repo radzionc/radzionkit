@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 
-type WrapProps = ComponentWithChildrenProps & {
+type WrapProps = ChildrenProp & {
   wrap?: (children: ReactNode) => ReactNode
 }
 

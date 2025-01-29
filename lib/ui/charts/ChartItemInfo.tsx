@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { ElementSizeAware } from '../base/ElementSizeAware'
 import { defaultTransition } from '../css/transition'
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 import { JustifyPoints, positionDataPoint } from './utils/positionDataPoints'
 
-type ChartItemInfoProps = ComponentWithChildrenProps & {
+type ChartItemInfoProps = ChildrenProp & {
   containerWidth: number
   isVisible: boolean
   itemIndex: number

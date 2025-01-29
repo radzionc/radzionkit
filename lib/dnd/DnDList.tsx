@@ -13,13 +13,13 @@ import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
 import { shouldBePresent } from '@lib/utils/assert/shouldBePresent'
 import { DnDItem } from './DnDItem'
 import { DnDItemStatus } from './DnDItemStatus'
-import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { ChildrenProp } from '@lib/ui/props'
 
 export type ItemChangeParams = {
   index: number
 }
 
-type RednerListProps = Record<string, any> & ComponentWithChildrenProps
+type RednerListProps = Record<string, any> & ChildrenProp
 
 type RenderListParams = {
   props: RednerListProps

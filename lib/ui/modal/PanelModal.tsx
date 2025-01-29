@@ -1,4 +1,4 @@
-import { ComponentWithChildrenProps, NoValueFinishProps } from '@lib/ui/props'
+import { ChildrenProp, OnFinishNoValueProp } from '@lib/ui/props'
 import { BodyPortal } from '@lib/ui/dom/BodyPortal'
 import styled from 'styled-components'
 import { ModalContainer } from '@lib/ui/modal/ModalContainer'
@@ -11,8 +11,8 @@ const Container = styled(ModalContainer)`
   }
 `
 
-type PanelModalProps = NoValueFinishProps &
-  ComponentWithChildrenProps & {
+type PanelModalProps = OnFinishNoValueProp &
+  ChildrenProp & {
     width?: number
   }
 

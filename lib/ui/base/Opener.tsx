@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { useBoolean } from '../hooks/useBoolean'
-import { ClosableComponentProps } from '../props'
+import { OnCloseProp } from '../props'
 
 interface RenderOpenerParams {
   isOpen: boolean
@@ -11,7 +11,7 @@ interface RenderOpenerParams {
 type OpenerProps = {
   initialIsOpen?: boolean
   renderOpener: (params: RenderOpenerParams) => ReactNode
-  renderContent: (params: ClosableComponentProps) => ReactNode
+  renderContent: (params: OnCloseProp) => ReactNode
 }
 
 export const Opener = ({

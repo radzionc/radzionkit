@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
-import { ClickableComponentProps, ComponentWithChildrenProps } from '../props'
+import { OnClickProp, ChildrenProp } from '../props'
 import { EmbeddedPromptContainer } from './EmbeddedPromptContainer'
 import { EmbeddedPromptContentFrame } from './EmbeddedPromptContentFrame'
 
-type EmbeddedPromptProps = ComponentWithChildrenProps &
-  ClickableComponentProps & {
+type EmbeddedPromptProps = ChildrenProp &
+  OnClickProp & {
     icon: ReactNode
   }
 

@@ -2,9 +2,9 @@ import styled, { css } from 'styled-components'
 import { centerContent } from '../css/centerContent'
 import { getColor, matchColor } from '../theme/getters'
 import { defaultTransition } from '../css/transition'
-import { ComponentWithActiveState } from '../props'
+import { IsActiveProp } from '../props'
 
-export const DragHandle = styled.div<ComponentWithActiveState>`
+export const DragHandle = styled.div<IsActiveProp>`
   height: 100%;
   font-size: 20px;
   ${centerContent};

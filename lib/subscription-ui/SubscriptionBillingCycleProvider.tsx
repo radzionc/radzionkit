@@ -1,6 +1,6 @@
 import { SubscriptionBillingCycle } from '@lib/subscription/Subscription'
 import { createContext, useContext, useState } from 'react'
-import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { ChildrenProp } from '@lib/ui/props'
 
 interface BillingCycleContextValue {
   value: SubscriptionBillingCycle
@@ -13,7 +13,7 @@ const BillingCycleContext = createContext<BillingCycleContextValue | undefined>(
 
 export const SubscriptionBillingCycleProvider = ({
   children,
-}: ComponentWithChildrenProps) => {
+}: ChildrenProp) => {
   const [value, setValue] = useState<SubscriptionBillingCycle>('year')
 
   return (

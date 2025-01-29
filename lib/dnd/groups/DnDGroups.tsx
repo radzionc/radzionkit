@@ -21,11 +21,11 @@ import {
   DnDGroupsItemLocation,
 } from './DnDGroupsItemLocation'
 import { Entry } from '@lib/utils/entities/Entry'
-import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { ChildrenProp } from '@lib/ui/props'
 import { DnDItemStatus } from '../DnDItemStatus'
 import { order } from '@lib/utils/array/order'
 
-type RenderGroupProps = Record<string, any> & ComponentWithChildrenProps
+type RenderGroupProps = Record<string, any> & ChildrenProp
 
 type RenderGroupParams<GroupId extends string> = {
   groupId: GroupId

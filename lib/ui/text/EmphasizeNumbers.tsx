@@ -1,4 +1,4 @@
-import { ComponentWithValueProps } from '@lib/ui/props'
+import { ValueProp } from '@lib/ui/props'
 import { CSSProperties, Fragment } from 'react'
 import { Text } from '.'
 
@@ -13,9 +13,7 @@ function parseString(input: string): (string | number)[] {
   })
 }
 
-export const EmphasizeNumbers = ({
-  value,
-}: ComponentWithValueProps<string>) => {
+export const EmphasizeNumbers = ({ value }: ValueProp<string>) => {
   const parts = parseString(value)
 
   return (

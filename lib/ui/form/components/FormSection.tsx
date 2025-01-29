@@ -1,9 +1,9 @@
 import { LineSeparator } from '../../layout/LineSeparator'
 import { VStack } from '@lib/ui/css/stack'
-import { ComponentWithChildrenProps } from '../../props'
+import { ChildrenProp } from '../../props'
 import { Text } from '../../text'
 
-interface Props extends ComponentWithChildrenProps {
+interface Props extends ChildrenProp {
   name: string
 }
 

@@ -1,8 +1,5 @@
 import styled from 'styled-components'
-import {
-  ComponentWithChildrenProps,
-  DraggingAwareComponentProps,
-} from '../props'
+import { ChildrenProp, IsDraggingProp } from '../props'
 import { borderRadius } from '../css/borderRadius'
 import { absoluteOutline } from '../css/absoluteOutline'
 import { tightListItemConfig } from './tightListItemConfig'
@@ -27,9 +24,9 @@ const Content = styled.div`
   opacity: 0.4;
 `
 
-type DraggableTightListItemContainerProps = ComponentWithChildrenProps &
+type DraggableTightListItemContainerProps = ChildrenProp &
   ComponentProps<typeof Container> &
-  DraggingAwareComponentProps
+  IsDraggingProp
 
 export function DraggableTightListItemContainer({
   children,

@@ -1,8 +1,8 @@
 import { ExpandableSection } from '../../layout/ExpandableSection'
-import { ComponentWithChildrenProps, TitledComponentProps } from '../../props'
+import { ChildrenProp, TitleProp } from '../../props'
 import { Text } from '../../text'
 
-type FaqItemProps = ComponentWithChildrenProps & TitledComponentProps
+type FaqItemProps = ChildrenProp & TitleProp
 
 export const FaqItem = ({ children, title }: FaqItemProps) => (
   <ExpandableSection title={title}>

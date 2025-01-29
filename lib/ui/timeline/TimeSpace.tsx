@@ -5,12 +5,12 @@ import { getHoursInRange } from '@lib/utils/time/getHoursInRange'
 import { Fragment } from 'react'
 import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
 import { HStack, VStack } from '@lib/ui/css/stack'
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 import { Text } from '../text'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { verticalPadding } from '../css/verticalPadding'
 
-interface TimeSpaceProps extends ComponentWithChildrenProps {
+interface TimeSpaceProps extends ChildrenProp {
   startsAt: number
   endsAt: number
   msToPx: (ms: number) => number

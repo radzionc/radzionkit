@@ -3,7 +3,7 @@ import isPropValid from '@emotion/is-prop-valid'
 import { ThemeProvider as StyledComponentsThemeProvider } from 'styled-components'
 import { DefaultTheme } from 'styled-components'
 
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 
 const shouldForwardProp = (propName: string, target: any) => {
   if (typeof target === 'string') {
@@ -12,7 +12,7 @@ const shouldForwardProp = (propName: string, target: any) => {
   return true
 }
 
-type ThemeProviderProps = ComponentWithChildrenProps & {
+type ThemeProviderProps = ChildrenProp & {
   theme: DefaultTheme
 }
 

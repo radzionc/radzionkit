@@ -1,6 +1,6 @@
 import { FloatingOptionsContainer } from '../floating/FloatingOptionsContainer'
 import { useFloatingOptions } from '../floating/useFloatingOptions'
-import { UIComponentProps } from '../props'
+import { UiProps } from '../props'
 import { OptionItem } from './OptionItem'
 import { ExpandableSelectorToggle } from './ExpandableSelectorToggle'
 import { FloatingFocusManager } from '@floating-ui/react'
@@ -8,7 +8,7 @@ import { OptionContent } from './OptionContent'
 import { ExpandableSelectorContainer } from './ExpandableSelectorContainer'
 import { WithSelectionMark } from './WithSelectionMark'
 
-export type ExpandableSelectorProp<T> = UIComponentProps & {
+export type ExpandableSelectorProp<T> = UiProps & {
   value: T | null
   onChange: (value: T) => void
   isDisabled?: boolean

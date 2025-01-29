@@ -1,19 +1,13 @@
 import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
-import {
-  ClickableComponentProps,
-  ComponentWithChildrenProps,
-  TitledComponentProps,
-} from '../props'
+import { OnClickProp, ChildrenProp, TitleProp } from '../props'
 import { CallOutPanel } from './CallOutPanel'
 
 export const PanelPrompt = ({
   title,
   children,
   onClick,
-}: TitledComponentProps &
-  ComponentWithChildrenProps &
-  ClickableComponentProps) => {
+}: TitleProp & ChildrenProp & OnClickProp) => {
   return (
     <CallOutPanel onClick={onClick} kind="secondary">
       <VStack gap={8} alignItems="center">

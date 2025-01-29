@@ -9,7 +9,7 @@ import { NoVolumeIcon } from '@lib/ui/icons/NoVolumeIcon'
 import { VolumeIcon } from '@lib/ui/icons/VolumeIcon'
 import styled from 'styled-components'
 import { ModalContent } from '@lib/ui/modal/ModalContent'
-import { ComponentWithChildrenProps, TitledComponentProps } from '../../props'
+import { ChildrenProp, TitleProp } from '../../props'
 
 const IconContainer = styled(IconWrapper)`
   color: ${({ theme }) =>
@@ -19,8 +19,8 @@ const IconContainer = styled(IconWrapper)`
 type ManageNotificationsProps = {
   isSoundEnabled: boolean
   setIsSoundEnabled: (isSoundEnabled: boolean) => void
-} & ComponentWithChildrenProps &
-  TitledComponentProps &
+} & ChildrenProp &
+  TitleProp &
   React.ComponentProps<typeof WithSecondaryAction>
 
 export const ManageNotifications = ({

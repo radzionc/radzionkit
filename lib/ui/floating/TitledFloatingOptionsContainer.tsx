@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { getColor } from '../theme/getters'
 import { FloatingOptionsContainer } from './FloatingOptionsContainer'
 import { ComponentProps } from 'react'
-import { TitledComponentProps } from '@lib/ui/props'
+import { TitleProp } from '@lib/ui/props'
 import { horizontalPadding } from '../css/horizontalPadding'
 import { Text } from '../text'
 import { VStack } from '@lib/ui/css/stack'
@@ -34,7 +34,7 @@ type TitledFloatingOptionsContainerProps = Omit<
   ComponentProps<typeof Container>,
   'title'
 > &
-  TitledComponentProps
+  TitleProp
 
 export function TitledFloatingOptionsContainer({
   title,

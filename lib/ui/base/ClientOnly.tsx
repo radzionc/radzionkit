@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 
-type ClientOnlyProps = ComponentWithChildrenProps & {
+type ClientOnlyProps = ChildrenProp & {
   placeholder?: React.ReactNode
 }
 

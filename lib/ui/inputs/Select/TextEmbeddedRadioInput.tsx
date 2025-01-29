@@ -2,11 +2,7 @@ import React, { useId } from 'react'
 import styled, { css } from 'styled-components'
 import { InvisibleHTMLRadio } from '../InvisibleHTMLRadio'
 import { Text } from '../../text'
-import {
-  InputProps,
-  ComponentWithActiveState,
-  ComponentWithOptionsProps,
-} from '../../props'
+import { InputProps, IsActiveProp, OptionsProp } from '../../props'
 import { centerContent } from '../../css/centerContent'
 import { interactive } from '../../css/interactive'
 import { toSizeUnit } from '../../css/toSizeUnit'
@@ -14,7 +10,7 @@ import { getColor } from '../../theme/getters'
 import { absoluteOutline } from '../../css/absoluteOutline'
 
 type TextEmbeddedRadioInputProps<T extends string> = InputProps<T> &
-  ComponentWithOptionsProps<T> & {
+  OptionsProp<T> & {
     renderOption: (option: T) => React.ReactNode
   }
 
@@ -24,7 +20,7 @@ const OptionsContainer = styled.div`
 
 const space = 8
 
-const Option = styled.label<ComponentWithActiveState>`
+const Option = styled.label<IsActiveProp>`
   height: 100%;
   ${interactive};
   ${centerContent};

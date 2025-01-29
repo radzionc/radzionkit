@@ -1,4 +1,4 @@
-import { ComponentWithActiveState, InputProps } from '@lib/ui/props'
+import { IsActiveProp, InputProps } from '@lib/ui/props'
 import { HStack, vStack } from '@lib/ui/css/stack'
 import styled, { css } from 'styled-components'
 import { interactive } from '@lib/ui/css/interactive'
@@ -20,7 +20,7 @@ const Title = styled(Text)`
   font-size: 16px;
 `
 
-const Wrapper = styled.label<ComponentWithActiveState>`
+const Wrapper = styled.label<IsActiveProp>`
   ${interactive};
 
   ${vStack({

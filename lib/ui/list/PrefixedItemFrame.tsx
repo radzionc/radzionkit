@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { verticalPadding } from '../css/verticalPadding'
 import { centerContent } from '../css/centerContent'
-import { ComponentWithChildrenProps, UIComponentProps } from '../props'
+import { ChildrenProp, UiProps } from '../props'
 import { ReactNode } from 'react'
 import { tightListItemConfig } from './tightListItemConfig'
 
@@ -31,8 +31,8 @@ const PrefixContainer = styled.div`
 `
 
 type PrefixedItemFrameProps = Partial<ContainerProps> &
-  ComponentWithChildrenProps &
-  UIComponentProps & {
+  ChildrenProp &
+  UiProps & {
     prefixWidth?: number
     prefix: ReactNode
   }

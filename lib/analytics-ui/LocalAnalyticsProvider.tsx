@@ -1,4 +1,4 @@
-import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { ChildrenProp } from '@lib/ui/props'
 import { AnalyticsContext, AnalyticsContextState } from './AnalyticsContext'
 
 const localAnalytics: AnalyticsContextState = {
@@ -10,9 +10,7 @@ const localAnalytics: AnalyticsContextState = {
   },
 }
 
-export const LocalAnalyticsProvider = ({
-  children,
-}: ComponentWithChildrenProps) => {
+export const LocalAnalyticsProvider = ({ children }: ChildrenProp) => {
   return (
     <AnalyticsContext.Provider value={localAnalytics}>
       {children}

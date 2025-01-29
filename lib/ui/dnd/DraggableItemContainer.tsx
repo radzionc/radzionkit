@@ -1,10 +1,10 @@
 import { DragHandle } from '@lib/ui/dnd/DragHandle'
 import { HStack } from '@lib/ui/css/stack'
-import { ComponentWithActiveState } from '@lib/ui/props'
+import { IsActiveProp } from '@lib/ui/props'
 import { getColor } from '@lib/ui/theme/getters'
 import styled from 'styled-components'
 
-export const DraggableItemContainer = styled(HStack)<ComponentWithActiveState>`
+export const DraggableItemContainer = styled(HStack)<IsActiveProp>`
   width: 100%;
   gap: 4px;
   align-items: start;

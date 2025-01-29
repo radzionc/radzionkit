@@ -1,4 +1,4 @@
-import { ClickableComponentProps } from '@lib/ui/props'
+import { OnClickProp } from '@lib/ui/props'
 import { PlusIcon } from '@lib/ui/icons/PlusIcon'
 import { Text } from '@lib/ui/text'
 import { Hoverable } from '@lib/ui/base/Hoverable'
@@ -18,7 +18,7 @@ const Container = styled(Hoverable)`
     color: ${getColor('primary')};
   }
 `
-type ListAddButton = ClickableComponentProps & {
+type ListAddButton = OnClickProp & {
   text: ReactNode
 }
 

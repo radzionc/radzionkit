@@ -7,9 +7,9 @@ import { SafeImage } from '@lib/ui/images/SafeImage'
 import { getColor } from '@lib/ui/theme/getters'
 
 import styled from 'styled-components'
-import { UIComponentProps } from '../props'
+import { UiProps } from '../props'
 
-type ImageAsIconProps = UIComponentProps & {
+type ImageAsIconProps = UiProps & {
   src?: string
   name: string
 }

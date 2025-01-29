@@ -1,10 +1,10 @@
 import { CSSProperties } from 'react'
 import styled from 'styled-components'
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 import { Text } from '../text'
 import { Line } from './Line'
 
-interface Props extends ComponentWithChildrenProps {
+interface Props extends ChildrenProp {
   columnNames: string[]
   gridTemplateColumns: CSSProperties['gridTemplateColumns']
 }

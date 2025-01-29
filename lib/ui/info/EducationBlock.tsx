@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { borderRadius } from '../css/borderRadius'
 import { IconWrapper } from '../icons/IconWrapper'
 import { HStack, VStack } from '@lib/ui/css/stack'
-import { ComponentWithChildrenProps, UIComponentProps } from '../props'
+import { ChildrenProp, UiProps } from '../props'
 import { getColor } from '../theme/getters'
 import { verticalPadding } from '../css/verticalPadding'
 import { toSizeUnit } from '../css/toSizeUnit'
@@ -24,8 +24,8 @@ const IconContainer = styled(IconWrapper)`
   ${verticalPadding(2)};
 `
 
-type EducationBlockProps = ComponentWithChildrenProps &
-  UIComponentProps & {
+type EducationBlockProps = ChildrenProp &
+  UiProps & {
     onSubmit: () => void
   }
 

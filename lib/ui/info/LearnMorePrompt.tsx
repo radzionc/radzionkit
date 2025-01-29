@@ -3,10 +3,10 @@ import { horizontalPadding } from '@lib/ui/css/horizontalPadding'
 import { round } from '@lib/ui/css/round'
 import { hStack } from '@lib/ui/css/stack'
 import { InfoIcon } from '@lib/ui/icons/InfoIcon'
-import { AsElementComponent } from '@lib/ui/props'
 import { getColor } from '@lib/ui/theme/getters'
 import { ComponentProps } from 'react'
 import styled from 'styled-components'
+import { AsProp } from '../props'
 
 const Container = styled(UnstyledButton)`
   ${round};
@@ -36,7 +36,7 @@ const Container = styled(UnstyledButton)`
 `
 
 export const LearnMorePrompt = (
-  props: ComponentProps<typeof Container> & AsElementComponent,
+  props: ComponentProps<typeof Container> & AsProp,
 ) => (
   <Container {...props}>
     <InfoIcon />

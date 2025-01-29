@@ -1,7 +1,7 @@
 import { horizontalPadding } from '@lib/ui/css/horizontalPadding'
 import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { VStack } from '@lib/ui/css/stack'
-import { ComponentWithChildrenProps, TitledComponentProps } from '@lib/ui/props'
+import { ChildrenProp, TitleProp } from '@lib/ui/props'
 import { Text } from '@lib/ui/text'
 import styled from 'styled-components'
 
@@ -21,8 +21,8 @@ const Content = styled(VStack)`
   gap: 28px;
 `
 
-type OnboardingSectionProps = ComponentWithChildrenProps &
-  TitledComponentProps & {
+type OnboardingSectionProps = ChildrenProp &
+  TitleProp & {
     footer?: React.ReactNode
   }
 

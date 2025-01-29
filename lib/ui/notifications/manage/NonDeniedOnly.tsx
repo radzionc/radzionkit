@@ -1,11 +1,8 @@
-import { ComponentWithChildrenProps, NamedComponentProps } from '../../props'
+import { ChildrenProp, NameProp } from '../../props'
 import { ShyWarningBlock } from '../../status/ShyWarningBlock'
 import { useNotificationPermission } from '../hooks/useNotificationPermission'
 
-export const NonDeniedOnly = ({
-  children,
-  name,
-}: ComponentWithChildrenProps & NamedComponentProps) => {
+export const NonDeniedOnly = ({ children, name }: ChildrenProp & NameProp) => {
   const permission = useNotificationPermission()
 
   if (permission === 'denied') {

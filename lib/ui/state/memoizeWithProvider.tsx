@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, createContext } from 'react'
 
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 import { ContextState } from './ContextState'
 import { createContextHook } from './createContextHook'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
@@ -16,7 +16,7 @@ export function memoizeWithProvider<T>({
 }: MemoizeWithProviderInput<T>) {
   const Context = createContext<ContextState<T> | undefined>(undefined)
 
-  const Provider = ({ children }: ComponentWithChildrenProps) => {
+  const Provider = ({ children }: ChildrenProp) => {
     const [value, setValue] = useState()
 
     return (

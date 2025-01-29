@@ -1,8 +1,8 @@
-import { ComponentWithChildrenProps, TitledComponentProps } from '@lib/ui/props'
+import { ChildrenProp, TitleProp } from '@lib/ui/props'
 import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 
-type LegalPageSectionProps = ComponentWithChildrenProps & TitledComponentProps
+type LegalPageSectionProps = ChildrenProp & TitleProp
 
 export const LegalPageSection = ({
   title,

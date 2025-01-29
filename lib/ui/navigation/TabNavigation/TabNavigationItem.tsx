@@ -5,16 +5,12 @@ import {
   InvisibleHTMLRadioProps,
 } from '../../inputs/InvisibleHTMLRadio'
 import { centerContent } from '../../css/centerContent'
-import {
-  ComponentWithActiveState,
-  ComponentWithChildrenProps,
-  UIComponentProps,
-} from '../../props'
+import { IsActiveProp, ChildrenProp, UiProps } from '../../props'
 import { interactive } from '../../css/interactive'
 import { getColor } from '../../theme/getters'
 import { round } from '../../css/round'
 
-const Container = styled.label<ComponentWithActiveState>`
+const Container = styled.label<IsActiveProp>`
   ${interactive};
   ${round};
   text-decoration: none;
@@ -42,9 +38,7 @@ const Container = styled.label<ComponentWithActiveState>`
         `};
 `
 
-type TabNavigationItemProps = InvisibleHTMLRadioProps &
-  ComponentWithChildrenProps &
-  UIComponentProps
+type TabNavigationItemProps = InvisibleHTMLRadioProps & ChildrenProp & UiProps
 
 export const TabNavigationItem = ({
   isSelected,

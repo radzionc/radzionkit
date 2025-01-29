@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
 import { VStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 
-interface Props extends ComponentWithChildrenProps {
+interface Props extends ChildrenProp {
   title: ReactNode
 }
 

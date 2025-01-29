@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
-import { TitledComponentProps } from '../props'
+import { TitleProp } from '../props'
 import { Text } from '../text'
 import { HStack } from '@lib/ui/css/stack'
 
-type ExpandableSectionListTitleProps = TitledComponentProps & {
+type ExpandableSectionListTitleProps = TitleProp & {
   identifier?: ReactNode
   count?: number
 }

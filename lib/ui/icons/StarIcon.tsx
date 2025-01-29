@@ -1,6 +1,6 @@
-import { ComponentWithClassNameProps } from '../props'
+import { ClassNameProp } from '../props'
 
-export const StarIcon = ({ className }: ComponentWithClassNameProps) => (
+export const StarIcon = ({ className }: ClassNameProp) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"

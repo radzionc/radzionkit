@@ -4,10 +4,9 @@ import { getColor } from '../theme/getters'
 import { getHoverVariant } from '../theme/getHoverVariant'
 import { SelectContainer } from './SelectContainer'
 import { ExpandableSelectorToggle } from './ExpandableSelectorToggle'
-import { ComponentWithActiveState, ComponentWithDisabledState } from '../props'
+import { IsActiveProp, IsDisabledProp } from '../props'
 
-type ExpandableSelectorContainerProps = ComponentWithActiveState &
-  ComponentWithDisabledState
+type ExpandableSelectorContainerProps = IsActiveProp & IsDisabledProp
 
 export const ExpandableSelectorContainer = styled(
   SelectContainer,

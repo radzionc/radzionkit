@@ -1,4 +1,4 @@
-import { ComponentWithChildrenProps, TitledComponentProps } from '../props'
+import { ChildrenProp, TitleProp } from '../props'
 import { HStack, VStack } from '@lib/ui/css/stack'
 import styled, { css } from 'styled-components'
 import { interactive } from '../css/interactive'
@@ -10,8 +10,8 @@ import { verticalPadding } from '../css/verticalPadding'
 import { IconWrapper } from '../icons/IconWrapper'
 import { Text } from '../text'
 
-type ExpandableSectionProps = TitledComponentProps &
-  ComponentWithChildrenProps & {
+type ExpandableSectionProps = TitleProp &
+  ChildrenProp & {
     defaultIsOpen?: boolean
   }
 

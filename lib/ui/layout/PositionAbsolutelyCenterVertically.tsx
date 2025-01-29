@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { ComponentWithChildrenProps, UIComponentProps } from '../props'
+import { ChildrenProp, UiProps } from '../props'
 
-type PositionAbsolutelyCenterVerticallyProps = ComponentWithChildrenProps &
-  UIComponentProps & {
+type PositionAbsolutelyCenterVerticallyProps = ChildrenProp &
+  UiProps & {
     left: React.CSSProperties['left']
     fullHeight?: boolean
   }

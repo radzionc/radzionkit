@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
-import { ComponentWithActiveState, InputProps } from '../props'
+import { IsActiveProp, InputProps } from '../props'
 import { horizontalPadding } from '../css/horizontalPadding'
 import { getColor } from '../theme/getters'
 import { absoluteOutline } from '../css/absoluteOutline'
@@ -29,7 +29,7 @@ const Container = styled(HStack)`
   ${hideScrollbars};
 `
 
-const Option = styled(UnstyledButton)<ComponentWithActiveState>`
+const Option = styled(UnstyledButton)<IsActiveProp>`
   flex-shrink: 0;
   position: relative;
   font-size: 14px;

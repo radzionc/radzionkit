@@ -6,7 +6,7 @@ import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { SafeImage } from '@lib/ui/images/SafeImage'
 import { round } from '@lib/ui/css/round'
 import { IconWrapper } from '@lib/ui/icons/IconWrapper'
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 import { ReactNode } from 'react'
 
 const Container = styled(VStack)`
@@ -32,7 +32,7 @@ const SignutureWrapper = styled(IconWrapper)`
   }
 `
 
-type FoundersNoteProps = ComponentWithChildrenProps & {
+type FoundersNoteProps = ChildrenProp & {
   avatarUrl: string
   signature: ReactNode
 }

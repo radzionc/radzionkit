@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { UIComponentProps } from '../props'
+import { UiProps } from '../props'
 import { IconWrapper } from '../icons/IconWrapper'
 import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 
-type CollapsableStateIndicatorProps = UIComponentProps & {
+type CollapsableStateIndicatorProps = UiProps & {
   isOpen: boolean
 }
 

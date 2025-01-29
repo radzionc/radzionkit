@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
 import { toPercents } from '@lib/utils/toPercents'
-import { UIComponentProps } from '../props'
+import { UiProps } from '../props'
 import styled from 'styled-components'
 
-type ChartYAxisProps = UIComponentProps & {
+type ChartYAxisProps = UiProps & {
   data: number[]
   renderLabel: (index: number) => ReactNode
 }

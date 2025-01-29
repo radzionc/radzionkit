@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ComponentWithChildrenProps } from '../props'
+import { ChildrenProp } from '../props'
 import { borderRadius } from '../css/borderRadius'
 import { absoluteOutline } from '../css/absoluteOutline'
 import { tightListItemConfig } from './tightListItemConfig'
@@ -22,9 +22,7 @@ const Highlight = styled.div`
   border: 1px solid ${getColor('mistExtra')};
 `
 
-export const TightListItemDragOverlay = ({
-  children,
-}: ComponentWithChildrenProps) => {
+export const TightListItemDragOverlay = ({ children }: ChildrenProp) => {
   return (
     <Container>
       <Highlight />

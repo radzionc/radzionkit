@@ -6,10 +6,10 @@ import { CenterAbsolutely } from '../layout/CenterAbsolutely'
 import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
 import { getColor, matchColor } from '../theme/getters'
 import { borderRadius } from '../css/borderRadius'
-import { ComponentWithActiveState } from '../props'
+import { IsActiveProp } from '../props'
 import { GripHorizontalIcon } from '../icons/GripHorizontalIcon'
 
-const InteractiveArea = styled.div<ComponentWithActiveState>`
+const InteractiveArea = styled.div<IsActiveProp>`
   width: 100%;
   cursor: row-resize;
   ${centerContent};
@@ -30,11 +30,11 @@ const InteractiveArea = styled.div<ComponentWithActiveState>`
 
 type BoundaryInteractiveAreaProps = ComponentProps<typeof InteractiveArea> & {
   top: number
-} & ComponentWithActiveState
+} & IsActiveProp
 
 export type IntervalBoundaryStatus = 'idle' | 'hovered' | 'active'
 
-const Container = styled.div<ComponentWithActiveState>`
+const Container = styled.div<IsActiveProp>`
   width: 28px;
   height: 20px;
   ${centerContent};

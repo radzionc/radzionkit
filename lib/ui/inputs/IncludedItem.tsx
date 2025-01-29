@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ComponentWithChildrenProps, UIComponentProps } from '../props'
+import { ChildrenProp, UiProps } from '../props'
 import { getColor } from '../theme/getters'
 import { borderRadius } from '../css/borderRadius'
 import { HStack } from '@lib/ui/css/stack'
@@ -8,8 +8,8 @@ import { transition } from '../css/transition'
 import { CloseIcon } from '../icons/CloseIcon'
 import { centerContent } from '../css/centerContent'
 
-type IncludedItemProps = ComponentWithChildrenProps &
-  UIComponentProps & {
+type IncludedItemProps = ChildrenProp &
+  UiProps & {
     onRemove?: () => void
   }
 

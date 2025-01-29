@@ -5,7 +5,7 @@ import { ActionInsideInteractiveElement } from '../base/ActionInsideInteractiveE
 import { Panel } from '@lib/ui/css/panel'
 import { Text } from '../text'
 import { getColor } from '../theme/getters'
-import { ComponentWithActionProps, ComponentWithChildrenProps } from '../props'
+import { ActionProp, ChildrenProp } from '../props'
 import { centerContent } from '../css/centerContent'
 import { takeWholeSpaceAbsolutely } from '../css/takeWholeSpaceAbsolutely'
 import { sameDimensions } from '../css/sameDimensions'
@@ -15,11 +15,11 @@ import { UnstyledButton } from '../buttons/UnstyledButton'
 import { CloseIcon } from '../icons/CloseIcon'
 import { borderRadius } from '../css/borderRadius'
 
-interface ImageBannerProps extends ComponentWithActionProps {
+interface ImageBannerProps extends ActionProp {
   onClose: () => void
   title: ReactNode
   image: ReactNode
-  renderInteractiveArea: (props: ComponentWithChildrenProps) => ReactNode
+  renderInteractiveArea: (props: ChildrenProp) => ReactNode
 }
 
 const padding = '20px'

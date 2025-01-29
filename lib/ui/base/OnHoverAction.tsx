@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 
 import { ElementSizeAware } from './ElementSizeAware'
-import { ComponentWithActionProps, UIComponentProps } from '../props'
+import { ActionProp, UiProps } from '../props'
 import { Dimensions } from '@lib/utils/entities/Dimensions'
 
 interface OnHoverActionRenderParams<T extends React.CSSProperties> {
@@ -10,8 +10,8 @@ interface OnHoverActionRenderParams<T extends React.CSSProperties> {
   actionPlacerStyles: T
 }
 
-type OnHoverActionProps<T extends React.CSSProperties> = UIComponentProps &
-  ComponentWithActionProps & {
+type OnHoverActionProps<T extends React.CSSProperties> = UiProps &
+  ActionProp & {
     render: (params: OnHoverActionRenderParams<T>) => ReactNode
     actionPlacerStyles: T
   }

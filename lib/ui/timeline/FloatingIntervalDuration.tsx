@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { VStack } from '@lib/ui/css/stack'
 import { getColor } from '../theme/getters'
-import { ComponentWithValueProps, UIComponentProps } from '../props'
+import { ValueProp, UiProps } from '../props'
 import { HStackSeparatedBy, dotSeparator } from '../layout/StackSeparatedBy'
 import { Text } from '../text'
 import { formatTime } from '@lib/utils/time/formatTime'
@@ -9,8 +9,7 @@ import { Interval } from '@lib/utils/interval/Interval'
 import { formatDuration } from '@lib/utils/time/formatDuration'
 import { getIntervalDuration } from '@lib/utils/interval/getIntervalDuration'
 
-export type FloatingIntervalDurationProps = UIComponentProps &
-  ComponentWithValueProps<Interval>
+export type FloatingIntervalDurationProps = UiProps & ValueProp<Interval>
 
 const Container = styled(VStack)`
   position: absolute;

@@ -1,15 +1,12 @@
 import styled, { css } from 'styled-components'
-import {
-  ComponentWithActiveState,
-  ComponentWithDisabledState,
-} from '../../../props'
+import { IsActiveProp, IsDisabledProp } from '../../../props'
 import { getColor } from '../../../theme/getters'
 import { centerContent } from '../../../css/centerContent'
 import { interactive } from '../../../css/interactive'
 import { borderRadius } from '../../../css/borderRadius'
 import { UnstyledButton } from '../../../buttons/UnstyledButton'
 
-type Props = ComponentWithDisabledState & ComponentWithActiveState
+type Props = IsDisabledProp & IsActiveProp
 
 export const DayOption = styled(UnstyledButton)<Props>`
   color: ${getColor('contrast')};

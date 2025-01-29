@@ -4,10 +4,10 @@ import { HStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { useRouter } from 'next/router'
 import { YouTubeLink } from '@product/ui-demo/components/YouTubeLink'
-import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { ChildrenProp } from '@lib/ui/props'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
 
-interface Props extends ComponentWithChildrenProps {
+interface Props extends ChildrenProp {
   title: string
   seoTitle?: string
   seoDescription?: string
