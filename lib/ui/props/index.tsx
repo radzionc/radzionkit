@@ -30,17 +30,14 @@ export type OnClickProp = {
   onClick: () => void
 }
 
-export type OnFinishNoValueProp = {
-  onFinish: () => void
-}
-
-export type OnFinishOptionalValueProp<T> = {
-  onFinish: (value?: T) => void
-}
-
-export type OnFinishValueProp<T> = {
-  onFinish: (value: T) => void
-}
+export type OnFinishProp<
+  T = void,
+  Mode extends 'required' | 'optional' = 'required',
+> = [T] extends [void]
+  ? { onFinish: () => void }
+  : Mode extends 'optional'
+    ? { onFinish: (value?: T) => void }
+    : { onFinish: (value: T) => void }
 
 export type InputProps<T> = {
   value: T
