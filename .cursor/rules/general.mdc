@@ -1,0 +1,11 @@
+---
+description: General rules
+globs: *.ts, *.tsx
+---
+
+- Follow the established codebase style.
+
+## Pattern matching
+
+- Use pattern matching functions ([match.ts](mdc:lib/utils/match.ts)) or components ([Match.tsx](mdc:lib/ui/base/Match.tsx)) instead of switch-case statements.
+- For React Query state handling, use [MatchQuery.tsx](mdc:lib/ui/query/components/MatchQuery.tsx) or [MatchEagerQuery.tsx](mdc:lib/ui/query/components/MatchEagerQuery.tsx).
