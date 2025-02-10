@@ -1,13 +1,16 @@
 import { useMemo } from 'react'
+import { Query } from '../Query'
 
-type Query<T> = {
-  data: T | undefined
-}
+type QueryBase<T> = Pick<Query<T>, 'data' | 'error'>
 
-export const useTransformQueryData = <T, V, B>(
-  queryResult: B & Query<T>,
-  transform: (data: T) => V,
-): B & Query<V> => {
+export const useTransformQueryData = <
+  TInput,
+  TOutput,
+  TExtra extends object = {},
+>(
+  queryResult: QueryBase<TInput> & TExtra,
+  transform: (data: TInput) => TOutput,
+): QueryBase<TOutput> & Omit<TExtra, keyof QueryBase<TOutput>> => {
   return useMemo(() => {
     try {
       return {
@@ -16,7 +19,7 @@ export const useTransformQueryData = <T, V, B>(
           queryResult.data !== undefined
             ? transform(queryResult.data)
             : undefined,
-      } as B & Query<V>
+      }
     } catch (error) {
       return {
         ...queryResult,
