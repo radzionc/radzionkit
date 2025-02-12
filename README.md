@@ -61,14 +61,13 @@ yarn workspaces foreach --all exec yarn up "*"
 
 ## Examples Using RadzionKit
 
-- **[Radzion's Resume](https://resume.radzion.com):** A Web3 Front-end developer resume. [Source code available on GitHub](https://github.com/radzionc/resume).
-- **[Pentafret](https://pentafret.com):** A website with guitar music theory tools. [Source code available on GitHub](https://github.com/radzionc/guitar).
-- **Crypto:** Web3 tools. [Source code available on GitHub](https://github.com/radzionc/crypto)
-- **AI:** Fix the grammar of selected text with a shortcut. [Source code available on GitHub](https://github.com/radzionc/ai)
-- **[Storage](https://storage.radzion.com):** Save files on a distributed storage network. [Source code available on GitHub](https://github.com/radzionc/auto-drive)
-- **GeorgianCitizen:** An exam prep app. [Source code available on GitHub](https://github.com/radzionc/georgian).
+- **[Radzion's Resume](https://github.com/radzionc/resume):** A Web3 Front-end developer resume.
+- **[Pentafret](https://github.com/radzionc/guitar):** A website with guitar music theory tools.
+- **[Crypto](https://github.com/radzionc/crypto):** Web3 tools.
+- **[AI](https://github.com/radzionc/ai):** Fix the grammar of selected text with a shortcut.
+- **[Storage](https://github.com/radzionc/auto-drive):** Save files on a distributed storage network.
+- **[GeorgianCitizen](https://github.com/radzionc/georgian):** An exam prep app.
 - **[Increaser](https://increaser.org):** A productivity toolkit designed for remote workers.
-
 
 ## RadzionKit Cookbook: Simplifying Development with Practical YouTube Tutorials
 
