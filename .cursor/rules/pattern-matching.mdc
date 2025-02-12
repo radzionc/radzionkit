@@ -1,0 +1,112 @@
+---
+description: Rules for enforcing pattern matching patterns instead of switch/case statements.
+globs: *.tsx, *.ts
+---
+# Pattern Matching Rules
+
+<rule>
+name: pattern_matching
+description: Enforce pattern matching over switch/case statements
+filters:
+  # Match TypeScript and React files
+  - type: file_extension
+    pattern: "\\.(ts|tsx)$"
+  # Match switch statements
+  - type: content
+    pattern: "switch\\s*\\([^)]+\\)\\s*\\{"
+
+actions:
+  - type: reject
+    conditions:
+      - pattern: "switch\\s*\\([^)]+\\)\\s*\\{"
+        message: "Avoid using switch/case statements. Use pattern matching instead:"
+
+  - type: suggest
+    message: |
+      Instead of switch/case, use one of these pattern matching approaches:
+
+      1. For simple union types (like string literals), use a record or the match function:
+
+         ```typescript
+         // Instead of:
+         switch(animal) {
+           case 'dog': return 'woof'
+           case 'cat': return 'meow'
+         }
+
+         // Use a record:
+         const animalSounds: Record<Animal, string> = {
+           dog: 'woof',
+           cat: 'meow'
+         }
+
+         // Or use match function for value mapping:
+         const sound = match(animal, {
+           dog: () => 'woof',
+           cat: () => 'meow'
+         })
+
+         // Or with more complex transformations:
+         const animalData = match(animal, {
+           dog: () => ({ sound: 'woof', legs: 4, diet: 'omnivore' }),
+           cat: () => ({ sound: 'meow', legs: 4, diet: 'carnivore' })
+         })
+         ```
+
+      2. For React components, use the Match component:
+         ```typescript
+         <Match 
+           value={status}
+           loading={() => <LoadingSpinner />}
+           error={() => <ErrorMessage />}
+           success={() => <Content />}
+         />
+         ```
+
+      3. For record unions, use matchRecordUnion:
+         ```typescript
+         // Instead of switch on type property
+         matchRecordUnion(shape, {
+           circle: (radius) => Math.PI * radius * radius,
+           rectangle: ({width, height}) => width * height
+         })
+         ```
+
+      4. For discriminated unions, use matchDiscriminatedUnion:
+         ```typescript
+         // Instead of switch on kind property
+         matchDiscriminatedUnion(
+           action,
+           'kind',
+           'payload',
+           {
+             increment: (amount) => count + amount,
+             decrement: (amount) => count - amount
+           }
+         )
+         ```
+
+examples:
+  - input: |
+      // Bad: Using switch
+      switch (status) {
+        case 'loading':
+          return <Loading />
+        case 'error':
+          return <Error />
+        default:
+          return null
+      }
+
+      // Good: Using Match component
+      <Match
+        value={status}
+        loading={() => <Loading />}
+        error={() => <Error />}
+      />
+    output: "Pattern matching used correctly"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>
