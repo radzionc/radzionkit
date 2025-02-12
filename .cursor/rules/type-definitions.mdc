@@ -1,0 +1,92 @@
+---
+description: Rules for using type vs interface in TypeScript
+globs: *.ts, *.tsx
+---
+# TypeScript Type Definition Rules
+
+<rule>
+name: type_vs_interface
+description: Standards for when to use type vs interface in TypeScript
+filters:
+  # Match TypeScript and React files
+  - type: file_extension
+    pattern: "\\.(ts|tsx)$"
+  # Match interface declarations
+  - type: content
+    pattern: "interface\\s+\\w+"
+
+actions:
+  - type: reject
+    conditions:
+      - pattern: "interface\\s+\\w+\\s*\\{[^}]*\\}"
+        message: "Use type instead of interface for object type definitions. Only use interface for contracts that will be implemented by classes."
+
+  - type: suggest
+    message: |
+      When defining types in TypeScript:
+
+      1. Use `type` for object type definitions:
+         ```typescript
+         // Instead of:
+         interface User {
+           id: string
+           name: string
+         }
+
+         // Do this:
+         type User = {
+           id: string
+           name: string
+         }
+         ```
+
+      2. Only use `interface` when defining contracts that will be implemented by classes:
+         ```typescript
+         // Good use of interface:
+         interface Repository {
+           save(entity: unknown): Promise<void>
+           find(id: string): Promise<unknown>
+         }
+
+         class PostgresRepository implements Repository {
+           // Implementation...
+         }
+         ```
+
+      3. Prefer `type` for:
+         - Object type definitions
+         - Union types
+         - Intersection types
+         - Mapped types
+         - Utility types
+
+      4. Use `interface` only for:
+         - Class contracts
+         - Plugin systems
+         - Public APIs meant to be implemented
+
+examples:
+  - input: |
+      // Bad: Using interface for simple object type
+      interface UserData {
+        id: string
+        name: string
+      }
+
+      // Good: Using type for object type
+      type UserData = {
+        id: string
+        name: string
+      }
+
+      // Good: Using interface for class contract
+      interface DataStore {
+        save(key: string, value: unknown): void
+        get(key: string): unknown
+      }
+    output: "Type and interface used correctly"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule> 
