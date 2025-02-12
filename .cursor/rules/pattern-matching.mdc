@@ -45,12 +45,6 @@ actions:
            dog: () => 'woof',
            cat: () => 'meow'
          })
-
-         // Or with more complex transformations:
-         const animalData = match(animal, {
-           dog: () => ({ sound: 'woof', legs: 4, diet: 'omnivore' }),
-           cat: () => ({ sound: 'meow', legs: 4, diet: 'carnivore' })
-         })
          ```
 
       2. For React components, use the Match component:
