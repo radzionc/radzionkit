@@ -1,21 +1,33 @@
+type PropertyKey = string | number | symbol
+
+type DiscriminantValues<U, D extends PropertyKey> =
+  U extends Record<D, infer X> ? X : never
+
+type PayloadForCase<
+  U,
+  D extends PropertyKey,
+  V extends PropertyKey,
+  K extends PropertyKey,
+> = U extends { [p in D]: K } & Record<V, infer R> ? R : never
+
+type HandlerMap<U, D extends PropertyKey, V extends PropertyKey, R> = {
+  [K in DiscriminantValues<U, D> & PropertyKey]: (
+    payload: PayloadForCase<U, D, V, K>,
+  ) => R
+}
+
 export function matchDiscriminatedUnion<
-  D extends string,
-  V extends string,
-  U extends { [P in D]: string } & { [Q in V]: unknown },
-  K extends U[D] = U[D],
-  R = never,
+  U extends Record<D, any> & Record<V, any>,
+  R,
+  D extends PropertyKey = PropertyKey,
+  V extends PropertyKey = PropertyKey,
 >(
-  unionValue: U,
+  value: U,
   discriminantKey: D,
   valueKey: V,
-  handlers: {
-    [P in K]: (val: Extract<U, { [Q in D]: P }>[V]) => R
-  },
+  handlers: HandlerMap<U, D, V, R>,
 ): R {
-  const discriminantValue = unionValue[discriminantKey] as K
-  const handler = handlers[discriminantValue]
-  const value = (
-    unionValue as Extract<U, { [P in D]: typeof discriminantValue }>
-  )[valueKey]
-  return handler(value)
+  const key = value[discriminantKey] as DiscriminantValues<U, D> & PropertyKey
+  const narrowed = value as Extract<U, { [p in D]: typeof key }>
+  return handlers[key](narrowed[valueKey])
 }

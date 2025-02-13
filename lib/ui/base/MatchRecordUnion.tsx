@@ -1,31 +1,21 @@
-import { ReactNode } from 'react'
+import React from 'react'
 
-import { getRecordKeys } from '../../utils/record/getRecordKeys'
+type KeyOfUnion<U> = U extends any ? keyof U : never
+type ValueForKey<U, K extends string | number | symbol> =
+  U extends Record<K, infer V> ? V : never
 
-type MatchRecordUnionProps<
-  U extends object,
-  Keys extends string = Extract<keyof U, string>,
-  R extends ReactNode = ReactNode,
-> = {
+export type MatchRecordUnionProps<U> = {
   value: U
   handlers: {
-    [K in Keys]: (arg: U extends { [P in K]: infer Val } ? Val : never) => R
+    [K in KeyOfUnion<U>]: (payload: ValueForKey<U, K>) => React.ReactNode
   }
 }
 
-export function MatchRecordUnion<
-  U extends object,
-  Keys extends string = Extract<keyof U, string>,
-  R extends ReactNode = ReactNode,
->(props: MatchRecordUnionProps<U, Keys, R>) {
-  const { value, handlers } = props
-  const [key] = getRecordKeys(value) as Keys[]
-  const handler = handlers[key]
-  const val = (value as Record<string, unknown>)[key]
-
-  return (
-    <>
-      {handler(val as U extends { [P in typeof key]: infer Val } ? Val : never)}
-    </>
-  )
+export function MatchRecordUnion<U>({
+  value,
+  handlers,
+}: MatchRecordUnionProps<U>) {
+  const key = Object.keys(value as any)[0] as KeyOfUnion<U>
+  const content = handlers[key]((value as any)[key])
+  return <>{content}</>
 }

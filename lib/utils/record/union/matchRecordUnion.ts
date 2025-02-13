@@ -1,22 +1,11 @@
-import { getRecordKeys } from '../getRecordKeys'
+type KeyOfUnion<U> = U extends any ? keyof U : never
+type ValueForKey<U, K extends string | number | symbol> =
+  U extends Record<K, infer V> ? V : never
 
-export function matchRecordUnion<
-  U extends object,
-  Keys extends string = Extract<keyof U, string>,
-  R = never,
->(
+export function matchRecordUnion<U, R>(
   value: U,
-  handlers: {
-    [K in Keys]: (arg: U extends { [P in K]: infer Val } ? Val : never) => R
-  },
+  handlers: { [K in KeyOfUnion<U>]: (val: ValueForKey<U, K>) => R },
 ): R {
-  const [key] = getRecordKeys(value) as Keys[]
-
-  const handler = handlers[key]
-
-  const val = (value as Record<string, unknown>)[key]
-
-  return handler(
-    val as U extends { [P in typeof key]: infer Val } ? Val : never,
-  )
+  const key = Object.keys(value as any)[0] as KeyOfUnion<U>
+  return handlers[key]((value as any)[key])
 }
