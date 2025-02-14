@@ -9,7 +9,7 @@ import {
   languagePrimaryCountry,
   languages,
 } from '@product/languages/Language'
-import CountryFlag from '@lib/ui/countries/flags/CountryFlag'
+import CountryFlag from '@lib/countries-ui/flags/CountryFlag'
 import { Text } from '@lib/ui/text'
 import { Button } from '@lib/ui/buttons/Button'
 

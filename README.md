@@ -24,6 +24,7 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 * [**@lib/subscriptions**](lib/subscriptions/README.md) - Types for subscription payments.
 * [**@lib/chain**](lib/chain/README.md) - Utilities for working with Web3 and blockchain.
 * [**@lib/chain-ui**](lib/chain-ui/README.md) - Components for Web3 applications.
+* [**@lib/countries-ui**](lib/countries-ui/README.md) - Components for country flags and selection.
 
 ### Product Packages
 

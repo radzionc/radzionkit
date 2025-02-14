@@ -6,7 +6,7 @@ import { CountryCode } from '@lib/countries'
 import { SvgIconProps } from '@lib/ui/icons/SvgIconProps'
 
 import { CountryFlagFallback } from '../CountryFlagFallback'
-import { ClientOnly } from '../../base/ClientOnly'
+import { ClientOnly } from '@lib/ui/base/ClientOnly'
 
 const countryFlagRecord: Record<CountryCode, ComponentType<SvgIconProps>> = {
   AF: React.lazy(() => import('./AfFlag')),

@@ -2,7 +2,7 @@ import { CountryCode } from '@lib/countries'
 import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
 import { useState } from 'react'
-import { CountryInput } from '@lib/ui/inputs/CountryInput'
+import { CountryInput } from '@lib/countries-ui/CountryInput'
 import styled from 'styled-components'
 
 const Container = styled.div`

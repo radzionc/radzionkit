@@ -1,11 +1,11 @@
 import { CountryCode, countryCodes, countryNameRecord } from '@lib/countries'
-import { InputProps } from '../props'
-import CountryFlag from '../countries/flags/CountryFlag'
-import { IconWrapper } from '../icons/IconWrapper'
+import { InputProps } from '@lib/ui/props'
+import { IconWrapper } from '@lib/ui/icons/IconWrapper'
 import styled from 'styled-components'
-import { CountryFlagFrame } from '../countries/CountryFlagFrame'
-import { FixedOptionsInput } from './dropdown/FixedOptionsInput'
-import { DropdownOptionContent } from './dropdown/DropdownOptionContent'
+import { FixedOptionsInput } from '@lib/ui/inputs/dropdown/FixedOptionsInput'
+import { DropdownOptionContent } from '@lib/ui/inputs/dropdown/DropdownOptionContent'
+import { CountryFlagFrame } from './CountryFlagFrame'
+import CountryFlag from './flags/CountryFlag'
 
 interface CountryInputProps extends InputProps<CountryCode | null> {
   label?: React.ReactNode

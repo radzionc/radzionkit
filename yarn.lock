@@ -2283,6 +2283,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lib/countries-ui@workspace:lib/countries-ui":
+  version: 0.0.0-use.local
+  resolution: "@lib/countries-ui@workspace:lib/countries-ui"
+  dependencies:
+    "@types/react": "npm:^19.0.8"
+    "@types/react-dom": "npm:^19.0.3"
+    react: "npm:^19.0.0"
+    react-dom: "npm:^19.0.0"
+    styled-components: "npm:^6.1.15"
+  languageName: unknown
+  linkType: soft
+
 "@lib/countries@workspace:lib/countries":
   version: 0.0.0-use.local
   resolution: "@lib/countries@workspace:lib/countries"

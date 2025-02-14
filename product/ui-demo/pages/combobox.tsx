@@ -1,10 +1,10 @@
 import { CountryCode } from '@lib/countries'
 import { useState } from 'react'
-import { CountryInput } from '@lib/ui/inputs/CountryInput'
+import { CountryInput } from '@lib/countries-ui/CountryInput'
 import styled from 'styled-components'
 import { VStack } from '@lib/ui/css/stack'
 import { Asset } from '../../entities/Asset'
-import { AssetInput } from '../../../lib/chain-ui/AssetInput'
+import { AssetInput } from '@lib/chain-ui/AssetInput'
 import { DemoPage } from '../components/DemoPage'
 import { makeDemoPage } from '../layout/makeDemoPage'
 

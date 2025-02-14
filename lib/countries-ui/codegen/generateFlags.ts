@@ -3,8 +3,8 @@ import fs from 'fs'
 import path from 'path'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { createTsFile } from '@lib/codegen/utils/createTsFile'
-import { svgToReact } from '../../codegen/svgToReact'
 import { recordFromKeys } from '@lib/utils/record/recordFromKeys'
+import { svgToReact } from '@lib/ui/codegen/svgToReact'
 
 const getSvgFlagPath = (code: CountryCode) =>
   path.resolve(__dirname, './flags', `${code.toLowerCase()}.svg`)
