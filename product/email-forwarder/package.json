@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.705.0",
-    "@aws-sdk/client-sesv2": "^3.708.0",
-    "@sentry/serverless": "7.114.0",
+    "@aws-sdk/client-s3": "^3.744.0",
+    "@aws-sdk/client-sesv2": "^3.744.0",
+    "@sentry/serverless": "^7.120.3",
     "aws-lambda": "^1.0.7"
   },
   "scripts": {
@@ -16,6 +16,6 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "esbuild": "^0.24.0"
+    "esbuild": "^0.25.0"
   }
 }

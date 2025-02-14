@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "next": "^15.0.4",
+    "next": "^15.1.7",
     "react": "^19.0.0",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.15"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

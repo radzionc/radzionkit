@@ -11,20 +11,20 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.62.11",
-    "next": "^15.0.4",
+    "@tanstack/react-query": "^5.66.0",
+    "next": "^15.1.7",
     "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.0.4",
-    "@types/node": "^22.10.1",
-    "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.2",
-    "eslint": "^9.16.0",
-    "eslint-config-next": "^15.0.4",
+    "@next/eslint-plugin-next": "^15.1.7",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "eslint": "^9.20.1",
+    "eslint-config-next": "^15.1.7",
     "pwa-asset-generator": "^6.4.0"
   }
 }

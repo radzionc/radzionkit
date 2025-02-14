@@ -5,11 +5,11 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
-    "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.2"
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

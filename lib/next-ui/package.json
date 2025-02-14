@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "next": "^15.0.4",
+    "next": "^15.1.7",
     "react": "^19.0.0"
   },
   "scripts": {
