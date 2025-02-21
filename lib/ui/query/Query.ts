@@ -21,7 +21,7 @@ export const pendingQuery = {
 export const inactiveQuery = {
   data: undefined,
   error: null,
-  isPending: false,
+  isPending: true,
   isLoading: false,
 }
 
