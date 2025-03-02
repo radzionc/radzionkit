@@ -42,7 +42,7 @@ export default makeDemoPage(() => {
   const { timestamp, price } = bitcoinPriceTimeseries[selectedPoint]
 
   return (
-    <DemoPage title="Line Chart">
+    <DemoPage youtubeVideoId="8gJ5g0OW6qY" title="Line Chart">
       <ElementSizeAware
         render={({ setElement, size }) => {
           return (

@@ -1,7 +1,7 @@
 import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { VStack } from '@lib/ui/css/stack'
 import { HSLAParameter, hslaKeys, hslaParamMaxValue } from '@lib/ui/colors/HSLA'
-import { ColorParameterInput } from '@product/ui-demo/components/ColorParameterInput'
+import { ColorParameterInput } from '@product/ui-demo/components/hsla/ColorParameterInput'
 import styled, { useTheme } from 'styled-components'
 import { useState } from 'react'
 import { Text } from '@lib/ui/text'
@@ -63,7 +63,7 @@ export default makeDemoPage(() => {
                 <Text>{colorParameterName[key]}</Text>
                 <ColorParameterInput
                   onChange={(parameter) => {
-                    setValue(
+                    setValue((value) =>
                       value.getVariant({ [key]: () => parameter.toFixed(2) }),
                     )
                   }}

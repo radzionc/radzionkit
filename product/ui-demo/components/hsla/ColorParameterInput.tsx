@@ -12,6 +12,7 @@ import styled from 'styled-components'
 import { interactive } from '@lib/ui/css/interactive'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import { defaultTransition } from '@lib/ui/css/transition'
+import { useCallback } from 'react'
 
 export interface ColorParameterInputProps
   extends Omit<InvisibleHTMLSliderProps, 'min'> {
@@ -63,16 +64,27 @@ export const ColorParameterInput = ({
   step,
   getColor,
 }: ColorParameterInputProps) => {
-  const colors = range(Math.round(max / step)).map((index) =>
+  const colors: string[] = range(Math.round(max / step)).map((index: number) =>
     getColor(index * step),
   )
+
+  const handlePressTrackerChange = useCallback(
+    ({
+      position,
+    }: {
+      position: { x: number; y: number } | null
+      clientPosition: { x: number; y: number } | null
+    }) => {
+      if (position) {
+        onChange(Math.round((position.x * max) / step) * step)
+      }
+    },
+    [onChange, max, step],
+  )
+
   return (
     <PressTracker
-      onChange={({ position }) => {
-        if (position) {
-          onChange(Math.round((position.x * max) / step) * step)
-        }
-      }}
+      onChange={handlePressTrackerChange}
       render={({ props }) => (
         <Container {...props}>
           <InvisibleHTMLSlider

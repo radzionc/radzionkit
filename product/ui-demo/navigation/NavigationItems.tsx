@@ -31,7 +31,6 @@ export const NavigationItems = () => (
     <NavigationToInternalPage path={Path.CountryFlag} name="Country flag" />
     <NavigationToInternalPage path={Path.ImageBanner} name="Image Banner" />
     <NavigationToInternalPage path={Path.Checklist} name="Checklist" />
-    <NavigationToInternalPage path={Path.Confetti} name="Confetti" />
     <NavigationToInternalPage path={Path.GridTable} name="CSS Grid Table" />
     <NavigationToInternalPage path={Path.PressTracker} name="Press Tracker" />
     <NavigationToInternalPage path={Path.NestedFilter} name="Nested Filter" />

@@ -7,7 +7,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@aws-sdk/client-sesv2": "^3.744.0",
+    "@aws-sdk/client-sesv2": "^3.758.0",
     "@react-email/button": "^0.0.19",
     "@react-email/components": "^0.0.33",
     "@react-email/html": "^0.0.11",

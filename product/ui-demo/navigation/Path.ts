@@ -31,7 +31,6 @@ export enum Path {
   OnHoverAction = '/on-hover-action',
   TimeoutMessage = '/timeout',
   AmountInput = '/amount-input',
-  Confetti = '/confetti',
   BarChart = '/bar-chart',
   ConfirmationModal = '/confirmation-modal',
   Hoverable = '/hoverable',

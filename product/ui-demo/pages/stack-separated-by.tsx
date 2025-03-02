@@ -15,6 +15,7 @@ export default makeDemoPage(() => {
       <SeparatedByLine gap={16}>
         <LabeledValue name="Total">
           <HStackSeparatedBy
+            gap={4}
             separator={<Text color="supporting">{slashSeparator}</Text>}
           >
             <Text>1h 20min</Text>
@@ -23,6 +24,7 @@ export default makeDemoPage(() => {
         </LabeledValue>
         <LabeledValue name="Total">
           <HStackSeparatedBy
+            gap={4}
             separator={<Text color="supporting">{dotSeparator}</Text>}
           >
             <Text>1h 20min</Text>
