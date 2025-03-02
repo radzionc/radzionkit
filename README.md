@@ -60,6 +60,12 @@ To upgrade every dependency to the latest version, run the following command:
 yarn workspaces foreach --all exec yarn up "*"
 ```
 
+For convenience, you can use the provided script to upgrade both Yarn and all dependencies in one step:
+
+```bash
+. ./scripts/upgrade-all.sh
+```
+
 ## Examples Using RadzionKit
 
 - **[Radzion's Resume](https://github.com/radzionc/resume):** A Web3 Front-end developer resume.
