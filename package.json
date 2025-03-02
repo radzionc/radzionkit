@@ -10,6 +10,7 @@
     "@eslint/compat": "^1.2.7",
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.21.0",
+    "@next/eslint-plugin-next": "^14.2.3",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@typescript-eslint/eslint-plugin": "^8.25.0",
@@ -27,6 +28,8 @@
     "postinstall": "husky install",
     "format": "eslint --fix && prettier --write",
     "typecheck": "tsc --noEmit",
-    "sync-packages": "syncpack fix-mismatches"
+    "sync-packages": "syncpack fix-mismatches",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   }
 }

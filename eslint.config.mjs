@@ -16,7 +16,8 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 })
 
-export default [
+// Base configuration for all projects
+const baseConfig = [
   ...compat.extends(
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -60,5 +61,41 @@ export default [
       '**/public/workbox-*.js',
       '**/.react-email/**',
     ],
+  },
+]
+
+// Next.js specific configuration
+const nextJsConfig = compat.extends('plugin:@next/next/recommended')
+
+export default [
+  // Base rules for all files
+  ...baseConfig,
+
+  // Next.js rules for product/app
+  {
+    files: ['product/app/**/*.{js,jsx,ts,tsx}'],
+    ...nextJsConfig[0],
+    settings: {
+      next: {
+        rootDir: 'product/app',
+      },
+    },
+    rules: {
+      '@next/next/no-html-link-for-pages': ['error', 'product/app/pages'],
+    },
+  },
+
+  // Next.js rules for product/ui-demo
+  {
+    files: ['product/ui-demo/**/*.{js,jsx,ts,tsx}'],
+    ...nextJsConfig[0],
+    settings: {
+      next: {
+        rootDir: 'product/ui-demo',
+      },
+    },
+    rules: {
+      '@next/next/no-html-link-for-pages': ['error', 'product/ui-demo/pages'],
+    },
   },
 ]
