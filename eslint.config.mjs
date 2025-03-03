@@ -19,7 +19,6 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 })
 
-// Base configuration for all projects
 const baseConfig = [
   ...compat.extends(
     'eslint:recommended',
@@ -97,13 +96,10 @@ const baseConfig = [
   },
 ]
 
-// Next.js specific configuration
 const nextJsConfig = compat.extends('plugin:@next/next/recommended')
 
-// Define an array of Next.js app paths
 const nextJsApps = ['product/app', 'product/ui-demo']
 
-// Create Next.js specific configs by mapping over the apps array
 const nextJsConfigs = nextJsApps.map((appPath) => ({
   files: [`${appPath}/**/*.{js,jsx,ts,tsx}`],
   ...nextJsConfig[0],
@@ -117,10 +113,4 @@ const nextJsConfigs = nextJsApps.map((appPath) => ({
   },
 }))
 
-export default [
-  // Base rules for all files
-  ...baseConfig,
-
-  // Next.js rules for all apps
-  ...nextJsConfigs,
-]
+export default [...baseConfig, ...nextJsConfigs]

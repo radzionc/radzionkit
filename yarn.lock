@@ -2335,6 +2335,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lib/next-analytics-ui@workspace:lib/next-analytics-ui":
+  version: 0.0.0-use.local
+  resolution: "@lib/next-analytics-ui@workspace:lib/next-analytics-ui"
+  dependencies:
+    next: "npm:^15.2.0"
+    react: "npm:^19.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@lib/next-ui@workspace:lib/next-ui":
   version: 0.0.0-use.local
   resolution: "@lib/next-ui@workspace:lib/next-ui"
