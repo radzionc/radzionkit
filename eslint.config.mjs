@@ -100,35 +100,27 @@ const baseConfig = [
 // Next.js specific configuration
 const nextJsConfig = compat.extends('plugin:@next/next/recommended')
 
+// Define an array of Next.js app paths
+const nextJsApps = ['product/app', 'product/ui-demo']
+
+// Create Next.js specific configs by mapping over the apps array
+const nextJsConfigs = nextJsApps.map((appPath) => ({
+  files: [`${appPath}/**/*.{js,jsx,ts,tsx}`],
+  ...nextJsConfig[0],
+  settings: {
+    next: {
+      rootDir: appPath,
+    },
+  },
+  rules: {
+    '@next/next/no-html-link-for-pages': ['error', `${appPath}/pages`],
+  },
+}))
+
 export default [
   // Base rules for all files
   ...baseConfig,
 
-  // Next.js rules for product/app
-  {
-    files: ['product/app/**/*.{js,jsx,ts,tsx}'],
-    ...nextJsConfig[0],
-    settings: {
-      next: {
-        rootDir: 'product/app',
-      },
-    },
-    rules: {
-      '@next/next/no-html-link-for-pages': ['error', 'product/app/pages'],
-    },
-  },
-
-  // Next.js rules for product/ui-demo
-  {
-    files: ['product/ui-demo/**/*.{js,jsx,ts,tsx}'],
-    ...nextJsConfig[0],
-    settings: {
-      next: {
-        rootDir: 'product/ui-demo',
-      },
-    },
-    rules: {
-      '@next/next/no-html-link-for-pages': ['error', 'product/ui-demo/pages'],
-    },
-  },
+  // Next.js rules for all apps
+  ...nextJsConfigs,
 ]
