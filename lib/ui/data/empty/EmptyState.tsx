@@ -1,8 +1,10 @@
 import { ReactNode } from 'react'
+
 import { HStack, VStack } from '../../css/stack'
 import { NoDataIllustration } from '../../illustrations/NoDataIllustration'
 import { ActionProp, TitleProp } from '../../props'
 import { Text } from '../../text'
+
 import { EmptyStateContainer } from './EmptyStateContainer'
 import { EmptyStateContent } from './EmptyStateContent'
 

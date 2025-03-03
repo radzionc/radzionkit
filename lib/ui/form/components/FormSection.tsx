@@ -1,5 +1,6 @@
-import { LineSeparator } from '../../layout/LineSeparator'
 import { VStack } from '@lib/ui/css/stack'
+
+import { LineSeparator } from '../../layout/LineSeparator'
 import { ChildrenProp } from '../../props'
 import { Text } from '../../text'
 

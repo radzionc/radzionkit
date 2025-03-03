@@ -1,11 +1,11 @@
-import { Fragment } from 'react'
-import styled from 'styled-components'
+import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { HStack } from '@lib/ui/css/stack'
 import { TableLayout } from '@lib/ui/layout/TableLayout'
 import { Text } from '@lib/ui/text'
-import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
+import { Fragment } from 'react'
+import styled from 'styled-components'
 
 interface Token {
   symbolImageUrl: string

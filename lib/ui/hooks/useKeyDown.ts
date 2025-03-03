@@ -1,4 +1,5 @@
 import { useCallback, useEffect } from 'react'
+
 import { hasWindow } from '../utils/window'
 
 type Key = string

@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
+
 import { getColor } from '../theme/getters'
+
 import { themedScrollbars } from './themedScrollbars'
 
 interface GlobalStyleProps {

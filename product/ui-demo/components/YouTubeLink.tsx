@@ -1,7 +1,7 @@
-import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
 import { Button } from '@lib/ui/buttons/Button'
-import { YouTubeIcon } from '@lib/ui/icons/YouTubeIcon'
 import { HStack } from '@lib/ui/css/stack'
+import { YouTubeIcon } from '@lib/ui/icons/YouTubeIcon'
+import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
 import { Text } from '@lib/ui/text'
 
 interface Props {

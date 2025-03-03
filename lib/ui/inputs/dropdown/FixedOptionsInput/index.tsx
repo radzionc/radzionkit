@@ -1,17 +1,19 @@
 import { ReactNode, useCallback, useMemo, useRef, useState } from 'react'
-import { InputProps } from '../../../props'
-import { getSuggestions } from './getSuggestions'
-import { FixedOptionInputMessage } from './FixedOptionInputMessage'
-import { FixedOptionsInputItem } from './OptionItem'
-import { FixedOptionsInputIdentifierWrapper } from './IdentifierWrapper'
+
+import { useRunOnChange } from '../../../hooks/useRunOnChange'
 import { RelativeRow } from '../../../layout/RelativeRow'
+import { InputProps } from '../../../props'
 import { InputContainer } from '../../InputContainer'
-import { useFixedOptionsInputFloatingOptions } from './useFixedOptionsInputFloatingOptions'
-import { FixedOptionsInputButtons } from './Buttons'
 import { InputLabel } from '../../InputLabel'
 import { DropdownContainer } from '../DropdownContainer'
 import { DropdownInputFrame } from '../DropdownInputFrame'
-import { useRunOnChange } from '../../../hooks/useRunOnChange'
+
+import { FixedOptionsInputButtons } from './Buttons'
+import { FixedOptionInputMessage } from './FixedOptionInputMessage'
+import { getSuggestions } from './getSuggestions'
+import { FixedOptionsInputIdentifierWrapper } from './IdentifierWrapper'
+import { FixedOptionsInputItem } from './OptionItem'
+import { useFixedOptionsInputFloatingOptions } from './useFixedOptionsInputFloatingOptions'
 
 export interface FixedOptionsInputProps<T> extends InputProps<T | null> {
   placeholder?: string

@@ -1,5 +1,5 @@
-import { formatCode } from './formatCode'
 import { createFile } from './createFile'
+import { formatCode } from './formatCode'
 
 interface CreateJsonFileParams {
   directory: string

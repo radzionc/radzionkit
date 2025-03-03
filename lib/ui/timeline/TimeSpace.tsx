@@ -1,14 +1,15 @@
-import styled from 'styled-components'
-import { getColor } from '../theme/getters'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { formatTime } from '@lib/utils/time/formatTime'
 import { getHoursInRange } from '@lib/utils/time/getHoursInRange'
 import { Fragment } from 'react'
-import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
-import { HStack, VStack } from '@lib/ui/css/stack'
-import { ChildrenProp } from '../props'
-import { Text } from '../text'
+import styled from 'styled-components'
+
 import { toSizeUnit } from '../css/toSizeUnit'
 import { verticalPadding } from '../css/verticalPadding'
+import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
+import { ChildrenProp } from '../props'
+import { Text } from '../text'
+import { getColor } from '../theme/getters'
 
 interface TimeSpaceProps extends ChildrenProp {
   startsAt: number

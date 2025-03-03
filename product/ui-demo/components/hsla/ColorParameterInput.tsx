@@ -1,18 +1,18 @@
-import { range } from '@lib/utils/array/range'
-import { toPercents } from '@lib/utils/toPercents'
 import { PressTracker } from '@lib/ui/base/PressTracker'
+import { centerContent } from '@lib/ui/css/centerContent'
+import { interactive } from '@lib/ui/css/interactive'
+import { sameDimensions } from '@lib/ui/css/sameDimensions'
+import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
+import { defaultTransition } from '@lib/ui/css/transition'
 import {
   InvisibleHTMLSlider,
   InvisibleHTMLSliderProps,
 } from '@lib/ui/inputs/Slider/InvisibleHtmlSlider'
 import { getColor } from '@lib/ui/theme/getters'
-import { centerContent } from '@lib/ui/css/centerContent'
-import { sameDimensions } from '@lib/ui/css/sameDimensions'
-import styled from 'styled-components'
-import { interactive } from '@lib/ui/css/interactive'
-import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
-import { defaultTransition } from '@lib/ui/css/transition'
+import { range } from '@lib/utils/array/range'
+import { toPercents } from '@lib/utils/toPercents'
 import { useCallback } from 'react'
+import styled from 'styled-components'
 
 export interface ColorParameterInputProps
   extends Omit<InvisibleHTMLSliderProps, 'min'> {

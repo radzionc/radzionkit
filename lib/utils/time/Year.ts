@@ -1,5 +1,6 @@
-import { haveEqualFields } from '../record/haveEqualFields'
 import { startOfYear } from 'date-fns'
+
+import { haveEqualFields } from '../record/haveEqualFields'
 
 export type Year = {
   year: number

@@ -1,0 +1,54 @@
+---
+description: USE specified package manager WHEN managing dependencies TO ensure consistent dependency resolution
+globs: terminal
+alwaysApply: false
+---
+
+# Package Manager Selection Rules
+
+## Context
+- Applies when installing, updating, or removing dependencies
+- Applies when running package scripts
+- Based on the project's packageManager field in package.json
+- Currently, this project uses yarn@4.7.0 as specified in package.json
+- Consistent package manager usage prevents lock file conflicts and ensures reliable dependency resolution
+
+## Requirements
+- Always use the package manager specified in the root package.json's packageManager field
+- Do not use other package managers unless the packageManager field is updated
+- Use the correct command equivalents based on the specified package manager
+
+## Examples
+<example>
+# If package.json specifies yarn (current configuration)
+# Installing a package
+yarn add react
+
+# Installing a dev dependency
+yarn add -D eslint
+
+# Removing a package
+yarn remove lodash
+
+# Installing all dependencies
+yarn
+
+# Running a script
+yarn build
+</example>
+
+<example type="invalid">
+# Using npm when package.json specifies yarn
+npm install react
+npm install --save-dev eslint
+npm uninstall lodash
+npm install
+npm run build
+
+# Using pnpm when package.json specifies yarn
+pnpm add react
+pnpm add -D eslint
+pnpm remove lodash
+pnpm install
+pnpm run build
+</example>

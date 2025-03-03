@@ -1,7 +1,7 @@
-import { DemoPage } from '@product/ui-demo/components/DemoPage'
-import { useTheme } from 'styled-components'
 import { PieChart } from '@lib/ui/charts/PieChart'
+import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
+import { useTheme } from 'styled-components'
 
 export default makeDemoPage(() => {
   const {

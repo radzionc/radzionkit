@@ -1,10 +1,10 @@
-import { useStartOfDay } from '@lib/ui/hooks/useStartOfDay'
 import { Panel } from '@lib/ui/css/panel'
+import { useStartOfDay } from '@lib/ui/hooks/useStartOfDay'
+import { TitledSection } from '@lib/ui/layout/TitledSection'
 import { TimeInput } from '@lib/ui/timeline/TimeInput'
+import { convertDuration } from '@lib/utils/time/convertDuration'
 import { useState } from 'react'
 import { useTheme } from 'styled-components'
-import { TitledSection } from '@lib/ui/layout/TitledSection'
-import { convertDuration } from '@lib/utils/time/convertDuration'
 
 export const TimeEditor = () => {
   const startOfDay = useStartOfDay()

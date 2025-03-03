@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+
 import { useWindowEvent } from './useEvent'
 
 export const useFocusedElement = (): Element | null => {

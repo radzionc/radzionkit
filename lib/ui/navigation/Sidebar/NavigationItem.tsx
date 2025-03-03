@@ -1,9 +1,10 @@
-import styled, { css } from 'styled-components'
-import { getColor } from '../../theme/getters'
-import { transition } from '../../css/transition'
 import { HStack } from '@lib/ui/css/stack'
-import { Text } from '../../text'
+import styled, { css } from 'styled-components'
+
 import { borderRadius } from '../../css/borderRadius'
+import { transition } from '../../css/transition'
+import { Text } from '../../text'
+import { getColor } from '../../theme/getters'
 
 interface Props {
   icon?: React.ReactNode

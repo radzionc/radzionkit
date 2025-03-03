@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-import { Spacer } from '../../layout/Spacer'
-import { Burger } from './Burger'
-import { Backdrop } from '../../modal/Backdrop'
 import { useBoolean } from '../../hooks/useBoolean'
+import { Spacer } from '../../layout/Spacer'
+import { Backdrop } from '../../modal/Backdrop'
+
+import { Burger } from './Burger'
 
 const Container = styled.div`
   width: 100%;

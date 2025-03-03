@@ -1,9 +1,10 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 
-import { Button, ButtonProps } from './Button'
 import { centerContent } from '../css/centerContent'
 import { horizontalPadding } from '../css/horizontalPadding'
+
+import { Button, ButtonProps } from './Button'
 
 const Content = styled.div`
   position: relative;

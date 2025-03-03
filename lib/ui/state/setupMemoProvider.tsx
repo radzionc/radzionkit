@@ -1,7 +1,9 @@
-import { createContext } from 'react'
-import { ChildrenProp } from '../props'
-import { createContextHook } from './createContextHook'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+import { createContext } from 'react'
+
+import { ChildrenProp } from '../props'
+
+import { createContextHook } from './createContextHook'
 
 type Input<T> = {
   name: string

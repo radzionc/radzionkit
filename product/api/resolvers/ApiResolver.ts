@@ -1,4 +1,5 @@
 import { ApiInterface } from '@product/api-interface/ApiInterface'
+
 import { ApiResolverContext } from './ApiResolverContext'
 
 export interface ApiResolverParams<K extends keyof ApiInterface> {

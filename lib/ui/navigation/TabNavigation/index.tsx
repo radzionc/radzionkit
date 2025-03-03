@@ -1,9 +1,10 @@
-import styled from 'styled-components'
-
-import { TabNavigationItem } from './TabNavigationItem'
-import { hideScrollbars } from '../../css/hideScrollbars'
 import { HStack } from '@lib/ui/css/stack'
 import { useId } from 'react'
+import styled from 'styled-components'
+
+import { hideScrollbars } from '../../css/hideScrollbars'
+
+import { TabNavigationItem } from './TabNavigationItem'
 
 interface TabNavigationProps<T extends string | number | symbol> {
   views: readonly T[]

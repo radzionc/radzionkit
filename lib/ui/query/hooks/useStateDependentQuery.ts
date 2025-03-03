@@ -1,12 +1,13 @@
+import { areEqualRecords } from '@lib/utils/record/areEqualRecords'
+import { withoutUndefinedFields } from '@lib/utils/record/withoutUndefinedFields'
+import { WithoutUndefinedFields } from '@lib/utils/types/WithoutUndefinedFields'
 import {
   useQueries,
   UseQueryOptions,
   UseQueryResult,
 } from '@tanstack/react-query'
+
 import { inactiveQuery, Query } from '../Query'
-import { WithoutUndefinedFields } from '@lib/utils/types/WithoutUndefinedFields'
-import { withoutUndefinedFields } from '@lib/utils/record/withoutUndefinedFields'
-import { areEqualRecords } from '@lib/utils/record/areEqualRecords'
 
 type Input<
   T extends Record<string, any>,

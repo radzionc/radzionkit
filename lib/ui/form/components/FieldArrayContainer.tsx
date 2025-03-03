@@ -1,6 +1,7 @@
 import { VStack } from '@lib/ui/css/stack'
 import { ChildrenProp, TitleProp, UiProps } from '@lib/ui/props'
 import styled from 'styled-components'
+
 import { FormSectionShyTitle } from './FormSectionShyTitle'
 
 const Container = styled(VStack)`

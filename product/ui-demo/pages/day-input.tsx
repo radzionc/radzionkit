@@ -1,11 +1,12 @@
-import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
-import { useMemo, useState } from 'react'
-import { Day, toDay } from '@lib/utils/time/Day'
-import { subYears } from 'date-fns'
 import { InputContainer } from '@lib/ui/inputs/InputContainer'
-import { DayInput } from '@lib/ui/time/day/DayInput'
-import { DemoPage } from '../components/DemoPage'
 import { InputLabel } from '@lib/ui/inputs/InputLabel'
+import { DayInput } from '@lib/ui/time/day/DayInput'
+import { Day, toDay } from '@lib/utils/time/Day'
+import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
+import { subYears } from 'date-fns'
+import { useMemo, useState } from 'react'
+
+import { DemoPage } from '../components/DemoPage'
 
 export const getDefaultDob = () => toDay(subYears(Date.now(), 20).getTime())
 

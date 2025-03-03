@@ -1,5 +1,6 @@
-import { couldBeTooManyRequestsError } from './couldBeTooManyRequestsError'
 import { sleep } from '../sleep'
+
+import { couldBeTooManyRequestsError } from './couldBeTooManyRequestsError'
 
 type QueryFunction = (...args: any[]) => Promise<any>
 

@@ -1,9 +1,11 @@
+import { getClosestItemIndex } from '@lib/utils/math/getClosestItemIndex'
 import styled from 'styled-components'
+
 import { HoverTracker } from '../../base/HoverTracker'
 import { HSLA } from '../../colors/HSLA'
-import { LineChartPosition } from './LineChartPosition'
-import { getClosestItemIndex } from '@lib/utils/math/getClosestItemIndex'
 import { takeWholeSpaceAbsolutely } from '../../css/takeWholeSpaceAbsolutely'
+
+import { LineChartPosition } from './LineChartPosition'
 
 type LineChartPositionTrackerProps = {
   data: number[]

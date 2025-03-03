@@ -1,11 +1,13 @@
-import { usePrevious } from '../hooks/usePrevious'
-import { SlidingCharacter } from './SlidingCharacter'
-import styled from 'styled-components'
-import { padWithZero } from '@lib/utils/padWithZero'
 import { Panel } from '@lib/ui/css/panel'
-import { Center } from '../layout/Center'
 import { HStack } from '@lib/ui/css/stack'
+import { padWithZero } from '@lib/utils/padWithZero'
+import styled from 'styled-components'
+
+import { usePrevious } from '../hooks/usePrevious'
+import { Center } from '../layout/Center'
 import { Text } from '../text'
+
+import { SlidingCharacter } from './SlidingCharacter'
 
 interface Props {
   value: number

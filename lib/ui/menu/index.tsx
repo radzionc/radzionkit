@@ -1,8 +1,10 @@
 import { ReactNode } from 'react'
+
 import { Opener } from '../base/Opener'
-import { BottomSlideOver } from '../modal/BottomSlideOver'
-import { PopoverMenuProps, PopoverMenu } from './PopoverMenu'
 import { BasedOnScreenWidth } from '../layout/BasedOnScreenWidth'
+import { BottomSlideOver } from '../modal/BottomSlideOver'
+
+import { PopoverMenuProps, PopoverMenu } from './PopoverMenu'
 
 export type MenuView = 'popover' | 'slideover'
 

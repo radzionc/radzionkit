@@ -1,14 +1,15 @@
+import { HStack, VStack } from '@lib/ui/css/stack'
+import { toPercents } from '@lib/utils/toPercents'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Spacer } from '../../layout/Spacer'
-import { HStack, VStack } from '@lib/ui/css/stack'
+
 import { HSLA } from '../../colors/HSLA'
+import { centerContent } from '../../css/centerContent'
 import { toSizeUnit } from '../../css/toSizeUnit'
+import { transition } from '../../css/transition'
+import { Spacer } from '../../layout/Spacer'
 import { Text } from '../../text'
 import { getColor } from '../../theme/getters'
-import { toPercents } from '@lib/utils/toPercents'
-import { centerContent } from '../../css/centerContent'
-import { transition } from '../../css/transition'
 
 export interface BarChartItem {
   label?: ReactNode

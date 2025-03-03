@@ -1,16 +1,17 @@
-import styled from 'styled-components'
-
 import { HStack } from '@lib/ui/css/stack'
-import { Text } from '../../text'
-import { interactive } from '../../css/interactive'
-import { getColor } from '../../theme/getters'
-import { UiProps, InputProps } from '../../props'
 import { match } from '@lib/utils/match'
 import { ReactNode } from 'react'
+import styled from 'styled-components'
+
+import { interactive } from '../../css/interactive'
+import { UiProps, InputProps } from '../../props'
+import { Text } from '../../text'
+import { getColor } from '../../theme/getters'
 import { InvisibleHTMLCheckbox } from '../InvisibleHTMLCheckbox'
-import { SwitchControl } from './SwitchControl'
+
 import { SwitchSize } from './config'
 import { SwitchContainer } from './SwitchContainer'
+import { SwitchControl } from './SwitchControl'
 
 type SwitchProps = UiProps &
   InputProps<boolean> & {

@@ -1,7 +1,8 @@
 import { ComponentProps } from 'react'
-import { IconWrapper } from '../icons/IconWrapper'
-import { CheckIcon } from '../icons/CheckIcon'
 import styled from 'styled-components'
+
+import { CheckIcon } from '../icons/CheckIcon'
+import { IconWrapper } from '../icons/IconWrapper'
 
 const Container = styled.div`
   display: grid;

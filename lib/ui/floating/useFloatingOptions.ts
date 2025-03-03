@@ -1,3 +1,4 @@
+import { autoUpdate, offset, Placement, size, Strategy } from '@floating-ui/dom'
 import {
   useFloating,
   useInteractions,
@@ -8,8 +9,8 @@ import {
   useTypeahead,
   flip,
 } from '@floating-ui/react'
-import { autoUpdate, offset, Placement, size, Strategy } from '@floating-ui/dom'
 import { useRef, useState } from 'react'
+
 import { toSizeUnit } from '../css/toSizeUnit'
 import { useValueRef } from '../hooks/useValueRef'
 

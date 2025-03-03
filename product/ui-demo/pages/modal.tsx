@@ -1,10 +1,10 @@
-import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
-import { Modal } from '@lib/ui/modal'
 import { Opener } from '@lib/ui/base/Opener'
+import { Button } from '@lib/ui/buttons/Button'
 import { HStack, VStack } from '@lib/ui/css/stack'
+import { Modal } from '@lib/ui/modal'
+import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
 import { Text } from '@lib/ui/text'
 import { DemoPage } from '@product/ui-demo/components/DemoPage'
-import { Button } from '@lib/ui/buttons/Button'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
 
 export default makeDemoPage(() => {

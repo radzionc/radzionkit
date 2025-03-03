@@ -1,7 +1,7 @@
+import { match } from '@lib/utils/match'
 import { css } from 'styled-components'
 
 import { HSLA } from '../colors/HSLA'
-import { match } from '@lib/utils/match'
 
 export const coloredTag = (color: HSLA) => css`
   ${({ theme }) =>

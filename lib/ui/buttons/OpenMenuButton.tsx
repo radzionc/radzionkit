@@ -1,6 +1,8 @@
-import { IconButton } from './IconButton'
-import { MoreHorizontalIcon } from '../icons/MoreHorizontalIcon'
 import { ComponentProps } from 'react'
+
+import { MoreHorizontalIcon } from '../icons/MoreHorizontalIcon'
+
+import { IconButton } from './IconButton'
 
 export function OpenMenuButton(
   props: Omit<ComponentProps<typeof IconButton>, 'icon' | 'title'>,

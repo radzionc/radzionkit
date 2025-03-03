@@ -1,12 +1,12 @@
-import { Text } from '@lib/ui/text'
-import { useInfiniteQuery } from '@tanstack/react-query'
-import { range } from '@lib/utils/array/range'
+import { TableLayout } from '@lib/ui/layout/TableLayout'
 import { PaginatedView } from '@lib/ui/pagination/PaginatedView'
 import { usePaginatedResultItems } from '@lib/ui/query/hooks/usePaginatedResultItems'
-import { TableLayout } from '@lib/ui/layout/TableLayout'
-import { Fragment } from 'react'
+import { Text } from '@lib/ui/text'
+import { range } from '@lib/utils/array/range'
 import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
+import { useInfiniteQuery } from '@tanstack/react-query'
+import { Fragment } from 'react'
 
 interface QueryItemsParams {
   startAt: number

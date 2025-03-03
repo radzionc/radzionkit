@@ -1,15 +1,16 @@
-import { convertDuration } from './convertDuration'
+import { getLastItem } from '../array/getLastItem'
+import { isEmpty } from '../array/isEmpty'
+import { match } from '../match'
+import { padWithZero } from '../padWithZero'
 import { pluralize } from '../pluralize'
+
+import { convertDuration } from './convertDuration'
 import {
   durationUnitName,
   DurationUnit,
   durationUnits,
   shortDurationUnitName,
 } from './DurationUnit'
-import { match } from '../match'
-import { padWithZero } from '../padWithZero'
-import { isEmpty } from '../array/isEmpty'
-import { getLastItem } from '../array/getLastItem'
 
 type FormatDurationKind = 's' | 'm' | 'l' | 'digitalClock'
 

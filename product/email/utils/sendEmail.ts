@@ -1,4 +1,5 @@
 import { SESv2Client, SendEmailCommand } from '@aws-sdk/client-sesv2'
+
 import { getEnvVar } from './getEnvVar'
 
 interface SendEmailParameters {

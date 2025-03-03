@@ -1,7 +1,9 @@
-import jwt from 'jsonwebtoken'
-import { getTokenExpirationTime } from './getTokenExpirationTime'
-import { getSecret } from '../../utils/getSecret'
 import { convertDuration } from '@lib/utils/time/convertDuration'
+import jwt from 'jsonwebtoken'
+
+import { getSecret } from '../../utils/getSecret'
+
+import { getTokenExpirationTime } from './getTokenExpirationTime'
 
 export const generateAuthLinkToken = async (email: string) =>
   jwt.sign(

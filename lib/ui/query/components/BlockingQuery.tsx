@@ -1,8 +1,9 @@
-import { CopyText } from '../../text/CopyText'
-import { Spinner } from '../../loaders/Spinner'
 import { VStack } from '@lib/ui/css/stack'
-import { Text } from '../../text'
+
 import { InfoIcon } from '../../icons/InfoIcon'
+import { Spinner } from '../../loaders/Spinner'
+import { Text } from '../../text'
+import { CopyText } from '../../text/CopyText'
 
 interface BlockingQueryProps {
   error?: Error | null

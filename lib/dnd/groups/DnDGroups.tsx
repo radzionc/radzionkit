@@ -1,5 +1,3 @@
-import { getNewOrder } from '@lib/utils/order/getNewOrder'
-import { ReactNode, useCallback, useState } from 'react'
 import {
   DndContext,
   PointerSensor,
@@ -11,19 +9,23 @@ import {
   MeasuringStrategy,
   closestCorners,
 } from '@dnd-kit/core'
+import { ChildrenProp } from '@lib/ui/props'
+import { order } from '@lib/utils/array/order'
 import { shouldBePresent } from '@lib/utils/assert/shouldBePresent'
+import { Entry } from '@lib/utils/entities/Entry'
+import { getNewOrder } from '@lib/utils/order/getNewOrder'
+import { ReactNode, useCallback, useState } from 'react'
+
 import { DnDItem } from '../DnDItem'
+import { DnDItemStatus } from '../DnDItemStatus'
+
 import { DnDGroup } from './DnDGroup'
-import { getDndGroupsItemDestination } from './getDnDGroupsItemDestination'
-import { getDndGroupsItemSource } from './getDnDGroupsItemSource'
 import {
   areEqualDnDGroupsItemLocations,
   DnDGroupsItemLocation,
 } from './DnDGroupsItemLocation'
-import { Entry } from '@lib/utils/entities/Entry'
-import { ChildrenProp } from '@lib/ui/props'
-import { DnDItemStatus } from '../DnDItemStatus'
-import { order } from '@lib/utils/array/order'
+import { getDndGroupsItemDestination } from './getDnDGroupsItemDestination'
+import { getDndGroupsItemSource } from './getDnDGroupsItemSource'
 
 type RenderGroupProps = Record<string, any> & ChildrenProp
 

@@ -1,9 +1,10 @@
+import { labelColorsCount } from '@lib/ui/colors/generateLabelColorGetter'
+import { UniformColumnGrid } from '@lib/ui/css/uniformColumnGrid'
+import { LineSeparator } from '@lib/ui/layout/LineSeparator'
 import { range } from '@lib/utils/array/range'
 import { useTheme } from 'styled-components'
+
 import { ColorItem } from './ColorItem'
-import { labelColorsCount } from '@lib/ui/colors/generateLabelColorGetter'
-import { LineSeparator } from '@lib/ui/layout/LineSeparator'
-import { UniformColumnGrid } from '@lib/ui/css/uniformColumnGrid'
 
 export const ColorList = () => {
   const {

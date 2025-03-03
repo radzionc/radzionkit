@@ -1,6 +1,8 @@
 import { ComponentProps } from 'react'
-import { IconButton } from './IconButton'
+
 import { CloseIcon } from '../icons/CloseIcon'
+
+import { IconButton } from './IconButton'
 
 export function CloseButton(
   props: Omit<ComponentProps<typeof IconButton>, 'icon' | 'title'>,

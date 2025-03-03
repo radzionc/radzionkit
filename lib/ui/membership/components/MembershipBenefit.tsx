@@ -1,7 +1,8 @@
-import { ReactNode } from 'react'
 import { HStack } from '@lib/ui/css/stack'
-import { Text } from '../../text'
+import { ReactNode } from 'react'
+
 import { CheckCircleIcon } from '../../icons/CheckCircleIcon'
+import { Text } from '../../text'
 
 interface MembershipBenefitProps {
   benefit: ReactNode

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+
 import { HSLA } from '../colors/HSLA'
 import { centerContent } from '../css/centerContent'
-import { sameDimensions } from '../css/sameDimensions'
 import { round } from '../css/round'
+import { sameDimensions } from '../css/sameDimensions'
 
 interface Props {
   size: number

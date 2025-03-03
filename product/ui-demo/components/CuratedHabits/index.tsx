@@ -1,13 +1,14 @@
+import { HStack, VStack } from '@lib/ui/css/stack'
+import { Text } from '@lib/ui/text'
+import { TreeFilter } from '@lib/ui/tree/TreeFilter'
+import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { getTreeNode, getTreeValues } from '@lib/utils/tree'
-import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
-import { HStack, VStack } from '@lib/ui/css/stack'
-import { TreeFilter } from '@lib/ui/tree/TreeFilter'
 import { useState, useMemo } from 'react'
 import styled from 'styled-components'
-import { HabitTreeNode, habitTree } from './data/habitTree'
+
 import { habitRecord } from './data/habits'
-import { Text } from '@lib/ui/text'
+import { HabitTreeNode, habitTree } from './data/habitTree'
 import { HabitItem } from './HabitItem'
 
 const Container = styled(HStack)`

@@ -1,4 +1,3 @@
-import { haveEqualFields } from '../record/haveEqualFields'
 import {
   endOfISOWeek,
   format,
@@ -8,8 +7,11 @@ import {
   getISOWeek,
   getISOWeekYear,
 } from 'date-fns'
-import { convertDuration } from './convertDuration'
+
 import { Interval } from '../interval/Interval'
+import { haveEqualFields } from '../record/haveEqualFields'
+
+import { convertDuration } from './convertDuration'
 
 export type Week = {
   year: number

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { ChildrenProp } from '../props'
 
 interface PositionAbsolutelyCenterHorizontallyProps extends ChildrenProp {

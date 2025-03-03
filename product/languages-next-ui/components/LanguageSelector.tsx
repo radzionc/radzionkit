@@ -1,17 +1,18 @@
-import { Menu } from '@lib/ui/Menu'
-import { useLanguage } from './LanguageProvider'
-import styled from 'styled-components'
-import { IconWrapper } from '@lib/ui/icons/IconWrapper'
+import CountryFlag from '@lib/countries-ui/flags/CountryFlag'
+import { Button } from '@lib/ui/buttons/Button'
 import { HStack } from '@lib/ui/css/stack'
+import { IconWrapper } from '@lib/ui/icons/IconWrapper'
+import { Menu } from '@lib/ui/Menu'
 import { MenuOptionProps, MenuOption } from '@lib/ui/menu/MenuOption'
+import { Text } from '@lib/ui/text'
 import {
   languageNativeName,
   languagePrimaryCountry,
   languages,
 } from '@product/languages/Language'
-import CountryFlag from '@lib/countries-ui/flags/CountryFlag'
-import { Text } from '@lib/ui/text'
-import { Button } from '@lib/ui/buttons/Button'
+import styled from 'styled-components'
+
+import { useLanguage } from './LanguageProvider'
 
 const FlagWrapper = styled(IconWrapper)`
   border-radius: 2px;

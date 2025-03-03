@@ -1,13 +1,13 @@
-import { HStack, VStack } from '@lib/ui/css/stack'
-import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import {
   IconButton,
   iconButtonKinds,
   iconButtonSizes,
 } from '@lib/ui/buttons/IconButton'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { SettingsIcon } from '@lib/ui/icons/SettingsIcon'
-import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
 import { TitledSection } from '@lib/ui/layout/TitledSection'
+import { DemoPage } from '@product/ui-demo/components/DemoPage'
+import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
 
 export default makeDemoPage(() => {
   const icon = <SettingsIcon />

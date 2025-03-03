@@ -1,7 +1,9 @@
 import { CSSProperties } from 'react'
 import styled from 'styled-components'
+
 import { ChildrenProp } from '../props'
 import { Text } from '../text'
+
 import { Line } from './Line'
 
 interface Props extends ChildrenProp {

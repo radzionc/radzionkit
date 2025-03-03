@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react'
 import { UseQueryResult } from '@tanstack/react-query'
+import { useEffect, useRef } from 'react'
 
 export const useOnQueryFirstSuccess = <T>(
   { data }: Pick<UseQueryResult<T>, 'data'>,

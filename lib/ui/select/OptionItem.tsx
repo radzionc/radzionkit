@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components'
-import { IsActiveProp } from '../props'
+
 import { borderRadius } from '../css/borderRadius'
 import { interactive } from '../css/interactive'
+import { IsActiveProp } from '../props'
 import { getColor } from '../theme/getters'
 
 export const OptionItem = styled.div<IsActiveProp>`

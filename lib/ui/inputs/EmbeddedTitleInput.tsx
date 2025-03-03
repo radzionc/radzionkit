@@ -1,10 +1,9 @@
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
+import { MultilineTextInput } from '@lib/ui/inputs/MultilineTextInput'
+import { tightListItemConfig } from '@lib/ui/list/tightListItemConfig'
 import { InputProps } from '@lib/ui/props'
 import { ComponentProps } from 'react'
 import styled from 'styled-components'
-
-import { MultilineTextInput } from '@lib/ui/inputs/MultilineTextInput'
-import { tightListItemConfig } from '@lib/ui/list/tightListItemConfig'
 
 const Container = styled(MultilineTextInput)`
   line-height: ${toSizeUnit(tightListItemConfig.lineHeight)};

@@ -1,7 +1,7 @@
-import { DemoPage } from '@product/ui-demo/components/DemoPage'
+import { HStack } from '@lib/ui/css/stack'
 import { Spinner } from '@lib/ui/loaders/Spinner'
 import { Text } from '@lib/ui/text'
-import { HStack } from '@lib/ui/css/stack'
+import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
 
 export default makeDemoPage(() => {

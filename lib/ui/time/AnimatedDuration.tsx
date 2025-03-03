@@ -1,11 +1,11 @@
 import { HStack } from '@lib/ui/css/stack'
-import { Text } from '@lib/ui/text'
 import { useRhythmicRerender } from '@lib/ui/hooks/useRhythmicRerender'
-import styled, { css, keyframes } from 'styled-components'
-import { Milliseconds } from '@lib/utils/time/types'
-import { formatDuration } from '@lib/utils/time/formatDuration'
+import { Text } from '@lib/ui/text'
 import { convertDuration } from '@lib/utils/time/convertDuration'
+import { formatDuration } from '@lib/utils/time/formatDuration'
+import { Milliseconds } from '@lib/utils/time/types'
 import { useRef } from 'react'
+import styled, { css, keyframes } from 'styled-components'
 
 interface AnimatedDurationProps {
   getDuration: (currentTime: number) => Milliseconds

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+
+import { centerContent } from '../../../css/centerContent'
 import { round } from '../../../css/round'
 import { sameDimensions } from '../../../css/sameDimensions'
 import { getColor } from '../../../theme/getters'
-import { centerContent } from '../../../css/centerContent'
 
 export const IdentifierPlaceholder = styled.div`
   ${round};

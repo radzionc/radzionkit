@@ -1,14 +1,14 @@
+import { CloseButton } from '@lib/ui/buttons/CloseButton'
 import { interactive } from '@lib/ui/css/interactive'
 import { Panel } from '@lib/ui/css/panel'
+import { HStack } from '@lib/ui/css/stack'
+import { transition } from '@lib/ui/css/transition'
+import { IconWrapper } from '@lib/ui/icons/IconWrapper'
+import { YouTubeIcon } from '@lib/ui/icons/YouTubeIcon'
+import { Text } from '@lib/ui/text'
 import { getColor } from '@lib/ui/theme/getters'
 import { ReactNode, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { transition } from '@lib/ui/css/transition'
-import { HStack } from '@lib/ui/css/stack'
-import { Text } from '@lib/ui/text'
-import { IconWrapper } from '@lib/ui/icons/IconWrapper'
-import { YouTubeIcon } from '@lib/ui/icons/YouTubeIcon'
-import { CloseButton } from '@lib/ui/buttons/CloseButton'
 
 type OnboardingVideoPromptProps = {
   renderVideo: () => ReactNode

@@ -1,11 +1,13 @@
-import { ReactNode } from 'react'
-import { ChildrenProp } from '../props'
 import { HStack } from '@lib/ui/css/stack'
-import { Tooltip } from './Tooltip'
+import { ReactNode } from 'react'
+import styled from 'styled-components'
+
+import { horizontalPadding } from '../css/horizontalPadding'
 import { HelpCircleIcon } from '../icons/HelpCircleIcon'
 import { IconWrapper } from '../icons/IconWrapper'
-import styled from 'styled-components'
-import { horizontalPadding } from '../css/horizontalPadding'
+import { ChildrenProp } from '../props'
+
+import { Tooltip } from './Tooltip'
 
 interface WithHintProps extends ChildrenProp {
   hint?: ReactNode

@@ -1,4 +1,5 @@
 import { padWithZero } from '../padWithZero'
+
 import { convertDuration } from './convertDuration'
 import { Minutes } from './types'
 

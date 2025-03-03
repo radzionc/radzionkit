@@ -1,10 +1,11 @@
+import { HStack } from '@lib/ui/css/stack'
 import { ReactNode, useState } from 'react'
 import styled from 'styled-components'
 
-import { TextInput, TextInputProps } from './TextInput'
-import { centerContent } from '../css/centerContent'
-import { HStack } from '@lib/ui/css/stack'
 import { borderRadius } from '../css/borderRadius'
+import { centerContent } from '../css/centerContent'
+
+import { TextInput, TextInputProps } from './TextInput'
 
 type AmountTextInputProps = Omit<TextInputProps, 'value' | 'onValueChange'> & {
   value: number | null

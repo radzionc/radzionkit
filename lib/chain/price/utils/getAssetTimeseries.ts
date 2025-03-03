@@ -1,7 +1,8 @@
-import { addQueryParams } from '@lib/utils/query/addQueryParams'
-import { FiatCurrency } from '../FiatCurrency'
-import { queryUrl } from '@lib/utils/query/queryUrl'
 import { TimePoint } from '@lib/utils/entities/TimePoint'
+import { addQueryParams } from '@lib/utils/query/addQueryParams'
+import { queryUrl } from '@lib/utils/query/queryUrl'
+
+import { FiatCurrency } from '../FiatCurrency'
 
 export type GetAssetTimeseriesInput = {
   id: string

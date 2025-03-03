@@ -1,8 +1,9 @@
+import { HSLA } from '@lib/ui/colors/HSLA'
+import { round } from '@lib/ui/css/round'
 import { HStack } from '@lib/ui/css/stack'
 import { transition } from '@lib/ui/css/transition'
-import { HSLA } from '@lib/ui/colors/HSLA'
 import styled from 'styled-components'
-import { round } from '@lib/ui/css/round'
+
 import { ValueProp } from '../props'
 
 const Container = styled(HStack)`

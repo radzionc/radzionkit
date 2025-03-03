@@ -1,7 +1,9 @@
 import styled from 'styled-components'
+
+import { iconButtonSizeRecord } from '../../buttons/IconButton'
 import { textInput, textInputHorizontalPadding } from '../../css/textInput'
 import { toSizeUnit } from '../../css/toSizeUnit'
-import { iconButtonSizeRecord } from '../../buttons/IconButton'
+
 import { dropdownInputConfig } from './config'
 
 export const DropdownInputFrame = styled.input`

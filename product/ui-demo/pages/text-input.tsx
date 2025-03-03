@@ -1,15 +1,15 @@
-import { TextInput } from '@lib/ui/inputs/TextInput'
-import { Controller, useForm } from 'react-hook-form'
-import { TextArea } from '@lib/ui/inputs/TextArea'
-import { DemoPage } from '@product/ui-demo/components/DemoPage'
-import { Panel } from '@lib/ui/css/panel'
-import { TitledSection } from '@lib/ui/layout/TitledSection'
-import { AmountTextInput } from '@lib/ui/inputs/AmountTextInput'
-import { DollarIcon } from '@lib/ui/icons/DollarIcon'
 import { Button } from '@lib/ui/buttons/Button'
+import { Panel } from '@lib/ui/css/panel'
 import { Form } from '@lib/ui/form/components/Form'
+import { DollarIcon } from '@lib/ui/icons/DollarIcon'
+import { AmountTextInput } from '@lib/ui/inputs/AmountTextInput'
 import { Field } from '@lib/ui/inputs/Field'
+import { TextArea } from '@lib/ui/inputs/TextArea'
+import { TextInput } from '@lib/ui/inputs/TextInput'
+import { TitledSection } from '@lib/ui/layout/TitledSection'
+import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
+import { Controller, useForm } from 'react-hook-form'
 
 interface FormShape {
   name: string

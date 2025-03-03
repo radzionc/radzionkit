@@ -1,4 +1,5 @@
 import { ChildrenProp } from '@lib/ui/props'
+
 import { AnalyticsContext, AnalyticsContextState } from './AnalyticsContext'
 
 const localAnalytics: AnalyticsContextState = {

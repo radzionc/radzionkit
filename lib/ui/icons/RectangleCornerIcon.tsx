@@ -1,5 +1,6 @@
-import { ValueProp } from '../props'
 import { RectangleCorner } from '@lib/ui/entities/RectangleCorner'
+
+import { ValueProp } from '../props'
 
 export const RectangleCornerIcon = ({ value }: ValueProp<RectangleCorner>) => (
   <svg

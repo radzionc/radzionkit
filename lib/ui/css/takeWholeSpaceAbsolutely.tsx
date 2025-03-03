@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+
 import { takeWholeSpace } from './takeWholeSpace'
 
 export const takeWholeSpaceAbsolutely = css`

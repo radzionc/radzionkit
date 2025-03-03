@@ -1,15 +1,16 @@
+import { Panel } from '@lib/ui/css/panel'
+import { HStack } from '@lib/ui/css/stack'
 import { ComponentProps, ReactNode } from 'react'
 import styled from 'styled-components'
-import { transition } from '../css/transition'
-import { HStack } from '@lib/ui/css/stack'
-import { Panel } from '@lib/ui/css/panel'
-import { getColor } from '../theme/getters'
-import { useBoolean } from '../hooks/useBoolean'
+
 import { centerContent } from '../css/centerContent'
-import { sameDimensions } from '../css/sameDimensions'
 import { interactive } from '../css/interactive'
 import { round } from '../css/round'
+import { sameDimensions } from '../css/sameDimensions'
+import { transition } from '../css/transition'
+import { useBoolean } from '../hooks/useBoolean'
 import { ChevronDownIcon } from '../icons/ChevronDownIcon'
+import { getColor } from '../theme/getters'
 
 type ExpandablePanelProps = ComponentProps<typeof Panel> & {
   header: ReactNode

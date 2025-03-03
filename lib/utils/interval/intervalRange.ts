@@ -1,4 +1,5 @@
 import { range } from '../array/range'
+
 import { Interval } from './Interval'
 
 export const intervalRange = ({ start, end }: Interval): number[] =>

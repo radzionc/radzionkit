@@ -1,3 +1,5 @@
+import { DurationUnit } from './DurationUnit'
+
 import {
   MS_IN_DAY,
   MS_IN_HOUR,
@@ -6,7 +8,6 @@ import {
   MS_IN_WEEK,
   NS_IN_MS,
 } from '.'
-import { DurationUnit } from './DurationUnit'
 
 const msInUnit: Record<DurationUnit, number> = {
   ns: 1 / NS_IN_MS,

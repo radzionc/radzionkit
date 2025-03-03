@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { getColor } from '../../theme/getters'
+
 import { textInputBorderRadius } from '../../css/textInput'
+import { getColor } from '../../theme/getters'
 
 export const DropdownContainer = styled.div`
   background: ${getColor('foreground')};

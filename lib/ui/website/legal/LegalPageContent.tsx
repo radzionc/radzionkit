@@ -1,9 +1,10 @@
-import styled from 'styled-components'
 import { VStack } from '@lib/ui/css/stack'
-import { ChildrenProp, TitleProp } from '../../props'
+import styled from 'styled-components'
+
 import { centeredContentColumn } from '../../css/centeredContentColumn'
-import { Text } from '../../text'
 import { verticalPadding } from '../../css/verticalPadding'
+import { ChildrenProp, TitleProp } from '../../props'
+import { Text } from '../../text'
 
 type LegalPageContentProps = ChildrenProp & TitleProp
 

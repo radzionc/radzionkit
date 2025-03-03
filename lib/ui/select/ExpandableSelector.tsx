@@ -1,12 +1,14 @@
+import { FloatingFocusManager } from '@floating-ui/react'
+import { ComponentProps } from 'react'
+
 import { FloatingOptionsContainer } from '../floating/FloatingOptionsContainer'
 import { useFloatingOptions } from '../floating/useFloatingOptions'
-import { OptionItem } from './OptionItem'
-import { ExpandableSelectorToggle } from './ExpandableSelectorToggle'
-import { FloatingFocusManager } from '@floating-ui/react'
-import { OptionContent } from './OptionContent'
+
 import { ExpandableSelectorContainer } from './ExpandableSelectorContainer'
+import { ExpandableSelectorToggle } from './ExpandableSelectorToggle'
+import { OptionContent } from './OptionContent'
+import { OptionItem } from './OptionItem'
 import { WithSelectionMark } from './WithSelectionMark'
-import { ComponentProps } from 'react'
 
 export type ExpandableSelectorProp<T> = Omit<
   ComponentProps<typeof ExpandableSelectorContainer>,

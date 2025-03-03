@@ -1,4 +1,3 @@
-import { ReactNode, useRef, useState } from 'react'
 import {
   ReferenceType,
   offset,
@@ -15,9 +14,11 @@ import {
   useTransitionStyles,
   Placement,
 } from '@floating-ui/react'
+import { ReactNode, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { getColor } from '../theme/getters'
+
 import { borderRadius } from '../css/borderRadius'
+import { getColor } from '../theme/getters'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void

@@ -1,7 +1,8 @@
 import { Active } from '@dnd-kit/core'
-import { DnDGroupsItemLocation } from './DnDGroupsItemLocation'
-import { shouldBePresent } from '@lib/utils/assert/shouldBePresent'
 import { SortableData } from '@dnd-kit/sortable'
+import { shouldBePresent } from '@lib/utils/assert/shouldBePresent'
+
+import { DnDGroupsItemLocation } from './DnDGroupsItemLocation'
 
 type Input = {
   item: Active

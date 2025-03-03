@@ -1,6 +1,6 @@
-import { range } from '@lib/utils/array/range'
-import { order } from '@lib/utils/array/order'
 import { getLastItem } from '@lib/utils/array/getLastItem'
+import { order } from '@lib/utils/array/order'
+import { range } from '@lib/utils/array/range'
 
 type Input = {
   steps: number[]

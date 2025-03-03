@@ -1,10 +1,12 @@
-import { generateImages } from 'pwa-asset-generator'
-import { lightTheme } from '../../theme/lightTheme'
-import path from 'path'
 import fs from 'fs'
-import { darkTheme } from '../../theme/darkTheme'
-import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
+import path from 'path'
+
 import { createTsFile } from '@lib/codegen/utils/createTsFile'
+import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
+import { generateImages } from 'pwa-asset-generator'
+
+import { darkTheme } from '../../theme/darkTheme'
+import { lightTheme } from '../../theme/lightTheme'
 
 interface generateIconsParams {
   lightModeIconPath: string

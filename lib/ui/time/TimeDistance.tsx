@@ -1,14 +1,14 @@
+import { Stack } from '@lib/ui/css/stack'
 import { ChevronDownIcon } from '@lib/ui/icons/ChevronDownIcon'
+import { ChevronLeftIcon } from '@lib/ui/icons/ChevronLeftIcon'
 import { ChevronRightIcon } from '@lib/ui/icons/ChevronRightIcon'
 import { ChevronUpIcon } from '@lib/ui/icons/ChevronUpIcon'
-import { ChevronLeftIcon } from '@lib/ui/icons/ChevronLeftIcon'
 import { Text } from '@lib/ui/text'
 import { getColor } from '@lib/ui/theme/getters'
-import { formatDuration } from '@lib/utils/time/formatDuration'
-import styled from 'styled-components'
 import { Direction } from '@lib/utils/Direction'
-import { Stack } from '@lib/ui/css/stack'
+import { formatDuration } from '@lib/utils/time/formatDuration'
 import { Minutes } from '@lib/utils/time/types'
+import styled from 'styled-components'
 
 interface TimeDistanceProps {
   value: Minutes

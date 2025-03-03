@@ -1,8 +1,10 @@
 import styled from 'styled-components'
-import { UnstyledButton } from './UnstyledButton'
-import { getColor } from '../theme/getters'
+
 import { transition } from '../css/transition'
 import { getHoverVariant } from '../theme/getHoverVariant'
+import { getColor } from '../theme/getters'
+
+import { UnstyledButton } from './UnstyledButton'
 
 export const TextButton = styled(UnstyledButton)`
   color: ${getColor('primary')};

@@ -1,10 +1,11 @@
-import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
-import { HStack } from '@lib/ui/css/stack'
 import { Button } from '@lib/ui/buttons/Button'
+import { HStack } from '@lib/ui/css/stack'
 import { GitHubIcon } from '@lib/ui/icons/GitHubIcon'
+import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
 import Link from 'next/link'
-import { productGitHubUrl } from '../product/resources'
+
 import { Path } from '../navigation/Path'
+import { productGitHubUrl } from '../product/resources'
 
 export const PrimaryActions = () => {
   return (

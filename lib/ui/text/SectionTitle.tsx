@@ -1,6 +1,8 @@
 import styled from 'styled-components'
-import { Text } from './'
+
 import { getColor } from '../theme/getters'
+
+import { Text } from './'
 
 export const SectionTitle = styled(Text)`
   color: ${getColor('contrast')};

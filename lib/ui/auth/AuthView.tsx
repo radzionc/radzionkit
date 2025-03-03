@@ -1,5 +1,6 @@
-import { ChildrenProp, TitleProp } from '../props'
 import { VStack } from '@lib/ui/css/stack'
+
+import { ChildrenProp, TitleProp } from '../props'
 import { Text } from '../text'
 
 interface AuthViewProps extends ChildrenProp, TitleProp {}

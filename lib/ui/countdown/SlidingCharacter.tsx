@@ -1,4 +1,5 @@
 import styled, { keyframes, css } from 'styled-components'
+
 import { Text } from '../text'
 
 const getAnimation = (id: string) => keyframes`

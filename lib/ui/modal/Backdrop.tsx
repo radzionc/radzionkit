@@ -1,10 +1,11 @@
 import React, { ComponentProps, useRef } from 'react'
 import styled from 'styled-components'
-import { takeWholeSpace } from '../css/takeWholeSpace'
+
 import { centerContent } from '../css/centerContent'
-import { getColor } from '../theme/getters'
-import { OnCloseProp } from '../props'
+import { takeWholeSpace } from '../css/takeWholeSpace'
 import { useKeyDown } from '../hooks/useKeyDown'
+import { OnCloseProp } from '../props'
+import { getColor } from '../theme/getters'
 
 const Container = styled.div`
   z-index: 1;

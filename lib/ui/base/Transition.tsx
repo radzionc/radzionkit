@@ -1,6 +1,7 @@
-import { ReactNode, useState } from 'react'
-import { useTimeout } from '../hooks/useTimeout'
 import { Transition as TransitionType } from '@lib/utils/entities/Transition'
+import { ReactNode, useState } from 'react'
+
+import { useTimeout } from '../hooks/useTimeout'
 
 type TransitionProps = TransitionType<ReactNode> & {
   delay: number

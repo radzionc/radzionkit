@@ -1,8 +1,9 @@
 import React, { ComponentProps } from 'react'
 import styled from 'styled-components'
-import { getColor } from '../theme/getters'
-import { Center } from '../layout/Center'
+
 import { ImageIcon } from '../icons/ImageIcon'
+import { Center } from '../layout/Center'
+import { getColor } from '../theme/getters'
 
 export const Container = styled.div`
   position: relative;

@@ -1,11 +1,12 @@
+import { VStack } from '@lib/ui/css/stack'
+import { reverseIf } from '@lib/utils/array/reverseIf'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 
-import { LandingSlice } from './LandingSlice'
-import { reverseIf } from '@lib/utils/array/reverseIf'
 import { IntersectionAware } from '../base/IntersectionAware'
-import { VStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
+
+import { LandingSlice } from './LandingSlice'
 
 type StartsWith = 'preview' | 'info'
 

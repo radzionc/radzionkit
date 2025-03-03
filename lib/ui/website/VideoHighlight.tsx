@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components'
 import { borderRadius } from '@lib/ui/css/borderRadius'
-import { getColor } from '@lib/ui/theme/getters'
 import { transition } from '@lib/ui/css/transition'
+import { getColor } from '@lib/ui/theme/getters'
+import styled, { css } from 'styled-components'
 
 export const VideoHighlight = styled.div<{ isActive: boolean }>`
   ${borderRadius.m};

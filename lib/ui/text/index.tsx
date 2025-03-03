@@ -1,7 +1,8 @@
 import styled, { DefaultTheme, css } from 'styled-components'
+
 import { cropText } from '../css/cropText'
-import { toSizeUnit } from '../css/toSizeUnit'
 import { takeWholeSpaceAbsolutely } from '../css/takeWholeSpaceAbsolutely'
+import { toSizeUnit } from '../css/toSizeUnit'
 
 const getTextColorRecord = ({ colors }: DefaultTheme) =>
   ({

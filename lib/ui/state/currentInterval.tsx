@@ -1,7 +1,6 @@
 import { createContextHook } from '@lib/ui/state/createContextHook'
-import { createContext } from 'react'
-
 import { Interval } from '@lib/utils/interval/Interval'
+import { createContext } from 'react'
 
 export const CurrentIntervalContext = createContext<Interval | undefined>(
   undefined,

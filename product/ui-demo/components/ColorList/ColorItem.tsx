@@ -1,9 +1,9 @@
 import { HSLA } from '@lib/ui/colors/HSLA'
+import { borderRadius } from '@lib/ui/css/borderRadius'
+import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { HStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
-import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import styled from 'styled-components'
-import { borderRadius } from '@lib/ui/css/borderRadius'
 
 interface Props {
   color: HSLA

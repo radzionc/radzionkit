@@ -1,15 +1,16 @@
 import { Order } from '@lib/utils/order/Order'
-import { InputProps } from '../props'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
-import { borderRadius } from '../css/borderRadius'
-import { getColor } from '../theme/getters'
-import { transition } from '../css/transition'
-import { getHoverVariant } from '../theme/getHoverVariant'
+
 import { UnstyledButton } from '../buttons/UnstyledButton'
+import { borderRadius } from '../css/borderRadius'
+import { transition } from '../css/transition'
 import { IconWrapper } from '../icons/IconWrapper'
-import { Text } from '../text'
 import { CollapsableStateIndicator } from '../layout/CollapsableStateIndicator'
+import { InputProps } from '../props'
+import { Text } from '../text'
+import { getHoverVariant } from '../theme/getHoverVariant'
+import { getColor } from '../theme/getters'
 
 type OrderSelectorProps = InputProps<Order> & {
   name: ReactNode

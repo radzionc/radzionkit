@@ -1,6 +1,7 @@
-import { OnValueChangeListener, PersistentStorage } from './PersistentStorage'
-import { recordMap } from '@lib/utils/record/recordMap'
 import { ValueTransition } from '@lib/utils/entities/ValueTransition'
+import { recordMap } from '@lib/utils/record/recordMap'
+
+import { OnValueChangeListener, PersistentStorage } from './PersistentStorage'
 
 export class LocalStorage<T extends string> implements PersistentStorage<T> {
   listeners: Record<string, OnValueChangeListener<any>[]> = {}

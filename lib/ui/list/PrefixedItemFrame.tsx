@@ -1,9 +1,11 @@
+import { ReactNode } from 'react'
 import styled from 'styled-components'
+
+import { centerContent } from '../css/centerContent'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { verticalPadding } from '../css/verticalPadding'
-import { centerContent } from '../css/centerContent'
 import { ChildrenProp, UiProps } from '../props'
-import { ReactNode } from 'react'
+
 import { tightListItemConfig } from './tightListItemConfig'
 
 type ContainerProps = {

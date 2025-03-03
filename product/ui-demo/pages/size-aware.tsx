@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import { ElementSizeAware } from '@lib/ui/base/ElementSizeAware'
+import { Panel } from '@lib/ui/css/panel'
+import { takeWholeSpace } from '@lib/ui/css/takeWholeSpace'
 import { Center } from '@lib/ui/layout/Center'
 import { Text } from '@lib/ui/text'
 import { DemoPage } from '@product/ui-demo/components/DemoPage'
-import { Panel } from '@lib/ui/css/panel'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
-import { takeWholeSpace } from '@lib/ui/css/takeWholeSpace'
-import { ElementSizeAware } from '@lib/ui/base/ElementSizeAware'
+import styled from 'styled-components'
 
 const Container = styled(Panel)`
   ${takeWholeSpace}

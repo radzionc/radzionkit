@@ -1,8 +1,9 @@
 import { CountryCode } from '@lib/countries'
-import styled from 'styled-components'
-import { CountryFlagFrame } from './CountryFlagFrame'
 import { SvgIconProps } from '@lib/ui/icons/SvgIconProps'
 import { getColor } from '@lib/ui/theme/getters'
+import styled from 'styled-components'
+
+import { CountryFlagFrame } from './CountryFlagFrame'
 
 export interface CountryFlagFallbackProps extends SvgIconProps {
   code: CountryCode

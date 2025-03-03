@@ -1,8 +1,9 @@
+import { HStack } from '@lib/ui/css/stack'
 import { ReactNode } from 'react'
 
-import { HStack } from '@lib/ui/css/stack'
-import { Text, TextColor } from '.'
 import { UiProps } from '../props'
+
+import { Text, TextColor } from '.'
 
 type Props = UiProps & {
   name: ReactNode

@@ -1,8 +1,9 @@
 import { HStack } from '@lib/ui/css/stack'
+import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { ProductLogo } from '@product/ui-demo/product/ProductLogo'
 import styled from 'styled-components'
+
 import { PrimaryActions } from './PrimaryActions'
-import { verticalPadding } from '@lib/ui/css/verticalPadding'
 
 const Container = styled.div`
   ${verticalPadding(20)};

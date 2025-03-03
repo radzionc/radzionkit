@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+
 import { useUnmount } from './useUnmount'
 
 type UseLazySyncInput<T> = {

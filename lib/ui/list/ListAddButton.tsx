@@ -1,12 +1,14 @@
-import { OnClickProp } from '@lib/ui/props'
-import { PlusIcon } from '@lib/ui/icons/PlusIcon'
-import { Text } from '@lib/ui/text'
 import { Hoverable } from '@lib/ui/base/Hoverable'
-import styled from 'styled-components'
+import { PlusIcon } from '@lib/ui/icons/PlusIcon'
+import { OnClickProp } from '@lib/ui/props'
+import { Text } from '@lib/ui/text'
 import { getColor } from '@lib/ui/theme/getters'
 import { ReactNode } from 'react'
-import { PrefixedItemFrame } from './PrefixedItemFrame'
+import styled from 'styled-components'
+
 import { IconWrapper } from '../icons/IconWrapper'
+
+import { PrefixedItemFrame } from './PrefixedItemFrame'
 
 const IconContainer = styled(IconWrapper)`
   color: ${getColor('primary')};

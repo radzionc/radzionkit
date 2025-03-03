@@ -1,6 +1,6 @@
+import { shouldBeDefined } from '@lib/utils/assert/shouldBeDefined'
 import { Dimensions } from '@lib/utils/entities/Dimensions'
 import { normalizeToMaxDimension } from '@lib/utils/normalizeToMaxDimension'
-import { shouldBeDefined } from '@lib/utils/assert/shouldBeDefined'
 import { transform } from '@svgr/core'
 
 const getSvgDimensions = (svg: string): Dimensions => {

@@ -1,9 +1,11 @@
 import { VStack } from '@lib/ui/css/stack'
-import { Text } from '../text'
-import { AuthView } from './AuthView'
 import { suggestInboxLink } from '@lib/utils/suggestInboxLink'
-import { ExternalLink } from '../navigation/Link/ExternalLink'
+
 import { Button } from '../buttons/Button'
+import { ExternalLink } from '../navigation/Link/ExternalLink'
+import { Text } from '../text'
+
+import { AuthView } from './AuthView'
 
 interface ConfirmEmailAuthViewProps {
   sender?: string

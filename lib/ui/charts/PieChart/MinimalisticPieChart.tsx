@@ -1,7 +1,9 @@
 import { useMemo } from 'react'
-import { SvgArc } from './SvgArc'
+
 import { ValueProp } from '../../props'
+
 import { PieChartItem } from './PieChartItem'
+import { SvgArc } from './SvgArc'
 import { getPieChartSegmentsAngles } from './utils/getPieChartSegmentsAngles'
 
 const spaceBetweenInDegrees = 0.8

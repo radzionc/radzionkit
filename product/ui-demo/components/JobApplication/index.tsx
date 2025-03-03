@@ -1,13 +1,14 @@
-import { TextInput } from '@lib/ui/inputs/TextInput'
-import { TextArea } from '@lib/ui/inputs/TextArea'
-import { bioMaxLength, useJobApplicationForm } from './jobApplicationForm'
-import { ExperienceSection } from './ExperienceSection'
-import { Panel } from '@lib/ui/css/panel'
 import { Button } from '@lib/ui/buttons/Button'
-import { TitledSection } from '@lib/ui/layout/TitledSection'
+import { Panel } from '@lib/ui/css/panel'
 import { Form } from '@lib/ui/form/components/Form'
 import { FormSection } from '@lib/ui/form/components/FormSection'
 import { Field } from '@lib/ui/inputs/Field'
+import { TextArea } from '@lib/ui/inputs/TextArea'
+import { TextInput } from '@lib/ui/inputs/TextInput'
+import { TitledSection } from '@lib/ui/layout/TitledSection'
+
+import { ExperienceSection } from './ExperienceSection'
+import { bioMaxLength, useJobApplicationForm } from './jobApplicationForm'
 
 export const JobApplication = () => {
   const form = useJobApplicationForm()

@@ -1,4 +1,5 @@
 import { ApiError } from '@product/api-interface/ApiError'
+
 import { ApiResolverContext } from '../resolvers/ApiResolverContext'
 
 export const assertUserId = ({ userId }: ApiResolverContext) => {

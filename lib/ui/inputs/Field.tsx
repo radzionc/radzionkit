@@ -1,7 +1,9 @@
-import styled from 'styled-components'
-import { ChildrenProp } from '../props'
-import { ReactNode } from 'react'
 import { VStack } from '@lib/ui/css/stack'
+import { ReactNode } from 'react'
+import styled from 'styled-components'
+
+import { ChildrenProp } from '../props'
+
 import { FieldError } from './FieldError'
 
 type FieldSize = 's' | 'm'

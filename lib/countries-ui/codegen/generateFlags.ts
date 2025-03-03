@@ -1,10 +1,11 @@
-import { CountryCode, countryCodes } from '@lib/countries'
 import fs from 'fs'
 import path from 'path'
-import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+
 import { createTsFile } from '@lib/codegen/utils/createTsFile'
-import { recordFromKeys } from '@lib/utils/record/recordFromKeys'
+import { CountryCode, countryCodes } from '@lib/countries'
 import { svgToReact } from '@lib/ui/codegen/svgToReact'
+import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+import { recordFromKeys } from '@lib/utils/record/recordFromKeys'
 
 const getSvgFlagPath = (code: CountryCode) =>
   path.resolve(__dirname, './flags', `${code.toLowerCase()}.svg`)

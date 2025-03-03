@@ -1,15 +1,17 @@
-import { HStack, VStack } from '@lib/ui/css/stack'
-import { Testimonial, profileTypeName } from './Testimonial'
 import { Panel } from '@lib/ui/css/panel'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import styled from 'styled-components'
-import { CoverImage } from '../../images/CoverImage'
-import { sameDimensions } from '../../css/sameDimensions'
+
 import { round } from '../../css/round'
+import { sameDimensions } from '../../css/sameDimensions'
+import { CoverImage } from '../../images/CoverImage'
 import { SafeImage } from '../../images/SafeImage'
-import { Text } from '../../text'
 import { HStackSeparatedBy, dotSeparator } from '../../layout/StackSeparatedBy'
-import { InteractiveText } from '../../text/InteractiveText'
 import { ExternalLink } from '../../navigation/Link/ExternalLink'
+import { Text } from '../../text'
+import { InteractiveText } from '../../text/InteractiveText'
+
+import { Testimonial, profileTypeName } from './Testimonial'
 
 type TestimonialItemProps = {
   testimonial: Testimonial

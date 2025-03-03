@@ -1,18 +1,20 @@
+import { range } from '@lib/utils/array/range'
+import { toPercents } from '@lib/utils/toPercents'
 import styled, { useTheme } from 'styled-components'
+
 import { PressTracker } from '../../base/PressTracker'
-import { InputProps } from '../../props'
-import { interactive } from '../../css/interactive'
+import { HSLA } from '../../colors/HSLA'
 import { centerContent } from '../../css/centerContent'
+import { interactive } from '../../css/interactive'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { defaultTransition } from '../../css/transition'
-import { getColor } from '../../theme/getters'
-import { InvisibleHTMLSlider } from './InvisibleHtmlSlider'
-import { PositionAbsolutelyCenterVertically } from '../../layout/PositionAbsolutelyCenterVertically'
-import { toPercents } from '@lib/utils/toPercents'
-import { Center } from '../../layout/Center'
-import { range } from '@lib/utils/array/range'
-import { HSLA } from '../../colors/HSLA'
 import { UniformColumnGrid } from '../../css/uniformColumnGrid'
+import { Center } from '../../layout/Center'
+import { PositionAbsolutelyCenterVertically } from '../../layout/PositionAbsolutelyCenterVertically'
+import { InputProps } from '../../props'
+import { getColor } from '../../theme/getters'
+
+import { InvisibleHTMLSlider } from './InvisibleHtmlSlider'
 
 type SegmentedSliderProps = InputProps<number> & {
   max: number

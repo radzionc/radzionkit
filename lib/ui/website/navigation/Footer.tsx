@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+
 import { centeredContentColumn } from '../../css/centeredContentColumn'
-import { websiteConfig } from '../config'
 import { verticalPadding } from '../../css/verticalPadding'
 import { getColor } from '../../theme/getters'
+import { websiteConfig } from '../config'
 
 export const Footer = styled.div`
   ${centeredContentColumn({

@@ -1,8 +1,10 @@
 import styled from 'styled-components'
-import { IdentifierPlaceholder } from './IdentifierPlaceholder'
-import { getColor } from '../../../theme/getters'
+
 import { centerContent } from '../../../css/centerContent'
 import { CheckIcon } from '../../../icons/CheckIcon'
+import { getColor } from '../../../theme/getters'
+
+import { IdentifierPlaceholder } from './IdentifierPlaceholder'
 
 const Container = styled(IdentifierPlaceholder)`
   color: ${getColor('success')};

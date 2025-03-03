@@ -1,5 +1,7 @@
 import { addWeeks } from 'date-fns'
+
 import { isInInterval } from '../interval/isInInterval'
+
 import { getWeekInterval } from './Week'
 
 export const isNextWeek = (timestamp: number) => {

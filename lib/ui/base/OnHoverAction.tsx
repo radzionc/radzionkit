@@ -1,9 +1,10 @@
+import { Dimensions } from '@lib/utils/entities/Dimensions'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 
-import { ElementSizeAware } from './ElementSizeAware'
 import { ActionProp, UiProps } from '../props'
-import { Dimensions } from '@lib/utils/entities/Dimensions'
+
+import { ElementSizeAware } from './ElementSizeAware'
 
 interface OnHoverActionRenderParams<T extends React.CSSProperties> {
   actionSize: Dimensions | null

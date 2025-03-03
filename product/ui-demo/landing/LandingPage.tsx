@@ -1,16 +1,17 @@
-import { VStack } from '@lib/ui/css/stack'
-import styled from 'styled-components'
-import { LandingPageHeader } from './LandingPageHeader'
-import { Center } from '@lib/ui/layout/Center'
-import { Text } from '@lib/ui/text'
 import { Button } from '@lib/ui/buttons/Button'
+import { ShyTextButton } from '@lib/ui/buttons/ShyTextButton'
+import { VStack } from '@lib/ui/css/stack'
+import { Center } from '@lib/ui/layout/Center'
 import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
+import { Text } from '@lib/ui/text'
 import {
   increaserUrl,
   productGitHubUrl,
   productYouTubeChannelUrl,
 } from '@product/ui-demo/product/resources'
-import { ShyTextButton } from '@lib/ui/buttons/ShyTextButton'
+import styled from 'styled-components'
+
+import { LandingPageHeader } from './LandingPageHeader'
 
 const Container = styled(VStack)`
   height: 100%;

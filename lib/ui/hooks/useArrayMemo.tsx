@@ -1,5 +1,5 @@
-import { useMemo, useRef } from 'react'
 import { haveSameContent } from '@lib/utils/array/haveSameContent'
+import { useMemo, useRef } from 'react'
 
 export const useArrayMemo = (array: any[]) => {
   const ref = useRef(array)

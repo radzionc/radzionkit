@@ -1,4 +1,5 @@
 import { DeleteCommand } from '@aws-sdk/lib-dynamodb'
+
 import { dbDocClient } from './client'
 
 interface DeleteItemParams {

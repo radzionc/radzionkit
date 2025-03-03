@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+
 import { hasWindow } from '../utils/window'
 
 export const useMedia = (query: string, defaultState: boolean): boolean => {

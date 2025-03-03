@@ -1,6 +1,6 @@
-import { DemoPage } from '@product/ui-demo/components/DemoPage'
-import { Text } from '@lib/ui/text'
 import { SeparatedByLine } from '@lib/ui/layout/SeparatedByLine'
+import { Text } from '@lib/ui/text'
+import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
 
 export default makeDemoPage(() => {

@@ -1,5 +1,6 @@
-import path from 'path'
 import fs from 'fs'
+import path from 'path'
+
 import { createTsFile } from '@lib/codegen/utils/createTsFile'
 
 const generateCountries = async () => {

@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { InputProps } from '../props'
+
 import { InvisibleInput } from './InvisibleInput'
 
 export type InvisibleHTMLCheckboxProps = InputProps<boolean> & {

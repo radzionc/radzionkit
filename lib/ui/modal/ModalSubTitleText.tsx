@@ -1,6 +1,7 @@
 import { ComponentProps } from 'react'
-import { Text } from '../text'
+
 import { AsProp } from '../props'
+import { Text } from '../text'
 
 export const ModalSubTitleText = (
   props: ComponentProps<typeof Text> & AsProp,

@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components'
-
 import { centerContent } from '@lib/ui/css/centerContent'
 import { getColor } from '@lib/ui/theme/getters'
+import styled, { css } from 'styled-components'
 
 export const pageTitle = css`
   font-size: 18px;

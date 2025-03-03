@@ -1,9 +1,10 @@
-import { ReactNode } from 'react'
-import { TitleProp } from '../props'
 import { VStack } from '@lib/ui/css/stack'
-import styled, { css } from 'styled-components'
-import { Text } from '../text'
 import { match } from '@lib/utils/match'
+import { ReactNode } from 'react'
+import styled, { css } from 'styled-components'
+
+import { TitleProp } from '../props'
+import { Text } from '../text'
 
 type SectionHeaderAlign = 'center' | 'start'
 

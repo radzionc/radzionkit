@@ -1,12 +1,13 @@
+import { VStack, HStack } from '@lib/ui/css/stack'
+import { TreeNode } from '@lib/utils/tree'
 import { useState, Fragment } from 'react'
 import styled, { useTheme } from 'styled-components'
-import { TreeNode } from '@lib/utils/tree'
+
+import { NonEmptyOnly } from '../base/NonEmptyOnly'
 import { transition } from '../css/transition'
 import { verticalPadding } from '../css/verticalPadding'
-import { InputProps } from '../props'
 import { Circle } from '../layout/Circle'
-import { NonEmptyOnly } from '../base/NonEmptyOnly'
-import { VStack, HStack } from '@lib/ui/css/stack'
+import { InputProps } from '../props'
 import { Text } from '../text'
 import { stopPropagation } from '../utils/stopPropagation'
 

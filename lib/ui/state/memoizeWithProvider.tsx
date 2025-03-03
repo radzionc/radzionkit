@@ -1,9 +1,10 @@
+import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { Dispatch, SetStateAction, createContext } from 'react'
 
 import { ChildrenProp } from '../props'
+
 import { ContextState } from './ContextState'
 import { createContextHook } from './createContextHook'
-import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 
 type MemoizeWithProviderInput<T> = {
   name: string

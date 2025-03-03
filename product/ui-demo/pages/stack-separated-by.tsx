@@ -1,12 +1,12 @@
-import { DemoPage } from '@product/ui-demo/components/DemoPage'
-import { Text } from '@lib/ui/text'
 import { SeparatedByLine } from '@lib/ui/layout/SeparatedByLine'
 import {
   HStackSeparatedBy,
   dotSeparator,
   slashSeparator,
 } from '@lib/ui/layout/StackSeparatedBy'
+import { Text } from '@lib/ui/text'
 import { LabeledValue } from '@lib/ui/text/LabeledValue'
+import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
 
 export default makeDemoPage(() => {

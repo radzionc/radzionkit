@@ -1,9 +1,10 @@
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+import { ApiError } from '@product/api-interface/ApiError'
+import { OAuthProvider } from '@product/entities/OAuthProvider'
+
 import { AuthenticationResult } from './AuthenticationResult'
 import { getOAuthAccessToken } from './getOAuthAccessToken'
 import { getOAuthUserInfo } from './getOAuthUserInfo'
-import { OAuthProvider } from '@product/entities/OAuthProvider'
-import { ApiError } from '@product/api-interface/ApiError'
 
 interface AuthenticateWithOAuthParams {
   provider: OAuthProvider

@@ -1,9 +1,11 @@
 import styled from 'styled-components'
-import { ChildrenProp } from '../props'
-import { borderRadius } from '../css/borderRadius'
+
 import { absoluteOutline } from '../css/absoluteOutline'
-import { tightListItemConfig } from './tightListItemConfig'
+import { borderRadius } from '../css/borderRadius'
+import { ChildrenProp } from '../props'
 import { getColor } from '../theme/getters'
+
+import { tightListItemConfig } from './tightListItemConfig'
 
 const Container = styled.div`
   position: relative;

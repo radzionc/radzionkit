@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { range } from '@lib/utils/array/range'
 import { VStack } from '@lib/ui/css/stack'
+import { range } from '@lib/utils/array/range'
+import styled from 'styled-components'
 
 const Line = styled.div`
   width: 100%;

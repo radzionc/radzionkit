@@ -1,11 +1,12 @@
-import styled from 'styled-components'
 import { HStack } from '@lib/ui/css/stack'
-import { toSizeUnit } from '../../../css/toSizeUnit'
-import { IconButton } from '../../../buttons/IconButton'
-import { CloseIcon } from '../../../icons/CloseIcon'
+import styled from 'styled-components'
+
 import { CollapseToggleButton } from '../../../buttons/CollapseToggleButton'
-import { dropdownInputConfig } from '../config'
+import { IconButton } from '../../../buttons/IconButton'
 import { textInputHorizontalPadding } from '../../../css/textInput'
+import { toSizeUnit } from '../../../css/toSizeUnit'
+import { CloseIcon } from '../../../icons/CloseIcon'
+import { dropdownInputConfig } from '../config'
 
 const Container = styled(HStack)`
   position: absolute;

@@ -1,9 +1,10 @@
 import { CountryCode, countryCodes, countryNameRecord } from '@lib/countries'
-import { InputProps } from '@lib/ui/props'
 import { IconWrapper } from '@lib/ui/icons/IconWrapper'
-import styled from 'styled-components'
-import { FixedOptionsInput } from '@lib/ui/inputs/dropdown/FixedOptionsInput'
 import { DropdownOptionContent } from '@lib/ui/inputs/dropdown/DropdownOptionContent'
+import { FixedOptionsInput } from '@lib/ui/inputs/dropdown/FixedOptionsInput'
+import { InputProps } from '@lib/ui/props'
+import styled from 'styled-components'
+
 import { CountryFlagFrame } from './CountryFlagFrame'
 import CountryFlag from './flags/CountryFlag'
 

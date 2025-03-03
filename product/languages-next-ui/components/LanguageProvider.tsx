@@ -1,6 +1,7 @@
-import { Language } from '@product/languages/Language'
 import { getValueProviderSetup } from '@lib/ui/state/getValueProviderSetup'
+import { Language } from '@product/languages/Language'
 import { useRouter } from 'next/router'
+
 import { updateLanguageInPathname } from '../utils/updateLanguageInPathname'
 
 const { useValue: useLanguageValue, provider: LanguageProvider } =

@@ -1,6 +1,6 @@
 import { horizontalPadding } from '@lib/ui/css/horizontalPadding'
-import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { VStack } from '@lib/ui/css/stack'
+import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { ChildrenProp, TitleProp } from '@lib/ui/props'
 import { Text } from '@lib/ui/text'
 import styled from 'styled-components'

@@ -1,6 +1,7 @@
 import { css } from 'styled-components'
-import { getColor } from '../theme/getters'
+
 import { borderRadius } from '../css/borderRadius'
+import { getColor } from '../theme/getters'
 
 export const defaultInputHeight = '52px'
 

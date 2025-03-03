@@ -1,11 +1,12 @@
+import { VStack } from '@lib/ui/css/stack'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
-import { ChildrenProp } from '../props'
-import { VStack } from '@lib/ui/css/stack'
-import { ReversedTheme } from '../theme/ReversedTheme'
-import { getColor } from '../theme/getters'
+
 import { borderRadius } from '../css/borderRadius'
+import { ChildrenProp } from '../props'
 import { Text } from '../text'
+import { getColor } from '../theme/getters'
+import { ReversedTheme } from '../theme/ReversedTheme'
 import { stopPropagation } from '../utils/stopPropagation'
 
 interface TreeFilterNodeProps extends ChildrenProp {

@@ -1,10 +1,11 @@
-import { VStack, HStack } from '@lib/ui/css/stack'
-import styled, { useTheme } from 'styled-components'
-import { HabitInfo } from './data/habits'
-import { Text } from '@lib/ui/text'
-import { Tag } from '@lib/ui/tags/Tag'
 import { Button } from '@lib/ui/buttons/Button'
+import { VStack, HStack } from '@lib/ui/css/stack'
 import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
+import { Tag } from '@lib/ui/tags/Tag'
+import { Text } from '@lib/ui/text'
+import styled, { useTheme } from 'styled-components'
+
+import { HabitInfo } from './data/habits'
 
 interface HabitItemTag {
   name: string

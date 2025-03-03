@@ -1,5 +1,6 @@
-import { useState } from 'react'
 import { ColorLabelInput } from '@lib/ui/inputs/ColorLabelInput'
+import { useState } from 'react'
+
 import { DemoPage } from '../components/DemoPage'
 import { makeDemoPage } from '../layout/makeDemoPage'
 

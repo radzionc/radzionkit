@@ -1,4 +1,5 @@
 import { useTheme } from 'styled-components'
+
 import { SvgIconProps } from '../icons/SvgIconProps'
 
 export const NoDataIllustration = (props: SvgIconProps) => {

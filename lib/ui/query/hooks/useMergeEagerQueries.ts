@@ -1,5 +1,6 @@
 import { isEmpty } from '@lib/utils/array/isEmpty'
 import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
+
 import { EagerQuery } from '../Query'
 
 type MergeEagerQueriesInput<T, R, E = unknown> = {

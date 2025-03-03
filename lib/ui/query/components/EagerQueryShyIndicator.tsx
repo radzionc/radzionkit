@@ -1,13 +1,14 @@
-import { EagerQuery } from '../Query'
-import { Spinner } from '../../loaders/Spinner'
-import { Tooltip } from '../../tooltips/Tooltip'
-import styled from 'styled-components'
-import { IconWrapper } from '../../icons/IconWrapper'
-import { getColor } from '../../theme/getters'
-import { Text } from '../../text'
-import { AlertTriangleIcon } from '../../icons/AlertTriangeIcon'
 import { VStack } from '@lib/ui/css/stack'
 import { getErrorMessage } from '@lib/utils/getErrorMessage'
+import styled from 'styled-components'
+
+import { AlertTriangleIcon } from '../../icons/AlertTriangeIcon'
+import { IconWrapper } from '../../icons/IconWrapper'
+import { Spinner } from '../../loaders/Spinner'
+import { Text } from '../../text'
+import { getColor } from '../../theme/getters'
+import { Tooltip } from '../../tooltips/Tooltip'
+import { EagerQuery } from '../Query'
 
 export interface EagerQueryShyIndicatorProps<T> {
   query: EagerQuery<T>

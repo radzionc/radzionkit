@@ -1,5 +1,6 @@
-import { match } from '@lib/utils/match'
 import path from 'path'
+
+import { match } from '@lib/utils/match'
 import { format, resolveConfig } from 'prettier'
 
 interface FormatCodeParams {

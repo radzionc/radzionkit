@@ -1,7 +1,7 @@
-import { shouldBeDefined } from '@lib/utils/assert/shouldBeDefined'
-import { ChildrenProp } from '@lib/ui/props'
 import { AmplitudeAnalyticsProvider } from '@lib/analytics-ui/AmplitudeAnalyticsProvider'
 import { LocalAnalyticsProvider } from '@lib/analytics-ui/LocalAnalyticsProvider'
+import { ChildrenProp } from '@lib/ui/props'
+import { shouldBeDefined } from '@lib/utils/assert/shouldBeDefined'
 
 export const AnalyticsProvider = ({ children }: ChildrenProp) => {
   if (process.env.NODE_ENV === 'production') {

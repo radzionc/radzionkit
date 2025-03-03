@@ -1,9 +1,10 @@
-import styled from 'styled-components'
 import { ComponentProps } from 'react'
+import styled from 'styled-components'
 
-import { IconButton } from './IconButton'
 import { transition } from '../css/transition'
 import { ChevronDownIcon } from '../icons/ChevronDownIcon'
+
+import { IconButton } from './IconButton'
 
 type CollapseToggleButtonProps = Omit<
   ComponentProps<typeof IconButton>,

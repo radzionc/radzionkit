@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components'
+
 import { interactive } from '../css/interactive'
-import { getColor } from '../theme/getters'
-import { UnstyledButton } from './UnstyledButton'
 import { text } from '../text'
+import { getColor } from '../theme/getters'
+
+import { UnstyledButton } from './UnstyledButton'
 
 export const shyTextButton = css`
   position: relative;

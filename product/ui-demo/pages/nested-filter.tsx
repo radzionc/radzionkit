@@ -1,5 +1,5 @@
-import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { CuratedHabits } from '@product/ui-demo/components/CuratedHabits'
+import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
 
 export default makeDemoPage(() => {

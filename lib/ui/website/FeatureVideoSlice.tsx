@@ -1,10 +1,10 @@
+import { FeatureVideo, FeatureVideoProps } from '@lib/ui/website/FeatureVideo'
 import {
   WebsiteSectionHeader,
   WebsiteSectionHeaderProps,
 } from '@lib/ui/website/WebsiteSectionHeader'
 import { WebsiteSlice } from '@lib/ui/website/WebsiteSlice'
 import { WebsiteSliceContent } from '@lib/ui/website/WebsiteSliceContent'
-import { FeatureVideo, FeatureVideoProps } from '@lib/ui/website/FeatureVideo'
 
 export type FeatureVideoSliceProps = FeatureVideoProps &
   WebsiteSectionHeaderProps

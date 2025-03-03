@@ -1,4 +1,5 @@
 import { isInInterval } from '../interval/isInInterval'
+
 import { getWeekInterval } from './Week'
 
 export const isThisWeek = (timestamp: number) => {

@@ -1,7 +1,8 @@
-import { FormEvent } from 'react'
 import { VStack } from '@lib/ui/css/stack'
-import { preventDefault } from '../../utils/preventDefault'
+import { FormEvent } from 'react'
+
 import { Fields } from '../../inputs/Fields'
+import { preventDefault } from '../../utils/preventDefault'
 
 interface Props {
   onSubmit: () => void

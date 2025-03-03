@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { DiscIcon } from '@lib/ui/icons/DiscIcon'
+import { CoverImage } from '@lib/ui/images/CoverImage'
 import { SafeImage } from '@lib/ui/images/SafeImage'
 import { getColor } from '@lib/ui/theme/getters'
-import { CoverImage } from '@lib/ui/images/CoverImage'
-import { sameDimensions } from '@lib/ui/css/sameDimensions'
+import styled from 'styled-components'
 
 interface AssetIconProps {
   src?: string

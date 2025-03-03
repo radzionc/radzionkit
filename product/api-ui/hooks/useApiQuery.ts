@@ -1,10 +1,10 @@
 import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
-import { useQuery } from '@tanstack/react-query'
-import { useApi } from '@product/api-ui/state/ApiContext'
 import {
   ApiInterface,
   ApiMethodName,
 } from '@product/api-interface/ApiInterface'
+import { useApi } from '@product/api-ui/state/ApiContext'
+import { useQuery } from '@tanstack/react-query'
 
 export const getApiQueryKey = <M extends ApiMethodName>(
   method: M,

@@ -1,8 +1,8 @@
-import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { HStack } from '@lib/ui/css/stack'
 import { Tag } from '@lib/ui/tags/Tag'
-import { useTheme } from 'styled-components'
+import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
+import { useTheme } from 'styled-components'
 
 export default makeDemoPage(() => {
   const {

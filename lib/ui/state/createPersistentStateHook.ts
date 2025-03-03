@@ -1,6 +1,7 @@
-import { useSyncExternalStore, useCallback } from 'react'
-import { PersistentStorage } from './PersistentStorage'
 import { shouldBeDefined } from '@lib/utils/assert/shouldBeDefined'
+import { useSyncExternalStore, useCallback } from 'react'
+
+import { PersistentStorage } from './PersistentStorage'
 
 export type NonUndefined<T> = T extends undefined ? never : T
 

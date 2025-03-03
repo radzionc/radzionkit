@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { centerContent } from '../css/centerContent'
+
 import { HSLA } from '../colors/HSLA'
+import { centerContent } from '../css/centerContent'
 
 export const EditorActiveSession = styled.div<{ $color: HSLA }>`
   position: absolute;

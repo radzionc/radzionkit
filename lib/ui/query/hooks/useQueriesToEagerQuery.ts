@@ -1,7 +1,8 @@
-import { EagerQuery, Query } from '../Query'
-import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
 import { isEmpty } from '@lib/utils/array/isEmpty'
+import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
 import { useMemo } from 'react'
+
+import { EagerQuery, Query } from '../Query'
 
 type ToEagerQueryInput<T, R, E = unknown> = {
   queries: Query<T, E>[]

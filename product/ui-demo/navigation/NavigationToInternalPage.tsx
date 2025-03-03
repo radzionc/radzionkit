@@ -1,7 +1,6 @@
-import { useRouter } from 'next/router'
-
 import { NavigationItem } from '@lib/ui/navigation/Sidebar/NavigationItem'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 interface Props {
   path: string

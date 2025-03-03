@@ -2,13 +2,14 @@ import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
 import { WithSecondaryAction } from '@lib/ui/buttons/WithSecondaryAction'
 import { HStack } from '@lib/ui/css/stack'
 import { IconWrapper } from '@lib/ui/icons/IconWrapper'
-import { SettingsIcon } from '@lib/ui/icons/SettingsIcon'
-import { Modal } from '@lib/ui/modal'
-import { useState } from 'react'
 import { NoVolumeIcon } from '@lib/ui/icons/NoVolumeIcon'
+import { SettingsIcon } from '@lib/ui/icons/SettingsIcon'
 import { VolumeIcon } from '@lib/ui/icons/VolumeIcon'
-import styled from 'styled-components'
+import { Modal } from '@lib/ui/modal'
 import { ModalContent } from '@lib/ui/modal/ModalContent'
+import { useState } from 'react'
+import styled from 'styled-components'
+
 import { ChildrenProp, TitleProp } from '../../props'
 
 const IconContainer = styled(IconWrapper)`

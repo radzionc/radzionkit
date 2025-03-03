@@ -1,6 +1,8 @@
 import { VStack } from '@lib/ui/css/stack'
-import { ActionProp, ChildrenProp } from '../props'
+
 import { ElementSizeAware } from '../base/ElementSizeAware'
+import { ActionProp, ChildrenProp } from '../props'
+
 import { ShyInfoBlock } from './ShyInfoBlock'
 
 type ActionPromptProps = ChildrenProp & ActionProp

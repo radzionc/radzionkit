@@ -1,6 +1,7 @@
+import { getMonth, getYear, startOfMonth, endOfMonth } from 'date-fns'
+
 import { Interval } from '../interval/Interval'
 import { haveEqualFields } from '../record/haveEqualFields'
-import { getMonth, getYear, startOfMonth, endOfMonth } from 'date-fns'
 
 export type Month = {
   year: number

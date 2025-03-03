@@ -1,13 +1,14 @@
+import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
+import { HStack } from '@lib/ui/css/stack'
 import { useEffect, useRef } from 'react'
 import styled, { css } from 'styled-components'
-import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
-import { IsActiveProp, InputProps } from '../props'
-import { horizontalPadding } from '../css/horizontalPadding'
-import { getColor } from '../theme/getters'
+
 import { absoluteOutline } from '../css/absoluteOutline'
-import { HStack } from '@lib/ui/css/stack'
 import { centerContent } from '../css/centerContent'
 import { hideScrollbars } from '../css/hideScrollbars'
+import { horizontalPadding } from '../css/horizontalPadding'
+import { IsActiveProp, InputProps } from '../props'
+import { getColor } from '../theme/getters'
 
 const Underline = styled.div`
   position: absolute;

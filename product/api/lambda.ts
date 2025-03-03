@@ -1,7 +1,8 @@
 import { AWSLambda } from '@sentry/serverless'
 import serverlessExpress from '@vendia/serverless-express'
-import { getEnvVar } from './getEnvVar'
+
 import { app } from './app'
+import { getEnvVar } from './getEnvVar'
 
 AWSLambda.init({
   dsn: getEnvVar('SENTRY_KEY'),

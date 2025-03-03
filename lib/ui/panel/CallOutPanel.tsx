@@ -1,9 +1,10 @@
+import { Panel } from '@lib/ui/css/panel'
 import styled from 'styled-components'
+
+import { centerContent } from '../css/centerContent'
 import { interactive } from '../css/interactive'
 import { transition } from '../css/transition'
 import { getColor } from '../theme/getters'
-import { Panel } from '@lib/ui/css/panel'
-import { centerContent } from '../css/centerContent'
 
 export const CallOutPanel = styled(Panel)`
   ${interactive};

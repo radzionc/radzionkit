@@ -1,14 +1,16 @@
+import { match } from '@lib/utils/match'
 import { useId, useMemo } from 'react'
 import styled, { useTheme } from 'styled-components'
-import { transition } from '../../css/transition'
-import { HSLA } from '../../colors/HSLA'
-import { match } from '@lib/utils/match'
+
 import { Match } from '../../base/Match'
+import { HSLA } from '../../colors/HSLA'
+import { transition } from '../../css/transition'
+
 import { calculateControlPoints } from './utils/calculateControlPoints'
-import { createSmoothPath } from './utils/createSmoothPath'
-import { createSmoothClosedPath } from './utils/createSmoothClosedPath'
-import { createSharpPath } from './utils/createSharpPath'
 import { createSharpClosedPath } from './utils/createSharpClosedPath'
+import { createSharpPath } from './utils/createSharpPath'
+import { createSmoothClosedPath } from './utils/createSmoothClosedPath'
+import { createSmoothPath } from './utils/createSmoothPath'
 
 type LineChartFillKind = 'gradient' | 'solid' | 'none'
 type DataPointsConnectionKind = 'sharp' | 'smooth'

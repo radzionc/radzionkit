@@ -1,6 +1,7 @@
 import { getErrorMessage } from '@lib/utils/getErrorMessage'
-import { Validators } from './Validators'
+
 import { ValidationResult } from './ValidationResult'
+import { Validators } from './Validators'
 
 export const validate = <T>(
   values: T,

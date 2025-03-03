@@ -1,11 +1,11 @@
-import { Interval } from '@lib/utils/interval/Interval'
-import { useStartOfDay } from '@lib/ui/hooks/useStartOfDay'
 import { Panel } from '@lib/ui/css/panel'
+import { useStartOfDay } from '@lib/ui/hooks/useStartOfDay'
+import { TitledSection } from '@lib/ui/layout/TitledSection'
 import { IntervalInput } from '@lib/ui/timeline/IntervalInput'
+import { Interval } from '@lib/utils/interval/Interval'
+import { convertDuration } from '@lib/utils/time/convertDuration'
 import { useState } from 'react'
 import { useTheme } from 'styled-components'
-import { TitledSection } from '@lib/ui/layout/TitledSection'
-import { convertDuration } from '@lib/utils/time/convertDuration'
 
 export const CalendarEditor = () => {
   const startOfDay = useStartOfDay()

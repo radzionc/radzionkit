@@ -1,12 +1,14 @@
+import { panelDefaultPadding } from '@lib/ui/css/panel'
+import { VStack } from '@lib/ui/css/stack'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import { FormSectionShyTitle } from '@lib/ui/form/components/FormSectionShyTitle'
-import { VStack } from '@lib/ui/css/stack'
 import { InputProps } from '@lib/ui/props'
 import { ComponentProps, ReactNode, useRef } from 'react'
 import styled from 'styled-components'
-import { MultilineTextInput } from './MultilineTextInput'
+
 import { tightListItemConfig } from '../list/tightListItemConfig'
-import { panelDefaultPadding } from '@lib/ui/css/panel'
+
+import { MultilineTextInput } from './MultilineTextInput'
 
 const padding = panelDefaultPadding
 

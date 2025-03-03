@@ -1,13 +1,14 @@
-import { HStack, VStack } from '@lib/ui/css/stack'
-import styled from 'styled-components'
-import { getColor } from '@lib/ui/theme/getters'
-import { CoverImage } from '@lib/ui/images/CoverImage'
-import { sameDimensions } from '@lib/ui/css/sameDimensions'
-import { SafeImage } from '@lib/ui/images/SafeImage'
 import { round } from '@lib/ui/css/round'
+import { sameDimensions } from '@lib/ui/css/sameDimensions'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { IconWrapper } from '@lib/ui/icons/IconWrapper'
-import { ChildrenProp } from '../props'
+import { CoverImage } from '@lib/ui/images/CoverImage'
+import { SafeImage } from '@lib/ui/images/SafeImage'
+import { getColor } from '@lib/ui/theme/getters'
 import { ReactNode } from 'react'
+import styled from 'styled-components'
+
+import { ChildrenProp } from '../props'
 
 const Container = styled(VStack)`
   gap: 16px;

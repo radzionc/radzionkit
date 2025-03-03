@@ -1,7 +1,8 @@
-import styled from 'styled-components'
 import { HStack } from '@lib/ui/css/stack'
-import { tightListItemConfig } from '../list/tightListItemConfig'
+import styled from 'styled-components'
+
 import { toSizeUnit } from '../css/toSizeUnit'
+import { tightListItemConfig } from '../list/tightListItemConfig'
 
 export const EmbeddedPromptContentFrame = styled(HStack)`
   align-items: center;

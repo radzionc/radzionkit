@@ -1,8 +1,8 @@
 import { centerContent } from '@lib/ui/css/centerContent'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
+import { getColor } from '@lib/ui/theme/getters'
 import { websiteConfig } from '@lib/ui/website/config'
 import styled from 'styled-components'
-import { getColor } from '@lib/ui/theme/getters'
 
 export const FadeOutImageSlice = styled.div<{ imageUrl: string }>`
   width: 100%;

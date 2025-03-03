@@ -1,12 +1,13 @@
+import { HStack } from '@lib/ui/css/stack'
 import React from 'react'
 import styled, { css } from 'styled-components'
+
 import { borderRadius } from '../../css/borderRadius'
 import { interactive } from '../../css/interactive'
 import { sameDimensions } from '../../css/sameDimensions'
 import { transition } from '../../css/transition'
-import { HStack } from '@lib/ui/css/stack'
-import { matchColor, getColor } from '../../theme/getters'
 import { ChildrenProp } from '../../props'
+import { matchColor, getColor } from '../../theme/getters'
 import { Tooltip } from '../../tooltips/Tooltip'
 
 interface SelectOptionProps extends ChildrenProp {

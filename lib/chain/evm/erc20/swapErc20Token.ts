@@ -1,5 +1,7 @@
 import { createClientV2 } from '@0x/swap-ts-sdk'
 import { shouldBePresent } from '@lib/utils/assert/shouldBePresent'
+import { assertField } from '@lib/utils/record/assertField'
+import { TransferDirection } from '@lib/utils/TransferDirection'
 import {
   Address,
   Chain,
@@ -9,13 +11,13 @@ import {
   numberToHex,
   size,
 } from 'viem'
-import { TransferDirection } from '@lib/utils/TransferDirection'
-import { assertField } from '@lib/utils/record/assertField'
 import { privateKeyToAccount } from 'viem/accounts'
-import { setErc20Allowance } from './setErc20Allowance'
-import { getWalletClient } from '../utils/getWalletClient'
-import { getPublicClient } from '../utils/getPublicClient'
+
 import { assertTx } from '../utils/assertTx'
+import { getPublicClient } from '../utils/getPublicClient'
+import { getWalletClient } from '../utils/getWalletClient'
+
+import { setErc20Allowance } from './setErc20Allowance'
 
 type Input = Record<TransferDirection, Address> & {
   chain: Chain

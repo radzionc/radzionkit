@@ -1,7 +1,9 @@
 import { DefaultTheme } from 'styled-components'
-import { sharedColors } from './shared'
-import { HSLA } from '../colors/HSLA'
+
 import { generateLabelColorGetter } from '../colors/generateLabelColorGetter'
+import { HSLA } from '../colors/HSLA'
+
+import { sharedColors } from './shared'
 
 export const regularTextAlpha = 0.9
 const primary = new HSLA(235, 55, 63)

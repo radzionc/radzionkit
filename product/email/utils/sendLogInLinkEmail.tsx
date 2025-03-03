@@ -1,8 +1,10 @@
-import { render } from '@react-email/render'
-import { sendEmail } from './sendEmail'
-import { getEnvVar } from './getEnvVar'
-import LoginLinkEmail, { LoginLinkEmailProps } from '../emails/LoginLinkEmail'
 import { productName } from '@product/config'
+import { render } from '@react-email/render'
+
+import LoginLinkEmail, { LoginLinkEmailProps } from '../emails/LoginLinkEmail'
+
+import { getEnvVar } from './getEnvVar'
+import { sendEmail } from './sendEmail'
 
 export const sendLoginLinkEmail = async ({
   loginUrl,

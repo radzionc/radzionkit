@@ -1,18 +1,19 @@
+import { match } from '@lib/utils/match'
 import React, { Ref } from 'react'
 import styled, { css } from 'styled-components'
 
-import { UnstyledButton } from './UnstyledButton'
-import { match } from '@lib/utils/match'
+import { MergeRefs } from '../base/MergeRefs'
 import { centerContent } from '../css/centerContent'
 import { horizontalPadding } from '../css/horizontalPadding'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { transition } from '../css/transition'
 import { CenterAbsolutely } from '../layout/CenterAbsolutely'
 import { Spinner } from '../loaders/Spinner'
-import { Tooltip } from '../tooltips/Tooltip'
-import { getColor } from '../theme/getters'
 import { getHoverVariant } from '../theme/getHoverVariant'
-import { MergeRefs } from '../base/MergeRefs'
+import { getColor } from '../theme/getters'
+import { Tooltip } from '../tooltips/Tooltip'
+
+import { UnstyledButton } from './UnstyledButton'
 
 export const buttonSizes = ['xs', 's', 'm', 'l', 'xl'] as const
 

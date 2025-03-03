@@ -1,17 +1,18 @@
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { ComponentProps, ReactNode, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { takeWholeSpace } from '../../css/takeWholeSpace'
-import { HStack, VStack } from '@lib/ui/css/stack'
-import { useIsScreenWidthLessThan } from '../../hooks/useIsScreenWidthLessThan'
-import { centeredContentColumn } from '../../css/centeredContentColumn'
-import { websiteConfig } from '../config'
-import { getColor } from '../../theme/getters'
+
 import { IconButton } from '../../buttons/IconButton'
-import { CloseIcon } from '../../icons/CloseIcon'
-import { MenuIcon } from '../../icons/MenuIcon'
+import { centeredContentColumn } from '../../css/centeredContentColumn'
+import { takeWholeSpace } from '../../css/takeWholeSpace'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { verticalPadding } from '../../css/verticalPadding'
+import { useIsScreenWidthLessThan } from '../../hooks/useIsScreenWidthLessThan'
+import { CloseIcon } from '../../icons/CloseIcon'
+import { MenuIcon } from '../../icons/MenuIcon'
 import { OnCloseProp } from '../../props'
+import { getColor } from '../../theme/getters'
+import { websiteConfig } from '../config'
 
 const Wrapper = styled(VStack)`
   ${takeWholeSpace};

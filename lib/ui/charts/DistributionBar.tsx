@@ -1,15 +1,15 @@
+import { Panel } from '@lib/ui/css/panel'
+import { VStack } from '@lib/ui/css/stack'
+import { sum } from '@lib/utils/array/sum'
+import { toPercents } from '@lib/utils/toPercents'
 import { useMemo } from 'react'
 import styled from 'styled-components'
 
-import { HSLA } from '../colors/HSLA'
 import { ElementSizeAware } from '../base/ElementSizeAware'
-import { Panel } from '@lib/ui/css/panel'
-import { VStack } from '@lib/ui/css/stack'
+import { HSLA } from '../colors/HSLA'
+import { transition } from '../css/transition'
 import { Text } from '../text'
 import { getColor } from '../theme/getters'
-import { sum } from '@lib/utils/array/sum'
-import { toPercents } from '@lib/utils/toPercents'
-import { transition } from '../css/transition'
 
 export interface DistributionBarItem {
   value: number

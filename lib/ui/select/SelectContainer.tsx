@@ -1,10 +1,11 @@
-import styled from 'styled-components'
 import { borderRadius } from '@lib/ui/css/borderRadius'
-import { getColor } from '@lib/ui/theme/getters'
-import { toSizeUnit } from '../css/toSizeUnit'
 import { hStack } from '@lib/ui/css/stack'
+import { getColor } from '@lib/ui/theme/getters'
+import styled from 'styled-components'
+
 import { UnstyledButton } from '../buttons/UnstyledButton'
 import { horizontalPadding } from '../css/horizontalPadding'
+import { toSizeUnit } from '../css/toSizeUnit'
 
 export const selectContainerMinHeight = 40
 

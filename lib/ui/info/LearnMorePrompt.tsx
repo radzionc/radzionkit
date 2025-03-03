@@ -6,6 +6,7 @@ import { InfoIcon } from '@lib/ui/icons/InfoIcon'
 import { getColor } from '@lib/ui/theme/getters'
 import { ComponentProps } from 'react'
 import styled from 'styled-components'
+
 import { AsProp } from '../props'
 
 const Container = styled(UnstyledButton)`

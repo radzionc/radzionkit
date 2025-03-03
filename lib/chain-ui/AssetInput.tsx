@@ -1,14 +1,15 @@
-import { InputProps } from '@lib/ui/props'
-import styled from 'styled-components'
-import { Asset } from './Asset'
 import { round } from '@lib/ui/css/round'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
-import { getColor } from '@lib/ui/theme/getters'
 import { VStack } from '@lib/ui/css/stack'
-import { Text } from '@lib/ui/text'
-import { AssetIcon } from './AssetIcon'
-import { FixedOptionsInput } from '@lib/ui/inputs/dropdown/FixedOptionsInput'
 import { DropdownOptionContent } from '@lib/ui/inputs/dropdown/DropdownOptionContent'
+import { FixedOptionsInput } from '@lib/ui/inputs/dropdown/FixedOptionsInput'
+import { InputProps } from '@lib/ui/props'
+import { Text } from '@lib/ui/text'
+import { getColor } from '@lib/ui/theme/getters'
+import styled from 'styled-components'
+
+import { Asset } from './Asset'
+import { AssetIcon } from './AssetIcon'
 
 interface AssetInputProps extends InputProps<Asset | null> {
   label?: React.ReactNode

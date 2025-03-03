@@ -1,5 +1,5 @@
-import { ChildrenProp, TitleProp } from '@lib/ui/props'
 import { VStack } from '@lib/ui/css/stack'
+import { ChildrenProp, TitleProp } from '@lib/ui/props'
 import { Text } from '@lib/ui/text'
 
 type LegalPageSectionProps = ChildrenProp & TitleProp

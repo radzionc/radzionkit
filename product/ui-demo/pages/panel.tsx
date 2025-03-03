@@ -1,9 +1,9 @@
+import { Button } from '@lib/ui/buttons/Button'
 import { VStack } from '@lib/ui/css/stack'
-import { DemoPage } from '@product/ui-demo/components/DemoPage'
+import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
 import { ExpandablePanel } from '@lib/ui/panel/ExpandablePanel'
 import { Text } from '@lib/ui/text'
-import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
-import { Button } from '@lib/ui/buttons/Button'
+import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
 
 export default makeDemoPage(() => {

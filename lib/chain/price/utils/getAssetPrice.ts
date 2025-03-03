@@ -1,4 +1,5 @@
 import { FiatCurrency } from '../FiatCurrency'
+
 import { getAssetPrices } from './getAssetPrices'
 
 export type GetAssetPriceInput = {

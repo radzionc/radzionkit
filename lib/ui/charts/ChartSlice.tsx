@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
+import styled from 'styled-components'
 
 type ChartSliceProps = {
   yLabelsWidth: number | string

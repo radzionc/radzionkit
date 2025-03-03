@@ -1,12 +1,15 @@
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
-import reactHooks from 'eslint-plugin-react-hooks'
-import { fixupPluginRules } from '@eslint/compat'
-import globals from 'globals'
-import tsParser from '@typescript-eslint/parser'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import js from '@eslint/js'
+
+import { fixupPluginRules } from '@eslint/compat'
 import { FlatCompat } from '@eslint/eslintrc'
+import js from '@eslint/js'
+import typescriptEslint from '@typescript-eslint/eslint-plugin'
+import tsParser from '@typescript-eslint/parser'
+import importPlugin from 'eslint-plugin-import'
+import reactHooks from 'eslint-plugin-react-hooks'
+import unusedImportsPlugin from 'eslint-plugin-unused-imports'
+import globals from 'globals'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -26,6 +29,8 @@ const baseConfig = [
     plugins: {
       '@typescript-eslint': typescriptEslint,
       'react-hooks': fixupPluginRules(reactHooks),
+      import: fixupPluginRules(importPlugin),
+      'unused-imports': fixupPluginRules(unusedImportsPlugin),
     },
 
     languageOptions: {
@@ -45,6 +50,34 @@ const baseConfig = [
       '@typescript-eslint/no-empty-object-type': [
         'off',
         { allowEmptyObject: true },
+      ],
+      '@typescript-eslint/no-unused-vars': 'off',
+      'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-vars': [
+        'warn',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+        },
+      ],
+      'import/order': [
+        'error',
+        {
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+            'object',
+            'type',
+          ],
+          'newlines-between': 'always',
+          alphabetize: { order: 'asc', caseInsensitive: true },
+        },
       ],
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'error',

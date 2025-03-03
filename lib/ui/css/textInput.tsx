@@ -1,8 +1,10 @@
 import { css } from 'styled-components'
+
 import { getColor } from '../theme/getters'
-import { toSizeUnit } from './toSizeUnit'
+
 import { borderRadius } from './borderRadius'
 import { horizontalPadding } from './horizontalPadding'
+import { toSizeUnit } from './toSizeUnit'
 
 export const textInputHorizontalPadding = 12
 export const textInputHeight = 52

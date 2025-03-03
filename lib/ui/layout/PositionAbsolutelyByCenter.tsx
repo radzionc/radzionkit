@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { ChildrenProp, UiProps } from '../props'
 
 type PositionAbsolutelyByCenterProps = ChildrenProp &

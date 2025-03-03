@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import { VStack } from '@lib/ui/css/stack'
 import { Opener } from '@lib/ui/base/Opener'
-import { updateAtIndex } from '@lib/utils/array/updateAtIndex'
-import { ChecklistItem } from '@lib/ui/checklist/ChecklistItem'
 import { AddChecklistItemPrompt } from '@lib/ui/checklist/AddChecklistItemPrompt'
+import { ChecklistItem } from '@lib/ui/checklist/ChecklistItem'
+import { VStack } from '@lib/ui/css/stack'
+import { updateAtIndex } from '@lib/utils/array/updateAtIndex'
+import { useState } from 'react'
+
+import { ChecklistItemForm } from '../components/ChecklistItemForm'
 import { DemoPage } from '../components/DemoPage'
 import { makeDemoPage } from '../layout/makeDemoPage'
-import { ChecklistItemForm } from '../components/ChecklistItemForm'
 
 interface Task {
   name: string

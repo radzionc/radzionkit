@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import { VStack } from '@lib/ui/css/stack'
+import styled from 'styled-components'
 
 export const FaqContainer = styled(VStack)`
   gap: 16px;

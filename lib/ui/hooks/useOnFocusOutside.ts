@@ -1,5 +1,7 @@
 import { RefObject, useCallback } from 'react'
+
 import { containsRelatedTarget } from '../utils/containsRelatedTarget'
+
 import { useEvent } from './useEvent'
 
 export const useOnFocusOutside = (

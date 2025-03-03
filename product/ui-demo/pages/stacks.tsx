@@ -1,11 +1,10 @@
-import styled, { useTheme } from 'styled-components'
 import { HSLA } from '@lib/ui/colors/HSLA'
-
-import { HStack, VStack } from '@lib/ui/css/stack'
-import { sameDimensions } from '@lib/ui/css/sameDimensions'
-import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { Panel } from '@lib/ui/css/panel'
+import { sameDimensions } from '@lib/ui/css/sameDimensions'
+import { HStack, VStack } from '@lib/ui/css/stack'
+import { DemoPage } from '@product/ui-demo/components/DemoPage'
 import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
+import styled, { useTheme } from 'styled-components'
 
 const Conent = styled(Panel)<{ $color: HSLA }>`
   ${sameDimensions(80)};

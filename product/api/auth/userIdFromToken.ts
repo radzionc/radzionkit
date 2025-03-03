@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken'
+
 import { getSecret } from '../utils/getSecret'
 
 interface DecodedToken {

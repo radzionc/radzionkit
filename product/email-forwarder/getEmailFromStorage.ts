@@ -1,4 +1,5 @@
 import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3'
+
 import { getEnvVar } from './getEnvVar'
 
 export const getEmailFromStorage = async (messageId: string) => {

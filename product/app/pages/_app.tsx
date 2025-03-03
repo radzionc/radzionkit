@@ -1,10 +1,11 @@
-import type { AppProps } from 'next/app'
-import { ReactNode, useState } from 'react'
+import { Page } from '@lib/next-ui/Page'
 import { GlobalStyle } from '@lib/ui/css/GlobalStyle'
+import { DarkLightThemeProvider } from '@lib/ui/theme/DarkLightThemeProvider'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Inter } from 'next/font/google'
-import { DarkLightThemeProvider } from '@lib/ui/theme/DarkLightThemeProvider'
-import { Page } from '@lib/next-ui/Page'
+import { ReactNode, useState } from 'react'
+
+import type { AppProps } from 'next/app'
 
 const inter = Inter({
   subsets: ['latin'],

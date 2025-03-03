@@ -1,15 +1,15 @@
+import { Dimensions } from '@lib/utils/entities/Dimensions'
+import { getRecordKeys } from '@lib/utils/record/getRecordKeys'
+import { getRecordSize } from '@lib/utils/record/getRecordSize'
+import { pick } from '@lib/utils/record/pick'
+import { recordFromKeys } from '@lib/utils/record/recordFromKeys'
+import { toEntries } from '@lib/utils/record/toEntries'
 import { CSSProperties, ComponentProps, ReactNode, Ref, useState } from 'react'
 import styled from 'styled-components'
 
-import { ElementSizeAware } from './ElementSizeAware'
-
-import { toEntries } from '@lib/utils/record/toEntries'
-import { recordFromKeys } from '@lib/utils/record/recordFromKeys'
-import { getRecordKeys } from '@lib/utils/record/getRecordKeys'
 import { useStateCorrector } from '../state/useStateCorrector'
-import { getRecordSize } from '@lib/utils/record/getRecordSize'
-import { pick } from '@lib/utils/record/pick'
-import { Dimensions } from '@lib/utils/entities/Dimensions'
+
+import { ElementSizeAware } from './ElementSizeAware'
 
 type RenderParams<K extends string> = {
   actions: Record<K, { size: Dimensions; placerStyles: CSSProperties }>

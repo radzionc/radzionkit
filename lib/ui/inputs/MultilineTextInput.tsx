@@ -2,8 +2,9 @@ import { InputProps } from '@lib/ui/props'
 import { getColor } from '@lib/ui/theme/getters'
 import { ComponentProps, useLayoutEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { toSizeUnit } from '../css/toSizeUnit'
+
 import { MergeRefs } from '../base/MergeRefs'
+import { toSizeUnit } from '../css/toSizeUnit'
 
 const Container = styled.textarea`
   border: none;

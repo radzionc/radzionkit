@@ -1,7 +1,8 @@
 import { AWSLambda } from '@sentry/serverless'
 import { SESEvent } from 'aws-lambda'
-import { processSesEventRecord } from './processSesEventRecord'
+
 import { getEnvVar } from './getEnvVar'
+import { processSesEventRecord } from './processSesEventRecord'
 
 AWSLambda.init({
   dsn: getEnvVar('SENTRY_KEY'),

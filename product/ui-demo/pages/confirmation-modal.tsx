@@ -1,12 +1,13 @@
-import { ConfirmationModal } from '@lib/ui/modal/ConfirmationModal'
 import { Opener } from '@lib/ui/base/Opener'
-import { VStack } from '@lib/ui/css/stack'
-import { Text } from '@lib/ui/text'
 import { IconButton } from '@lib/ui/buttons/IconButton'
+import { ShyTextButton } from '@lib/ui/buttons/ShyTextButton'
+import { VStack } from '@lib/ui/css/stack'
 import { TrashBinIcon } from '@lib/ui/icons/TrashBinIcon'
+import { ConfirmationModal } from '@lib/ui/modal/ConfirmationModal'
+import { Text } from '@lib/ui/text'
+
 import { DemoPage } from '../components/DemoPage'
 import { makeDemoPage } from '../layout/makeDemoPage'
-import { ShyTextButton } from '@lib/ui/buttons/ShyTextButton'
 
 export default makeDemoPage(() => {
   return (

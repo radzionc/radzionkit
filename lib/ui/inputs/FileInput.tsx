@@ -1,14 +1,16 @@
-import styled from 'styled-components'
-import { inputBackgroundCSS } from './config'
-import { useDropzone, Accept } from 'react-dropzone'
-import { Button } from '../buttons/Button'
-import { getColor } from '../theme/getters'
-import { UploadIcon } from '../icons/UploadIcon'
-import { transition } from '../css/transition'
-import { VStack } from '@lib/ui/css/stack'
 import { Panel } from '@lib/ui/css/panel'
-import { Text } from '../text'
+import { VStack } from '@lib/ui/css/stack'
+import { useDropzone, Accept } from 'react-dropzone'
+import styled from 'styled-components'
+
+import { Button } from '../buttons/Button'
 import { borderRadius } from '../css/borderRadius'
+import { transition } from '../css/transition'
+import { UploadIcon } from '../icons/UploadIcon'
+import { Text } from '../text'
+import { getColor } from '../theme/getters'
+
+import { inputBackgroundCSS } from './config'
 
 interface Props {
   onSubmit: (file: File) => void

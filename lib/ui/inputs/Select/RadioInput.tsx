@@ -1,11 +1,13 @@
-import React, { ReactNode } from 'react'
 import { HStack } from '@lib/ui/css/stack'
-import { InputProps, UiProps } from '../../props'
+import React, { ReactNode } from 'react'
 import { useId } from 'react'
+
+import { InputProps, UiProps } from '../../props'
 import { InputContainer } from '../InputContainer'
 import { InputLabel } from '../InputLabel'
-import { SelectOption } from './SelectOption'
 import { InvisibleHTMLRadio } from '../InvisibleHTMLRadio'
+
+import { SelectOption } from './SelectOption'
 
 interface RadioInputProps<T extends string> extends InputProps<T>, UiProps {
   options: readonly T[]

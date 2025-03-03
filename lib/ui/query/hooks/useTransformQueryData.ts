@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+
 import { Query } from '../Query'
 
 type QueryBase<T> = Pick<Query<T>, 'data' | 'error'>

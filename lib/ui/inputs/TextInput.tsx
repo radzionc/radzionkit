@@ -1,10 +1,11 @@
+import { VStack } from '@lib/ui/css/stack'
 import { ChangeEvent, ComponentProps } from 'react'
 import styled from 'styled-components'
 
-import { VStack } from '@lib/ui/css/stack'
+import { textInput } from '../css/textInput'
 import { Spinner } from '../loaders/Spinner'
 import { ClassNameProp, LabelProp } from '../props'
-import { textInput } from '../css/textInput'
+
 import { InputContainer } from './InputContainer'
 import { InputLabel } from './InputLabel'
 

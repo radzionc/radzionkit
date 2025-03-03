@@ -1,8 +1,9 @@
+import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { createContext } from 'react'
 
-import { createContextHook } from './createContextHook'
 import { ChildrenProp } from '../props'
-import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+
+import { createContextHook } from './createContextHook'
 
 export function getValueProviderSetup<T>(name: string) {
   const ValueContext = createContext<T | undefined>(undefined)

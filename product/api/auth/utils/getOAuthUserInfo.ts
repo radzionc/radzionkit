@@ -1,7 +1,8 @@
 import { match } from '@lib/utils/match'
 import { addQueryParams } from '@lib/utils/query/addQueryParams'
-import { queryOAuthProvider } from './queryOAuthProvider'
 import { OAuthProvider } from '@product/entities/OAuthProvider'
+
+import { queryOAuthProvider } from './queryOAuthProvider'
 
 interface GetOAuthUserInfoParams {
   accessToken: string

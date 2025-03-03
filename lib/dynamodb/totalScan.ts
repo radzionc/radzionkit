@@ -1,5 +1,6 @@
 import { ScanCommand, ScanCommandInput } from '@aws-sdk/lib-dynamodb'
 import { fetchAll } from '@lib/utils/query/fetchAll'
+
 import { dbDocClient } from './client'
 
 export const totalScan = <T>(

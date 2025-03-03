@@ -1,5 +1,6 @@
-import { useState } from 'react'
 import { Checkbox } from '@lib/ui/inputs/Checkbox/Checkbox'
+import { useState } from 'react'
+
 import { DemoPage } from '../components/DemoPage'
 import { makeDemoPage } from '../layout/makeDemoPage'
 

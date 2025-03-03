@@ -1,13 +1,14 @@
-import styled from 'styled-components'
 import { VStack } from '@lib/ui/css/stack'
-import { getColor } from '../theme/getters'
-import { ValueProp, UiProps } from '../props'
-import { HStackSeparatedBy, dotSeparator } from '../layout/StackSeparatedBy'
-import { Text } from '../text'
-import { formatTime } from '@lib/utils/time/formatTime'
+import { getIntervalDuration } from '@lib/utils/interval/getIntervalDuration'
 import { Interval } from '@lib/utils/interval/Interval'
 import { formatDuration } from '@lib/utils/time/formatDuration'
-import { getIntervalDuration } from '@lib/utils/interval/getIntervalDuration'
+import { formatTime } from '@lib/utils/time/formatTime'
+import styled from 'styled-components'
+
+import { HStackSeparatedBy, dotSeparator } from '../layout/StackSeparatedBy'
+import { ValueProp, UiProps } from '../props'
+import { Text } from '../text'
+import { getColor } from '../theme/getters'
 
 export type FloatingIntervalDurationProps = UiProps & ValueProp<Interval>
 

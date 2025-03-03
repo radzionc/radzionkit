@@ -1,5 +1,5 @@
-import { User } from '@product/entities/User'
 import { makeId } from '@lib/dynamodb/makeId'
+import { User } from '@product/entities/User'
 
 export const getUserInitialFields = ({
   email,

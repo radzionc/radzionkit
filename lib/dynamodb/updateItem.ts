@@ -1,11 +1,12 @@
 import { UpdateCommand } from '@aws-sdk/lib-dynamodb'
-import { isNullOrUndefined } from '@lib/utils/isNullOrUndefined'
-import { splitRecord } from '@lib/utils/record/splitRecord'
-import { getUpdateParams } from './getUpdateParams'
-import { getRemoveParams } from './getRemoveParams'
-import { dbDocClient } from './client'
 import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
+import { isNullOrUndefined } from '@lib/utils/isNullOrUndefined'
 import { match } from '@lib/utils/match'
+import { splitRecord } from '@lib/utils/record/splitRecord'
+
+import { dbDocClient } from './client'
+import { getRemoveParams } from './getRemoveParams'
+import { getUpdateParams } from './getUpdateParams'
 
 interface UpdateItemParams {
   tableName: string

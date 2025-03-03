@@ -1,11 +1,13 @@
-import styled from 'styled-components'
-import { getColor } from '../theme/getters'
-import { FloatingOptionsContainer } from './FloatingOptionsContainer'
-import { ComponentProps } from 'react'
+import { VStack } from '@lib/ui/css/stack'
 import { TitleProp } from '@lib/ui/props'
+import { ComponentProps } from 'react'
+import styled from 'styled-components'
+
 import { horizontalPadding } from '../css/horizontalPadding'
 import { Text } from '../text'
-import { VStack } from '@lib/ui/css/stack'
+import { getColor } from '../theme/getters'
+
+import { FloatingOptionsContainer } from './FloatingOptionsContainer'
 
 const Container = styled(FloatingOptionsContainer)`
   background: ${getColor('foregroundExtra')};

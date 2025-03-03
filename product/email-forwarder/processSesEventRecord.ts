@@ -1,9 +1,10 @@
-import { SESEventRecord } from 'aws-lambda'
 import { reportError } from '@lib/lambda/reportError'
-import { getEmailFromStorage } from './getEmailFromStorage'
+import { SESEventRecord } from 'aws-lambda'
+
 import { formatEmail } from './formatEmail'
-import { getEnvVar } from './getEnvVar'
 import { forwardEmail } from './forwardEmail'
+import { getEmailFromStorage } from './getEmailFromStorage'
+import { getEnvVar } from './getEnvVar'
 
 export const processSesEventRecord = async (record: SESEventRecord) => {
   console.log('Processing SES event record', { record })

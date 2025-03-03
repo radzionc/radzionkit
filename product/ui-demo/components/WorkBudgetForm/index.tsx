@@ -1,13 +1,14 @@
-import { formatDuration } from '@lib/utils/time/formatDuration'
 import { DistributionBar } from '@lib/ui/charts/DistributionBar'
-import { AmountInput } from '@lib/ui/inputs/Slider/AmountInput'
 import { Panel } from '@lib/ui/css/panel'
 import { VStack } from '@lib/ui/css/stack'
+import { AmountInput } from '@lib/ui/inputs/Slider/AmountInput'
+import { TitledSection } from '@lib/ui/layout/TitledSection'
+import { MIN_IN_HOUR } from '@lib/utils/time'
+import { formatDuration } from '@lib/utils/time/formatDuration'
 import { Controller, useWatch } from 'react-hook-form'
 import { useTheme } from 'styled-components'
+
 import { useWorkBudgetForm } from './useWorkBudgetForm'
-import { MIN_IN_HOUR } from '@lib/utils/time'
-import { TitledSection } from '@lib/ui/layout/TitledSection'
 
 const minuteStep = 30
 

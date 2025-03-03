@@ -1,11 +1,12 @@
+import { Panel } from '@lib/ui/css/panel'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Slider, SliderProps } from '.'
 
-import { Panel } from '@lib/ui/css/panel'
 import { Text } from '../../text'
 import { InputContainer } from '../InputContainer'
 import { InputLabel } from '../InputLabel'
+
+import { Slider, SliderProps } from '.'
 
 interface Props extends SliderProps {
   label: ReactNode

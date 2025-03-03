@@ -1,13 +1,14 @@
+import { Interval } from '@lib/utils/interval/Interval'
+import { MONTHS_IN_YEAR } from '@lib/utils/time'
 import { Day, fromDay } from '@lib/utils/time/Day'
+import { getDaysInMonth } from '@lib/utils/time/getDaysInMonth'
+
 import {
   DayInputPart,
   dayInputParts,
   DayInputParts,
   toDayInputParts,
 } from './DayInputParts'
-import { Interval } from '@lib/utils/interval/Interval'
-import { MONTHS_IN_YEAR } from '@lib/utils/time'
-import { getDaysInMonth } from '@lib/utils/time/getDaysInMonth'
 
 type Input = {
   min: Day

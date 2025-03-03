@@ -1,21 +1,21 @@
-import styled, { useTheme } from 'styled-components'
-
-import { getColor } from '../theme/getters'
-import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
-import { ExpandableInputOpener } from './ExpandableInputOpener'
-
+import { VStack } from '@lib/ui/css/stack'
 import { range } from '@lib/utils/array/range'
 import { splitBy } from '@lib/utils/array/splitBy'
+import styled, { useTheme } from 'styled-components'
+
 import { labelColorsCount } from '../colors/generateLabelColorGetter'
 import { borderRadius } from '../css/borderRadius'
 import { centerContent } from '../css/centerContent'
 import { sameDimensions } from '../css/sameDimensions'
 import { transition } from '../css/transition'
 import { CheckIcon } from '../icons/CheckIcon'
-import { VStack } from '@lib/ui/css/stack'
 import { Menu } from '../menu'
 import { InputProps, StyledColorProp } from '../props'
+import { getColor } from '../theme/getters'
+
+import { ExpandableInputOpener } from './ExpandableInputOpener'
 import { InputLabel } from './InputLabel'
+import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
 
 interface ColorLabelInputProps extends InputProps<number> {
   usedValues?: Set<number>

@@ -1,8 +1,8 @@
-import { DemoPage } from '@product/ui-demo/components/DemoPage'
-import { ShowOnce } from '@product/ui-demo/state/ShowOnce'
-import { PersistentStateKey } from '@product/ui-demo/state/persistentState'
-import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
 import { ClientOnly } from '@lib/ui/base/ClientOnly'
+import { DemoPage } from '@product/ui-demo/components/DemoPage'
+import { makeDemoPage } from '@product/ui-demo/layout/makeDemoPage'
+import { PersistentStateKey } from '@product/ui-demo/state/persistentState'
+import { ShowOnce } from '@product/ui-demo/state/ShowOnce'
 
 export default makeDemoPage(() => {
   return (

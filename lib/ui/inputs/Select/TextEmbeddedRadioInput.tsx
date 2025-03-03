@@ -1,13 +1,14 @@
 import React, { useId } from 'react'
 import styled, { css } from 'styled-components'
-import { InvisibleHTMLRadio } from '../InvisibleHTMLRadio'
-import { Text } from '../../text'
-import { InputProps, IsActiveProp, OptionsProp } from '../../props'
+
+import { absoluteOutline } from '../../css/absoluteOutline'
 import { centerContent } from '../../css/centerContent'
 import { interactive } from '../../css/interactive'
 import { toSizeUnit } from '../../css/toSizeUnit'
+import { InputProps, IsActiveProp, OptionsProp } from '../../props'
+import { Text } from '../../text'
 import { getColor } from '../../theme/getters'
-import { absoluteOutline } from '../../css/absoluteOutline'
+import { InvisibleHTMLRadio } from '../InvisibleHTMLRadio'
 
 type TextEmbeddedRadioInputProps<T extends string> = InputProps<T> &
   OptionsProp<T> & {

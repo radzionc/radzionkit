@@ -1,7 +1,6 @@
-import React, { ComponentProps, Fragment, ReactNode } from 'react'
-
 import { Stack } from '@lib/ui/css/stack'
 import { isLast } from '@lib/utils/array/isLast'
+import React, { ComponentProps, Fragment, ReactNode } from 'react'
 
 export const dotSeparator = '•'
 export const slashSeparator = '/'

@@ -1,8 +1,9 @@
-import { ReactNode } from 'react'
-import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
 import { toPercents } from '@lib/utils/toPercents'
-import { UiProps } from '../props'
+import { ReactNode } from 'react'
 import styled from 'styled-components'
+
+import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
+import { UiProps } from '../props'
 
 type ChartYAxisProps = UiProps & {
   data: number[]

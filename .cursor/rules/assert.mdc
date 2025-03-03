@@ -1,104 +1,66 @@
 ---
-description: 
-globs: *.ts, *.tsx
+description: Use assertions instead of optional chaining or default values when values should exist
+globs: *.{ts,tsx}
+alwaysApply: false
 ---
-# Assertion Rules
 
-<rule>
-name: assertions
-description: Standards for using assertions in TypeScript
-filters:
-  # Match TypeScript and React files
-  - type: file_extension
-    pattern: "\\.(ts|tsx)$"
-  # Match potential assertion scenarios
-  - type: content
-    pattern: "(\\?\\.|\\|\\||\\?\\?|\\bdefault\\b)"
+# TypeScript Assertion Standards
 
-actions:
-  - type: reject
-    conditions:
-      - pattern: "\\w+\\s*=\\s*\\w+\\s*\\|\\|\\s*''"
-        message: "Avoid using default values when you expect the value to be present. Use assertions instead."
-      - pattern: "\\w+\\?\\."
-        message: "If you're certain a value should exist, use assertions instead of optional chaining."
+## Context
+- Use when working with values that should always be present
+- Applied in TypeScript and React files
+- Particularly important when dealing with configuration, API responses, and required object properties
 
-  - type: suggest
-    message: |
-      When dealing with values that should be present:
+## Requirements
+- Use `shouldBePresent()` when you expect a value to exist instead of default values
+- Use `assertField()` when checking object properties instead of optional chaining
+- Throw early and explicitly with clear error messages
+- Avoid propagating invalid states that can cause subtle runtime errors
+- Don't use assertions for truly optional values or external data you don't control
 
-      1. Use `shouldBePresent()` when you expect a value to exist:
-         ```typescript
-         // Instead of:
-         const name = user?.name || 'Unknown'
+## Examples
 
-         // Do this:
-         const name = shouldBePresent(user.name, 'user.name')
-         ```
+<example>
+// Asserting required configuration
+const config = {
+  apiKey: shouldBePresent(process.env.API_KEY, 'API_KEY'),
+  baseUrl: shouldBePresent(process.env.BASE_URL, 'BASE_URL')
+}
+</example>
 
-      2. Use `assertField()` when checking object properties:
-         ```typescript
-         // Instead of:
-         const balance = account?.balance ?? 0
+<example type="invalid">
+// Using default values for required data
+const config = {
+  apiKey: process.env.API_KEY || '',
+  baseUrl: process.env.BASE_URL ?? 'http://localhost'
+}
+</example>
 
-         // Do this:
-         const balance = assertField(account, 'balance')
-         ```
+<example>
+// Asserting required values
+const getUserName = (user: User) => {
+  const profile = shouldBePresent(user.profile, 'user.profile')
+  return shouldBePresent(profile.name, 'user.profile.name')
+}
+</example>
 
-      3. Throw early and explicitly:
-         - Better to fail fast with a clear error
-         - Avoid propagating invalid states
-         - Makes debugging easier
-         - Prevents subtle runtime errors
+<example type="invalid">
+// Optional chaining when value should exist
+const getUserName = (user: User) => {
+  return user?.profile?.name || 'Anonymous'
+}
+</example>
 
-      4. Use assertions when:
-         - Loading required configuration
-         - Accessing API responses you know should have data
-         - Getting values after existence checks
-         - Accessing required object properties
+<example>
+// Asserting required field
+const getBalance = (account: Account) => {
+  return assertField(account, 'balance')
+}
+</example>
 
-      5. Don't use assertions when:
-         - Handling truly optional values
-         - Dealing with user input
-         - Working with external data you don't control
-
-examples:
-  - input: |
-      // Bad: Using default values for required data
-      const config = {
-        apiKey: process.env.API_KEY || '',
-        baseUrl: process.env.BASE_URL ?? 'http://localhost'
-      }
-
-      // Good: Asserting required configuration
-      const config = {
-        apiKey: shouldBePresent(process.env.API_KEY, 'API_KEY'),
-        baseUrl: shouldBePresent(process.env.BASE_URL, 'BASE_URL')
-      }
-
-      // Bad: Optional chaining when value should exist
-      const getUserName = (user: User) => {
-        return user?.profile?.name || 'Anonymous'
-      }
-
-      // Good: Asserting required values
-      const getUserName = (user: User) => {
-        const profile = shouldBePresent(user.profile, 'user.profile')
-        return shouldBePresent(profile.name, 'user.profile.name')
-      }
-
-      // Bad: Using default for required field
-      const getBalance = (account: Account) => {
-        return account.balance ?? 0
-      }
-
-      // Good: Asserting required field
-      const getBalance = (account: Account) => {
-        return assertField(account, 'balance')
-      }
-    output: "Assertions used correctly"
-
-metadata:
-  priority: high
-  version: 1.0
-</rule>
+<example type="invalid">
+// Using default for required field
+const getBalance = (account: Account) => {
+  return account.balance ?? 0
+}
+</example>

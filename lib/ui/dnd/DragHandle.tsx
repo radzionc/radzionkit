@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components'
+
 import { centerContent } from '../css/centerContent'
-import { getColor, matchColor } from '../theme/getters'
 import { defaultTransition } from '../css/transition'
 import { IsActiveProp } from '../props'
+import { getColor, matchColor } from '../theme/getters'
 
 export const DragHandle = styled.div<IsActiveProp>`
   height: 100%;

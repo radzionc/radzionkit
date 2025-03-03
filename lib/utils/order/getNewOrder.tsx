@@ -1,5 +1,6 @@
 import { getLastItem } from '../array/getLastItem'
 import { isEmpty } from '../array/isEmpty'
+
 import { defaultOrder, orderIncrementStep } from './config'
 
 type GetNewOrderInput = {

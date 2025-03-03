@@ -10,9 +10,9 @@ import {
   shift,
   FloatingFocusManager,
 } from '@floating-ui/react'
+import { Panel } from '@lib/ui/css/panel'
 import { ReactNode, useState } from 'react'
 import styled from 'styled-components'
-import { Panel } from '@lib/ui/css/panel'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void

@@ -1,7 +1,8 @@
-import { AmountTextInput } from '@lib/ui/inputs/AmountTextInput'
 import { DollarIcon } from '@lib/ui/icons/DollarIcon'
-import { useState } from 'react'
 import { AmountSuggestion } from '@lib/ui/inputs/AmountSuggestion'
+import { AmountTextInput } from '@lib/ui/inputs/AmountTextInput'
+import { useState } from 'react'
+
 import { DemoPage } from '../components/DemoPage'
 import { makeDemoPage } from '../layout/makeDemoPage'
 

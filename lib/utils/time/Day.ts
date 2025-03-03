@@ -1,6 +1,8 @@
-import { haveEqualFields } from '../record/haveEqualFields'
-import { convertDuration } from './convertDuration'
 import { addDays, startOfYear } from 'date-fns'
+
+import { haveEqualFields } from '../record/haveEqualFields'
+
+import { convertDuration } from './convertDuration'
 import { inTimeZone } from './inTimeZone'
 import { relativeDayFormat } from './relativeDayFormat'
 

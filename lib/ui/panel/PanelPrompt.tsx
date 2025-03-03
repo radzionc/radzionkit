@@ -1,6 +1,8 @@
 import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
+
 import { OnClickProp, ChildrenProp, TitleProp } from '../props'
+
 import { CallOutPanel } from './CallOutPanel'
 
 export const PanelPrompt = ({

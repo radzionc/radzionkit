@@ -1,12 +1,12 @@
-import { Spinner } from '@lib/ui/loaders/Spinner'
-import { HStack } from '@lib/ui/css/stack'
 import { centerContent } from '@lib/ui/css/centerContent'
+import { HStack } from '@lib/ui/css/stack'
+import { ExpandableInputOpener } from '@lib/ui/inputs/ExpandableInputOpener'
+import { Spinner } from '@lib/ui/loaders/Spinner'
+import { Menu } from '@lib/ui/menu'
+import { InputProps } from '@lib/ui/props'
+import { Text } from '@lib/ui/text'
 import dynamic from 'next/dynamic'
 import styled from 'styled-components'
-import { ExpandableInputOpener } from '@lib/ui/inputs/ExpandableInputOpener'
-import { Menu } from '@lib/ui/menu'
-import { Text } from '@lib/ui/text'
-import { InputProps } from '@lib/ui/props'
 
 const EmojiPicker = dynamic(() => import('./EmojiPicker'), {
   loading: () => (

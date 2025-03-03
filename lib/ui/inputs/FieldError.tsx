@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { Text } from '../text'
+
 import { cropText } from '../css/cropText'
+import { Text } from '../text'
 import { getColor } from '../theme/getters'
 
 export const FieldError = styled(Text)`

@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+
 import { useRhythmicRerender } from '../hooks/useRhythmicRerender'
 
 interface RhythmicRerenderProps {

@@ -1,16 +1,18 @@
-import styled, { useTheme } from 'styled-components'
-import { getColor } from '../../theme/getters'
-import {
-  InvisibleHTMLSliderProps,
-  InvisibleHTMLSlider,
-} from './InvisibleHtmlSlider'
 import { toPercents } from '@lib/utils/toPercents'
+import styled, { useTheme } from 'styled-components'
+
 import { PressTracker } from '../../base/PressTracker'
 import { HSLA } from '../../colors/HSLA'
 import { centerContent } from '../../css/centerContent'
 import { sameDimensions } from '../../css/sameDimensions'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { defaultTransition } from '../../css/transition'
+import { getColor } from '../../theme/getters'
+
+import {
+  InvisibleHTMLSliderProps,
+  InvisibleHTMLSlider,
+} from './InvisibleHtmlSlider'
 
 type SliderSize = 'm' | 'l'
 

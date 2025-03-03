@@ -1,6 +1,7 @@
-import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
 import { toPercents } from '@lib/utils/toPercents'
 import styled from 'styled-components'
+
+import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
 import { getColor } from '../theme/getters'
 
 type ChartYAxisProps = {

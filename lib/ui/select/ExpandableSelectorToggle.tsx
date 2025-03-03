@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { CollapsableStateIndicator } from '../layout/CollapsableStateIndicator'
 import { getColor } from '../theme/getters'
 

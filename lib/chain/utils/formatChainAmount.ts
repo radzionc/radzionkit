@@ -1,6 +1,7 @@
 import { AssetInfo } from '@lib/chain/types/AssetInfo'
-import { fromChainAmount } from './fromChainAmount'
 import { formatAmount } from '@lib/utils/formatAmount'
+
+import { fromChainAmount } from './fromChainAmount'
 
 export const formatChainAmount = (
   amount: number | bigint,

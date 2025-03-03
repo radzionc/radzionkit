@@ -1,6 +1,8 @@
-import { getSecret } from '../../utils/getSecret'
-import { AuthenticationResult } from './AuthenticationResult'
 import jwt from 'jsonwebtoken'
+
+import { getSecret } from '../../utils/getSecret'
+
+import { AuthenticationResult } from './AuthenticationResult'
 
 interface AuthenticateWithEmailParams {
   code: string

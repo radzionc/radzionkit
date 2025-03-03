@@ -1,14 +1,15 @@
-import { ChildrenProp, TitleProp } from '../props'
 import { HStack, VStack } from '@lib/ui/css/stack'
 import styled, { css } from 'styled-components'
+
 import { interactive } from '../css/interactive'
-import { getColor } from '../theme/getters'
-import { useBoolean } from '../hooks/useBoolean'
 import { transition } from '../css/transition'
-import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 import { verticalPadding } from '../css/verticalPadding'
+import { useBoolean } from '../hooks/useBoolean'
+import { ChevronDownIcon } from '../icons/ChevronDownIcon'
 import { IconWrapper } from '../icons/IconWrapper'
+import { ChildrenProp, TitleProp } from '../props'
 import { Text } from '../text'
+import { getColor } from '../theme/getters'
 
 type ExpandableSectionProps = TitleProp &
   ChildrenProp & {

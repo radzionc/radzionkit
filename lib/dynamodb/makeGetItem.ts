@@ -1,6 +1,7 @@
 import { GetCommand } from '@aws-sdk/lib-dynamodb'
-import { getPickParams } from './getPickParams'
+
 import { dbDocClient } from './client'
+import { getPickParams } from './getPickParams'
 
 interface MakeGetItemParams<I> {
   tableName: string

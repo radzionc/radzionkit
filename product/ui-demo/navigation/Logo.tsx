@@ -1,6 +1,8 @@
-import { ProductLogo } from '../product/ProductLogo'
-import { Path } from './Path'
 import Link from 'next/link'
+
+import { ProductLogo } from '../product/ProductLogo'
+
+import { Path } from './Path'
 
 export const Logo = () => {
   return (

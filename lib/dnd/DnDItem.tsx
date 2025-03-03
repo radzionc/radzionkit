@@ -1,7 +1,7 @@
 import { UniqueIdentifier } from '@dnd-kit/core'
 import { useSortable } from '@dnd-kit/sortable'
-import { ReactNode } from 'react'
 import { CSS } from '@dnd-kit/utilities'
+import { ReactNode } from 'react'
 
 type RenderParams = {
   draggableProps: Record<string, any>

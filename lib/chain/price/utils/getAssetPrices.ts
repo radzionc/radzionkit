@@ -1,7 +1,8 @@
 import { addQueryParams } from '@lib/utils/query/addQueryParams'
-import { FiatCurrency } from '../FiatCurrency'
 import { queryUrl } from '@lib/utils/query/queryUrl'
 import { recordMap } from '@lib/utils/record/recordMap'
+
+import { FiatCurrency } from '../FiatCurrency'
 
 type Input = {
   ids: string[]

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { getColor } from '../theme/getters'
+
 import { text } from '../text'
+import { getColor } from '../theme/getters'
 
 export const WebsiteSectionTitle = styled.h2`
   ${text({

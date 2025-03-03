@@ -1,8 +1,9 @@
 import { addQueryParams } from '@lib/utils/query/addQueryParams'
-import { generateAuthLinkToken } from '../helpers/generateAuthLinkToken'
 import { sendLoginLinkEmail } from '@product/email/utils/sendLogInLinkEmail'
-import { ApiResolver } from '../../resolvers/ApiResolver'
+
 import { getEnvVar } from '../../getEnvVar'
+import { ApiResolver } from '../../resolvers/ApiResolver'
+import { generateAuthLinkToken } from '../helpers/generateAuthLinkToken'
 
 export const sendAuthLinkByEmail: ApiResolver<'sendAuthLinkByEmail'> = async ({
   input: { email },

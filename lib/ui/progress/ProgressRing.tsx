@@ -1,6 +1,7 @@
 import React, { SVGProps } from 'react'
-import { ColorProp, ValueProp, SizeProp } from '../props'
 import styled from 'styled-components'
+
+import { ColorProp, ValueProp, SizeProp } from '../props'
 import { getColor } from '../theme/getters'
 
 type ProgressRingProps = ValueProp<number> &

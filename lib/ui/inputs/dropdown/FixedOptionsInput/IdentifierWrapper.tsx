@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-import { toSizeUnit } from '../../../css/toSizeUnit'
-import { dropdownInputConfig } from '../config'
+
 import { centerContent } from '../../../css/centerContent'
 import { textInputHorizontalPadding } from '../../../css/textInput'
+import { toSizeUnit } from '../../../css/toSizeUnit'
+import { dropdownInputConfig } from '../config'
 
 export const FixedOptionsInputIdentifierWrapper = styled.div`
   position: absolute;

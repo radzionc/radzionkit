@@ -1,14 +1,15 @@
+import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import styled from 'styled-components'
-import { Text } from '../../text'
+
 import { Button } from '../../buttons/Button'
 import { IconButton } from '../../buttons/IconButton'
+import { textInputHeight } from '../../css/textInput'
+import { toSizeUnit } from '../../css/toSizeUnit'
 import { TrashIcon } from '../../icons/TrashIcon'
 import { InputContainer } from '../../inputs/InputContainer'
 import { InputLabel } from '../../inputs/InputLabel'
-import { textInputHeight } from '../../css/textInput'
 import { SeparatedByLine } from '../../layout/SeparatedByLine'
-import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
-import { toSizeUnit } from '../../css/toSizeUnit'
+import { Text } from '../../text'
 
 interface FieldArrayFrameProps<T> {
   error?: string

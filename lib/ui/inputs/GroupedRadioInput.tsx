@@ -1,12 +1,14 @@
-import styled, { css } from 'styled-components'
-import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
-import { getColor, matchColor } from '../theme/getters'
-import { interactive } from '../css/interactive'
 import { HStack } from '@lib/ui/css/stack'
-import { IsActiveProp, InputProps, UiProps } from '../props'
-import { borderRadius } from '../css/borderRadius'
 import { useId } from 'react'
+import styled, { css } from 'styled-components'
+
+import { borderRadius } from '../css/borderRadius'
 import { horizontalPadding } from '../css/horizontalPadding'
+import { interactive } from '../css/interactive'
+import { IsActiveProp, InputProps, UiProps } from '../props'
+import { getColor, matchColor } from '../theme/getters'
+
+import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
 
 type RadioInputProps<T extends string> = InputProps<T> &
   UiProps & {

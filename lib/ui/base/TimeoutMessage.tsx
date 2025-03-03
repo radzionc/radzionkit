@@ -1,6 +1,7 @@
 import { DependencyList, ReactNode } from 'react'
-import { useTimeoutState } from '../hooks/useTimeoutState'
+
 import { useRunOnChange } from '../hooks/useRunOnChange'
+import { useTimeoutState } from '../hooks/useTimeoutState'
 
 interface TimeoutMessageProps {
   render: () => ReactNode

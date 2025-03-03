@@ -1,5 +1,6 @@
 import { ValueProp } from '@lib/ui/props'
 import { CSSProperties, Fragment } from 'react'
+
 import { Text } from '.'
 
 function parseString(input: string): (string | number)[] {

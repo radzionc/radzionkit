@@ -1,8 +1,10 @@
-import styled from 'styled-components'
-import { PositionAbsolutelyCenterVertically } from '../layout/PositionAbsolutelyCenterVertically'
-import { useMemo } from 'react'
-import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
 import { range } from '@lib/utils/array/range'
+import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
+import { useMemo } from 'react'
+import styled from 'styled-components'
+
+import { PositionAbsolutelyCenterVertically } from '../layout/PositionAbsolutelyCenterVertically'
+
 import { JustifyPoints, positionDataPoint } from './utils/positionDataPoints'
 
 type ChartXAxisProps = {

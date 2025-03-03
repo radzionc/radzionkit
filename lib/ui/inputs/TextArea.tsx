@@ -1,12 +1,13 @@
 import { ChangeEvent, ComponentProps, useState } from 'react'
 import styled from 'styled-components'
 
-import { SharedTextInputProps } from './TextInput'
+import { textInput, textInputHorizontalPadding } from '../css/textInput'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { Text } from '../text'
-import { textInput, textInputHorizontalPadding } from '../css/textInput'
+
 import { InputContainer } from './InputContainer'
 import { InputLabel } from './InputLabel'
+import { SharedTextInputProps } from './TextInput'
 
 const TextareaContainer = styled.textarea`
   ${textInput};

@@ -1,5 +1,7 @@
 import { ReactNode } from 'react'
+
 import { OnClickProp, ChildrenProp } from '../props'
+
 import { EmbeddedPromptContainer } from './EmbeddedPromptContainer'
 import { EmbeddedPromptContentFrame } from './EmbeddedPromptContentFrame'
 

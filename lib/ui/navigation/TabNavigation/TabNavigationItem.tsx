@@ -1,14 +1,14 @@
 import styled, { css } from 'styled-components'
 
+import { centerContent } from '../../css/centerContent'
+import { interactive } from '../../css/interactive'
+import { round } from '../../css/round'
 import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
 } from '../../inputs/InvisibleHTMLRadio'
-import { centerContent } from '../../css/centerContent'
 import { IsActiveProp, ChildrenProp, UiProps } from '../../props'
-import { interactive } from '../../css/interactive'
 import { getColor } from '../../theme/getters'
-import { round } from '../../css/round'
 
 const Container = styled.label<IsActiveProp>`
   ${interactive};

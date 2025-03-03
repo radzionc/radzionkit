@@ -1,5 +1,6 @@
-import { ChildrenProp } from '@lib/ui/props'
 import { SidebarNavigation } from '@lib/ui/navigation/SidebarNavigation'
+import { ChildrenProp } from '@lib/ui/props'
+
 import { Logo } from './Logo'
 import { NavigationItems } from './NavigationItems'
 

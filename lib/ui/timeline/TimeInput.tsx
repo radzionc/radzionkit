@@ -1,17 +1,18 @@
+import { HStack } from '@lib/ui/css/stack'
+import { enforceRange } from '@lib/utils/enforceRange'
+import { MS_IN_HOUR, MS_IN_MIN } from '@lib/utils/time'
+import { formatDuration } from '@lib/utils/time/formatDuration'
 import { MouseEventHandler, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
 import { HSLA } from '../colors/HSLA'
-import { enforceRange } from '@lib/utils/enforceRange'
-import { MS_IN_HOUR, MS_IN_MIN } from '@lib/utils/time'
-import { HStack } from '@lib/ui/css/stack'
-import { TimeSpace } from './TimeSpace'
-import { Text } from '../text'
-import { formatDuration } from '@lib/utils/time/formatDuration'
-import { EditorActiveSession } from './EditorActiveSession'
-import { BoundaryInteractiveArea } from './BoundaryInteractiveArea'
-import { useEvent } from '../hooks/useEvent'
 import { useBoolean } from '../hooks/useBoolean'
+import { useEvent } from '../hooks/useEvent'
+import { Text } from '../text'
+
+import { BoundaryInteractiveArea } from './BoundaryInteractiveArea'
+import { EditorActiveSession } from './EditorActiveSession'
+import { TimeSpace } from './TimeSpace'
 
 export interface TimeInputProps {
   color: HSLA

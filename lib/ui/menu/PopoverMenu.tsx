@@ -1,15 +1,17 @@
 import { ReferenceType } from '@floating-ui/react'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
+
 import { CloseButton } from '../buttons/CloseButton'
 import { SeparatedByLine } from '../layout/SeparatedByLine'
-import { HStack, VStack } from '@lib/ui/css/stack'
+import { Text } from '../text'
+
 import {
   PopoverPanelProps,
   PopoverPanel,
   RenderContentParams,
 } from './PopoverPanel'
-import { Text } from '../text'
 
 export interface RenderOpenerProps extends Record<string, unknown> {
   ref: (node: ReferenceType | null) => void

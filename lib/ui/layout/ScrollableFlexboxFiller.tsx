@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+
+import { hideScrollbars } from '../css/hideScrollbars'
 import { TakeWholeSpaceAbsolutely } from '../css/takeWholeSpaceAbsolutely'
 import { ChildrenProp, UiProps } from '../props'
-import { hideScrollbars } from '../css/hideScrollbars'
 
 const Wrapper = styled.div`
   flex: 1;

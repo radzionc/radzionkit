@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 import { HSLA } from '../colors/HSLA'
-import { Text } from '../text'
 import { borderRadius } from '../css/borderRadius'
 import { coloredTag } from '../css/coloredTag'
+import { Text } from '../text'
 
 export const Tag = styled(Text)<{ $color: HSLA }>`
   ${borderRadius.s};

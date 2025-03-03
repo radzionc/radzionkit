@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+
 import { useWindowEvent } from './useEvent'
 
 export const useOnWindowCloseAlert = (message: string, isEnabled = true) => {

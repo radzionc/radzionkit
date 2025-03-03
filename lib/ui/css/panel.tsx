@@ -1,9 +1,9 @@
+import { match } from '@lib/utils/match'
 import styled, { css } from 'styled-components'
 
+import { borderRadius } from '../css/borderRadius'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { getColor } from '../theme/getters'
-import { match } from '@lib/utils/match'
-import { borderRadius } from '../css/borderRadius'
 
 type PanelKind = 'regular' | 'secondary'
 

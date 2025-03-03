@@ -1,18 +1,19 @@
-import { User } from '@product/entities/User'
-import { DeleteCommand, PutCommand, ScanCommand } from '@aws-sdk/lib-dynamodb'
 import { DescribeTableCommand } from '@aws-sdk/client-dynamodb'
+import { DeleteCommand, PutCommand, ScanCommand } from '@aws-sdk/lib-dynamodb'
 import {
   getAttributeNameKey,
   getAttributeParams,
   getAttributeValueKey,
 } from '@lib/dynamodb/attributes'
-import { getPickParams } from '@lib/dynamodb/getPickParams'
 import { dbDocClient } from '@lib/dynamodb/client'
-import { updateItem } from '@lib/dynamodb/updateItem'
+import { getPickParams } from '@lib/dynamodb/getPickParams'
 import { makeGetItem } from '@lib/dynamodb/makeGetItem'
-import { getTableName } from './getTableName'
-import { shouldBeDefined } from '@lib/utils/assert/shouldBeDefined'
 import { totalScan } from '@lib/dynamodb/totalScan'
+import { updateItem } from '@lib/dynamodb/updateItem'
+import { shouldBeDefined } from '@lib/utils/assert/shouldBeDefined'
+import { User } from '@product/entities/User'
+
+import { getTableName } from './getTableName'
 
 export const getUserItemParams = (id: string) => ({
   TableName: getTableName('users'),

@@ -1,11 +1,11 @@
+import { asyncFallbackChain } from '@lib/utils/promise/asyncFallbackChain'
+import { safeResolve } from '@lib/utils/promise/safeResolve'
+import { joinPaths } from '@lib/utils/query/joinPaths'
 import { ApiError } from '@product/api-interface/ApiError'
 import {
   ApiMethodName,
   ApiInterface,
 } from '@product/api-interface/ApiInterface'
-import { asyncFallbackChain } from '@lib/utils/promise/asyncFallbackChain'
-import { joinPaths } from '@lib/utils/query/joinPaths'
-import { safeResolve } from '@lib/utils/promise/safeResolve'
 
 interface CallApiParams<M extends ApiMethodName> {
   baseUrl: string

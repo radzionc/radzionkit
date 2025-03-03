@@ -1,9 +1,11 @@
-import { CountdownPart } from './CountdownPart'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { MS_IN_HOUR, MS_IN_MIN, MS_IN_SEC } from '@lib/utils/time'
+
 import { useRhythmicRerender } from '../hooks/useRhythmicRerender'
-import { HStack, VStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
+
+import { CountdownPart } from './CountdownPart'
 
 const countdownUnits = ['days', 'hours', 'minutes', 'seconds'] as const
 type CountdownUnit = (typeof countdownUnits)[number]

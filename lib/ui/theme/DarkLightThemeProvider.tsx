@@ -1,17 +1,18 @@
-import { StyleSheetManager } from 'styled-components'
 import isPropValid from '@emotion/is-prop-valid'
 import { useEffect, useState } from 'react'
+import { StyleSheetManager } from 'styled-components'
 import {
   DefaultTheme,
   ThemeProvider as StyledComponentsThemeProvider,
 } from 'styled-components'
 
-import { ThemePreference } from './ThemePreference'
-import { darkTheme } from './darkTheme'
-import { ChildrenProp } from '../props'
-import { lightTheme } from './lightTheme'
-import { getValueProviderSetup } from '../state/getValueProviderSetup'
 import { useMedia } from '../hooks/useMedia'
+import { ChildrenProp } from '../props'
+import { getValueProviderSetup } from '../state/getValueProviderSetup'
+
+import { darkTheme } from './darkTheme'
+import { lightTheme } from './lightTheme'
+import { ThemePreference } from './ThemePreference'
 
 const shouldForwardProp = (propName: string, target: any) => {
   if (typeof target === 'string') {

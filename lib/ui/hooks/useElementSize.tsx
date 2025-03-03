@@ -1,8 +1,8 @@
+import { useIsomorphicLayoutEffect } from '@lib/ui/hooks/useIsomorphicLayoutEffect'
 import { debounce } from '@lib/utils/debounce'
 import { Dimensions } from '@lib/utils/entities/Dimensions'
 import { pick } from '@lib/utils/record/pick'
 import { useState } from 'react'
-import { useIsomorphicLayoutEffect } from '@lib/ui/hooks/useIsomorphicLayoutEffect'
 
 const getElementSize = (element: Element): Dimensions =>
   pick(element.getBoundingClientRect(), ['height', 'width'])

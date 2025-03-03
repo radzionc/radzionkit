@@ -1,7 +1,7 @@
-import { useState } from 'react'
 import { useIsomorphicLayoutEffect } from '@lib/ui/hooks/useIsomorphicLayoutEffect'
 import { areEqualRecords } from '@lib/utils/record/areEqualRecords'
 import { pick } from '@lib/utils/record/pick'
+import { useState } from 'react'
 
 export type BoundingBox = Omit<DOMRect, 'toJSON'>
 

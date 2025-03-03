@@ -1,9 +1,11 @@
+import { VStack } from '@lib/ui/css/stack'
 import { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Spacer } from './Spacer'
-import { VStack } from '@lib/ui/css/stack'
+
 import { toSizeUnit } from '../css/toSizeUnit'
 import { Text } from '../text'
+
+import { Spacer } from './Spacer'
 
 type PageWidth = 'm' | 's'
 

@@ -1,3 +1,7 @@
+import { enforceRange } from '@lib/utils/enforceRange'
+import { getIntervalDuration } from '@lib/utils/interval/getIntervalDuration'
+import { Interval } from '@lib/utils/interval/Interval'
+import { MS_IN_HOUR, MS_IN_MIN } from '@lib/utils/time'
 import {
   ReactNode,
   useCallback,
@@ -7,22 +11,19 @@ import {
   useState,
 } from 'react'
 import styled from 'styled-components'
-import { HSLA } from '../colors/HSLA'
 
-import { enforceRange } from '@lib/utils/enforceRange'
-import { getIntervalDuration } from '@lib/utils/interval/getIntervalDuration'
-import { MS_IN_HOUR, MS_IN_MIN } from '@lib/utils/time'
+import { WindowPointerMoveListener } from '../base/WindowPointerMoveListener'
+import { HSLA } from '../colors/HSLA'
+import { TakeWholeSpace } from '../css/takeWholeSpace'
 import { MoveIcon } from '../icons/MoveIcon'
 import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
-import { TimeSpace } from './TimeSpace'
-import { Interval } from '@lib/utils/interval/Interval'
-import { IntervalEditorControl } from './IntervalEditorControl'
-import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
-import { FloatingIntervalDuration } from './FloatingIntervalDuration'
-import { InteractiveDragArea } from './InteractiveDragArea'
+
 import { CurrentIntervalRect } from './CurrentIntervalRect'
-import { TakeWholeSpace } from '../css/takeWholeSpace'
-import { WindowPointerMoveListener } from '../base/WindowPointerMoveListener'
+import { FloatingIntervalDuration } from './FloatingIntervalDuration'
+import { InteractiveBoundaryArea } from './InteractiveBoundaryArea'
+import { InteractiveDragArea } from './InteractiveDragArea'
+import { IntervalEditorControl } from './IntervalEditorControl'
+import { TimeSpace } from './TimeSpace'
 
 interface RenderContentParams {
   msToPx: (ms: number) => number

@@ -1,11 +1,11 @@
-import { SourceCodeLink } from '@product/ui-demo/components/SourceCode/SourceCodeLink'
-import { RegularPage } from '@lib/ui/layout/RegularPage'
-import { HStack } from '@lib/ui/css/stack'
-import { Text } from '@lib/ui/text'
-import { useRouter } from 'next/router'
-import { YouTubeLink } from '@product/ui-demo/components/YouTubeLink'
-import { ChildrenProp } from '@lib/ui/props'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
+import { HStack } from '@lib/ui/css/stack'
+import { RegularPage } from '@lib/ui/layout/RegularPage'
+import { ChildrenProp } from '@lib/ui/props'
+import { Text } from '@lib/ui/text'
+import { SourceCodeLink } from '@product/ui-demo/components/SourceCode/SourceCodeLink'
+import { YouTubeLink } from '@product/ui-demo/components/YouTubeLink'
+import { useRouter } from 'next/router'
 
 interface Props extends ChildrenProp {
   title: string

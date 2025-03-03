@@ -1,9 +1,10 @@
+import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { Dispatch, SetStateAction, createContext, useState } from 'react'
 
 import { ChildrenProp } from '../props'
+
 import { ContextState } from './ContextState'
 import { createContextHook } from './createContextHook'
-import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 
 export function getStateProviderSetup<T>(name: string) {
   const Context = createContext<ContextState<T> | undefined>(undefined)

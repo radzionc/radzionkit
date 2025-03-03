@@ -1,9 +1,11 @@
-import styled from 'styled-components'
-import { Button } from '../buttons/Button'
-import { inputBackgroundCSS } from './config'
 import { HStack } from '@lib/ui/css/stack'
-import { Text } from '../text'
+import styled from 'styled-components'
+
+import { Button } from '../buttons/Button'
 import { borderRadius } from '../css/borderRadius'
+import { Text } from '../text'
+
+import { inputBackgroundCSS } from './config'
 
 interface Props {
   name: string

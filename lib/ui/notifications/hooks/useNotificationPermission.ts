@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+
 import { listenForNotificationPermissionChange } from '../utils/listenForNotificationPermissionChange'
 
 export function useNotificationPermission(): NotificationPermission {

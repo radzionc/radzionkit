@@ -1,5 +1,6 @@
 import { centerContent } from '@lib/ui/css/centerContent'
 import styled, { css } from 'styled-components'
+
 import { IntervalRect } from './IntervalRect'
 
 export const CurrentIntervalRect = styled(IntervalRect)`

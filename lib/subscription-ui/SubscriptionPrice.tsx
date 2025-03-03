@@ -1,11 +1,11 @@
 import { SubscriptionBillingCycle } from '@lib/subscription/Subscription'
-import { MONTHS_IN_YEAR } from '@lib/utils/time'
 import { VStack, HStack } from '@lib/ui/css/stack'
 import {
   HStackSeparatedBy,
   slashSeparator,
 } from '@lib/ui/layout/StackSeparatedBy'
 import { Text } from '@lib/ui/text'
+import { MONTHS_IN_YEAR } from '@lib/utils/time'
 
 interface SubscriptionPriceProps {
   billingCycle: SubscriptionBillingCycle

@@ -1,17 +1,18 @@
+import { HStack } from '@lib/ui/css/stack'
 import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
+
+import { centerContent } from '../../css/centerContent'
+import { interactive } from '../../css/interactive'
+import { sameDimensions } from '../../css/sameDimensions'
+import { transition } from '../../css/transition'
+import { CheckIcon } from '../../icons/CheckIcon'
+import { Text } from '../../text'
 import { getColor } from '../../theme/getters'
 import {
   InvisibleHTMLCheckboxProps,
   InvisibleHTMLCheckbox,
 } from '../InvisibleHTMLCheckbox'
-import { centerContent } from '../../css/centerContent'
-import { sameDimensions } from '../../css/sameDimensions'
-import { transition } from '../../css/transition'
-import { CheckIcon } from '../../icons/CheckIcon'
-import { HStack } from '@lib/ui/css/stack'
-import { Text } from '../../text'
-import { interactive } from '../../css/interactive'
 
 interface CheckboxProps extends InvisibleHTMLCheckboxProps {
   label?: ReactNode

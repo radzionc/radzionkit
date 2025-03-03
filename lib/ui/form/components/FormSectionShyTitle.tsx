@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { Text } from '../../text'
 import { getColor } from '../../theme/getters'
 

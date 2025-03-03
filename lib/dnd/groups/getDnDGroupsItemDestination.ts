@@ -1,6 +1,7 @@
 import { Over } from '@dnd-kit/core'
-import { DnDGroupsItemLocation } from './DnDGroupsItemLocation'
 import { SortableData } from '@dnd-kit/sortable'
+
+import { DnDGroupsItemLocation } from './DnDGroupsItemLocation'
 
 type Input = {
   item: Over

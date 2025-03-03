@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { HSLA } from '../colors/HSLA'
 
 export const IntervalRect = styled.div<{ $color: HSLA }>`

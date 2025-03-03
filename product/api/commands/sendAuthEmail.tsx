@@ -1,6 +1,7 @@
-import { generateAuthLinkToken } from '../auth/helpers/generateAuthLinkToken'
-import { sendLoginLinkEmail } from '@product/email/utils/sendLogInLinkEmail'
 import { addQueryParams } from '@lib/utils/query/addQueryParams'
+import { sendLoginLinkEmail } from '@product/email/utils/sendLogInLinkEmail'
+
+import { generateAuthLinkToken } from '../auth/helpers/generateAuthLinkToken'
 import { getEnvVar } from '../getEnvVar'
 
 const sendAuthEmail = async (email: string) => {

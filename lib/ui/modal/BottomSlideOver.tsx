@@ -1,15 +1,16 @@
-import { ReactNode } from 'react'
-
-import { getColor } from '../theme/getters'
-import styled from 'styled-components'
-import { ChildrenProp, OnCloseProp } from '../props'
-import { BodyPortal } from '../dom/BodyPortal'
 import { VStack, HStack } from '@lib/ui/css/stack'
-import { Text } from '../text'
+import { ReactNode } from 'react'
+import styled from 'styled-components'
+
+import { Button } from '../buttons/Button'
 import { horizontalPadding } from '../css/horizontalPadding'
 import { verticalPadding } from '../css/verticalPadding'
-import { Button } from '../buttons/Button'
+import { BodyPortal } from '../dom/BodyPortal'
+import { ChildrenProp, OnCloseProp } from '../props'
+import { Text } from '../text'
+import { getColor } from '../theme/getters'
 import { stopPropagation } from '../utils/stopPropagation'
+
 import { Backdrop } from './Backdrop'
 
 export type BottomSlideOverProps = ChildrenProp &

@@ -1,9 +1,11 @@
 import { IncomingHttpHeaders } from 'http'
-import { ApiResolverContext } from '../ApiResolverContext'
+
 import { CountryCode } from '@lib/countries'
-import { userIdFromToken } from '../../auth/userIdFromToken'
-import { safeResolve } from '@lib/utils/promise/safeResolve'
 import { extractHeaderValue } from '@lib/lambda/extractHeaderValue'
+import { safeResolve } from '@lib/utils/promise/safeResolve'
+
+import { userIdFromToken } from '../../auth/userIdFromToken'
+import { ApiResolverContext } from '../ApiResolverContext'
 
 interface GetResolverContextParams {
   headers: IncomingHttpHeaders

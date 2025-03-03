@@ -1,7 +1,8 @@
 import styled, { DefaultTheme, css } from 'styled-components'
 
-import { Text } from '.'
 import { HSLA } from '../colors/HSLA'
+
+import { Text } from '.'
 
 export const getHighlightedTextCSS = (
   highlightColor: HSLA,

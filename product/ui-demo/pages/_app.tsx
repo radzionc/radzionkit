@@ -1,17 +1,19 @@
-import type { AppProps } from 'next/app'
-import { ReactNode, useState } from 'react'
+import { Page } from '@lib/next-ui/Page'
+import { PageVisitTracker } from '@lib/next-ui/PageVisitTracker'
 import { GlobalStyle } from '@lib/ui/css/GlobalStyle'
+import { DarkLightThemeProvider } from '@lib/ui/theme/DarkLightThemeProvider'
+import { ThemePreference } from '@lib/ui/theme/ThemePreference'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Inter } from 'next/font/google'
-import { ThemePreference } from '@lib/ui/theme/ThemePreference'
-import { DarkLightThemeProvider } from '@lib/ui/theme/DarkLightThemeProvider'
-import { Page } from '@lib/next-ui/Page'
+import { ReactNode, useState } from 'react'
+
+import { AnalyticsProvider } from '../analytics/AnalyticsProvider'
 import {
   usePersistentState,
   PersistentStateKey,
 } from '../state/persistentState'
-import { AnalyticsProvider } from '../analytics/AnalyticsProvider'
-import { PageVisitTracker } from '@lib/next-ui/PageVisitTracker'
+
+import type { AppProps } from 'next/app'
 
 const inter = Inter({
   subsets: ['latin'],

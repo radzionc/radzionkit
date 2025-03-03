@@ -1,7 +1,8 @@
+import { HStack } from '@lib/ui/css/stack'
 import { ReactNode } from 'react'
+
 import { TitleProp } from '../props'
 import { Text } from '../text'
-import { HStack } from '@lib/ui/css/stack'
 
 type ExpandableSectionListTitleProps = TitleProp & {
   identifier?: ReactNode

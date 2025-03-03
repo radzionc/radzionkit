@@ -1,9 +1,11 @@
+import { CountryCode } from '@lib/countries'
 import { getUserByEmail, putUser } from '@product/db/user'
+import { getUserInitialFields } from '@product/entities-utils/user/getUserInitialFields'
+
+import { AuthSession } from '../../../../lib/auth/AuthSession'
+
 import { AuthenticationResult } from './AuthenticationResult'
 import { getAuthSession } from './getAuthSession'
-import { getUserInitialFields } from '@product/entities-utils/user/getUserInitialFields'
-import { CountryCode } from '@lib/countries'
-import { AuthSession } from '../../../../lib/auth/AuthSession'
 
 interface AuthorizeParams extends AuthenticationResult {
   country?: CountryCode

@@ -1,11 +1,13 @@
-import styled from 'styled-components'
-import { ChildrenProp, IsDraggingProp } from '../props'
-import { borderRadius } from '../css/borderRadius'
-import { absoluteOutline } from '../css/absoluteOutline'
-import { tightListItemConfig } from './tightListItemConfig'
-import { getColor } from '../theme/getters'
 import { ComponentProps } from 'react'
+import styled from 'styled-components'
+
 import { Wrap } from '../base/Wrap'
+import { absoluteOutline } from '../css/absoluteOutline'
+import { borderRadius } from '../css/borderRadius'
+import { ChildrenProp, IsDraggingProp } from '../props'
+import { getColor } from '../theme/getters'
+
+import { tightListItemConfig } from './tightListItemConfig'
 
 const Container = styled.div`
   position: relative;

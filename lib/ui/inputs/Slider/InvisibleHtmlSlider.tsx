@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { InvisibleInput } from '../InvisibleInput'
 
 export interface InvisibleHTMLSliderProps {

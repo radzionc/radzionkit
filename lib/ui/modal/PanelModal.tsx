@@ -1,7 +1,8 @@
-import { ChildrenProp, OnFinishProp } from '@lib/ui/props'
 import { BodyPortal } from '@lib/ui/dom/BodyPortal'
-import styled from 'styled-components'
 import { ModalContainer } from '@lib/ui/modal/ModalContainer'
+import { ChildrenProp, OnFinishProp } from '@lib/ui/props'
+import styled from 'styled-components'
+
 import { Backdrop } from './Backdrop'
 
 const Container = styled(ModalContainer)`

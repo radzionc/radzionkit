@@ -1,13 +1,14 @@
-import styled from 'styled-components'
-import { HSLA } from '../../colors/HSLA'
-import { Point } from '../../entities/Point'
-import { getColor } from '../../theme/getters'
-import { sameDimensions } from '../../css/sameDimensions'
-import { round } from '../../css/round'
 import { toPercents } from '@lib/utils/toPercents'
+import styled from 'styled-components'
+
+import { HSLA } from '../../colors/HSLA'
+import { round } from '../../css/round'
+import { sameDimensions } from '../../css/sameDimensions'
 import { toSizeUnit } from '../../css/toSizeUnit'
-import { PositionAbsolutelyCenterVertically } from '../../layout/PositionAbsolutelyCenterVertically'
+import { Point } from '../../entities/Point'
 import { PositionAbsolutelyByCenter } from '../../layout/PositionAbsolutelyByCenter'
+import { PositionAbsolutelyCenterVertically } from '../../layout/PositionAbsolutelyCenterVertically'
+import { getColor } from '../../theme/getters'
 
 type ChartPositionProps = {
   data: number[]

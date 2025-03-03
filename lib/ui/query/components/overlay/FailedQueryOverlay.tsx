@@ -3,6 +3,7 @@ import { VStack } from '../../../css/stack'
 import { BodyPortal } from '../../../dom/BodyPortal'
 import { Backdrop } from '../../../modal/Backdrop'
 import { OnCloseProp, TitleProp } from '../../../props'
+
 import { QueryOverlayContent } from './QueryOverlayContent'
 
 type FailedQueryOverlayProps = TitleProp &

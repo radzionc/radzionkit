@@ -1,13 +1,14 @@
 import { ComponentProps } from 'react'
 import styled, { css } from 'styled-components'
+
+import { borderRadius } from '../css/borderRadius'
 import { centerContent } from '../css/centerContent'
 import { transition } from '../css/transition'
+import { GripHorizontalIcon } from '../icons/GripHorizontalIcon'
 import { CenterAbsolutely } from '../layout/CenterAbsolutely'
 import { PositionAbsolutelyCenterHorizontally } from '../layout/PositionAbsolutelyCenterHorizontally'
-import { getColor, matchColor } from '../theme/getters'
-import { borderRadius } from '../css/borderRadius'
 import { IsActiveProp } from '../props'
-import { GripHorizontalIcon } from '../icons/GripHorizontalIcon'
+import { getColor, matchColor } from '../theme/getters'
 
 const InteractiveArea = styled.div<IsActiveProp>`
   width: 100%;

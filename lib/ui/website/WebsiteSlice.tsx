@@ -1,8 +1,10 @@
 import styled from 'styled-components'
+
 import { centeredContentColumn } from '../css/centeredContentColumn'
-import { websiteConfig } from './config'
-import { verticalPadding } from '../css/verticalPadding'
 import { toSizeUnit } from '../css/toSizeUnit'
+import { verticalPadding } from '../css/verticalPadding'
+
+import { websiteConfig } from './config'
 
 export const WebsiteSlice = styled.div`
   ${centeredContentColumn({

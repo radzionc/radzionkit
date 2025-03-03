@@ -1,15 +1,16 @@
-import { Language } from '@product/languages/Language'
-import { toBatches } from '@lib/utils/array/toBatches'
 import { TranslationServiceClient } from '@google-cloud/translate'
-import { getEnvVar } from '../getEnvVar'
-import { extractTemplateVariables } from '@lib/utils/template/extractTemplateVariables'
+import { toBatches } from '@lib/utils/array/toBatches'
 import { withoutDuplicates } from '@lib/utils/array/withoutDuplicates'
+import { recordFromKeys } from '@lib/utils/record/recordFromKeys'
+import { extractTemplateVariables } from '@lib/utils/template/extractTemplateVariables'
 import { injectVariables } from '@lib/utils/template/injectVariables'
 import {
   mustacheVariablePattern,
   toMustacheTemplateVariable,
 } from '@lib/utils/template/mustacheTemplate'
-import { recordFromKeys } from '@lib/utils/record/recordFromKeys'
+import { Language } from '@product/languages/Language'
+
+import { getEnvVar } from '../getEnvVar'
 
 const batchSize = 600
 

@@ -1,4 +1,5 @@
 import { lightTheme } from '@lib/ui/theme/lightTheme'
+import { productIconUrl, productName } from '@product/config'
 import {
   Body,
   Button,
@@ -12,7 +13,6 @@ import {
   Text,
   Font,
 } from '@react-email/components'
-import { productIconUrl, productName } from '@product/config'
 
 export interface LoginLinkEmailProps {
   loginUrl: string

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { centerContent } from '../css/centerContent'
 import { takeWholeSpace } from '../css/takeWholeSpace'
 

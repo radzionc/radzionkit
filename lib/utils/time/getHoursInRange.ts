@@ -1,4 +1,5 @@
 import { startOfHour } from 'date-fns'
+
 import { MS_IN_HOUR } from '.'
 
 export const getHoursInRange = (start: number, end: number) => {

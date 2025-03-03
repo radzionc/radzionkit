@@ -1,11 +1,12 @@
+import { HStack, VStack } from '@lib/ui/css/stack'
 import styled from 'styled-components'
+
 import { borderRadius } from '../css/borderRadius'
 import { IconWrapper } from '../icons/IconWrapper'
-import { HStack, VStack } from '@lib/ui/css/stack'
-import { ChildrenProp, TitleProp, UiProps } from '../props'
-import { getColor } from '../theme/getters'
-import { Text } from '../text'
 import { TriangleAlertIcon } from '../icons/TriangleAlertIcon'
+import { ChildrenProp, TitleProp, UiProps } from '../props'
+import { Text } from '../text'
+import { getColor } from '../theme/getters'
 
 const Container = styled.div`
   ${borderRadius.s};

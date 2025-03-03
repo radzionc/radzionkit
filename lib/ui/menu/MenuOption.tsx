@@ -1,17 +1,18 @@
+import { HStack } from '@lib/ui/css/stack'
 import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 
-import { MenuView } from '.'
 import { Hoverable } from '../base/Hoverable'
 import { Button } from '../buttons/Button'
+import { absoluteOutline } from '../css/absoluteOutline'
+import { borderRadius } from '../css/borderRadius'
+import { round } from '../css/round'
 import { transition } from '../css/transition'
 import { verticalPadding } from '../css/verticalPadding'
-import { HStack } from '@lib/ui/css/stack'
 import { Text } from '../text'
-import { borderRadius } from '../css/borderRadius'
-import { absoluteOutline } from '../css/absoluteOutline'
 import { getColor } from '../theme/getters'
-import { round } from '../css/round'
+
+import { MenuView } from '.'
 
 type MenuOptionKind = 'regular' | 'alert'
 

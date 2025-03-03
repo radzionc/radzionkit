@@ -1,24 +1,24 @@
-import { UseFormReturn, useFieldArray } from 'react-hook-form'
-import { FormSection } from '@lib/ui/form/components/FormSection'
-
+import { Button } from '@lib/ui/buttons/Button'
+import { IconButton } from '@lib/ui/buttons/IconButton'
 import { HStack, VStack } from '@lib/ui/css/stack'
-import styled from 'styled-components'
-import { Text } from '@lib/ui/text'
+import { FormSection } from '@lib/ui/form/components/FormSection'
+import { TrashIcon } from '@lib/ui/icons/TrashIcon'
+import { Field } from '@lib/ui/inputs/Field'
+import { Fields } from '@lib/ui/inputs/Fields'
 import { TextArea } from '@lib/ui/inputs/TextArea'
 import { TextInput } from '@lib/ui/inputs/TextInput'
 import { Circle } from '@lib/ui/layout/Circle'
+import { LineSeparator } from '@lib/ui/layout/LineSeparator'
+import { Text } from '@lib/ui/text'
+import { getColor } from '@lib/ui/theme/getters'
+import { UseFormReturn, useFieldArray } from 'react-hook-form'
+import styled from 'styled-components'
+
 import {
   emptyExperience,
   JobApplicationFormShape,
   responsibilityMaxLength,
 } from './jobApplicationForm'
-import { TrashIcon } from '@lib/ui/icons/TrashIcon'
-import { Button } from '@lib/ui/buttons/Button'
-import { getColor } from '@lib/ui/theme/getters'
-import { IconButton } from '@lib/ui/buttons/IconButton'
-import { Field } from '@lib/ui/inputs/Field'
-import { Fields } from '@lib/ui/inputs/Fields'
-import { LineSeparator } from '@lib/ui/layout/LineSeparator'
 
 export interface Props {
   form: UseFormReturn<JobApplicationFormShape, any>

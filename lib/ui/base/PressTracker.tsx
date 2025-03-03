@@ -1,10 +1,12 @@
 import { ReactNode, useCallback, useState } from 'react'
+
 import { Point } from '../entities/Point'
 import { useBoundingBox } from '../hooks/useBoundingBox'
-import { useRelativePosition } from '../hooks/useRelativePosition'
 import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
-import { WindowPointerMoveListener } from './WindowPointerMoveListener'
+import { useRelativePosition } from '../hooks/useRelativePosition'
 import { useValueRef } from '../hooks/useValueRef'
+
+import { WindowPointerMoveListener } from './WindowPointerMoveListener'
 
 type PointerHandler = (event: Pick<PointerEvent, 'clientX' | 'clientY'>) => void
 

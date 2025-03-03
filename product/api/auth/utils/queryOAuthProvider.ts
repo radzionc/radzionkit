@@ -1,5 +1,5 @@
-import { ApiError } from '@product/api-interface/ApiError'
 import { safeResolve } from '@lib/utils/promise/safeResolve'
+import { ApiError } from '@product/api-interface/ApiError'
 
 export const queryOAuthProvider = async <T>(
   action: string,

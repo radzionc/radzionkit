@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { useCallback, useState } from 'react'
+
 import { useHandleQueryParams } from './useHandleQueryParams'
 
 const parseValue = <T>(value: any): T => {

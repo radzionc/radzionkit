@@ -1,19 +1,21 @@
 import { ReactNode } from 'react'
-import { InputProps } from '../../props'
+import styled from 'styled-components'
+
+import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
+import { interactive } from '../../css/interactive'
+import { textInputHorizontalPadding } from '../../css/textInput'
+import { toSizeUnit } from '../../css/toSizeUnit'
+import { useFloatingOptions } from '../../floating/useFloatingOptions'
 import { RelativeRow } from '../../layout/RelativeRow'
+import { InputProps } from '../../props'
 import { InputContainer } from '../InputContainer'
 import { InputLabel } from '../InputLabel'
-import { useFloatingOptions } from '../../floating/useFloatingOptions'
-import { CollapseToggleButton } from '../../buttons/CollapseToggleButton'
-import { FixedOptionsInputIdentifierWrapper } from './FixedOptionsInput/IdentifierWrapper'
-import styled from 'styled-components'
-import { interactive } from '../../css/interactive'
-import { toSizeUnit } from '../../css/toSizeUnit'
+
 import { dropdownInputConfig } from './config'
 import { DropdownContainer } from './DropdownContainer'
-import { DropdownOption } from './DropdownOption'
 import { DropdownInputFrame } from './DropdownInputFrame'
-import { textInputHorizontalPadding } from '../../css/textInput'
+import { DropdownOption } from './DropdownOption'
+import { FixedOptionsInputIdentifierWrapper } from './FixedOptionsInput/IdentifierWrapper'
 
 export interface SelectOptionInputProps<T> extends InputProps<T> {
   label?: ReactNode

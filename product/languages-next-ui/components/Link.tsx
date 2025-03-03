@@ -1,5 +1,6 @@
 import NextLink from 'next/link'
 import { ComponentProps } from 'react'
+
 import { useLanguage } from './LanguageProvider'
 
 export const Link = ({ href, ...props }: ComponentProps<typeof NextLink>) => {

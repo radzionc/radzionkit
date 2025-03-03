@@ -1,7 +1,9 @@
-import styled, { css } from 'styled-components'
-import { LayoutDirection } from './LayoutDirection'
-import { getColor } from '../theme/getters'
 import { match } from '@lib/utils/match'
+import styled, { css } from 'styled-components'
+
+import { getColor } from '../theme/getters'
+
+import { LayoutDirection } from './LayoutDirection'
 
 type LineSeparatorProps = {
   layout: LayoutDirection

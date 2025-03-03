@@ -1,4 +1,5 @@
 import { ElementType, ReactNode } from 'react'
+
 import { HSLA } from '../colors/HSLA'
 import { Point } from '../entities/Point'
 

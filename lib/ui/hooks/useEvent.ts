@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+
 import { BeforeInstallPromptEvent } from '../pwa/BeforeInstallPromptEvent'
 import { hasWindow } from '../utils/window'
 
