@@ -45,8 +45,8 @@ export const svgToReact = async ({ svg, componentName }: SvgToReactParams) => {
   // .replace('svg', 'svg {...props}')
 
   return [
-    `import { SvgIconProps } from '@lib/ui/icons/SvgIconProps'`,
-    `const ${componentName} = (props: SvgIconProps) => ${cleanedSvg}`,
+    `import { SvgProps } from '@lib/ui/props'`,
+    `const ${componentName} = (props: SvgProps) => ${cleanedSvg}`,
     `export default ${componentName}`,
   ].join('\n\n')
 }

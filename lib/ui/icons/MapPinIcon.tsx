@@ -1,6 +1,6 @@
-import { SvgIconProps } from './SvgIconProps'
+import { SvgProps } from '../props'
 
-export const MapPinIcon = (props: SvgIconProps) => (
+export const MapPinIcon = (props: SvgProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"

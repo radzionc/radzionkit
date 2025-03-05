@@ -1,8 +1,8 @@
 import { useTheme } from 'styled-components'
 
-import { SvgIconProps } from '../icons/SvgIconProps'
+import { SvgProps } from '../props'
 
-export const NoDataIllustration = (props: SvgIconProps) => {
+export const NoDataIllustration = (props: SvgProps) => {
   const { colors } = useTheme()
   return (
     <svg

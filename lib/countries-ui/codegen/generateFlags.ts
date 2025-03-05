@@ -48,14 +48,14 @@ const generateFlags = async () => {
   const content = [
     `import React, { ComponentType, Suspense } from 'react';`,
     `import { CountryCode } from '@lib/countries';`,
-    `import { SvgIconProps } from '@lib/ui/icons/SvgIconProps';`,
+    `import { SvgProps } from '@lib/ui/props';`,
     `import { CountryFlagFallback } from '../CountryFlagFallback';`,
-    `const countryFlagRecord: Record<CountryCode, ComponentType<SvgIconProps>> = {
+    `const countryFlagRecord: Record<CountryCode, ComponentType<SvgProps>> = {
       ${Object.entries(countryFlagComponentRecord)
         .map(([key, value]) => `${key}: ${value}`)
         .join(',\n')}
     };`,
-    `interface CountryFlagProps extends SvgIconProps { code: CountryCode }`,
+    `interface CountryFlagProps extends SvgProps { code: CountryCode }`,
     `export const CountryFlag = (props: CountryFlagProps) => {
       const Component = countryFlagRecord[props.code];
       return (

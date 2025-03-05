@@ -1,4 +1,4 @@
-import { ElementType, ReactNode } from 'react'
+import { ElementType, ReactNode, SVGProps } from 'react'
 
 import { HSLA } from '../colors/HSLA'
 import { Point } from '../entities/Point'
@@ -164,3 +164,5 @@ export type NameProp = {
 export type KindProp<T> = {
   kind: T
 }
+
+export type SvgProps = SVGProps<SVGSVGElement>
