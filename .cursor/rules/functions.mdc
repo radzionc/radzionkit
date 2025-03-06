@@ -1,6 +1,6 @@
 ---
 description: USE object parameters WHEN writing functions with multiple parameters TO improve code maintainability
-globs: **/*.{ts,tsx}
+globs: *.{ts,tsx}
 alwaysApply: false
 ---
 

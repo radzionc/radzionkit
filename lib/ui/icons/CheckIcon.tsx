@@ -1,4 +1,6 @@
-export const CheckIcon = () => {
+import { SvgProps } from '../props'
+
+export const CheckIcon = (props: SvgProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,6 +13,7 @@ export const CheckIcon = () => {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="feather feather-check"
+      {...props}
     >
       <polyline points="20 6 9 17 4 12"></polyline>
     </svg>

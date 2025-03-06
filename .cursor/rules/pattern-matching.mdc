@@ -1,14 +1,13 @@
 ---
 description: USE pattern matching WHEN implementing conditional logic TO avoid switch/case statements
-globs: src/**/*.{js,jsx,ts,tsx}
+globs: *.{js,jsx,ts,tsx}
 alwaysApply: false
 ---
-
 # Pattern Matching Rules
 
 ## Context
 - Apply when implementing conditional logic based on discriminated unions, record types, or string literals
-- Prefer pattern matching techniques over traditional switch/case statements
+- Prefer pattern matching techniques over traditional switch/case statements and nested ternaries
 - Improves type safety, readability, and maintainability
 
 ## Requirements
@@ -17,6 +16,7 @@ alwaysApply: false
 - Use matchRecordUnion for handling record union types
 - Use matchDiscriminatedUnion for discriminated union patterns
 - Never use switch/case statements when pattern matching alternatives exist
+- Never use nested ternary operators when pattern matching alternatives exist
 
 ## Examples
 
@@ -78,4 +78,46 @@ switch (status) {
   default:
     return null
 }
+</example>
+
+<example type="invalid">
+// Avoid nested ternary operators
+{status === 'loading' ? (
+  <Loading />
+) : status === 'error' ? (
+  <Error />
+) : (
+  <Content />
+)}
+</example>
+
+<example type="invalid">
+// Avoid nested ternaries for value mapping
+color={
+  status === 'completed'
+    ? 'contrast'
+    : status === 'active'
+      ? 'primary'
+      : 'supporting'
+}
+</example>
+
+<example type="valid">
+// Instead, use Record for value mapping
+const statusToColor: Record<Status, TextColor> = {
+  completed: 'contrast',
+  active: 'primary',
+  pending: 'supporting'
+}
+color={statusToColor[status]}
+</example>
+
+<example type="valid">
+// And use Match component for conditional rendering
+<Match
+  value={status}
+  completed={() => <CheckIcon />}
+  active={() => <Spinner />}
+  pending={() => <div />}
+/>
 </example>

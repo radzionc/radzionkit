@@ -146,7 +146,11 @@ export type OnSubmitProp = {
 }
 
 export type ItemsProp<T> = {
-  items: T[]
+  items: readonly T[]
+}
+
+export type RenderItemProp<T> = {
+  renderItem: (item: T) => ReactNode
 }
 
 export type SizeProp<T = number> = {

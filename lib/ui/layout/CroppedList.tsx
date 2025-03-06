@@ -1,14 +1,14 @@
 import { VStack } from '@lib/ui/css/stack'
-import { Fragment, ReactNode } from 'react'
+import { Fragment } from 'react'
 
 import { Button } from '../buttons/Button'
 import { useBoolean } from '../hooks/useBoolean'
+import { ItemsProp, RenderItemProp } from '../props'
 
-type CroppedListProps<T> = {
-  items: T[]
-  renderItem: (item: T) => ReactNode
-  cropAfter?: number
-}
+type CroppedListProps<T> = ItemsProp<T> &
+  RenderItemProp<T> & {
+    cropAfter?: number
+  }
 
 export function CroppedList<T>({
   items,
