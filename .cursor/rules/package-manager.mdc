@@ -1,7 +1,7 @@
 ---
 description: USE specified package manager WHEN managing dependencies TO ensure consistent dependency resolution
-globs: terminal
-alwaysApply: false
+globs: 
+alwaysApply: true
 ---
 
 # Package Manager Selection Rules
