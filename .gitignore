@@ -9,7 +9,6 @@
 
 node_modules
 
-set_env_vars.sh
 credentials.json
 *.tsbuildinfo
 
@@ -17,6 +16,7 @@ credentials.json
 
 .terraform/
 *.backup
-set_env_vars.sh
 .terraform.lock.hcl
 **/lambda.zip
+
+.envrc
