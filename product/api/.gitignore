@@ -64,7 +64,6 @@ typings/
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 
-set_env_vars.sh
 lambda.zip
 dist
 output
