@@ -12,7 +12,7 @@ import { WithSelectionMark } from './WithSelectionMark'
 
 export type ExpandableSelectorProp<T> = Omit<
   ComponentProps<typeof ExpandableSelectorContainer>,
-  'onChange'
+  'value' | 'onChange'
 > & {
   value: T | null
   onChange: (value: T) => void
