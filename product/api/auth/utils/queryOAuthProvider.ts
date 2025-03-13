@@ -1,4 +1,4 @@
-import { attempt } from '@lib/utils/attempt'
+import { attempt, withFallback } from '@lib/utils/attempt'
 import { ApiError } from '@product/api-interface/ApiError'
 
 export const queryOAuthProvider = async <T>(
@@ -8,7 +8,10 @@ export const queryOAuthProvider = async <T>(
   const response = await fetch(...args)
 
   if (!response.ok) {
-    const message = await attempt(response.text(), response.statusText)
+    const message = await withFallback(
+      attempt(response.text()),
+      response.statusText,
+    )
 
     throw new ApiError('invalidInput', `${action} failed: ${message}`)
   }

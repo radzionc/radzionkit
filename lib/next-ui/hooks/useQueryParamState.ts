@@ -1,11 +1,14 @@
-import { attempt } from '@lib/utils/attempt'
+import { attempt, withFallback } from '@lib/utils/attempt'
 import { useRouter } from 'next/router'
 import { useCallback, useState } from 'react'
 
 import { useHandleQueryParams } from './useHandleQueryParams'
 
 const parseValue = <T>(value: any): T =>
-  attempt(() => JSON.parse(value) as T, value as T)
+  withFallback(
+    attempt(() => JSON.parse(value) as T),
+    value as T,
+  )
 
 export const useQueryParamState = <T extends number | string>(
   key: string,

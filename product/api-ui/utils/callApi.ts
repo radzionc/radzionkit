@@ -1,4 +1,4 @@
-import { attempt } from '@lib/utils/attempt'
+import { attempt, withFallback } from '@lib/utils/attempt'
 import { asyncFallbackChain } from '@lib/utils/promise/asyncFallbackChain'
 import { joinPaths } from '@lib/utils/query/joinPaths'
 import { ApiError } from '@product/api-interface/ApiError'
@@ -54,5 +54,5 @@ export const callApi = async <M extends ApiMethodName>({
     throw error
   }
 
-  return attempt(response.json(), undefined)
+  return withFallback(attempt(response.json()), undefined)
 }
