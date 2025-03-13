@@ -81,6 +81,7 @@ For convenience, you can use the provided script to upgrade both Yarn and all de
 
 To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
 
+* [Effortless Local Env Management: direnv in Action](https://youtu.be/dV3CtCGaHFU)
 * [Building a React Guitar Scale Visualizer: Interactive Pentatonic Patterns](https://youtu.be/4jtm2Lm4EVA)
 * [Building an ENS Name Purchase App with React & Wagmi](https://youtu.be/lP0B7TkZX0Y)
 * [Mastering Merkle Trees in TypeScript](https://youtu.be/NfxngwPBhz0)
