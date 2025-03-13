@@ -22,13 +22,9 @@ export const suggestInboxLink = (
   const emailProvider = extractEmailProvider(email)
   if (!emailProvider) return undefined
 
-  const emailProviderWithClient = isOneOf(
-    emailProvider,
-    emailProvidersWithClient,
-  )
-  if (!emailProviderWithClient) return undefined
+  if (!isOneOf(emailProvider, emailProvidersWithClient)) return undefined
 
-  return match(emailProviderWithClient, {
+  return match(emailProvider, {
     gmail: () => {
       const url = 'https://mail.google.com/mail/u/0/#search'
       if (!sender) return url

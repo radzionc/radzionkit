@@ -1,5 +1,3 @@
-export const isOneOf = <T>(item: any, items: readonly T[]): T | undefined => {
-  if (items.includes(item)) {
-    return item
-  }
+export function isOneOf<T>(item: unknown, items: readonly T[]): item is T {
+  return items.includes(item as T)
 }

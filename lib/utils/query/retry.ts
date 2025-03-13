@@ -1,3 +1,5 @@
+import { attempt } from '../attempt'
+
 interface RetryParams<T> {
   func: () => Promise<T>
   attempts?: number
@@ -11,16 +13,15 @@ export async function retry<T>({
   delay = 1000,
   shouldRetry = () => true,
 }: RetryParams<T>): Promise<T> {
-  try {
-    const result = await func()
-    return result
-  } catch (err) {
+  const { data, error } = await attempt(func())
+
+  if (error) {
     if (attempts === 0) {
-      throw err
+      throw error
     }
 
-    if (!shouldRetry(err)) {
-      throw err
+    if (!shouldRetry(error)) {
+      throw error
     }
 
     await new Promise((resolve) => setTimeout(resolve, delay))
@@ -31,4 +32,6 @@ export async function retry<T>({
       delay,
     })
   }
+
+  return data as T
 }

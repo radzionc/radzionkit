@@ -1,6 +1,6 @@
 import { without } from '@lib/utils/array/without'
+import { attempt } from '@lib/utils/attempt'
 import { memoize } from '@lib/utils/memoize'
-import { asyncAttempt } from '@lib/utils/promise/asyncAttempt'
 
 type Listener = (permission: NotificationPermission) => void
 
@@ -21,7 +21,7 @@ const initialize = memoize(async () => {
 export const listenForNotificationPermissionChange = (listener: Listener) => {
   listeners.push(listener)
 
-  asyncAttempt(initialize, undefined)
+  attempt(initialize)
 
   return () => {
     listeners = without(listeners, listener)

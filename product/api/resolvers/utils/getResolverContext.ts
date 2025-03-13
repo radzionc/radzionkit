@@ -2,7 +2,7 @@ import { IncomingHttpHeaders } from 'http'
 
 import { CountryCode } from '@lib/countries'
 import { extractHeaderValue } from '@lib/lambda/extractHeaderValue'
-import { safeResolve } from '@lib/utils/promise/safeResolve'
+import { attempt, withFallback } from '@lib/utils/attempt'
 
 import { userIdFromToken } from '../../auth/userIdFromToken'
 import { ApiResolverContext } from '../ApiResolverContext'
@@ -20,7 +20,7 @@ export const getResolverContext = async ({
   )
   const token = extractHeaderValue(headers, 'authorization')
   const userId = token
-    ? await safeResolve(userIdFromToken(token), undefined)
+    ? await withFallback(attempt(userIdFromToken(token)), undefined)
     : undefined
 
   return {

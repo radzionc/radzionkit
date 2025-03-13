@@ -13,6 +13,7 @@ import {
   Text,
   Font,
 } from '@react-email/components'
+import * as React from 'react'
 
 export interface LoginLinkEmailProps {
   loginUrl: string

@@ -1,3 +1,4 @@
+import { attempt } from '@lib/utils/attempt'
 import { useMemo } from 'react'
 
 import { Query } from '../Query'
@@ -13,20 +14,20 @@ export const useTransformQueryData = <
   transform: (data: TInput) => TOutput,
 ): QueryBase<TOutput> & Omit<TExtra, keyof QueryBase<TOutput>> => {
   return useMemo(() => {
-    try {
-      return {
-        ...queryResult,
-        data:
-          queryResult.data !== undefined
-            ? transform(queryResult.data)
-            : undefined,
-      }
-    } catch (error) {
+    const initialData = queryResult.data
+    if (initialData === undefined) {
       return {
         ...queryResult,
         data: undefined,
-        error,
       }
+    }
+
+    const { data, error } = attempt<TOutput>(() => transform(initialData))
+
+    return {
+      ...queryResult,
+      data,
+      error,
     }
   }, [queryResult, transform])
 }

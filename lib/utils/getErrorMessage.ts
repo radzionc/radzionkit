@@ -1,4 +1,4 @@
-import { attempt } from './attempt'
+import { attempt, withFallback } from './attempt'
 
 export const getErrorMessage = (err: unknown): string => {
   if (typeof err === 'string') {
@@ -9,5 +9,8 @@ export const getErrorMessage = (err: unknown): string => {
     return getErrorMessage(err.message)
   }
 
-  return attempt(() => JSON.stringify(err), '')
+  return withFallback(
+    attempt(() => JSON.stringify(err)),
+    'Unknown error',
+  )
 }
