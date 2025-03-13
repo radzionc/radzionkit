@@ -9,19 +9,9 @@ export const areNotificationsBlocked = () =>
 export const showNotification = (text: string) => {
   if (!areNotificationsAllowed()) return
 
-  try {
-    const notification = new window.Notification(text)
-    notification.onclick = function () {
-      window.focus()
-      notification.close()
-    }
-  } catch {
-    window.navigator.serviceWorker.getRegistration().then((registration) => {
-      if (registration) {
-        registration.showNotification(text, {
-          requireInteraction: true,
-        })
-      }
-    })
+  const notification = new window.Notification(text)
+  notification.onclick = function () {
+    window.focus()
+    notification.close()
   }
 }
