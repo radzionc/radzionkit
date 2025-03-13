@@ -1,5 +1,6 @@
 import { productName } from '@product/config'
 import { render } from '@react-email/render'
+import * as React from 'react'
 
 import LoginLinkEmail, { LoginLinkEmailProps } from '../emails/LoginLinkEmail'
 
@@ -12,9 +13,6 @@ export const sendLoginLinkEmail = async ({
 }: LoginLinkEmailProps) => {
   const body = await render(
     <LoginLinkEmail loginUrl={loginUrl} email={email} />,
-    {
-      pretty: true,
-    },
   )
 
   return sendEmail({
