@@ -1,4 +1,5 @@
 import { reportError } from '@lib/lambda/reportError'
+import { attempt } from '@lib/utils/attempt'
 import { getErrorMessage } from '@lib/utils/getErrorMessage'
 import { pick } from '@lib/utils/record/pick'
 import { ApiError } from '@product/api-interface/ApiError'
@@ -19,22 +20,24 @@ Object.entries(implementation).forEach(([endpoint, resolver]) => {
     const input = req.body
     const context = await getResolverContext(req)
 
-    try {
-      const resolverParams: ApiResolverParams<ApiMethodName> = {
-        input,
-        context,
-      }
+    const resolverParams: ApiResolverParams<ApiMethodName> = {
+      input,
+      context,
+    }
 
+    const { error } = await attempt(async () => {
       const response = await resolver(resolverParams as never)
       res.json(response)
-    } catch (err) {
-      const isApiError = err instanceof ApiError
+    })
+
+    if (error) {
+      const isApiError = error instanceof ApiError
       if (!isApiError) {
-        reportError(err, { endpoint, input, context })
+        reportError(error, { endpoint, input, context })
       }
 
       const response = pick(
-        isApiError ? err : new ApiError('unknown', getErrorMessage(err)),
+        isApiError ? error : new ApiError('unknown', getErrorMessage(error)),
         ['id', 'message'],
       )
 

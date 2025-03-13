@@ -1,3 +1,4 @@
+import { attempt } from '@lib/utils/attempt'
 import { useMemo } from 'react'
 
 import { getRecordSize } from '../../../utils/record/getRecordSize'
@@ -27,22 +28,15 @@ export function useTransformQueriesData<
     const isLoading = queries.some(({ isLoading }) => isLoading)
 
     if (getRecordSize(dataRecord) === getRecordSize(queriesRecord)) {
-      try {
-        return {
-          data: transform(
-            dataRecord as { [K in keyof T]: NonUndefined<T[K]['data']> },
-          ),
-          isPending,
-          isLoading,
-          error,
-        }
-      } catch (error) {
-        return {
-          data: undefined,
-          isPending,
-          isLoading,
-          error: error as E,
-        }
+      const { data, error: transformError } = attempt<R, E>(() =>
+        transform(dataRecord as { [K in keyof T]: NonUndefined<T[K]['data']> }),
+      )
+
+      return {
+        isPending,
+        isLoading,
+        data,
+        error: transformError ?? error,
       }
     }
 

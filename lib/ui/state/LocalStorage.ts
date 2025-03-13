@@ -1,3 +1,4 @@
+import { attempt } from '@lib/utils/attempt'
 import { ValueTransition } from '@lib/utils/entities/ValueTransition'
 import { recordMap } from '@lib/utils/record/recordMap'
 
@@ -48,11 +49,7 @@ export class LocalStorage<T extends string> implements PersistentStorage<T> {
     if (value === 'null') return null as unknown as V
     if (value === 'undefined') return undefined
 
-    try {
-      return JSON.parse(value) as V
-    } catch {
-      return value as unknown as V
-    }
+    return attempt(() => JSON.parse(value) as V, value as unknown as V)
   }
 
   getItem<V>(key: T): V | undefined {

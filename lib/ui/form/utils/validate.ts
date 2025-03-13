@@ -1,3 +1,4 @@
+import { attempt } from '@lib/utils/attempt'
 import { getErrorMessage } from '@lib/utils/getErrorMessage'
 
 import { ValidationResult } from './ValidationResult'
@@ -13,14 +14,12 @@ export const validate = <T>(
     const fieldKey = key as unknown as keyof T
     const validator = validators[fieldKey]
     if (validator) {
-      try {
-        const value = values[fieldKey]
-        const message = validator(value, values)
-        if (message !== undefined) {
-          result[fieldKey] = message
-        }
-      } catch (err) {
-        result[fieldKey] = getErrorMessage(err)
+      const value = values[fieldKey]
+
+      const { data, error } = attempt(() => validator(value, values))
+      const message = error ? getErrorMessage(error) : data
+      if (message) {
+        result[fieldKey] = message
       }
     }
   })

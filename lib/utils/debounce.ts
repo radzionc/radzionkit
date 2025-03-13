@@ -1,3 +1,5 @@
+import { attempt } from './attempt'
+
 export const debounce = <T extends (...args: any[]) => any>(
   func: T,
   delay: number,
@@ -11,11 +13,11 @@ export const debounce = <T extends (...args: any[]) => any>(
       }
 
       timeoutId = setTimeout(() => {
-        try {
-          const result = func(...args)
-          resolve(result)
-        } catch (error) {
+        const { data, error } = attempt(() => func(...args))
+        if (error) {
           reject(error)
+        } else {
+          resolve(data)
         }
       }, delay)
     })
