@@ -424,6 +424,55 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aws-sdk/client-secrets-manager@npm:^3.758.0":
+  version: 3.758.0
+  resolution: "@aws-sdk/client-secrets-manager@npm:3.758.0"
+  dependencies:
+    "@aws-crypto/sha256-browser": "npm:5.2.0"
+    "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/core": "npm:3.758.0"
+    "@aws-sdk/credential-provider-node": "npm:3.758.0"
+    "@aws-sdk/middleware-host-header": "npm:3.734.0"
+    "@aws-sdk/middleware-logger": "npm:3.734.0"
+    "@aws-sdk/middleware-recursion-detection": "npm:3.734.0"
+    "@aws-sdk/middleware-user-agent": "npm:3.758.0"
+    "@aws-sdk/region-config-resolver": "npm:3.734.0"
+    "@aws-sdk/types": "npm:3.734.0"
+    "@aws-sdk/util-endpoints": "npm:3.743.0"
+    "@aws-sdk/util-user-agent-browser": "npm:3.734.0"
+    "@aws-sdk/util-user-agent-node": "npm:3.758.0"
+    "@smithy/config-resolver": "npm:^4.0.1"
+    "@smithy/core": "npm:^3.1.5"
+    "@smithy/fetch-http-handler": "npm:^5.0.1"
+    "@smithy/hash-node": "npm:^4.0.1"
+    "@smithy/invalid-dependency": "npm:^4.0.1"
+    "@smithy/middleware-content-length": "npm:^4.0.1"
+    "@smithy/middleware-endpoint": "npm:^4.0.6"
+    "@smithy/middleware-retry": "npm:^4.0.7"
+    "@smithy/middleware-serde": "npm:^4.0.2"
+    "@smithy/middleware-stack": "npm:^4.0.1"
+    "@smithy/node-config-provider": "npm:^4.0.1"
+    "@smithy/node-http-handler": "npm:^4.0.3"
+    "@smithy/protocol-http": "npm:^5.0.1"
+    "@smithy/smithy-client": "npm:^4.1.6"
+    "@smithy/types": "npm:^4.1.0"
+    "@smithy/url-parser": "npm:^4.0.1"
+    "@smithy/util-base64": "npm:^4.0.0"
+    "@smithy/util-body-length-browser": "npm:^4.0.0"
+    "@smithy/util-body-length-node": "npm:^4.0.0"
+    "@smithy/util-defaults-mode-browser": "npm:^4.0.7"
+    "@smithy/util-defaults-mode-node": "npm:^4.0.7"
+    "@smithy/util-endpoints": "npm:^3.0.1"
+    "@smithy/util-middleware": "npm:^4.0.1"
+    "@smithy/util-retry": "npm:^4.0.1"
+    "@smithy/util-utf8": "npm:^4.0.0"
+    "@types/uuid": "npm:^9.0.1"
+    tslib: "npm:^2.6.2"
+    uuid: "npm:^9.0.1"
+  checksum: 10/b378e948a218b3b588b495b24a7022e586029c7c26f085fa8b66be2a207d0138809a3e0301172124becfb68004c7aed0abb344a7ec8919f78ac99f029c3533ac
+  languageName: node
+  linkType: hard
+
 "@aws-sdk/client-sesv2@npm:^3.758.0":
   version: 3.758.0
   resolution: "@aws-sdk/client-sesv2@npm:3.758.0"
@@ -2747,10 +2796,11 @@ __metadata:
   resolution: "@product/email@workspace:product/email"
   dependencies:
     "@aws-sdk/client-sesv2": "npm:^3.758.0"
-    "@react-email/button": "npm:^0.0.19"
     "@react-email/components": "npm:^0.0.33"
-    "@react-email/html": "npm:^0.0.11"
-    "@react-email/render": "npm:^1.0.5"
+    "@types/react": "npm:^19.0.10"
+    "@types/react-dom": "npm:^19"
+    react: "npm:^19.0.0"
+    react-dom: "npm:^19.0.0"
     react-email: "npm:^3.0.7"
   languageName: unknown
   linkType: soft
@@ -2782,6 +2832,14 @@ __metadata:
   resolution: "@product/languages@workspace:product/languages"
   dependencies:
     "@google-cloud/translate": "npm:^8.5.1"
+  languageName: unknown
+  linkType: soft
+
+"@product/secrets@workspace:product/secrets":
+  version: 0.0.0-use.local
+  resolution: "@product/secrets@workspace:product/secrets"
+  dependencies:
+    "@aws-sdk/client-secrets-manager": "npm:^3.758.0"
   languageName: unknown
   linkType: soft
 
@@ -2893,7 +2951,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-email/button@npm:0.0.19, @react-email/button@npm:^0.0.19":
+"@react-email/button@npm:0.0.19":
   version: 0.0.19
   resolution: "@react-email/button@npm:0.0.19"
   peerDependencies:
@@ -3006,7 +3064,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-email/html@npm:0.0.11, @react-email/html@npm:^0.0.11":
+"@react-email/html@npm:0.0.11":
   version: 0.0.11
   resolution: "@react-email/html@npm:0.0.11"
   peerDependencies:
@@ -3053,7 +3111,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-email/render@npm:1.0.5, @react-email/render@npm:^1.0.5":
+"@react-email/render@npm:1.0.5":
   version: 1.0.5
   resolution: "@react-email/render@npm:1.0.5"
   dependencies:
@@ -4290,7 +4348,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^19.0.4":
+"@types/react-dom@npm:^19, @types/react-dom@npm:^19.0.4":
   version: 19.0.4
   resolution: "@types/react-dom@npm:19.0.4"
   peerDependencies:

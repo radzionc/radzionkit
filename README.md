@@ -41,6 +41,7 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 * [**@product/entities-utils**](product/entities-utils/README.md) - Utility functions for working with entities.
 * [**@product/languages**](product/languages/README.md) - Language support and localization utilities.
 * [**@product/languages-next-ui**](product/languages-next-ui/README.md) - Next.js UI components for language handling.
+* [**@product/secrets**](product/secrets/README.md) - A package for securely managing application secrets using AWS Secrets Manager.
 * [**@product/ui-demo**](product/ui-demo/README.md) - Demo UI showcasing product components.
 
 ## Getting Started with RadzionKit: Launching Your New Project

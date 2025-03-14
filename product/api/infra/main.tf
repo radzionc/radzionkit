@@ -38,6 +38,7 @@ resource "aws_lambda_function" "api" {
   environment {
     variables = {
       SENTRY_KEY = var.sentry_key
+      SECRETS: var.secrets_name
     }
   }
 }

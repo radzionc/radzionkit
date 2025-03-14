@@ -42,3 +42,26 @@ resource "aws_iam_role_policy_attachment" "api" {
   role       = aws_iam_role.api.name
   policy_arn = aws_iam_policy.api.arn
 }
+
+resource "aws_iam_policy" "secrets" {
+  name = "tf-${var.name}-secrets"
+  path = "/"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "secretsmanager:GetSecretValue",
+      "Resource": "${var.secrets_arn}",
+      "Effect": "Allow"
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy_attachment" "secrets" {
+  role       = aws_iam_role.api.name
+  policy_arn = aws_iam_policy.secrets.arn
+}
