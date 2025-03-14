@@ -12,6 +12,9 @@ export TF_VAR_domain=
 export TF_VAR_zone_id=
 export TF_VAR_certificate_arn=
 
+export TF_VAR_secrets_name=
+export TF_VAR_secrets_arn=
+
 export TF_VAR_sentry_key=
 
 export TF_VAR_remote_state_bucket=
