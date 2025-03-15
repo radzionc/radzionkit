@@ -1,0 +1,12 @@
+{
+  "name": "@product/comics",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "puppeteer": "^24.4.0"
+  }
+}
