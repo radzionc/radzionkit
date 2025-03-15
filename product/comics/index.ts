@@ -1,5 +1,5 @@
 import * as cheerio from 'cheerio'
-import puppeteer from 'puppeteer'
+import puppeteer, { Browser } from 'puppeteer'
 
 /**
  * Represents a book with its price per page information
@@ -16,22 +16,20 @@ interface BookInfo {
  * Fetches and extracts product information from a Wildberries product page
  * and calculates the price per page
  * @param url The URL of the Wildberries product page
+ * @param browser The browser instance to use
  * @returns BookInfo object or null if scraping failed
  */
-async function scrapeWildberriesProduct(url: string): Promise<BookInfo | null> {
-  let browser = null
+async function scrapeWildberriesProduct(
+  url: string,
+  browser: Browser,
+): Promise<BookInfo | null> {
+  let page = null
 
   try {
     console.log(`Scraping product: ${url}`)
 
-    // Launch a headless browser
-    browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    })
-
     // Open a new page
-    const page = await browser.newPage()
+    page = await browser.newPage()
 
     // Set viewport size
     await page.setViewport({ width: 1280, height: 800 })
@@ -44,8 +42,17 @@ async function scrapeWildberriesProduct(url: string): Promise<BookInfo | null> {
     // Navigate to the URL
     await page.goto(url, { waitUntil: 'networkidle2' })
 
-    // Wait for product information to load
-    await page.waitForSelector('.product-page__header h1', { timeout: 10000 })
+    // Wait for product information to load with a shorter timeout
+    // Use waitForSelector with optional flag to continue even if not found
+    const headerExists = await page
+      .waitForSelector('.product-page__header h1', { timeout: 5000 })
+      .then(() => true)
+      .catch(() => false)
+
+    if (!headerExists) {
+      console.log(`Product header not found for ${url}, skipping this product`)
+      return null
+    }
 
     // Get the fully rendered HTML content
     const html = await page.content()
@@ -55,6 +62,12 @@ async function scrapeWildberriesProduct(url: string): Promise<BookInfo | null> {
 
     // Extract product information
     const productName = $('.product-page__header h1').text().trim()
+    if (!productName) {
+      console.log(
+        `Could not extract product name for ${url}, skipping this product`,
+      )
+      return null
+    }
 
     // Fix price extraction - take only the first price value
     const priceText = $('.price-block__final-price').first().text().trim()
@@ -63,6 +76,13 @@ async function scrapeWildberriesProduct(url: string): Promise<BookInfo | null> {
     const price = priceMatch
       ? parseFloat(priceMatch[0].replace(/\s+/g, '').replace(',', '.'))
       : 0
+
+    if (price === 0) {
+      console.log(
+        `Could not extract valid price for ${url}, skipping this product`,
+      )
+      return null
+    }
 
     // Extract product specifications
     const specifications: Record<string, string> = {}
@@ -116,6 +136,12 @@ async function scrapeWildberriesProduct(url: string): Promise<BookInfo | null> {
       })
     }
 
+    // If still no page count found, log and skip
+    if (numberOfPages === 0) {
+      console.log(`Could not find page count for ${url}, skipping this product`)
+      return null
+    }
+
     // Calculate price per page
     let pricePerPage = 0
     if (numberOfPages > 0 && price > 0) {
@@ -138,66 +164,9 @@ async function scrapeWildberriesProduct(url: string): Promise<BookInfo | null> {
     }
     return null
   } finally {
-    // Close the browser
-    if (browser) {
-      await browser.close()
-    }
-  }
-}
-
-/**
- * Scrapes a search results page to get all book links
- * @param searchUrl The URL of the search results page
- * @returns Array of book URLs
- */
-async function scrapeSearchPage(searchUrl: string): Promise<string[]> {
-  let browser = null
-  try {
-    console.log(`Scraping search page: ${searchUrl}`)
-
-    browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    })
-
-    const page = await browser.newPage()
-    await page.setViewport({ width: 1280, height: 800 })
-    await page.setUserAgent(
-      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-    )
-
-    await page.goto(searchUrl, { waitUntil: 'networkidle2' })
-
-    // Wait for product cards to load
-    await page.waitForSelector('.product-card__link', { timeout: 15000 })
-
-    // Get the fully rendered HTML content
-    const html = await page.content()
-
-    // Load the HTML into cheerio for easier parsing
-    const $ = cheerio.load(html)
-
-    // Extract all book links
-    const bookLinks: string[] = []
-    $('.product-card__link').each((_, element) => {
-      const href = $(element).attr('href')
-      if (href) {
-        bookLinks.push(href)
-      }
-    })
-
-    console.log(`Found ${bookLinks.length} book links on the search page`)
-    return bookLinks
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error(`Error scraping search page: ${error.message}`)
-    } else {
-      console.error(`Unexpected error scraping search page: ${String(error)}`)
-    }
-    return []
-  } finally {
-    if (browser) {
-      await browser.close()
+    // Close the page but not the browser
+    if (page) {
+      await page.close()
     }
   }
 }
@@ -206,18 +175,41 @@ async function scrapeSearchPage(searchUrl: string): Promise<string[]> {
  * Main function to scrape books from search page and calculate price per page
  */
 async function findCheapestBooksPerPage(searchUrl: string): Promise<void> {
+  let browser: Browser | null = null
+
   try {
+    // Launch a single browser instance for all operations
+    browser = await puppeteer.launch({
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    })
+
     // Get all book links from the search page
-    const bookLinks = await scrapeSearchPage(searchUrl)
+    const bookLinks = await scrapeSearchPage(searchUrl, browser)
 
     if (bookLinks.length === 0) {
       console.error('No book links found on the search page')
       return
     }
 
-    // Process each book link
-    const bookPromises = bookLinks.map((url) => scrapeWildberriesProduct(url))
-    const booksInfo = await Promise.all(bookPromises)
+    console.log(`Starting to process ${bookLinks.length} books...`)
+
+    // Process books in batches to avoid overwhelming the system
+    const batchSize = 5
+    const booksInfo: (BookInfo | null)[] = []
+
+    for (let i = 0; i < bookLinks.length; i += batchSize) {
+      const batch = bookLinks.slice(i, i + batchSize)
+      console.log(
+        `Processing batch ${Math.floor(i / batchSize) + 1} of ${Math.ceil(bookLinks.length / batchSize)}`,
+      )
+
+      const batchResults = await Promise.all(
+        batch.map((url) => scrapeWildberriesProduct(url, browser as Browser)),
+      )
+
+      booksInfo.push(...batchResults)
+    }
 
     // Filter out null results (failed scrapes)
     const validBooks = booksInfo.filter(
@@ -258,6 +250,114 @@ async function findCheapestBooksPerPage(searchUrl: string): Promise<void> {
       console.error(`Error in main process: ${error.message}`)
     } else {
       console.error(`Unexpected error in main process: ${String(error)}`)
+    }
+  } finally {
+    // Close the browser
+    if (browser) {
+      await browser.close()
+      console.log('Browser closed')
+    }
+  }
+}
+
+/**
+ * Scrapes a search results page to get all book links
+ * @param searchUrl The URL of the search results page
+ * @param browser The browser instance to use
+ * @returns Array of book URLs
+ */
+async function scrapeSearchPage(
+  searchUrl: string,
+  browser: Browser,
+): Promise<string[]> {
+  let page = null
+  try {
+    console.log(`Scraping search page: ${searchUrl}`)
+
+    page = await browser.newPage()
+    await page.setViewport({ width: 1280, height: 800 })
+    await page.setUserAgent(
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+    )
+
+    await page.goto(searchUrl, { waitUntil: 'networkidle2' })
+
+    // Wait for product cards to load
+    await page.waitForSelector('.product-card__link', { timeout: 15000 })
+
+    // Scroll down to trigger lazy loading until no more new products appear
+    console.log('Starting to scroll to load all products...')
+
+    let previousHeight = 0
+    let currentHeight = await page.evaluate(() => document.body.scrollHeight)
+    let productCount = 0
+    let scrollAttempts = 0
+    const maxScrollAttempts = 30 // Limit scrolling attempts to prevent infinite loops
+
+    while (
+      previousHeight !== currentHeight &&
+      scrollAttempts < maxScrollAttempts
+    ) {
+      // Get current product count
+      productCount = await page.evaluate(() => {
+        return document.querySelectorAll('.product-card__link').length
+      })
+
+      console.log(
+        `Current product count: ${productCount}, scroll attempt: ${scrollAttempts + 1}`,
+      )
+
+      // Scroll to the bottom of the page
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+
+      // Wait for potential new content to load
+      await page
+        .waitForFunction(`document.body.scrollHeight > ${currentHeight}`, {
+          timeout: 5000,
+        })
+        .catch(() => {
+          // If timeout occurs, it might mean no new content was loaded
+          console.log('No new content loaded after scrolling')
+        })
+
+      // Update heights
+      previousHeight = currentHeight
+      currentHeight = await page.evaluate(() => document.body.scrollHeight)
+
+      scrollAttempts++
+    }
+
+    console.log(`Finished scrolling. Total scroll attempts: ${scrollAttempts}`)
+    console.log(`Final page height: ${currentHeight}px`)
+
+    // Get the fully rendered HTML content after scrolling
+    const html = await page.content()
+
+    // Load the HTML into cheerio for easier parsing
+    const $ = cheerio.load(html)
+
+    // Extract all book links
+    const bookLinks: string[] = []
+    $('.product-card__link').each((_, element) => {
+      const href = $(element).attr('href')
+      if (href) {
+        bookLinks.push(href)
+      }
+    })
+
+    console.log(`Found ${bookLinks.length} book links on the search page`)
+    return bookLinks
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(`Error scraping search page: ${error.message}`)
+    } else {
+      console.error(`Unexpected error scraping search page: ${String(error)}`)
+    }
+    return []
+  } finally {
+    // Close the page but not the browser
+    if (page) {
+      await page.close()
     }
   }
 }
