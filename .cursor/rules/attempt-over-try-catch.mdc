@@ -1,38 +1,34 @@
 ---
 description: USE attempt utility WHEN handling errors INSTEAD OF try-catch blocks TO ensure consistent error handling
-globs: *.{ts,tsx,js,jsx}
+globs: *.ts,*.tsx
 alwaysApply: false
 ---
- 
 # Use attempt Utility Instead of try-catch
 
 ## Context
 - Applies when handling errors in asynchronous or synchronous operations
-- The codebase provides a utility function `attempt` in `lib/utils/attempt.ts`
+- The codebase provides a utility function [attempt.ts](mdc:lib/utils/attempt.ts) from `@lib/utils/attempt`
 - This utility provides a consistent way to handle errors with Result types
+- Eliminates the need for try-catch blocks and provides type-safe error handling
 
 ## Requirements
-- Always use the `attempt` utility instead of try-catch blocks
-- Return and handle Result objects with `data` and `error` properties
+- NEVER use try-catch blocks for error handling
+- ALWAYS use the `attempt` utility from `@lib/utils/attempt`
+- Use pattern matching with 'data' in result or 'error' in result for type-safe error handling
 - Use `withFallback` when a default value is needed in case of error
+- Only use try-finally when resource cleanup is needed (e.g., closing connections)
 
 ## Examples
+
 <example>
-// Good: Using attempt utility for error handling
+// Good: Using attempt for error handling
 import { attempt } from '@lib/utils/attempt'
 
 // For synchronous functions
-const result = attempt(() => parseJSON(data))
-if ('data' in result) {
-  // Handle success case
-  processData(result.data)
-} else {
-  // Handle error case
-  logError(result.error)
-}
+const result = await attempt<Data, Error>(async () => {
+  return await fetchData()
+})
 
-// For asynchronous functions
-const result = await attempt(() => fetchData())
 if ('data' in result) {
   // Handle success case
   processData(result.data)
@@ -42,23 +38,63 @@ if ('data' in result) {
 }
 
 // Using withFallback for default values
-const data = withFallback(attempt(() => parseJSON(data)), defaultValue)
+const data = withFallback(
+  attempt(() => parseJSON(data)),
+  defaultValue
+)
+
+// Good: Using try-finally for resource cleanup
+let resource = null
+try {
+  resource = await createResource()
+  return await attempt(() => useResource(resource))
+} finally {
+  if (resource) {
+    await resource.close()
+  }
+}
 </example>
 
 <example type="invalid">
-// Bad: Using try-catch directly
-try {
-  const data = parseJSON(data)
-  processData(data)
-} catch (error) {
-  logError(error)
-}
-
-// Bad: Using try-catch with async/await
+// Bad: Using try-catch for error handling
 try {
   const data = await fetchData()
   processData(data)
 } catch (error) {
   logError(error)
 }
+
+// Bad: Using try-catch with type casting
+try {
+  const data = await fetchData()
+  processData(data)
+} catch (error: unknown) {
+  if (error instanceof Error) {
+    logError(error.message)
+  }
+}
+
+// Bad: Using try-catch-finally when only cleanup is needed
+try {
+  await doSomething()
+} catch (error) {
+  console.error(error)
+} finally {
+  cleanup()
+}
+
+// Instead, use:
+const result = await attempt(() => doSomething())
+cleanup()
+if ('error' in result) {
+  console.error(result.error)
+}
 </example>
+
+## Benefits
+1. Type-safe error handling with discriminated unions
+2. Consistent error handling patterns across the codebase
+3. No need for type casting of errors
+4. Better error propagation
+5. Easier to test and maintain
+6. Eliminates common try-catch pitfalls

@@ -1,6 +1,6 @@
 ---
 description: REUSE existing code WHEN implementing new features FROM @lib packages TO maintain consistency and reduce duplication
-globs: *.{js,jsx,ts,tsx}
+globs: *.ts,*.tsx
 alwaysApply: false
 ---
 # Reuse Lib Code Rules

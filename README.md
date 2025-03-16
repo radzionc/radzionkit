@@ -75,6 +75,7 @@ For convenience, you can use the provided script to upgrade both Yarn and all de
 - **[Radzion's Resume](https://github.com/radzionc/resume):** A Web3 Front-end developer resume.
 - **[Crypto](https://github.com/radzionc/crypto):** Web3 tools.
 - **[AI](https://github.com/radzionc/ai):** Fix the grammar of selected text with a shortcut.
+- **[Comics](https://github.com/radzionc/comics):** Comic book deal finder.
 - **[Storage](https://github.com/radzionc/auto-drive):** Save files on a distributed storage network.
 - **[GeorgianCitizen](https://github.com/radzionc/georgian):** An exam prep app.
 

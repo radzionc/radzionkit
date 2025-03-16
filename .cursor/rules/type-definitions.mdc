@@ -1,6 +1,6 @@
 ---
 description: USE type WHEN defining object types TO maintain consistency
-globs: *.{ts,tsx}
+globs: *.ts,*.tsx
 alwaysApply: false
 ---
 

@@ -91,5 +91,18 @@ for package in "${COMMON_PACKAGES[@]}"; do
   echo "  Package lib/$package synced successfully."
 done
 
+# Sync .cursor directory
+echo "Syncing .cursor directory..."
+if [[ -d "$TEMP_DIR/.cursor" ]]; then
+  # Remove current .cursor directory if it exists
+  rm -rf "$CURRENT_REPO/.cursor"
+  
+  # Copy entire .cursor directory from radzionkit
+  cp -r "$TEMP_DIR/.cursor" "$CURRENT_REPO/"
+  echo "✅ .cursor directory synced successfully!"
+else
+  echo "⚠️ .cursor directory not found in radzionkit repository, skipping..."
+fi
+
 echo "✅ All packages have been synced successfully!"
 echo "Note: You may need to run 'yarn install' to update dependencies after the sync."

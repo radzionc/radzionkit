@@ -1,6 +1,6 @@
 ---
-description: Use assertions instead of optional chaining or default values when values should exist
-globs: *.{ts,tsx}
+description: 
+globs: *.ts,*.tsx
 alwaysApply: false
 ---
 

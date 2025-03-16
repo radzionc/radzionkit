@@ -41,15 +41,7 @@ Invalid concise example with explanation
 
 ### Glob Pattern Examples
 Common glob patterns for different rule types:
-- Core standards: .cursor/rules/*.mdc
-- Language rules: src/**/*.{js,ts}
-- Testing standards: **/*.test.{js,ts}
-- React components: src/components/**/*.tsx
-- Documentation: docs/**/*.md
-- Configuration files: *.config.{js,json}
-- Build artifacts: dist/**/*
-- Multiple extensions: src/**/*.{js,jsx,ts,tsx}
-- Multiple files: dist/**/*, docs/**/*.md
+- Most often pattern would be `*.ts,*.tsx` as it's a typescript monorepo.
 
 ## Required Fields
 

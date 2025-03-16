@@ -1,6 +1,6 @@
 ---
 description: USE pattern matching WHEN implementing conditional logic TO avoid switch/case statements
-globs: *.{js,jsx,ts,tsx}
+globs: *.ts,*.tsx
 alwaysApply: false
 ---
 # Pattern Matching Rules
