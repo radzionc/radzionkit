@@ -1,5 +1,5 @@
 ---
-description: 
+description: Use Fetch API Instead of Axios
 globs: *.ts,*.tsx
 alwaysApply: false
 ---
