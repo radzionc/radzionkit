@@ -15,17 +15,17 @@ type GetViewSetupInput<T extends string | number | symbol> = {
   useViewState?: (initialState: T) => [T, Dispatch<SetStateAction<T>>]
 }
 
+interface ViewState<T> {
+  view: T
+  setView: (view: T) => void
+}
+
 export function getViewSetup<T extends string | number | symbol>({
   defaultView,
   name,
   useViewState = useState,
 }: GetViewSetupInput<T>) {
-  interface ViewState {
-    view: T
-    setView: (view: T) => void
-  }
-
-  const ViewContext = createContext<ViewState | undefined>(undefined)
+  const ViewContext = createContext<ViewState<T> | undefined>(undefined)
 
   const ViewProvider = ({ children }: ChildrenProp) => {
     const [view, setView] = useViewState(defaultView)
