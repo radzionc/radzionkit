@@ -17,15 +17,16 @@ type RadioInputProps<T extends string> = InputProps<T> &
   }
 
 const Wrapper = styled(HStack)`
-  height: 40px;
   gap: 2px;
   padding: 2px;
   ${borderRadius.m};
   border: 2px solid ${getColor('mistExtra')};
+  flex-wrap: wrap;
 `
 
 const Container = styled.label<IsActiveProp>`
   position: relative;
+  min-height: 32px;
   ${horizontalPadding(12)};
   ${borderRadius.s};
   display: flex;
