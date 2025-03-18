@@ -7,6 +7,7 @@ import { vStack } from '../css/stack'
 import { takeWholeSpace } from '../css/takeWholeSpace'
 import { toSizeUnit } from '../css/toSizeUnit'
 import { useIsScreenWidthLessThan } from '../hooks/useIsScreenWidthLessThan'
+import { AsProp } from '../props'
 import { getColor } from '../theme/getters'
 
 import { modalConfig } from './config'
@@ -47,11 +48,11 @@ const Container = styled(FocusLock)<ContainerProps>`
 type ModalContainerProps = {
   targetWidth?: number
   placement?: ModalPlacement
-  as?: ElementType
 } & Omit<
   ComponentPropsWithoutRef<ElementType>,
   keyof ContainerProps | 'as' | 'width' | 'placement'
->
+> &
+  AsProp
 
 export function ModalContainer({
   targetWidth = 400,

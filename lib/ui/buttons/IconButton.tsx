@@ -9,6 +9,7 @@ import { centerContent } from '../css/centerContent'
 import { interactive } from '../css/interactive'
 import { sameDimensions } from '../css/sameDimensions'
 import { toSizeUnit } from '../css/toSizeUnit'
+import { AsProp } from '../props'
 import { getColor } from '../theme/getters'
 import { Tooltip } from '../tooltips/Tooltip'
 
@@ -117,9 +118,8 @@ export type IconButtonProps = Omit<
   size?: IconButtonSize
   kind?: IconButtonKind
   title: string
-  as?: React.ElementType
   isDisabled?: boolean | string
-}
+} & AsProp
 
 export function IconButton({
   icon,

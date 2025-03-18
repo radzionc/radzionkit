@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { UnstyledButton } from '../buttons/UnstyledButton'
 import { absoluteOutline } from '../css/absoluteOutline'
 import { borderRadius } from '../css/borderRadius'
+import { AsProp } from '../props'
 import { getColor } from '../theme/getters'
 
 interface HighlightProps {
@@ -32,9 +33,8 @@ const Content = styled.div`
 `
 
 type HoverableProps = ComponentProps<typeof Container> &
-  Partial<HighlightProps> & {
-    as?: React.ElementType
-  }
+  Partial<HighlightProps> &
+  AsProp
 
 export const Hoverable = ({
   children,

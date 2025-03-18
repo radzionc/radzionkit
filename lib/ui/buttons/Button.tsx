@@ -9,6 +9,7 @@ import { toSizeUnit } from '../css/toSizeUnit'
 import { transition } from '../css/transition'
 import { CenterAbsolutely } from '../layout/CenterAbsolutely'
 import { Spinner } from '../loaders/Spinner'
+import { AsProp } from '../props'
 import { getHoverVariant } from '../theme/getHoverVariant'
 import { getColor } from '../theme/getters'
 import { Tooltip } from '../tooltips/Tooltip'
@@ -184,9 +185,8 @@ export type ButtonProps = Omit<
   isRounded?: boolean
   kind?: ButtonKind
   onClick?: () => void
-  as?: React.ElementType
   ref?: Ref<HTMLButtonElement>
-}
+} & AsProp
 
 const Hide = styled.div`
   opacity: 0;

@@ -5,14 +5,14 @@ import { centerContent } from '../css/centerContent'
 import { interactive } from '../css/interactive'
 import { CheckIcon } from '../icons/CheckIcon'
 import { IconWrapper } from '../icons/IconWrapper'
-import { ChildrenProp, UiProps } from '../props'
+import { AsProp, ChildrenProp, UiProps } from '../props'
 import { getColor } from '../theme/getters'
 
 type CheckStatusProps = UiProps & {
   value: boolean
-  as?: React.ElementType
   isInteractive?: boolean
-} & Partial<ChildrenProp>
+} & Partial<ChildrenProp> &
+  AsProp
 
 const IconContainer = styled(IconWrapper)``
 
