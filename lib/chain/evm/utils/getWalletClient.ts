@@ -1,4 +1,4 @@
-import { Chain, createWalletClient, http } from 'viem'
+import { Chain, createWalletClient, http, WalletClient } from 'viem'
 import { privateKeyToAccount } from 'viem/accounts'
 
 type Input = {
@@ -6,7 +6,7 @@ type Input = {
   privateKey: `0x${string}`
 }
 
-export const getWalletClient = ({ chain, privateKey }: Input) => {
+export const getWalletClient = ({ chain, privateKey }: Input): WalletClient => {
   return createWalletClient({
     chain,
     transport: http(),

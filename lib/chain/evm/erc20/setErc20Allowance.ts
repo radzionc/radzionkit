@@ -22,10 +22,12 @@ export async function setErc20Allowance({
   const walletClient = getWalletClient({ chain, privateKey })
 
   const hash = await walletClient.writeContract({
+    chain,
     address: tokenAddress,
     abi: erc20Abi,
     functionName: 'approve',
     args: [spender, amount],
+    account: null,
   })
 
   return assertTx({ publicClient: getPublicClient(chain), hash })

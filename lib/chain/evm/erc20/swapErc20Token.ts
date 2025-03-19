@@ -94,6 +94,8 @@ export const swapErc20Token = async ({
     value: BigInt(transaction.value),
     gasPrice: BigInt(transaction.gasPrice),
     nonce,
+    account: null,
+    chain: undefined,
   })
 
   return assertTx({ publicClient, hash })

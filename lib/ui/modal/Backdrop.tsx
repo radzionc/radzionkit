@@ -1,4 +1,4 @@
-import React, { ComponentProps, useRef } from 'react'
+import { ComponentProps, useRef } from 'react'
 import styled from 'styled-components'
 
 import { centerContent } from '../css/centerContent'

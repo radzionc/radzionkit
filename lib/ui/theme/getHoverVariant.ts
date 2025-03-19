@@ -16,10 +16,13 @@ export const getHoverVariant =
   (color: ColorName) =>
   ({ theme }: ThemeGetterParams) =>
     match(color, {
-      foreground: () => theme.colors.foreground.getVariant({ l: (l) => l + 4 }),
+      foreground: () =>
+        theme.colors.foreground.getVariant({ l: (l: number) => l + 4 }),
       mist: () => theme.colors.mistExtra,
-      alert: () => theme.colors.alert.getVariant({ l: (l) => l * 0.92 }),
-      primary: () => theme.colors.primary.getVariant({ l: (l) => l * 0.92 }),
+      alert: () =>
+        theme.colors.alert.getVariant({ l: (l: number) => l * 0.92 }),
+      primary: () =>
+        theme.colors.primary.getVariant({ l: (l: number) => l * 0.92 }),
       text: () => theme.colors.contrast,
-      idle: () => theme.colors.idle.getVariant({ l: (l) => l * 1.2 }),
+      idle: () => theme.colors.idle.getVariant({ l: (l: number) => l * 1.2 }),
     }).toCssValue()

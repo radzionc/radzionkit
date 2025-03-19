@@ -75,7 +75,7 @@ export const iconButtonContainer = ({
     match(kind, {
       regular: () => colors.foreground,
       secondary: () => colors.transparent,
-      alert: () => colors.alert.getVariant({ a: (a) => a * 0.12 }),
+      alert: () => colors.alert.getVariant({ a: (a: number) => a * 0.12 }),
       alertSecondary: () => colors.transparent,
     }).toCssValue()};
 
@@ -87,9 +87,13 @@ export const iconButtonContainer = ({
           regular: () => getHoverVariant('foreground')({ theme }),
           secondary: () => theme.colors.mist.toCssValue(),
           alert: () =>
-            theme.colors.alert.getVariant({ a: (a) => a * 0.24 }).toCssValue(),
+            theme.colors.alert
+              .getVariant({ a: (a: number) => a * 0.24 })
+              .toCssValue(),
           alertSecondary: () =>
-            theme.colors.alert.getVariant({ a: (a) => a * 0.12 }).toCssValue(),
+            theme.colors.alert
+              .getVariant({ a: (a: number) => a * 0.12 })
+              .toCssValue(),
         })};
 
         color: ${match(kind, {

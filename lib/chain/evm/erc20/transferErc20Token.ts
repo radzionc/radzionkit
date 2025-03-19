@@ -26,6 +26,8 @@ export const transferErc20Token = async ({
     abi: erc20Abi,
     functionName: 'transfer',
     args: [to, amount],
+    chain: undefined,
+    account: null,
   })
 
   return assertTx({ publicClient: getPublicClient(chain), hash })

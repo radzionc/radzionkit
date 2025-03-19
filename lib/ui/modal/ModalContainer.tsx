@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, ElementType } from 'react'
+import { ComponentPropsWithoutRef, ElementType } from 'react'
 import FocusLock from 'react-focus-lock'
 import styled, { css } from 'styled-components'
 

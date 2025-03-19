@@ -147,7 +147,7 @@ const Container = styled(UnstyledButton)<ContainerProps>`
           outlinedAlert: () => css`
             background: ${({ theme }) =>
               theme.colors.alert
-                .getVariant({ a: (a) => a * 0.12 })
+                .getVariant({ a: (a: number) => a * 0.12 })
                 .toCssValue()};
           `,
           ghost: () => css`
@@ -183,7 +183,7 @@ export type ButtonProps = Omit<
   isLoading?: boolean
   isRounded?: boolean
   kind?: ButtonKind
-  onClick?: () => void
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
   as?: React.ElementType
   ref?: Ref<HTMLButtonElement>
 }
