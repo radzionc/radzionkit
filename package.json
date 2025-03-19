@@ -4,8 +4,45 @@
   "version": "0.0.1",
   "private": true,
   "workspaces": [
-    "./**"
+    "./lib/**"
   ],
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "type": "module",
+  "main": "./lib/ui/index.ts",
+  "types": ".lib/ui/dist/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./lib/ui/index.ts",
+      "types": "./lib/ui/dist/index.d.ts"
+    },
+    "./ui": {
+      "default": "./lib/ui/index.ts",
+      "types": "./lib/ui/dist/index.d.ts"
+    },
+    "./utils": {
+      "default": "./lib/utils/index.ts",
+      "types": "./lib/utils/dist/index.d.ts"
+    },
+    "./codegen": {
+      "default": "./lib/codegen/index.ts",
+      "types": "./lib/codegen/dist/index.d.ts"
+    },
+    "./ui/*": {
+      "default": "./lib/ui/*.ts",
+      "types": "./lib/ui/dist/*.d.ts"
+    },
+    "./utils/*": {
+      "default": "./lib/utils/*.ts",
+      "types": "./lib/utils/dist/*.d.ts"
+    },
+    "./codegen/*": {
+      "default": "./lib/codegen/*.ts",
+      "types": "./lib/codegen/dist/*.d.ts"
+    }
+  },
   "devDependencies": {
     "@eslint/compat": "^1.2.7",
     "@eslint/eslintrc": "^3.3.0",
@@ -24,10 +61,14 @@
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.2",
     "syncpack": "^13.0.2",
+    "tsc-alias": "^1.8.11",
     "typescript": "^5.8.2"
   },
   "scripts": {
-    "postinstall": "husky install",
+    "build": "tsc -b lib/utils lib/codegen lib/ui",
+    "clean": "rm -rf dist lib/*/dist",
+    "pack": "npm run clean && npm run build && npm pack",
+    "postinstall": "command -v husky >/dev/null 2>&1 && husky install || echo 'Husky not installed, skipping'",
     "format": "eslint --fix && prettier --write",
     "typecheck": "tsc --noEmit",
     "sync-packages": "syncpack fix-mismatches",

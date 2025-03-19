@@ -2,6 +2,8 @@
   "name": "@lib/codegen",
   "version": "0.0.1",
   "private": true,
+  "main": "./index.ts",
+  "types": "dist/lib/codegen/index.d.ts",
   "dependencies": {
     "prettier": "^3.5.2"
   },

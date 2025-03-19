@@ -2,6 +2,13 @@
   "name": "@lib/utils",
   "version": "0.0.1",
   "private": true,
+  "main": "./index.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "index.ts",
+    "*.ts"
+  ],
   "scripts": {
     "typecheck": "tsc --noEmit"
   },

@@ -20,3 +20,4 @@ credentials.json
 **/lambda.zip
 
 .envrc
+*.tgz

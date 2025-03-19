@@ -5,6 +5,8 @@
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
+  "main": "./index.ts",
+  "types": "dist/ui/index.d.ts",
   "dependencies": {
     "@floating-ui/dom": "^1.6.13",
     "@floating-ui/react": "^0.27.5",

@@ -1,20 +1,33 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "ESNext",
     "lib": ["dom", "dom.iterable", "ESNext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "outDir": "dist"
   },
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types.d.ts"]
+  "exclude": [
+    "product",
+    "node_modules",
+    "dist",
+    "lib/ui/**/*",
+    "lib/utils/**/*",
+    "lib/codegen/**/*"
+  ],
+  "include": ["next-env.d.ts", "types.d.ts"],
+  "references": [
+    { "path": "lib/ui" },
+    { "path": "lib/utils" },
+    { "path": "lib/codegen" }
+  ]
 }

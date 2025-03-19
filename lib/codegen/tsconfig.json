@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "composite": true,
+    "paths": {
+      "@lib/utils/*": ["../utils/*"],
+      "@lib/codegen/*": ["./*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["dist"],
+  "references": [{ "path": "../utils" }]
+}
