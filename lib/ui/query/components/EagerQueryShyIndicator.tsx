@@ -2,7 +2,7 @@ import { VStack } from '@lib/ui/css/stack'
 import { getErrorMessage } from '@lib/utils/getErrorMessage'
 import styled from 'styled-components'
 
-import { AlertTriangleIcon } from '../../icons/AlertTriangeIcon'
+import { AlertTriangleIcon } from '../../icons/AlertTriangleIcon'
 import { IconWrapper } from '../../icons/IconWrapper'
 import { Spinner } from '../../loaders/Spinner'
 import { Text } from '../../text'
