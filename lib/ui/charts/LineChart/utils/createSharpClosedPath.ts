@@ -1,4 +1,4 @@
-import { Point } from '../../../entities/Point'
+import { Point } from '@lib/utils/entities/Point'
 
 export const createSharpClosedPath = (
   points: Point[],

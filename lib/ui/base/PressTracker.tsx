@@ -1,6 +1,6 @@
+import { Point } from '@lib/utils/entities/Point'
 import { ReactNode, useCallback, useState } from 'react'
 
-import { Point } from '../entities/Point'
 import { useBoundingBox } from '../hooks/useBoundingBox'
 import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
 import { useRelativePosition } from '../hooks/useRelativePosition'

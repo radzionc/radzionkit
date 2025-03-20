@@ -1,7 +1,6 @@
 import { enforceRange } from '@lib/utils/enforceRange'
+import { Point } from '@lib/utils/entities/Point'
 import { useMemo } from 'react'
-
-import { Point } from '../entities/Point'
 
 import { BoundingBox } from './useBoundingBox'
 

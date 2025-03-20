@@ -1,3 +1,4 @@
+import { Point } from '@lib/utils/entities/Point'
 import { toPercents } from '@lib/utils/toPercents'
 import styled from 'styled-components'
 
@@ -5,7 +6,6 @@ import { HSLA } from '../../colors/HSLA'
 import { round } from '../../css/round'
 import { sameDimensions } from '../../css/sameDimensions'
 import { toSizeUnit } from '../../css/toSizeUnit'
-import { Point } from '../../entities/Point'
 import { PositionAbsolutelyByCenter } from '../../layout/PositionAbsolutelyByCenter'
 import { PositionAbsolutelyCenterVertically } from '../../layout/PositionAbsolutelyCenterVertically'
 import { getColor } from '../../theme/getters'

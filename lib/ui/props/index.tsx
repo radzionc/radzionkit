@@ -1,7 +1,7 @@
+import { Point } from '@lib/utils/entities/Point'
 import { ElementType, ReactNode, SVGProps } from 'react'
 
 import { HSLA } from '../colors/HSLA'
-import { Point } from '../entities/Point'
 
 export type OnCloseProp = {
   onClose: () => void
