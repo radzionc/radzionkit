@@ -15,7 +15,8 @@ import { getColor } from '../../theme/getters'
 import { websiteConfig } from '../config'
 
 const Wrapper = styled(VStack)`
-  ${takeWholeSpace};
+  width: 100%;
+  min-height: 100%;
 `
 
 type WebsiteNavigationProps = ComponentProps<typeof Wrapper> & {
