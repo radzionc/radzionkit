@@ -13,24 +13,24 @@
   "dependencies": {
     "@emoji-mart/data": "^1.2.1",
     "@emoji-mart/react": "^1.1.1",
-    "@tanstack/react-query": "^5.66.11",
+    "@tanstack/react-query": "^5.69.0",
     "date-fns": "^4.1.0",
     "emoji-mart": "^5.6.0",
-    "next": "^15.2.0",
+    "next": "^15.2.4",
     "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
-    "styled-components": "^6.1.15"
+    "styled-components": "^6.1.16"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.2.0",
-    "@types/emoji-mart": "^3.0.14",
-    "@types/node": "^22.13.8",
-    "@types/react": "^19.0.10",
+    "@next/eslint-plugin-next": "^15.2.4",
+    "@types/emoji-mart": "^5.3.0",
+    "@types/node": "^22.13.14",
+    "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
-    "eslint": "^9.21.0",
-    "eslint-config-next": "^15.2.0",
-    "pwa-asset-generator": "^6.4.0"
+    "eslint": "^9.23.0",
+    "eslint-config-next": "^15.2.4",
+    "pwa-asset-generator": "^8.0.0"
   }
 }

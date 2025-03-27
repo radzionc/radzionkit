@@ -18,7 +18,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/jsonwebtoken": "^9.0.9",
-    "@types/node": "^22.13.8",
-    "esbuild": "^0.25.0"
+    "@types/node": "^22.13.14",
+    "esbuild": "^0.25.1"
   }
 }

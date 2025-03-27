@@ -9,10 +9,10 @@
     "@dnd-kit/utilities": "^3.2.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "styled-components": "^6.1.15"
+    "styled-components": "^6.1.16"
   },
   "devDependencies": {
-    "@types/react": "^19.0.10",
+    "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4"
   },
   "scripts": {
