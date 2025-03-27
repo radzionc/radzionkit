@@ -268,5 +268,3 @@ export const CountryFlag = (props: CountryFlagProps) => {
     </ClientOnly>
   )
 }
-
-export default CountryFlag

@@ -46,25 +46,24 @@ const generateFlags = async () => {
   })
 
   const content = [
-    `import React, { ComponentType, Suspense } from 'react';`,
-    `import { CountryCode } from '@lib/countries';`,
-    `import { SvgProps } from '@lib/ui/props';`,
-    `import { CountryFlagFallback } from '../CountryFlagFallback';`,
+    `import React, { ComponentType, Suspense } from 'react'`,
+    `import { CountryCode } from '@lib/countries'`,
+    `import { SvgProps } from '@lib/ui/props'`,
+    `import { CountryFlagFallback } from '../CountryFlagFallback'`,
     `const countryFlagRecord: Record<CountryCode, ComponentType<SvgProps>> = {
       ${Object.entries(countryFlagComponentRecord)
         .map(([key, value]) => `${key}: ${value}`)
         .join(',\n')}
-    };`,
+    }`,
     `interface CountryFlagProps extends SvgProps { code: CountryCode }`,
     `export const CountryFlag = (props: CountryFlagProps) => {
-      const Component = countryFlagRecord[props.code];
+      const Component = countryFlagRecord[props.code]
       return (
         <Suspense fallback={<CountryFlagFallback code={props.code} />}>
           <Component {...props} />
         </Suspense>
-      );
-    };`,
-    `export default CountryFlag;`,
+      )
+    }`,
   ].join('\n\n')
 
   await createTsFile({

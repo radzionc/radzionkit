@@ -6,7 +6,7 @@ import { InputProps } from '@lib/ui/props'
 import styled from 'styled-components'
 
 import { CountryFlagFrame } from './CountryFlagFrame'
-import CountryFlag from './flags/CountryFlag'
+import { CountryFlag } from './flags/CountryFlag'
 
 interface CountryInputProps extends InputProps<CountryCode | null> {
   label?: React.ReactNode

@@ -1,4 +1,4 @@
-import CountryFlag from '@lib/countries-ui/flags/CountryFlag'
+import { CountryFlag } from '@lib/countries-ui/flags/CountryFlag'
 import { Button } from '@lib/ui/buttons/Button'
 import { HStack } from '@lib/ui/css/stack'
 import { IconWrapper } from '@lib/ui/icons/IconWrapper'
