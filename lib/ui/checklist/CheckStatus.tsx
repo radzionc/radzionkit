@@ -19,6 +19,7 @@ const IconContainer = styled(IconWrapper)``
 const Container = styled.div<{ isChecked: boolean; isInteractive?: boolean }>`
   width: 100%;
   aspect-ratio: 1/1;
+  position: relative;
 
   ${centerContent};
 
