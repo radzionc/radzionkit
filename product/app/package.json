@@ -11,12 +11,14 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@lib/ui": "workspace:*",
     "@tanstack/react-query": "^5.69.0",
     "next": "^15.2.4",
     "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "styled-components": "^6.1.16"
+    "styled-components": "^6.1.16",
+    "@lib/next-ui": "workspace:*"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.2.4",

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@amplitude/analytics-browser": "^2.12.2",
+    "@lib/ui": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

@@ -13,6 +13,12 @@
   "dependencies": {
     "@emoji-mart/data": "^1.2.1",
     "@emoji-mart/react": "^1.1.1",
+    "@lib/chain-ui": "workspace:*",
+    "@lib/countries": "workspace:*",
+    "@lib/countries-ui": "workspace:*",
+    "@lib/next-ui": "workspace:*",
+    "@lib/ui": "workspace:*",
+    "@lib/utils": "workspace:*",
     "@tanstack/react-query": "^5.69.0",
     "date-fns": "^4.1.0",
     "emoji-mart": "^5.6.0",
@@ -21,7 +27,9 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
-    "styled-components": "^6.1.16"
+    "styled-components": "^6.1.16",
+    "@lib/next-analytics-ui": "workspace:*",
+    "@lib/analytics-ui": "workspace:*"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.2.4",

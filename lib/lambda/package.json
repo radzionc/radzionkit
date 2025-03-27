@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@lib/utils": "workspace:*",
     "@sentry/serverless": "^7.120.3"
   }
 }

@@ -1400,10 +1400,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/is-prop-valid@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "@emotion/is-prop-valid@npm:1.3.1"
+  dependencies:
+    "@emotion/memoize": "npm:^0.9.0"
+  checksum: 10/abbc5c7bf4017415da5b06067fc0b4771d1f22cf94ec37fd54c07b3bd1bcffbda2405ca686e7ee64a9cfc51461262b712f724850e838775347a949f72949ad03
+  languageName: node
+  linkType: hard
+
 "@emotion/memoize@npm:^0.8.1":
   version: 0.8.1
   resolution: "@emotion/memoize@npm:0.8.1"
   checksum: 10/a19cc01a29fcc97514948eaab4dc34d8272e934466ed87c07f157887406bc318000c69ae6f813a9001c6a225364df04249842a50e692ef7a9873335fbcc141b0
+  languageName: node
+  linkType: hard
+
+"@emotion/memoize@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "@emotion/memoize@npm:0.9.0"
+  checksum: 10/038132359397348e378c593a773b1148cd0cf0a2285ffd067a0f63447b945f5278860d9de718f906a74c7c940ba1783ac2ca18f1c06a307b01cc0e3944e783b1
   languageName: node
   linkType: hard
 
@@ -2292,11 +2308,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lib/analytics-ui@workspace:lib/analytics-ui":
+"@lib/analytics-ui@workspace:*, @lib/analytics-ui@workspace:lib/analytics-ui":
   version: 0.0.0-use.local
   resolution: "@lib/analytics-ui@workspace:lib/analytics-ui"
   dependencies:
     "@amplitude/analytics-browser": "npm:^2.12.2"
+    "@lib/ui": "workspace:*"
     "@types/react": "npm:^19.0.12"
     "@types/react-dom": "npm:^19.0.4"
     react: "npm:^19.0.0"
@@ -2310,10 +2327,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lib/chain-ui@workspace:lib/chain-ui":
+"@lib/chain-ui@workspace:*, @lib/chain-ui@workspace:lib/chain-ui":
   version: 0.0.0-use.local
   resolution: "@lib/chain-ui@workspace:lib/chain-ui"
   dependencies:
+    "@lib/ui": "workspace:*"
     "@tanstack/react-query": "npm:^5.69.0"
     "@types/react": "npm:^19.0.12"
     "@types/react-dom": "npm:^19.0.4"
@@ -2332,18 +2350,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lib/codegen@workspace:lib/codegen":
+"@lib/codegen@workspace:*, @lib/codegen@workspace:lib/codegen":
   version: 0.0.0-use.local
   resolution: "@lib/codegen@workspace:lib/codegen"
   dependencies:
+    "@lib/utils": "workspace:*"
     prettier: "npm:^3.5.3"
   languageName: unknown
   linkType: soft
 
-"@lib/countries-ui@workspace:lib/countries-ui":
+"@lib/countries-ui@workspace:*, @lib/countries-ui@workspace:lib/countries-ui":
   version: 0.0.0-use.local
   resolution: "@lib/countries-ui@workspace:lib/countries-ui"
   dependencies:
+    "@lib/codegen": "workspace:*"
+    "@lib/countries": "workspace:*"
+    "@lib/ui": "workspace:*"
+    "@lib/utils": "workspace:*"
     "@types/react": "npm:^19.0.12"
     "@types/react-dom": "npm:^19.0.4"
     react: "npm:^19.0.0"
@@ -2352,9 +2375,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lib/countries@workspace:lib/countries":
+"@lib/countries@workspace:*, @lib/countries@workspace:lib/countries":
   version: 0.0.0-use.local
   resolution: "@lib/countries@workspace:lib/countries"
+  dependencies:
+    "@lib/codegen": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -2386,10 +2411,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lib/lambda@workspace:lib/lambda":
+"@lib/lambda@workspace:*, @lib/lambda@workspace:lib/lambda":
   version: 0.0.0-use.local
   resolution: "@lib/lambda@workspace:lib/lambda"
   dependencies:
+    "@lib/utils": "workspace:*"
     "@sentry/serverless": "npm:^7.120.3"
   languageName: unknown
   linkType: soft
@@ -2398,17 +2424,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@lib/next-analytics-ui@workspace:lib/next-analytics-ui"
   dependencies:
+    "@lib/analytics-ui": "workspace:*"
     next: "npm:^15.2.4"
     react: "npm:^19.0.0"
   languageName: unknown
   linkType: soft
 
-"@lib/next-ui@workspace:lib/next-ui":
+"@lib/next-ui@workspace:*, @lib/next-ui@workspace:lib/next-ui":
   version: 0.0.0-use.local
   resolution: "@lib/next-ui@workspace:lib/next-ui"
   dependencies:
     next: "npm:^15.2.4"
     react: "npm:^19.0.0"
+    styled-components: "npm:^6.1.16"
   languageName: unknown
   linkType: soft
 
@@ -2430,12 +2458,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lib/ui@workspace:lib/ui":
+"@lib/ui@workspace:*, @lib/ui@workspace:lib/ui":
   version: 0.0.0-use.local
   resolution: "@lib/ui@workspace:lib/ui"
   dependencies:
+    "@emotion/is-prop-valid": "npm:^1.3.1"
     "@floating-ui/dom": "npm:^1.6.13"
     "@floating-ui/react": "npm:^0.27.5"
+    "@lib/codegen": "workspace:*"
+    "@lib/utils": "workspace:*"
     "@svgr/core": "npm:^8.1.0"
     "@svgr/plugin-jsx": "npm:^8.1.0"
     "@tanstack/react-query": "npm:^5.69.0"
@@ -2452,7 +2483,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lib/utils@workspace:lib/utils":
+"@lib/utils@workspace:*, @lib/utils@workspace:lib/utils":
   version: 0.0.0-use.local
   resolution: "@lib/utils@workspace:lib/utils"
   dependencies:
@@ -2775,6 +2806,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@product/app@workspace:product/app"
   dependencies:
+    "@lib/ui": "workspace:*"
     "@next/eslint-plugin-next": "npm:^15.2.4"
     "@tanstack/react-query": "npm:^5.69.0"
     "@types/node": "npm:^22.13.14"
@@ -2813,6 +2845,7 @@ __metadata:
   dependencies:
     "@aws-sdk/client-s3": "npm:^3.775.0"
     "@aws-sdk/client-sesv2": "npm:^3.775.0"
+    "@lib/lambda": "workspace:*"
     "@sentry/serverless": "npm:^7.120.3"
     aws-lambda: "npm:^1.0.7"
     esbuild: "npm:^0.25.1"
@@ -2877,6 +2910,12 @@ __metadata:
   dependencies:
     "@emoji-mart/data": "npm:^1.2.1"
     "@emoji-mart/react": "npm:^1.1.1"
+    "@lib/chain-ui": "workspace:*"
+    "@lib/countries": "workspace:*"
+    "@lib/countries-ui": "workspace:*"
+    "@lib/next-ui": "workspace:*"
+    "@lib/ui": "workspace:*"
+    "@lib/utils": "workspace:*"
     "@next/eslint-plugin-next": "npm:^15.2.4"
     "@tanstack/react-query": "npm:^5.69.0"
     "@types/emoji-mart": "npm:^5.3.0"

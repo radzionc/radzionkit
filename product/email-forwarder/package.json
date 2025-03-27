@@ -5,8 +5,10 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.775.0",
     "@aws-sdk/client-sesv2": "^3.775.0",
+    "@lib/lambda": "workspace:*",
     "@sentry/serverless": "^7.120.3",
-    "aws-lambda": "^1.0.7"
+    "aws-lambda": "^1.0.7",
+    "@lib/utils": "workspace:*"
   },
   "scripts": {
     "transpile": "esbuild lambda.ts --bundle --minify --sourcemap --platform=node --target=es2020 --outfile=dist/index.js",

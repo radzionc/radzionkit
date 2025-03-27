@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@lib/codegen": "workspace:*",
+    "@lib/countries": "workspace:*",
+    "@lib/ui": "workspace:*",
+    "@lib/utils": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "styled-components": "^6.1.16"

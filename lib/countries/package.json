@@ -5,5 +5,8 @@
   "scripts": {
     "generate": "npx tsx codegen/generateCountries",
     "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@lib/codegen": "workspace:*"
   }
 }
