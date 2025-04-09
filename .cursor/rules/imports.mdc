@@ -1,0 +1,32 @@
+---
+description: USE relative path imports WHEN importing from state directory TO maintain consistency
+globs: clients/**/*.{ts,tsx}
+alwaysApply: true
+---
+
+# State Directory Imports
+
+## Context
+- When importing files from the state directory
+- Applies to all TypeScript and TypeScript React files in the project
+
+## Requirements
+- Always use relative path imports (not absolute paths or module aliases) when importing from the state directory
+- Path should be relative to the current file location (e.g., '../../../../state/isInitiatingDevice')
+- Do not use module aliases like '@core/mpc/state' for importing state files
+
+## Examples
+<example>
+// Good: Using relative path
+import { useIsInitiatingDevice } from '../../../../state/isInitiatingDevice'
+</example>
+
+<example type="invalid">
+// Bad: Using module alias
+import { useIsInitiatingDevice } from '@core/ui/mpc/state/isInitiatingDevice'
+</example>
+
+<example type="invalid">
+// Bad: Using incorrect module path
+import { useIsInitiatingDevice } from '@core/mpc/state/isInitiatingDevice'
+</example> 
