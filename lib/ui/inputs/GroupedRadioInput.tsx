@@ -10,7 +10,7 @@ import { getColor, matchColor } from '../theme/getters'
 
 import { InvisibleHTMLRadio } from './InvisibleHTMLRadio'
 
-type RadioInputProps<T extends string> = InputProps<T> &
+type RadioInputProps<T extends string | number> = InputProps<T> &
   UiProps & {
     options: readonly T[]
     renderOption: (option: T) => React.ReactNode
@@ -49,7 +49,7 @@ const Container = styled.label<IsActiveProp>`
   })};
 `
 
-export const GroupedRadioInput = <T extends string>({
+export const GroupedRadioInput = <T extends string | number>({
   value,
   onChange,
   options,
