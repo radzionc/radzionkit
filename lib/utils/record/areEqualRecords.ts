@@ -1,9 +1,7 @@
-import { withoutUndefinedFields } from './withoutUndefinedFields'
-
 export const areEqualRecords = <T extends Record<string, any>>(
   ...records: T[]
 ): boolean => {
-  const [first, ...rest] = records.map(withoutUndefinedFields)
+  const [first, ...rest] = records
   const keys = Object.keys(first)
 
   return rest.every((record) => {
