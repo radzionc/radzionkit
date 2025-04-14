@@ -19,10 +19,6 @@ export type OnBackProp = {
   onBack: () => void
 }
 
-export type OnForwardProp = {
-  onForward: () => void
-}
-
 export type ClassNameProp = {
   className?: string
 }
