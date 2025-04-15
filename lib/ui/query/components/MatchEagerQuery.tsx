@@ -1,6 +1,6 @@
+import { ValueProp } from '@lib/utils/entities/props'
 import { ReactNode } from 'react'
 
-import { ValueProp } from '../../props'
 import { EagerQuery } from '../Query'
 
 export type MatchEagerQueryProps<T, E = unknown> = ValueProp<

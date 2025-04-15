@@ -1,9 +1,9 @@
-import { EntityWithName } from '@lib/utils/entities/EntityWithName'
+import { NameProp, ValueProp } from '@lib/utils/entities/props'
 
 type InitiateFileDownloadInput = {
   type: string
-  value: BlobPart
-} & EntityWithName
+} & NameProp &
+  ValueProp<BlobPart>
 
 export const initiateFileDownload = ({
   type,

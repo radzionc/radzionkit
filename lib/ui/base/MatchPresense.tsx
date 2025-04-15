@@ -1,6 +1,5 @@
+import { ValueProp } from '@lib/utils/entities/props'
 import { ReactNode } from 'react'
-
-import { ValueProp } from '../props'
 
 type MatchPresenseProps<T> = ValueProp<T | null | undefined> & {
   present: (value: T) => ReactNode

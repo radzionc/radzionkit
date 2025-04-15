@@ -1,4 +1,4 @@
-import { ValueProp } from '@lib/ui/props'
+import { ValueProp } from '@lib/utils/entities/props'
 import { CSSProperties, Fragment } from 'react'
 
 import { Text } from '.'

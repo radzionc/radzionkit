@@ -71,10 +71,6 @@ export type PromptProps = {
   onCancel: () => void
 }
 
-export type ValueProp<T> = {
-  value: T
-}
-
 export type InitialValueProp<T> = {
   initialValue: T
 }
@@ -102,10 +98,6 @@ export type IsSelectedProp = {
 
 export type IsDisabledProp = {
   isDisabled?: boolean | string
-}
-
-export type IndexProp = {
-  index: number
 }
 
 export type OnRemoveProp = {
@@ -155,10 +147,6 @@ export type SizeProp<T = number> = {
 
 export type StatusProp<T> = {
   status: T
-}
-
-export type NameProp = {
-  name: string
 }
 
 export type KindProp<T> = {

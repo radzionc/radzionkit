@@ -1,6 +1,5 @@
+import { ValueProp } from '@lib/utils/entities/props'
 import { ReactNode } from 'react'
-
-import { ValueProp } from '../props'
 
 type PartialMatchProps<T extends string | number | symbol> = ValueProp<T> & {
   if: Partial<Record<T, () => ReactNode>>

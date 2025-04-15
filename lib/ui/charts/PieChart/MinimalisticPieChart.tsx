@@ -1,6 +1,5 @@
+import { ValueProp } from '@lib/utils/entities/props'
 import { useMemo } from 'react'
-
-import { ValueProp } from '../../props'
 
 import { PieChartItem } from './PieChartItem'
 import { SvgArc } from './SvgArc'

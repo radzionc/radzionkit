@@ -1,4 +1,5 @@
 import { VStack } from '@lib/ui/css/stack'
+import { ValueProp } from '@lib/utils/entities/props'
 import { getIntervalDuration } from '@lib/utils/interval/getIntervalDuration'
 import { Interval } from '@lib/utils/interval/Interval'
 import { formatDuration } from '@lib/utils/time/formatDuration'
@@ -6,7 +7,7 @@ import { formatTime } from '@lib/utils/time/formatTime'
 import styled from 'styled-components'
 
 import { HStackSeparatedBy, dotSeparator } from '../layout/StackSeparatedBy'
-import { ValueProp, UiProps } from '../props'
+import { UiProps } from '../props'
 import { Text } from '../text'
 import { getColor } from '../theme/getters'
 

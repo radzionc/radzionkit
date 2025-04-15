@@ -1,6 +1,7 @@
 import { VStack } from '@lib/ui/css/stack'
+import { ValueProp } from '@lib/utils/entities/props'
 
-import { ItemsProp, RenderItemProp, ValueProp } from '../../props'
+import { ItemsProp, RenderItemProp } from '../../props'
 
 import { ProgressListItem, ProgressListItemKind } from './ProgressListItem'
 

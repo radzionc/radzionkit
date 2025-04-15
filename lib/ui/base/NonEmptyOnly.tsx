@@ -1,6 +1,5 @@
+import { ValueProp } from '@lib/utils/entities/props'
 import { ReactNode } from 'react'
-
-import { ValueProp } from '../props'
 
 type NonEmptyOnlyProps<T> = Partial<ValueProp<T[]>> & {
   render: (array: T[]) => ReactNode

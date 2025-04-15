@@ -1,4 +1,6 @@
-import { ChildrenProp, NameProp } from '../../props'
+import { NameProp } from '@lib/utils/entities/props'
+
+import { ChildrenProp } from '../../props'
 import { ShyWarningBlock } from '../../status/ShyWarningBlock'
 import { useNotificationPermission } from '../hooks/useNotificationPermission'
 
