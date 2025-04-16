@@ -3,15 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@lib/ui": "workspace:*",
-    "@tanstack/react-query": "^5.69.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "styled-components": "^6.1.16"
+    "@lib/ui": "workspace:^",
+    "@tanstack/react-query": "^5.74.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "styled-components": "^6.1.17"
   },
   "devDependencies": {
-    "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4"
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

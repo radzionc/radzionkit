@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@lib/analytics-ui": "workspace:*",
-    "next": "^15.2.4",
-    "react": "^19.0.0"
+    "@lib/analytics-ui": "workspace:^",
+    "next": "^15.3.0",
+    "react": "^19.1.0"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

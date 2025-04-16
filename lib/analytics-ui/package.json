@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@amplitude/analytics-browser": "^2.12.2",
-    "@lib/ui": "workspace:*",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@amplitude/analytics-browser": "^2.14.0",
+    "@lib/ui": "workspace:^",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4"
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

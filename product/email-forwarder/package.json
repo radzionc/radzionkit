@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.775.0",
-    "@aws-sdk/client-sesv2": "^3.775.0",
-    "@lib/lambda": "workspace:*",
+    "@aws-sdk/client-s3": "^3.787.0",
+    "@aws-sdk/client-sesv2": "^3.787.0",
+    "@lib/lambda": "workspace:^",
+    "@lib/utils": "workspace:^",
     "@sentry/serverless": "^7.120.3",
-    "aws-lambda": "^1.0.7",
-    "@lib/utils": "workspace:*"
+    "aws-lambda": "^1.0.7"
   },
   "scripts": {
     "transpile": "esbuild lambda.ts --bundle --minify --sourcemap --platform=node --target=es2020 --outfile=dist/index.js",
@@ -18,6 +18,6 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "esbuild": "^0.25.1"
+    "esbuild": "^0.25.2"
   }
 }

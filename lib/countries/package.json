@@ -7,6 +7,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lib/codegen": "workspace:*"
+    "@lib/codegen": "workspace:^"
   }
 }
