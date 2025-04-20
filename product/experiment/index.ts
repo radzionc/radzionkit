@@ -18,6 +18,7 @@ const countWords = (text: string): WordCount => {
     .trim()
     .split(' ')
     .filter((word) => word.length > 0)
+    .filter((word) => word.length > 3) // Filter out words with 3 or fewer characters
     .filter((word) => !/\d/.test(word)) // Filter out words containing numbers
     .filter((word) => !word.startsWith('class')) // Filter out words starting with 'class'
     .filter(

@@ -1,0 +1,49 @@
+---
+description: USE package-specific installation WHEN adding dependencies in monorepo TO prevent root package bloat
+globs: "**/package.json"
+alwaysApply: false
+---
+
+# Monorepo Dependency Management
+
+## Context
+- When adding new dependencies to a monorepo project
+- Applies to all package installations using the project's package manager
+- Ensures dependencies are properly scoped to the packages that use them
+- Prevents dependency bloat in the root package.json
+
+## Requirements
+- Install dependencies in the specific package that will use them, not in the root package.json
+- Only add dependencies to the root package.json when they are genuinely needed across the entire codebase (rare)
+- Use the package manager commands with the appropriate path to the package's directory
+- When using workspaces, use the workspace-specific commands to add dependencies to individual packages
+
+## Examples
+<example>
+# Good: Adding a dependency to a specific package
+cd packages/my-package
+yarn add lodash
+
+# Or using workspace command (if using Yarn workspaces)
+yarn workspace my-package add lodash
+</example>
+
+<example type="invalid">
+# Bad: Adding a package-specific dependency to the root
+yarn add lodash
+</example>
+
+<example>
+# Good: Adding a development dependency to a specific package
+yarn workspace my-package add -D jest
+</example>
+
+<example type="invalid">
+# Bad: Adding a package-specific dev dependency to the root
+yarn add -D jest
+</example>
+
+<example>
+# Good: Adding a dependency that is genuinely used across the entire codebase to the root
+yarn add -W typescript
+</example> 
