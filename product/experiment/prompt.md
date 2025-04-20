@@ -1,0 +1,3 @@
+I am a native Russian speaker with a strong command of English. Currently, I am listening to an audiobook in English, but I encounter some words that I do not know. My goal is to achieve a level of vocabulary in English that allows me to enjoy listening to English audiobooks just as I do with Russian audiobooks, fully understanding the meaning of all the words.
+
+I have written a program that extracts words from the audiobook, counts their frequencies and saves them to a text file with a list of words and their frequencies. Your task is to review the list of words and their frequencies and provide me with up to 100 words that I might not know with a short translation and an explanation.
