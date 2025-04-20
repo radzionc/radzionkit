@@ -3003,8 +3003,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@product/experiment@workspace:product/experiment"
   dependencies:
+    "@types/nspell": "npm:^2"
     compromise: "npm:^14.14.4"
+    dictionary-en: "npm:^4.0.0"
     epub: "npm:^1.2.1"
+    nspell: "npm:^2.1.5"
   languageName: unknown
   linkType: soft
 
@@ -4553,6 +4556,15 @@ __metadata:
   version: 12.12.54
   resolution: "@types/node@npm:12.12.54"
   checksum: 10/f25de99932dac0dee96c7d3c05e46540a788f68401f1c8b9eb19a9b0dbf57cad05435d6f77884d0f701ce75d1a4ca62cba3e2a16278bbb8cf692e80f10781386
+  languageName: node
+  linkType: hard
+
+"@types/nspell@npm:^2":
+  version: 2.1.6
+  resolution: "@types/nspell@npm:2.1.6"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10/3da3eb7511232b72f432f3031b873dd39269238d1de032a59f76f1ebc2726a9bfdc8d47883ebb3eb1a5a798037ba110ccebb29bf8202772728ac5badb914e3de
   languageName: node
   linkType: hard
 
@@ -6626,6 +6638,13 @@ __metadata:
   version: 0.0.1425554
   resolution: "devtools-protocol@npm:0.0.1425554"
   checksum: 10/0b8957f3e4ec9e4520bec590acaceed3877f337901f5754c36fff69774d5a10a138f49eb5096e843a0abe78676849b4aff042b080dcada953265e9665b7d10cc
+  languageName: node
+  linkType: hard
+
+"dictionary-en@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "dictionary-en@npm:4.0.0"
+  checksum: 10/98166d2d9ae783f4dc5170e6e50c71fc9ae69935f209af96dca1bd3d782bfeba2b3b872a10502a1dd9635b225d1e0109b16265d54cfd74460ee355829d78a9cf
   languageName: node
   linkType: hard
 
@@ -9046,6 +9065,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-buffer@npm:^2.0.0":
+  version: 2.0.5
+  resolution: "is-buffer@npm:2.0.5"
+  checksum: 10/3261a8b858edcc6c9566ba1694bf829e126faa88911d1c0a747ea658c5d81b14b6955e3a702d59dabadd58fdd440c01f321aa71d6547105fd21d03f94d0597e7
+  languageName: node
+  linkType: hard
+
 "is-bun-module@npm:^2.0.0":
   version: 2.0.0
   resolution: "is-bun-module@npm:2.0.0"
@@ -10999,6 +11025,15 @@ __metadata:
     gauge: "npm:~2.7.3"
     set-blocking: "npm:~2.0.0"
   checksum: 10/b6b85c9f33da8f600f72564b6ec71136b1641b8b235fca7cc543d1041acb74c2d989d97fe443a0e65754f438d9a974a2fe1b4ff8723c78ef3f9b7a6d74b02079
+  languageName: node
+  linkType: hard
+
+"nspell@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "nspell@npm:2.1.5"
+  dependencies:
+    is-buffer: "npm:^2.0.0"
+  checksum: 10/f5ec8fa46925e526ac22d0c0a16571ee773504461d481ef757c466a969cebd5e1e5c3b848f553a01c1186520d8ae95958e2e13b2a2587e2340258c64d42222ec
   languageName: node
   linkType: hard
 

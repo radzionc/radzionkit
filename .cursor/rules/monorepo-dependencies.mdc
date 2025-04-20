@@ -1,7 +1,7 @@
 ---
 description: USE package-specific installation WHEN adding dependencies in monorepo TO prevent root package bloat
-globs: "**/package.json"
-alwaysApply: false
+globs:
+alwaysApply: true
 ---
 
 # Monorepo Dependency Management

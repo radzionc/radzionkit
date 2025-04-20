@@ -8,6 +8,11 @@
   },
   "dependencies": {
     "compromise": "^14.14.4",
-    "epub": "^1.2.1"
+    "dictionary-en": "^4.0.0",
+    "epub": "^1.2.1",
+    "nspell": "^2.1.5"
+  },
+  "devDependencies": {
+    "@types/nspell": "^2"
   }
 }
