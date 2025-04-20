@@ -17,7 +17,6 @@ const countWords = (text: string): WordCount => {
     .replace(/\s+/g, ' ') // Normalize whitespace
     .trim()
     .split(' ')
-    .filter((word) => word.length > 0)
     .filter((word) => word.length > 3) // Filter out words with 3 or fewer characters
     .filter((word) => !/\d/.test(word)) // Filter out words containing numbers
     .filter((word) => !word.startsWith('class')) // Filter out words starting with 'class'
@@ -111,22 +110,9 @@ const saveWordFrequencies = async (
 
 // Example usage
 const main = async () => {
-  const epubPath = process.argv[2]
-  if (!epubPath) {
-    console.error('Please provide the path to an EPUB file')
-    process.exit(1)
-  }
+  const wordCount = await analyzeEpub(path.join(__dirname, 'book.epub'))
 
-  const absolutePath = path.resolve(epubPath)
-  if (!fs.existsSync(absolutePath)) {
-    console.error('EPUB file not found:', absolutePath)
-    process.exit(1)
-  }
-
-  console.log('Processing EPUB file:', absolutePath)
-  const wordCount = await analyzeEpub(absolutePath)
-
-  const reportPath = path.join(path.dirname(absolutePath), 'report.txt')
+  const reportPath = path.join(__dirname, 'report.txt')
   await saveWordFrequencies(wordCount, reportPath)
   console.log('Report saved to:', reportPath)
 }

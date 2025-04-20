@@ -37,5 +37,8 @@
     "lint:fix": "eslint . --fix",
     "knip": "knip",
     "knip:fix": "knip --fix --allow-remove-files"
+  },
+  "dependencies": {
+    "natural": "^8.0.1"
   }
 }
