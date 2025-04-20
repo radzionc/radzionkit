@@ -14,21 +14,21 @@ const main = async () => {
 
   const spell = nspell(en.default as any)
 
-  const words = await extractWordsFromEpub(inputSrc)
+  const allWords = await extractWordsFromEpub(inputSrc)
   const ignoreWords = await fs.promises.readFile(ignoreWordsSrc, 'utf-8')
   const ignoreWordsSet = new Set(ignoreWords.split('\n'))
 
-  ignoreWordsSet.forEach((word) => {
-    words.delete(word)
-  })
+  const result = new Set<string>()
 
-  words.forEach((word) => {
-    if (!spell.correct(word)) {
-      words.delete(word)
+  allWords.forEach((word) => {
+    if (!spell.correct(word) || ignoreWordsSet.has(word)) {
+      return
     }
+
+    result.add(word)
   })
 
-  fs.promises.writeFile(outputSrc, Array.from(words).join('\n'), 'utf-8')
+  fs.promises.writeFile(outputSrc, Array.from(result).join('\n'), 'utf-8')
 }
 
 main()
