@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "start": "npx tsx index.ts"
   },
   "dependencies": {
+    "compromise": "^14.14.4",
     "epub": "^1.2.1"
   }
 }

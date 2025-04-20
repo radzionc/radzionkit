@@ -3003,6 +3003,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@product/experiment@workspace:product/experiment"
   dependencies:
+    compromise: "npm:^14.14.4"
     epub: "npm:^1.2.1"
   languageName: unknown
   linkType: soft
@@ -6127,6 +6128,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"compromise@npm:^14.14.4":
+  version: 14.14.4
+  resolution: "compromise@npm:14.14.4"
+  dependencies:
+    efrt: "npm:2.7.0"
+    grad-school: "npm:0.0.5"
+    suffix-thumb: "npm:5.0.2"
+  checksum: 10/80ef8a6807daa1ac8ad57888ed9da44cf7adef01a40baf9799531c6540856130b2c512e3f2a202f93277e8efbfed3c4eb477f7bfb3b5dfdb7b127552061b6472
+  languageName: node
+  linkType: hard
+
 "concat-map@npm:0.0.1":
   version: 0.0.1
   resolution: "concat-map@npm:0.0.1"
@@ -6761,6 +6773,13 @@ __metadata:
     "@standard-schema/spec": "npm:^1.0.0"
     fast-check: "npm:^3.23.1"
   checksum: 10/2c9d2fb4ec4cdde66e8c3dfe9a20ec04f781fdf7608b0173e56fa9bd42b3ca3bc68c4e687376eb90f0c34b78d3133c97a4f46d112028cffe5e8c807101ecaec6
+  languageName: node
+  linkType: hard
+
+"efrt@npm:2.7.0":
+  version: 2.7.0
+  resolution: "efrt@npm:2.7.0"
+  checksum: 10/76febcd9efccce436beca5c5cc056187f9d9f4c64c9528b6fb467b4eb91f2b9f689f602f2451cd6bf37c77a2664b38ae4a6c506c03db462fec6c74d9d92b4e67
   languageName: node
   linkType: hard
 
@@ -8462,6 +8481,13 @@ __metadata:
   version: 4.2.11
   resolution: "graceful-fs@npm:4.2.11"
   checksum: 10/bf152d0ed1dc159239db1ba1f74fdbc40cb02f626770dcd5815c427ce0688c2635a06ed69af364396da4636d0408fcf7d4afdf7881724c3307e46aff30ca49e2
+  languageName: node
+  linkType: hard
+
+"grad-school@npm:0.0.5":
+  version: 0.0.5
+  resolution: "grad-school@npm:0.0.5"
+  checksum: 10/1330b02b71ef37f9a507261c1219056d19caa46f99e65fe30fe9b5c98235b5dec23d74928ed166516054b30c4cf470903de482311d2d25d985e904989b53c69a
   languageName: node
   linkType: hard
 
@@ -13417,6 +13443,13 @@ __metadata:
   version: 4.3.2
   resolution: "stylis@npm:4.3.2"
   checksum: 10/4d3e3cb5cbfc7abdf14e424c8631a15fd15cbf0357ffc641c319587e00c2d1036b1a71cb88b42411bc3ce10d7730ad3fb9789b034d11365e8a19d23f56486c77
+  languageName: node
+  linkType: hard
+
+"suffix-thumb@npm:5.0.2":
+  version: 5.0.2
+  resolution: "suffix-thumb@npm:5.0.2"
+  checksum: 10/cd1d656c5804ad686b7d0b89eba3dcc47a55a8134c5f4dc6cff1cfb7b12bb26007ec8f58e52b5a29e0a9812d463f93f4091942f9cb6c76e53ab88280ded9c1cb
   languageName: node
   linkType: hard
 
