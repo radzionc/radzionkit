@@ -1,8 +1,8 @@
 import { Dimensions } from '@lib/utils/entities/Dimensions'
-import { CSSProperties, ComponentProps, ReactNode, Ref } from 'react'
+import { CSSProperties, ComponentProps, Ref } from 'react'
 import styled from 'styled-components'
 
-import { ActionProp } from '../props'
+import { ActionProp, RenderProp } from '../props'
 
 import { ElementSizeAware } from './ElementSizeAware'
 
@@ -20,8 +20,8 @@ const Container = styled.div`
 type ActionInsideInteractiveElementProps<
   T extends CSSProperties = CSSProperties,
 > = ComponentProps<typeof Container> &
-  ActionProp & {
-    render: (params: ActionInsideInteractiveElementRenderParams<T>) => ReactNode
+  ActionProp &
+  RenderProp<ActionInsideInteractiveElementRenderParams<T>> & {
     actionPlacerStyles: T
     ref?: Ref<HTMLDivElement>
   }

@@ -1,7 +1,7 @@
 import { UniqueIdentifier } from '@dnd-kit/core'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import { ReactNode } from 'react'
+import { RenderProp } from '@lib/ui/props'
 
 type RenderParams = {
   draggableProps: Record<string, any>
@@ -10,8 +10,7 @@ type RenderParams = {
 
 type DnDItemProps<ItemId extends UniqueIdentifier> = {
   id: ItemId
-  render: (params: RenderParams) => ReactNode
-}
+} & RenderProp<RenderParams>
 
 export function DnDItem<ItemId extends UniqueIdentifier>({
   id,

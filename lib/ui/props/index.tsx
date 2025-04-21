@@ -154,3 +154,7 @@ export type KindProp<T> = {
 }
 
 export type SvgProps = SVGProps<SVGSVGElement>
+
+export type RenderProp<T = void> = [T] extends [void]
+  ? { render: () => ReactNode }
+  : { render: (value: T) => ReactNode }

@@ -1,12 +1,12 @@
+import { RenderProp } from '@lib/ui/props'
 import { mergeRefs } from '@lib/ui/utils/mergeRefs'
-import { ReactNode, useMemo, Ref, RefCallback } from 'react'
+import { useMemo, Ref, RefCallback } from 'react'
 
 import { useArrayMemo } from '../hooks/useArrayMemo'
 
 type MergeRefsProps<T> = {
   refs: (React.Ref<T> | undefined | null)[]
-  render: (ref: Ref<T> | RefCallback<T>) => ReactNode
-}
+} & RenderProp<Ref<T> | RefCallback<T>>
 
 export function MergeRefs<T>({ refs, render }: MergeRefsProps<T>) {
   const memoizedRefs = useArrayMemo(refs)

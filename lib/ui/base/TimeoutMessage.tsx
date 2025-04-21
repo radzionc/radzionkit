@@ -1,10 +1,10 @@
-import { DependencyList, ReactNode } from 'react'
+import { RenderProp } from '@lib/ui/props'
+import { DependencyList } from 'react'
 
 import { useRunOnChange } from '../hooks/useRunOnChange'
 import { useTimeoutState } from '../hooks/useTimeoutState'
 
-interface TimeoutMessageProps {
-  render: () => ReactNode
+interface TimeoutMessageProps extends RenderProp {
   timeout: number
   deps: DependencyList
 }

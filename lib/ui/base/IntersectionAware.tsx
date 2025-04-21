@@ -1,4 +1,5 @@
-import { RefObject, useRef, ReactNode } from 'react'
+import { RenderProp } from '@lib/ui/props'
+import { RefObject, useRef } from 'react'
 
 import { useIntersection } from '../hooks/useIntersection'
 import { useWasIt } from '../hooks/useWasIt'
@@ -9,9 +10,8 @@ interface RenderParams<T extends HTMLElement> {
   ref: RefObject<T | null>
 }
 
-interface Props<T extends HTMLElement> {
+interface Props<T extends HTMLElement> extends RenderProp<RenderParams<T>> {
   rootMargin?: string
-  render: (params: RenderParams<T>) => ReactNode
 }
 
 export function IntersectionAware<T extends HTMLElement>({

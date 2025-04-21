@@ -1,11 +1,12 @@
-import { ReactNode, useEffect, useState } from 'react'
+import { RenderProp } from '@lib/ui/props'
+import { useEffect, useState } from 'react'
 
 import { InputProps } from '../props'
 
-type InputDebounceProps<T> = InputProps<T> & {
-  render: (props: InputProps<T>) => ReactNode
-  interval?: number
-}
+type InputDebounceProps<T> = InputProps<T> &
+  RenderProp<InputProps<T>> & {
+    interval?: number
+  }
 
 export function InputDebounce<T>({
   value,

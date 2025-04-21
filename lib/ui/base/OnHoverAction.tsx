@@ -1,5 +1,5 @@
+import { RenderProp } from '@lib/ui/props'
 import { Dimensions } from '@lib/utils/entities/Dimensions'
-import { ReactNode } from 'react'
 import styled from 'styled-components'
 
 import { ActionProp, UiProps } from '../props'
@@ -12,8 +12,8 @@ interface OnHoverActionRenderParams<T extends React.CSSProperties> {
 }
 
 type OnHoverActionProps<T extends React.CSSProperties> = UiProps &
-  ActionProp & {
-    render: (params: OnHoverActionRenderParams<T>) => ReactNode
+  ActionProp &
+  RenderProp<OnHoverActionRenderParams<T>> & {
     actionPlacerStyles: T
   }
 

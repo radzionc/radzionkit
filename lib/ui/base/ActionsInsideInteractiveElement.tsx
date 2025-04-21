@@ -7,6 +7,7 @@ import { toEntries } from '@lib/utils/record/toEntries'
 import { CSSProperties, ComponentProps, ReactNode, Ref, useState } from 'react'
 import styled from 'styled-components'
 
+import { RenderProp } from '../props'
 import { useStateCorrector } from '../state/useStateCorrector'
 
 import { ElementSizeAware } from './ElementSizeAware'
@@ -23,7 +24,6 @@ type ActionsInsideInteractiveElementProps<K extends string> = ComponentProps<
   typeof Container
 > & {
   ref?: Ref<HTMLDivElement>
-  render: (params: RenderParams<K>) => ReactNode
   actions: Record<
     K,
     {
@@ -31,7 +31,7 @@ type ActionsInsideInteractiveElementProps<K extends string> = ComponentProps<
       node: ReactNode
     }
   >
-}
+} & RenderProp<RenderParams<K>>
 
 const ActionPlacer = styled.div`
   position: absolute;

@@ -1,10 +1,9 @@
-import { ReactNode } from 'react'
+import { RenderProp } from '@lib/ui/props'
 
 import { useRhythmicRerender } from '../hooks/useRhythmicRerender'
 
-interface RhythmicRerenderProps {
+interface RhythmicRerenderProps extends RenderProp<number> {
   interval?: number
-  render: (now: number) => ReactNode
 }
 
 export const RhythmicRerender = ({

@@ -1,6 +1,7 @@
 import { UniqueIdentifier, useDroppable } from '@dnd-kit/core'
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
-import { ReactNode, useMemo } from 'react'
+import { RenderProp } from '@lib/ui/props'
+import { useMemo } from 'react'
 
 type RenderParams = {
   props: Record<string, any>
@@ -10,8 +11,7 @@ type RenderParams = {
 type DnDGroupProps<GroupId extends string, ItemId extends UniqueIdentifier> = {
   id: GroupId
   itemIds: ItemId[]
-  render: (params: RenderParams) => ReactNode
-}
+} & RenderProp<RenderParams>
 
 export function DnDGroup<
   GroupId extends string,

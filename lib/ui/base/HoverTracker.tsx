@@ -1,12 +1,7 @@
 import { useIsomorphicLayoutEffect } from '@lib/ui/hooks/useIsomorphicLayoutEffect'
+import { RenderProp } from '@lib/ui/props'
 import { Point } from '@lib/utils/entities/Point'
-import {
-  MouseEvent,
-  MouseEventHandler,
-  ReactNode,
-  useCallback,
-  useState,
-} from 'react'
+import { MouseEvent, MouseEventHandler, useCallback, useState } from 'react'
 
 import { useBoundingBox } from '../hooks/useBoundingBox'
 import { useRelativePosition } from '../hooks/useRelativePosition'
@@ -27,8 +22,7 @@ interface RenderParams extends ChangeParams {
   props: ContainerProps
 }
 
-interface HoverTrackerProps {
-  render: (props: RenderParams) => ReactNode
+interface HoverTrackerProps extends RenderProp<RenderParams> {
   onChange?: (params: ChangeParams) => void
 }
 

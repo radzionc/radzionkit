@@ -1,3 +1,4 @@
+import { RenderProp } from '@lib/ui/props'
 import { ReactNode } from 'react'
 
 import { useBoolean } from '../hooks/useBoolean'
@@ -7,10 +8,9 @@ interface RenderParams {
   onError: () => void
 }
 
-interface Props {
+interface Props extends RenderProp<RenderParams> {
   src?: string
   fallback?: ReactNode
-  render: (params: RenderParams) => ReactNode
 }
 
 export const SafeImage = ({ fallback = null, src, render }: Props) => {

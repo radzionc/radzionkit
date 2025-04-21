@@ -1,5 +1,6 @@
+import { RenderProp } from '@lib/ui/props'
 import { Point } from '@lib/utils/entities/Point'
-import { ReactNode, useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import { useBoundingBox } from '../hooks/useBoundingBox'
 import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
@@ -24,8 +25,7 @@ interface RenderParams extends ChangeParams {
   props: ContainerProps
 }
 
-interface PressTrackerProps {
-  render: (props: RenderParams) => ReactNode
+interface PressTrackerProps extends RenderProp<RenderParams> {
   onChange?: (params: ChangeParams) => void
 }
 
