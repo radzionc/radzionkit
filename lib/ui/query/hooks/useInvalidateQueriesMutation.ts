@@ -4,7 +4,7 @@ export const useInvalidateQueriesMutation = () => {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: (...queryKeys: QueryKey[]) => {
+    mutationFn: (queryKeys: QueryKey[]) => {
       return Promise.all(
         queryKeys.map((queryKey) => {
           return queryClient.invalidateQueries({ queryKey })
