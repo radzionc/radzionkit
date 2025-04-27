@@ -130,7 +130,7 @@ export default makeDemoPage(() => {
             gap={16}
             wrap="wrap"
           >
-            <TabNavigation
+            <TabNavigation<StatsView>
               views={statsViews}
               getViewName={capitalizeFirstLetter}
               activeView={view}
