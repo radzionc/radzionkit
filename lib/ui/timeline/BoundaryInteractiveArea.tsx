@@ -45,7 +45,6 @@ const Container = styled.div<IsActiveProp>`
   color: ${getColor('contrast')};
   background: ${matchColor('isActive', {
     false: 'background',
-    hovered: 'foreground',
     true: 'primary',
   })};
 `
