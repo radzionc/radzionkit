@@ -5,7 +5,7 @@ import {
   useFloating,
   autoUpdate,
 } from '@floating-ui/react'
-import { PriceCandle } from '@lib/trading/PriceCandle'
+import { PriceCandle, priceCandlePriceFields } from '@lib/trading/PriceCandle'
 import { FixedReference } from '@lib/ui/base/FixedReference'
 import { borderRadius } from '@lib/ui/css/borderRadius'
 import { HStack, VStack, vStack } from '@lib/ui/css/stack'
@@ -40,8 +40,6 @@ const Container = styled.div`
   }
 `
 
-const fields = ['open', 'high', 'low', 'close'] as const
-
 export const CandlestickInfo = ({ position, value }: CandlestickInfoProps) => {
   const {
     refs: { setReference, setFloating },
@@ -74,7 +72,7 @@ export const CandlestickInfo = ({ position, value }: CandlestickInfoProps) => {
             {format(value.startTime, 'MMM d, yyyy')}
           </Text>
           <VStack gap={8}>
-            {fields.map((field) => (
+            {priceCandlePriceFields.map((field) => (
               <HStack alignItems="center" gap={8} key={field}>
                 <Text color="supporting">
                   {field.slice(0, 1).toUpperCase()}:

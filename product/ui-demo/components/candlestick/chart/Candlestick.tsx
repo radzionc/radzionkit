@@ -1,4 +1,4 @@
-import { PriceCandle } from '@lib/trading/PriceCandle'
+import { PriceCandlePriceFields } from '@lib/trading/PriceCandle'
 import { vStack } from '@lib/ui/css/stack'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import { IsActiveProp } from '@lib/ui/props'
@@ -9,7 +9,7 @@ import styled, { useTheme } from 'styled-components'
 
 import { chartConfig } from './config'
 
-type CandlestickProps = ValueProp<Omit<PriceCandle, 'startTime'>> & IsActiveProp
+type CandlestickProps = ValueProp<PriceCandlePriceFields> & IsActiveProp
 
 const Container = styled.div`
   position: relative;

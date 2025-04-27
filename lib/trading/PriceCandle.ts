@@ -1,9 +1,9 @@
 import { Milliseconds } from '@lib/utils/time/types'
 
-export type PriceCandle = {
+export const priceCandlePriceFields = ['open', 'high', 'low', 'close'] as const
+export type PriceCandlePriceField = (typeof priceCandlePriceFields)[number]
+export type PriceCandlePriceFields = Record<PriceCandlePriceField, number>
+
+export type PriceCandle = PriceCandlePriceFields & {
   startTime: Milliseconds
-  open: number
-  high: number
-  low: number
-  close: number
 }
