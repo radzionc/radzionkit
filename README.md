@@ -26,6 +26,7 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 * [**@lib/chain-ui**](lib/chain-ui/README.md) - Components for Web3 applications.
 * [**@lib/countries-ui**](lib/countries-ui/README.md) - Components for country flags and selection.
 * [**@lib/next-analytics-ui**](lib/next-analytics-ui/README.md) - A component for automatic page visit tracking in Next.js applications.
+* [**@lib/trading**](lib/trading/README.md) - Utility package for trading-related data types.
 
 ### Product Packages
 

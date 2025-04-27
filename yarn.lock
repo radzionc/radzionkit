@@ -2693,6 +2693,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lib/trading@workspace:lib/trading":
+  version: 0.0.0-use.local
+  resolution: "@lib/trading@workspace:lib/trading"
+  dependencies:
+    "@lib/utils": "workspace:^"
+  languageName: unknown
+  linkType: soft
+
 "@lib/ui@workspace:^, @lib/ui@workspace:lib/ui":
   version: 0.0.0-use.local
   resolution: "@lib/ui@workspace:lib/ui"
