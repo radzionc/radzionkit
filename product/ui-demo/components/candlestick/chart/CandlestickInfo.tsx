@@ -1,5 +1,3 @@
-import { title } from 'process'
-
 import {
   offset,
   shift,
@@ -10,11 +8,13 @@ import {
 import { PriceCandle } from '@lib/trading/PriceCandle'
 import { FixedReference } from '@lib/ui/base/FixedReference'
 import { borderRadius } from '@lib/ui/css/borderRadius'
-import { HStack, vStack } from '@lib/ui/css/stack'
+import { HStack, VStack, vStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { getColor } from '@lib/ui/theme/getters'
 import { Point } from '@lib/utils/entities/Point'
 import { ValueProp } from '@lib/utils/entities/props'
+import { formatAmount } from '@lib/utils/formatAmount'
+import { format } from 'date-fns'
 import { useEffect } from 'react'
 import styled from 'styled-components'
 
@@ -32,13 +32,15 @@ const Container = styled.div`
     gap: 1,
   })}
 
-  min-width: 120px;
+  min-width: 160px;
 
   > * {
     padding: 12px;
     background: ${getColor('foreground')};
   }
 `
+
+const fields = ['open', 'high', 'low', 'close'] as const
 
 export const CandlestickInfo = ({ position, value }: CandlestickInfoProps) => {
   const {
@@ -67,12 +69,21 @@ export const CandlestickInfo = ({ position, value }: CandlestickInfoProps) => {
         }}
       />
       <Container ref={setFloating} style={{ ...floatingStyles }}>
-        <HStack alignItems="center" justifyContent="space-between" gap={20}>
-          <Text weight="600" color="supporting">
-            {title}
+        <VStack gap={20}>
+          <Text weight="600" size={16} color="supporting">
+            {format(value.startTime, 'MMM d, yyyy')}
           </Text>
-        </HStack>
-        info will be here!
+          <VStack gap={8}>
+            {fields.map((field) => (
+              <HStack alignItems="center" gap={8} key={field}>
+                <Text color="supporting">
+                  {field.slice(0, 1).toUpperCase()}:
+                </Text>
+                <Text weight="600">${formatAmount(value[field])}</Text>
+              </HStack>
+            ))}
+          </VStack>
+        </VStack>
       </Container>
     </>
   )
