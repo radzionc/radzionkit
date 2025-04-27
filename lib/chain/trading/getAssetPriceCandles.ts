@@ -38,7 +38,7 @@ const toBinanceInterval = (duration: CandleDuration): string => {
 
 export type GetAssetPriceCandlesInput = {
   id: string
-  startTime: number
+  startTime?: number
   endTime?: number
   candleDuration: CandleDuration
   limit?: number
