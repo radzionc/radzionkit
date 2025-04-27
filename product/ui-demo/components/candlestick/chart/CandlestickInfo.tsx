@@ -8,7 +8,7 @@ import {
 import { PriceCandle, priceCandlePriceFields } from '@lib/trading/PriceCandle'
 import { FixedReference } from '@lib/ui/base/FixedReference'
 import { borderRadius } from '@lib/ui/css/borderRadius'
-import { HStack, VStack, vStack } from '@lib/ui/css/stack'
+import { HStack, vStack, VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { getColor } from '@lib/ui/theme/getters'
 import { Point } from '@lib/utils/entities/Point'
@@ -28,16 +28,14 @@ const Container = styled.div`
   ${borderRadius.s};
   overflow: hidden;
 
-  ${vStack({
-    gap: 1,
-  })}
-
   min-width: 160px;
 
-  > * {
-    padding: 12px;
-    background: ${getColor('foreground')};
-  }
+  ${vStack({
+    gap: 20,
+  })}
+
+  padding: 12px;
+  background: ${getColor('foreground')};
 `
 
 export const CandlestickInfo = ({ position, value }: CandlestickInfoProps) => {
@@ -67,20 +65,16 @@ export const CandlestickInfo = ({ position, value }: CandlestickInfoProps) => {
         }}
       />
       <Container ref={setFloating} style={{ ...floatingStyles }}>
-        <VStack gap={20}>
-          <Text weight="600" size={16} color="supporting">
-            {format(value.startTime, 'MMM d, yyyy')}
-          </Text>
-          <VStack gap={8}>
-            {priceCandlePriceFields.map((field) => (
-              <HStack alignItems="center" gap={8} key={field}>
-                <Text color="supporting">
-                  {field.slice(0, 1).toUpperCase()}:
-                </Text>
-                <Text weight="600">${formatAmount(value[field])}</Text>
-              </HStack>
-            ))}
-          </VStack>
+        <Text weight="600" size={16} color="supporting">
+          {format(value.startTime, 'MMM d, yyyy')}
+        </Text>
+        <VStack gap={8}>
+          {priceCandlePriceFields.map((field) => (
+            <HStack alignItems="center" gap={8} key={field}>
+              <Text color="supporting">{field.slice(0, 1).toUpperCase()}:</Text>
+              <Text weight="600">${formatAmount(value[field])}</Text>
+            </HStack>
+          ))}
         </VStack>
       </Container>
     </>
