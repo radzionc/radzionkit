@@ -1,5 +1,7 @@
 import { useAssetPriceCandlesQuery } from '@lib/chain-ui/queries/useAssetPriceCandlesQuery'
 import { MatchQuery } from '@lib/ui/query/components/MatchQuery'
+import { Text } from '@lib/ui/text'
+import { getErrorMessage } from '@lib/utils/getErrorMessage'
 
 import { CandlestickChart } from './chart/CandlestickChart'
 
@@ -14,8 +16,10 @@ export const CandlestickDemo = () => {
     <MatchQuery
       value={query}
       success={(value) => <CandlestickChart value={value} />}
-      error={() => <div>Failed to fetch data</div>}
-      pending={() => <div>Loading...</div>}
+      error={(error) => (
+        <Text>Failed to fetch data: {getErrorMessage(error)}</Text>
+      )}
+      pending={() => <Text>Loading...</Text>}
     />
   )
 }
