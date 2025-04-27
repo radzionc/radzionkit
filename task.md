@@ -2,3 +2,4 @@
 
 The content of this file should be cleared on Pull Request submit.
 
+- [ ] Highlight selected candle
