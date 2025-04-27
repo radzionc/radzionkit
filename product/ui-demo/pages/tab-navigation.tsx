@@ -24,7 +24,7 @@ export default makeDemoPage(() => {
   return (
     <DemoPage youtubeVideoId="dDuWfi_Hvis" title="Tab Navigation">
       <VStack fullWidth gap={40}>
-        <TabNavigation
+        <TabNavigation<View>
           views={views}
           getViewName={capitalizeFirstLetter}
           activeView={activeView}
