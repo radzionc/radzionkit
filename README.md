@@ -85,6 +85,7 @@ For convenience, you can use the provided script to upgrade both Yarn and all de
 
 To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
 
+* [Building a Dynamic Arpeggio View in a React Guitar App](https://youtu.be/MZejUV0iSKg)
 * [Simplify TypeScript Error Handling with the attempt Function](https://youtu.be/w4r3xha5w1c)
 * [Mastering Ethereum Gas Fees with Viem & Wagmi](https://youtu.be/ODaJxbLD8JA)
 * [Building a CAGED Chord App with React & TypeScript](https://youtu.be/mY2HstZeb6U)
