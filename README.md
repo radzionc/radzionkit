@@ -73,7 +73,6 @@ For convenience, you can use the provided script to upgrade both Yarn and all de
 
 - **[Increaser](https://github.com/radzionc/increaser):** A productivity toolkit designed for remote workers.
 - **[Pentafret](https://github.com/radzionc/guitar):** A website with guitar music theory tools.
-- **[Radzion's Resume](https://github.com/radzionc/resume):** A Web3 Front-end developer resume.
 - **[Crypto](https://github.com/radzionc/crypto):** Web3 tools.
 - **[AI](https://github.com/radzionc/ai):** Fix the grammar of selected text with a shortcut.
 - **[Comics](https://github.com/radzionc/comics):** Comic book deal finder.
