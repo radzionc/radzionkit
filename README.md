@@ -17,6 +17,7 @@ RadzionKit takes advantage of Yarn Workspaces to streamline a monorepo setup, or
 * [**@lib/codegen**](lib/codegen/README.md) - Code generation utilities for TypeScript and JSON files.
 * [**@lib/countries**](lib/countries/README.md) - Types and utilities for handling country-related data.
 * [**@lib/lambda**](lib/lambda/README.md) - Utilities for working with AWS Lambda functions.
+* [**@lib/navigation**](lib/navigation/README.md) - A lightweight, type-safe routing system for React applications that don't require URL-based navigation.
 * [**@lib/analytics-ui**](lib/analytics-ui/README.md) - Components to integrate Amplitude analytics into your React application.
 * [**@lib/auth**](lib/auth/README.md) - Types for authentication sessions and OAuth providers.
 * [**@lib/next-ui**](lib/next-ui/README.md) - Components and utilities for Next.js applications.
