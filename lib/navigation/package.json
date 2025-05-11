@@ -1,0 +1,12 @@
+{
+  "name": "@lib/navigation",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@lib/ui": "workspace:^",
+    "@lib/utils": "workspace:^"
+  }
+}
