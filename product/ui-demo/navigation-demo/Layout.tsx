@@ -54,6 +54,7 @@ const Title = styled.div`
 
 export const Layout = ({ children }: ChildrenProp) => {
   const [{ history, currentIndex }] = useNavigation()
+  console.log({ history, currentIndex })
   const goBack = useNavigateBack()
   const navigate = useAppNavigate()
 
