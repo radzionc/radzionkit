@@ -49,4 +49,5 @@ export enum Path {
   LineChart = '/linechart',
   DayInput = '/day-input',
   Candlestick = '/candlestick',
+  Navigation = '/navigation',
 }

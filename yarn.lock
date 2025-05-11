@@ -2655,6 +2655,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@lib/navigation@workspace:lib/navigation":
+  version: 0.0.0-use.local
+  resolution: "@lib/navigation@workspace:lib/navigation"
+  dependencies:
+    "@lib/ui": "workspace:^"
+    "@lib/utils": "workspace:^"
+  languageName: unknown
+  linkType: soft
+
 "@lib/next-analytics-ui@workspace:^, @lib/next-analytics-ui@workspace:lib/next-analytics-ui":
   version: 0.0.0-use.local
   resolution: "@lib/next-analytics-ui@workspace:lib/next-analytics-ui"
