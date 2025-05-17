@@ -4,7 +4,6 @@ import { View } from './View'
 
 type NavigationState = {
   history: View[]
-  currentIndex: number
 }
 
 export const { useState: useNavigation, provider: NavigationProvider } =

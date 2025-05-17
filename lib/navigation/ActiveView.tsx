@@ -1,3 +1,5 @@
+import { getLastItem } from '@lib/utils/array/getLastItem'
+
 import { useNavigation } from './state'
 import { Views } from './Views'
 
@@ -6,9 +8,10 @@ type ActiveViewProps = {
 }
 
 export const ActiveView = ({ views }: ActiveViewProps) => {
-  const [state] = useNavigation()
+  const [{ history }] = useNavigation()
 
-  const View = views[state.history[state.currentIndex].id]
+  const { id } = getLastItem(history)
+  const View = views[id]
 
   return <View />
 }

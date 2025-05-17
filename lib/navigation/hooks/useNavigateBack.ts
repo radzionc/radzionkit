@@ -7,13 +7,13 @@ export const useNavigateBack = () => {
 
   return useCallback(() => {
     setState((state) => {
-      if (state.currentIndex <= 0) {
+      if (state.history.length <= 1) {
         return state
       }
 
       return {
         ...state,
-        currentIndex: state.currentIndex - 1,
+        history: state.history.slice(0, -1),
       }
     })
   }, [setState])

@@ -12,26 +12,24 @@ export function useNavigate<T extends View = View>() {
   const [, setState] = useNavigation()
 
   return useCallback(
-    (entry: T, options: NavigateOptions = {}) => {
-      const { id, state } = entry
+    (view: T, options: NavigateOptions = {}) => {
       const { replace } = options
 
       setState((prev) => {
         if (replace) {
           return {
             ...prev,
-            history: updateAtIndex(prev.history, prev.currentIndex, () => ({
-              id,
-              state,
-            })),
+            history: updateAtIndex(
+              prev.history,
+              prev.history.length - 1,
+              () => view,
+            ),
           }
         }
 
-        const newHistory = [...prev.history, { id, state }]
-
         return {
-          history: newHistory,
-          currentIndex: newHistory.length - 1,
+          ...prev,
+          history: [...prev.history, view],
         }
       })
     },
