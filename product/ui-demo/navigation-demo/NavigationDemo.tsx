@@ -6,9 +6,7 @@ import { initialView } from './navigation/AppView'
 import { views } from './navigation/views'
 
 export const NavigationDemo = () => (
-  <NavigationProvider
-    initialValue={{ history: [initialView], currentIndex: 0 }}
-  >
+  <NavigationProvider initialValue={{ history: [initialView] }}>
     <Layout>
       <ActiveView views={views} />
     </Layout>

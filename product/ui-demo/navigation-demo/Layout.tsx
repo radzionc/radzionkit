@@ -53,7 +53,7 @@ const Title = styled.div`
 `
 
 export const Layout = ({ children }: ChildrenProp) => {
-  const [{ history, currentIndex }] = useNavigation()
+  const [{ history }] = useNavigation()
   const goBack = useNavigateBack()
   const navigate = useAppNavigate()
 
@@ -61,7 +61,7 @@ export const Layout = ({ children }: ChildrenProp) => {
     <Container>
       <Header>
         <IconButton
-          isDisabled={history.length < 2 || currentIndex === 0}
+          isDisabled={history.length < 2}
           icon={<ChevronLeftIcon />}
           title="Back"
           onClick={goBack}
