@@ -13,9 +13,9 @@ import { InputLabel } from '../InputLabel'
 
 import { dropdownInputConfig } from './config'
 import { DropdownContainer } from './DropdownContainer'
+import { DropdownIdentifierWrapper } from './DropdownIdentifierWrapper'
 import { DropdownInputFrame } from './DropdownInputFrame'
 import { DropdownOption } from './DropdownOption'
-import { FixedOptionsInputIdentifierWrapper } from './FixedOptionsInput/IdentifierWrapper'
 
 export interface SelectOptionInputProps<T> extends InputProps<T> {
   label?: ReactNode
@@ -68,9 +68,7 @@ export function SelectOptionInput<T>({
     <InputContainer as="div">
       {label && <InputLabel>{label}</InputLabel>}
       <RelativeRow {...getReferenceProps()}>
-        <FixedOptionsInputIdentifierWrapper>
-          {valueIdentifier}
-        </FixedOptionsInputIdentifierWrapper>
+        <DropdownIdentifierWrapper>{valueIdentifier}</DropdownIdentifierWrapper>
         <Container as="div">{valueName}</Container>
         <CollapsePosition>
           <CollapseToggleButton

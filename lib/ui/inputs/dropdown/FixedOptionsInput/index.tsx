@@ -6,12 +6,12 @@ import { InputProps } from '../../../props'
 import { InputContainer } from '../../InputContainer'
 import { InputLabel } from '../../InputLabel'
 import { DropdownContainer } from '../DropdownContainer'
+import { DropdownIdentifierWrapper } from '../DropdownIdentifierWrapper'
 import { DropdownInputFrame } from '../DropdownInputFrame'
 
 import { FixedOptionsInputButtons } from './Buttons'
 import { FixedOptionInputMessage } from './FixedOptionInputMessage'
 import { getSuggestions } from './getSuggestions'
-import { FixedOptionsInputIdentifierWrapper } from './IdentifierWrapper'
 import { FixedOptionsInputItem } from './OptionItem'
 import { useFixedOptionsInputFloatingOptions } from './useFixedOptionsInputFloatingOptions'
 
@@ -172,9 +172,9 @@ export function FixedOptionsInput<T>({
           ref: setReferenceRef,
         })}
       >
-        <FixedOptionsInputIdentifierWrapper>
+        <DropdownIdentifierWrapper>
           {value ? renderOptionIdentifier(value) : optionIdentifierPlaceholder}
-        </FixedOptionsInputIdentifierWrapper>
+        </DropdownIdentifierWrapper>
         <DropdownInputFrame
           ref={inputElement}
           value={textInputValue}
