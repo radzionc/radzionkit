@@ -5,10 +5,10 @@ import { absoluteOutline } from '../../css/absoluteOutline'
 import { centerContent } from '../../css/centerContent'
 import { interactive } from '../../css/interactive'
 import { toSizeUnit } from '../../css/toSizeUnit'
-import { InvisibleHTMLRadio } from '../../layout/InvisibleHTMLRadio'
 import { InputProps, IsActiveProp, OptionsProp } from '../../props'
 import { Text } from '../../text'
 import { getColor } from '../../theme/getters'
+import { InvisibleHTMLRadio } from '../InvisibleHTMLRadio'
 
 type TextEmbeddedRadioInputProps<T extends string> = InputProps<T> &
   OptionsProp<T> & {

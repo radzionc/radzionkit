@@ -24,7 +24,6 @@ export function useTransformQueriesData<
 
     const error =
       Object.values(queriesRecord).find(({ error }) => error)?.error ?? null
-    const isPending = queries.some(({ isPending }) => isPending)
     const isLoading = queries.some(({ isLoading }) => isLoading)
 
     if (getRecordSize(dataRecord) === getRecordSize(queriesRecord)) {
@@ -33,7 +32,6 @@ export function useTransformQueriesData<
       )
 
       return {
-        isPending,
         isLoading,
         data,
         error: transformError ?? error,
@@ -43,7 +41,6 @@ export function useTransformQueriesData<
     return {
       data: undefined,
       error,
-      isPending,
       isLoading,
     }
   }, [queriesRecord, transform])

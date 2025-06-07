@@ -15,13 +15,11 @@ export function useQueriesToEagerQuery<T, R, E = unknown>({
   joinData,
 }: ToEagerQueryInput<T, R, E>): EagerQuery<R, E> {
   return useMemo(() => {
-    const isPending = queries.some((query) => query.isPending)
     const isLoading = queries.some((query) => query.isLoading)
     const errors = queries.flatMap((query) => query.error ?? [])
 
     if (isEmpty(queries)) {
       return {
-        isPending,
         isLoading,
         errors,
         data: joinData([]),
@@ -33,7 +31,6 @@ export function useQueriesToEagerQuery<T, R, E = unknown>({
     const { data, error } = attempt<R, E>(() => joinData(resolvedQueries))
 
     return {
-      isPending,
       isLoading,
       errors: error ? [...errors, error] : errors,
       data,

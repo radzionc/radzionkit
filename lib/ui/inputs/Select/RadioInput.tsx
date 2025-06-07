@@ -2,10 +2,10 @@ import { HStack } from '@lib/ui/css/stack'
 import React, { ReactNode } from 'react'
 import { useId } from 'react'
 
-import { InvisibleHTMLRadio } from '../../layout/InvisibleHTMLRadio'
 import { InputProps, UiProps } from '../../props'
 import { InputContainer } from '../InputContainer'
 import { InputLabel } from '../InputLabel'
+import { InvisibleHTMLRadio } from '../InvisibleHTMLRadio'
 
 import { SelectOption } from './SelectOption'
 

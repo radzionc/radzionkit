@@ -9,6 +9,7 @@ import { Text } from '../../text'
 import { getColor } from '../../theme/getters'
 import { Tooltip } from '../../tooltips/Tooltip'
 import { EagerQuery } from '../Query'
+import { isInactiveQuery } from '../utils/isInactiveQuery'
 
 export interface EagerQueryShyIndicatorProps<T> {
   query: EagerQuery<T>
@@ -21,7 +22,7 @@ const IconContainer = styled(IconWrapper)`
 export function EagerQueryShyIndicator<T>({
   query,
 }: EagerQueryShyIndicatorProps<T>) {
-  if (query.isPending) {
+  if (isInactiveQuery(query)) {
     return <Spinner />
   }
 
