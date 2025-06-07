@@ -6,7 +6,7 @@ import { round } from '../../css/round'
 import {
   InvisibleHTMLRadio,
   InvisibleHTMLRadioProps,
-} from '../../inputs/InvisibleHTMLRadio'
+} from '../../layout/InvisibleHTMLRadio'
 import { IsActiveProp, ChildrenProp, UiProps } from '../../props'
 import { getColor } from '../../theme/getters'
 

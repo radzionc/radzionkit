@@ -2,7 +2,7 @@ import { InvisibleInput } from './InvisibleInput'
 
 export interface InvisibleHTMLRadioProps {
   groupName: string
-  value: string | number
+  value: string | number | null
   isSelected: boolean
   onSelect: () => void
   autoFocus?: boolean
@@ -18,9 +18,15 @@ export const InvisibleHTMLRadio = ({
     type="radio"
     name={groupName}
     checked={isSelected}
-    value={value}
+    value={value === null ? '' : value}
     onChange={(event) => {
-      if (event.currentTarget.value === value.toString()) {
+      const inputValue = event.currentTarget.value
+      const normalizedValue = inputValue === '' ? null : inputValue
+
+      if (
+        normalizedValue === value ||
+        (value !== null && normalizedValue === value.toString())
+      ) {
         onSelect()
       }
     }}
