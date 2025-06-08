@@ -25,7 +25,7 @@ export function MatchQuery<T, E = unknown>({
     return <>{error(value.error)}</>
   }
 
-  if (value.isLoading) {
+  if (value.isPending) {
     return <>{pending()}</>
   }
 

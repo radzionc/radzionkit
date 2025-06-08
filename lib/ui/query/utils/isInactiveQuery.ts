@@ -5,7 +5,7 @@ import { EagerQuery, Query } from '../Query'
 export const isInactiveQuery = <T>(
   query: Query<T> | EagerQuery<T>,
 ): boolean => {
-  if (query.isLoading || query.data !== undefined) {
+  if (query.isPending || query.data !== undefined) {
     return false
   }
 

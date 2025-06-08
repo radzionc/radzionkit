@@ -13,7 +13,7 @@ export type MatchEagerQueryProps<T, E = unknown> = ValueProp<
 }
 
 export function MatchEagerQuery<T, E = unknown>({
-  value: { data, isLoading, errors },
+  value: { data, isPending, errors },
   error = () => null,
   pending = () => null,
   success = () => null,
@@ -27,7 +27,7 @@ export function MatchEagerQuery<T, E = unknown>({
     return <>{error(errors)}</>
   }
 
-  if (isLoading) {
+  if (isPending) {
     return <>{pending()}</>
   }
 
