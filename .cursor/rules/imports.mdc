@@ -1,6 +1,6 @@
 ---
 description: 
-globs: clients/**/*.{ts,tsx}
+globs: *.tsx,*.ts
 alwaysApply: false
 ---
 # State Directory Imports
