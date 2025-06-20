@@ -3,10 +3,10 @@ description:
 globs: *.tsx,*.ts
 alwaysApply: false
 ---
-# State Directory Imports
+# Monorepo Package Imports
 
 ## Context
-- When importing files from the state directory
+- When importing files from other packages in the monorepo
 - Applies to all TypeScript and TypeScript React files in the project
 - This is a monorepo with packages
 
