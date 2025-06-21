@@ -1,4 +1,3 @@
-import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { Dispatch, SetStateAction, createContext, useState } from 'react'
 
 import { ChildrenProp } from '../props'
@@ -6,7 +5,7 @@ import { ChildrenProp } from '../props'
 import { ContextState } from './ContextState'
 import { createContextHook } from './createContextHook'
 
-export function getStateProviderSetup<T>(name: string) {
+export function getStateProviderSetup<T>(contextId: string) {
   const Context = createContext<ContextState<T> | undefined>(undefined)
 
   type Props = ChildrenProp & { initialValue: T }
@@ -25,7 +24,7 @@ export function getStateProviderSetup<T>(name: string) {
     provider: Provider,
     useState: createContextHook(
       Context,
-      capitalizeFirstLetter(name),
+      contextId,
       (result): [T, Dispatch<SetStateAction<T>>] => [
         result.value,
         result.setValue,
