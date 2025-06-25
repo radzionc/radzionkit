@@ -1,5 +1,5 @@
 import { range } from '@lib/utils/array/range'
-import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
+import { without } from '@lib/utils/array/without'
 import { useMemo } from 'react'
 import styled from 'styled-components'
 
@@ -35,7 +35,7 @@ export const ChartXAxis = ({
     if (justifyPoints === 'space-between') {
       const stepInPx = containerWidth / (dataSize - 1)
       let lastItemEnd = 0
-      return withoutUndefined(
+      return without(
         range(dataSize).map((index) => {
           const startsAt = index * stepInPx - expectedLabelWidth / 2
           const endsAt = startsAt + expectedLabelWidth
@@ -46,6 +46,7 @@ export const ChartXAxis = ({
           lastItemEnd = endsAt
           return index
         }),
+        undefined,
       )
     }
 

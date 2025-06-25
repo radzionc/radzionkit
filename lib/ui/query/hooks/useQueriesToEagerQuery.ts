@@ -1,5 +1,5 @@
 import { isEmpty } from '@lib/utils/array/isEmpty'
-import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
+import { without } from '@lib/utils/array/without'
 import { attempt } from '@lib/utils/attempt'
 import { useMemo } from 'react'
 
@@ -26,7 +26,10 @@ export function useQueriesToEagerQuery<T, R, E = unknown>({
       }
     }
 
-    const resolvedQueries = withoutUndefined(queries.map((query) => query.data))
+    const resolvedQueries = without(
+      queries.map((query) => query.data),
+      undefined,
+    )
 
     const { data, error } = attempt<R, E>(() => joinData(resolvedQueries))
 

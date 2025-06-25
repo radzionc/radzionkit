@@ -1,4 +1,4 @@
-import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
+import { without } from '@lib/utils/array/without'
 import {
   ApiInterface,
   ApiMethodName,
@@ -9,7 +9,7 @@ import { useQuery } from '@tanstack/react-query'
 export const getApiQueryKey = <M extends ApiMethodName>(
   method: M,
   input: ApiInterface[M]['input'],
-) => withoutUndefined([method, input])
+) => without([method, input], undefined)
 
 export const useApiQuery = <M extends ApiMethodName>(
   method: M,

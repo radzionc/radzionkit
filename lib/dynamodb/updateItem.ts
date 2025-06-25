@@ -1,5 +1,5 @@
 import { UpdateCommand } from '@aws-sdk/lib-dynamodb'
-import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
+import { without } from '@lib/utils/array/without'
 import { isNullOrUndefined } from '@lib/utils/isNullOrUndefined'
 import { match } from '@lib/utils/match'
 import { splitRecord } from '@lib/utils/record/splitRecord'
@@ -26,7 +26,7 @@ export const updateItem = ({ tableName, key, fields }: UpdateItemParams) => {
     },
   )
 
-  const commands = withoutUndefined(
+  const commands = without(
     Object.entries(fieldsByOperation).map(([operation, fields]) => {
       if (Object.keys(fields).length === 0) return undefined
 
@@ -39,6 +39,7 @@ export const updateItem = ({ tableName, key, fields }: UpdateItemParams) => {
         }),
       })
     }),
+    undefined,
   )
 
   return Promise.all(commands.map((command) => dbDocClient.send(command)))
