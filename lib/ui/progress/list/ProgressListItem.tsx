@@ -10,7 +10,7 @@ import { ChildrenProp, KindProp } from '../../props'
 import { Text, TextColor } from '../../text'
 import { getColor } from '../../theme/getters'
 
-export type ProgressListItemKind = 'completed' | 'active' | 'pending'
+export type ProgressListItemKind = 'completed' | 'active' | 'loading'
 
 const IndicatorContainer = styled.div`
   ${sameDimensions(24)}
@@ -28,7 +28,7 @@ const ActiveIndicator = styled(Spinner)`
 const kindToColor: Record<ProgressListItemKind, TextColor> = {
   completed: 'regular',
   active: 'contrast',
-  pending: 'shy',
+  loading: 'shy',
 }
 
 export const ProgressListItem = ({
@@ -42,7 +42,7 @@ export const ProgressListItem = ({
           value={kind}
           completed={() => <CompletedIndicator />}
           active={() => <ActiveIndicator />}
-          pending={() => <div />}
+          loading={() => <div />}
         />
       </IndicatorContainer>
       <Text color={kindToColor[kind]}>{children}</Text>

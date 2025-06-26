@@ -6,7 +6,7 @@ import { EagerQuery } from '../Query'
 export type MatchEagerQueryProps<T, E = unknown> = ValueProp<
   EagerQuery<T, E>
 > & {
-  pending?: () => ReactNode
+  loading?: () => ReactNode
   error?: (errors: E[]) => ReactNode
   success?: (data: T) => ReactNode
   inactive?: () => ReactNode
@@ -15,7 +15,7 @@ export type MatchEagerQueryProps<T, E = unknown> = ValueProp<
 export function MatchEagerQuery<T, E = unknown>({
   value: { data, isPending, errors },
   error = () => null,
-  pending = () => null,
+  loading = () => null,
   success = () => null,
   inactive = () => null,
 }: MatchEagerQueryProps<T, E>) {
@@ -28,7 +28,7 @@ export function MatchEagerQuery<T, E = unknown>({
   }
 
   if (isPending) {
-    return <>{pending()}</>
+    return <>{loading()}</>
   }
 
   return <>{inactive()}</>
@@ -38,4 +38,4 @@ export type MatchEagerQueryWrapperProps<T> = Pick<
   MatchEagerQueryProps<T>,
   'success'
 > &
-  Partial<Pick<MatchEagerQueryProps<T>, 'error' | 'pending' | 'inactive'>>
+  Partial<Pick<MatchEagerQueryProps<T>, 'error' | 'loading' | 'inactive'>>

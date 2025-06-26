@@ -8,14 +8,14 @@ type GetFormPropsInput = {
   onClose?: () => void
   onSubmit?: () => void
   isDisabled?: boolean | string
-  isPending?: boolean
+  isLoading?: boolean
 }
 
 export const getFormProps = ({
   onClose,
   onSubmit,
   isDisabled = false,
-  isPending = false,
+  isLoading = false,
 }: GetFormPropsInput) => {
   return withoutUndefinedFields({
     onKeyDown: onClose
@@ -29,7 +29,7 @@ export const getFormProps = ({
     onSubmit: onSubmit
       ? stopPropagation<FormEvent>(
           preventDefault(() => {
-            if (isDisabled || isPending) return
+            if (isDisabled || isLoading) return
 
             onSubmit()
           }),

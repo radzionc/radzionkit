@@ -107,7 +107,7 @@ color={
 const statusToColor: Record<Status, TextColor> = {
   completed: 'contrast',
   active: 'primary',
-  pending: 'supporting'
+  loading: 'supporting'
 }
 color={statusToColor[status]}
 </example>
@@ -118,6 +118,6 @@ color={statusToColor[status]}
   value={status}
   completed={() => <CheckIcon />}
   active={() => <Spinner />}
-  pending={() => <div />}
+  loading={() => <div />}
 />
 </example>

@@ -5,7 +5,7 @@ import { Button } from '../../buttons/Button'
 type CancelSubmitFormFooterProps = {
   onCancel?: () => void
   isDisabled?: string | boolean
-  isPending?: boolean
+  isLoading?: boolean
   submitText?: string
   cancelText?: string
 }
@@ -13,7 +13,7 @@ type CancelSubmitFormFooterProps = {
 export const CancelSubmitFormFooter = ({
   onCancel,
   isDisabled,
-  isPending,
+  isLoading,
   submitText = 'Submit',
   cancelText = 'Cancel',
 }: CancelSubmitFormFooterProps) => {
@@ -24,7 +24,7 @@ export const CancelSubmitFormFooter = ({
           {cancelText}
         </Button>
       )}
-      <Button type="submit" isLoading={isPending} isDisabled={isDisabled}>
+      <Button type="submit" isLoading={isLoading} isDisabled={isDisabled}>
         {submitText}
       </Button>
     </HStack>

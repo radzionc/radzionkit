@@ -19,7 +19,7 @@ export const CandlestickDemo = () => {
       error={(error) => (
         <Text>Failed to fetch data: {getErrorMessage(error)}</Text>
       )}
-      pending={() => <Text>Loading...</Text>}
+      loading={() => <Text>Loading...</Text>}
     />
   )
 }

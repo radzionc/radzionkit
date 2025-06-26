@@ -19,7 +19,7 @@ export const ProgressList = <T extends string = string>({
   return (
     <VStack gap={8}>
       {items.map((item, index) => {
-        let kind: ProgressListItemKind = 'pending'
+        let kind: ProgressListItemKind = 'loading'
         if (index < currentStepIndex) {
           kind = 'completed'
         } else if (index === currentStepIndex) {
