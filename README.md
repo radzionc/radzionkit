@@ -85,6 +85,7 @@ For convenience, you can use the provided script to upgrade both Yarn and all de
 
 To maximize your experience with RadzionKit, we've compiled the RadzionKit Cookbook, a series of YouTube tutorials designed to showcase the toolkit's practical applications in solving everyday development challenges. These tutorials cater to all skill levels, from beginners to experienced developers, and cover a range of topics from initial setup to advanced integrations. The RadzionKit Cookbook videos are an invaluable resource, offering step-by-step instructions, practical tips, and expert insights, all aimed at helping you harness the full power of RadzionKit for efficient, elegant solutions in your development projects.
 
+* [Building a Guitar Triad Learning Tool with React](https://youtu.be/HEAZDiOEhAg)
 * [Mastering Pattern Matching in TypeScript: Goodbye switch-case](https://youtu.be/HBpn1CNUJwg)
 * [From Theory to Fretboard: Dynamic Guitar Scale Patterns](https://youtu.be/zIQX8povK9c)
 * [Build a Real-Time Candlestick Chart in React from Scratch](https://youtu.be/HmPdM7UrmhQ)
