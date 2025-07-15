@@ -1,9 +1,22 @@
 import { assertFetchResponse } from '../fetch/assertFetchResponse'
+import { withoutUndefinedFields } from '../record/withoutUndefinedFields'
 
 type ResponseType = 'json' | 'text' | 'none'
 
-type QueryUrlOptions = RequestInit & {
+type QueryUrlOptions = {
   responseType?: ResponseType
+  body?: any
+} & Pick<RequestInit, 'method' | 'headers'>
+
+const processBody = (body: any) => {
+  if (body === undefined) {
+    return undefined
+  }
+
+  if (typeof body === 'string') {
+    return body
+  }
+  return JSON.stringify(body)
 }
 
 export function queryUrl(
@@ -25,11 +38,19 @@ export async function queryUrl<T>(
   url: string | URL,
   options: QueryUrlOptions = {},
 ): Promise<T | string | void> {
-  const { responseType = 'json', ...rest } = options
-  const response = await fetch(url, {
-    method: 'GET',
-    ...rest,
-  })
+  const { responseType = 'json', body, headers, method } = options
+
+  const response = await fetch(
+    url,
+    withoutUndefinedFields({
+      method: method ?? (body ? 'POST' : 'GET'),
+      headers: withoutUndefinedFields({
+        ...headers,
+        'Content-Type': body ? 'application/json' : undefined,
+      }),
+      body: processBody(body),
+    }),
+  )
 
   await assertFetchResponse(response)
 
