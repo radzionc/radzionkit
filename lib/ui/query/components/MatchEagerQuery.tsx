@@ -1,4 +1,5 @@
 import { ValueProp } from '@lib/utils/entities/props'
+import { Defined } from '@lib/utils/types/Defined'
 import { ReactNode } from 'react'
 
 import { EagerQuery } from '../Query'
@@ -8,7 +9,7 @@ export type MatchEagerQueryProps<T, E = unknown> = ValueProp<
 > & {
   loading?: () => ReactNode
   error?: (errors: E[]) => ReactNode
-  success?: (data: T) => ReactNode
+  success?: (data: Defined<T>) => ReactNode
   inactive?: () => ReactNode
 }
 
@@ -20,7 +21,7 @@ export function MatchEagerQuery<T, E = unknown>({
   inactive = () => null,
 }: MatchEagerQueryProps<T, E>) {
   if (data !== undefined) {
-    return <>{success(data)}</>
+    return <>{success(data as Defined<T>)}</>
   }
 
   if (errors.length > 0) {

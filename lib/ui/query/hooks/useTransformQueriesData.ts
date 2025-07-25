@@ -1,10 +1,10 @@
 import { attempt } from '@lib/utils/attempt'
+import { Defined } from '@lib/utils/types/Defined'
 import { useMemo } from 'react'
 
 import { getRecordSize } from '../../../utils/record/getRecordSize'
 import { recordMap } from '../../../utils/record/recordMap'
 import { withoutUndefinedFields } from '../../../utils/record/withoutUndefinedFields'
-import { NonUndefined } from '../../../utils/types/NonUndefined'
 import { Query } from '../Query'
 
 export function useTransformQueriesData<
@@ -13,7 +13,7 @@ export function useTransformQueriesData<
   R = unknown,
 >(
   queriesRecord: T,
-  transform: (data: { [K in keyof T]: NonUndefined<T[K]['data']> }) => R,
+  transform: (data: { [K in keyof T]: Defined<T[K]['data']> }) => R,
 ): Query<R, E> {
   return useMemo(() => {
     const dataRecord = withoutUndefinedFields(
@@ -28,7 +28,7 @@ export function useTransformQueriesData<
 
     if (getRecordSize(dataRecord) === getRecordSize(queriesRecord)) {
       const { data, error: transformError } = attempt<R, E>(() =>
-        transform(dataRecord as { [K in keyof T]: NonUndefined<T[K]['data']> }),
+        transform(dataRecord as { [K in keyof T]: Defined<T[K]['data']> }),
       )
 
       return {
