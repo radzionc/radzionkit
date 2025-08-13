@@ -1,5 +1,30 @@
-const million = 1000000
-const billion = 1000000000
+import { shouldBePresent } from './assert/shouldBePresent'
+
+type FormatAmountOptions = {
+  currency?: string
+  kind?: 'compact' | 'full'
+}
+
+const defaultOptions: FormatAmountOptions = {
+  currency: 'USD',
+  kind: 'full',
+}
+
+const units = ['thousand', 'million', 'billion'] as const
+
+type Unit = (typeof units)[number]
+
+const unitMultipliers: Record<Unit, number> = {
+  thousand: 1000,
+  million: 1000000,
+  billion: 1000000000,
+}
+
+const unitSuffixes: Record<Unit, string> = {
+  thousand: 'K',
+  million: 'M',
+  billion: 'B',
+}
 
 const defaultFractionDigits = 2
 
@@ -24,20 +49,26 @@ const getFractionDigits = (amount: number): number => {
   return defaultFractionDigits
 }
 
-export const formatAmount = (amount: number): string => {
-  if (amount > billion) {
-    return `${formatAmount(amount / billion)}B`
+export const formatAmount = (
+  value: number,
+  options: FormatAmountOptions = defaultOptions,
+): string => {
+  const { currency, kind } = { ...defaultOptions, ...options }
+
+  if (kind === 'full' || value < unitMultipliers[units[0]]) {
+    const fractionDigits = getFractionDigits(value)
+
+    return value.toLocaleString('en-US', {
+      style: 'currency',
+      currency,
+      minimumFractionDigits: fractionDigits,
+      maximumFractionDigits: fractionDigits,
+    })
   }
-  if (amount > million) {
-    return `${formatAmount(amount / million)}M`
-  }
 
-  const fractionDigits = getFractionDigits(amount)
+  const unit = shouldBePresent(
+    units.toReversed().find((unit) => value >= unitMultipliers[unit]),
+  )
 
-  const formatter = new Intl.NumberFormat('en-us', {
-    minimumFractionDigits: fractionDigits,
-    maximumFractionDigits: fractionDigits,
-  })
-
-  return formatter.format(amount)
+  return `${formatAmount(value / unitMultipliers[unit], options)}${unitSuffixes[unit]}`
 }
