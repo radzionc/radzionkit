@@ -1,0 +1,41 @@
+---
+globs: *.tsx,*.ts
+alwaysApply: false
+---
+
+# TypeScript Type Checking Guidance
+
+## When to Run Type Checking
+
+Only run `yarn typecheck` from the root of the codebase when making changes that are **likely to affect other parts of the codebase**.
+
+### High-Risk Changes (Run typecheck)
+
+- Modifying shared types, interfaces, or utility functions
+- Adding new dependencies or changing import/export structures
+- Refactoring that spans multiple files
+- Changes to core infrastructure or shared components
+- Modifying function signatures or return types that are used elsewhere
+- Changes to public APIs or contracts between modules
+
+### Low-Risk Changes (Skip typecheck)
+
+- Simple translation updates or i18n changes
+- Styling or CSS-only modifications
+- Single-file component updates that don't change interfaces
+- Adding new isolated components
+- Minor bug fixes within a single file
+- Documentation updates
+- Configuration changes that don't affect types
+
+## Command
+
+When type checking is needed, run from the repository root:
+
+```bash
+yarn typecheck
+```
+
+## Rationale
+
+Type checking takes time, so it should only be used when there's a reasonable likelihood that changes could introduce type errors in other parts of the codebase. For isolated changes, the time investment is not justified.

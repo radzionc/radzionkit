@@ -1,33 +1,44 @@
 ---
-description: 
+description: Import path guidelines for monorepo packages - use relative paths within packages, absolute paths for cross-package imports
 globs: *.tsx,*.ts
 alwaysApply: false
 ---
+
 # Monorepo Package Imports
 
 ## Context
+
 - When importing files from other packages in the monorepo
 - Applies to all TypeScript and TypeScript React files in the project
 - This is a monorepo with packages
 
 ## Requirements
-- Always use proper package paths (not relative paths) when importing from the state directory
-- Use package-based imports from package.json names
-- Do not use relative path imports like '../../../../state/isInitiatingDevice'
+
+- Use relative paths when importing within the same package
+- Always use absolute package paths (not relative paths) when importing from a different package
+- Use package-based imports from package.json names for cross-package imports
+- Do not use relative path imports like '../../../../state/isInitiatingDevice' for cross-package imports
 - Maintain consistency with monorepo package structure
 
 ## Examples
+
 <example>
-// Good: Using package path
+// Good: Relative import within same package
+import { Button } from '../components/Button'
+import { useState } from './hooks/useState'
+</example>
+
+<example>
+// Good: Absolute package import for cross-package imports
 import { useIsInitiatingDevice } from '@your-org/ui/state/isInitiatingDevice'
 </example>
 
 <example type="invalid">
-// Bad: Using relative path
+// Bad: Relative path for cross-package import
 import { useIsInitiatingDevice } from '../../../../state/isInitiatingDevice'
 </example>
 
 <example>
-// Good: Using proper package import
+// Good: Using proper package import for cross-package dependencies
 import { useIsInitiatingDevice } from '@your-package/ui/state/isInitiatingDevice'
-</example> 
+</example>
