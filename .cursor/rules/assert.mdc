@@ -1,27 +1,21 @@
 ---
-description: Use assertions instead of optional chaining or default values when values should exist
+description: Use shouldBePresent() instead of optional chaining or default values for required values
 globs: *.ts,*.tsx
 alwaysApply: false
 ---
 
-# TypeScript Assertion Standards
-
-## Context
-- Use when working with values that should always be present
-- Applied in TypeScript and React files
-- Particularly important when dealing with configuration, API responses, and required object properties
+# Assertion Standards
 
 ## Requirements
-- Use `shouldBePresent()` when you expect a value to exist instead of default values
-- Use `assertField()` when checking object properties instead of optional chaining
+
+- Use `shouldBePresent()` for values that should always exist
 - Throw early and explicitly with clear error messages
-- Avoid propagating invalid states that can cause subtle runtime errors
-- Don't use assertions for truly optional values or external data you don't control
+- Avoid optional chaining and default values for required data
 
 ## Examples
 
 <example>
-// Asserting required configuration
+// Required configuration
 const config = {
   apiKey: shouldBePresent(process.env.API_KEY, 'API_KEY'),
   baseUrl: shouldBePresent(process.env.BASE_URL, 'BASE_URL')
@@ -29,7 +23,7 @@ const config = {
 </example>
 
 <example type="invalid">
-// Using default values for required data
+// Don't use defaults for required values
 const config = {
   apiKey: process.env.API_KEY || '',
   baseUrl: process.env.BASE_URL ?? 'http://localhost'
@@ -37,7 +31,7 @@ const config = {
 </example>
 
 <example>
-// Asserting required values
+// Nested required values
 const getUserName = (user: User) => {
   const profile = shouldBePresent(user.profile, 'user.profile')
   return shouldBePresent(profile.name, 'user.profile.name')
@@ -45,22 +39,8 @@ const getUserName = (user: User) => {
 </example>
 
 <example type="invalid">
-// Optional chaining when value should exist
+// Don't use optional chaining for required values
 const getUserName = (user: User) => {
   return user?.profile?.name || 'Anonymous'
-}
-</example>
-
-<example>
-// Asserting required field
-const getBalance = (account: Account) => {
-  return assertField(account, 'balance')
-}
-</example>
-
-<example type="invalid">
-// Using default for required field
-const getBalance = (account: Account) => {
-  return account.balance ?? 0
 }
 </example>

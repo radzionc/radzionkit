@@ -1,0 +1,26 @@
+---
+alwaysApply: true
+description: Use ESLint autofix (yarn) only for issues that ESLint can automatically fix, like import sorting; never sort imports manually.
+---
+
+# ESLint Autofix Workflow
+
+- **Use ESLint auto-fix only for issues that ESLint can automatically resolve**, such as import sorting. Do not sort imports manually.
+- **Check lint errors first** - only run autofix when ESLint indicates the issues are auto-fixable.
+- For issues that require manual fixes, address them directly in the code rather than relying on autofix.
+
+## Single file fixes
+
+Run from the repository root:
+
+```bash
+yarn eslint <path-to-file> --fix
+```
+
+## Multiple files
+
+If your changes affect multiple files, run from the repository root:
+
+```bash
+yarn lint:fix
+```

@@ -7,17 +7,38 @@ alwaysApply: false
 # TypeScript Function Rules
 
 ## Context
+
 - Apply when writing TypeScript functions with multiple parameters
 - Applies to both function declarations and arrow function expressions
 - Aims to improve code maintainability and readability
 
 ## Requirements
-- Functions with more than 1 parameter must use an object parameter pattern
+
+- Functions with more than 1 parameter should generally use an object parameter pattern
 - Name input types with the pattern: `{FunctionName}Input`
 - For single parameters, direct arguments are acceptable
 - Object parameters should use destructuring in the function signature
 
+## Exceptions
+
+Direct multiple arguments are acceptable in these cases:
+
+1. **Two obvious arguments**: When the function has exactly two parameters that are very clear from context and it's unlikely a third parameter will be added
+2. **Required + optional props**: When the first argument is required and the second is optional configuration/props
+3. **Well-established patterns**: Functions following established API patterns (like DOM APIs, standard library functions)
+
+## When to Use Object Parameters
+
+Use object parameters when:
+
+- Function has 3+ parameters
+- Parameters are related configuration options
+- Function signature is likely to evolve with more parameters
+- Parameters have similar types that could be confused
+- The function is part of a public API
+
 ## Examples
+
 <example>
 // Good: Using object parameter for multiple parameters
 type UpdateNameInput = {
@@ -26,10 +47,10 @@ type UpdateNameInput = {
 }
 
 const updateName = ({
-  id,
-  newName
+id,
+newName
 }: UpdateNameInput) => {
-  // ...
+// ...
 }
 </example>
 
@@ -41,8 +62,30 @@ const getUser = (id: string) => {
 </example>
 
 <example type="invalid">
-// Bad: Multiple direct parameters
+// Bad: Multiple direct parameters (when object parameters would be better)
 const updateName = (id: string, newName: string) => {
   // ...
+}
+</example>
+
+<example>
+// Acceptable: Two obvious arguments with clear context
+const setTimeout = (callback: () => void, delay: number) => {
+  // Very clear what callback and delay are, unlikely to add more params
+}
+
+const arrayIndexOf = (array: any[], item: any) => {
+// Clear relationship between array and item, unlikely to change
+}
+</example>
+
+<example>
+// Acceptable: Required argument + optional configuration
+const createElement = (tagName: string, options?: { className?: string; id?: string }) => {
+  // First arg required, second is optional configuration object
+}
+
+const fetchData = (url: string, config?: RequestInit) => {
+// URL is required, config is optional standard pattern
 }
 </example>

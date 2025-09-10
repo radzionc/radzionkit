@@ -1,0 +1,195 @@
+---
+globs: *.ts,*.tsx
+description: Resolver pattern – how to design, name, type, and route resolvers (index.ts/resolver.ts/resolvers/*) with discriminants. Aligns with assert, pattern-matching, functions, attempt-over-try-catch, and type-definitions rules.
+---
+
+## Resolver Pattern Guide
+
+Build logic as small, composable resolvers and a single router instead of switch/case. Each resolver set handles one responsibility.
+
+### When to use
+
+- Routing work by a discriminant (a property that determines which logic to execute):
+  - Environment type (development, staging, production)
+  - Platform type (web, mobile, desktop)
+  - Service provider (AWS, GCP, Azure)
+  - API version or format
+  - Feature flags or configuration variants
+- A single operation that varies by the chosen discriminant
+
+### Files and layout
+
+- index.ts: Main exported function. Extract discriminant, select resolver, delegate.
+- resolver.ts: Exports the resolver type(s) and input/output types using `type` per type-definitions.
+- resolvers/: One file per routing value. Each exports a single, fully named resolver function.
+- supported.ts (optional): Lists supported discriminant values for this operation.
+
+Folder example:
+
+```
+<feature>/
+  index.ts
+  resolver.ts
+  resolvers/
+    development.ts
+    staging.ts
+    production.ts
+    ...
+  [supported.ts]
+```
+
+### Naming conventions
+
+- Resolver file names match the routing value (e.g., `development.ts`, `web.ts`, `aws.ts`).
+- Resolver function names include the full operation name and routing value for clarity, e.g., `getDevelopmentConfig`, `processWebRequest`, `deployAwsService`.
+- For API-style modules without a natural routing key, resolver files should use a full, descriptive name.
+
+### Router implementation patterns
+
+1. Route by discriminant
+
+```ts
+import { getDiscriminantValue } from './utils'
+
+import { SomeResolver } from './resolver'
+import { getDevelopmentX } from './resolvers/development'
+import { getStagingX } from './resolvers/staging'
+import { getProductionX } from './resolvers/production'
+
+const resolvers: Record<EnvironmentType, SomeResolver<any>> = {
+  development: getDevelopmentX,
+  staging: getStagingX,
+  production: getProductionX,
+}
+
+export const doX: SomeResolver = async (input) =>
+  resolvers[getDiscriminantValue(input)](input)
+```
+
+2. Route a supported subset and validate
+
+```ts
+import { getDiscriminantValue } from './utils'
+
+import { SupportedType, supportedTypes } from './supported'
+import { SomeResolver } from './resolver'
+import { getWebX } from './resolvers/web'
+import { getMobileX } from './resolvers/mobile'
+
+const resolvers: Record<SupportedType, SomeResolver<any>> = {
+  web: getWebX,
+  mobile: getMobileX,
+}
+
+export const doX: SomeResolver = async (input) => {
+  const discriminant = getDiscriminantValue(input)
+  if (!supportedTypes.includes(discriminant)) {
+    throw new Error(
+      `Unsupported doX type: ${discriminant}, should be one of ${supportedTypes.join(', ')}`,
+    )
+  }
+  return resolvers[discriminant](input)
+}
+```
+
+### Resolver typing (resolver.ts)
+
+- Use `type` for object types and generics.
+- Follow functions rule: use object params when there is more than one parameter.
+
+```ts
+// Generic resolver type - replace with your actual resolver utility
+export type Resolver<TInput, TOutput> = (input: TInput) => TOutput
+
+export type DoXInput<T extends DiscriminantType = DiscriminantType> = {
+  discriminant: T
+  // other fields...
+}
+
+export type DoXResolver<T extends DiscriminantType = DiscriminantType> =
+  Resolver<DoXInput<T>, Promise<OutputType>>
+```
+
+### Implementation guidelines
+
+- Assertions: Use assertion utilities (like `shouldBePresent()`, `assertField()`) over optional chaining when values must exist (assert rule).
+- Pattern matching: Prefer pattern matching utilities and record lookups over switch/case (pattern-matching rule).
+- Error handling: Use error handling utilities only when you must show errors to users or pursue alternative logic (attempt-over-try-catch rule).
+- Function params: If you need more than one parameter, use an object parameter with a `{FunctionName}Input` type (functions rule).
+- Imports: Use consistent import paths according to your project's conventions.
+- Types: Use `type` for object types and unions (type-definitions rule).
+
+### Common use cases
+
+- Environment-based routing: Different logic for development, staging, production
+- Platform-based routing: Different implementations for web, mobile, desktop
+- Provider-based routing: Different services for AWS, GCP, Azure
+- Version-based routing: Different behavior for API v1, v2, v3
+- Feature flag routing: Different logic when features are enabled/disabled
+
+### Template – scaffold a new resolver set
+
+1. Create `resolver.ts` with typed input/output:
+
+```ts
+// resolver.ts
+export type Resolver<TInput, TOutput> = (input: TInput) => TOutput
+
+export type ProcessDataInput<T extends Environment = Environment> = {
+  environment: T
+  data: string
+  // other fields...
+}
+
+export type ProcessDataResolver<T extends Environment = Environment> = Resolver<
+  ProcessDataInput<T>,
+  Promise<ProcessedData>
+>
+```
+
+2. Add resolvers under `resolvers/` named by routing value, with fully named functions:
+
+```ts
+// resolvers/development.ts
+import { ProcessDataResolver } from '../resolver'
+
+export const processDevelopmentData: ProcessDataResolver<
+  'development'
+> = async (input) => {
+  // Development-specific logic
+  return processData(input)
+}
+```
+
+3. Implement `index.ts` router:
+
+```ts
+// index.ts
+import { ProcessDataResolver } from './resolver'
+import { processDevelopmentData } from './resolvers/development'
+import { processStagingData } from './resolvers/staging'
+import { processProductionData } from './resolvers/production'
+
+const resolvers: Record<Environment, ProcessDataResolver<any>> = {
+  development: processDevelopmentData,
+  staging: processStagingData,
+  production: processProductionData,
+}
+
+export const processData: ProcessDataResolver = async (input) => {
+  return resolvers[input.environment](input)
+}
+```
+
+4. If operation supports only a subset, add validation in the router.
+
+### Checklist
+
+- Single responsibility: One operation per resolver set.
+- Strong types in `resolver.ts` with `type`, not `interface`.
+- Router uses a typed `Record` map; no `switch`.
+- Enforce supported discriminants with validation when necessary.
+- Use assertion utilities for required values.
+- Use error handling utilities only when alternative logic or user-facing errors are needed.
+- Use object parameters for multi-arg functions.
+- Use consistent import paths according to your project's conventions.

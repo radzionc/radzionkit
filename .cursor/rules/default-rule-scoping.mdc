@@ -1,0 +1,50 @@
+---
+globs: *.mdc
+---
+
+# Default Rule Scoping Strategy
+
+## TypeScript Codebase Rule Targeting
+
+When creating Cursor rules for this TypeScript codebase, default to using file-specific targeting rather than descriptions or always-apply rules.
+
+## Default Approach
+
+- Use `globs: *.ts,*.tsx` for most coding standards and practices
+- Use `globs: *.tsx` for React-specific rules
+- Use `globs: *.ts` for non-React TypeScript rules
+- Use `alwaysApply: true` only for project-wide architectural guidance
+- Use `description:` for rules that need manual activation
+
+## Examples
+
+<example>
+```
+---
+globs: *.ts,*.tsx
+---
+# TypeScript coding standard that applies to all TS files
+```
+</example>
+
+<example>
+```
+---
+globs: *.tsx
+---
+# React component specific rule
+```
+</example>
+
+<example type="invalid">
+```
+---
+description: Some coding standard
+---
+# Should use globs instead for better targeting
+```
+</example>
+
+## Rationale
+
+File-specific targeting ensures rules are contextually relevant and reduces noise for the AI agent when working on specific file types.
