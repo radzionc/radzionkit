@@ -1,6 +1,6 @@
 import { QueryKey, useMutation, useQueryClient } from '@tanstack/react-query'
 
-export const useInvalidateQueriesMutation = () => {
+export const useRefetchQueriesMutation = () => {
   const queryClient = useQueryClient()
 
   return useMutation({

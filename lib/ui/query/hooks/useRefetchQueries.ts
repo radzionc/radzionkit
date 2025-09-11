@@ -1,7 +1,7 @@
 import { QueryKey, useQueryClient } from '@tanstack/react-query'
 import { useCallback } from 'react'
 
-export const useInvalidateQueries = () => {
+export const useRefetchQueries = () => {
   const queryClient = useQueryClient()
 
   return useCallback(
