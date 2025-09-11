@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 const maxHoursPerDay = 10
 export const maxMinPerDay = maxHoursPerDay * MIN_IN_HOUR
 
-export interface WorkBudgetFormShape {
+type WorkBudgetFormShape = {
   workdayMinutes: number
   weekendMinutes: number
 }

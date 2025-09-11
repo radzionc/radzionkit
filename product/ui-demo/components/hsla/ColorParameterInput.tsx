@@ -14,8 +14,7 @@ import { toPercents } from '@lib/utils/toPercents'
 import { useCallback } from 'react'
 import styled from 'styled-components'
 
-export interface ColorParameterInputProps
-  extends Omit<InvisibleHTMLSliderProps, 'min'> {
+export type ColorParameterInputProps = Omit<InvisibleHTMLSliderProps, 'min'> & {
   getColor: (param: number) => string
 }
 

@@ -20,7 +20,7 @@ import {
   responsibilityMaxLength,
 } from './jobApplicationForm'
 
-export interface Props {
+type Props = {
   form: UseFormReturn<JobApplicationFormShape, any>
 }
 

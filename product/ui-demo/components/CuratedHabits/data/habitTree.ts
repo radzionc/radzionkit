@@ -2,7 +2,7 @@ import { TreeNode } from '@lib/utils/tree'
 
 import { HabitId } from './habits'
 
-export interface HabitTreeNodeValue {
+type HabitTreeNodeValue = {
   id: string
   habits?: HabitId[]
   color?: number

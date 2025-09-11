@@ -1,4 +1,46 @@
 {
-  "ignore": ["lib/**"],
-  "ignoreBinaries": ["tsx"]
+  "ignoreBinaries": ["tsx"],
+  "includeEntryExports": true,
+  "ignoreWorkspaces": [
+    "lib/analytics-ui",
+    "lib/auth",
+    "lib/chain",
+    "lib/chain-ui",
+    "lib/codegen",
+    "lib/countries",
+    "lib/countries-ui",
+    "lib/dnd",
+    "lib/dynamodb",
+    "lib/lambda",
+    "lib/navigation",
+    "lib/next-analytics-ui",
+    "lib/next-ui",
+    "lib/subscription",
+    "lib/subscription-ui",
+    "lib/trading",
+    "lib/ui",
+    "lib/utils",
+    "product/api",
+    "product/api-interface",
+    "product/api-ui",
+    "product/config",
+    "product/db",
+    "product/email",
+    "product/email-forwarder",
+    "product/entities",
+    "product/entities-utils",
+    "product/languages",
+    "product/languages-next-ui",
+    "product/secrets"
+  ],
+  "workspaces": {
+    "product/app": {
+      "entry": ["pages/**/*.{ts,tsx}", "next-sitemap.config.js"],
+      "project": ["**/*.{ts,tsx,js,jsx}"]
+    },
+    "product/ui-demo": {
+      "entry": ["pages/**/*.{ts,tsx}", "next-sitemap.config.js"],
+      "project": ["**/*.{ts,tsx,js,jsx}"]
+    }
+  }
 }

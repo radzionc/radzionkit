@@ -4,7 +4,7 @@ export const calculationOperations = [
   'multiply',
   'divide',
 ] as const
-export type CalculationOperation = (typeof calculationOperations)[number]
+type CalculationOperation = (typeof calculationOperations)[number]
 
 export type CalculationState = {
   inputs: number[]
