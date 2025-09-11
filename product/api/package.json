@@ -9,16 +9,16 @@
   },
   "dependencies": {
     "@as-integrations/aws-lambda": "^3.1.0",
-    "@sentry/serverless": "^7.120.3",
+    "@sentry/serverless": "^7.120.4",
     "@vendia/serverless-express": "^4.12.6",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17",
-    "@types/jsonwebtoken": "^9.0.9",
-    "@types/node": "^22.14.1",
-    "esbuild": "^0.25.2"
+    "@types/cors": "^2.8.19",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.3.1",
+    "esbuild": "^0.25.9"
   }
 }

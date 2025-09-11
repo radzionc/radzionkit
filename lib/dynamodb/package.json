@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.788.0",
-    "@aws-sdk/lib-dynamodb": "^3.789.0",
-    "@aws-sdk/util-dynamodb": "^3.788.0",
-    "uuid": "^11.1.0"
+    "@aws-sdk/client-dynamodb": "^3.886.0",
+    "@aws-sdk/lib-dynamodb": "^3.886.0",
+    "@aws-sdk/util-dynamodb": "^3.886.0",
+    "uuid": "^13.0.0"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
